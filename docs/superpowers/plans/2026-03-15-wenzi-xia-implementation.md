@@ -762,8 +762,8 @@ Create `content/chengyu.json`:
     "meaning": "打开书本就有好处。形容读书总有收获。",
     "origin": "出自宋代王辟之《渑水燕谈录》。",
     "example": "开卷有益，多读书总能学到新东西。",
-    "era": "先秦",
-    "chapter": 1
+    "era": "宋代",
+    "chapter": 4
   }
 ]
 ```
@@ -1066,6 +1066,7 @@ import './screens/worldmap.js';
 - [ ] **Step 3: Verify**
 
 Run: Refresh, create profile, see world map with Chapter 1 unlocked and 2-5 locked.
+**Note:** The 背包 and 成语 buttons navigate to screens created in Chunk 3 (Task 11). They will render blank until then. Chapter click → quest screen works.
 
 - [ ] **Step 4: Commit**
 
@@ -1142,8 +1143,8 @@ export function getAdaptiveDifficulty(profile, contentType) {
   const recent = profile.accuracy[contentType]?.slice(-20) || [];
   if (recent.length < 5) return 3;
   const avg = recent.reduce((a, b) => a + b, 0) / recent.length;
-  if (avg > 0.9) return Math.min(5, 4);
-  if (avg < 0.6) return Math.max(1, 2);
+  if (avg > 0.9) return 4;
+  if (avg < 0.6) return 2;
   return 3;
 }
 
@@ -1242,6 +1243,14 @@ registerScreen('quest', renderQuest);
 
 - [ ] **Step 3: Create js/screens/reward.js**
 
+**Note:** This file imports `addXP` from `progression.js`, which is created in Task 9 (Chunk 2). Until then, create a temporary stub at `js/progression.js`:
+```js
+// js/progression.js — STUB, replaced in Task 9
+export function addXP(amount) { return null; }
+export function getXPProgress(profile) { return { current: 0, needed: 100, percent: 0 }; }
+export function hasAbility(profile, ability) { return false; }
+```
+
 ```js
 // js/screens/reward.js — Post-quest reward summary
 import { gameState } from '../state.js';
@@ -1315,11 +1324,12 @@ import './screens/reward.js';
 - [ ] **Step 5: Verify quest screen shows encounter path**
 
 Run: Refresh, create profile, click Chapter 1, see encounter icons.
+**Note:** Do NOT click "开始" — combat/puzzle/boss screens are created in Chunk 2 (Tasks 6-8). The quest screen will show the encounter path correctly but navigating forward requires those screens.
 
 - [ ] **Step 6: Commit**
 
 ```bash
-git add js/game-engine.js js/screens/quest.js js/screens/reward.js js/main.js
+git add js/game-engine.js js/progression.js js/screens/quest.js js/screens/reward.js js/main.js
 git commit -m "feat: game engine, quest screen with encounter path, reward screen"
 ```
 
@@ -1442,6 +1452,11 @@ function renderCombat() {
     });
 
     recordAnswer('vocab', correct);
+
+    // Track seen vocab questions
+    if (!profile.seenQuestions.vocab.includes(q.id)) {
+      profile.seenQuestions.vocab.push(q.id);
+    }
 
     if (correct) {
       combo++;
@@ -1711,18 +1726,30 @@ function renderBoss() {
   let qIndex = 0;
   let playerHp = profile.hp;
   let bossHp = 100;
+  // Phase transitions trigger at HP thresholds: phase 0 (100-66%), phase 1 (66-33%), phase 2 (33-0%)
   const phaseThresholds = [66, 33, 0];
 
+  function getCurrentPhaseForHp() {
+    if (bossHp > 66) return 0;
+    if (bossHp > 33) return 1;
+    return 2;
+  }
+
   function render() {
+    // Check if boss HP has crossed a phase threshold
+    const hpPhase = getCurrentPhaseForHp();
+    if (hpPhase > phase) {
+      phase = hpPhase;
+      qIndex = 0;
+    }
+
     const currentPhase = phases[phase];
     if (!currentPhase || qIndex >= currentPhase.length) {
-      // Phase complete — advance
+      if (bossHp <= 0) { endBoss(true); return; }
+      // All questions in current phase answered — advance phase
       phase++;
       qIndex = 0;
-      if (phase >= phases.length || bossHp <= 0) {
-        endBoss(true);
-        return;
-      }
+      if (phase >= phases.length) { endBoss(true); return; }
       render();
       return;
     }
@@ -1957,7 +1984,104 @@ git commit -m "feat: XP and leveling system with unlock progression"
 
 ## Chunk 3: Metagame, Arena & Polish
 
-### Task 10: Daily Challenge Screen
+### Task 10: 文力 Abilities & HP Regeneration
+
+**Files:**
+- Modify: `js/screens/combat.js` (add ability buttons)
+- Modify: `js/screens/boss.js` (add ability buttons)
+- Modify: `js/game-engine.js` (add HP/文力 regeneration)
+
+- [ ] **Step 1: Add HP and 文力 regeneration to quest start**
+
+In `js/game-engine.js`, inside `startQuest()`, before creating the quest object, add:
+```js
+// Regenerate HP and 文力 between quests
+profile.hp = profile.maxHp;
+profile.wenli = profile.maxWenli;
+gameState.save();
+```
+
+- [ ] **Step 2: Add ability buttons to combat screen**
+
+In `js/screens/combat.js`, add import: `import { hasAbility } from '../progression.js';`
+
+Inside the `render()` function, after the combat-options div and before the feedback div, add:
+```html
+<div style="display:flex;gap:8px;justify-content:center;margin-top:12px;" id="abilities">
+  <!-- Buttons rendered conditionally based on hasAbility and wenli -->
+</div>
+```
+
+Render ability buttons conditionally:
+```js
+const abilitiesEl = div.querySelector('#abilities');
+if (abilitiesEl) {
+  let btns = '';
+  if (hasAbility(profile, 'hint') ) btns += `<button class="btn" id="btn-hint" style="padding:6px 14px;font-size:0.85rem;" ${profile.wenli < 1 ? 'disabled' : ''}>提示 (1文力)</button>`;
+  if (hasAbility(profile, 'skip'))  btns += `<button class="btn" id="btn-skip" style="padding:6px 14px;font-size:0.85rem;" ${profile.wenli < 2 ? 'disabled' : ''}>跳过 (2文力)</button>`;
+  if (hasAbility(profile, 'double')) btns += `<button class="btn" id="btn-double" style="padding:6px 14px;font-size:0.85rem;" ${profile.wenli < 2 ? 'disabled' : ''}>双倍 (2文力)</button>`;
+  abilitiesEl.innerHTML = btns;
+}
+```
+
+Add event handlers:
+```js
+// Hint: eliminate one wrong option, costs 1 文力
+const hintBtn = div.querySelector('#btn-hint');
+if (hintBtn) hintBtn.addEventListener('click', () => {
+  if (profile.wenli < 1) return;
+  profile.wenli--;
+  const wrongBtns = [...div.querySelectorAll('.combat-option')].filter(b => parseInt(b.dataset.idx) !== q.correct);
+  if (wrongBtns.length > 1) {
+    wrongBtns[0].style.opacity = '0.3';
+    wrongBtns[0].style.pointerEvents = 'none';
+  }
+  hintBtn.disabled = true;
+});
+
+// Skip: skip question, costs 2 文力
+const skipBtn = div.querySelector('#btn-skip');
+if (skipBtn) skipBtn.addEventListener('click', () => {
+  if (profile.wenli < 2) return;
+  profile.wenli -= 2;
+  clearInterval(timerInterval);
+  qIndex++;
+  if (qIndex >= questions.length) { endCombat(true); return; }
+  render();
+});
+
+// Double: next correct = 2x damage, costs 2 文力
+let doubleActive = false;
+const doubleBtn = div.querySelector('#btn-double');
+if (doubleBtn) doubleBtn.addEventListener('click', () => {
+  if (profile.wenli < 2) return;
+  profile.wenli -= 2;
+  doubleActive = true;
+  doubleBtn.disabled = true;
+  doubleBtn.textContent = '双倍 ✓';
+});
+```
+
+In `handleAnswer`, when calculating damage on correct answer, multiply by 2 if `doubleActive`, then set `doubleActive = false`.
+
+- [ ] **Step 3: Add same abilities to boss screen**
+
+Apply identical ability UI pattern to `js/screens/boss.js`. Same 文力 pool, same three abilities.
+
+- [ ] **Step 4: Verify**
+
+Run: Level up to 2+ → see 提示 button in combat → use it → one wrong option greys out. Test 跳过 and 双倍 at levels 5 and 10.
+
+- [ ] **Step 5: Commit**
+
+```bash
+git add js/screens/combat.js js/screens/boss.js js/game-engine.js
+git commit -m "feat: 文力 abilities (hint, skip, double) and HP/wenli regeneration"
+```
+
+---
+
+### Task 11: Daily Challenge Screen
 
 **Files:**
 - Create: `js/screens/daily.js`
@@ -2012,10 +2136,20 @@ async function renderDaily() {
   const content = await loadContent(profile.tier);
   const rng = seededRandom(today + profile.tier);
 
+  // Seeded shuffle to ensure deterministic daily selection
+  function seededPick(arr, count) {
+    const shuffled = [...arr].sort((a, b) => rng() - 0.5);
+    return shuffled.slice(0, count);
+  }
+
   // Pick 3 vocab + 1 reading passage + 2 classical = mixed challenge
-  const vocabQs = pickQuestions(content.vocab, 3, profile.seenQuestions.vocab);
-  const passage = pickReadingPassage(content.reading, profile.seenQuestions.reading);
-  const classicalQs = pickQuestions(content.classical, 2, profile.seenQuestions.classical);
+  const recentVocab = profile.seenQuestions.vocab.slice(-20);
+  const recentReading = profile.seenQuestions.reading.slice(-10);
+  const recentClassical = profile.seenQuestions.classical.slice(-20);
+  const vocabQs = seededPick(content.vocab.filter(q => !recentVocab.includes(q.id)), 3);
+  const availPassages = content.reading.filter(p => !recentReading.includes(p.id));
+  const passage = availPassages.length > 0 ? seededPick(availPassages, 1)[0] : content.reading[0];
+  const classicalQs = seededPick(content.classical.filter(q => !recentClassical.includes(q.id)), 2);
 
   // Build a sequence of all questions with type tags
   const sequence = [
@@ -2137,7 +2271,7 @@ git commit -m "feat: daily challenge with streak tracking and mixed content"
 
 ---
 
-### Task 11: Chengyu Collection & Inventory Screens
+### Task 12: Chengyu Collection & Inventory Screens
 
 **Files:**
 - Create: `js/screens/chengyu.js`
@@ -2329,21 +2463,51 @@ if (Math.random() < 0.3) {
 }
 ```
 
-Add items display in the reward screen HTML if items were found.
+In the reward screen HTML, after the combo bonus line, add:
+```js
+${results.itemsFound.length > 0 ? `<div style="font-size:1.1rem; margin-bottom:12px;">获得装备: <span style="color:var(--accent-jade); font-weight:700;">${results.itemsFound.join(', ')}</span></div>` : ''}
+```
 
 - [ ] **Step 4: Add chengyu drops after boss encounters**
 
-In `js/screens/boss.js`, after boss defeat, award a random uncollected chengyu:
-```js
-import { loadChengyu } from '../content-loader.js';
+In `js/screens/boss.js`:
+1. Add import at top: `import { loadChengyu } from '../content-loader.js';`
+2. Make `endBoss` an `async` function: `async function endBoss(won)`
+3. Replace the boss-won advancement block with:
 
-// Inside endBoss(won=true), before advancing:
-const allChengyu = await loadChengyu();
-const uncollected = allChengyu.filter(cy => !profile.chengyu.includes(cy.id) && cy.chapter === quest.chapterId);
-if (uncollected.length > 0) {
-  const drop = uncollected[Math.floor(Math.random() * uncollected.length)];
-  profile.chengyu.push(drop.id);
-  // Show a brief notification before advancing
+```js
+// Inside endBoss, after encounter.completed = true and gameState.save():
+if (won) {
+  const allChengyu = await loadChengyu();
+  const uncollected = allChengyu.filter(cy => !profile.chengyu.includes(cy.id) && cy.chapter === quest.chapterId);
+  if (uncollected.length > 0) {
+    const drop = uncollected[Math.floor(Math.random() * uncollected.length)];
+    profile.chengyu.push(drop.id);
+    gameState.save();
+    // Show chengyu notification before advancing
+    div.innerHTML = `
+      <div class="screen" style="text-align:center;">
+        <h2 style="color:var(--accent-gold);">获得成语！</h2>
+        <div style="font-size:2rem;font-weight:700;color:var(--accent-gold);margin:16px 0;">${drop.chengyu}</div>
+        <div style="color:var(--text-secondary);margin-bottom:8px;">${drop.pinyin}</div>
+        <div style="margin-bottom:8px;">${drop.meaning}</div>
+        <div style="font-size:0.9rem;color:var(--text-secondary);margin-bottom:16px;">${drop.origin}</div>
+        <button class="btn btn-primary" id="btn-continue">继续</button>
+      </div>
+    `;
+    setTimeout(() => {
+      div.querySelector('#btn-continue').addEventListener('click', () => {
+        const next = advanceEncounter();
+        if (!next) showScreen('reward');
+        else showScreen(next.type);
+      });
+    }, 0);
+    return;
+  }
+  // No chengyu to drop — advance normally
+  const next = advanceEncounter();
+  if (!next) showScreen('reward');
+  else showScreen(next.type);
 }
 ```
 
@@ -2369,7 +2533,7 @@ git commit -m "feat: chengyu collection, inventory/equipment, daily challenge"
 
 ---
 
-### Task 12: Arena Mode (2-Player)
+### Task 13: Arena Mode (2-Player)
 
 **Files:**
 - Create: `js/screens/arena.js`
@@ -2396,11 +2560,13 @@ async function renderArena() {
     loadContent(p2.tier),
   ]);
 
-  // Pick 10 rounds of questions — each player gets their own at their tier
-  const p1Questions = pickQuestions(content1.vocab, 10, p1.seenQuestions.vocab);
-  const p2Questions = pickQuestions(content2.vocab, 10, p2.seenQuestions.vocab);
+  // 10 total rounds: 5 per player, alternating. Each player gets 5 questions at their tier.
+  const p1Questions = pickQuestions(content1.vocab, 5, p1.seenQuestions.vocab);
+  const p2Questions = pickQuestions(content2.vocab, 5, p2.seenQuestions.vocab);
 
   let round = 0;
+  let p1QIndex = 0;
+  let p2QIndex = 0;
   let currentPlayer = 1; // alternates 1, 2
   let p1Score = 0;
   let p2Score = 0;
@@ -2430,8 +2596,8 @@ async function renderArena() {
 
   function renderQuestion() {
     const questions = currentPlayer === 1 ? p1Questions : p2Questions;
-    const qIdx = Math.floor(round / 2) + (currentPlayer === 2 ? 0 : 0);
-    const q = questions[round < totalRounds ? round : round - 1];
+    const qIdx = currentPlayer === 1 ? p1QIndex : p2QIndex;
+    const q = questions[qIdx];
     if (!q) { endArena(); return; }
 
     const tierMultiplier = (currentPlayer === 1 ? p1.tier : p2.tier) === 'grade7' ? 1.5 : 1.0;
@@ -2500,6 +2666,8 @@ async function renderArena() {
     }
 
     setTimeout(() => {
+      if (currentPlayer === 1) p1QIndex++;
+      else p2QIndex++;
       round++;
       if (round >= totalRounds) { endArena(); return; }
       currentPlayer = currentPlayer === 1 ? 2 : 1;
@@ -2561,7 +2729,7 @@ git commit -m "feat: 2-player arena mode with hot-seat turns and handicap scorin
 
 ## Chunk 4: Content & Final Integration
 
-### Task 13: Expand Grade 7 Content to 50 Questions Per Type
+### Task 14: Expand Grade 7 Content to 50 Questions Per Type
 
 **Files:**
 - Modify: `content/grade7/vocab.json` (expand to 50 questions)
@@ -2593,7 +2761,7 @@ git commit -m "feat: expand grade 7 content to 50 questions per type"
 
 ---
 
-### Task 14: Expand Grade 3 Content to 50 Questions Per Type
+### Task 15: Expand Grade 3 Content to 50 Questions Per Type
 
 **Files:**
 - Modify: `content/grade3/vocab.json` (expand to 50)
@@ -2625,7 +2793,7 @@ git commit -m "feat: expand grade 3 content to 50 questions per type"
 
 ---
 
-### Task 15: Expand Chengyu Collection
+### Task 16: Expand Chengyu Collection
 
 **Files:**
 - Modify: `content/chengyu.json` (expand to 20)
@@ -2643,7 +2811,7 @@ git commit -m "feat: expand chengyu collection to 20 entries"
 
 ---
 
-### Task 16: Audio Stub & .gitignore
+### Task 17: Audio Stub & .gitignore
 
 **Files:**
 - Create: `js/audio.js` (stub)
@@ -2654,15 +2822,15 @@ git commit -m "feat: expand chengyu collection to 20 entries"
 ```js
 // js/audio.js — Audio stub (sounds added post-MVP)
 export function playSound(name) {
-  // TODO: implement when audio assets are added
+  // Post-MVP: implement when audio assets are added
 }
 
 export function playMusic(track) {
-  // TODO: implement when audio assets are added
+  // Post-MVP: implement when audio assets are added
 }
 
 export function stopMusic() {
-  // TODO: implement when audio assets are added
+  // Post-MVP: implement when audio assets are added
 }
 ```
 
@@ -2684,7 +2852,7 @@ git commit -m "feat: audio stub and gitignore"
 
 ---
 
-### Task 17: End-to-End Playtest & Bug Fixes
+### Task 18: End-to-End Playtest & Bug Fixes
 
 - [ ] **Step 1: Start dev server**
 
