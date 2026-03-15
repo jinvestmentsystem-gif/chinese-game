@@ -1,5 +1,11 @@
-// js/main.js — App initialization and screen routing
+// js/main.js — App initialization, imports all screens, boots the game
 import { gameState } from './state.js';
+import { initRouter, registerScreen, showScreen } from './router.js';
+
+// Re-export so existing screen imports from './main.js' still work
+export { registerScreen, showScreen };
+
+// Import all screens (they register themselves via registerScreen)
 import './screens/profile.js';
 import './screens/worldmap.js';
 import './screens/quest.js';
@@ -11,22 +17,6 @@ import './screens/chengyu.js';
 import './screens/inventory.js';
 import './screens/daily.js';
 import './screens/arena.js';
-
-const root = document.getElementById('game-root');
-const screens = {};
-
-export function registerScreen(name, renderFn) {
-  screens[name] = renderFn;
-}
-
-export function showScreen(name, params = {}) {
-  gameState.currentScreen = name;
-  root.innerHTML = '';
-  if (screens[name]) {
-    const el = screens[name](params);
-    root.appendChild(el);
-  }
-}
 
 // Title screen with working buttons
 registerScreen('title', () => {
@@ -50,4 +40,5 @@ registerScreen('title', () => {
 });
 
 // Boot
+initRouter();
 showScreen('title');
