@@ -4,6 +4,7 @@ import { registerScreen, showScreen } from '../main.js';
 import { getCurrentEncounter, advanceEncounter, recordAnswer } from '../game-engine.js';
 import { hasAbility } from '../progression.js';
 import { SPRITES, ENEMY_SPRITES } from '../sprites.js';
+import { playSound } from '../audio.js';
 
 const ENEMY_NAMES = ['墨灵', '暗字兵', '墨影卫', '乱笔妖', '黑墨士'];
 
@@ -149,6 +150,110 @@ function startBreathingAnimation(el) {
   }
   frame = requestAnimationFrame(tick);
   return () => cancelAnimationFrame(frame);
+}
+
+// ─── Victory mini-sequence ────────────────────────────────────────────────────
+
+function showVictorySequence(container, enemyWrap, div, onComplete) {
+  try { playSound('victory'); } catch (_) {}
+
+  // "胜利！" text bounce in
+  const victoryText = document.createElement('div');
+  victoryText.textContent = '胜利！';
+  victoryText.style.cssText = `
+    position:absolute; top:35%; left:50%;
+    transform:translate(-50%,-50%) scale(0);
+    color:#d4a017; font-size:2.8rem; font-weight:900;
+    text-shadow: 0 0 20px #d4a017, 0 0 40px #f39c12, 2px 2px 0 #000;
+    pointer-events:none; z-index:1002;
+    transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+  `;
+  container.appendChild(victoryText);
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      victoryText.style.transform = 'translate(-50%,-50%) scale(1)';
+    });
+  });
+
+  // "+XP" float up
+  const quest = gameState.currentQuest;
+  const xpEarned = (quest && quest.results)
+    ? quest.results.correct * 10 + (quest.results.maxCombo || 0) * 5
+    : 0;
+
+  const xpNum = document.createElement('div');
+  xpNum.textContent = `+${xpEarned} XP`;
+  xpNum.style.cssText = `
+    position:absolute; top:48%; left:50%;
+    transform:translate(-50%,0) translateY(0);
+    color:var(--accent-jade); font-size:1.5rem; font-weight:700;
+    text-shadow: 0 0 8px #27ae60, 2px 2px 0 #000;
+    pointer-events:none; z-index:1002; opacity:0;
+    transition: transform 1.2s ease-out 0.2s, opacity 0.3s ease-out 0.2s;
+  `;
+  container.appendChild(xpNum);
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      xpNum.style.opacity = '1';
+      xpNum.style.transform = 'translate(-50%,0) translateY(-50px)';
+    });
+  });
+  setTimeout(() => {
+    xpNum.style.transition = 'opacity 0.4s ease-in';
+    xpNum.style.opacity = '0';
+  }, 1400);
+
+  // Loot sparkle if items found
+  const items = (quest && quest.results && quest.results.itemsFound) ? quest.results.itemsFound : [];
+  if (items.length > 0) {
+    const lootEl = document.createElement('div');
+    lootEl.textContent = '📦 ' + items[0];
+    lootEl.style.cssText = `
+      position:absolute; top:57%; left:50%;
+      transform:translate(-50%,-50%) scale(0);
+      color:var(--accent-gold); font-size:1.2rem; font-weight:700;
+      pointer-events:none; z-index:1002;
+      transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1) 0.5s, opacity 0.4s ease-out 1.6s;
+      opacity:1;
+    `;
+    container.appendChild(lootEl);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        lootEl.style.transform = 'translate(-50%,-50%) scale(1)';
+      });
+    });
+    // Sparkle dots
+    for (let i = 0; i < 4; i++) {
+      const dot = document.createElement('div');
+      const angle = (i / 4) * Math.PI * 2;
+      dot.style.cssText = `
+        position:absolute; top:57%; left:50%;
+        width:6px; height:6px; border-radius:50%; background:#d4a017;
+        pointer-events:none; z-index:1003;
+        transform:translate(-50%,-50%) scale(0);
+        transition: transform 0.5s ease-out 0.6s, opacity 0.5s ease-out 0.6s;
+        opacity:1;
+      `;
+      container.appendChild(dot);
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          const tx = Math.cos(angle) * 30;
+          const ty = Math.sin(angle) * 30;
+          dot.style.transform = `translate(calc(-50% + ${tx}px), calc(-50% + ${ty}px)) scale(1)`;
+          dot.style.opacity = '0';
+        });
+      });
+      setTimeout(() => dot.remove(), 1200);
+    }
+    setTimeout(() => lootEl.remove(), 2100);
+  }
+
+  setTimeout(() => {
+    victoryText.remove();
+    xpNum.remove();
+    onComplete();
+  }, 2000);
 }
 
 // ─── Main render ─────────────────────────────────────────────────────────────
@@ -464,8 +569,18 @@ function renderCombat() {
     const quest = gameState.currentQuest;
     quest.results.combo = combo;
 
+    // ── Hit pause on killing blow ──────────────────────────────────────────────
+    if (enemyHp <= 0 && correct) {
+      clearInterval(timerInterval);
+      document.body.style.pointerEvents = 'none';
+      setTimeout(() => {
+        document.body.style.pointerEvents = '';
+        endCombat(true);
+      }, 150);
+      return;
+    }
+
     setTimeout(() => {
-      if (enemyHp <= 0) { endCombat(true); return; }
       if (playerHp <= 0) { endCombat(false); return; }
       qIndex++;
       if (qIndex >= questions.length) { endCombat(true); return; }
@@ -517,15 +632,18 @@ function renderCombat() {
       }
     }
 
+    // Victory mini-sequence before advancing
     setTimeout(() => {
-      const next = advanceEncounter();
-      if (!next) {
-        showScreen('reward');
-      } else {
-        if (next.type === 'combat') showScreen('combat');
-        else if (next.type === 'puzzle') showScreen('puzzle');
-        else if (next.type === 'boss') showScreen('boss');
-      }
+      showVictorySequence(div, enemyWrap, div, () => {
+        const next = advanceEncounter();
+        if (!next) {
+          showScreen('reward');
+        } else {
+          if (next.type === 'combat') showScreen('combat');
+          else if (next.type === 'puzzle') showScreen('puzzle');
+          else if (next.type === 'boss') showScreen('boss');
+        }
+      });
     }, 1400);
   }
 

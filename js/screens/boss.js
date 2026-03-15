@@ -5,6 +5,7 @@ import { getCurrentEncounter, advanceEncounter, recordAnswer } from '../game-eng
 import { hasAbility } from '../progression.js';
 import { loadChengyu } from '../content-loader.js';
 import { SPRITES } from '../sprites.js';
+import { playSound } from '../audio.js';
 
 const BOSS_NAMES = {
   1: { name: '仓颉之影', sprite: '👹' },
@@ -66,25 +67,25 @@ function lungeElement(el, dx, duration = 250, onDone) {
   }, duration);
 }
 
-function floatingNumber(container, text, x, y, color = '#d4a017') {
+function floatingNumber(container, text, x, y, color = '#d4a017', fontSize = '2rem', durationMs = 900) {
   const num = document.createElement('div');
   num.textContent = text;
   num.style.cssText = `
     position:absolute; left:${x}px; top:${y}px;
-    color:${color}; font-size:2rem; font-weight:900;
+    color:${color}; font-size:${fontSize}; font-weight:900;
     text-shadow: 0 0 10px ${color}, 2px 2px 0 #000;
     pointer-events:none; z-index:999;
     transform:translateY(0) scale(1); opacity:1;
-    transition: transform 0.9s ease-out, opacity 0.9s ease-out;
+    transition: transform ${durationMs}ms ease-out, opacity ${durationMs}ms ease-out;
   `;
   container.appendChild(num);
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
-      num.style.transform = 'translateY(-80px) scale(1.2)';
+      num.style.transform = `translateY(-${Math.round(durationMs * 0.09)}px) scale(1.2)`;
       num.style.opacity = '0';
     });
   });
-  setTimeout(() => num.remove(), 1000);
+  setTimeout(() => num.remove(), durationMs + 100);
 }
 
 function goldenSlash(container, cx, cy) {
@@ -183,6 +184,25 @@ function screenFlash(container, color = '#fff') {
     flash.style.opacity = '0';
   }, 100);
   setTimeout(() => flash.remove(), 500);
+}
+
+// White flash that ramps up to 0.8 opacity (epic kill overlay)
+function epicWhiteFlash(container) {
+  const flash = document.createElement('div');
+  flash.style.cssText = `
+    position:absolute; inset:0; background:#fff;
+    opacity:0; pointer-events:none; z-index:1000;
+    transition: opacity 0.12s ease-in;
+  `;
+  container.appendChild(flash);
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => { flash.style.opacity = '0.8'; });
+  });
+  setTimeout(() => {
+    flash.style.transition = 'opacity 0.28s ease-out';
+    flash.style.opacity = '0';
+  }, 120);
+  setTimeout(() => flash.remove(), 440);
 }
 
 function bossParticleExplosion(container, cx, cy, count = 24) {
@@ -518,7 +538,27 @@ function renderBoss() {
             }, 300);
           }
 
-          // Floating golden damage number above boss
+          // Killing blow: hit pause + slow-motion damage number + white flash
+          if (bossHp <= 0) {
+            document.body.style.pointerEvents = 'none';
+            // Slow-motion final hit number — 2x larger, 2x slower
+            if (bossWrap) {
+              const bwRect = bossWrap.getBoundingClientRect();
+              const divRect = div.getBoundingClientRect();
+              const numX = bwRect.left - divRect.left + bwRect.width / 2 - 35;
+              const numY = bwRect.top - divRect.top - 20;
+              floatingNumber(div, `-${dmg}`, numX, numY, '#d4a017', '4rem', 1800);
+            }
+            // White screen flash: opacity 0 → 0.8 → 0 over 400ms
+            epicWhiteFlash(div);
+            setTimeout(() => {
+              document.body.style.pointerEvents = '';
+              endBoss(true);
+            }, 150);
+            return;
+          }
+
+          // Normal damage number
           if (bossWrap) {
             const bwRect = bossWrap.getBoundingClientRect();
             const divRect = div.getBoundingClientRect();
@@ -610,8 +650,9 @@ function renderBoss() {
       const cx = bwRect.left - divRect.left + bwRect.width / 2;
       const cy = bwRect.top - divRect.top + bwRect.height / 2;
 
-      // Screen flash on death blow
-      screenFlash(div, '#d4a017');
+      // Screen flash on death blow (already fired via epicWhiteFlash above,
+      // this adds the gold cinematic flash after the white)
+      setTimeout(() => screenFlash(div, '#d4a017'), 180);
 
       // Boss sprite breaks into particles
       setTimeout(() => {
