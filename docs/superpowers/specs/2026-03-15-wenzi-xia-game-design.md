@@ -41,7 +41,7 @@ Enemy attacks — player counters by answering character/vocabulary challenges.
 
 - Speed matters: faster correct answer = more damage dealt
 - Combo system: consecutive correct answers = damage multiplier
-- Timer bar adds urgency
+- Timer bar (default 15 seconds, scales with difficulty) adds urgency
 - Health bars for player and enemy
 
 **Question formats:**
@@ -67,9 +67,14 @@ Read a passage, answer comprehension questions to unlock doors/treasure.
 
 Boss speaks in classical Chinese. Player translates/interprets to deal damage.
 
-- Multi-phase fights with escalating difficulty
+- **3 phases per boss fight**, triggered by boss HP thresholds (100%→66%, 66%→33%, 33%→0%)
+- Phase 1: single-sentence translation questions (easiest)
+- Phase 2: function word identification + sentence interpretation (medium)
+- Phase 3: full passage comprehension — multi-sentence classical text with harder questions (hardest)
+- Each phase has 3-4 questions. All questions in a phase must be answered to advance.
 - Classical text displayed prominently
 - Boss has unique visual design per era
+- Boss deals damage on wrong answers (player loses HP); fight ends if player HP reaches 0 (can retry)
 
 **Question formats:**
 - Translate a sentence to modern Chinese
@@ -101,7 +106,14 @@ The player is a young warrior in ancient China whose power comes from mastery of
 
 ### Level & XP
 - Earn XP from every encounter
-- Level up unlocks new abilities
+- Level progression unlocks:
+  - Level 2: 提示 (Hint) ability
+  - Level 3: Equipment slots (weapon)
+  - Level 5: 跳过 (Skip) ability
+  - Level 7: Equipment slots (armor)
+  - Level 10: 双倍 (Double) ability
+  - Level 15+: Stat boosts (+HP, +文力 capacity) every 5 levels
+- XP formula: base XP per question + speed bonus + combo bonus. Boss encounters give 3x base XP.
 
 ### 文力 (Literary Power)
 - Resource spent to use special abilities in combat:
@@ -113,23 +125,30 @@ The player is a young warrior in ancient China whose power comes from mastery of
 ### 装备 (Equipment)
 - Collect weapons and armor themed around literary artifacts
   - e.g. 毛笔剑 (Brush Sword), 竹简盾 (Bamboo Scroll Shield)
-- Each gives stat bonuses (attack, defense, speed, 文力 capacity)
+- Stat bonuses and their mechanical effects:
+  - **Attack (攻):** Multiplier on damage dealt per correct answer (e.g. +10 attack = +10% damage)
+  - **Defense (防):** Reduces HP lost on wrong answers (e.g. +10 defense = -10% HP loss)
+  - **Speed (速):** Extends the combat timer (e.g. +10 speed = +1.5 seconds on timer)
+  - **文力 capacity:** Increases max 文力 points available per quest
 
 ### 成语收集 (Chengyu Collection)
-- Collect 成语 (idioms) as achievements throughout the game
+- Specific 成语 are embedded in encounters as drops — each encounter may award a tagged 成语 on completion
 - Each unlocked with context, origin story, and example usage
 - Acts as a trophy case and reference dictionary
+- 成语 are defined in a separate `content/chengyu.json` with era tags matching chapters
 
 ### Daily Challenge (每日挑战)
 - One special encounter per day, available regardless of story progress
 - Mix of all three content types
+- Question selection seeded by the local date (deterministic per day, no backend needed). Avoids repeating recently-seen questions by checking the player's seen-questions history.
 - Streak bonus: consecutive daily completions increase rewards
 - Creates the daily habit loop
 
 ### Adaptive Difficulty
 - Track accuracy per content area within the selected tier
-- If player consistently scores >90% → gradually increase difficulty
-- If player drops below 60% → dial back slightly
+- If player consistently scores >90% → pick higher `difficulty`-rated questions from the same tier's content pool
+- If player scores 60-90% → hold at current difficulty level (this is the target zone)
+- If player drops below 60% → pick lower `difficulty`-rated questions
 - Invisible to the player — the game just "feels right"
 
 ---
@@ -138,19 +157,21 @@ The player is a young warrior in ancient China whose power comes from mastery of
 
 Player selects difficulty tier at profile creation:
 - 三年级 (Grade 3) — for the sister
-- 五年级 (Grade 5) — intermediate option
 - 七年级 (Grade 7) — for the son
 
-Content pool adjusts accordingly. Each tier has its own set of vocabulary, passages, and classical texts at the appropriate level.
+Only two tiers are implemented. Each tier has its own content pool of vocabulary, passages, and classical texts at the appropriate level. A 五年级 tier can be added later if needed, but is out of scope for now — two tiers cover the two target players.
 
 ---
 
 ## Two-Player Mode (双人竞技)
 
+### Input Model
+Both players share the same screen and keyboard (hot-seat). On each turn, one player's name and challenge are shown. The other player looks away or watches. After answering (or timer expiry), the screen transitions to the other player's turn with a brief "Player 2's Turn" interstitial. No split-screen or simultaneous input.
+
 ### Arena Mode (双人对战)
 - Accessible from the main menu
 - Each player selects their profile (with their own difficulty tier)
-- 10 rounds of alternating turns
+- 10 rounds of alternating turns (hot-seat on same keyboard/screen)
 - Each player answers a challenge at their own difficulty level
 - Scoring: points based on correctness + speed
 - Higher difficulty tier answers are worth more base points (balances age gap)
@@ -158,7 +179,7 @@ Content pool adjusts accordingly. Each tier has its own set of vocabulary, passa
 
 ### Team Mode (团队模式)
 - Optional cooperative mode
-- Players alternate turns to fight a boss together
+- Players alternate turns (same hot-seat model) to fight a boss together
 - Combined HP pool, shared goal
 - Both players contribute damage at their own difficulty level
 
@@ -183,16 +204,33 @@ content/
 
 ### Question Schema
 
-Each question object contains:
+**Vocab and Classical question object:**
 - `id` — unique identifier
-- `type` — "vocab" | "reading" | "classical"
-- `prompt` — the question text / passage
+- `type` — "vocab" | "classical"
+- `prompt` — the question text
 - `options` — array of answer choices (for multiple choice)
-- `correct` — correct answer index or value
+- `correct` — correct answer index
 - `explanation` — shown after answering (educational feedback)
-- `difficulty` — numeric rating within the tier
-- `tags` — era, topic, source (curriculum vs fresh)
+- `difficulty` — numeric rating (1-5) within the tier
+- `tags` — era, topic
 - `source` — "curriculum" | "supplementary"
+
+**Reading passage object** (阅读理解 uses a passage-with-questions structure):
+- `id` — unique identifier
+- `type` — "reading"
+- `passage` — the full text passage
+- `title` — passage title
+- `questions` — array of question objects, each containing:
+  - `prompt` — the question about the passage
+  - `options` — answer choices
+  - `correct` — correct answer index
+  - `explanation` — educational feedback
+- `difficulty` — numeric rating (1-5) within the tier
+- `tags` — era, topic
+- `source` — "curriculum" | "supplementary"
+
+### Content Authoring
+All question content will be authored with AI assistance (Claude) and reviewed by the developer. Questions are written directly into the JSON files. For MVP, target ~50 questions per content type per active difficulty tier (Grade 3 and Grade 7), totaling ~300 questions. Content can be expanded incrementally after launch.
 
 ### Content Sources
 
@@ -272,7 +310,7 @@ chinese-game/
 | Puzzle screen | Passage on left, questions on right, no timer |
 | Boss screen | Large boss sprite, multi-phase, classical text prominent |
 | Reward screen | XP gained, items found, combo stats |
-| Arena screen | Split view — P1 left, P2 right, question center |
+| Arena screen | Hot-seat turn display: active player name, score comparison bar at top, question in center. "Next Player" interstitial between turns. |
 | 成语 Collection | Trophy case / dictionary of collected idioms |
 | Inventory | Equipment management, stats view |
 
@@ -297,8 +335,10 @@ chinese-game/
 
 ## Scope & Constraints
 
-- **MVP content:** Chapter 1 (先秦) fully playable with ~50 questions per content type per difficulty tier, plus daily challenge. Remaining chapters added incrementally.
-- **Art:** CSS-based sprites and SVG for MVP. Can upgrade to pixel art assets later.
-- **Audio:** Optional for MVP. Add after core gameplay is solid.
+- **MVP content:** Chapter 1 (先秦) fully playable with ~50 questions per content type per difficulty tier (Grade 3 and Grade 7), plus daily challenge. Remaining chapters added incrementally.
+- **MVP 2-player:** Arena mode is included in MVP (core use case: siblings playing together). Team mode is post-MVP.
+- **Art:** CSS-based sprites and inline SVG for MVP (no external image files initially — `assets/sprites/` is empty until post-MVP). Can upgrade to pixel art assets later.
+- **Audio:** Optional for MVP. `audio.js` is a stub module initially. Add sounds after core gameplay is solid.
+- **State management:** Modules communicate through a shared game state object (`GameState`) passed via imports. No event bus or pub/sub — keep it simple for the scale of this project.
 - **No backend:** Everything runs client-side. No user accounts, no cloud saves, no analytics.
 - **Browser support:** Modern Chrome/Edge on Windows PC.
