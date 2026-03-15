@@ -21,6 +21,12 @@ function generateEncounterSequence(chapterId, questIndex) {
 
 export async function startQuest(chapterId, questIndex) {
   const profile = gameState.profile;
+
+  // Regenerate HP and 文力 between quests
+  profile.hp = profile.maxHp;
+  profile.wenli = profile.maxWenli;
+  gameState.save();
+
   const content = await loadContent(profile.tier);
 
   const encounters = generateEncounterSequence(chapterId, questIndex);

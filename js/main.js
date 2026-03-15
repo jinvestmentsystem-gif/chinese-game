@@ -7,6 +7,10 @@ import './screens/reward.js';
 import './screens/combat.js';
 import './screens/puzzle.js';
 import './screens/boss.js';
+import './screens/chengyu.js';
+import './screens/inventory.js';
+import './screens/daily.js';
+import './screens/arena.js';
 
 const root = document.getElementById('game-root');
 const screens = {};

@@ -70,6 +70,8 @@ function renderProfileSelect(params = {}) {
             player2Index: idx,
           };
           showScreen('arena');
+        } else if (mode === 'daily') {
+          showScreen('daily');
         } else {
           showScreen('worldmap');
         }

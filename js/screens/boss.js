@@ -2,6 +2,8 @@
 import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
 import { getCurrentEncounter, advanceEncounter, recordAnswer } from '../game-engine.js';
+import { hasAbility } from '../progression.js';
+import { loadChengyu } from '../content-loader.js';
 
 const BOSS_NAMES = {
   1: { name: '仓颉之影', sprite: '👹' },
@@ -31,6 +33,7 @@ function renderBoss() {
   let qIndex = 0;
   let playerHp = profile.hp;
   let bossHp = 100;
+  let doubleActive = false;
   // Phase transitions trigger at HP thresholds: phase 0 (100-66%), phase 1 (66-33%), phase 2 (33-0%)
 
   function getCurrentPhaseForHp() {
@@ -102,8 +105,53 @@ function renderBoss() {
       </div>
       <div class="boss-question">${q.prompt}</div>
       <div class="boss-options">${optionsHTML}</div>
+      <div style="display:flex;gap:8px;justify-content:center;margin-top:12px;" id="abilities">
+        <!-- Buttons rendered conditionally based on hasAbility and wenli -->
+      </div>
       <div class="boss-feedback" id="feedback"></div>
     `;
+
+    // Ability buttons
+    const abilitiesEl = div.querySelector('#abilities');
+    if (abilitiesEl) {
+      let btns = '';
+      if (hasAbility(profile, 'hint'))   btns += `<button class="btn" id="btn-hint"   style="padding:6px 14px;font-size:0.85rem;" ${profile.wenli < 1 ? 'disabled' : ''}>提示 (1文力)</button>`;
+      if (hasAbility(profile, 'skip'))   btns += `<button class="btn" id="btn-skip"   style="padding:6px 14px;font-size:0.85rem;" ${profile.wenli < 2 ? 'disabled' : ''}>跳过 (2文力)</button>`;
+      if (hasAbility(profile, 'double')) btns += `<button class="btn" id="btn-double" style="padding:6px 14px;font-size:0.85rem;" ${profile.wenli < 2 ? 'disabled' : ''}>双倍 (2文力)</button>`;
+      abilitiesEl.innerHTML = btns;
+    }
+
+    // Hint: eliminate one wrong option, costs 1 文力
+    const hintBtn = div.querySelector('#btn-hint');
+    if (hintBtn) hintBtn.addEventListener('click', () => {
+      if (profile.wenli < 1) return;
+      profile.wenli--;
+      const wrongBtns = [...div.querySelectorAll('.boss-option')].filter(b => parseInt(b.dataset.idx) !== q.correct);
+      if (wrongBtns.length > 1) {
+        wrongBtns[0].style.opacity = '0.3';
+        wrongBtns[0].style.pointerEvents = 'none';
+      }
+      hintBtn.disabled = true;
+    });
+
+    // Skip: skip question, costs 2 文力
+    const skipBtn = div.querySelector('#btn-skip');
+    if (skipBtn) skipBtn.addEventListener('click', () => {
+      if (profile.wenli < 2) return;
+      profile.wenli -= 2;
+      qIndex++;
+      render();
+    });
+
+    // Double: next correct = 2x damage, costs 2 文力
+    const doubleBtn = div.querySelector('#btn-double');
+    if (doubleBtn) doubleBtn.addEventListener('click', () => {
+      if (profile.wenli < 2) return;
+      profile.wenli -= 2;
+      doubleActive = true;
+      doubleBtn.disabled = true;
+      doubleBtn.textContent = '双倍 ✓';
+    });
 
     div.querySelectorAll('.boss-option').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -119,7 +167,9 @@ function renderBoss() {
         recordAnswer('classical', correct);
 
         if (correct) {
-          const dmg = Math.round(12 * (1 + profile.attack * 0.01));
+          const dmgMultiplier = (1 + profile.attack * 0.01) * (doubleActive ? 2 : 1);
+          doubleActive = false;
+          const dmg = Math.round(12 * dmgMultiplier);
           bossHp = Math.max(0, bossHp - dmg);
           div.querySelector('#feedback').textContent = `✓ 正确！对${bossInfo.name}造成 ${dmg} 点伤害！${q.explanation}`;
         } else {
@@ -143,7 +193,7 @@ function renderBoss() {
     });
   }
 
-  function endBoss(won) {
+  async function endBoss(won) {
     encounter.completed = won;
     profile.hp = playerHp;
     gameState.save();
@@ -169,7 +219,36 @@ function renderBoss() {
       return;
     }
 
-    // Boss defeated — advance
+    // Boss defeated — check for chengyu drop
+    const allChengyu = await loadChengyu();
+    const uncollected = allChengyu.filter(cy => !profile.chengyu.includes(cy.id) && cy.chapter === quest.chapterId);
+    if (uncollected.length > 0) {
+      const drop = uncollected[Math.floor(Math.random() * uncollected.length)];
+      profile.chengyu.push(drop.id);
+      gameState.save();
+
+      // Show chengyu notification before advancing
+      div.innerHTML = `
+        <div class="screen" style="text-align:center;">
+          <h2 style="color:var(--accent-gold);">获得成语！</h2>
+          <div style="font-size:2rem;font-weight:700;color:var(--accent-gold);margin:16px 0;">${drop.chengyu}</div>
+          <div style="color:var(--text-secondary);margin-bottom:8px;">${drop.pinyin}</div>
+          <div style="margin-bottom:8px;">${drop.meaning}</div>
+          <div style="font-size:0.9rem;color:var(--text-secondary);margin-bottom:16px;">${drop.origin}</div>
+          <button class="btn btn-primary" id="btn-continue">继续</button>
+        </div>
+      `;
+      setTimeout(() => {
+        div.querySelector('#btn-continue').addEventListener('click', () => {
+          const next = advanceEncounter();
+          if (!next) showScreen('reward');
+          else showScreen(next.type);
+        });
+      }, 0);
+      return;
+    }
+
+    // No chengyu to drop — advance normally
     const next = advanceEncounter();
     if (!next) {
       showScreen('reward');

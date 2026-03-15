@@ -2,6 +2,7 @@
 import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
 import { getCurrentEncounter, advanceEncounter, recordAnswer } from '../game-engine.js';
+import { hasAbility } from '../progression.js';
 
 const ENEMY_NAMES = ['墨灵', '暗字兵', '墨影卫', '乱笔妖', '黑墨士'];
 
@@ -16,6 +17,7 @@ function renderCombat() {
   let enemyHp = 100;
   let combo = 0;
   let timerInterval = null;
+  let doubleActive = false;
   const enemyName = ENEMY_NAMES[Math.floor(Math.random() * ENEMY_NAMES.length)];
   const baseTimer = 15 + (profile.speed * 1.5);
 
@@ -67,6 +69,9 @@ function renderCombat() {
       <div class="timer-bar-bg"><div class="timer-bar" id="timer-bar" style="width:100%"></div></div>
       <div class="combat-question">${q.prompt}</div>
       <div class="combat-options" id="options">${optionsHTML}</div>
+      <div style="display:flex;gap:8px;justify-content:center;margin-top:12px;" id="abilities">
+        <!-- Buttons rendered conditionally based on hasAbility and wenli -->
+      </div>
       <div class="feedback-text" id="feedback"></div>
     `;
 
@@ -82,6 +87,50 @@ function renderCombat() {
         handleAnswer(-1, q);
       }
     }, 100);
+
+    // Ability buttons
+    const abilitiesEl = div.querySelector('#abilities');
+    if (abilitiesEl) {
+      let btns = '';
+      if (hasAbility(profile, 'hint'))   btns += `<button class="btn" id="btn-hint"   style="padding:6px 14px;font-size:0.85rem;" ${profile.wenli < 1 ? 'disabled' : ''}>提示 (1文力)</button>`;
+      if (hasAbility(profile, 'skip'))   btns += `<button class="btn" id="btn-skip"   style="padding:6px 14px;font-size:0.85rem;" ${profile.wenli < 2 ? 'disabled' : ''}>跳过 (2文力)</button>`;
+      if (hasAbility(profile, 'double')) btns += `<button class="btn" id="btn-double" style="padding:6px 14px;font-size:0.85rem;" ${profile.wenli < 2 ? 'disabled' : ''}>双倍 (2文力)</button>`;
+      abilitiesEl.innerHTML = btns;
+    }
+
+    // Hint: eliminate one wrong option, costs 1 文力
+    const hintBtn = div.querySelector('#btn-hint');
+    if (hintBtn) hintBtn.addEventListener('click', () => {
+      if (profile.wenli < 1) return;
+      profile.wenli--;
+      const wrongBtns = [...div.querySelectorAll('.combat-option')].filter(b => parseInt(b.dataset.idx) !== q.correct);
+      if (wrongBtns.length > 1) {
+        wrongBtns[0].style.opacity = '0.3';
+        wrongBtns[0].style.pointerEvents = 'none';
+      }
+      hintBtn.disabled = true;
+    });
+
+    // Skip: skip question, costs 2 文力
+    const skipBtn = div.querySelector('#btn-skip');
+    if (skipBtn) skipBtn.addEventListener('click', () => {
+      if (profile.wenli < 2) return;
+      profile.wenli -= 2;
+      clearInterval(timerInterval);
+      qIndex++;
+      if (qIndex >= questions.length) { endCombat(true); return; }
+      render();
+    });
+
+    // Double: next correct = 2x damage, costs 2 文力
+    const doubleBtn = div.querySelector('#btn-double');
+    if (doubleBtn) doubleBtn.addEventListener('click', () => {
+      if (profile.wenli < 2) return;
+      profile.wenli -= 2;
+      doubleActive = true;
+      doubleBtn.disabled = true;
+      doubleBtn.textContent = '双倍 ✓';
+    });
 
     // Option click handlers
     div.querySelectorAll('.combat-option').forEach(btn => {
@@ -112,7 +161,8 @@ function renderCombat() {
 
     if (correct) {
       combo++;
-      const dmgMultiplier = 1 + (combo > 1 ? combo * 0.15 : 0) + (profile.attack * 0.01);
+      const dmgMultiplier = (1 + (combo > 1 ? combo * 0.15 : 0) + (profile.attack * 0.01)) * (doubleActive ? 2 : 1);
+      doubleActive = false;
       const dmg = Math.round(20 * dmgMultiplier);
       enemyHp = Math.max(0, enemyHp - dmg);
       div.querySelector('#feedback').textContent = `✓ 正确！造成 ${dmg} 点伤害！${q.explanation}`;
