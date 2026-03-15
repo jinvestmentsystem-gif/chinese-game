@@ -1,0 +1,57 @@
+[
+  {
+    "id": "v7-001",
+    "type": "vocab",
+    "prompt": ""翕"字的正确读音是什么？",
+    "options": ["xī", "hé", "qì", "shà"],
+    "correct": 0,
+    "explanation": "翕 (xī)，意为合拢、收敛。",
+    "difficulty": 3,
+    "tags": ["先秦", "字音"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-002",
+    "type": "vocab",
+    "prompt": ""期"在古文中最常见的意思是？",
+    "options": ["日期", "期望", "约定", "时期"],
+    "correct": 2,
+    "explanation": "在文言文中，"期"多指约定，如"陈太丘与友期行"。",
+    "difficulty": 2,
+    "tags": ["先秦", "词义"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-003",
+    "type": "vocab",
+    "prompt": "下列哪个词语中"观"的意思与其他三项不同？",
+    "options": ["观沧海", "观察", "壮观", "观赏"],
+    "correct": 2,
+    "explanation": ""壮观"中的"观"是名词（景象），其他三项中的"观"都是动词（看）。",
+    "difficulty": 4,
+    "tags": ["先秦", "多义词"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-004",
+    "type": "vocab",
+    "prompt": ""随声附和"中"和"的正确读音是？",
+    "options": ["hé", "hè", "hú", "huó"],
+    "correct": 1,
+    "explanation": "此处"和"读 hè，意为应和、响应。",
+    "difficulty": 2,
+    "tags": ["先秦", "字音"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-005",
+    "type": "vocab",
+    "prompt": ""温故而知新"中"故"的意思是？",
+    "options": ["故事", "原因", "旧的知识", "所以"],
+    "correct": 2,
+    "explanation": ""故"在此指旧的、已学过的知识。出自《论语》。",
+    "difficulty": 1,
+    "tags": ["先秦", "词义"],
+    "source": "curriculum"
+  }
+]

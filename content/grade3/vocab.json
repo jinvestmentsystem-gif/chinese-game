@@ -1,0 +1,57 @@
+[
+  {
+    "id": "v3-001",
+    "type": "vocab",
+    "prompt": ""宽"的反义词是什么？",
+    "options": ["窄", "大", "长", "短"],
+    "correct": 0,
+    "explanation": ""宽"的反义词是"窄"。宽窄是一对反义词。",
+    "difficulty": 1,
+    "tags": ["反义词"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-002",
+    "type": "vocab",
+    "prompt": ""欢"字是什么结构？",
+    "options": ["左右结构", "上下结构", "半包围结构", "独体字"],
+    "correct": 0,
+    "explanation": ""欢"字左边是"又"，右边是"欠"，是左右结构。",
+    "difficulty": 2,
+    "tags": ["字形"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-003",
+    "type": "vocab",
+    "prompt": "下列哪个字的读音是第二声？",
+    "options": ["花", "红", "大", "是"],
+    "correct": 1,
+    "explanation": ""红"读 hóng，是第二声。花(huā)第一声，大(dà)第四声，是(shì)第四声。",
+    "difficulty": 1,
+    "tags": ["字音"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-004",
+    "type": "vocab",
+    "prompt": ""五颜六色"形容什么？",
+    "options": ["声音很大", "颜色很多", "味道很好", "速度很快"],
+    "correct": 1,
+    "explanation": ""五颜六色"形容色彩繁多，颜色很多很鲜艳。",
+    "difficulty": 1,
+    "tags": ["成语"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-005",
+    "type": "vocab",
+    "prompt": ""清清楚楚"属于什么类型的词语？",
+    "options": ["AABB式", "ABAB式", "ABAC式", "ABCC式"],
+    "correct": 0,
+    "explanation": ""清清楚楚"是AABB式叠词，由"清楚"重叠而来。",
+    "difficulty": 2,
+    "tags": ["词语类型"],
+    "source": "curriculum"
+  }
+]

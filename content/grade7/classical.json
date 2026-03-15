@@ -1,0 +1,67 @@
+[
+  {
+    "id": "c7-001",
+    "type": "classical",
+    "prompt": ""学而时习之，不亦说乎"中"说"的意思是？",
+    "options": ["说话", "高兴", "学说", "游说"],
+    "correct": 1,
+    "explanation": ""说"通"悦"，意为高兴、愉悦。出自《论语》。",
+    "difficulty": 1,
+    "tags": ["先秦", "通假字"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-002",
+    "type": "classical",
+    "prompt": ""未若柳絮因风起"用了什么修辞手法？",
+    "options": ["拟人", "比喻", "夸张", "对偶"],
+    "correct": 1,
+    "explanation": "将雪花比作柳絮，是比喻的修辞手法。出自《咏雪》。",
+    "difficulty": 2,
+    "tags": ["先秦", "修辞"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-003",
+    "type": "classical",
+    "prompt": ""陈太丘与友期行，期日中"中"期"的意思是？",
+    "options": ["期望", "约定", "时期", "期限"],
+    "correct": 1,
+    "explanation": ""期"在此为动词，意为约定。",
+    "difficulty": 2,
+    "tags": ["先秦", "虚词"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-004",
+    "type": "classical",
+    "prompt": "翻译："三人行，必有我师焉。"",
+    "options": [
+      "三个人走路，一定有我的老师。",
+      "几个人一起走，其中必定有可以做我老师的人。",
+      "三个人走路，必须有老师带着我。",
+      "很多人一起走路，一定有人教我。"
+    ],
+    "correct": 1,
+    "explanation": ""三"是虚指，意为多个。"焉"为兼词，相当于"于之"。",
+    "difficulty": 3,
+    "tags": ["先秦", "翻译"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-005",
+    "type": "classical",
+    "prompt": ""知之者不如好之者，好之者不如乐之者"中三个"之"分别指什么？",
+    "options": [
+      "它们分别指不同的事物",
+      "都指代"学问或事业"",
+      "第一个指"知识"，后两个指"学习"",
+      "都是助词，无实际意义"
+    ],
+    "correct": 1,
+    "explanation": "三个"之"都是代词，指代所学的学问或从事的事业。",
+    "difficulty": 4,
+    "tags": ["先秦", "虚词"],
+    "source": "curriculum"
+  }
+]

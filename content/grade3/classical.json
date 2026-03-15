@@ -1,0 +1,57 @@
+[
+  {
+    "id": "c3-001",
+    "type": "classical",
+    "prompt": ""鹅、鹅、鹅，曲项向天歌"中"曲"的意思是？",
+    "options": ["歌曲", "弯曲", "曲折", "音乐"],
+    "correct": 1,
+    "explanation": ""曲项"是弯着脖子的意思。出自骆宾王《咏鹅》。",
+    "difficulty": 1,
+    "tags": ["唐诗", "字词"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-002",
+    "type": "classical",
+    "prompt": ""床前明月光"的下一句是？",
+    "options": ["低头思故乡", "疑是地上霜", "举头望明月", "春风吹又生"],
+    "correct": 1,
+    "explanation": ""床前明月光，疑是地上霜"出自李白《静夜思》。",
+    "difficulty": 1,
+    "tags": ["唐诗", "名句"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-003",
+    "type": "classical",
+    "prompt": ""离离原上草"中"离离"的意思是？",
+    "options": ["离开", "草木茂盛的样子", "分离", "稀疏的样子"],
+    "correct": 1,
+    "explanation": ""离离"形容草长得茂盛繁密。出自白居易《赋得古原草送别》。",
+    "difficulty": 2,
+    "tags": ["唐诗", "字词"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-004",
+    "type": "classical",
+    "prompt": ""春眠不觉晓"的作者是谁？",
+    "options": ["李白", "杜甫", "孟浩然", "王维"],
+    "correct": 2,
+    "explanation": "《春晓》是唐代诗人孟浩然的作品。",
+    "difficulty": 1,
+    "tags": ["唐诗", "文学常识"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-005",
+    "type": "classical",
+    "prompt": ""锄禾日当午"告诉我们什么道理？",
+    "options": ["要早起锻炼", "要珍惜粮食", "要勤劳种田", "要多读书"],
+    "correct": 1,
+    "explanation": "《悯农》通过描写农民辛苦劳作，告诉我们要珍惜粮食。",
+    "difficulty": 1,
+    "tags": ["唐诗", "理解"],
+    "source": "curriculum"
+  }
+]
