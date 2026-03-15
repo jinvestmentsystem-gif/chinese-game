@@ -3,12 +3,161 @@ import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
 import { getCurrentEncounter, advanceEncounter, recordAnswer } from '../game-engine.js';
 import { hasAbility } from '../progression.js';
+import { SPRITES, ENEMY_SPRITES } from '../sprites.js';
 
 const ENEMY_NAMES = ['墨灵', '暗字兵', '墨影卫', '乱笔妖', '黑墨士'];
+
+// ─── Animation helpers ────────────────────────────────────────────────────────
+
+function shakeElement(el, intensity = 6, duration = 400) {
+  if (!el) return;
+  let start = null;
+  const period = 50;
+  function step(ts) {
+    if (!start) start = ts;
+    const elapsed = ts - start;
+    if (elapsed >= duration) { el.style.transform = ''; return; }
+    const dir = (Math.floor(elapsed / period) % 2 === 0) ? intensity : -intensity;
+    el.style.transform = `translateX(${dir}px)`;
+    requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+function lungeElement(el, dx, duration = 200, onDone) {
+  if (!el) return;
+  el.style.transition = `transform ${duration}ms ease-out`;
+  el.style.transform = `translateX(${dx}px)`;
+  setTimeout(() => {
+    el.style.transition = `transform ${duration}ms ease-in`;
+    el.style.transform = '';
+    if (onDone) setTimeout(onDone, duration);
+  }, duration);
+}
+
+function floatingNumber(container, text, x, y, color = '#fff') {
+  const num = document.createElement('div');
+  num.textContent = text;
+  num.style.cssText = `
+    position:absolute; left:${x}px; top:${y}px;
+    color:${color}; font-size:1.8rem; font-weight:900;
+    text-shadow: 0 0 8px ${color}, 2px 2px 0 #000;
+    pointer-events:none; z-index:999;
+    transform:translateY(0); opacity:1;
+    transition: transform 0.9s ease-out, opacity 0.9s ease-out;
+  `;
+  container.appendChild(num);
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      num.style.transform = 'translateY(-70px)';
+      num.style.opacity = '0';
+    });
+  });
+  setTimeout(() => num.remove(), 1000);
+}
+
+function slashEffect(container, x1, y1, x2, y2, color = '#fff') {
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.style.cssText = `
+    position:absolute; inset:0; width:100%; height:100%;
+    pointer-events:none; z-index:998;
+  `;
+  const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+  line.setAttribute('x1', x1); line.setAttribute('y1', y1);
+  line.setAttribute('x2', x2); line.setAttribute('y2', y2);
+  line.setAttribute('stroke', color);
+  line.setAttribute('stroke-width', '4');
+  line.setAttribute('stroke-linecap', 'round');
+  line.style.opacity = '1';
+  svg.appendChild(line);
+  container.appendChild(svg);
+  // Fade out
+  setTimeout(() => { svg.style.transition = 'opacity 0.15s'; svg.style.opacity = '0'; }, 100);
+  setTimeout(() => svg.remove(), 300);
+}
+
+function redFlashOverlay(container) {
+  const overlay = document.createElement('div');
+  overlay.style.cssText = `
+    position:absolute; inset:0; background:#c0392b;
+    opacity:0; pointer-events:none; z-index:997;
+    transition: opacity 0.1s ease-in;
+  `;
+  container.appendChild(overlay);
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => { overlay.style.opacity = '0.35'; });
+  });
+  setTimeout(() => {
+    overlay.style.transition = 'opacity 0.3s ease-out';
+    overlay.style.opacity = '0';
+  }, 120);
+  setTimeout(() => overlay.remove(), 500);
+}
+
+function greenFlash(el) {
+  if (!el) return;
+  const orig = el.style.background;
+  el.style.transition = 'background 0.1s';
+  el.style.background = 'rgba(39,174,96,0.4)';
+  setTimeout(() => {
+    el.style.transition = 'background 0.3s';
+    el.style.background = orig || '';
+  }, 150);
+}
+
+function particleExplosion(container, cx, cy, count = 12) {
+  for (let i = 0; i < count; i++) {
+    const p = document.createElement('div');
+    const angle = (i / count) * Math.PI * 2;
+    const dist = 60 + Math.random() * 80;
+    const tx = Math.cos(angle) * dist;
+    const ty = Math.sin(angle) * dist;
+    const size = 6 + Math.random() * 8;
+    const colors = ['#d4a017', '#f39c12', '#e74c3c', '#27ae60', '#e8e8e8'];
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    p.style.cssText = `
+      position:absolute;
+      left:${cx - size / 2}px; top:${cy - size / 2}px;
+      width:${size}px; height:${size}px;
+      background:${color}; border-radius:50%;
+      pointer-events:none; z-index:996;
+      opacity:1;
+      transition: transform 0.7s ease-out, opacity 0.7s ease-out;
+    `;
+    container.appendChild(p);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        p.style.transform = `translate(${tx}px, ${ty}px)`;
+        p.style.opacity = '0';
+      });
+    });
+    setTimeout(() => p.remove(), 800);
+  }
+}
+
+function startBreathingAnimation(el) {
+  if (!el) return;
+  let scale = 1;
+  let dir = 1;
+  let frame;
+  function tick() {
+    scale += dir * 0.0015;
+    if (scale >= 1.04) dir = -1;
+    if (scale <= 0.97) dir = 1;
+    el.style.transform = `scale(${scale})`;
+    frame = requestAnimationFrame(tick);
+  }
+  frame = requestAnimationFrame(tick);
+  return () => cancelAnimationFrame(frame);
+}
+
+// ─── Main render ─────────────────────────────────────────────────────────────
 
 function renderCombat() {
   const div = document.createElement('div');
   div.className = 'screen';
+  div.style.cssText = 'position:relative; overflow:hidden;';
+
   const encounter = getCurrentEncounter();
   const profile = gameState.profile;
   const questions = encounter.questions;
@@ -17,16 +166,35 @@ function renderCombat() {
   let enemyHp = 100;
   let combo = 0;
   let timerInterval = null;
+  let timerPulseInterval = null;
   let doubleActive = false;
   const enemyName = ENEMY_NAMES[Math.floor(Math.random() * ENEMY_NAMES.length)];
   const baseTimer = 15 + (profile.speed * 1.5);
+  const enemySvg = ENEMY_SPRITES[Math.floor(Math.random() * ENEMY_SPRITES.length)];
+
+  // Cancel breathing animations cleanup refs
+  let stopPlayerBreath = null;
+  let stopEnemyBreath = null;
+
+  function stopBreaths() {
+    if (stopPlayerBreath) { stopPlayerBreath(); stopPlayerBreath = null; }
+    if (stopEnemyBreath) { stopEnemyBreath(); stopEnemyBreath = null; }
+  }
 
   function render() {
+    stopBreaths();
+    clearInterval(timerPulseInterval);
+
     const q = questions[qIndex];
     if (!q) { endCombat(true); return; }
     const optionsHTML = q.options.map((opt, i) => `
       <button class="combat-option" data-idx="${i}">${opt}</button>
     `).join('');
+
+    // Combo color
+    let comboColor = 'var(--accent-gold)';
+    if (combo >= 6) comboColor = '#e74c3c';
+    else if (combo >= 4) comboColor = '#e67e22';
 
     div.innerHTML = `
       <style>
@@ -38,7 +206,7 @@ function renderCombat() {
         .hp-enemy { background:var(--hp-red); }
         .timer-bar-bg { width:80%; max-width:500px; height:8px; background:var(--bg-secondary); border-radius:4px; overflow:hidden; margin:12px auto; }
         .timer-bar { height:100%; background:var(--timer-yellow); border-radius:4px; transition:width 0.1s linear; }
-        .combo-display { font-size:1.2rem; color:var(--accent-gold); font-weight:700; min-height:1.5em; }
+        .combo-display { font-size:1.2rem; font-weight:700; min-height:1.5em; display:flex; align-items:center; justify-content:center; }
         .combat-question { font-size:1.3rem; margin:16px 0; padding:0 32px; text-align:center; }
         .combat-options { display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:0 32px; max-width:600px; width:100%; }
         .combat-option {
@@ -50,45 +218,85 @@ function renderCombat() {
         .combat-option.correct { border-color:var(--accent-jade); background:rgba(39,174,96,0.2); }
         .combat-option.wrong { border-color:var(--accent-red); background:rgba(192,57,43,0.2); }
         .feedback-text { font-size:0.95rem; color:var(--text-secondary); margin-top:12px; padding:0 32px; text-align:center; min-height:3em; }
-        .battle-sprite { font-size:3rem; margin:8px 0; }
+        .battle-arena { display:flex; align-items:flex-end; justify-content:space-between; width:100%; max-width:600px; padding:0 32px; margin:8px 0; position:relative; min-height:160px; }
+        .sprite-wrap { display:flex; flex-direction:column; align-items:center; position:relative; }
+        .sprite-label { font-size:0.85rem; color:var(--text-secondary); margin-bottom:4px; }
+        .sprite-svg { display:block; }
       </style>
+
       <div class="combat-hud">
         <div class="hp-section">
           <div style="font-weight:700;">${profile.name}</div>
-          <div class="hp-bar-bg"><div class="hp-bar hp-player" id="player-hp" style="width:${(playerHp/profile.maxHp)*100}%"></div></div>
+          <div class="hp-bar-bg"><div class="hp-bar hp-player" id="player-hp" style="width:${(playerHp / profile.maxHp) * 100}%"></div></div>
           <div style="font-size:0.8rem; color:var(--text-secondary);">HP: ${playerHp}/${profile.maxHp}</div>
         </div>
-        <div class="combo-display" id="combo">${combo > 1 ? combo + ' 连击！' : ''}</div>
+        <div class="combo-display" id="combo" style="color:${comboColor};">${combo > 1 ? combo + ' 连击！' : ''}</div>
         <div class="hp-section">
           <div style="font-weight:700; color:var(--accent-red);">${enemyName}</div>
           <div class="hp-bar-bg"><div class="hp-bar hp-enemy" id="enemy-hp" style="width:${enemyHp}%"></div></div>
           <div style="font-size:0.8rem; color:var(--text-secondary);">HP: ${enemyHp}%</div>
         </div>
       </div>
-      <div class="battle-sprite">⚔️</div>
+
+      <div class="battle-arena" id="arena">
+        <div class="sprite-wrap" id="player-sprite-wrap">
+          <div class="sprite-label">${profile.name}</div>
+          <div id="player-sprite" class="sprite-svg" style="width:80px;height:150px;display:flex;align-items:center;justify-content:center;">${SPRITES.player}</div>
+        </div>
+        <div style="flex:1;"></div>
+        <div class="sprite-wrap" id="enemy-sprite-wrap">
+          <div class="sprite-label" style="color:var(--accent-red);">${enemyName}</div>
+          <div id="enemy-sprite" class="sprite-svg" style="width:80px;height:150px;display:flex;align-items:center;justify-content:center;">${enemySvg}</div>
+        </div>
+      </div>
+
       <div class="timer-bar-bg"><div class="timer-bar" id="timer-bar" style="width:100%"></div></div>
       <div class="combat-question">${q.prompt}</div>
       <div class="combat-options" id="options">${optionsHTML}</div>
-      <div style="display:flex;gap:8px;justify-content:center;margin-top:12px;" id="abilities">
-        <!-- Buttons rendered conditionally based on hasAbility and wenli -->
-      </div>
+      <div style="display:flex;gap:8px;justify-content:center;margin-top:12px;" id="abilities"></div>
       <div class="feedback-text" id="feedback"></div>
     `;
 
-    // Start timer
+    // Start breathing animations
+    const playerSpriteEl = div.querySelector('#player-sprite');
+    const enemySpriteEl = div.querySelector('#enemy-sprite');
+    stopPlayerBreath = startBreathingAnimation(playerSpriteEl);
+    stopEnemyBreath = startBreathingAnimation(enemySpriteEl);
+
+    // ── Timer ──
     let timeLeft = baseTimer;
     const timerBar = div.querySelector('#timer-bar');
     clearInterval(timerInterval);
     timerInterval = setInterval(() => {
       timeLeft -= 0.1;
       if (timerBar) timerBar.style.width = Math.max(0, (timeLeft / baseTimer) * 100) + '%';
+
+      // Timer pulse at < 3s
+      if (timeLeft < 3 && timeLeft > 0) {
+        clearInterval(timerPulseInterval);
+        timerPulseInterval = null;
+        if (!timerPulseInterval) {
+          timerPulseInterval = setInterval(() => {
+            if (!timerBar) return;
+            const opVal = timerBar.style.opacity === '0.5' ? '1' : '0.5';
+            timerBar.style.opacity = opVal;
+            // Shake at < 2s
+            if (timeLeft < 2) {
+              const shiftVal = timerBar.style.marginLeft === '4px' ? '-4px' : '4px';
+              timerBar.style.marginLeft = shiftVal;
+            }
+          }, 150);
+        }
+      }
+
       if (timeLeft <= 0) {
         clearInterval(timerInterval);
+        clearInterval(timerPulseInterval);
         handleAnswer(-1, q);
       }
     }, 100);
 
-    // Ability buttons
+    // ── Ability buttons ──
     const abilitiesEl = div.querySelector('#abilities');
     if (abilitiesEl) {
       let btns = '';
@@ -98,7 +306,6 @@ function renderCombat() {
       abilitiesEl.innerHTML = btns;
     }
 
-    // Hint: eliminate one wrong option, costs 1 文力
     const hintBtn = div.querySelector('#btn-hint');
     if (hintBtn) hintBtn.addEventListener('click', () => {
       if (profile.wenli < 1) return;
@@ -111,18 +318,17 @@ function renderCombat() {
       hintBtn.disabled = true;
     });
 
-    // Skip: skip question, costs 2 文力
     const skipBtn = div.querySelector('#btn-skip');
     if (skipBtn) skipBtn.addEventListener('click', () => {
       if (profile.wenli < 2) return;
       profile.wenli -= 2;
       clearInterval(timerInterval);
+      clearInterval(timerPulseInterval);
       qIndex++;
       if (qIndex >= questions.length) { endCombat(true); return; }
       render();
     });
 
-    // Double: next correct = 2x damage, costs 2 文力
     const doubleBtn = div.querySelector('#btn-double');
     if (doubleBtn) doubleBtn.addEventListener('click', () => {
       if (profile.wenli < 2) return;
@@ -132,10 +338,10 @@ function renderCombat() {
       doubleBtn.textContent = '双倍 ✓';
     });
 
-    // Option click handlers
     div.querySelectorAll('.combat-option').forEach(btn => {
       btn.addEventListener('click', () => {
         clearInterval(timerInterval);
+        clearInterval(timerPulseInterval);
         const idx = parseInt(btn.dataset.idx);
         handleAnswer(idx, q);
       });
@@ -143,6 +349,7 @@ function renderCombat() {
   }
 
   function handleAnswer(idx, q) {
+    stopBreaths();
     const correct = idx === q.correct;
     const buttons = div.querySelectorAll('.combat-option');
     buttons.forEach(btn => {
@@ -153,11 +360,16 @@ function renderCombat() {
     });
 
     recordAnswer('vocab', correct);
-
-    // Track seen vocab questions
     if (!profile.seenQuestions.vocab.includes(q.id)) {
       profile.seenQuestions.vocab.push(q.id);
     }
+
+    const arena = div.querySelector('#arena');
+    const playerSprite = div.querySelector('#player-sprite');
+    const enemySprite = div.querySelector('#enemy-sprite');
+    const playerWrap = div.querySelector('#player-sprite-wrap');
+    const enemyWrap = div.querySelector('#enemy-sprite-wrap');
+    const optionsPanel = div.querySelector('#options');
 
     if (correct) {
       combo++;
@@ -165,15 +377,90 @@ function renderCombat() {
       doubleActive = false;
       const dmg = Math.round(20 * dmgMultiplier);
       enemyHp = Math.max(0, enemyHp - dmg);
+
+      // Player lunges forward
+      lungeElement(playerSprite, 50, 200, null);
+
+      // Slash effect (diagonal line through center of arena)
+      if (arena) {
+        const arenaRect = arena.getBoundingClientRect();
+        const divRect = div.getBoundingClientRect();
+        const relX = arenaRect.left - divRect.left;
+        const relY = arenaRect.top - divRect.top;
+        const cx = relX + arenaRect.width / 2;
+        const cy = relY + arenaRect.height / 2;
+        slashEffect(div, cx - 60, cy - 40, cx + 60, cy + 40, '#fff');
+        setTimeout(() => slashEffect(div, cx - 40, cy - 60, cx + 20, cy + 20, '#d4a017'), 80);
+      }
+
+      // Enemy shakes after slight delay
+      setTimeout(() => shakeElement(enemySprite, 8, 350), 220);
+
+      // Floating damage number above enemy sprite
+      if (enemyWrap) {
+        const ewRect = enemyWrap.getBoundingClientRect();
+        const divRect = div.getBoundingClientRect();
+        const numX = ewRect.left - divRect.left + ewRect.width / 2 - 20;
+        const numY = ewRect.top - divRect.top - 10;
+        floatingNumber(div, `-${dmg}`, numX, numY, '#e74c3c');
+      }
+
+      // Green flash on options panel
+      if (optionsPanel) greenFlash(optionsPanel);
+
+      // Combo display with scale-up animation
+      const comboEl = div.querySelector('#combo');
+      if (comboEl && combo > 1) {
+        let comboColor = 'var(--accent-gold)';
+        if (combo >= 6) comboColor = '#e74c3c';
+        else if (combo >= 4) comboColor = '#e67e22';
+        comboEl.style.color = comboColor;
+        comboEl.textContent = combo + ' 连击！';
+        comboEl.style.transform = 'scale(1.5)';
+        comboEl.style.transition = 'transform 0.3s ease-out';
+        setTimeout(() => { comboEl.style.transform = 'scale(1)'; }, 300);
+      }
+
       div.querySelector('#feedback').textContent = `✓ 正确！造成 ${dmg} 点伤害！${q.explanation}`;
+
+      // Update enemy HP bar
+      const enemyHpBar = div.querySelector('#enemy-hp');
+      if (enemyHpBar) enemyHpBar.style.width = enemyHp + '%';
+
     } else {
       combo = 0;
       const hpLoss = Math.round(15 * (1 - profile.defense * 0.01));
       playerHp = Math.max(0, playerHp - hpLoss);
+
+      // Enemy lunges toward player
+      lungeElement(enemySprite, -50, 200, null);
+
+      // Player shakes
+      setTimeout(() => shakeElement(playerSprite, 8, 350), 220);
+
+      // Red screen flash
+      redFlashOverlay(div);
+
+      // Floating "-HP" above player
+      if (playerWrap) {
+        const pwRect = playerWrap.getBoundingClientRect();
+        const divRect = div.getBoundingClientRect();
+        const numX = pwRect.left - divRect.left + pwRect.width / 2 - 15;
+        const numY = pwRect.top - divRect.top - 10;
+        floatingNumber(div, `-${hpLoss}HP`, numX, numY, '#e74c3c');
+      }
+
+      // Reset combo display
+      const comboEl = div.querySelector('#combo');
+      if (comboEl) comboEl.textContent = '';
+
       div.querySelector('#feedback').textContent = `✗ 错误！失去 ${hpLoss} HP。${q.explanation}`;
+
+      // Update player HP bar
+      const playerHpBar = div.querySelector('#player-hp');
+      if (playerHpBar) playerHpBar.style.width = (playerHp / profile.maxHp) * 100 + '%';
     }
 
-    // Update quest combo tracking
     const quest = gameState.currentQuest;
     quest.results.combo = combo;
 
@@ -187,12 +474,16 @@ function renderCombat() {
   }
 
   function endCombat(won) {
+    stopBreaths();
     clearInterval(timerInterval);
+    clearInterval(timerPulseInterval);
     encounter.completed = won;
     profile.hp = playerHp;
     gameState.save();
 
     if (!won) {
+      // Grayscale defeat
+      div.style.filter = 'grayscale(1)';
       div.innerHTML = `
         <div class="screen">
           <h2 style="color:var(--accent-red);">战斗失败</h2>
@@ -211,15 +502,31 @@ function renderCombat() {
       return;
     }
 
-    // Advance to next encounter
-    const next = advanceEncounter();
-    if (!next) {
-      showScreen('reward');
-    } else {
-      if (next.type === 'combat') showScreen('combat');
-      else if (next.type === 'puzzle') showScreen('puzzle');
-      else if (next.type === 'boss') showScreen('boss');
+    // Victory: enemy fades out + particle explosion
+    const enemyWrap = div.querySelector('#enemy-sprite-wrap');
+    const enemySprite = div.querySelector('#enemy-sprite');
+    if (enemySprite) {
+      enemySprite.style.transition = 'opacity 0.6s ease-out';
+      enemySprite.style.opacity = '0';
+      if (enemyWrap) {
+        const ewRect = enemyWrap.getBoundingClientRect();
+        const divRect = div.getBoundingClientRect();
+        const cx = ewRect.left - divRect.left + ewRect.width / 2;
+        const cy = ewRect.top - divRect.top + ewRect.height / 2;
+        setTimeout(() => particleExplosion(div, cx, cy, 14), 200);
+      }
     }
+
+    setTimeout(() => {
+      const next = advanceEncounter();
+      if (!next) {
+        showScreen('reward');
+      } else {
+        if (next.type === 'combat') showScreen('combat');
+        else if (next.type === 'puzzle') showScreen('puzzle');
+        else if (next.type === 'boss') showScreen('boss');
+      }
+    }, 1400);
   }
 
   render();

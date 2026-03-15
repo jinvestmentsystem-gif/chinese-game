@@ -4,6 +4,7 @@ import { registerScreen, showScreen } from '../main.js';
 import { getCurrentEncounter, advanceEncounter, recordAnswer } from '../game-engine.js';
 import { hasAbility } from '../progression.js';
 import { loadChengyu } from '../content-loader.js';
+import { SPRITES } from '../sprites.js';
 
 const BOSS_NAMES = {
   1: { name: '仓颉之影', sprite: '👹' },
@@ -13,16 +14,248 @@ const BOSS_NAMES = {
   5: { name: '墨暗之主', sprite: '🌑' },
 };
 
+const bossSprites = {
+  1: 'boss_cangjie',
+  2: 'boss_moli',
+  3: 'boss_shimo',
+  4: 'boss_cisha',
+  5: 'boss_final',
+};
+
+// ─── Animation helpers ────────────────────────────────────────────────────────
+
+function shakeElement(el, intensity = 8, duration = 450) {
+  if (!el) return;
+  let start = null;
+  const period = 50;
+  function step(ts) {
+    if (!start) start = ts;
+    const elapsed = ts - start;
+    if (elapsed >= duration) { el.style.transform = ''; return; }
+    const dir = (Math.floor(elapsed / period) % 2 === 0) ? intensity : -intensity;
+    el.style.transform = `translateX(${dir}px)`;
+    requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+function shakeScreen(container, intensity = 6, duration = 400) {
+  if (!container) return;
+  let start = null;
+  const period = 40;
+  function step(ts) {
+    if (!start) start = ts;
+    const elapsed = ts - start;
+    if (elapsed >= duration) { container.style.transform = ''; return; }
+    const dx = (Math.floor(elapsed / period) % 2 === 0) ? intensity : -intensity;
+    const dy = (Math.floor(elapsed / period) % 3 === 0) ? intensity / 2 : -intensity / 2;
+    container.style.transform = `translate(${dx}px, ${dy}px)`;
+    requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+function lungeElement(el, dx, duration = 250, onDone) {
+  if (!el) return;
+  el.style.transition = `transform ${duration}ms ease-out`;
+  el.style.transform = `translateX(${dx}px)`;
+  setTimeout(() => {
+    el.style.transition = `transform ${duration}ms ease-in`;
+    el.style.transform = '';
+    if (onDone) setTimeout(onDone, duration);
+  }, duration);
+}
+
+function floatingNumber(container, text, x, y, color = '#d4a017') {
+  const num = document.createElement('div');
+  num.textContent = text;
+  num.style.cssText = `
+    position:absolute; left:${x}px; top:${y}px;
+    color:${color}; font-size:2rem; font-weight:900;
+    text-shadow: 0 0 10px ${color}, 2px 2px 0 #000;
+    pointer-events:none; z-index:999;
+    transform:translateY(0) scale(1); opacity:1;
+    transition: transform 0.9s ease-out, opacity 0.9s ease-out;
+  `;
+  container.appendChild(num);
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      num.style.transform = 'translateY(-80px) scale(1.2)';
+      num.style.opacity = '0';
+    });
+  });
+  setTimeout(() => num.remove(), 1000);
+}
+
+function goldenSlash(container, cx, cy) {
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.style.cssText = `
+    position:absolute; inset:0; width:100%; height:100%;
+    pointer-events:none; z-index:998;
+  `;
+  // Three golden slashes
+  const slashes = [
+    [cx - 80, cy - 50, cx + 80, cy + 50, '#d4a017', 5],
+    [cx - 60, cy - 70, cx + 60, cy + 30, '#f39c12', 3],
+    [cx - 40, cy - 20, cx + 100, cy + 60, '#fff', 2],
+  ];
+  slashes.forEach(([x1, y1, x2, y2, color, w]) => {
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', x1); line.setAttribute('y1', y1);
+    line.setAttribute('x2', x2); line.setAttribute('y2', y2);
+    line.setAttribute('stroke', color);
+    line.setAttribute('stroke-width', w);
+    line.setAttribute('stroke-linecap', 'round');
+    svg.appendChild(line);
+  });
+  container.appendChild(svg);
+  setTimeout(() => { svg.style.transition = 'opacity 0.2s'; svg.style.opacity = '0'; }, 120);
+  setTimeout(() => svg.remove(), 350);
+}
+
+function inkSplash(container, cx, cy) {
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.style.cssText = `
+    position:absolute; inset:0; width:100%; height:100%;
+    pointer-events:none; z-index:998;
+  `;
+  // Ink blot
+  const blob = document.createElementNS('http://www.w3.org/2000/svg', 'ellipse');
+  blob.setAttribute('cx', cx); blob.setAttribute('cy', cy);
+  blob.setAttribute('rx', 50); blob.setAttribute('ry', 35);
+  blob.setAttribute('fill', '#1a0a2e');
+  blob.setAttribute('opacity', '0.85');
+  svg.appendChild(blob);
+  // Ink spatter lines
+  const splats = [
+    [cx, cy, cx - 60, cy - 30],
+    [cx, cy, cx + 55, cy - 40],
+    [cx, cy, cx - 30, cy + 55],
+    [cx, cy, cx + 40, cy + 45],
+    [cx, cy, cx - 70, cy + 15],
+  ];
+  splats.forEach(([x1, y1, x2, y2]) => {
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', x1); line.setAttribute('y1', y1);
+    line.setAttribute('x2', x2); line.setAttribute('y2', y2);
+    line.setAttribute('stroke', '#2d0a4e');
+    line.setAttribute('stroke-width', '4');
+    line.setAttribute('stroke-linecap', 'round');
+    svg.appendChild(line);
+  });
+  container.appendChild(svg);
+  setTimeout(() => { svg.style.transition = 'opacity 0.3s'; svg.style.opacity = '0'; }, 200);
+  setTimeout(() => svg.remove(), 550);
+}
+
+function redBorderFlash(container) {
+  const overlay = document.createElement('div');
+  overlay.style.cssText = `
+    position:absolute; inset:0;
+    box-shadow: inset 0 0 60px 20px #c0392b;
+    pointer-events:none; z-index:997; opacity:0;
+    transition: opacity 0.1s ease-in;
+  `;
+  container.appendChild(overlay);
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => { overlay.style.opacity = '1'; });
+  });
+  setTimeout(() => {
+    overlay.style.transition = 'opacity 0.4s ease-out';
+    overlay.style.opacity = '0';
+  }, 150);
+  setTimeout(() => overlay.remove(), 600);
+}
+
+function screenFlash(container, color = '#fff') {
+  const flash = document.createElement('div');
+  flash.style.cssText = `
+    position:absolute; inset:0; background:${color};
+    opacity:0; pointer-events:none; z-index:1000;
+    transition: opacity 0.08s ease-in;
+  `;
+  container.appendChild(flash);
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => { flash.style.opacity = '0.6'; });
+  });
+  setTimeout(() => {
+    flash.style.transition = 'opacity 0.35s ease-out';
+    flash.style.opacity = '0';
+  }, 100);
+  setTimeout(() => flash.remove(), 500);
+}
+
+function bossParticleExplosion(container, cx, cy, count = 24) {
+  for (let i = 0; i < count; i++) {
+    const p = document.createElement('div');
+    const angle = (i / count) * Math.PI * 2 + Math.random() * 0.3;
+    const dist = 80 + Math.random() * 140;
+    const tx = Math.cos(angle) * dist;
+    const ty = Math.sin(angle) * dist;
+    const size = 4 + Math.random() * 14;
+    const delay = Math.random() * 200;
+    const colors = ['#d4a017', '#f39c12', '#e74c3c', '#7c3aed', '#e8e8e8', '#9b59b6'];
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    p.style.cssText = `
+      position:absolute;
+      left:${cx - size / 2}px; top:${cy - size / 2}px;
+      width:${size}px; height:${size}px;
+      background:${color}; border-radius:50%;
+      pointer-events:none; z-index:996;
+      opacity:1;
+      transition: transform ${0.8 + Math.random() * 0.5}s ease-out ${delay}ms,
+                  opacity   ${0.8 + Math.random() * 0.5}s ease-out ${delay}ms;
+    `;
+    container.appendChild(p);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        p.style.transform = `translate(${tx}px, ${ty}px) scale(0.2)`;
+        p.style.opacity = '0';
+      });
+    });
+    setTimeout(() => p.remove(), 1500 + delay);
+  }
+}
+
+function goldenLightExpansion(container, cx, cy) {
+  const light = document.createElement('div');
+  light.style.cssText = `
+    position:absolute;
+    left:${cx}px; top:${cy}px;
+    width:0; height:0;
+    border-radius:50%;
+    background: radial-gradient(circle, rgba(212,160,23,0.7) 0%, rgba(212,160,23,0.2) 50%, transparent 70%);
+    transform:translate(-50%, -50%);
+    pointer-events:none; z-index:995;
+    opacity:1;
+    transition: width 0.8s ease-out, height 0.8s ease-out, opacity 0.8s ease-out;
+  `;
+  container.appendChild(light);
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      light.style.width = '600px';
+      light.style.height = '600px';
+      light.style.opacity = '0';
+    });
+  });
+  setTimeout(() => light.remove(), 900);
+}
+
+// ─── Main render ─────────────────────────────────────────────────────────────
+
 function renderBoss() {
   const div = document.createElement('div');
   div.className = 'screen';
+  div.style.cssText = 'position:relative; overflow:hidden;';
+
   const encounter = getCurrentEncounter();
   const profile = gameState.profile;
   const quest = gameState.currentQuest;
   const bossInfo = BOSS_NAMES[quest.chapterId] || BOSS_NAMES[1];
   const allQuestions = encounter.questions;
+  const bossSpriteKey = bossSprites[quest.chapterId] || 'boss_cangjie';
+  const bossSvg = SPRITES[bossSpriteKey] || SPRITES.boss_cangjie;
 
-  // Split into 3 phases: 3-4 questions each
   const phases = [
     allQuestions.slice(0, 3),
     allQuestions.slice(3, 7),
@@ -34,7 +267,7 @@ function renderBoss() {
   let playerHp = profile.hp;
   let bossHp = 100;
   let doubleActive = false;
-  // Phase transitions trigger at HP thresholds: phase 0 (100-66%), phase 1 (66-33%), phase 2 (33-0%)
+  let isFirstRender = true;
 
   function getCurrentPhaseForHp() {
     if (bossHp > 66) return 0;
@@ -42,8 +275,14 @@ function renderBoss() {
     return 2;
   }
 
+  function getDamageFilter() {
+    if (bossHp <= 33) return 'sepia(0.5) hue-rotate(-20deg) saturate(1.5)';
+    if (bossHp <= 66) return 'saturate(0.7) brightness(0.85)';
+    return '';
+  }
+
   function render() {
-    // Check if boss HP has crossed a phase threshold
+    const prevPhase = phase;
     const hpPhase = getCurrentPhaseForHp();
     if (hpPhase > phase) {
       phase = hpPhase;
@@ -53,13 +292,14 @@ function renderBoss() {
     const currentPhase = phases[phase];
     if (!currentPhase || qIndex >= currentPhase.length) {
       if (bossHp <= 0) { endBoss(true); return; }
-      // All questions in current phase answered — advance phase
       phase++;
       qIndex = 0;
       if (phase >= phases.length) { endBoss(true); return; }
       render();
       return;
     }
+
+    const phaseTransition = prevPhase !== phase && !isFirstRender;
 
     const q = currentPhase[qIndex];
     const phaseLabel = ['第一阶段：句意翻译', '第二阶段：虚词辨析', '第三阶段：篇章理解'][phase] || '';
@@ -69,49 +309,128 @@ function renderBoss() {
 
     div.innerHTML = `
       <style>
-        .boss-header { text-align:center; margin-bottom:8px; }
-        .boss-sprite { font-size:4rem; margin:4px 0; }
+        .boss-header { text-align:center; margin-bottom:4px; position:relative; }
+        .boss-sprite-container { display:flex; justify-content:center; align-items:flex-end; margin:4px 0; position:relative; min-height:140px; }
+        .boss-svg-wrap { display:inline-block; position:relative; }
         .boss-phase { font-size:0.9rem; color:var(--accent-jade); margin-bottom:8px; }
-        .boss-hud { display:flex; justify-content:space-between; width:100%; padding:0 32px; margin-bottom:12px; }
+        .boss-hud { display:flex; justify-content:space-between; width:100%; padding:0 32px; margin-bottom:10px; }
         .boss-hp-bg { width:250px; height:18px; background:var(--bg-secondary); border-radius:9px; overflow:hidden; }
-        .boss-hp { height:100%; background:var(--accent-red); border-radius:9px; transition:width 0.5s; }
+        .boss-hp { height:100%; background:var(--accent-red); border-radius:9px; transition:width 0.5s ease-out; }
         .player-hp { height:100%; background:var(--hp-green); border-radius:9px; transition:width 0.5s; }
-        .boss-question { font-size:1.2rem; margin:16px 32px; text-align:center; background:var(--bg-card); padding:20px; border-radius:8px; border-left:4px solid var(--accent-gold); }
-        .boss-options { display:flex; flex-direction:column; gap:10px; padding:0 32px; max-width:600px; margin:0 auto; width:100%; }
+        .boss-question { font-size:1.2rem; margin:8px 32px; text-align:center; background:var(--bg-card); padding:16px 20px; border-radius:8px; border-left:4px solid var(--accent-gold); }
+        .boss-options { display:flex; flex-direction:column; gap:8px; padding:0 32px; max-width:600px; margin:0 auto; width:100%; }
         .boss-option {
-          font-family:var(--font-main); font-size:1rem; padding:14px 20px; background:var(--bg-card);
+          font-family:var(--font-main); font-size:1rem; padding:12px 20px; background:var(--bg-card);
           border:2px solid var(--bg-secondary); color:var(--text-primary); border-radius:8px;
           cursor:pointer; transition:all 0.2s; text-align:left;
         }
         .boss-option:hover { border-color:var(--accent-red); }
         .boss-option.correct { border-color:var(--accent-jade); background:rgba(39,174,96,0.2); }
         .boss-option.wrong { border-color:var(--accent-red); background:rgba(192,57,43,0.2); }
-        .boss-feedback { font-size:0.95rem; color:var(--text-secondary); margin-top:12px; padding:0 32px; text-align:center; min-height:3em; }
+        .boss-feedback { font-size:0.95rem; color:var(--text-secondary); margin-top:8px; padding:0 32px; text-align:center; min-height:2.5em; }
+        .phase-label-anim { display:inline-block; }
       </style>
+
       <div class="boss-header">
-        <div class="boss-sprite">${bossInfo.sprite}</div>
-        <h2 style="color:var(--accent-red); margin:0;">${bossInfo.name}</h2>
-        <div class="boss-phase">${phaseLabel}</div>
+        <h2 id="boss-name" style="color:var(--accent-red); margin:0; transform:translateY(0); opacity:1;">${bossInfo.name}</h2>
+        <div class="boss-phase phase-label-anim" id="phase-label">${phaseLabel}</div>
       </div>
+
+      <div class="boss-sprite-container">
+        <div class="boss-svg-wrap" id="boss-sprite-wrap">
+          <div id="boss-sprite" style="width:120px;height:200px;display:flex;align-items:center;justify-content:center;${isFirstRender ? 'transform:scale(2.5);opacity:0;' : `filter:${getDamageFilter()};`}">
+            ${bossSvg}
+          </div>
+        </div>
+      </div>
+
       <div class="boss-hud">
         <div>
           <div style="font-weight:700;">${profile.name} HP</div>
-          <div class="boss-hp-bg"><div class="player-hp" style="width:${(playerHp/profile.maxHp)*100}%"></div></div>
+          <div class="boss-hp-bg"><div class="player-hp" id="player-hp-bar" style="width:${(playerHp / profile.maxHp) * 100}%"></div></div>
+          <div style="font-size:0.8rem;color:var(--text-secondary);">${playerHp}/${profile.maxHp}</div>
         </div>
         <div style="text-align:right;">
           <div style="font-weight:700; color:var(--accent-red);">BOSS HP</div>
-          <div class="boss-hp-bg"><div class="boss-hp" style="width:${bossHp}%"></div></div>
+          <div class="boss-hp-bg"><div class="boss-hp" id="boss-hp-bar" style="width:${bossHp}%"></div></div>
+          <div style="font-size:0.8rem;color:var(--text-secondary);">${bossHp}%</div>
         </div>
       </div>
+
       <div class="boss-question">${q.prompt}</div>
       <div class="boss-options">${optionsHTML}</div>
-      <div style="display:flex;gap:8px;justify-content:center;margin-top:12px;" id="abilities">
-        <!-- Buttons rendered conditionally based on hasAbility and wenli -->
-      </div>
+      <div style="display:flex;gap:8px;justify-content:center;margin-top:8px;" id="abilities"></div>
       <div class="boss-feedback" id="feedback"></div>
     `;
 
-    // Ability buttons
+    // ── Boss entrance animation (first render only) ──
+    const bossSprite = div.querySelector('#boss-sprite');
+    const bossName = div.querySelector('#boss-name');
+    const phaseLabelEl = div.querySelector('#phase-label');
+
+    if (isFirstRender) {
+      isFirstRender = false;
+
+      // Boss name slides in from above
+      if (bossName) {
+        bossName.style.transform = 'translateY(-40px)';
+        bossName.style.opacity = '0';
+        bossName.style.transition = 'transform 0.6s ease-out 0.3s, opacity 0.6s ease-out 0.3s';
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            bossName.style.transform = 'translateY(0)';
+            bossName.style.opacity = '1';
+          });
+        });
+      }
+
+      // Phase label slides in
+      if (phaseLabelEl) {
+        phaseLabelEl.style.transform = 'translateY(-20px)';
+        phaseLabelEl.style.opacity = '0';
+        phaseLabelEl.style.transition = 'transform 0.5s ease-out 0.6s, opacity 0.5s ease-out 0.6s';
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            phaseLabelEl.style.transform = 'translateY(0)';
+            phaseLabelEl.style.opacity = '1';
+          });
+        });
+      }
+
+      // Boss scales down and fades in over 1.5s
+      if (bossSprite) {
+        bossSprite.style.transition = 'transform 1.5s ease-out, opacity 1.5s ease-out';
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            bossSprite.style.transform = 'scale(1)';
+            bossSprite.style.opacity = '1';
+          });
+        });
+        // Screen shake on boss landing
+        setTimeout(() => shakeScreen(div, 8, 400), 1100);
+      }
+
+    } else if (phaseTransition) {
+      // Phase transition: flash, hue-rotate, phase label animation
+      screenFlash(div, '#c0392b');
+      if (bossSprite) {
+        bossSprite.style.transition = 'filter 0.3s ease-in-out';
+        const origFilter = getDamageFilter();
+        bossSprite.style.filter = 'hue-rotate(180deg) brightness(1.5)';
+        setTimeout(() => {
+          bossSprite.style.filter = origFilter;
+        }, 400);
+      }
+      if (phaseLabelEl) {
+        phaseLabelEl.style.transform = 'scale(1.4)';
+        phaseLabelEl.style.transition = 'transform 0.3s ease-out';
+        setTimeout(() => {
+          phaseLabelEl.style.transform = 'scale(1)';
+        }, 350);
+      }
+    }
+
+    // ── Ability buttons ──
     const abilitiesEl = div.querySelector('#abilities');
     if (abilitiesEl) {
       let btns = '';
@@ -121,7 +440,6 @@ function renderBoss() {
       abilitiesEl.innerHTML = btns;
     }
 
-    // Hint: eliminate one wrong option, costs 1 文力
     const hintBtn = div.querySelector('#btn-hint');
     if (hintBtn) hintBtn.addEventListener('click', () => {
       if (profile.wenli < 1) return;
@@ -134,7 +452,6 @@ function renderBoss() {
       hintBtn.disabled = true;
     });
 
-    // Skip: skip question, costs 2 文力
     const skipBtn = div.querySelector('#btn-skip');
     if (skipBtn) skipBtn.addEventListener('click', () => {
       if (profile.wenli < 2) return;
@@ -143,7 +460,6 @@ function renderBoss() {
       render();
     });
 
-    // Double: next correct = 2x damage, costs 2 文力
     const doubleBtn = div.querySelector('#btn-double');
     if (doubleBtn) doubleBtn.addEventListener('click', () => {
       if (profile.wenli < 2) return;
@@ -165,22 +481,87 @@ function renderBoss() {
         });
 
         recordAnswer('classical', correct);
+        if (!profile.seenQuestions.classical.includes(q.id)) {
+          profile.seenQuestions.classical.push(q.id);
+        }
+
+        const bossSprite = div.querySelector('#boss-sprite');
+        const bossWrap = div.querySelector('#boss-sprite-wrap');
 
         if (correct) {
           const dmgMultiplier = (1 + profile.attack * 0.01) * (doubleActive ? 2 : 1);
           doubleActive = false;
           const dmg = Math.round(12 * dmgMultiplier);
           bossHp = Math.max(0, bossHp - dmg);
+
+          // Golden slash across boss
+          if (bossWrap) {
+            const bwRect = bossWrap.getBoundingClientRect();
+            const divRect = div.getBoundingClientRect();
+            const cx = bwRect.left - divRect.left + bwRect.width / 2;
+            const cy = bwRect.top - divRect.top + bwRect.height / 2;
+            goldenSlash(div, cx, cy);
+          }
+
+          // Boss recoils backward
+          lungeElement(bossSprite, 40, 250, null);
+
+          // Boss HP bar animates
+          const bossHpBar = div.querySelector('#boss-hp-bar');
+          if (bossHpBar) bossHpBar.style.width = bossHp + '%';
+
+          // Apply damage visual filter
+          if (bossSprite) {
+            setTimeout(() => {
+              bossSprite.style.transition = 'filter 0.4s';
+              bossSprite.style.filter = getDamageFilter();
+            }, 300);
+          }
+
+          // Floating golden damage number above boss
+          if (bossWrap) {
+            const bwRect = bossWrap.getBoundingClientRect();
+            const divRect = div.getBoundingClientRect();
+            const numX = bwRect.left - divRect.left + bwRect.width / 2 - 25;
+            const numY = bwRect.top - divRect.top - 15;
+            floatingNumber(div, `-${dmg}`, numX, numY, '#d4a017');
+          }
+
           div.querySelector('#feedback').textContent = `✓ 正确！对${bossInfo.name}造成 ${dmg} 点伤害！${q.explanation}`;
+
         } else {
           const hpLoss = Math.round(20 * (1 - profile.defense * 0.01));
           playerHp = Math.max(0, playerHp - hpLoss);
-          div.querySelector('#feedback').textContent = `✗ 错误！${bossInfo.name}反击，失去 ${hpLoss} HP。${q.explanation}`;
-        }
 
-        // Track seen
-        if (!profile.seenQuestions.classical.includes(q.id)) {
-          profile.seenQuestions.classical.push(q.id);
+          // Boss aggressive lunge toward player
+          lungeElement(bossSprite, -55, 220, null);
+
+          // Ink splash effect
+          const cx = div.getBoundingClientRect().width * 0.3;
+          const cy = div.getBoundingClientRect().height * 0.5;
+          inkSplash(div, cx, cy);
+
+          // Red border flash
+          redBorderFlash(div);
+
+          // Player takes visible damage shake (shake the player HP section)
+          const playerHpSection = div.querySelector('.boss-hud > div:first-child');
+          if (playerHpSection) shakeElement(playerHpSection, 6, 350);
+
+          // Player HP bar update
+          const playerHpBar = div.querySelector('#player-hp-bar');
+          if (playerHpBar) playerHpBar.style.width = (playerHp / profile.maxHp) * 100 + '%';
+
+          // Floating red number near player HP
+          if (playerHpSection) {
+            const phRect = playerHpSection.getBoundingClientRect();
+            const divRect = div.getBoundingClientRect();
+            const numX = phRect.left - divRect.left + phRect.width / 2 - 20;
+            const numY = phRect.top - divRect.top - 10;
+            floatingNumber(div, `-${hpLoss}HP`, numX, numY, '#e74c3c');
+          }
+
+          div.querySelector('#feedback').textContent = `✗ 错误！${bossInfo.name}反击，失去 ${hpLoss} HP。${q.explanation}`;
         }
 
         setTimeout(() => {
@@ -219,44 +600,99 @@ function renderBoss() {
       return;
     }
 
-    // Boss defeated — check for chengyu drop
+    // ── Boss defeat: dramatic dissolution ──
+    const bossWrap = div.querySelector('#boss-sprite-wrap');
+    const bossSprite = div.querySelector('#boss-sprite');
+
+    if (bossWrap) {
+      const bwRect = bossWrap.getBoundingClientRect();
+      const divRect = div.getBoundingClientRect();
+      const cx = bwRect.left - divRect.left + bwRect.width / 2;
+      const cy = bwRect.top - divRect.top + bwRect.height / 2;
+
+      // Screen flash on death blow
+      screenFlash(div, '#d4a017');
+
+      // Boss sprite breaks into particles
+      setTimeout(() => {
+        bossParticleExplosion(div, cx, cy, 28);
+        if (bossSprite) {
+          bossSprite.style.transition = 'opacity 0.5s, transform 0.5s';
+          bossSprite.style.opacity = '0';
+          bossSprite.style.transform = 'scale(0.3)';
+        }
+      }, 150);
+
+      // Golden light expands
+      setTimeout(() => goldenLightExpansion(div, cx, cy), 400);
+    }
+
+    // Victory fanfare text
+    setTimeout(() => {
+      const fanfare = document.createElement('div');
+      fanfare.style.cssText = `
+        position:absolute; inset:0; display:flex; flex-direction:column;
+        align-items:center; justify-content:center; z-index:1001;
+        pointer-events:none;
+      `;
+      fanfare.innerHTML = `
+        <div id="victory-text" style="
+          font-size:3rem; font-weight:900; color:#d4a017;
+          text-shadow: 0 0 20px #d4a017, 0 0 40px #f39c12;
+          transform:scale(0); opacity:0;
+          transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s ease-out;
+        ">BOSS 击败！</div>
+      `;
+      div.appendChild(fanfare);
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          const vt = div.querySelector('#victory-text');
+          if (vt) { vt.style.transform = 'scale(1)'; vt.style.opacity = '1'; }
+        });
+      });
+    }, 700);
+
+    // Check for chengyu drop
     const allChengyu = await loadChengyu();
     const uncollected = allChengyu.filter(cy => !profile.chengyu.includes(cy.id) && cy.chapter === quest.chapterId);
+
     if (uncollected.length > 0) {
       const drop = uncollected[Math.floor(Math.random() * uncollected.length)];
       profile.chengyu.push(drop.id);
       gameState.save();
 
-      // Show chengyu notification before advancing
-      div.innerHTML = `
-        <div class="screen" style="text-align:center;">
-          <h2 style="color:var(--accent-gold);">获得成语！</h2>
-          <div style="font-size:2rem;font-weight:700;color:var(--accent-gold);margin:16px 0;">${drop.chengyu}</div>
-          <div style="color:var(--text-secondary);margin-bottom:8px;">${drop.pinyin}</div>
-          <div style="margin-bottom:8px;">${drop.meaning}</div>
-          <div style="font-size:0.9rem;color:var(--text-secondary);margin-bottom:16px;">${drop.origin}</div>
-          <button class="btn btn-primary" id="btn-continue">继续</button>
-        </div>
-      `;
       setTimeout(() => {
-        div.querySelector('#btn-continue').addEventListener('click', () => {
-          const next = advanceEncounter();
-          if (!next) showScreen('reward');
-          else showScreen(next.type);
-        });
-      }, 0);
+        div.innerHTML = `
+          <div class="screen" style="text-align:center;">
+            <h2 style="color:var(--accent-gold);">获得成语！</h2>
+            <div style="font-size:2rem;font-weight:700;color:var(--accent-gold);margin:16px 0;">${drop.chengyu}</div>
+            <div style="color:var(--text-secondary);margin-bottom:8px;">${drop.pinyin}</div>
+            <div style="margin-bottom:8px;">${drop.meaning}</div>
+            <div style="font-size:0.9rem;color:var(--text-secondary);margin-bottom:16px;">${drop.origin}</div>
+            <button class="btn btn-primary" id="btn-continue">继续</button>
+          </div>
+        `;
+        setTimeout(() => {
+          div.querySelector('#btn-continue').addEventListener('click', () => {
+            const next = advanceEncounter();
+            if (!next) showScreen('reward');
+            else showScreen(next.type);
+          });
+        }, 0);
+      }, 2000);
       return;
     }
 
-    // No chengyu to drop — advance normally
-    const next = advanceEncounter();
-    if (!next) {
-      showScreen('reward');
-    } else {
-      if (next.type === 'combat') showScreen('combat');
-      else if (next.type === 'puzzle') showScreen('puzzle');
-      else if (next.type === 'boss') showScreen('boss');
-    }
+    setTimeout(() => {
+      const next = advanceEncounter();
+      if (!next) {
+        showScreen('reward');
+      } else {
+        if (next.type === 'combat') showScreen('combat');
+        else if (next.type === 'puzzle') showScreen('puzzle');
+        else if (next.type === 'boss') showScreen('boss');
+      }
+    }, 2000);
   }
 
   render();
