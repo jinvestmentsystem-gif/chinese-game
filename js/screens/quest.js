@@ -2,6 +2,17 @@
 import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
 import { startQuest, getCurrentEncounter } from '../game-engine.js';
+import { STORIES } from './story.js';
+import { playMusic } from '../audio.js';
+
+// Map chapter IDs to era names for music
+const CHAPTER_ERA = {
+  1: 'xianqin',
+  2: 'han',
+  3: 'tang',
+  4: 'song',
+  5: 'modern',
+};
 
 function renderQuest(params) {
   const div = document.createElement('div');
@@ -37,12 +48,66 @@ function renderQuest(params) {
       }
     });
 
-    div.querySelector('#btn-start').addEventListener('click', () => {
+    // Determine what story keys are available
+    const chapterIntroKey = `chapter${chapterId}_intro`;
+    const chapterBossKey = `chapter${chapterId}_boss`;
+    const hasChapterIntro = Boolean(STORIES[chapterIntroKey]);
+    const hasChapterBoss = Boolean(STORIES[chapterBossKey]);
+
+    // Track whether chapter intro has been shown this session via a profile flag
+    // We use chapterProgress[chapterId].introShown to persist it across page reloads
+    const chapterProgress = profile.chapterProgress[chapterId] || { questsCompleted: 0 };
+
+    function startFirstEncounter() {
       const enc = getCurrentEncounter();
       if (enc.type === 'combat') showScreen('combat');
       else if (enc.type === 'puzzle') showScreen('puzzle');
       else if (enc.type === 'boss') showScreen('boss');
+    }
+
+    function startWithBossIntro() {
+      if (hasChapterBoss) {
+        try { playMusic('boss'); } catch (_) {}
+        showScreen('story', {
+          storyKey: chapterBossKey,
+          onComplete: () => showScreen('boss'),
+        });
+      } else {
+        showScreen('boss');
+      }
+    }
+
+    div.querySelector('#btn-start').addEventListener('click', () => {
+      const enc = getCurrentEncounter();
+
+      // Boss encounter always gets its intro (once per quest run, not persisted)
+      if (enc.type === 'boss') {
+        startWithBossIntro();
+        return;
+      }
+
+      // First quest of a chapter and intro hasn't been shown yet
+      if (questIndex === 0 && !chapterProgress.introShown && hasChapterIntro) {
+        // Mark intro as shown so we don't repeat if player returns
+        chapterProgress.introShown = true;
+        profile.chapterProgress[chapterId] = chapterProgress;
+        gameState.save();
+
+        // Switch music to chapter era
+        const era = CHAPTER_ERA[chapterId] || 'xianqin';
+        try { playMusic(era); } catch (_) {}
+
+        showScreen('story', {
+          storyKey: chapterIntroKey,
+          onComplete: startFirstEncounter,
+        });
+        return;
+      }
+
+      // Normal start — no story
+      startFirstEncounter();
     });
+
     div.querySelector('#btn-back').addEventListener('click', () => showScreen('worldmap'));
   }, 0);
 
