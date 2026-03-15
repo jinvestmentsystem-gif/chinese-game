@@ -2,6 +2,7 @@
 import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
 import { getCurrentEncounter, advanceEncounter, recordAnswer } from '../game-engine.js';
+import { playSound } from '../audio.js';
 
 function renderPuzzle() {
   const div = document.createElement('div');
@@ -57,6 +58,7 @@ function renderPuzzle() {
 
     div.querySelectorAll('.puzzle-option').forEach(btn => {
       btn.addEventListener('click', () => {
+        playSound('click');
         const idx = parseInt(btn.dataset.idx);
         const correct = idx === q.correct;
         div.querySelectorAll('.puzzle-option').forEach(b => {

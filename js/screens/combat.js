@@ -4,7 +4,7 @@ import { registerScreen, showScreen } from '../main.js';
 import { getCurrentEncounter, advanceEncounter, recordAnswer } from '../game-engine.js';
 import { hasAbility } from '../progression.js';
 import { SPRITES, ENEMY_SPRITES } from '../sprites.js';
-import { playSound } from '../audio.js';
+import { playSound, setMusicIntensity, playStinger } from '../audio.js';
 
 const ENEMY_NAMES = ['墨灵', '暗字兵', '墨影卫', '乱笔妖', '黑墨士'];
 
@@ -273,8 +273,12 @@ function renderCombat() {
   let timerInterval = null;
   let timerPulseInterval = null;
   let doubleActive = false;
+
+  // Start battle music
+  playStinger('battle_start');
+  setTimeout(() => setMusicIntensity(1), 400);
   const enemyName = ENEMY_NAMES[Math.floor(Math.random() * ENEMY_NAMES.length)];
-  const baseTimer = 15 + (profile.speed * 1.5);
+  const baseTimer = 20 + (profile.speed * 1.5);
   const enemySvg = ENEMY_SPRITES[Math.floor(Math.random() * ENEMY_SPRITES.length)];
 
   // Cancel breathing animations cleanup refs
@@ -476,8 +480,15 @@ function renderCombat() {
     const enemyWrap = div.querySelector('#enemy-sprite-wrap');
     const optionsPanel = div.querySelector('#options');
 
+    // Click sound on every answer
+    playSound('click');
+
     if (correct) {
       combo++;
+      // Ramp music intensity with combo
+      if (combo >= 5) setMusicIntensity(3);
+      else if (combo >= 3) setMusicIntensity(2);
+
       const dmgMultiplier = (1 + (combo > 1 ? combo * 0.15 : 0) + (profile.attack * 0.01)) * (doubleActive ? 2 : 1);
       doubleActive = false;
       const dmg = Math.round(20 * dmgMultiplier);
@@ -534,6 +545,7 @@ function renderCombat() {
 
     } else {
       combo = 0;
+      setMusicIntensity(1); // Drop back to base battle intensity
       const hpLoss = Math.round(15 * (1 - profile.defense * 0.01));
       playerHp = Math.max(0, playerHp - hpLoss);
 
@@ -592,6 +604,8 @@ function renderCombat() {
     stopBreaths();
     clearInterval(timerInterval);
     clearInterval(timerPulseInterval);
+    setMusicIntensity(0); // Back to ambient
+    if (won) playStinger('victory');
     encounter.completed = won;
     profile.hp = playerHp;
     gameState.save();

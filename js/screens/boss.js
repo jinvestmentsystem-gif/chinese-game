@@ -5,7 +5,7 @@ import { getCurrentEncounter, advanceEncounter, recordAnswer } from '../game-eng
 import { hasAbility } from '../progression.js';
 import { loadChengyu } from '../content-loader.js';
 import { SPRITES } from '../sprites.js';
-import { playSound } from '../audio.js';
+import { playSound, setMusicIntensity, playStinger } from '../audio.js';
 
 const BOSS_NAMES = {
   1: { name: '仓颉之影', sprite: '👹' },
@@ -272,6 +272,10 @@ function renderBoss() {
   const profile = gameState.profile;
   const quest = gameState.currentQuest;
   const bossInfo = BOSS_NAMES[quest.chapterId] || BOSS_NAMES[1];
+
+  // Boss music — max intensity
+  playStinger('boss_enter');
+  setTimeout(() => setMusicIntensity(3), 1500);
   const allQuestions = encounter.questions;
   const bossSpriteKey = bossSprites[quest.chapterId] || 'boss_cangjie';
   const bossSvg = SPRITES[bossSpriteKey] || SPRITES.boss_cangjie;
@@ -305,6 +309,7 @@ function renderBoss() {
     const prevPhase = phase;
     const hpPhase = getCurrentPhaseForHp();
     if (hpPhase > phase) {
+      playStinger('phase_change');
       phase = hpPhase;
       qIndex = 0;
     }
@@ -491,6 +496,7 @@ function renderBoss() {
 
     div.querySelectorAll('.boss-option').forEach(btn => {
       btn.addEventListener('click', () => {
+        playSound('click');
         const idx = parseInt(btn.dataset.idx);
         const correct = idx === q.correct;
         div.querySelectorAll('.boss-option').forEach(b => {
@@ -615,6 +621,8 @@ function renderBoss() {
   }
 
   async function endBoss(won) {
+    setMusicIntensity(0);
+    if (won) playStinger('victory');
     encounter.completed = won;
     profile.hp = playerHp;
     gameState.save();
