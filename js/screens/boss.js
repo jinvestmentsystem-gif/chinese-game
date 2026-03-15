@@ -5,7 +5,7 @@ import { getCurrentEncounter, advanceEncounter, recordAnswer } from '../game-eng
 import { hasAbility } from '../progression.js';
 import { loadChengyu } from '../content-loader.js';
 import { SPRITES } from '../sprites.js';
-import { playSound, setMusicIntensity, playStinger } from '../audio.js';
+import { playSound, playMusic, setMusicIntensity, playStinger } from '../audio.js';
 
 const BOSS_NAMES = {
   1: { name: '仓颉之影', sprite: '👹' },
@@ -273,7 +273,8 @@ function renderBoss() {
   const quest = gameState.currentQuest;
   const bossInfo = BOSS_NAMES[quest.chapterId] || BOSS_NAMES[1];
 
-  // Boss music — max intensity
+  // Boss music — set era to boss and max intensity
+  playMusic('boss');
   playStinger('boss_enter');
   setTimeout(() => setMusicIntensity(3), 1500);
   const allQuestions = encounter.questions;

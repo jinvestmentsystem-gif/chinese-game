@@ -423,6 +423,7 @@ function stopBeatClock() {
 export function initAudio() {
   if (audioCtx) return;
   audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  audioCtx.resume();
 
   // Master gain for all music — kept below SFX headroom
   masterMusicGain = audioCtx.createGain();
@@ -488,6 +489,8 @@ export function setMusicIntensity(level) {
     stopBeatClock();
     setTimeout(() => {
       if (!musicEnabled || !audioCtx) return;
+      // Guard: don't restart ambient if intensity has already changed
+      if (currentIntensity !== 0) return;
       if (masterMusicGain) {
         const now = audioCtx.currentTime;
         masterMusicGain.gain.setValueAtTime(0.0, now);

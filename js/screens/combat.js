@@ -4,7 +4,7 @@ import { registerScreen, showScreen } from '../main.js';
 import { getCurrentEncounter, advanceEncounter, recordAnswer } from '../game-engine.js';
 import { hasAbility } from '../progression.js';
 import { SPRITES, ENEMY_SPRITES } from '../sprites.js';
-import { playSound, setMusicIntensity, playStinger } from '../audio.js';
+import { playSound, playMusic, setMusicIntensity, playStinger } from '../audio.js';
 
 const ENEMY_NAMES = ['墨灵', '暗字兵', '墨影卫', '乱笔妖', '黑墨士'];
 
@@ -274,9 +274,12 @@ function renderCombat() {
   let timerPulseInterval = null;
   let doubleActive = false;
 
-  // Start battle music
+  // Start battle music — explicitly set era and intensity
+  const chapterId = gameState.currentQuest?.chapterId || 1;
+  const eraMap = {1:'xianqin',2:'han',3:'tang',4:'song',5:'modern'};
+  playMusic(eraMap[chapterId] || 'xianqin');
   playStinger('battle_start');
-  setTimeout(() => setMusicIntensity(1), 400);
+  setTimeout(() => setMusicIntensity(1), 300);
   const enemyName = ENEMY_NAMES[Math.floor(Math.random() * ENEMY_NAMES.length)];
   const baseTimer = 20 + (profile.speed * 1.5);
   const enemySvg = ENEMY_SPRITES[Math.floor(Math.random() * ENEMY_SPRITES.length)];
