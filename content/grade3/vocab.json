@@ -2,56 +2,901 @@
   {
     "id": "v3-001",
     "type": "vocab",
-    "prompt": ""宽"的反义词是什么？",
-    "options": ["窄", "大", "长", "短"],
+    "prompt": "「宽」的反义词是什么？",
+    "options": [
+      "窄",
+      "大",
+      "长",
+      "短"
+    ],
     "correct": 0,
-    "explanation": ""宽"的反义词是"窄"。宽窄是一对反义词。",
+    "explanation": "「宽」的反义词是「窄」。宽窄是一对反义词。",
     "difficulty": 1,
-    "tags": ["反义词"],
+    "tags": [
+      "反义词"
+    ],
     "source": "curriculum"
   },
   {
     "id": "v3-002",
     "type": "vocab",
-    "prompt": ""欢"字是什么结构？",
-    "options": ["左右结构", "上下结构", "半包围结构", "独体字"],
+    "prompt": "「欢」字是什么结构？",
+    "options": [
+      "左右结构",
+      "上下结构",
+      "半包围结构",
+      "独体字"
+    ],
     "correct": 0,
-    "explanation": ""欢"字左边是"又"，右边是"欠"，是左右结构。",
+    "explanation": "「欢」字左边是「又」，右边是「欠」，是左右结构。",
     "difficulty": 2,
-    "tags": ["字形"],
+    "tags": [
+      "字形"
+    ],
     "source": "curriculum"
   },
   {
     "id": "v3-003",
     "type": "vocab",
     "prompt": "下列哪个字的读音是第二声？",
-    "options": ["花", "红", "大", "是"],
+    "options": [
+      "花",
+      "红",
+      "大",
+      "是"
+    ],
     "correct": 1,
-    "explanation": ""红"读 hóng，是第二声。花(huā)第一声，大(dà)第四声，是(shì)第四声。",
+    "explanation": "「红」读 hóng，是第二声。花(huā)第一声，大(dà)第四声，是(shì)第四声。",
     "difficulty": 1,
-    "tags": ["字音"],
+    "tags": [
+      "字音"
+    ],
     "source": "curriculum"
   },
   {
     "id": "v3-004",
     "type": "vocab",
-    "prompt": ""五颜六色"形容什么？",
-    "options": ["声音很大", "颜色很多", "味道很好", "速度很快"],
+    "prompt": "「五颜六色」形容什么？",
+    "options": [
+      "声音很大",
+      "颜色很多",
+      "味道很好",
+      "速度很快"
+    ],
     "correct": 1,
-    "explanation": ""五颜六色"形容色彩繁多，颜色很多很鲜艳。",
+    "explanation": "「五颜六色」形容色彩繁多，颜色很多很鲜艳。",
     "difficulty": 1,
-    "tags": ["成语"],
+    "tags": [
+      "成语"
+    ],
     "source": "curriculum"
   },
   {
     "id": "v3-005",
     "type": "vocab",
-    "prompt": ""清清楚楚"属于什么类型的词语？",
-    "options": ["AABB式", "ABAB式", "ABAC式", "ABCC式"],
+    "prompt": "「清清楚楚」属于什么类型的词语？",
+    "options": [
+      "AABB式",
+      "ABAB式",
+      "ABAC式",
+      "ABCC式"
+    ],
     "correct": 0,
-    "explanation": ""清清楚楚"是AABB式叠词，由"清楚"重叠而来。",
+    "explanation": "「清清楚楚」是AABB式叠词，由「清楚」重叠而来。",
     "difficulty": 2,
-    "tags": ["词语类型"],
+    "tags": [
+      "叠词"
+    ],
     "source": "curriculum"
+  },
+  {
+    "id": "v3-006",
+    "type": "vocab",
+    "prompt": "「高」的反义词是什么？",
+    "options": [
+      "矮",
+      "小",
+      "短",
+      "细"
+    ],
+    "correct": 0,
+    "explanation": "「高」的反义词是「矮」。高矮是描述身高或高度的一对反义词。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-007",
+    "type": "vocab",
+    "prompt": "「快」的反义词是什么？",
+    "options": [
+      "跑",
+      "慢",
+      "停",
+      "走"
+    ],
+    "correct": 1,
+    "explanation": "「快」的反义词是「慢」。快慢是一对反义词，表示速度的两个相反方向。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-008",
+    "type": "vocab",
+    "prompt": "「美丽」的近义词是什么？",
+    "options": [
+      "丑陋",
+      "漂亮",
+      "难看",
+      "普通"
+    ],
+    "correct": 1,
+    "explanation": "「美丽」和「漂亮」意思相近，都用来形容好看、美观。",
+    "difficulty": 1,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-009",
+    "type": "vocab",
+    "prompt": "量词填空：一（　）鱼",
+    "options": [
+      "条",
+      "只",
+      "头",
+      "匹"
+    ],
+    "correct": 0,
+    "explanation": "鱼是细长形的，用量词「条」，说「一条鱼」。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-010",
+    "type": "vocab",
+    "prompt": "量词填空：一（　）书",
+    "options": [
+      "张",
+      "条",
+      "本",
+      "根"
+    ],
+    "correct": 2,
+    "explanation": "书用量词「本」，说「一本书」。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-011",
+    "type": "vocab",
+    "prompt": "「明」字是什么结构？",
+    "options": [
+      "上下结构",
+      "左右结构",
+      "全包围结构",
+      "独体字"
+    ],
+    "correct": 1,
+    "explanation": "「明」字左边是「日」，右边是「月」，是左右结构。",
+    "difficulty": 1,
+    "tags": [
+      "字形"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-012",
+    "type": "vocab",
+    "prompt": "「花」字的读音声母是哪个？",
+    "options": [
+      "h",
+      "f",
+      "x",
+      "sh"
+    ],
+    "correct": 0,
+    "explanation": "「花」读 huā，声母是 h，韵母是 uā。",
+    "difficulty": 1,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-013",
+    "type": "vocab",
+    "prompt": "「认认真真」属于哪种叠词类型？",
+    "options": [
+      "ABAB式",
+      "AABB式",
+      "ABCC式",
+      "AABC式"
+    ],
+    "correct": 1,
+    "explanation": "「认认真真」是AABB式叠词，由「认真」重叠而来，表示程度深。",
+    "difficulty": 2,
+    "tags": [
+      "叠词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-014",
+    "type": "vocab",
+    "prompt": "「研究研究」属于哪种叠词类型？",
+    "options": [
+      "AABB式",
+      "ABAB式",
+      "ABCC式",
+      "AABC式"
+    ],
+    "correct": 1,
+    "explanation": "「研究研究」是ABAB式叠词，表示动作轻松随意，有稍微研究一下的意思。",
+    "difficulty": 2,
+    "tags": [
+      "叠词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-015",
+    "type": "vocab",
+    "prompt": "「亡羊补牢」这个成语的意思是？",
+    "options": [
+      "丢了羊就放弃",
+      "出了问题及时补救，还不算迟",
+      "修好羊圈再去找羊",
+      "羊丢了很可惜"
+    ],
+    "correct": 1,
+    "explanation": "「亡羊补牢」原意是羊跑了再修羊圈，比喻出了问题及时补救，还不算迟。",
+    "difficulty": 2,
+    "tags": [
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-016",
+    "type": "vocab",
+    "prompt": "量词填空：一（　）马",
+    "options": [
+      "条",
+      "只",
+      "匹",
+      "头"
+    ],
+    "correct": 2,
+    "explanation": "马用量词「匹」，说「一匹马」，这是专用量词。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-017",
+    "type": "vocab",
+    "prompt": "「想」字是什么结构？",
+    "options": [
+      "左右结构",
+      "上下结构",
+      "全包围结构",
+      "独体字"
+    ],
+    "correct": 1,
+    "explanation": "「想」字上面是「相」，下面是「心」，是上下结构。",
+    "difficulty": 2,
+    "tags": [
+      "字形"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-018",
+    "type": "vocab",
+    "prompt": "下列哪个字的读音是第一声（阴平）？",
+    "options": [
+      "国",
+      "来",
+      "天",
+      "地"
+    ],
+    "correct": 2,
+    "explanation": "「天」读 tiān，是第一声（阴平）。国(guó)第二声，来(lái)第二声，地(dì)第四声。",
+    "difficulty": 1,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-019",
+    "type": "vocab",
+    "prompt": "「爱护」的近义词是什么？",
+    "options": [
+      "破坏",
+      "爱惜",
+      "忽视",
+      "丢弃"
+    ],
+    "correct": 1,
+    "explanation": "「爱护」和「爱惜」意思相近，都表示珍视、保护某人或某物。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-020",
+    "type": "vocab",
+    "prompt": "「困难」的反义词是什么？",
+    "options": [
+      "复杂",
+      "容易",
+      "简单",
+      "方便"
+    ],
+    "correct": 1,
+    "explanation": "「困难」的反义词是「容易」。困难和容易是描述事情难度的一对反义词。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-021",
+    "type": "vocab",
+    "prompt": "量词填空：一（　）纸",
+    "options": [
+      "本",
+      "张",
+      "条",
+      "块"
+    ],
+    "correct": 1,
+    "explanation": "纸用量词「张」，说「一张纸」。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-022",
+    "type": "vocab",
+    "prompt": "「国」字是什么结构？",
+    "options": [
+      "左右结构",
+      "上下结构",
+      "全包围结构",
+      "半包围结构"
+    ],
+    "correct": 2,
+    "explanation": "「国」字外面是「囗」，里面是「玉」，是全包围结构。",
+    "difficulty": 2,
+    "tags": [
+      "字形"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-023",
+    "type": "vocab",
+    "prompt": "「叶公好龙」这个成语比喻什么样的人？",
+    "options": [
+      "非常喜欢龙的人",
+      "表面上喜欢某事，实际上并不真正喜欢",
+      "勇敢面对困难的人",
+      "做事认真的人"
+    ],
+    "correct": 1,
+    "explanation": "「叶公好龙」比喻表面喜欢某事物，一旦真正面对却害怕退缩的人。",
+    "difficulty": 3,
+    "tags": [
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-024",
+    "type": "vocab",
+    "prompt": "「太阳」的「阳」字读音的韵母是什么？",
+    "options": [
+      "ang",
+      "an",
+      "iang",
+      "ing"
+    ],
+    "correct": 0,
+    "explanation": "「阳」读 yáng，韵母是 ang。",
+    "difficulty": 2,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-025",
+    "type": "vocab",
+    "prompt": "「高高兴兴」是什么类型的叠词？",
+    "options": [
+      "ABAB式",
+      "ABCC式",
+      "AABB式",
+      "AABC式"
+    ],
+    "correct": 2,
+    "explanation": "「高高兴兴」是AABB式叠词，由「高兴」重叠而来，表示非常高兴。",
+    "difficulty": 2,
+    "tags": [
+      "叠词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-026",
+    "type": "vocab",
+    "prompt": "量词填空：一（　）鸟",
+    "options": [
+      "条",
+      "只",
+      "匹",
+      "头"
+    ],
+    "correct": 1,
+    "explanation": "鸟用量词「只」，说「一只鸟」。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-027",
+    "type": "vocab",
+    "prompt": "「勤劳」的反义词是什么？",
+    "options": [
+      "辛苦",
+      "懒惰",
+      "努力",
+      "认真"
+    ],
+    "correct": 1,
+    "explanation": "「勤劳」的反义词是「懒惰」。勤劳和懒惰是描述劳动态度的一对反义词。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-028",
+    "type": "vocab",
+    "prompt": "「笑」字的部首是什么？",
+    "options": [
+      "大",
+      "竹",
+      "口",
+      "人"
+    ],
+    "correct": 1,
+    "explanation": "「笑」字的部首是「竹」（竹字头），上面是竹字头，下面是「夭」。",
+    "difficulty": 2,
+    "tags": [
+      "字形"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-029",
+    "type": "vocab",
+    "prompt": "「寒冷」的近义词是什么？",
+    "options": [
+      "温暖",
+      "炎热",
+      "冰冷",
+      "凉快"
+    ],
+    "correct": 2,
+    "explanation": "「寒冷」和「冰冷」意思相近，都表示温度很低、很冷。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-030",
+    "type": "vocab",
+    "prompt": "「守株待兔」这个成语告诉我们什么道理？",
+    "options": [
+      "要有耐心等待",
+      "不能靠侥幸心理，要主动努力",
+      "兔子会撞树桩",
+      "种田很辛苦"
+    ],
+    "correct": 1,
+    "explanation": "「守株待兔」比喻不主动努力，心存侥幸、希望得到意外收获的人。",
+    "difficulty": 2,
+    "tags": [
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-031",
+    "type": "vocab",
+    "prompt": "下列哪个字的读音是第三声（上声）？",
+    "options": [
+      "山",
+      "河",
+      "水",
+      "云"
+    ],
+    "correct": 2,
+    "explanation": "「水」读 shuǐ，是第三声（上声）。山(shān)第一声，河(hé)第二声，云(yún)第二声。",
+    "difficulty": 1,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-032",
+    "type": "vocab",
+    "prompt": "量词填空：一（　）花",
+    "options": [
+      "个",
+      "朵",
+      "片",
+      "株"
+    ],
+    "correct": 1,
+    "explanation": "花用量词「朵」，说「一朵花」。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-033",
+    "type": "vocab",
+    "prompt": "「问」字是什么结构？",
+    "options": [
+      "左右结构",
+      "上下结构",
+      "全包围结构",
+      "半包围结构"
+    ],
+    "correct": 3,
+    "explanation": "「问」字外面是「门」（半包围），里面是「口」，是半包围结构。",
+    "difficulty": 2,
+    "tags": [
+      "字形"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-034",
+    "type": "vocab",
+    "prompt": "「伤心」的近义词是什么？",
+    "options": [
+      "开心",
+      "难过",
+      "快乐",
+      "高兴"
+    ],
+    "correct": 1,
+    "explanation": "「伤心」和「难过」意思相近，都表示心里不好受、悲伤的感情。",
+    "difficulty": 1,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-035",
+    "type": "vocab",
+    "prompt": "「讨论讨论」是哪种叠词类型？",
+    "options": [
+      "AABB式",
+      "ABAB式",
+      "ABCC式",
+      "AABC式"
+    ],
+    "correct": 1,
+    "explanation": "「讨论讨论」是ABAB式叠词，表示动作是轻松随意地进行，有稍微讨论一下的意思。",
+    "difficulty": 2,
+    "tags": [
+      "叠词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-036",
+    "type": "vocab",
+    "prompt": "「掩耳盗铃」这个成语比喻什么？",
+    "options": [
+      "耳朵不好使",
+      "自己骗自己，以为别人不知道",
+      "偷东西被抓住",
+      "声音很响"
+    ],
+    "correct": 1,
+    "explanation": "「掩耳盗铃」比喻自己欺骗自己，明明掩不住的事情却自以为掩住了。",
+    "difficulty": 3,
+    "tags": [
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-037",
+    "type": "vocab",
+    "prompt": "量词填空：一（　）牛",
+    "options": [
+      "只",
+      "条",
+      "头",
+      "匹"
+    ],
+    "correct": 2,
+    "explanation": "牛用量词「头」，说「一头牛」。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-038",
+    "type": "vocab",
+    "prompt": "「晴」字的声母是什么？",
+    "options": [
+      "j",
+      "q",
+      "x",
+      "zh"
+    ],
+    "correct": 1,
+    "explanation": "「晴」读 qíng，声母是 q，韵母是 ing，是第二声。",
+    "difficulty": 2,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-039",
+    "type": "vocab",
+    "prompt": "「胆大」的反义词是什么？",
+    "options": [
+      "勇敢",
+      "胆小",
+      "害怕",
+      "惊慌"
+    ],
+    "correct": 1,
+    "explanation": "「胆大」的反义词是「胆小」。胆大和胆小是描述勇气的一对反义词。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-040",
+    "type": "vocab",
+    "prompt": "「松」字是什么结构？",
+    "options": [
+      "上下结构",
+      "左右结构",
+      "全包围结构",
+      "独体字"
+    ],
+    "correct": 1,
+    "explanation": "「松」字左边是「木」，右边是「公」，是左右结构。",
+    "difficulty": 1,
+    "tags": [
+      "字形"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-041",
+    "type": "vocab",
+    "prompt": "「画蛇添足」的意思是？",
+    "options": [
+      "蛇没有脚",
+      "多此一举，反而坏事",
+      "画画技术高超",
+      "把蛇画得很逼真"
+    ],
+    "correct": 1,
+    "explanation": "「画蛇添足」比喻做了多余的事，反而造成不好的结果。",
+    "difficulty": 3,
+    "tags": [
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-042",
+    "type": "vocab",
+    "prompt": "量词填空：一（　）歌",
+    "options": [
+      "本",
+      "首",
+      "个",
+      "条"
+    ],
+    "correct": 1,
+    "explanation": "歌用量词「首」，说「一首歌」。诗、歌等用「首」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-043",
+    "type": "vocab",
+    "prompt": "「安静」的反义词是什么？",
+    "options": [
+      "热闹",
+      "平静",
+      "宁静",
+      "寂静"
+    ],
+    "correct": 0,
+    "explanation": "「安静」的反义词是「热闹」。安静表示没有声音，热闹表示声音大、气氛活跃。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-044",
+    "type": "vocab",
+    "prompt": "下列哪个字的读音是第四声（去声）？",
+    "options": [
+      "书",
+      "来",
+      "好",
+      "爱"
+    ],
+    "correct": 3,
+    "explanation": "「爱」读 ài，是第四声（去声）。书(shū)第一声，来(lái)第二声，好(hǎo)第三声。",
+    "difficulty": 1,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-045",
+    "type": "vocab",
+    "prompt": "「高兴」的近义词是什么？",
+    "options": [
+      "难过",
+      "郁闷",
+      "快乐",
+      "伤心"
+    ],
+    "correct": 2,
+    "explanation": "「高兴」和「快乐」意思相近，都表示内心愉快、开心的感情。",
+    "difficulty": 1,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-046",
+    "type": "vocab",
+    "prompt": "「字」字是什么结构？",
+    "options": [
+      "左右结构",
+      "上下结构",
+      "全包围结构",
+      "独体字"
+    ],
+    "correct": 1,
+    "explanation": "「字」字上面是「宀」（宝盖头），下面是「子」，是上下结构。",
+    "difficulty": 2,
+    "tags": [
+      "字形"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-047",
+    "type": "vocab",
+    "prompt": "「坐井观天」这个成语比喻什么样的人？",
+    "options": [
+      "在井里看天",
+      "目光短浅、见识狭小",
+      "喜欢观察天空",
+      "非常聪明"
+    ],
+    "correct": 1,
+    "explanation": "「坐井观天」比喻眼界狭窄、见识少，就像坐在井底只能看到一小片天空的青蛙。",
+    "difficulty": 3,
+    "tags": [
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-048",
+    "type": "vocab",
+    "prompt": "「开开心心」是哪种叠词类型？",
+    "options": [
+      "ABAB式",
+      "ABCC式",
+      "AABB式",
+      "AABC式"
+    ],
+    "correct": 2,
+    "explanation": "「开开心心」是AABB式叠词，由「开心」重叠而来，表示非常开心。",
+    "difficulty": 2,
+    "tags": [
+      "叠词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-049",
+    "type": "vocab",
+    "prompt": "量词填空：一（　）树",
+    "options": [
+      "条",
+      "棵",
+      "朵",
+      "片"
+    ],
+    "correct": 1,
+    "explanation": "树用量词「棵」，说「一棵树」。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-050",
+    "type": "vocab",
+    "prompt": "「愚公移山」这个成语赞扬了什么精神？",
+    "options": [
+      "聪明机智",
+      "坚持不懈、不怕困难的精神",
+      "团结合作的精神",
+      "节约资源的精神"
+    ],
+    "correct": 1,
+    "explanation": "「愚公移山」赞扬了不畏困难、坚持不懈、持之以恒的精神。这是一个励志的故事。",
+    "difficulty": 4,
+    "tags": [
+      "成语"
+    ],
+    "source": "supplementary"
   }
 ]
