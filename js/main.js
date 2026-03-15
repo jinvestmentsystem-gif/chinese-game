@@ -4,6 +4,9 @@ import './screens/profile.js';
 import './screens/worldmap.js';
 import './screens/quest.js';
 import './screens/reward.js';
+import './screens/combat.js';
+import './screens/puzzle.js';
+import './screens/boss.js';
 
 const root = document.getElementById('game-root');
 const screens = {};
