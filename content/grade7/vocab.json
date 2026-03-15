@@ -2,7 +2,7 @@
   {
     "id": "v7-001",
     "type": "vocab",
-    "prompt": ""翕"字的正确读音是什么？",
+    "prompt": "「翕」字的正确读音是什么？",
     "options": ["xī", "hé", "qì", "shà"],
     "correct": 0,
     "explanation": "翕 (xī)，意为合拢、收敛。",
@@ -13,10 +13,10 @@
   {
     "id": "v7-002",
     "type": "vocab",
-    "prompt": ""期"在古文中最常见的意思是？",
+    "prompt": "「期」在古文中最常见的意思是？",
     "options": ["日期", "期望", "约定", "时期"],
     "correct": 2,
-    "explanation": "在文言文中，"期"多指约定，如"陈太丘与友期行"。",
+    "explanation": "在文言文中，「期」多指约定，如「陈太丘与友期行」。",
     "difficulty": 2,
     "tags": ["先秦", "词义"],
     "source": "curriculum"
@@ -24,10 +24,10 @@
   {
     "id": "v7-003",
     "type": "vocab",
-    "prompt": "下列哪个词语中"观"的意思与其他三项不同？",
+    "prompt": "下列哪个词语中「观」的意思与其他三项不同？",
     "options": ["观沧海", "观察", "壮观", "观赏"],
     "correct": 2,
-    "explanation": ""壮观"中的"观"是名词（景象），其他三项中的"观"都是动词（看）。",
+    "explanation": "「壮观」中的「观」是名词（景象），其他三项中的「观」都是动词（看）。",
     "difficulty": 4,
     "tags": ["先秦", "多义词"],
     "source": "curriculum"
@@ -35,10 +35,10 @@
   {
     "id": "v7-004",
     "type": "vocab",
-    "prompt": ""随声附和"中"和"的正确读音是？",
+    "prompt": "「随声附和」中「和」的正确读音是？",
     "options": ["hé", "hè", "hú", "huó"],
     "correct": 1,
-    "explanation": "此处"和"读 hè，意为应和、响应。",
+    "explanation": "此处「和」读 hè，意为应和、响应。",
     "difficulty": 2,
     "tags": ["先秦", "字音"],
     "source": "curriculum"
@@ -46,12 +46,542 @@
   {
     "id": "v7-005",
     "type": "vocab",
-    "prompt": ""温故而知新"中"故"的意思是？",
+    "prompt": "「温故而知新」中「故」的意思是？",
     "options": ["故事", "原因", "旧的知识", "所以"],
     "correct": 2,
-    "explanation": ""故"在此指旧的、已学过的知识。出自《论语》。",
+    "explanation": "「故」在此指旧的、已学过的知识。出自《论语》。",
     "difficulty": 1,
     "tags": ["先秦", "词义"],
     "source": "curriculum"
+  },
+  {
+    "id": "v7-006",
+    "type": "vocab",
+    "prompt": "「澄澈」的正确读音是？",
+    "options": ["chéng chè", "dèng chè", "chéng chá", "dèng chá"],
+    "correct": 0,
+    "explanation": "「澄」在「澄澈」中读 chéng，意为清澈透明；「澈」读 chè。注意「澄」另有读音 dèng（澄清液体）。",
+    "difficulty": 2,
+    "tags": ["字音", "多音字"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-007",
+    "type": "vocab",
+    "prompt": "「着」是多音字，在「着急」中读？",
+    "options": ["zhe", "zháo", "zhuó", "zhāo"],
+    "correct": 1,
+    "explanation": "「着急」中「着」读 zháo，意为感到（急迫）。「着」的四个读音：zhe（助词）、zháo（感受到）、zhuó（穿着）、zhāo（招数）。",
+    "difficulty": 2,
+    "tags": ["字音", "多音字"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-008",
+    "type": "vocab",
+    "prompt": "下列词语中，字形全部正确的是？",
+    "options": ["迷惑、陶冶、竭泽而鱼", "迷惑、陶冶、竭泽而渔", "迷或、陶冶、竭泽而渔", "迷惑、陶冾、竭泽而渔"],
+    "correct": 1,
+    "explanation": "「迷惑」不是「迷或」；「陶冶」不是「陶冾」；成语应为「竭泽而渔」（渔，捕鱼），意为排尽湖水捉鱼，比喻做事不留余地。",
+    "difficulty": 3,
+    "tags": ["字形"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-009",
+    "type": "vocab",
+    "prompt": "「徘徊」的正确写法是？",
+    "options": ["徘徊", "排徊", "徘回", "排回"],
+    "correct": 0,
+    "explanation": "「徘徊」均用双人旁（彳），意为来回走动、犹豫不决。注意不要写成「排徊」或「徘回」。",
+    "difficulty": 2,
+    "tags": ["字形"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-010",
+    "type": "vocab",
+    "prompt": "「莅临」中「莅」的正确读音是？",
+    "options": ["lì", "wèi", "lǐ", "lài"],
+    "correct": 0,
+    "explanation": "「莅」读 lì，「莅临」意为到来、光临，多用于正式场合表示尊敬。",
+    "difficulty": 3,
+    "tags": ["字音"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-011",
+    "type": "vocab",
+    "prompt": "成语「拈轻怕重」的意思是？",
+    "options": ["拿轻的东西害怕重的东西", "接受容易的任务，回避困难的工作", "做事小心谨慎", "工作效率低下"],
+    "correct": 1,
+    "explanation": "「拈轻怕重」比喻工作中只挑轻松的，害怕承担繁重的任务，形容工作态度不积极。",
+    "difficulty": 3,
+    "tags": ["成语"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-012",
+    "type": "vocab",
+    "prompt": "「美不胜收」中「胜」的意思是？",
+    "options": ["胜利", "能承受、尽", "超过", "优美"],
+    "correct": 1,
+    "explanation": "「美不胜收」中「胜」意为尽、完，即美好的事物多得来不及一一欣赏。",
+    "difficulty": 3,
+    "tags": ["成语", "词义"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-013",
+    "type": "vocab",
+    "prompt": "「喜出望外」的近义词是？",
+    "options": ["大失所望", "出乎意料", "欣喜若狂", "心想事成"],
+    "correct": 2,
+    "explanation": "「喜出望外」指因遇到出乎意料的好事而感到特别高兴。「欣喜若狂」同样表达极度高兴的意思，是其近义词。「大失所望」是反义词。",
+    "difficulty": 2,
+    "tags": ["近义词", "成语"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-014",
+    "type": "vocab",
+    "prompt": "「骄傲」的反义词是？",
+    "options": ["自豪", "谦虚", "傲慢", "自大"],
+    "correct": 1,
+    "explanation": "「骄傲」指自以为了不起，看不起别人；其反义词是「谦虚」，指虚心，不自满。注意「骄傲」也有「自豪」的褒义，但作为反义词应选「谦虚」。",
+    "difficulty": 1,
+    "tags": ["反义词"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-015",
+    "type": "vocab",
+    "prompt": "「截然不同」中「截然」的意思是？",
+    "options": ["突然", "完全、彻底", "截断之后", "部分"],
+    "correct": 1,
+    "explanation": "「截然」是副词，意为完全、彻底（像刀截断一样分明）。「截然不同」即完全不同、毫无相似之处。",
+    "difficulty": 2,
+    "tags": ["词义", "成语"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-016",
+    "type": "vocab",
+    "prompt": "「坚韧」与「坚硬」是一对？",
+    "options": ["近义词", "反义词", "同义词", "无关词"],
+    "correct": 0,
+    "explanation": "「坚韧」意为坚固而有韧性；「坚硬」意为结实、不易破坏。两者都含「坚」且意义相近，是近义词，但「韧」侧重柔中带韧，「硬」侧重刚硬。",
+    "difficulty": 3,
+    "tags": ["近义词"],
+    "source": "supplementary"
+  },
+  {
+    "id": "v7-017",
+    "type": "vocab",
+    "prompt": "「参」是多音字，在「参差不齐」中读？",
+    "options": ["cān", "shēn", "cēn", "càn"],
+    "correct": 2,
+    "explanation": "「参差不齐」中「参」读 cēn（与「差 cī」连用），意为长短、高低不一。「参」的其他读音：cān（参加）、shēn（人参）。",
+    "difficulty": 4,
+    "tags": ["字音", "多音字"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-018",
+    "type": "vocab",
+    "prompt": "「混」是多音字，以下读音判断正确的是？",
+    "options": ["混（hùn）水摸鱼", "混（hún）沌", "以上两项均正确", "以上两项均错误"],
+    "correct": 2,
+    "explanation": "「混」有两个读音：hùn（混合、混水摸鱼）和 hún（混沌，传说中天地未开辟前的状态）。两个选项均正确。",
+    "difficulty": 4,
+    "tags": ["字音", "多音字"],
+    "source": "supplementary"
+  },
+  {
+    "id": "v7-019",
+    "type": "vocab",
+    "prompt": "下列各组词语中，没有错别字的一组是？",
+    "options": ["恍然大悟、历历在目、无精打彩", "恍然大悟、历历在目、无精打采", "晃然大悟、历历在目、无精打采", "恍然大悟、厉厉在目、无精打采"],
+    "correct": 1,
+    "explanation": "「无精打采」中「采」不写作「彩」；「恍然大悟」中「恍」不写作「晃」；「历历在目」中「历」不写作「厉」。",
+    "difficulty": 3,
+    "tags": ["字形"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-020",
+    "type": "vocab",
+    "prompt": "「繁」字共有多少笔画？",
+    "options": ["16画", "17画", "18画", "19画"],
+    "correct": 1,
+    "explanation": "「繁」字共17画。",
+    "difficulty": 3,
+    "tags": ["字形", "笔画"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-021",
+    "type": "vocab",
+    "prompt": "「踌躇满志」的意思是？",
+    "options": ["犹豫不决，无所适从", "得意自满的样子", "志向远大，踌躇满怀", "思绪纷乱，心情复杂"],
+    "correct": 1,
+    "explanation": "「踌躇满志」原指悠然自得、心满意足的样子，现多形容对自己的成就非常满意，得意洋洋。",
+    "difficulty": 4,
+    "tags": ["成语"],
+    "source": "supplementary"
+  },
+  {
+    "id": "v7-022",
+    "type": "vocab",
+    "prompt": "下面哪个句子中成语使用有误？",
+    "options": [
+      "他的演讲妙语连珠，令人叹服。",
+      "这道题目一蹴而就，根本难不倒他。",
+      "春天来了，百花齐放，万紫千红。",
+      "运动会上，同学们生龙活虎，奋勇争先。"
+    ],
+    "correct": 1,
+    "explanation": "「一蹴而就」意为一步就成功，强调成功不费力。但「根本难不倒他」已经表达了同样的意思，两者语义重复，使用不当。应改为「他轻而易举地解出了这道题」。",
+    "difficulty": 4,
+    "tags": ["成语"],
+    "source": "supplementary"
+  },
+  {
+    "id": "v7-023",
+    "type": "vocab",
+    "prompt": "「悄」是多音字，「悄悄」读？",
+    "options": ["qiāo qiāo", "qiǎo qiǎo", "qiào qiào", "qiāo qiǎo"],
+    "correct": 0,
+    "explanation": "「悄悄」读 qiāo qiāo，意为没有声音或声音很轻。「悄」还有读音 qiǎo，如「悄然」（形容忧愁的样子，书面语）。",
+    "difficulty": 2,
+    "tags": ["字音", "多音字"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-024",
+    "type": "vocab",
+    "prompt": "「宽恕」的近义词是？",
+    "options": ["惩罚", "原谅", "批评", "责备"],
+    "correct": 1,
+    "explanation": "「宽恕」意为宽容饶恕，其近义词是「原谅」（宽容谅解）。「惩罚」「批评」「责备」均为反义或无关词。",
+    "difficulty": 1,
+    "tags": ["近义词"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-025",
+    "type": "vocab",
+    "prompt": "「花团锦簇」中「簇」的正确读音是？",
+    "options": ["cù", "zú", "chù", "chú"],
+    "correct": 0,
+    "explanation": "「簇」读 cù，「花团锦簇」形容五彩缤纷、十分华丽的景象。",
+    "difficulty": 2,
+    "tags": ["字音"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-026",
+    "type": "vocab",
+    "prompt": "「风雨如晦」中「晦」的意思是？",
+    "options": ["黑暗、阴暗", "月末", "糊涂", "下雨"],
+    "correct": 0,
+    "explanation": "「晦」的本义是月末（即阴历月底，此时无月光，故引申为黑暗）。「风雨如晦」形容天色阴暗，风雨交加，比喻社会动荡黑暗。",
+    "difficulty": 4,
+    "tags": ["词义"],
+    "source": "supplementary"
+  },
+  {
+    "id": "v7-027",
+    "type": "vocab",
+    "prompt": "下列加点字读音全部正确的一项是？",
+    "options": [
+      "倔强（juè jiàng）、模样（mó yàng）、供给（gōng jǐ）",
+      "倔强（jué jiàng）、模样（mú yàng）、供给（gōng jǐ）",
+      "倔强（jué jiàng）、模样（mó yàng）、供给（gòng jǐ）",
+      "倔强（juè jiàng）、模样（mú yàng）、供给（gōng jǐ）"
+    ],
+    "correct": 1,
+    "explanation": "「倔」读 jué，不读 juè；「模样」中「模」读 mú（口语），不读 mó；「供给」中「供」读 gōng（提供），不读 gòng（供奉）。",
+    "difficulty": 4,
+    "tags": ["字音", "多音字"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-028",
+    "type": "vocab",
+    "prompt": "「废寝忘食」与下列哪个成语意思最相近？",
+    "options": ["心不在焉", "夜以继日", "三心二意", "漫不经心"],
+    "correct": 1,
+    "explanation": "「废寝忘食」形容专心致志，废寝忘食地工作或学习。「夜以继日」同样形容不分昼夜地工作，两者都强调勤奋投入，意思最相近。",
+    "difficulty": 2,
+    "tags": ["近义词", "成语"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-029",
+    "type": "vocab",
+    "prompt": "形容一件事的影响广泛、人人皆知，应选用哪个词？",
+    "options": ["振聋发聩", "家喻户晓", "耳熟能详", "脍炙人口"],
+    "correct": 1,
+    "explanation": "「家喻户晓」意为每家每户都知道，形容影响广泛、人人皆知。「振聋发聩」比喻言论唤醒麻木的人；「耳熟能详」指听得多了，能详细地说出；「脍炙人口」形容诗文等广为流传。",
+    "difficulty": 3,
+    "tags": ["成语", "词义"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-030",
+    "type": "vocab",
+    "prompt": "「赋」字在「天赋」和「赋税」中的含义分别是？",
+    "options": [
+      "两者都是给予的意思",
+      "天赋中是给予，赋税中是征收",
+      "天赋中是才能，赋税中是税收",
+      "两者含义相同，都指税"
+    ],
+    "correct": 1,
+    "explanation": "「天赋」中「赋」意为给予（上天给予的才能）；「赋税」中「赋」意为征收（国家向百姓征收的税）。「赋」是一个多义词。",
+    "difficulty": 3,
+    "tags": ["多义词", "词义"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-031",
+    "type": "vocab",
+    "prompt": "「杂乱无章」的反义词是？",
+    "options": ["井然有序", "乱七八糟", "东倒西歪", "纷繁复杂"],
+    "correct": 0,
+    "explanation": "「杂乱无章」形容乱七八糟，毫无秩序；其反义词是「井然有序」，形容整整齐齐，秩序分明。",
+    "difficulty": 1,
+    "tags": ["反义词", "成语"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-032",
+    "type": "vocab",
+    "prompt": "「曲」是多音字，「曲折」中「曲」读？",
+    "options": ["qū", "qǔ", "qú", "gǔ"],
+    "correct": 0,
+    "explanation": "「曲折」中「曲」读 qū，意为弯曲。「曲」读 qǔ 时指歌曲、乐曲，如「歌曲」「小曲」。",
+    "difficulty": 1,
+    "tags": ["字音", "多音字"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-033",
+    "type": "vocab",
+    "prompt": "「斑斓」的「斓」字正确写法是？",
+    "options": ["斓", "澜", "谰", "阑"],
+    "correct": 0,
+    "explanation": "「斑斓」意为颜色错杂灿烂，「斓」是文字旁（文）。「澜」是三点水旁，「谰」是言字旁，「阑」是门字框，均不同。",
+    "difficulty": 3,
+    "tags": ["字形"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-034",
+    "type": "vocab",
+    "prompt": "「叹为观止」这个成语原本出自？",
+    "options": ["《论语》", "《左传》", "《诗经》", "《史记》"],
+    "correct": 1,
+    "explanation": "「叹为观止」出自《左传·襄公二十九年》，吴公子季札在鲁国观舞后赞叹「观止矣」，形容所见事物美好到极点。",
+    "difficulty": 5,
+    "tags": ["成语"],
+    "source": "supplementary"
+  },
+  {
+    "id": "v7-035",
+    "type": "vocab",
+    "prompt": "「抑扬顿挫」形容的是什么？",
+    "options": ["文章内容起伏", "声音高低起伏有节奏", "情绪波动变化", "山峰高低不平"],
+    "correct": 1,
+    "explanation": "「抑扬顿挫」形容声音高低起伏、节奏分明，多用于形容朗读、演讲或音乐的声音效果。",
+    "difficulty": 2,
+    "tags": ["成语", "词义"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-036",
+    "type": "vocab",
+    "prompt": "「辨」和「辩」的区别是？",
+    "options": [
+      "两字完全相同，可以通用",
+      "「辨」与分辨有关，「辩」与争辩说话有关",
+      "「辩」与分辨有关，「辨」与争辩说话有关",
+      "两字都与说话有关"
+    ],
+    "correct": 1,
+    "explanation": "「辨」（中间是一竖，无言字旁）意为分辨、辨别，如「辨别方向」；「辩」（中间有言字旁）意为辩论、辩解，如「辩论」。",
+    "difficulty": 3,
+    "tags": ["字形"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-037",
+    "type": "vocab",
+    "prompt": "「不屑一顾」中「屑」的意思是？",
+    "options": ["碎末、碎片", "认为值得", "高兴", "眼神"],
+    "correct": 1,
+    "explanation": "「不屑一顾」中「屑」意为认为值得，整个词意为不认为值得看一眼，表示非常轻视。",
+    "difficulty": 4,
+    "tags": ["成语", "词义"],
+    "source": "supplementary"
+  },
+  {
+    "id": "v7-038",
+    "type": "vocab",
+    "prompt": "「呕心沥血」中「沥」的意思是？",
+    "options": ["过滤", "一滴一滴地滴落", "流动", "洒落"],
+    "correct": 1,
+    "explanation": "「沥」意为液体一滴一滴地滴落。「呕心沥血」形容费尽心思和精力，多用于创作或培养他人。",
+    "difficulty": 3,
+    "tags": ["成语", "词义"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-039",
+    "type": "vocab",
+    "prompt": "「稀罕」的近义词是？",
+    "options": ["普通", "珍贵", "罕见", "平常"],
+    "correct": 2,
+    "explanation": "「稀罕」意为少见、罕见，认为稀奇。其近义词是「罕见」（很少见到）。「普通」「平常」均为反义词。",
+    "difficulty": 1,
+    "tags": ["近义词"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-040",
+    "type": "vocab",
+    "prompt": "「干」是多音字，在「干劲十足」中读？",
+    "options": ["gān", "gàn", "gǎn", "hán"],
+    "correct": 1,
+    "explanation": "「干劲」中「干」读 gàn，意为做事、做工。「干」读 gān 时意为干燥，如「干旱」。",
+    "difficulty": 2,
+    "tags": ["字音", "多音字"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-041",
+    "type": "vocab",
+    "prompt": "「哗众取宠」的意思是？",
+    "options": [
+      "大声喧哗，吸引众人围观",
+      "用不切实际或迎合低级趣味的言行来博取众人的喝彩",
+      "取悦众多宠物",
+      "在众人面前哗然取胜"
+    ],
+    "correct": 1,
+    "explanation": "「哗众取宠」中「哗」指喧哗、夸大，意为用言行哗众以取悦于人，形容不顾事实，迎合群众心理，以博取好感或支持。",
+    "difficulty": 4,
+    "tags": ["成语"],
+    "source": "supplementary"
+  },
+  {
+    "id": "v7-042",
+    "type": "vocab",
+    "prompt": "下列成语中，含有反义词的一项是？",
+    "options": ["日积月累", "大惊小怪", "南辕北辙", "千方百计"],
+    "correct": 2,
+    "explanation": "「南辕北辙」中「南」与「北」是方向相反的反义词，比喻行动与目的相反。其他选项中词语均为近义或并列关系。",
+    "difficulty": 3,
+    "tags": ["成语", "反义词"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-043",
+    "type": "vocab",
+    "prompt": "「不可思议」中「议」的意思是？",
+    "options": ["讨论", "猜测", "想象、揣度", "理解"],
+    "correct": 2,
+    "explanation": "「不可思议」指想象（思）和揣度（议）都做不到，形容无法理解、超乎想象。「思」和「议」在此义近并列。",
+    "difficulty": 3,
+    "tags": ["成语", "词义"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-044",
+    "type": "vocab",
+    "prompt": "「斟酌」的意思是？",
+    "options": ["倒酒", "考虑、反复权衡", "犹豫不决", "仔细观察"],
+    "correct": 1,
+    "explanation": "「斟酌」本义是倒酒，引申为反复考虑、权衡利弊，多用于「斟酌词语」「斟酌情况」等语境。",
+    "difficulty": 2,
+    "tags": ["词义"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-045",
+    "type": "vocab",
+    "prompt": "「宽阔」与「广阔」的区别是？",
+    "options": [
+      "两者完全相同，可以互换",
+      "「宽阔」多指横向宽度，「广阔」多指范围广大",
+      "「广阔」多指横向宽度，「宽阔」多指范围广大",
+      "两者都只能形容地域"
+    ],
+    "correct": 1,
+    "explanation": "「宽阔」着重于横向的宽广，如「宽阔的马路」；「广阔」着重于面积范围大，如「广阔的土地」「广阔的前景」。",
+    "difficulty": 3,
+    "tags": ["近义词"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-046",
+    "type": "vocab",
+    "prompt": "下列词语中「行」字读音为 háng 的是？",
+    "options": ["行走", "银行", "行动", "旅行"],
+    "correct": 1,
+    "explanation": "「行」读 háng 时指行业、排行，如「银行」「行业」。读 xíng 时意为走路、做事，如「行走」「行动」「旅行」。",
+    "difficulty": 2,
+    "tags": ["字音", "多音字"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-047",
+    "type": "vocab",
+    "prompt": "成语「马到成功」中，「马到」比喻什么？",
+    "options": ["骑马前往", "行动迅速", "军队到达", "策马奔腾"],
+    "correct": 1,
+    "explanation": "「马到成功」原指战马一到就能取得胜利，比喻工作刚开始就顺利完成，形容行动迅速、一举成功。",
+    "difficulty": 2,
+    "tags": ["成语"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-048",
+    "type": "vocab",
+    "prompt": "「惬意」的意思是？",
+    "options": ["满足、舒适", "挑剔、讲究", "忧愁、不安", "兴奋、激动"],
+    "correct": 0,
+    "explanation": "「惬意」意为满足心意，感到舒适痛快。如「这个下午在公园里散步，感觉十分惬意」。",
+    "difficulty": 2,
+    "tags": ["词义"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-049",
+    "type": "vocab",
+    "prompt": "「一字之差」中「差」的正确读音是？",
+    "options": ["chā", "chà", "chāi", "cī"],
+    "correct": 0,
+    "explanation": "「一字之差」中「差」读 chā，意为差别、差异。「差」的常用读音：chā（差别）、chà（差劲）、chāi（出差）、cī（参差）。",
+    "difficulty": 3,
+    "tags": ["字音", "多音字"],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-050",
+    "type": "vocab",
+    "prompt": "「穷途末路」的近义词和反义词分别是？",
+    "options": [
+      "近义词：山穷水尽；反义词：前途无量",
+      "近义词：前途无量；反义词：山穷水尽",
+      "近义词：柳暗花明；反义词：山穷水尽",
+      "近义词：山穷水尽；反义词：一败涂地"
+    ],
+    "correct": 0,
+    "explanation": "「穷途末路」意为到了无路可走的地步，处境极为困难。近义词是「山穷水尽」（同样形容走投无路）；反义词是「前途无量」（形容发展前景极好）。",
+    "difficulty": 5,
+    "tags": ["近义词", "反义词", "成语"],
+    "source": "supplementary"
   }
 ]
