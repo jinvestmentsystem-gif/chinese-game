@@ -10,6 +10,8 @@ let musicLoopHandle = null;
 let currentEra = 'menu';
 let currentIntensity = 0; // 0=ambient, 1=combat, 2=combo, 3=boss/critical
 let masterMusicGain = null;   // GainNode — master volume for all music layers
+let masterSfxGain = null;     // GainNode — master volume for SFX
+let masterStingerGain = null; // GainNode — master volume for stingers
 let layerGains = {};          // GainNode per layer so we can fade in/out
 let activeLayerNodes = {};    // keyed by layer name
 
@@ -641,9 +643,19 @@ export function initAudio() {
   audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   audioCtx.resume();
 
+  // Master SFX gain — controls volume of all sound effects
+  masterSfxGain = audioCtx.createGain();
+  masterSfxGain.gain.value = 0.35; // SFX much softer than before
+  masterSfxGain.connect(audioCtx.destination);
+
+  // Master stinger gain — musical stingers (victory, battle start)
+  masterStingerGain = audioCtx.createGain();
+  masterStingerGain.gain.value = 0.4;
+  masterStingerGain.connect(audioCtx.destination);
+
   // Master gain for all music — kept below SFX headroom
   masterMusicGain = audioCtx.createGain();
-  masterMusicGain.gain.value = 0.85;
+  masterMusicGain.gain.value = 0.55; // Music softer overall
   masterMusicGain.connect(audioCtx.destination);
 
   // Feedback delay for reverb-like spatial depth
@@ -784,7 +796,7 @@ export function playStinger(type) {
         g.gain.linearRampToValueAtTime(0.22, t + 0.02);
         g.gain.exponentialRampToValueAtTime(0.0001, t + (i === 3 ? 2.4 : 0.22));
         osc.connect(g);
-        g.connect(audioCtx.destination);
+        g.connect(masterSfxGain || audioCtx.destination);
         osc.start(t);
         osc.stop(t + (i === 3 ? 2.5 : 0.26));
       });
@@ -800,7 +812,7 @@ export function playStinger(type) {
         g.gain.setValueAtTime(0.15, chordStart + 2.8);
         g.gain.exponentialRampToValueAtTime(0.0001, chordStart + 3.5);
         osc.connect(g);
-        g.connect(audioCtx.destination);
+        g.connect(masterSfxGain || audioCtx.destination);
         osc.start(chordStart);
         osc.stop(chordStart + 3.6);
       });
@@ -835,7 +847,7 @@ export function playStinger(type) {
         g.gain.linearRampToValueAtTime(0.18 + i * 0.012, t + 0.02);
         g.gain.exponentialRampToValueAtTime(0.0001, t + 0.18);
         osc.connect(g);
-        g.connect(audioCtx.destination);
+        g.connect(masterSfxGain || audioCtx.destination);
         osc.start(t);
         osc.stop(t + 0.22);
       });
@@ -861,7 +873,7 @@ export function playStinger(type) {
         g.gain.setValueAtTime(0.22, now);
         g.gain.exponentialRampToValueAtTime(0.0001, now + 0.18);
         osc.connect(g);
-        g.connect(audioCtx.destination);
+        g.connect(masterSfxGain || audioCtx.destination);
         osc.start(now);
         osc.stop(now + 0.22);
       });
@@ -876,7 +888,7 @@ export function playStinger(type) {
         g.gain.linearRampToValueAtTime(0.16, resolveStart + 0.03);
         g.gain.exponentialRampToValueAtTime(0.0001, resolveStart + 0.32);
         osc.connect(g);
-        g.connect(audioCtx.destination);
+        g.connect(masterSfxGain || audioCtx.destination);
         osc.start(resolveStart);
         osc.stop(resolveStart + 0.36);
       });
@@ -912,7 +924,7 @@ export function playSound(type) {
         g.gain.setValueAtTime(0, now + i * 0.12);
         g.gain.linearRampToValueAtTime(0.18, now + i * 0.12 + 0.02);
         g.gain.exponentialRampToValueAtTime(0.0001, now + i * 0.12 + 0.35);
-        osc.connect(g); g.connect(audioCtx.destination);
+        osc.connect(g); g.connect(masterSfxGain || audioCtx.destination);
         osc.start(now + i * 0.12);
         osc.stop(now + i * 0.12 + 0.4);
       });
@@ -932,7 +944,7 @@ export function playSound(type) {
       osc.frequency.linearRampToValueAtTime(110, now + 0.3);
       g.gain.setValueAtTime(0.18, now);
       g.gain.exponentialRampToValueAtTime(0.0001, now + 0.35);
-      osc.connect(bpf); bpf.connect(g); g.connect(audioCtx.destination);
+      osc.connect(bpf); bpf.connect(g); g.connect(masterSfxGain || audioCtx.destination);
       osc.start(now); osc.stop(now + 0.4);
       break;
     }
@@ -953,7 +965,7 @@ export function playSound(type) {
       const g = audioCtx.createGain();
       g.gain.setValueAtTime(0.28, now);
       g.gain.exponentialRampToValueAtTime(0.0001, now + 0.22);
-      noise.connect(bpf); bpf.connect(g); g.connect(audioCtx.destination);
+      noise.connect(bpf); bpf.connect(g); g.connect(masterSfxGain || audioCtx.destination);
       noise.start(now); noise.stop(now + 0.25);
       break;
     }
@@ -967,7 +979,7 @@ export function playSound(type) {
       osc.frequency.exponentialRampToValueAtTime(40, now + 0.15);
       g.gain.setValueAtTime(0.45, now);
       g.gain.exponentialRampToValueAtTime(0.0001, now + 0.18);
-      osc.connect(g); g.connect(audioCtx.destination);
+      osc.connect(g); g.connect(masterSfxGain || audioCtx.destination);
       osc.start(now); osc.stop(now + 0.2);
       break;
     }
@@ -983,7 +995,7 @@ export function playSound(type) {
         g.gain.setValueAtTime(0, t);
         g.gain.linearRampToValueAtTime(0.22, t + 0.02);
         g.gain.exponentialRampToValueAtTime(0.0001, t + 0.28);
-        osc.connect(g); g.connect(audioCtx.destination);
+        osc.connect(g); g.connect(masterSfxGain || audioCtx.destination);
         osc.start(t); osc.stop(t + 0.3);
       });
       break;
@@ -1005,7 +1017,7 @@ export function playSound(type) {
       g.gain.linearRampToValueAtTime(0.5, now + 0.1);
       g.gain.setValueAtTime(0.5, now + 0.7);
       g.gain.exponentialRampToValueAtTime(0.0001, now + 1.1);
-      osc.connect(g); g.connect(audioCtx.destination);
+      osc.connect(g); g.connect(masterSfxGain || audioCtx.destination);
       vibOsc.start(now); vibOsc.stop(now + 1.15);
       osc.start(now); osc.stop(now + 1.15);
       break;
@@ -1019,7 +1031,7 @@ export function playSound(type) {
       osc.frequency.value = 1800 + Math.random() * 400;
       g.gain.setValueAtTime(0.03, now);
       g.gain.exponentialRampToValueAtTime(0.0001, now + 0.008);
-      osc.connect(g); g.connect(audioCtx.destination);
+      osc.connect(g); g.connect(masterSfxGain || audioCtx.destination);
       osc.start(now); osc.stop(now + 0.01);
       break;
     }
@@ -1032,7 +1044,7 @@ export function playSound(type) {
       osc.frequency.value = 400;
       g.gain.setValueAtTime(0.12, now);
       g.gain.exponentialRampToValueAtTime(0.0001, now + 0.022);
-      osc.connect(g); g.connect(audioCtx.destination);
+      osc.connect(g); g.connect(masterSfxGain || audioCtx.destination);
       osc.start(now); osc.stop(now + 0.025);
       break;
     }
@@ -1048,7 +1060,7 @@ export function playSound(type) {
         g.gain.linearRampToValueAtTime(0.14, now + 0.08);
         g.gain.setValueAtTime(0.14, now + 1.6);
         g.gain.exponentialRampToValueAtTime(0.0001, now + 2.1);
-        osc.connect(g); g.connect(audioCtx.destination);
+        osc.connect(g); g.connect(masterSfxGain || audioCtx.destination);
         osc.start(now); osc.stop(now + 2.2);
       });
       break;

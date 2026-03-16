@@ -68,7 +68,17 @@ export function pickQuestions(pool, count, seenIds = [], difficultyTarget = 3, s
     [selected[i], selected[j]] = [selected[j], selected[i]];
   }
 
-  return selected;
+  // 7. Shuffle OPTIONS within each question so the correct answer isn't always at the same position
+  return selected.map(q => {
+    if (!q.options || q.options.length < 2) return q;
+    const correctText = q.options[q.correct];
+    const shuffled = [...q.options];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return { ...q, options: shuffled, correct: shuffled.indexOf(correctText) };
+  });
 }
 
 export function pickReadingPassage(passages, seenIds = [], difficultyTarget = 3) {
