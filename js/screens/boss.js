@@ -7,6 +7,21 @@ import { loadChengyu } from '../content-loader.js';
 import { SPRITES } from '../sprites.js';
 import { playSound, playMusic, setMusicIntensity, playStinger } from '../audio.js';
 
+const BOSS_NARRATIVES = {
+  phase1: [
+    "仓颉之影低声吟诵古老的文字……破解它的含义！",
+    "BOSS释放出一道文言咒语——翻译它来反击！",
+  ],
+  phase2: [
+    "仓颉之影加大了攻势——这些虚词的含义你能辨别吗？",
+    "BOSS的攻击更加猛烈——理解这些古文才能生存！",
+  ],
+  phase3: [
+    "仓颉之影使出最强的文字之力——你必须完全理解才能获胜！",
+    "这是最后的考验——读懂整段古文，一举击破！",
+  ],
+};
+
 const BOSS_NAMES = {
   1: { name: '仓颉之影', sprite: '👹' },
   2: { name: '墨吏', sprite: '👺' },
@@ -329,6 +344,8 @@ function renderBoss() {
 
     const q = currentPhase[qIndex];
     const phaseLabel = ['第一阶段：句意翻译', '第二阶段：虚词辨析', '第三阶段：篇章理解'][phase] || '';
+    const phaseNarrativePool = BOSS_NARRATIVES[['phase1','phase2','phase3'][phase]] || BOSS_NARRATIVES.phase1;
+    const bossNarrative = phaseNarrativePool[Math.floor(Math.random() * phaseNarrativePool.length)];
     const optionsHTML = q.options.map((opt, i) => `
       <button class="boss-option" data-idx="${i}">${opt}</button>
     `).join('');
@@ -343,6 +360,7 @@ function renderBoss() {
         .boss-hp-bg { width:250px; height:18px; background:var(--bg-secondary); border-radius:9px; overflow:hidden; }
         .boss-hp { height:100%; background:var(--accent-red); border-radius:9px; transition:width 0.5s ease-out; }
         .player-hp { height:100%; background:var(--hp-green); border-radius:9px; transition:width 0.5s; }
+        .boss-narrative { font-style:italic; font-size:0.9rem; color:#e57373; text-align:center; padding:4px 32px 8px; opacity:0.9; text-shadow:0 0 8px rgba(192,57,43,0.5); }
         .boss-question { font-size:1.2rem; margin:8px 32px; text-align:center; background:var(--bg-card); padding:16px 20px; border-radius:8px; border-left:4px solid var(--accent-gold); }
         .boss-options { display:flex; flex-direction:column; gap:8px; padding:0 32px; max-width:600px; margin:0 auto; width:100%; }
         .boss-option {
@@ -383,6 +401,7 @@ function renderBoss() {
         </div>
       </div>
 
+      <div class="boss-narrative">${bossNarrative}</div>
       <div class="boss-question">${q.prompt}</div>
       <div class="boss-options">${optionsHTML}</div>
       <div style="display:flex;gap:8px;justify-content:center;margin-top:8px;" id="abilities"></div>

@@ -6,11 +6,11 @@ import { loadContent, pickQuestions, pickReadingPassage } from './content-loader
 function generateEncounterSequence(chapterId, questIndex) {
   const patterns = [
     ['combat', 'puzzle', 'combat', 'puzzle', 'boss'],
-    ['puzzle', 'combat', 'puzzle', 'combat', 'boss'],
-    ['combat', 'puzzle', 'combat', 'combat', 'boss'],
     ['combat', 'combat', 'puzzle', 'combat', 'boss'],
-    ['puzzle', 'combat', 'combat', 'puzzle', 'boss'],
+    ['combat', 'puzzle', 'combat', 'combat', 'boss'],
+    ['combat', 'combat', 'puzzle', 'puzzle', 'boss'],
     ['combat', 'puzzle', 'puzzle', 'combat', 'boss'],
+    ['combat', 'combat', 'combat', 'puzzle', 'boss'],
   ];
 
   // Vary pattern selection using both chapterId (hash) and questIndex so

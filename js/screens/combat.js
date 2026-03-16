@@ -8,6 +8,14 @@ import { playSound, playMusic, setMusicIntensity, playStinger } from '../audio.j
 
 const ENEMY_NAMES = ['墨灵', '暗字兵', '墨影卫', '乱笔妖', '黑墨士'];
 
+const COMBAT_NARRATIVES = [
+  "墨灵释放出混乱的文字——用你的知识反击！",
+  "敌人扭曲了这个词的含义——纠正它来造成伤害！",
+  "暗字兵向你投射文字攻击——看穿它的破绽！",
+  "一道文字谜题化作攻击飞来——回答正确才能格挡！",
+  "墨影卫试图混淆你的记忆——展示你真正的文字力量！",
+];
+
 // ─── Animation helpers ────────────────────────────────────────────────────────
 
 function shakeElement(el, intensity = 6, duration = 400) {
@@ -303,6 +311,9 @@ function renderCombat() {
       <button class="combat-option" data-idx="${i}">${opt}</button>
     `).join('');
 
+    // Pick a random narrative line for this question
+    const combatNarrative = COMBAT_NARRATIVES[Math.floor(Math.random() * COMBAT_NARRATIVES.length)];
+
     // Combo color
     let comboColor = 'var(--accent-gold)';
     if (combo >= 6) comboColor = '#e74c3c';
@@ -330,6 +341,7 @@ function renderCombat() {
         .combat-option.correct { border-color:var(--accent-jade); background:rgba(39,174,96,0.2); }
         .combat-option.wrong { border-color:var(--accent-red); background:rgba(192,57,43,0.2); }
         .feedback-text { font-size:0.95rem; color:var(--text-secondary); margin-top:12px; padding:0 32px; text-align:center; min-height:3em; }
+        .combat-narrative { font-style:italic; font-size:0.88rem; color:#d4a017; text-align:center; padding:4px 32px; opacity:0.85; text-shadow:0 0 6px rgba(212,160,23,0.4); }
         .battle-arena { display:flex; align-items:flex-end; justify-content:space-between; width:100%; max-width:600px; padding:0 32px; margin:8px 0; position:relative; min-height:160px; }
         .sprite-wrap { display:flex; flex-direction:column; align-items:center; position:relative; }
         .sprite-label { font-size:0.85rem; color:var(--text-secondary); margin-bottom:4px; }
@@ -363,6 +375,7 @@ function renderCombat() {
       </div>
 
       <div class="timer-bar-bg"><div class="timer-bar" id="timer-bar" style="width:100%"></div></div>
+      <div class="combat-narrative">${combatNarrative}</div>
       <div class="combat-question">${q.prompt}</div>
       <div class="combat-options" id="options">${optionsHTML}</div>
       <div style="display:flex;gap:8px;justify-content:center;margin-top:12px;" id="abilities"></div>
@@ -686,6 +699,25 @@ function renderCombat() {
   }
 
   render();
+
+  // ── First-ever combat tutorial overlay ──────────────────────────────────
+  if (profile.accuracy.vocab.length === 0) {
+    const tutorial = document.createElement('div');
+    tutorial.style.cssText = `position:absolute;inset:0;background:rgba(0,0,0,0.8);display:flex;align-items:center;justify-content:center;z-index:100;`;
+    tutorial.innerHTML = `
+      <div style="background:var(--bg-card);border:2px solid var(--accent-gold);border-radius:12px;padding:32px;max-width:400px;text-align:center;">
+        <h3 style="color:var(--accent-gold);margin-bottom:12px;">文字就是你的武器！</h3>
+        <p style="margin-bottom:8px;">回答正确 → 攻击敌人</p>
+        <p style="margin-bottom:8px;">回答错误 → 敌人反击</p>
+        <p style="margin-bottom:8px;">连续答对 → 连击加成伤害</p>
+        <p style="margin-bottom:16px;color:var(--text-secondary);">答得越快，伤害越高！</p>
+        <button class="btn btn-primary" style="padding:10px 24px;">开战！</button>
+      </div>
+    `;
+    div.appendChild(tutorial);
+    tutorial.querySelector('button').addEventListener('click', () => tutorial.remove());
+  }
+
   return div;
 }
 
