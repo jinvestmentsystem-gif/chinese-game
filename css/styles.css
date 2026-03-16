@@ -739,16 +739,19 @@ input[type="text"]:focus, input[type="number"]:focus {
   margin-bottom: 10px;
 }
 
-/* ── Combat / Puzzle / Boss option cards — styled as glowing rune cards ── */
+/* ── Combat / Puzzle / Boss option cards — styled as glowing rune cards ──
+   NOTE: !important on background/border is required because combat.js,
+   puzzle.js and boss.js inject inline <style> blocks that appear later in
+   document order and would otherwise win the cascade. */
 .combat-option {
   font-family: var(--font-main);
   font-size: 0.98rem;
   font-weight: 600;
-  padding: 14px 18px;
-  background: linear-gradient(145deg, rgba(15,52,96,0.92), rgba(22,33,62,0.96));
-  border: 1px solid rgba(212,160,23,0.3);
+  padding: 14px 18px !important;
+  background: linear-gradient(145deg, rgba(15,52,96,0.92), rgba(22,33,62,0.96)) !important;
+  border: 1px solid rgba(212,160,23,0.35) !important;
   color: var(--text-primary);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-md) !important;
   cursor: pointer;
   transition: all 0.2s ease;
   text-align: center;
@@ -767,7 +770,7 @@ input[type="text"]:focus, input[type="number"]:focus {
 }
 
 .combat-option:hover {
-  border-color: var(--gold);
+  border-color: var(--gold) !important;
   transform: translateY(-2px);
   box-shadow: 0 4px 16px rgba(212,160,23,0.2), inset 0 1px 0 rgba(255,255,255,0.1);
   color: var(--gold-bright);
@@ -776,15 +779,15 @@ input[type="text"]:focus, input[type="number"]:focus {
 .combat-option:hover::before { opacity: 1; }
 
 .combat-option.correct {
-  border-color: var(--jade);
-  background: linear-gradient(145deg, rgba(39,174,96,0.28), rgba(22,33,62,0.96));
+  border-color: var(--jade) !important;
+  background: linear-gradient(145deg, rgba(39,174,96,0.28), rgba(22,33,62,0.96)) !important;
   box-shadow: 0 0 20px rgba(39,174,96,0.35);
   color: var(--jade);
 }
 
 .combat-option.wrong {
-  border-color: var(--red);
-  background: linear-gradient(145deg, rgba(192,57,43,0.28), rgba(22,33,62,0.96));
+  border-color: var(--red) !important;
+  background: linear-gradient(145deg, rgba(192,57,43,0.28), rgba(22,33,62,0.96)) !important;
   box-shadow: 0 0 20px rgba(192,57,43,0.35);
   color: #ff9e9e;
 }
@@ -794,11 +797,11 @@ input[type="text"]:focus, input[type="number"]:focus {
   font-family: var(--font-main);
   font-size: 0.98rem;
   font-weight: 600;
-  padding: 14px 18px;
-  background: linear-gradient(145deg, rgba(50,15,90,0.92), rgba(30,18,60,0.96));
-  border: 1px solid rgba(168,85,247,0.3);
+  padding: 14px 18px !important;
+  background: linear-gradient(145deg, rgba(50,15,90,0.92), rgba(30,18,60,0.96)) !important;
+  border: 1px solid rgba(168,85,247,0.35) !important;
   color: var(--text-primary);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-md) !important;
   cursor: pointer;
   transition: all 0.2s ease;
   text-align: center;
@@ -817,7 +820,7 @@ input[type="text"]:focus, input[type="number"]:focus {
 }
 
 .puzzle-option:hover {
-  border-color: #a855f7;
+  border-color: #a855f7 !important;
   transform: translateY(-2px);
   box-shadow: 0 4px 16px rgba(168,85,247,0.25), inset 0 1px 0 rgba(255,255,255,0.1);
   color: #c084fc;
@@ -826,15 +829,15 @@ input[type="text"]:focus, input[type="number"]:focus {
 .puzzle-option:hover::before { opacity: 1; }
 
 .puzzle-option.correct {
-  border-color: var(--jade);
-  background: linear-gradient(145deg, rgba(39,174,96,0.28), rgba(22,33,62,0.96));
+  border-color: var(--jade) !important;
+  background: linear-gradient(145deg, rgba(39,174,96,0.28), rgba(22,33,62,0.96)) !important;
   box-shadow: 0 0 20px rgba(39,174,96,0.35);
   color: var(--jade);
 }
 
 .puzzle-option.wrong {
-  border-color: var(--red);
-  background: linear-gradient(145deg, rgba(192,57,43,0.28), rgba(22,33,62,0.96));
+  border-color: var(--red) !important;
+  background: linear-gradient(145deg, rgba(192,57,43,0.28), rgba(22,33,62,0.96)) !important;
   box-shadow: 0 0 20px rgba(192,57,43,0.35);
   color: #ff9e9e;
 }
@@ -844,11 +847,11 @@ input[type="text"]:focus, input[type="number"]:focus {
   font-family: var(--font-main);
   font-size: 1rem;
   font-weight: 600;
-  padding: 14px 20px;
-  background: linear-gradient(145deg, rgba(80,10,10,0.92), rgba(40,8,8,0.96));
-  border: 1px solid rgba(214,48,49,0.3);
+  padding: 14px 20px !important;
+  background: linear-gradient(145deg, rgba(80,10,10,0.92), rgba(40,8,8,0.96)) !important;
+  border: 1px solid rgba(214,48,49,0.35) !important;
   color: var(--text-primary);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-md) !important;
   cursor: pointer;
   transition: all 0.2s ease;
   text-align: left;
@@ -867,7 +870,7 @@ input[type="text"]:focus, input[type="number"]:focus {
 }
 
 .boss-option:hover {
-  border-color: var(--red);
+  border-color: var(--red) !important;
   transform: translateY(-2px);
   box-shadow: 0 4px 16px rgba(214,48,49,0.25), inset 0 1px 0 rgba(255,255,255,0.08);
 }
@@ -875,15 +878,15 @@ input[type="text"]:focus, input[type="number"]:focus {
 .boss-option:hover::before { opacity: 1; }
 
 .boss-option.correct {
-  border-color: var(--jade);
-  background: linear-gradient(145deg, rgba(39,174,96,0.28), rgba(22,33,62,0.96));
+  border-color: var(--jade) !important;
+  background: linear-gradient(145deg, rgba(39,174,96,0.28), rgba(22,33,62,0.96)) !important;
   box-shadow: 0 0 20px rgba(39,174,96,0.35);
   color: var(--jade);
 }
 
 .boss-option.wrong {
-  border-color: var(--red);
-  background: linear-gradient(145deg, rgba(192,57,43,0.35), rgba(40,8,8,0.96));
+  border-color: var(--red) !important;
+  background: linear-gradient(145deg, rgba(192,57,43,0.35), rgba(40,8,8,0.96)) !important;
   box-shadow: 0 0 20px rgba(192,57,43,0.4);
   color: #ff9e9e;
 }
@@ -1625,145 +1628,6 @@ input[type="text"]:focus, input[type="number"]:focus {
   background: rgba(214,48,49,0.12);
   border: 1px solid rgba(214,48,49,0.35);
   color: var(--red);
-}
-
-/* ── Puzzle Screen Options ───────────────────────────────────── */
-.puzzle-options {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  padding: 0 32px;
-  max-width: 600px;
-  width: 100%;
-  box-sizing: border-box;
-  margin-bottom: 8px;
-}
-
-.puzzle-option {
-  font-family: var(--font-main);
-  font-size: 0.95rem;
-  font-weight: 600;
-  padding: 12px 16px;
-  background: rgba(28, 30, 58, 0.9);
-  border: 1px solid rgba(168, 85, 247, 0.22);
-  color: var(--text-primary);
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  transition: all 0.18s ease;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.puzzle-option::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(168,85,247,0.06) 0%, transparent 100%);
-  opacity: 0;
-  transition: opacity 0.2s;
-}
-
-.puzzle-option:hover {
-  border-color: rgba(168, 85, 247, 0.6);
-  background: rgba(40, 30, 80, 0.95);
-  transform: translateY(-1px);
-  box-shadow: 0 0 10px rgba(168,85,247,0.25), 0 4px 12px rgba(0,0,0,0.3);
-}
-
-.puzzle-option:hover::before { opacity: 1; }
-
-.puzzle-option.correct {
-  border-color: var(--jade);
-  background: rgba(46,204,138,0.15);
-  box-shadow: 0 0 14px rgba(46,204,138,0.4);
-  color: var(--jade);
-}
-
-.puzzle-option.wrong {
-  border-color: var(--red);
-  background: rgba(214,48,49,0.15);
-  box-shadow: 0 0 14px rgba(214,48,49,0.4);
-  color: #ff9e9e;
-}
-
-.puzzle-feedback {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  margin-top: 8px;
-  padding: 0 32px;
-  text-align: center;
-  min-height: 2.5em;
-  line-height: 1.5;
-}
-
-/* ── Boss Screen Options ─────────────────────────────────────── */
-.boss-options {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 0 32px;
-  max-width: 600px;
-  margin: 0 auto;
-  width: 100%;
-}
-
-.boss-option {
-  font-family: var(--font-main);
-  font-size: 1rem;
-  font-weight: 600;
-  padding: 12px 20px;
-  background: rgba(28, 30, 58, 0.9);
-  border: 1px solid rgba(214,48,49,0.22);
-  color: var(--text-primary);
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  transition: all 0.18s ease;
-  text-align: left;
-  position: relative;
-  overflow: hidden;
-}
-
-.boss-option::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(214,48,49,0.06) 0%, transparent 100%);
-  opacity: 0;
-  transition: opacity 0.2s;
-}
-
-.boss-option:hover {
-  border-color: rgba(214,48,49,0.6);
-  background: rgba(50, 20, 20, 0.95);
-  transform: translateY(-1px);
-  box-shadow: 0 0 10px rgba(214,48,49,0.25), 0 4px 12px rgba(0,0,0,0.3);
-}
-
-.boss-option:hover::before { opacity: 1; }
-
-.boss-option.correct {
-  border-color: var(--jade);
-  background: rgba(46,204,138,0.15);
-  box-shadow: 0 0 14px rgba(46,204,138,0.4);
-  color: var(--jade);
-}
-
-.boss-option.wrong {
-  border-color: var(--red);
-  background: rgba(214,48,49,0.15);
-  box-shadow: 0 0 14px rgba(214,48,49,0.4);
-  color: #ff9e9e;
-}
-
-.boss-feedback {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  margin-top: 6px;
-  padding: 0 32px;
-  text-align: center;
-  min-height: 2.5em;
-  line-height: 1.5;
 }
 
 /* ── Responsive ──────────────────────────────────────────────── */

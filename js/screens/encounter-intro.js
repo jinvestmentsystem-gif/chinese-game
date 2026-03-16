@@ -111,157 +111,238 @@ function renderEncounterIntro({ type, onComplete } = {}) {
   const styleEl = document.createElement('style');
   styleEl.textContent = `
     @keyframes ei-zoom-in {
-      0%   { transform: scale(0.3) translateY(30px); opacity: 0; }
-      60%  { transform: scale(1.15) translateY(-6px); opacity: 1; }
+      0%   { transform: scale(0.2) translateY(40px); opacity: 0; }
+      55%  { transform: scale(1.18) translateY(-8px); opacity: 1; }
       100% { transform: scale(1) translateY(0); opacity: 1; }
     }
     @keyframes ei-flicker {
       0%, 100% { opacity: 1; }
-      45%       { opacity: 0.85; }
+      45%       { opacity: 0.82; }
       50%       { opacity: 1; }
-      80%       { opacity: 0.9; }
+      80%       { opacity: 0.88; }
     }
     @keyframes ei-pulse-ring {
-      0%   { transform: scale(0.8); opacity: 0.6; }
-      100% { transform: scale(2.2); opacity: 0; }
+      0%   { transform: scale(0.7); opacity: 0.7; }
+      100% { transform: scale(2.8); opacity: 0; }
+    }
+    @keyframes ei-pulse-ring-inner {
+      0%   { transform: scale(0.9); opacity: 0.5; }
+      100% { transform: scale(2.0); opacity: 0; }
     }
     @keyframes ei-slide-up {
-      from { transform: translateY(24px); opacity: 0; }
+      from { transform: translateY(28px); opacity: 0; }
       to   { transform: translateY(0);    opacity: 1; }
     }
-    @keyframes ei-text-glow {
-      0%, 100% { text-shadow: 0 0 12px rgba(212,160,23,0.8), 0 0 28px rgba(212,160,23,0.4); }
-      50%       { text-shadow: 0 0 24px rgba(212,160,23,1),   0 0 48px rgba(212,160,23,0.6); }
+    @keyframes ei-name-glow {
+      0%, 100% {
+        text-shadow: 0 0 14px rgba(212,160,23,0.9), 0 0 32px rgba(212,160,23,0.5), 2px 2px 0 rgba(0,0,0,0.8);
+      }
+      50% {
+        text-shadow: 0 0 28px rgba(212,160,23,1), 0 0 60px rgba(212,160,23,0.7), 0 0 90px rgba(212,160,23,0.3), 2px 2px 0 rgba(0,0,0,0.8);
+      }
+    }
+    @keyframes ei-name-glow-red {
+      0%, 100% {
+        text-shadow: 0 0 14px rgba(214,48,49,0.9), 0 0 32px rgba(214,48,49,0.5), 2px 2px 0 rgba(0,0,0,0.8);
+      }
+      50% {
+        text-shadow: 0 0 28px rgba(214,48,49,1), 0 0 60px rgba(214,48,49,0.7), 0 0 90px rgba(214,48,49,0.3), 2px 2px 0 rgba(0,0,0,0.8);
+      }
     }
     @keyframes ei-rumble {
-      0%   { transform: translate(0,0); }
-      15%  { transform: translate(-4px, 2px); }
-      30%  { transform: translate(4px, -2px); }
-      45%  { transform: translate(-3px, 3px); }
-      60%  { transform: translate(3px, -1px); }
-      75%  { transform: translate(-2px, 2px); }
-      90%  { transform: translate(2px, -1px); }
-      100% { transform: translate(0,0); }
+      0%   { transform: translate(0,0) rotate(0deg); }
+      15%  { transform: translate(-5px, 3px) rotate(-0.5deg); }
+      30%  { transform: translate(5px, -3px) rotate(0.5deg); }
+      45%  { transform: translate(-4px, 4px) rotate(-0.3deg); }
+      60%  { transform: translate(4px, -2px) rotate(0.3deg); }
+      75%  { transform: translate(-3px, 3px) rotate(-0.2deg); }
+      90%  { transform: translate(3px, -1px) rotate(0.1deg); }
+      100% { transform: translate(0,0) rotate(0deg); }
     }
     @keyframes ei-flash {
+      0%   { opacity: 0.9; }
+      100% { opacity: 0; }
+    }
+    @keyframes ei-edge-flash {
       0%   { opacity: 1; }
+      40%  { opacity: 0.6; }
       100% { opacity: 0; }
     }
     @keyframes ei-btn-pulse {
-      0%,100% { box-shadow: 0 0 0 0 rgba(212,160,23,0.7); }
-      50%      { box-shadow: 0 0 0 10px rgba(212,160,23,0); }
+      0%,100% { box-shadow: 0 0 0 0 rgba(212,160,23,0.8), 0 2px 12px rgba(0,0,0,0.5); }
+      50%      { box-shadow: 0 0 0 12px rgba(212,160,23,0), 0 2px 12px rgba(0,0,0,0.5); }
+    }
+    @keyframes ei-btn-pulse-red {
+      0%,100% { box-shadow: 0 0 0 0 rgba(214,48,49,0.8), 0 2px 12px rgba(0,0,0,0.5); }
+      50%      { box-shadow: 0 0 0 12px rgba(214,48,49,0), 0 2px 12px rgba(0,0,0,0.5); }
     }
     @keyframes ei-vs-drop {
-      0%   { transform: scale(3) translateY(-20px); opacity: 0; }
-      60%  { transform: scale(0.9) translateY(4px); opacity: 1; }
+      0%   { transform: scale(4) translateY(-30px); opacity: 0; }
+      55%  { transform: scale(0.85) translateY(6px); opacity: 1; }
+      75%  { transform: scale(1.05) translateY(-2px); opacity: 1; }
       100% { transform: scale(1) translateY(0); opacity: 1; }
     }
     @keyframes ei-vignette-in {
       from { opacity: 0; }
       to   { opacity: 1; }
     }
+    @keyframes ei-bg-breathe {
+      0%, 100% { opacity: 0.85; }
+      50%       { opacity: 1; }
+    }
   `;
   document.head.appendChild(styleEl);
 
-  // Vignette overlay — dark edges, bright centre
+  // Vignette overlay — strong dark edges, bright centre for dramatic focus
   const vignette = document.createElement('div');
   vignette.style.cssText = `
     position: absolute; inset: 0; pointer-events: none; z-index: 1;
-    background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.75) 100%);
-    animation: ei-vignette-in 0.6s ease-out both;
+    background: radial-gradient(ellipse 65% 65% at center, transparent 20%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,0.92) 100%);
+    animation: ei-vignette-in 0.5s ease-out both;
   `;
   div.appendChild(vignette);
 
-  // Flash overlay — white burst before enemy zooms in
+  // Screen-edge flash — colored burst that bleeds from all edges then fades
+  const edgeFlash = document.createElement('div');
+  const flashColor = (isCombat || isBoss) ? 'rgba(139,0,0,0.7)' : 'rgba(168,85,247,0.5)';
+  edgeFlash.style.cssText = `
+    position: absolute; inset: 0; pointer-events: none; z-index: 10;
+    box-shadow: inset 0 0 120px 40px ${flashColor};
+    opacity: 0;
+    animation: ei-edge-flash 0.7s ease-out 0.05s both;
+  `;
+  div.appendChild(edgeFlash);
+
+  // White center flash — quick punch of light when sprite appears
   const flash = document.createElement('div');
   flash.style.cssText = `
-    position: absolute; inset: 0; pointer-events: none; z-index: 10;
-    background: white; opacity: 0; animation: ei-flash 0.15s ease-out 0.05s both;
+    position: absolute; inset: 0; pointer-events: none; z-index: 11;
+    background: radial-gradient(ellipse 40% 40% at center, rgba(255,255,255,0.7) 0%, transparent 70%);
+    opacity: 0;
+    animation: ei-flash 0.18s ease-out 0.08s both;
   `;
   div.appendChild(flash);
 
-  // Radial pulse rings behind sprite
-  const ringsHtml = [0, 1, 2].map(i => `
+  // Radial pulse rings behind sprite — 3 rings at different sizes + 2 inner rings
+  const ringsHtml = [
+    { size: 180, delay: 0,    border: 2.5, anim: 'ei-pulse-ring',       dur: 2.0 },
+    { size: 180, delay: 0.65, border: 2,   anim: 'ei-pulse-ring',       dur: 2.0 },
+    { size: 180, delay: 1.3,  border: 1.5, anim: 'ei-pulse-ring',       dur: 2.0 },
+    { size: 120, delay: 0.2,  border: 1.5, anim: 'ei-pulse-ring-inner', dur: 1.5 },
+    { size: 120, delay: 0.95, border: 1,   anim: 'ei-pulse-ring-inner', dur: 1.5 },
+  ].map(r => `
     <div style="
       position:absolute;
-      width:200px; height:200px;
+      width:${r.size}px; height:${r.size}px;
       border-radius:50%;
-      border:2px solid rgba(${accentRgb},0.5);
-      animation: ei-pulse-ring 1.8s ease-out ${i * 0.6}s infinite;
+      border:${r.border}px solid rgba(${accentRgb},0.55);
+      animation: ${r.anim} ${r.dur}s ease-out ${r.delay}s infinite;
       pointer-events:none;
+      top:50%; left:50%; transform:translate(-50%,-50%);
     "></div>
   `).join('');
 
   // VS text — only for combat encounters
   const vsHtml = isCombat ? `
     <div id="ei-vs" style="
-      font-size: 3.5rem;
+      font-size: 5rem;
       font-weight: 900;
       color: #fff;
-      letter-spacing: 0.1em;
-      text-shadow: 0 0 20px rgba(212,160,23,0.9), 0 0 40px rgba(212,160,23,0.4), 2px 2px 0 #8b0000;
-      animation: ei-vs-drop 0.5s cubic-bezier(0.34,1.56,0.64,1) 0.55s both;
+      letter-spacing: 0.15em;
+      text-shadow:
+        0 0 20px rgba(212,160,23,1),
+        0 0 50px rgba(212,160,23,0.6),
+        0 0 80px rgba(212,160,23,0.3),
+        3px 3px 0 #8b0000,
+        -1px -1px 0 rgba(0,0,0,0.5);
+      animation: ei-vs-drop 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.5s both;
       margin-bottom: 0.5rem;
+      line-height: 1;
     ">VS</div>
   ` : '';
 
-  div.innerHTML += `
-    <div id="ei-scene" style="position:relative; display:flex; flex-direction:column; align-items:center; gap:0; z-index:2;">
+  const nameGlowAnim = (isCombat || isBoss) ? 'ei-name-glow-red' : 'ei-name-glow';
+  const btnPulseAnim = (isCombat || isBoss) ? 'ei-btn-pulse-red' : 'ei-btn-pulse';
+  const btnBorderColor = encounterType === 'puzzle' ? '#d4a017' : '#cc2200';
+  const btnTextColor   = encounterType === 'puzzle' ? '#f0c040' : '#ff6666';
+  const btnBgHover     = encounterType === 'puzzle' ? 'rgba(212,160,23,0.15)' : 'rgba(204,34,0,0.18)';
 
-      <!-- Pulse rings -->
-      <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); pointer-events:none;">
+  div.innerHTML += `
+    <div id="ei-scene" style="
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:0;
+      z-index:2;
+      padding: 0 24px;
+    ">
+
+      <!-- Pulse rings — centered behind sprite -->
+      <div style="
+        position:absolute;
+        top: 90px;
+        left:50%;
+        transform:translate(-50%,-50%);
+        pointer-events:none;
+      ">
         ${ringsHtml}
       </div>
 
       <!-- Enemy sprite with zoom-in animation -->
       <div id="ei-sprite" style="
-        animation: ei-zoom-in 0.7s cubic-bezier(0.34,1.56,0.64,1) 0.1s both,
-                   ei-flicker 3s ease-in-out 0.8s infinite;
-        filter: drop-shadow(0 0 24px rgba(${accentRgb},0.9));
-        margin-bottom: 1.5rem;
-        position:relative; z-index:2;
+        animation: ei-zoom-in 0.75s cubic-bezier(0.34,1.56,0.64,1) 0.08s both,
+                   ei-flicker 3.5s ease-in-out 0.9s infinite;
+        filter: drop-shadow(0 0 30px rgba(${accentRgb},1)) drop-shadow(0 0 8px rgba(${accentRgb},0.5));
+        margin-bottom: 1.2rem;
+        position:relative;
+        z-index:2;
       ">${sprite}</div>
 
       ${vsHtml}
 
-      <!-- Enemy name -->
+      <!-- Enemy name — large and glowing -->
       <div style="
-        font-size: 2rem;
+        font-size: 2.6rem;
         font-weight: 900;
-        color: #f0e8d0;
-        letter-spacing: 0.15em;
-        animation: ei-slide-up 0.5s ease-out 0.5s both, ei-text-glow 2.5s ease-in-out 1s infinite;
-        margin-bottom: 1rem;
+        color: #f8edd4;
+        letter-spacing: 0.18em;
+        animation: ei-slide-up 0.5s ease-out 0.48s both, ${nameGlowAnim} 2.5s ease-in-out 1s infinite;
+        margin-bottom: 1.1rem;
         text-align: center;
+        line-height: 1.2;
       ">${name}</div>
 
       <!-- Context line -->
       <div style="
-        font-size: 1.05rem;
+        font-size: 1rem;
         color: #c8a96e;
-        line-height: 1.7;
-        max-width: 420px;
+        line-height: 1.75;
+        max-width: 400px;
         text-align: center;
-        letter-spacing: 0.06em;
+        letter-spacing: 0.05em;
         animation: ei-slide-up 0.5s ease-out 0.7s both;
-        margin-bottom: 2rem;
-        padding: 0 1rem;
+        margin-bottom: 2.2rem;
+        padding: 0 0.5rem;
+        opacity: 0.9;
       ">${intro.text}</div>
 
-      <!-- Action button with gold pulse -->
+      <!-- Action button with pulsing border glow -->
       <button id="ei-action-btn" style="
-        padding: 0.75rem 2.5rem;
-        background: transparent;
-        border: 2px solid ${encounterType === 'puzzle' ? '#d4a017' : '#cc2200'};
-        color: ${encounterType === 'puzzle' ? '#d4a017' : '#ff4444'};
-        font-size: 1.3rem;
+        padding: 0.85rem 3rem;
+        background: linear-gradient(145deg, rgba(0,0,0,0.6), rgba(20,10,30,0.7));
+        border: 2px solid ${btnBorderColor};
+        color: ${btnTextColor};
+        font-size: 1.35rem;
         font-weight: 700;
-        letter-spacing: 0.2em;
+        letter-spacing: 0.22em;
         cursor: pointer;
-        border-radius: 6px;
+        border-radius: 8px;
         font-family: var(--font-main);
-        animation: ei-slide-up 0.5s ease-out 0.9s both, ei-btn-pulse 1.6s ease-in-out 1.4s infinite;
-        transition: background 0.2s, transform 0.1s;
+        animation: ei-slide-up 0.5s ease-out 0.9s both, ${btnPulseAnim} 1.6s ease-in-out 1.4s infinite;
+        transition: background 0.2s, transform 0.15s, filter 0.2s;
+        text-shadow: 0 0 12px currentColor;
+        backdrop-filter: blur(4px);
       ">${intro.action}</button>
     </div>
   `;
@@ -315,13 +396,15 @@ function renderEncounterIntro({ type, onComplete } = {}) {
       });
       btn.addEventListener('mouseenter', () => {
         btn.style.background = encounterType === 'puzzle'
-          ? 'rgba(212,160,23,0.15)'
-          : 'rgba(204,34,0,0.15)';
-        btn.style.transform = 'scale(1.04)';
+          ? 'rgba(212,160,23,0.18)'
+          : 'rgba(204,34,0,0.2)';
+        btn.style.transform = 'scale(1.05) translateY(-2px)';
+        btn.style.filter = 'brightness(1.2)';
       });
       btn.addEventListener('mouseleave', () => {
-        btn.style.background = 'transparent';
+        btn.style.background = 'linear-gradient(145deg, rgba(0,0,0,0.6), rgba(20,10,30,0.7))';
         btn.style.transform = 'scale(1)';
+        btn.style.filter = '';
       });
     }
   }, 0);
