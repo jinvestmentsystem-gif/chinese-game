@@ -2,6 +2,10 @@
 import { gameState } from './state.js';
 import { initRouter, registerScreen, showScreen } from './router.js';
 import { initAudio, playMusic, toggleMusic, toggleSFX, isMusicEnabled, isSFXEnabled } from './audio.js';
+import { startParticles, setParticleMode } from './particles.js';
+
+// Export particle control for screens to use
+export { setParticleMode };
 
 // Re-export so existing screen imports from './main.js' still work
 export { registerScreen, showScreen };

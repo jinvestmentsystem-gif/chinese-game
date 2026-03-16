@@ -1656,3 +1656,176 @@ input[type="text"]:focus, input[type="number"]:focus {
   .chapter-grid { gap: 12px; }
   .chapter-card { width: 130px; }
 }
+
+/* =============================================================
+   ACETERNITY / MAGIC UI-STYLE ANIMATIONS
+   Pure CSS implementations of modern UI effects
+   ============================================================= */
+
+/* ── Glowing Border Animation (Aceternity-style) ──────────────── */
+.glow-border {
+  position: relative;
+  overflow: hidden;
+}
+.glow-border::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: conic-gradient(from var(--glow-angle, 0deg), transparent 60%, var(--accent-gold) 80%, transparent 100%);
+  animation: glow-rotate 3s linear infinite;
+  z-index: -1;
+  border-radius: inherit;
+}
+@keyframes glow-rotate {
+  to { --glow-angle: 360deg; }
+}
+@property --glow-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* ── Shimmer Effect (for loading states, cards) ───────────────── */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 25%,
+    rgba(255,255,255,0.06) 37%,
+    transparent 63%
+  );
+  animation: shimmer-slide 2.5s ease-in-out infinite;
+}
+@keyframes shimmer-slide {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ── Meteor Trail (background decorative effect) ──────────────── */
+.meteor-container {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.meteor {
+  position: absolute;
+  width: 2px;
+  height: 80px;
+  background: linear-gradient(180deg, rgba(212,160,23,0.6), transparent);
+  border-radius: 50%;
+  animation: meteor-fall linear infinite;
+  opacity: 0;
+}
+@keyframes meteor-fall {
+  0% { transform: translateY(-100px) translateX(0) rotate(-30deg); opacity: 0; }
+  5% { opacity: 0.8; }
+  30% { opacity: 0.4; }
+  100% { transform: translateY(120vh) translateX(-200px) rotate(-30deg); opacity: 0; }
+}
+
+/* ── Text Reveal Animation ────────────────────────────────────── */
+.text-reveal {
+  animation: text-reveal-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes text-reveal-up {
+  from { opacity: 0; transform: translateY(20px); filter: blur(4px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+/* ── Spotlight Hover Effect (for cards) ────────────────────────── */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+}
+.spotlight-card::before {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(212,160,23,0.15), transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+/* ── Animated Border Gradient (Magic UI style) ─────────────────── */
+.magic-border {
+  background: linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+              linear-gradient(135deg, var(--gold), var(--jade), var(--gold-dim), var(--jade)) border-box;
+  border: 2px solid transparent;
+  background-size: 100% 100%, 300% 300%;
+  animation: magic-border-shift 4s ease infinite;
+}
+@keyframes magic-border-shift {
+  0%, 100% { background-position: 0% 0%, 0% 50%; }
+  50% { background-position: 0% 0%, 100% 50%; }
+}
+
+/* ── Pulse Glow (for important elements) ──────────────────────── */
+.pulse-glow {
+  animation: pulse-glow-anim 2s ease-in-out infinite;
+}
+@keyframes pulse-glow-anim {
+  0%, 100% { box-shadow: 0 0 5px rgba(212,160,23,0.3), 0 0 20px rgba(212,160,23,0.1); }
+  50% { box-shadow: 0 0 15px rgba(212,160,23,0.5), 0 0 40px rgba(212,160,23,0.2); }
+}
+
+/* ── Floating Animation (for sprites, icons) ──────────────────── */
+.float-gentle {
+  animation: float-gentle-anim 3s ease-in-out infinite;
+}
+@keyframes float-gentle-anim {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ── Scale-in Bounce (for popups, achievements) ───────────────── */
+.scale-bounce-in {
+  animation: scale-bounce 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+@keyframes scale-bounce {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ── Typing Cursor (for story text) ───────────────────────────── */
+.typing-cursor::after {
+  content: '|';
+  animation: cursor-blink 0.8s step-end infinite;
+  color: var(--gold);
+}
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ── Glass Card (glassmorphism) ───────────────────────────────── */
+.glass-card {
+  background: rgba(15, 20, 40, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Stagger Animation Delays (for lists of items) ────────────── */
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+.stagger-5 { animation-delay: 0.25s; }
+

@@ -11,11 +11,36 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
   <link rel="icon" href="data:,">
+  <!-- Howler.js for professional audio playback -->
+  <script src="https://cdn.jsdelivr.net/npm/howler@2.2.4/dist/howler.min.js"></script>
 </head>
 <body>
+  <!-- Canvas layer for particle effects (behind game UI) -->
+  <canvas id="particle-canvas" style="position:fixed;inset:0;z-index:0;pointer-events:none;"></canvas>
+  <!-- Meteor trail container -->
+  <div class="meteor-container" id="meteor-container"></div>
   <div id="game-root"></div>
   <script>
-    // UNREGISTER any old service worker — it causes caching problems
+    // Spawn random meteors
+    function spawnMeteor() {
+      const c = document.getElementById('meteor-container');
+      if (!c) return;
+      const m = document.createElement('div');
+      m.className = 'meteor';
+      m.style.left = (20 + Math.random() * 60) + '%';
+      m.style.top = '-100px';
+      m.style.animationDuration = (3 + Math.random() * 4) + 's';
+      m.style.animationDelay = '0s';
+      m.style.height = (40 + Math.random() * 80) + 'px';
+      c.appendChild(m);
+      setTimeout(() => m.remove(), 8000);
+    }
+    setInterval(spawnMeteor, 4000);
+    setTimeout(spawnMeteor, 1000);
+    setTimeout(spawnMeteor, 2500);
+  </script>
+  <script>
+    // UNREGISTER any old service worker
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.getRegistrations().then(regs => {
         regs.forEach(r => r.unregister());
