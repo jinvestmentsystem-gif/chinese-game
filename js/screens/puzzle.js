@@ -473,13 +473,17 @@ function renderPuzzle() {
 
     setTimeout(() => {
       banner.remove();
+      const quest = gameState.currentQuest;
       const next = advanceEncounter();
       if (!next) {
         showScreen('reward');
       } else {
-        if (next.type === 'combat') showScreen('combat');
-        else if (next.type === 'puzzle') showScreen('puzzle');
-        else if (next.type === 'boss') showScreen('boss');
+        // Return to journey map so the player sees their progress
+        showScreen('quest', {
+          chapterId: quest.chapterId,
+          questIndex: quest.questIndex,
+          justFinishedEncounter: true,
+        });
       }
     }, 1800);
   }
