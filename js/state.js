@@ -16,6 +16,8 @@ const DEFAULT_PROFILE = {
   defense: 0,
   speed: 0,
   equipment: { weapon: null, armor: null },
+  gold: 0,
+  consumables: {},
   chapterProgress: { 1: { questsCompleted: 0 } },
   chengyu: [],
   dailyStreak: 0,
@@ -24,6 +26,15 @@ const DEFAULT_PROFILE = {
   accuracy: { vocab: [], reading: [], classical: [] },
   inventory: [],
   createdAt: null,
+  achievements: [],
+  stats: {
+    totalCorrect: 0,
+    totalWrong: 0,
+    totalQuests: 0,
+    totalBossKills: 0,
+    maxCombo: 0,
+    totalXP: 0,
+  },
 };
 
 class GameState {
@@ -58,11 +69,15 @@ class GameState {
     const p = { ...DEFAULT_PROFILE, name, tier, difficultyBase, createdAt: Date.now() };
     // Deep clone nested objects
     p.equipment = { ...DEFAULT_PROFILE.equipment };
+    p.gold = 0;
+    p.consumables = {};
     p.chapterProgress = { 1: { questsCompleted: 0 } };
     p.chengyu = [];
     p.seenQuestions = { vocab: [], reading: [], classical: [] };
     p.accuracy = { vocab: [], reading: [], classical: [] };
     p.inventory = [];
+    p.achievements = [];
+    p.stats = { ...DEFAULT_PROFILE.stats };
     this.profiles.push(p);
     this.activeProfileIndex = this.profiles.length - 1;
     this.save();

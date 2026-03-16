@@ -277,6 +277,52 @@ function goldenLightExpansion(container, cx, cy) {
   setTimeout(() => light.remove(), 900);
 }
 
+// ─── Mini-progress bar ────────────────────────────────────────────────────────
+
+function createMiniProgress(container) {
+  const quest = gameState.currentQuest;
+  if (!quest) return;
+
+  // Remove any existing bar before re-inserting (render() uses innerHTML)
+  const existing = container.querySelector('.mini-progress-bar');
+  if (existing) existing.remove();
+
+  const bar = document.createElement('div');
+  bar.className = 'mini-progress-bar';
+  bar.style.cssText = `
+    position:absolute; top:0; left:0; right:0; z-index:50;
+    display:flex; align-items:center; justify-content:center;
+    gap:6px; padding:6px 16px;
+    background:rgba(0,0,0,0.4); backdrop-filter:blur(4px);
+    font-size:0.75rem; color:var(--text-secondary);
+  `;
+
+  const dotsHTML = quest.encounters.map((enc, i) => {
+    const completed = enc.completed;
+    const current = i === quest.currentEncounter;
+    const dotStyle = completed ? 'background:var(--accent-gold);'
+                   : current ? 'background:var(--accent-jade);animation:dot-pulse 1s infinite;'
+                   : 'background:var(--bg-secondary);';
+    return `<div style="width:10px;height:10px;border-radius:50%;${dotStyle}" title="${enc.type}"></div>`;
+  }).join('');
+
+  const encounterNum = quest.currentEncounter + 1;
+  const total = quest.encounters.length;
+  const chapterId = quest.chapterId;
+
+  bar.innerHTML = `
+    <div style="display:flex;gap:4px;align-items:center;">${dotsHTML}</div>
+    <span style="margin-left:8px;">第${encounterNum}/${total}关</span>
+    <span style="margin-left:auto;color:var(--accent-gold);">第${chapterId}章</span>
+  `;
+
+  const style = document.createElement('style');
+  style.textContent = `@keyframes dot-pulse { 0%,100% { box-shadow:0 0 0 0 rgba(39,174,96,0.5); } 50% { box-shadow:0 0 0 4px rgba(39,174,96,0); } }`;
+  bar.appendChild(style);
+
+  container.insertBefore(bar, container.firstChild);
+}
+
 // ─── Main render ─────────────────────────────────────────────────────────────
 
 function renderBoss() {
@@ -353,7 +399,7 @@ function renderBoss() {
 
     div.innerHTML = `
       <style>
-        .boss-header { text-align:center; margin-bottom:4px; position:relative; }
+        .boss-header { text-align:center; margin-bottom:4px; position:relative; padding-top:36px; }
         .boss-sprite-container { display:flex; justify-content:center; align-items:flex-end; margin:4px 0; position:relative; min-height:140px; }
         .boss-svg-wrap { display:inline-block; position:relative; }
         .boss-phase { font-size:0.9rem; color:var(--accent-jade); margin-bottom:8px; }
@@ -477,6 +523,9 @@ function renderBoss() {
         }, 350);
       }
     }
+
+    // ── Mini-progress bar ──
+    createMiniProgress(div);
 
     // ── Ability buttons ──
     const abilitiesEl = div.querySelector('#abilities');

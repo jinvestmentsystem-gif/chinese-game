@@ -265,6 +265,47 @@ function showVictorySequence(container, enemyWrap, div, onComplete) {
   }, 2000);
 }
 
+// ─── Mini-progress bar ────────────────────────────────────────────────────────
+
+function createMiniProgress(container) {
+  const quest = gameState.currentQuest;
+  if (!quest) return;
+
+  const bar = document.createElement('div');
+  bar.style.cssText = `
+    position:absolute; top:0; left:0; right:0; z-index:50;
+    display:flex; align-items:center; justify-content:center;
+    gap:6px; padding:6px 16px;
+    background:rgba(0,0,0,0.4); backdrop-filter:blur(4px);
+    font-size:0.75rem; color:var(--text-secondary);
+  `;
+
+  const dotsHTML = quest.encounters.map((enc, i) => {
+    const completed = enc.completed;
+    const current = i === quest.currentEncounter;
+    const dotStyle = completed ? 'background:var(--accent-gold);'
+                   : current ? 'background:var(--accent-jade);animation:dot-pulse 1s infinite;'
+                   : 'background:var(--bg-secondary);';
+    return `<div style="width:10px;height:10px;border-radius:50%;${dotStyle}" title="${enc.type}"></div>`;
+  }).join('');
+
+  const encounterNum = quest.currentEncounter + 1;
+  const total = quest.encounters.length;
+  const chapterId = quest.chapterId;
+
+  bar.innerHTML = `
+    <div style="display:flex;gap:4px;align-items:center;">${dotsHTML}</div>
+    <span style="margin-left:8px;">第${encounterNum}/${total}关</span>
+    <span style="margin-left:auto;color:var(--accent-gold);">第${chapterId}章</span>
+  `;
+
+  const style = document.createElement('style');
+  style.textContent = `@keyframes dot-pulse { 0%,100% { box-shadow:0 0 0 0 rgba(39,174,96,0.5); } 50% { box-shadow:0 0 0 4px rgba(39,174,96,0); } }`;
+  bar.appendChild(style);
+
+  container.insertBefore(bar, container.firstChild);
+}
+
 // ─── Main render ─────────────────────────────────────────────────────────────
 
 function renderCombat() {
@@ -322,7 +363,7 @@ function renderCombat() {
 
     div.innerHTML = `
       <style>
-        .combat-hud { display:flex; justify-content:space-between; width:100%; padding:16px 32px; }
+        .combat-hud { display:flex; justify-content:space-between; width:100%; padding:16px 32px; padding-top:44px; }
         .hp-section { text-align:center; }
         .hp-bar-bg { width:200px; height:16px; background:var(--bg-secondary); border-radius:8px; overflow:hidden; margin-top:4px; }
         .hp-bar { height:100%; border-radius:8px; transition:width 0.3s; }
@@ -716,6 +757,9 @@ function renderCombat() {
   }
 
   render();
+
+  // ── Mini-progress bar (on top of everything) ─────────────────────────────
+  createMiniProgress(div);
 
   // ── First-ever combat tutorial overlay ──────────────────────────────────
   if (profile.accuracy.vocab.length === 0) {

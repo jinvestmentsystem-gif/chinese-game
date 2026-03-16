@@ -6,6 +6,59 @@ import { EQUIPMENT_DB } from './inventory.js';
 import { playSound } from '../audio.js';
 import { showCompanionBubble, COMPANION, pick } from './companion.js';
 
+// ─── Chapter quest counts (mirrors worldmap.js CHAPTERS) ─────────────────────
+// Kept here to avoid circular dependency with worldmap.js.
+const CHAPTER_QUESTS = { 1: 4, 2: 4, 3: 4, 4: 4, 5: 5 };
+
+// ─── Achievement milestones ───────────────────────────────────────────────────
+
+const MILESTONES = [
+  { id: 'first_quest',  check: s => s.totalQuests >= 1,   title: '初出茅庐', desc: '完成第一个任务！' },
+  { id: 'first_boss',   check: s => s.totalBossKills >= 1, title: '初战告捷', desc: '击败第一个BOSS！' },
+  { id: 'combo_3',      check: s => s.maxCombo >= 3,       title: '连击新手', desc: '达成3连击！' },
+  { id: 'combo_5',      check: s => s.maxCombo >= 5,       title: '连击达人', desc: '达成5连击！' },
+  { id: 'combo_10',     check: s => s.maxCombo >= 10,      title: '连击大师', desc: '达成10连击！' },
+  { id: 'correct_50',   check: s => s.totalCorrect >= 50,  title: '学有所成', desc: '累计答对50题！' },
+  { id: 'correct_100',  check: s => s.totalCorrect >= 100, title: '博学多才', desc: '累计答对100题！' },
+  { id: 'correct_200',  check: s => s.totalCorrect >= 200, title: '文字大师', desc: '累计答对200题！' },
+  { id: 'quest_5',      check: s => s.totalQuests >= 5,    title: '冒险家',   desc: '完成5个任务！' },
+  { id: 'quest_10',     check: s => s.totalQuests >= 10,   title: '老练冒险家', desc: '完成10个任务！' },
+  { id: 'boss_3',       check: s => s.totalBossKills >= 3, title: 'BOSS猎人', desc: '击败3个BOSS！' },
+  { id: 'xp_500',       check: s => s.totalXP >= 500,      title: '经验丰富', desc: '累计获得500经验！' },
+  { id: 'xp_2000',      check: s => s.totalXP >= 2000,     title: '身经百战', desc: '累计获得2000经验！' },
+];
+
+function showAchievement(container, ach) {
+  const popup = document.createElement('div');
+  popup.style.cssText = `
+    position:fixed; top:50%; left:50%; transform:translate(-50%,-50%) scale(0);
+    background:linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+    border:2px solid var(--accent-gold); border-radius:16px;
+    padding:24px 40px; text-align:center; z-index:300;
+    box-shadow:0 0 40px rgba(212,160,23,0.3);
+    animation: ach-pop 0.5s cubic-bezier(0.175,0.885,0.32,1.275) forwards;
+  `;
+  popup.innerHTML = `
+    <div style="font-size:2rem;margin-bottom:8px;">🏆</div>
+    <div style="font-size:0.75rem;letter-spacing:0.12em;color:var(--accent-gold);opacity:0.7;margin-bottom:4px;">成就解锁！</div>
+    <div style="font-size:1.2rem;font-weight:700;color:var(--accent-gold);margin-bottom:4px;">${ach.title}</div>
+    <div style="font-size:0.9rem;color:var(--text-secondary);">${ach.desc}</div>
+  `;
+
+  const style = document.createElement('style');
+  style.textContent = `@keyframes ach-pop { from { transform:translate(-50%,-50%) scale(0); } to { transform:translate(-50%,-50%) scale(1); } }`;
+  popup.appendChild(style);
+  container.appendChild(popup);
+
+  setTimeout(() => {
+    popup.style.animation = 'none';
+    popup.style.transition = 'all 0.3s';
+    popup.style.opacity = '0';
+    popup.style.transform = 'translate(-50%,-50%) scale(0.8)';
+    setTimeout(() => popup.remove(), 300);
+  }, 2500);
+}
+
 // ─── Sparkle effect for loot items ───────────────────────────────────────────
 
 function spawnSparkles(container, anchorEl) {
@@ -280,6 +333,31 @@ function renderReward() {
   if (quest.questIndex >= cp.questsCompleted) {
     cp.questsCompleted = quest.questIndex + 1;
   }
+
+  // ── Update stats ──
+  if (!profile.stats) {
+    profile.stats = { totalCorrect: 0, totalWrong: 0, totalQuests: 0, totalBossKills: 0, maxCombo: 0, totalXP: 0 };
+  }
+  if (!profile.achievements) profile.achievements = [];
+
+  profile.stats.totalCorrect += results.correct;
+  profile.stats.totalWrong  += (results.total - results.correct);
+  profile.stats.totalQuests++;
+  profile.stats.maxCombo = Math.max(profile.stats.maxCombo, results.maxCombo || 0);
+  profile.stats.totalXP  += totalXP;
+
+  // Check if we just beat a boss
+  const lastEnc = quest.encounters[quest.encounters.length - 1];
+  if (lastEnc && lastEnc.type === 'boss' && lastEnc.completed) {
+    profile.stats.totalBossKills++;
+  }
+
+  // ── Check for new achievements ──
+  const newAchievements = MILESTONES.filter(m =>
+    m.check(profile.stats) && !profile.achievements.includes(m.id)
+  );
+  newAchievements.forEach(a => profile.achievements.push(a.id));
+
   gameState.save();
 
   // ── Build the animated reward sequence ──
@@ -305,13 +383,18 @@ function renderReward() {
   // Engagement hook (inserted before buttons)
   const engagementHook = buildEngagementHook(profile, levelUpInfo, div);
 
+  // Detect chapter completion — did finishing this quest complete the chapter?
+  const chapterQuestTotal = CHAPTER_QUESTS[quest.chapterId] || Infinity;
+  const isChapterComplete = cp.questsCompleted >= chapterQuestTotal;
+
   // Continue / map buttons container — hidden until step 7
   const btnRow = document.createElement('div');
   btnRow.style.cssText = 'display:flex; gap:12px; opacity:0; transition:opacity 0.5s ease-out;';
 
   const btnContinue = document.createElement('button');
   btnContinue.className = 'btn btn-primary';
-  btnContinue.textContent = '继续';
+  // When chapter is complete, change label to lead into the celebration screen
+  btnContinue.textContent = isChapterComplete ? '查看成就' : '继续';
   btnContinue.style.cssText = 'animation:none;'; // will add pulse later
   btnRow.appendChild(btnContinue);
 
@@ -460,9 +543,23 @@ function renderReward() {
 
   // Wire up button listeners
   btnContinue.addEventListener('click', () => {
-    showScreen('quest', { chapterId: quest.chapterId, questIndex: quest.questIndex + 1 });
+    if (isChapterComplete) {
+      // Go to chapter completion celebration screen
+      showScreen('chapter-complete');
+    } else {
+      showScreen('quest', { chapterId: quest.chapterId, questIndex: quest.questIndex + 1 });
+    }
   });
   btnMap.addEventListener('click', () => showScreen('worldmap'));
+
+  // ── Achievement celebrations (after reward sequence finishes) ──
+  if (newAchievements.length > 0) {
+    setTimeout(() => {
+      newAchievements.forEach((ach, i) => {
+        setTimeout(() => showAchievement(div, ach), i * 1500);
+      });
+    }, 4000);
+  }
 
   return div;
 }

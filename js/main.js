@@ -20,6 +20,7 @@ import './screens/daily.js';
 import './screens/arena.js';
 import './screens/story.js';
 import './screens/encounter-intro.js';
+import './screens/chapter-complete.js';
 
 // Initialize audio on the very first user interaction (browser autoplay policy)
 let audioReady = false;

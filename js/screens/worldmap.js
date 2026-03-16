@@ -299,6 +299,20 @@ function renderWorldMap() {
       </div>`;
   }
 
+  // Calculate overall progress
+  const totalQuests = CHAPTERS.reduce((sum, ch) => sum + ch.quests, 0);
+  const completedQuests = CHAPTERS.reduce((sum, ch) => {
+    const prog = profile.chapterProgress[ch.id];
+    return sum + (prog?.questsCompleted || 0);
+  }, 0);
+  const overallPercent = Math.round((completedQuests / totalQuests) * 100);
+
+  // Build progress bar blocks (10 segments)
+  const filledBlocks = Math.round(overallPercent / 10);
+  const progressBlocks = Array.from({ length: 10 }, (_, i) =>
+    `<span style="color:${i < filledBlocks ? 'var(--accent-gold)' : 'var(--bg-secondary)'};font-size:1rem;">█</span>`
+  ).join('');
+
   // Build the nodes + connectors
   let nodesHTML = '';
   chapters.forEach((ch, idx) => {
@@ -343,8 +357,27 @@ function renderWorldMap() {
         </div>
       </div>
 
+      <!-- ── Overall progress bar ── -->
+      <div style="
+        margin:12px 20px 0;
+        background:rgba(0,0,0,0.3);
+        border:1px solid rgba(212,160,23,0.2);
+        border-radius:10px;
+        padding:10px 16px;
+        display:flex; flex-direction:column; gap:4px;
+      ">
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <span style="font-size:0.8rem;color:var(--text-secondary);letter-spacing:0.06em;">征途进度</span>
+          <span style="font-size:0.8rem;font-weight:700;color:var(--accent-gold);">${overallPercent}%</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:2px;letter-spacing:1px;">
+          ${progressBlocks}
+        </div>
+        <div style="font-size:0.75rem;color:var(--text-secondary);">已完成 ${completedQuests} / ${totalQuests} 关卡</div>
+      </div>
+
       <!-- ── Map heading ── -->
-      <div style="text-align:center; padding: 28px 20px 12px;">
+      <div style="text-align:center; padding: 16px 20px 12px;">
         <h2 style="display:inline-block;">选择章节</h2>
         <p style="color:var(--text-secondary);font-size:0.88rem;margin-top:8px;letter-spacing:0.04em;">
           踏上穿越历史的文字征途 · 击败每个时代的墨暗之主
