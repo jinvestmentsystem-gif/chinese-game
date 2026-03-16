@@ -17,6 +17,15 @@ const CHAPTER_ERA = {
   5: 'modern',
 };
 
+// Boss names per chapter (mirrors boss.js BOSS_NAMES)
+const CHAPTER_BOSS_NAMES = {
+  1: '仓颉之影',
+  2: '墨吏',
+  3: '诗魔',
+  4: '词煞',
+  5: '墨暗之主',
+};
+
 // Era-specific visual themes
 const ERA_THEME = {
   xianqin: {
@@ -30,6 +39,7 @@ const ERA_THEME = {
     label:  '先秦',
     glow:   'rgba(200,134,26,0.6)',
     bossGlow: 'rgba(220,80,20,0.8)',
+    starColor: 'rgba(255,200,120,',
   },
   han: {
     bg:     'linear-gradient(180deg, #1a0000 0%, #2d0808 25%, #400a0a 50%, #2d0505 75%, #1a0000 100%)',
@@ -42,6 +52,7 @@ const ERA_THEME = {
     label:  '汉',
     glow:   'rgba(220,60,60,0.6)',
     bossGlow: 'rgba(220,30,30,0.85)',
+    starColor: 'rgba(255,160,160,',
   },
   tang: {
     bg:     'linear-gradient(180deg, #0d0a00 0%, #1e1600 25%, #2e2000 50%, #1e1600 75%, #0d0a00 100%)',
@@ -54,6 +65,7 @@ const ERA_THEME = {
     label:  '唐',
     glow:   'rgba(212,160,23,0.6)',
     bossGlow: 'rgba(212,100,20,0.85)',
+    starColor: 'rgba(255,220,100,',
   },
   song: {
     bg:     'linear-gradient(180deg, #001a10 0%, #002818 25%, #00381e 50%, #002818 75%, #001a10 100%)',
@@ -66,6 +78,7 @@ const ERA_THEME = {
     label:  '宋',
     glow:   'rgba(46,204,138,0.6)',
     bossGlow: 'rgba(46,180,100,0.85)',
+    starColor: 'rgba(100,255,180,',
   },
   modern: {
     bg:     'linear-gradient(180deg, #0a0018 0%, #120028 25%, #1a0038 50%, #120028 75%, #0a0018 100%)',
@@ -78,21 +91,73 @@ const ERA_THEME = {
     label:  '现代',
     glow:   'rgba(140,80,255,0.6)',
     bossGlow: 'rgba(140,60,255,0.9)',
+    starColor: 'rgba(180,120,255,',
   },
 };
 
-// ─── Encounter icon / label helpers ──────────────────────────────────────────
+// ─── SVG icon helpers (inline, no emoji) ──────────────────────────────────
 
-function encIcon(enc) {
-  if (enc.type === 'boss')   return '👹';
-  if (enc.type === 'combat') return '⚔️';
-  return '📖';
-}
+// Returns an SVG <g> element with an icon for the encounter type
+function buildEncIconSVG(type, fillColor, size) {
+  const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  const half = size / 2;
 
-function encLabel(enc) {
-  if (enc.type === 'boss')   return 'BOSS';
-  if (enc.type === 'combat') return '战斗';
-  return '解谜';
+  if (type === 'combat') {
+    // Sword shape: diagonal blade
+    g.innerHTML = `
+      <path d="M -${half * 0.55},-${half * 0.7}
+               L ${half * 0.55},${half * 0.7}
+               L ${half * 0.35},${half * 0.9}
+               L -${half * 0.2},${half * 0.35}
+               Z"
+            fill="${fillColor}" opacity="0.95"/>
+      <path d="M ${half * 0.55},-${half * 0.7}
+               L ${half * 0.8},-${half * 0.45}
+               L ${half * 0.2},${half * 0.1}
+               Z"
+            fill="${fillColor}" opacity="0.7"/>
+      <line x1="-${half * 0.1}" y1="${half * 0.4}"
+            x2="${half * 0.25}" y2="${half * 0.75}"
+            stroke="${fillColor}" stroke-width="2.5" stroke-linecap="round"/>
+    `;
+  } else if (type === 'puzzle') {
+    // Scroll shape
+    const sw = half * 0.9;
+    const sh = half * 1.0;
+    g.innerHTML = `
+      <rect x="-${sw / 2}" y="-${sh / 2}" width="${sw}" height="${sh}"
+            rx="3" fill="${fillColor}" opacity="0.15" stroke="${fillColor}" stroke-width="1.5"/>
+      <line x1="-${sw * 0.35}" y1="-${sh * 0.22}" x2="${sw * 0.35}" y2="-${sh * 0.22}"
+            stroke="${fillColor}" stroke-width="1.2" opacity="0.8"/>
+      <line x1="-${sw * 0.35}" y1="0" x2="${sw * 0.35}" y2="0"
+            stroke="${fillColor}" stroke-width="1.2" opacity="0.8"/>
+      <line x1="-${sw * 0.35}" y1="${sh * 0.22}" x2="${sw * 0.1}" y2="${sh * 0.22}"
+            stroke="${fillColor}" stroke-width="1.2" opacity="0.8"/>
+      <ellipse cx="-${sw / 2}" cy="0" rx="3" ry="${sh / 2}"
+               fill="${fillColor}" opacity="0.6"/>
+      <ellipse cx="${sw / 2}" cy="0" rx="3" ry="${sh / 2}"
+               fill="${fillColor}" opacity="0.6"/>
+    `;
+  } else {
+    // Boss: skull / demon shape
+    const hw = half * 0.75;
+    const hh = half * 0.85;
+    g.innerHTML = `
+      <ellipse cx="0" cy="-${hh * 0.1}" rx="${hw}" ry="${hh * 0.75}"
+               fill="${fillColor}" opacity="0.9"/>
+      <rect x="-${hw * 0.6}" y="${hh * 0.5}" width="${hw * 0.45}" height="${hh * 0.4}"
+            rx="2" fill="${fillColor}" opacity="0.7"/>
+      <rect x="${hw * 0.15}" y="${hh * 0.5}" width="${hw * 0.45}" height="${hh * 0.4}"
+            rx="2" fill="${fillColor}" opacity="0.7"/>
+      <ellipse cx="-${hw * 0.32}" cy="-${hh * 0.15}" rx="${hw * 0.22}" ry="${hh * 0.22}"
+               fill="#1a0000" opacity="0.9"/>
+      <ellipse cx="${hw * 0.32}" cy="-${hh * 0.15}" rx="${hw * 0.22}" ry="${hh * 0.22}"
+               fill="#1a0000" opacity="0.9"/>
+      <path d="M -${hw * 0.25},${hh * 0.22} L 0,${hh * 0.1} L ${hw * 0.25},${hh * 0.22}"
+            stroke="#1a0000" stroke-width="2" fill="none" opacity="0.8"/>
+    `;
+  }
+  return g;
 }
 
 // ─── Build the winding SVG path between nodes ─────────────────────────────
@@ -119,6 +184,35 @@ function buildWindingPath(points) {
 // ─── Era decorative background elements ──────────────────────────────────────
 
 function buildBackground(container, theme, svgW, svgH) {
+  // Starfield — 28 small twinkling dots in the sky area
+  const starSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  starSvg.setAttribute('width', '100%');
+  starSvg.setAttribute('height', '55%');
+  starSvg.style.cssText = `position:absolute; top:0; left:0; pointer-events:none; z-index:0; overflow:visible;`;
+  const starBase = theme.starColor || 'rgba(255,220,180,';
+  for (let s = 0; s < 28; s++) {
+    const cx = 5 + Math.random() * 90;   // percent
+    const cy = 3 + Math.random() * 85;   // percent
+    const r  = 0.8 + Math.random() * 1.6;
+    const dur = (2.5 + Math.random() * 4).toFixed(1);
+    const delay = (Math.random() * 4).toFixed(1);
+    const star = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    star.setAttribute('cx', `${cx}%`);
+    star.setAttribute('cy', `${cy}%`);
+    star.setAttribute('r', r);
+    star.setAttribute('fill', `${starBase}0.85)`);
+    // Twinkle via animate
+    const anim = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+    anim.setAttribute('attributeName', 'opacity');
+    anim.setAttribute('values', '0.2;1;0.2');
+    anim.setAttribute('dur', `${dur}s`);
+    anim.setAttribute('begin', `${delay}s`);
+    anim.setAttribute('repeatCount', 'indefinite');
+    star.appendChild(anim);
+    starSvg.appendChild(star);
+  }
+  container.appendChild(starSvg);
+
   // Sky clouds (CSS circles)
   for (let c = 0; c < 5; c++) {
     const cloud = document.createElement('div');
@@ -137,30 +231,50 @@ function buildBackground(container, theme, svgW, svgH) {
     container.appendChild(cloud);
   }
 
-  // Mountain silhouettes at ~80% height
+  // Mountain silhouettes — two layers for depth
   const mtnSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   mtnSvg.setAttribute('width', '100%');
-  mtnSvg.setAttribute('height', '80');
+  mtnSvg.setAttribute('height', '110');
   mtnSvg.style.cssText = `position:absolute; bottom:12%; left:0; pointer-events:none; z-index:0;`;
-  const mtnPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-  mtnPath.setAttribute('d', 'M0,80 L0,50 L40,20 L80,45 L130,10 L180,40 L230,15 L280,50 L320,25 L360,55 L400,30 L450,55 L480,20 L520,48 L560,8 L600,40 L600,80 Z');
-  mtnPath.setAttribute('fill', theme.mtn);
-  mtnPath.setAttribute('opacity', '0.9');
-  mtnSvg.appendChild(mtnPath);
+
+  // Far mountains (slightly brighter, taller)
+  const mtnFar = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  mtnFar.setAttribute('d', 'M0,110 L0,65 L35,30 L70,55 L110,15 L155,48 L200,20 L250,52 L295,18 L340,50 L385,25 L430,58 L465,22 L505,50 L545,10 L600,44 L600,110 Z');
+  mtnFar.setAttribute('fill', theme.mtn);
+  mtnFar.setAttribute('opacity', '0.6');
+  mtnSvg.appendChild(mtnFar);
+
+  // Near mountains (darker, shorter)
+  const mtnNear = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  mtnNear.setAttribute('d', 'M0,110 L0,75 L50,50 L90,68 L140,38 L190,62 L240,42 L300,70 L350,45 L410,72 L460,48 L520,75 L570,55 L600,72 L600,110 Z');
+  mtnNear.setAttribute('fill', theme.mtn);
+  mtnNear.setAttribute('opacity', '0.9');
+  mtnSvg.appendChild(mtnNear);
+
   container.appendChild(mtnSvg);
+
+  // Ground texture strip
+  const groundDiv = document.createElement('div');
+  groundDiv.style.cssText = `
+    position:absolute; bottom:0; left:0; right:0; height:12%;
+    background:${theme.ground};
+    pointer-events:none; z-index:0;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  `;
+  container.appendChild(groundDiv);
 
   // Tree silhouettes at bottom
   const treeSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   treeSvg.setAttribute('width', '100%');
-  treeSvg.setAttribute('height', '50');
+  treeSvg.setAttribute('height', '60');
   treeSvg.style.cssText = `position:absolute; bottom:0; left:0; pointer-events:none; z-index:0;`;
-  const treePositions = [5, 12, 20, 30, 38, 50, 60, 68, 78, 88, 95];
+  const treePositions = [3, 9, 15, 22, 30, 38, 46, 54, 62, 70, 78, 84, 90, 96];
   treePositions.forEach(pct => {
     const tri = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
     const cx = (pct / 100) * 600;
-    const h  = 22 + Math.random() * 18;
-    const w  = 10 + Math.random() * 8;
-    tri.setAttribute('points', `${cx},50 ${cx - w},50 ${cx},${50 - h} ${cx + w},50`);
+    const h  = 25 + Math.random() * 22;
+    const w  = 10 + Math.random() * 9;
+    tri.setAttribute('points', `${cx},60 ${cx - w},60 ${cx},${60 - h} ${cx + w},60`);
     tri.setAttribute('fill', theme.tree);
     treeSvg.appendChild(tri);
   });
@@ -213,6 +327,22 @@ function injectStyles(div) {
       70%  { opacity:1; }
       100% { opacity:0; }
     }
+    @keyframes current-ring-1 {
+      0%   { r: var(--nr); opacity: 0.7; }
+      100% { r: calc(var(--nr) + 22px); opacity: 0; }
+    }
+    @keyframes current-ring-2 {
+      0%   { r: var(--nr); opacity: 0.5; }
+      100% { r: calc(var(--nr) + 38px); opacity: 0; }
+    }
+    @keyframes boss-aura-1 {
+      0%   { r: var(--br); opacity: 0.6; }
+      100% { r: calc(var(--br) + 28px); opacity: 0; }
+    }
+    @keyframes boss-aura-2 {
+      0%   { r: var(--br); opacity: 0.4; }
+      100% { r: calc(var(--br) + 48px); opacity: 0; }
+    }
   `;
   div.appendChild(s);
 }
@@ -233,6 +363,9 @@ function renderQuest(params) {
 
   const era   = CHAPTER_ERA[chapterId] || 'xianqin';
   const theme = ERA_THEME[era] || ERA_THEME.xianqin;
+
+  // Boss name for this chapter
+  const chapterBossName = CHAPTER_BOSS_NAMES[chapterId] || 'BOSS';
 
   // Inject CSS keyframes
   injectStyles(div);
@@ -322,8 +455,8 @@ function renderQuest(params) {
 
     const SVG_W = 320;
     const SVG_H = 560;
-    const NODE_R = 22;          // radius of encounter node circle
-    const BOSS_R = 32;          // radius of boss node
+    const NODE_R = 28;          // radius of encounter node circle (was 22)
+    const BOSS_R = 44;          // radius of boss node (was 32)
 
     // Y positions: boss at top (y=80), start at bottom (y=SVG_H-60)
     // Distribute evenly, with boss at index 0 = TOP
@@ -339,7 +472,7 @@ function renderQuest(params) {
     const startX = SVG_W / 2;
 
     // Boss at top
-    const bossY = 80;
+    const bossY = 90;
 
     // Intermediate nodes (encounter 0 … N-2, with N-1 being boss)
     // Y: evenly spaced between start and boss
@@ -369,26 +502,58 @@ function renderQuest(params) {
     `;
     content.appendChild(svg);
 
+    // Add SVG defs for gradients
+    const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+    // Completed path gradient
+    const gradId = 'path-grad-completed';
+    const grad = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
+    grad.setAttribute('id', gradId);
+    grad.setAttribute('x1', '0%'); grad.setAttribute('y1', '0%');
+    grad.setAttribute('x2', '0%'); grad.setAttribute('y2', '100%');
+    const stop1 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+    stop1.setAttribute('offset', '0%');
+    stop1.setAttribute('stop-color', theme.accent);
+    stop1.setAttribute('stop-opacity', '1');
+    const stop2 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+    stop2.setAttribute('offset', '100%');
+    stop2.setAttribute('stop-color', theme.accent);
+    stop2.setAttribute('stop-opacity', '0.5');
+    grad.appendChild(stop1);
+    grad.appendChild(stop2);
+    defs.appendChild(grad);
+    svg.appendChild(defs);
+
     // Build path segments: one per gap, coloured by completion status
     // allPoints[0] = start, allPoints[i+1] = encounters[i]
     for (let i = 0; i < N; i++) {
       const fromPt  = allPoints[i];
       const toPt    = allPoints[i + 1];
       const enc     = encounters[i];
-      const prevEnc = i === 0 ? null : encounters[i - 1];
       const segCompleted = enc.completed;     // segment leading TO this node is "done"
+
+      // Glow path beneath (blurred) for completed segments
+      if (segCompleted) {
+        const glowPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        glowPath.setAttribute('d', buildWindingPath([fromPt, toPt]));
+        glowPath.setAttribute('fill', 'none');
+        glowPath.setAttribute('stroke', theme.accent);
+        glowPath.setAttribute('stroke-width', '10');
+        glowPath.setAttribute('stroke-linecap', 'round');
+        glowPath.setAttribute('opacity', '0.25');
+        svg.appendChild(glowPath);
+      }
 
       const pathEl = document.createElementNS('http://www.w3.org/2000/svg', 'path');
       pathEl.setAttribute('d', buildWindingPath([fromPt, toPt]));
       pathEl.setAttribute('fill', 'none');
-      pathEl.setAttribute('stroke-width', '4');
+      pathEl.setAttribute('stroke-width', '6');
       pathEl.setAttribute('stroke-linecap', 'round');
       pathEl.setAttribute('data-seg-idx', i);
 
       if (segCompleted) {
-        pathEl.setAttribute('stroke', theme.accent);
+        pathEl.setAttribute('stroke', `url(#${gradId})`);
         pathEl.setAttribute('stroke-dasharray', 'none');
-        pathEl.setAttribute('opacity', '0.9');
+        pathEl.setAttribute('opacity', '1');
       } else {
         pathEl.setAttribute('stroke', 'rgba(255,255,255,0.18)');
         pathEl.setAttribute('stroke-dasharray', '8 6');
@@ -421,6 +586,93 @@ function renderQuest(params) {
       g.setAttribute('transform', `translate(${nx}, ${ny})`);
       g.setAttribute('data-enc-idx', i);
 
+      // Boss: pulsing red aura rings (2 expanding rings)
+      if (isBoss) {
+        const auraRing1 = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        auraRing1.setAttribute('r', r + 4);
+        auraRing1.setAttribute('fill', 'none');
+        auraRing1.setAttribute('stroke', 'rgba(220,50,20,0.7)');
+        auraRing1.setAttribute('stroke-width', '3');
+        auraRing1.setAttribute('style', `--br:${r + 4}px;`);
+        const bossAnim1 = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+        bossAnim1.setAttribute('attributeName', 'r');
+        bossAnim1.setAttribute('values', `${r + 4};${r + 32}`);
+        bossAnim1.setAttribute('dur', '1.8s');
+        bossAnim1.setAttribute('repeatCount', 'indefinite');
+        const bossAnimOp1 = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+        bossAnimOp1.setAttribute('attributeName', 'opacity');
+        bossAnimOp1.setAttribute('values', '0.7;0');
+        bossAnimOp1.setAttribute('dur', '1.8s');
+        bossAnimOp1.setAttribute('repeatCount', 'indefinite');
+        auraRing1.appendChild(bossAnim1);
+        auraRing1.appendChild(bossAnimOp1);
+        g.appendChild(auraRing1);
+
+        const auraRing2 = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        auraRing2.setAttribute('r', r + 4);
+        auraRing2.setAttribute('fill', 'none');
+        auraRing2.setAttribute('stroke', 'rgba(220,50,20,0.4)');
+        auraRing2.setAttribute('stroke-width', '2');
+        const bossAnim2 = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+        bossAnim2.setAttribute('attributeName', 'r');
+        bossAnim2.setAttribute('values', `${r + 4};${r + 52}`);
+        bossAnim2.setAttribute('dur', '1.8s');
+        bossAnim2.setAttribute('begin', '0.5s');
+        bossAnim2.setAttribute('repeatCount', 'indefinite');
+        const bossAnimOp2 = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+        bossAnimOp2.setAttribute('attributeName', 'opacity');
+        bossAnimOp2.setAttribute('values', '0.5;0');
+        bossAnimOp2.setAttribute('dur', '1.8s');
+        bossAnimOp2.setAttribute('begin', '0.5s');
+        bossAnimOp2.setAttribute('repeatCount', 'indefinite');
+        auraRing2.appendChild(bossAnim2);
+        auraRing2.appendChild(bossAnimOp2);
+        g.appendChild(auraRing2);
+      }
+
+      // Current node: 2 concentric expanding pulse rings
+      if (isCurrent && !isBoss) {
+        const pulseRing1 = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        pulseRing1.setAttribute('r', r);
+        pulseRing1.setAttribute('fill', 'none');
+        pulseRing1.setAttribute('stroke', theme.accent);
+        pulseRing1.setAttribute('stroke-width', '2');
+        const pr1animR = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+        pr1animR.setAttribute('attributeName', 'r');
+        pr1animR.setAttribute('values', `${r};${r + 20}`);
+        pr1animR.setAttribute('dur', '1.6s');
+        pr1animR.setAttribute('repeatCount', 'indefinite');
+        const pr1animOp = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+        pr1animOp.setAttribute('attributeName', 'opacity');
+        pr1animOp.setAttribute('values', '0.7;0');
+        pr1animOp.setAttribute('dur', '1.6s');
+        pr1animOp.setAttribute('repeatCount', 'indefinite');
+        pulseRing1.appendChild(pr1animR);
+        pulseRing1.appendChild(pr1animOp);
+        g.appendChild(pulseRing1);
+
+        const pulseRing2 = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        pulseRing2.setAttribute('r', r);
+        pulseRing2.setAttribute('fill', 'none');
+        pulseRing2.setAttribute('stroke', theme.accent);
+        pulseRing2.setAttribute('stroke-width', '1.5');
+        const pr2animR = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+        pr2animR.setAttribute('attributeName', 'r');
+        pr2animR.setAttribute('values', `${r};${r + 36}`);
+        pr2animR.setAttribute('dur', '1.6s');
+        pr2animR.setAttribute('begin', '0.4s');
+        pr2animR.setAttribute('repeatCount', 'indefinite');
+        const pr2animOp = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+        pr2animOp.setAttribute('attributeName', 'opacity');
+        pr2animOp.setAttribute('values', '0.5;0');
+        pr2animOp.setAttribute('dur', '1.6s');
+        pr2animOp.setAttribute('begin', '0.4s');
+        pr2animOp.setAttribute('repeatCount', 'indefinite');
+        pulseRing2.appendChild(pr2animR);
+        pulseRing2.appendChild(pr2animOp);
+        g.appendChild(pulseRing2);
+      }
+
       // Shadow / glow ring beneath node
       const glowCirc = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
       glowCirc.setAttribute('r', r + 8);
@@ -444,7 +696,7 @@ function renderQuest(params) {
       } else if (isBoss) {
         circ.setAttribute('fill', 'rgba(30,0,0,0.92)');
         circ.setAttribute('stroke', theme.bossGlow);
-        circ.setAttribute('stroke-width', '3');
+        circ.setAttribute('stroke-width', '4');
       } else {
         circ.setAttribute('fill', 'rgba(10,8,5,0.7)');
         circ.setAttribute('stroke', 'rgba(255,255,255,0.2)');
@@ -452,23 +704,37 @@ function renderQuest(params) {
       }
       g.appendChild(circ);
 
-      // Icon / label text
-      const iconText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-      iconText.setAttribute('y', '-4');
-      iconText.setAttribute('text-anchor', 'middle');
-      iconText.setAttribute('font-size', isBoss ? '22' : completed ? '16' : '18');
-      iconText.setAttribute('fill', completed ? '#000' : 'rgba(255,255,255,0.9)');
-      iconText.setAttribute('dominant-baseline', 'middle');
-      iconText.textContent = completed ? '✓' : encIcon(enc);
-      g.appendChild(iconText);
+      // Icon: SVG inline icon or checkmark
+      if (completed) {
+        const iconText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        iconText.setAttribute('y', '0');
+        iconText.setAttribute('text-anchor', 'middle');
+        iconText.setAttribute('font-size', NODE_R * 0.85);
+        iconText.setAttribute('fill', '#000');
+        iconText.setAttribute('dominant-baseline', 'middle');
+        iconText.textContent = '✓';
+        g.appendChild(iconText);
+      } else {
+        // SVG path icon for encounter type
+        const iconSize = isBoss ? BOSS_R * 0.9 : NODE_R * 0.9;
+        const iconColor = isBoss ? 'rgba(255,120,80,0.9)' : isCurrent ? theme.accent : 'rgba(255,255,255,0.6)';
+        const iconG = buildEncIconSVG(enc.type, iconColor, iconSize);
+        g.appendChild(iconG);
+      }
 
       // Label below node
       const labelText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-      labelText.setAttribute('y', r + 14);
+      labelText.setAttribute('y', r + 16);
       labelText.setAttribute('text-anchor', 'middle');
-      labelText.setAttribute('font-size', '10');
-      labelText.setAttribute('fill', completed ? theme.accent : isBoss ? 'rgba(255,100,80,0.85)' : isCurrent ? theme.accent : 'rgba(255,255,255,0.35)');
-      labelText.textContent = completed ? '已完成' : isBoss ? `BOSS: ${encLabel(enc)}` : `${encLabel(enc)} ${i + 1}`;
+      labelText.setAttribute('font-size', isBoss ? '11' : '10');
+      labelText.setAttribute('fill', completed ? theme.accent : isBoss ? 'rgba(255,100,80,0.9)' : isCurrent ? theme.accent : 'rgba(255,255,255,0.35)');
+      if (completed) {
+        labelText.textContent = '已完成';
+      } else if (isBoss) {
+        labelText.textContent = chapterBossName;
+      } else {
+        labelText.textContent = enc.type === 'combat' ? `战斗 ${i + 1}` : `解谜 ${i + 1}`;
+      }
       g.appendChild(labelText);
 
       // "你在这里" tag on current node
@@ -482,7 +748,7 @@ function renderQuest(params) {
         g.appendChild(tag);
       }
 
-      // Boss glow animation via SVG animate
+      // Boss: animated glow ring + name label above
       if (isBoss) {
         const anim = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
         anim.setAttribute('attributeName', 'stroke-opacity');
@@ -491,15 +757,15 @@ function renderQuest(params) {
         anim.setAttribute('repeatCount', 'indefinite');
         glowCirc.appendChild(anim);
 
-        // Boss name label above node
-        const bossName = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-        bossName.setAttribute('y', -(r + 16));
-        bossName.setAttribute('text-anchor', 'middle');
-        bossName.setAttribute('font-size', '11');
-        bossName.setAttribute('fill', 'rgba(255,120,80,0.9)');
-        bossName.setAttribute('font-weight', 'bold');
-        bossName.textContent = '⚠ BOSS 终点';
-        g.appendChild(bossName);
+        // Boss name label above node (actual boss name, not "BOSS 终点")
+        const bossNameEl = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        bossNameEl.setAttribute('y', -(r + 18));
+        bossNameEl.setAttribute('text-anchor', 'middle');
+        bossNameEl.setAttribute('font-size', '13');
+        bossNameEl.setAttribute('fill', 'rgba(255,100,70,0.95)');
+        bossNameEl.setAttribute('font-weight', 'bold');
+        bossNameEl.textContent = `⚠ ${chapterBossName}`;
+        g.appendChild(bossNameEl);
       }
 
       svg.appendChild(g);
@@ -587,7 +853,7 @@ function renderQuest(params) {
       letter-spacing:0.05em;
     `;
     const isNextBoss = currentIdx >= 0 && encounters[currentIdx]?.type === 'boss';
-    btnStart.textContent = isNextBoss ? '⚠ 挑战BOSS' : completedCount === 0 ? '开始冒险' : '继续冒险';
+    btnStart.textContent = isNextBoss ? `⚠ 挑战${chapterBossName}` : completedCount === 0 ? '开始冒险' : '继续冒险';
     progressWrap.appendChild(btnStart);
 
     mapWrap.appendChild(progressWrap);
@@ -629,8 +895,6 @@ function renderQuest(params) {
 
         const destX   = targetPos[0] - NODE_R - 30;
         const destY   = targetPos[1] - 20;
-        const walkDx  = destX - startAvatarX;
-        const walkDy  = destY - startAvatarY;
 
         // Use SMIL animate for SVG translate
         const animX = document.createElementNS('http://www.w3.org/2000/svg', 'animateTransform');
@@ -710,7 +974,7 @@ function renderQuest(params) {
                 animation: boss-warning 3s ease-out both;
                 z-index:100; pointer-events:none; text-align:center;
               `;
-              warn.innerHTML = '⚠ BOSS战即将开始！<br><span style="font-size:0.85rem;opacity:0.7;">做好准备！</span>';
+              warn.innerHTML = `⚠ ${chapterBossName}即将出现！<br><span style="font-size:0.85rem;opacity:0.7;">做好准备！</span>`;
               content.appendChild(warn);
               setTimeout(() => warn.remove(), 3100);
             }, 1800);

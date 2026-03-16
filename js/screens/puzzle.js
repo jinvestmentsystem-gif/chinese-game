@@ -57,13 +57,23 @@ function createMiniProgress(container) {
 function renderPuzzle() {
   const div = document.createElement('div');
   div.className = 'screen';
-  div.style.cssText = 'overflow:hidden;';
+  div.style.cssText = 'overflow:hidden; display:flex; flex-direction:column; height:100%;';
 
   // Set puzzle music — light rhythm (intensity 1)
   const chapterId = gameState.currentQuest?.chapterId || 1;
   const eraMap = {1:'xianqin',2:'han',3:'tang',4:'song',5:'modern'};
   playMusic(eraMap[chapterId] || 'xianqin');
   setTimeout(() => setMusicIntensity(1), 200);
+
+  // Era-aware atmospheric background gradient
+  const eraAtmosphere = {
+    xianqin: 'linear-gradient(180deg, #1a0e00 0%, #2d1800 40%, #1a0e00 100%)',
+    han:     'linear-gradient(180deg, #1a0000 0%, #2d0808 40%, #1a0000 100%)',
+    tang:    'linear-gradient(180deg, #0d0a00 0%, #1e1600 40%, #0d0a00 100%)',
+    song:    'linear-gradient(180deg, #001a10 0%, #002818 40%, #001a10 100%)',
+    modern:  'linear-gradient(180deg, #0a0018 0%, #120028 40%, #0a0018 100%)',
+  };
+  div.style.background = eraAtmosphere[eraMap[chapterId]] || eraAtmosphere.xianqin;
 
   const encounter = getCurrentEncounter();
   const profile = gameState.profile;
@@ -84,9 +94,15 @@ function renderPuzzle() {
   // CSS injected once
   const style = document.createElement('style');
   style.textContent = `
+    .puzzle-screen-inner {
+      display:flex; flex-direction:column;
+      height:100%; width:100%;
+      overflow:hidden;
+    }
     .puzzle-hud {
       display:flex; justify-content:space-between; align-items:flex-start;
       width:100%; padding:14px 32px; padding-top:44px; box-sizing:border-box;
+      flex-shrink:0;
     }
     .puzzle-hp-section { text-align:center; }
     .puzzle-hp-label { font-weight:700; font-size:0.95rem; margin-bottom:4px; }
@@ -101,8 +117,8 @@ function renderPuzzle() {
     }
     .puzzle-arena {
       display:flex; align-items:center; justify-content:space-between;
-      width:100%; padding:0 48px; box-sizing:border-box;
-      margin:4px 0; min-height:140px; position:relative;
+      width:100%; padding:0 36px; box-sizing:border-box;
+      flex-shrink:0;
     }
     .puzzle-player-sprite {
       display:flex; flex-direction:column; align-items:center;
@@ -114,22 +130,23 @@ function renderPuzzle() {
       flex:1; text-align:center;
     }
     .puzzle-seal-icon {
-      width:80px; height:100px;
+      width:100px; height:130px;
       border:3px solid #a855f7;
       border-radius:8px;
       background:rgba(60,20,90,0.7);
       display:flex; flex-direction:column; align-items:center; justify-content:center;
-      box-shadow: 0 0 18px rgba(168,85,247,0.6), inset 0 0 16px rgba(124,58,237,0.3);
+      box-shadow: 0 0 28px rgba(168,85,247,0.7), inset 0 0 24px rgba(124,58,237,0.4),
+                  0 0 60px rgba(168,85,247,0.2);
       position:relative; overflow:hidden;
       transition: box-shadow 0.3s, border-color 0.3s;
     }
     .puzzle-seal-icon .seal-char {
-      font-size:2.4rem; font-weight:900; color:#d8b4fe;
-      text-shadow: 0 0 14px #a855f7, 0 0 28px #7c3aed;
+      font-size:3rem; font-weight:900; color:#d8b4fe;
+      text-shadow: 0 0 18px #a855f7, 0 0 36px #7c3aed;
       line-height:1;
     }
     .puzzle-seal-icon .seal-label {
-      font-size:0.65rem; color:#c084fc; margin-top:4px; letter-spacing:2px;
+      font-size:0.7rem; color:#c084fc; margin-top:6px; letter-spacing:2px;
     }
     .puzzle-seal-icon::before {
       content:'';
@@ -140,25 +157,32 @@ function renderPuzzle() {
         rgba(168,85,247,0.08) 6px, rgba(168,85,247,0.08) 7px
       );
     }
+    @keyframes sealGlow {
+      0%,100% { box-shadow: 0 0 28px rgba(168,85,247,0.7), inset 0 0 24px rgba(124,58,237,0.4), 0 0 60px rgba(168,85,247,0.2); }
+      50%      { box-shadow: 0 0 42px rgba(168,85,247,0.9), inset 0 0 32px rgba(124,58,237,0.6), 0 0 80px rgba(168,85,247,0.35); }
+    }
+    .puzzle-seal-icon { animation: sealGlow 2.4s ease-in-out infinite; }
     .puzzle-narrative {
-      font-style:italic; font-size:0.95rem; color:#c084fc;
-      text-align:center; margin:0 32px 6px;
+      font-style:italic; font-size:0.92rem; color:#c084fc;
+      text-align:center; margin:0 24px 4px;
       text-shadow: 0 0 8px rgba(168,85,247,0.5);
-      padding:8px 16px;
+      padding:7px 14px;
       border-radius:6px;
       background:rgba(60,20,90,0.3);
       border:1px solid rgba(124,58,237,0.3);
+      flex-shrink:0;
     }
     .puzzle-scroll-box {
-      margin:0 32px 10px; padding:16px 20px;
-      background:rgba(30,25,15,0.85);
+      margin:0 24px 6px; padding:14px 18px;
+      background:rgba(30,25,15,0.9);
       border:2px solid #7c5a0a;
       border-radius:8px;
       box-shadow: inset 0 0 20px rgba(212,160,23,0.08), 0 0 12px rgba(124,90,10,0.3);
-      max-height:160px; overflow-y:auto;
+      max-height:200px; overflow-y:auto;
       font-size:1rem; line-height:1.85;
-      color:#e8d5a0;
+      color:#f0e0b0;
       position:relative;
+      flex-shrink:0;
     }
     .puzzle-scroll-box::before {
       content:'';
@@ -176,21 +200,57 @@ function renderPuzzle() {
     }
     .puzzle-progress {
       font-size:0.85rem; color:var(--text-secondary);
-      text-align:center; margin-bottom:6px;
+      text-align:center; margin-bottom:4px;
+      flex-shrink:0;
     }
     .puzzle-question {
-      font-size:1.1rem; margin:0 32px 12px; text-align:center; font-weight:600;
+      font-size:1.1rem; margin:0 24px 8px; text-align:center; font-weight:600;
+      flex-shrink:0;
+    }
+    .puzzle-options {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:10px; margin:0 24px 8px; flex-shrink:0;
+    }
+    .puzzle-options .puzzle-option {
+      padding:16px 20px; font-size:1.1rem;
+      min-height:56px; border-radius:8px;
+      background:rgba(40,30,10,0.85);
+      border:2px solid rgba(212,160,23,0.3);
+      color:#f0e0b0; cursor:pointer;
+      text-align:left; line-height:1.4;
+      transition:background 0.15s, border-color 0.15s, transform 0.1s;
+      box-sizing:border-box; width:100%;
+    }
+    .puzzle-options .puzzle-option:hover {
+      background:rgba(60,45,15,0.9);
+      border-color:rgba(212,160,23,0.7);
+      transform:translateY(-1px);
+    }
+    .puzzle-options .puzzle-option.correct {
+      background:rgba(39,174,96,0.25);
+      border-color:var(--accent-jade);
+      color:#a8f0c8;
+    }
+    .puzzle-options .puzzle-option.wrong {
+      background:rgba(192,57,43,0.25);
+      border-color:var(--accent-red);
+      color:#ffa8a8;
+    }
+    .puzzle-feedback {
+      margin:0 24px 4px; text-align:center;
+      font-size:0.88rem; min-height:28px;
+      flex-shrink:0;
     }
     @keyframes sealCrack {
-      0%   { box-shadow:0 0 18px rgba(168,85,247,0.6), inset 0 0 16px rgba(124,58,237,0.3); border-color:#a855f7; }
-      30%  { box-shadow:0 0 30px rgba(255,80,80,0.8), inset 0 0 20px rgba(220,50,50,0.4); border-color:#ff5050; }
-      60%  { box-shadow:0 0 8px rgba(168,85,247,0.2), inset 0 0 6px rgba(124,58,237,0.1); border-color:#7c3aed; opacity:0.7; }
-      100% { box-shadow:0 0 18px rgba(168,85,247,0.6), inset 0 0 16px rgba(124,58,237,0.3); border-color:#a855f7; opacity:1; }
+      0%   { box-shadow:0 0 28px rgba(168,85,247,0.7), inset 0 0 24px rgba(124,58,237,0.4); border-color:#a855f7; }
+      30%  { box-shadow:0 0 40px rgba(255,80,80,0.8), inset 0 0 28px rgba(220,50,50,0.4); border-color:#ff5050; }
+      60%  { box-shadow:0 0 10px rgba(168,85,247,0.2), inset 0 0 6px rgba(124,58,237,0.1); border-color:#7c3aed; opacity:0.7; }
+      100% { box-shadow:0 0 28px rgba(168,85,247,0.7), inset 0 0 24px rgba(124,58,237,0.4); border-color:#a855f7; opacity:1; }
     }
     @keyframes sealPulseRed {
-      0%   { box-shadow:0 0 18px rgba(168,85,247,0.6), inset 0 0 16px rgba(124,58,237,0.3); }
-      50%  { box-shadow:0 0 28px rgba(220,50,50,0.9), inset 0 0 18px rgba(200,30,30,0.5); border-color:#e74c3c; }
-      100% { box-shadow:0 0 18px rgba(168,85,247,0.6), inset 0 0 16px rgba(124,58,237,0.3); border-color:#a855f7; }
+      0%   { box-shadow:0 0 28px rgba(168,85,247,0.7), inset 0 0 24px rgba(124,58,237,0.4); }
+      50%  { box-shadow:0 0 36px rgba(220,50,50,0.9), inset 0 0 22px rgba(200,30,30,0.5); border-color:#e74c3c; }
+      100% { box-shadow:0 0 28px rgba(168,85,247,0.7), inset 0 0 24px rgba(124,58,237,0.4); border-color:#a855f7; }
     }
     @keyframes sealShatter {
       0%   { transform:scale(1); opacity:1; }
@@ -249,10 +309,12 @@ function renderPuzzle() {
     const sealPct = sealHp;
     const playerPct = (playerHp / profile.maxHp) * 100;
 
-    const optionsHTML = q.options.map((opt, i) => `
-      <button class="puzzle-option" data-idx="${i}">${opt}</button>
-    `).join('');
+    // ── Inner flex container that fills height ──
+    const inner = document.createElement('div');
+    inner.className = 'puzzle-screen-inner';
+    div.appendChild(inner);
 
+    // HUD
     const hudDiv = document.createElement('div');
     hudDiv.className = 'puzzle-hud';
     hudDiv.innerHTML = `
@@ -274,8 +336,9 @@ function renderPuzzle() {
         <div style="font-size:0.75rem; color:#c084fc; margin-top:2px;">${sealHp}%</div>
       </div>
     `;
-    div.appendChild(hudDiv);
+    inner.appendChild(hudDiv);
 
+    // Arena
     const arenaDiv = document.createElement('div');
     arenaDiv.className = 'puzzle-arena';
     arenaDiv.innerHTML = `
@@ -289,60 +352,73 @@ function renderPuzzle() {
           <div class="seal-char">封</div>
           <div class="seal-label">封　印</div>
         </div>
-        <div style="font-size:0.75rem;color:#c084fc;margin-top:4px;">文字封印</div>
+        <div style="font-size:0.75rem;color:#c084fc;margin-top:6px;">文字封印</div>
       </div>
     `;
-    div.appendChild(arenaDiv);
+    inner.appendChild(arenaDiv);
 
-    // ── Seal intent: show damage preview on wrong answer ──
+    // Seal intent
     const sealWrongDmg = Math.round(8 * (1 - profile.defense * 0.01));
     const intentDiv = document.createElement('div');
     intentDiv.style.cssText = `
       display:flex; justify-content:center; align-items:center;
-      margin:2px 32px 4px; padding:5px 14px;
+      margin:2px 24px 4px; padding:5px 14px;
       background:rgba(124,58,237,0.12);
       border:1px solid rgba(168,85,247,0.3);
       border-radius:6px; font-size:0.82rem;
+      flex-shrink:0;
     `;
     intentDiv.innerHTML = `<span style="color:#e74c3c;">⚠ 答错: 封印反噬 -${sealWrongDmg} HP</span>`;
-    div.appendChild(intentDiv);
+    inner.appendChild(intentDiv);
 
+    // Narrative
     const narrativeDiv = document.createElement('div');
     narrativeDiv.className = 'puzzle-narrative';
     narrativeDiv.textContent = narrative;
-    div.appendChild(narrativeDiv);
+    inner.appendChild(narrativeDiv);
 
+    // Scroll box
     const scrollDiv = document.createElement('div');
     scrollDiv.className = 'puzzle-scroll-box';
     scrollDiv.innerHTML = `<div class="puzzle-scroll-title">《${passage.title}》</div>${passage.passage}`;
-    div.appendChild(scrollDiv);
+    inner.appendChild(scrollDiv);
 
+    // Progress
     const progressDiv = document.createElement('div');
     progressDiv.className = 'puzzle-progress';
     progressDiv.textContent = `第 ${qIndex + 1} 题 / 共 ${totalQuestions} 题`;
-    div.appendChild(progressDiv);
+    inner.appendChild(progressDiv);
 
+    // Question
     const questionDiv = document.createElement('div');
     questionDiv.className = 'puzzle-question';
     questionDiv.textContent = q.prompt;
-    div.appendChild(questionDiv);
+    inner.appendChild(questionDiv);
 
+    // Options — use grid layout, fill width
     const optionsDiv = document.createElement('div');
     optionsDiv.className = 'puzzle-options';
-    optionsDiv.innerHTML = optionsHTML;
-    div.appendChild(optionsDiv);
+    q.options.forEach((opt, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'puzzle-option';
+      btn.dataset.idx = i;
+      btn.textContent = opt;
+      optionsDiv.appendChild(btn);
+    });
+    inner.appendChild(optionsDiv);
 
+    // Feedback
     const feedbackDiv = document.createElement('div');
     feedbackDiv.className = 'puzzle-feedback';
     feedbackDiv.id = 'feedback';
-    div.appendChild(feedbackDiv);
+    inner.appendChild(feedbackDiv);
 
-    div.querySelectorAll('.puzzle-option').forEach(btn => {
+    inner.querySelectorAll('.puzzle-option').forEach(btn => {
       btn.addEventListener('click', () => {
         playSound('click');
         const idx = parseInt(btn.dataset.idx);
         const correct = idx === q.correct;
-        div.querySelectorAll('.puzzle-option').forEach(b => {
+        inner.querySelectorAll('.puzzle-option').forEach(b => {
           b.style.pointerEvents = 'none';
           const bIdx = parseInt(b.dataset.idx);
           if (bIdx === q.correct) b.classList.add('correct');
@@ -350,7 +426,7 @@ function renderPuzzle() {
         });
 
         recordAnswer('reading', correct, passage.id);
-        const sealIcon = div.querySelector('#seal-icon');
+        const sealIcon = inner.querySelector('#seal-icon');
 
         if (correct) {
           correctCount++;
@@ -364,11 +440,11 @@ function renderPuzzle() {
           }
 
           sealHp = Math.max(0, sealHp - sealHpPerCorrect);
-          const sealBar = div.querySelector('#seal-hp-bar');
+          const sealBar = inner.querySelector('#seal-hp-bar');
           if (sealBar) sealBar.style.width = sealHp + '%';
 
           // Animate player sprite lunge
-          const playerSprite = div.querySelector('#player-sprite');
+          const playerSprite = inner.querySelector('#player-sprite');
           if (playerSprite) {
             playerSprite.style.transition = 'transform 0.15s ease-out';
             playerSprite.style.transform = 'translateX(30px)';
@@ -393,7 +469,7 @@ function renderPuzzle() {
           // Player takes minor damage
           const hpLoss = Math.round(8 * (1 - profile.defense * 0.01));
           playerHp = Math.max(0, playerHp - hpLoss);
-          const playerBar = div.querySelector('#player-hp-bar');
+          const playerBar = inner.querySelector('#player-hp-bar');
           if (playerBar) playerBar.style.width = (playerHp / profile.maxHp) * 100 + '%';
 
           // Screen red flash
