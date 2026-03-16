@@ -4,6 +4,7 @@ import { registerScreen, showScreen } from '../main.js';
 import { getCurrentEncounter, advanceEncounter, recordAnswer } from '../game-engine.js';
 import { playSound, playMusic, setMusicIntensity } from '../audio.js';
 import { SPRITES } from '../sprites.js';
+import { setParticleMode } from '../particles.js';
 
 const PUZZLE_NARRATIVES = [
   "古老卷轴上浮现出一段被墨暗污染的文字……解读它才能打破封印！",
@@ -55,6 +56,7 @@ function createMiniProgress(container) {
 }
 
 function renderPuzzle() {
+  setParticleMode('combat');
   const div = document.createElement('div');
   div.className = 'screen';
   div.style.cssText = 'overflow:hidden; display:flex; flex-direction:column; height:100%;';
@@ -414,6 +416,7 @@ function renderPuzzle() {
     inner.appendChild(feedbackDiv);
 
     inner.querySelectorAll('.puzzle-option').forEach(btn => {
+      btn.classList.add('spotlight-card');
       btn.addEventListener('click', () => {
         playSound('click');
         const idx = parseInt(btn.dataset.idx);

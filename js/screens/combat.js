@@ -6,6 +6,7 @@ import { hasAbility } from '../progression.js';
 import { SPRITES, ENEMY_SPRITES } from '../sprites.js';
 import { playSound, playMusic, setMusicIntensity, playStinger } from '../audio.js';
 import { showCompanionBubble, showEnemyTaunt, COMPANION, ENEMY_TAUNTS, pick } from './companion.js';
+import { setParticleMode, burstParticles } from '../particles.js';
 
 const ENEMY_NAMES = ['墨灵', '暗字兵', '墨影卫', '乱笔妖', '黑墨士'];
 
@@ -309,6 +310,7 @@ function createMiniProgress(container) {
 // ─── Main render ─────────────────────────────────────────────────────────────
 
 function renderCombat() {
+  setParticleMode('combat');
   const div = document.createElement('div');
   div.className = 'screen';
   div.style.cssText = `
@@ -692,7 +694,7 @@ function renderCombat() {
       <div class="combat-screen-inner">
 
         <!-- HUD row: player name + HP bar + divider + combo + divider + enemy HP bar + enemy name -->
-        <div class="combat-hud">
+        <div class="combat-hud shimmer">
           <div class="hud-player-name">${profile.name}</div>
           <div class="hud-hp-wrap">
             <div class="hud-hp-bar-bg">
@@ -733,7 +735,7 @@ function renderCombat() {
             <span style="color:var(--accent-red);">⚠ 答错: -${wrongDamage} HP</span>
             <span style="color:#f39c12;">⏱ 超时: -${timeoutDamage} HP</span>
           </div>
-          <div class="score-panel" id="score-panel">
+          <div class="score-panel pulse-glow" id="score-panel">
             <span style="color:#e8e8e8;">得分: <strong>${chips}</strong></span>
             <span style="color:var(--accent-gold); margin:0 4px;">×</span>
             <span id="score-mult" style="color:var(--accent-gold);font-weight:900;">${multiplier.toFixed(1)}×</span>
@@ -746,7 +748,7 @@ function renderCombat() {
         <div class="combat-narrative">${combatNarrative}</div>
 
         <!-- Question -->
-        <div class="combat-question">${q.prompt}</div>
+        <div class="combat-question text-reveal">${q.prompt}</div>
 
         <!-- Answer options: 2×2 grid, filling width -->
         <div class="combat-options" id="options">${optionsHTML}</div>
@@ -847,6 +849,7 @@ function renderCombat() {
     });
 
     div.querySelectorAll('.combat-option').forEach(btn => {
+      btn.classList.add('spotlight-card');
       btn.addEventListener('click', () => {
         clearInterval(timerInterval);
         clearInterval(timerPulseInterval);
@@ -947,6 +950,9 @@ function renderCombat() {
 
       // Green flash on options panel
       if (optionsPanel) greenFlash(optionsPanel);
+
+      // Particle sparkle burst on correct answer
+      burstParticles(15, 'victory');
 
       // Combo display — flash gold, show "+1 COMBO!", shake at 3+
       const comboEl = div.querySelector('#combo');

@@ -1,6 +1,7 @@
 // js/screens/story.js — Cinematic narrative system
 import { registerScreen, showScreen } from '../main.js';
 import { playSound } from '../audio.js';
+import { setParticleMode } from '../particles.js';
 
 // Story data for each narrative moment
 const STORIES = {
@@ -186,6 +187,7 @@ function addParticles(container) {
 }
 
 function renderStory({ storyKey, onComplete } = {}) {
+  setParticleMode('ambient');
   const story = STORIES[storyKey];
 
   const div = document.createElement('div');

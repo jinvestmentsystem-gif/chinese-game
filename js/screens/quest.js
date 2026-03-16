@@ -6,6 +6,7 @@ import { STORIES } from './story.js';
 import { playMusic } from '../audio.js';
 import { SPRITES } from '../sprites.js';
 import { showCompanionBubble, COMPANION, pick } from './companion.js';
+import { setParticleMode } from '../particles.js';
 
 // ─── Chapter era configuration ─────────────────────────────────────────────
 
@@ -350,6 +351,7 @@ function injectStyles(div) {
 // ─── Main render ──────────────────────────────────────────────────────────────
 
 function renderQuest(params) {
+  setParticleMode('ambient');
   const div = document.createElement('div');
   div.className = 'screen';
   // Must keep position:absolute (from .screen class) — position:relative causes 0-height bug

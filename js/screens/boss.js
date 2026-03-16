@@ -7,6 +7,7 @@ import { loadChengyu } from '../content-loader.js';
 import { SPRITES } from '../sprites.js';
 import { playSound, playMusic, setMusicIntensity, playStinger } from '../audio.js';
 import { showCompanionBubble, showEnemyTaunt, COMPANION, ENEMY_TAUNTS, pick } from './companion.js';
+import { setParticleMode, burstParticles } from '../particles.js';
 
 const BOSS_NARRATIVES = {
   phase1: [
@@ -365,6 +366,7 @@ function createMiniProgress(container) {
 // ─── Main render ─────────────────────────────────────────────────────────────
 
 function renderBoss() {
+  setParticleMode('boss');
   const div = document.createElement('div');
   div.className = 'screen';
   div.style.cssText = 'overflow:hidden;';
@@ -526,7 +528,7 @@ function renderBoss() {
         <div class="boss-phase phase-label-anim" id="phase-label">${phaseLabel}</div>
       </div>
 
-      <div class="boss-ability-banner">
+      <div class="boss-ability-banner pulse-glow">
         <div style="font-size:0.75rem;color:var(--accent-red);margin-bottom:2px;">BOSS 特殊能力</div>
         <div style="font-weight:700;color:#e8a0a0;">${bossAbility.name}: ${bossAbility.desc}</div>
       </div>
@@ -707,6 +709,7 @@ function renderBoss() {
     });
 
     div.querySelectorAll('.boss-option').forEach(btn => {
+      btn.classList.add('spotlight-card');
       btn.addEventListener('click', () => {
         clearInterval(bossTimerInterval);
         playSound('click');
@@ -747,6 +750,9 @@ function renderBoss() {
             const cy = bwRect.top - divRect.top + bwRect.height / 2;
             goldenSlash(div, cx, cy);
           }
+
+          // Impact spark particles when boss takes damage
+          burstParticles(10, 'combat');
 
           // Boss recoils backward
           lungeElement(bossSprite, 40, 250, null);

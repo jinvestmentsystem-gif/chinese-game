@@ -5,6 +5,7 @@ import { addXP, xpForLevel, getXPProgress, calculateGoldReward } from '../progre
 import { EQUIPMENT_DB } from './inventory.js';
 import { playSound } from '../audio.js';
 import { showCompanionBubble, COMPANION, pick } from './companion.js';
+import { setParticleMode, burstParticles } from '../particles.js';
 
 // ─── Chapter quest counts (mirrors worldmap.js CHAPTERS) ─────────────────────
 // Kept here to avoid circular dependency with worldmap.js.
@@ -295,6 +296,8 @@ function buildEngagementHook(profile, levelUpInfo, parent) {
 // ─── Main render ─────────────────────────────────────────────────────────────
 
 function renderReward() {
+  setParticleMode('victory');
+  burstParticles(40, 'victory');
   const div = document.createElement('div');
   div.className = 'screen';
   div.style.cssText = 'overflow:hidden;';
@@ -375,6 +378,7 @@ function renderReward() {
   // Title — appears immediately on fade-in
   const title = document.createElement('h2');
   title.textContent = '任务完成！';
+  title.className = 'scale-bounce-in';
   title.style.cssText = `
     margin-bottom:1rem; opacity:0;
     transition: opacity 0.4s ease-out;
@@ -417,8 +421,10 @@ function renderReward() {
   div.appendChild(pulseStyle);
 
   // Helper: build a stat row that slides in from the left
-  function buildStat(label, valueHtml, color) {
+  function buildStat(label, valueHtml, color, staggerN) {
     const row = document.createElement('div');
+    const staggerClass = staggerN ? ` stagger-${staggerN}` : '';
+    row.className = `text-reveal${staggerClass}`;
     row.style.cssText = `
       font-size:1.1rem; margin-bottom:8px;
       transform:translateX(-40px); opacity:0;
@@ -429,19 +435,20 @@ function renderReward() {
     return row;
   }
 
-  const accuracyRow = buildStat('正确率', `${accuracy}% (${results.correct}/${results.total})`, 'var(--accent-gold)');
-  const comboRow    = buildStat('最高连击', String(results.maxCombo), 'var(--accent-jade)');
+  const accuracyRow = buildStat('正确率', `${accuracy}% (${results.correct}/${results.total})`, 'var(--accent-gold)', 1);
+  const comboRow    = buildStat('最高连击', String(results.maxCombo), 'var(--accent-jade)', 2);
 
   // XP row placeholder (will be replaced by the animated bar)
-  const xpRow = buildStat('获得经验', `+${totalXP} XP`, 'var(--accent-gold)');
-  const goldRow = buildStat('获得金币', `+${goldEarned} 💰`, 'var(--accent-gold)');
+  const xpRow = buildStat('获得经验', `+${totalXP} XP`, 'var(--accent-gold)', 3);
+  const goldRow = buildStat('获得金币', `+${goldEarned} 💰`, 'var(--accent-gold)', 4);
 
   // ── Animated sequence ──
 
-  // Step 0 (0ms): fade in title
+  // Step 0 (0ms): fade in title + victory burst
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       title.style.opacity = '1';
+      burstParticles(50, 'victory');
     });
   });
 
