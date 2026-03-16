@@ -3,6 +3,7 @@ import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
 import { SPRITES } from '../sprites.js';
 import { playMusic, setMusicIntensity } from '../audio.js';
+import { getXPProgress, getEffectiveMaxHp, checkDailyLogin } from '../progression.js';
 
 // ── Chapter / Era Data ────────────────────────────────────────────────────────
 const CHAPTERS = [
@@ -162,29 +163,33 @@ function buildPathConnector(fromColor, toColor) {
     </div>`;
 }
 
-// ── Landscape Silhouette Background ──────────────────────────────────────────
+// ── Landscape Silhouette Background (with parallax layers) ───────────────────
 function buildLandscapeBg() {
   return `
-    <div class="map-bg-silhouette" aria-hidden="true">
-      <svg viewBox="0 0 900 300" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet">
-        <!-- Mountain range silhouette -->
-        <path d="M0 300 L0 180 Q50 100 120 160 Q180 80 260 130 Q320 50 400 110
-                 Q460 30 540 100 Q610 50 680 120 Q740 70 800 130 Q850 90 900 150 L900 300 Z"
-          fill="rgba(30,20,60,0.8)"/>
-        <!-- Foreground hills -->
-        <path d="M0 300 Q100 240 200 260 Q350 200 500 250 Q650 210 800 240 Q860 230 900 250 L900 300 Z"
-          fill="rgba(20,10,40,0.9)"/>
-        <!-- Trees (small) -->
-        <polygon points="80,215 88,240 72,240" fill="rgba(20,10,40,0.95)"/>
-        <polygon points="90,200 96,220 84,220" fill="rgba(20,10,40,0.95)"/>
-        <polygon points="160,210 170,238 150,238" fill="rgba(20,10,40,0.95)"/>
-        <polygon points="370,220 378,244 362,244" fill="rgba(20,10,40,0.95)"/>
-        <polygon points="650,218 658,242 642,242" fill="rgba(20,10,40,0.95)"/>
-        <polygon points="750,210 758,238 742,238" fill="rgba(20,10,40,0.95)"/>
-        <!-- Moon -->
-        <circle cx="820" cy="60" r="28" fill="rgba(212,160,23,0.08)"/>
-        <circle cx="820" cy="60" r="22" fill="rgba(212,160,23,0.05)"/>
-      </svg>
+    <div class="map-bg-silhouette map-parallax-wrap" aria-hidden="true">
+      <!-- Far mountains (slowest parallax) -->
+      <div class="map-parallax-layer map-parallax-far">
+        <svg viewBox="0 0 900 300" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet">
+          <path d="M0 300 L0 180 Q50 100 120 160 Q180 80 260 130 Q320 50 400 110
+                   Q460 30 540 100 Q610 50 680 120 Q740 70 800 130 Q850 90 900 150 L900 300 Z"
+            fill="rgba(30,20,60,0.8)"/>
+          <circle cx="820" cy="60" r="28" fill="rgba(212,160,23,0.08)"/>
+          <circle cx="820" cy="60" r="22" fill="rgba(212,160,23,0.05)"/>
+        </svg>
+      </div>
+      <!-- Near hills + trees (faster parallax) -->
+      <div class="map-parallax-layer map-parallax-near">
+        <svg viewBox="0 0 900 300" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet">
+          <path d="M0 300 Q100 240 200 260 Q350 200 500 250 Q650 210 800 240 Q860 230 900 250 L900 300 Z"
+            fill="rgba(20,10,40,0.9)"/>
+          <polygon points="80,215 88,240 72,240" fill="rgba(20,10,40,0.95)"/>
+          <polygon points="90,200 96,220 84,220" fill="rgba(20,10,40,0.95)"/>
+          <polygon points="160,210 170,238 150,238" fill="rgba(20,10,40,0.95)"/>
+          <polygon points="370,220 378,244 362,244" fill="rgba(20,10,40,0.95)"/>
+          <polygon points="650,218 658,242 642,242" fill="rgba(20,10,40,0.95)"/>
+          <polygon points="750,210 758,238 742,238" fill="rgba(20,10,40,0.95)"/>
+        </svg>
+      </div>
     </div>`;
 }
 
@@ -322,10 +327,22 @@ function renderWorldMap() {
     }
   });
 
+  // --- Player stats for the stats bar ---
+  const xpProgress = getXPProgress(profile);
+  const effectiveMaxHp = getEffectiveMaxHp(profile);
+  const hpPct = Math.round((profile.hp / effectiveMaxHp) * 100);
+  const hpColor = hpPct > 60 ? 'var(--hp-green)' : hpPct > 30 ? 'var(--hp-yellow)' : 'var(--hp-red)';
+  const activeTitle = profile.activeTitle || '新手文字侠';
+
+  // Daily reward status check (peek only, don't claim)
+  const dailyLogin = profile.dailyLogin || { lastDate: null, streak: 0 };
+  const todayStr = new Date().toISOString().slice(0, 10);
+  const dailyClaimed = dailyLogin.lastDate === todayStr;
+
   div.innerHTML = `
     ${buildLandscapeBg()}
 
-    <div class="worldmap-container screen-enter">
+    <div class="worldmap-container screen-enter" id="worldmap-scroll-container">
       <!-- ── Top bar ── -->
       <div class="top-bar">
         <div class="player-badge">
@@ -333,7 +350,10 @@ function renderWorldMap() {
             ${playerAvatarSvg}
           </div>
           <div>
-            <div class="name">${profile.name}</div>
+            <div class="name">
+              ${profile.name}
+              <span class="wm-active-title">${activeTitle}</span>
+            </div>
             <div style="font-size:0.75rem;color:var(--text-secondary);">
               ${profile.tier === 'grade7' ? '七年级' : '三年级'}
             </div>
@@ -351,10 +371,40 @@ function renderWorldMap() {
         </div>
 
         <div class="nav-buttons">
+          <button class="btn btn-sm" id="btn-daily-reward" title="每日奖励">${dailyClaimed ? '已领' : '每日奖励'}</button>
           <button class="btn btn-sm" id="btn-inventory" title="打开背包">背包</button>
           <button class="btn btn-sm" id="btn-shop" title="前往商店">商店</button>
           <button class="btn btn-sm" id="btn-chengyu" title="查看成语">成语</button>
           <button class="btn btn-sm" id="btn-back" title="返回主菜单">返回</button>
+        </div>
+      </div>
+
+      <!-- ── Player Stats Bar ── -->
+      <div class="wm-stats-bar">
+        <!-- Level badge -->
+        <div class="wm-stat-level">
+          <span class="wm-level-num">Lv.${profile.level}</span>
+        </div>
+        <!-- HP bar -->
+        <div class="wm-stat-block">
+          <div class="wm-stat-label">HP</div>
+          <div class="wm-bar-track">
+            <div class="wm-bar-fill wm-bar-hp" style="width:${hpPct}%;background:linear-gradient(90deg, ${hpColor}, ${hpColor}dd);"></div>
+          </div>
+          <div class="wm-stat-val">${profile.hp}/${effectiveMaxHp}</div>
+        </div>
+        <!-- XP bar -->
+        <div class="wm-stat-block">
+          <div class="wm-stat-label">XP</div>
+          <div class="wm-bar-track">
+            <div class="wm-bar-fill wm-bar-xp" style="width:${xpProgress.percent}%;"></div>
+          </div>
+          <div class="wm-stat-val">${xpProgress.current}/${xpProgress.needed}</div>
+        </div>
+        <!-- Gold count -->
+        <div class="wm-stat-gold">
+          <span class="wm-gold-icon">&#x2726;</span>
+          <span class="wm-gold-num">${profile.gold || 0}</span>
         </div>
       </div>
 
@@ -393,11 +443,37 @@ function renderWorldMap() {
       <!-- ── Bottom padding ── -->
       <div style="height: 60px;"></div>
     </div>
+
+    <!-- Daily reward popup overlay -->
+    <div id="wm-daily-popup" class="daily-login-popup" style="display:none;" aria-live="polite"></div>
   `;
 
   // ── Event listeners ──────────────────────────────────────────────────────
   setTimeout(() => {
-    // Chapter nodes
+    // --- Animated chapter node slide-in from left with stagger ---
+    const allNodes = div.querySelectorAll('.era-node');
+    allNodes.forEach((node, idx) => {
+      node.style.opacity = '0';
+      node.style.transform = 'translateX(-40px)';
+      node.style.transition = 'none';
+      setTimeout(() => {
+        node.style.transition = 'opacity 0.45s ease, transform 0.45s cubic-bezier(0.22,1,0.36,1)';
+        node.style.opacity = '';
+        node.style.transform = '';
+      }, 120 * idx + 100);
+    });
+
+    // Also stagger the connectors
+    const connectors = div.querySelectorAll('.path-connector');
+    connectors.forEach((conn, idx) => {
+      conn.style.opacity = '0';
+      setTimeout(() => {
+        conn.style.transition = 'opacity 0.3s ease';
+        conn.style.opacity = '';
+      }, 120 * idx + 220);
+    });
+
+    // Chapter node click/keyboard handlers
     div.querySelectorAll('.era-node.clickable').forEach(node => {
       const chapterId = parseInt(node.dataset.chapter);
 
@@ -425,10 +501,70 @@ function renderWorldMap() {
     div.querySelector('#btn-shop')?.addEventListener('click', () => showScreen('shop'));
     div.querySelector('#btn-chengyu')?.addEventListener('click', () => showScreen('chengyu'));
 
+    // --- Daily reward button ---
+    const btnDaily = div.querySelector('#btn-daily-reward');
+    if (btnDaily) {
+      if (dailyClaimed) {
+        btnDaily.style.opacity = '0.5';
+        btnDaily.title = `连续登录 ${dailyLogin.streak} 天 — 今日已领取`;
+      }
+      btnDaily.addEventListener('click', () => {
+        const popup = div.querySelector('#wm-daily-popup');
+        if (dailyClaimed) {
+          popup.innerHTML = `
+            <div class="daily-login-content">
+              <div class="daily-login-streak">连续登录 <strong>${dailyLogin.streak}</strong> 天</div>
+              <div class="daily-login-reward">今日奖励已领取</div>
+              <button class="btn btn-sm daily-login-close" id="btn-wm-close-daily">好的</button>
+            </div>`;
+        } else {
+          const reward = checkDailyLogin(profile);
+          if (reward) {
+            popup.innerHTML = `
+              <div class="daily-login-content">
+                <div class="daily-login-streak">连续登录第 <strong>${reward.streak}</strong> 天！</div>
+                <div class="daily-login-reward">获得 ${reward.label}</div>
+                <button class="btn btn-sm daily-login-close" id="btn-wm-close-daily">好的</button>
+              </div>`;
+            // Update button state after claiming
+            btnDaily.textContent = '已领';
+            btnDaily.style.opacity = '0.5';
+          } else {
+            popup.innerHTML = `
+              <div class="daily-login-content">
+                <div class="daily-login-reward">今日奖励已领取</div>
+                <button class="btn btn-sm daily-login-close" id="btn-wm-close-daily">好的</button>
+              </div>`;
+          }
+        }
+        popup.style.display = 'flex';
+        popup.classList.add('daily-login-enter');
+        popup.querySelector('#btn-wm-close-daily').addEventListener('click', () => {
+          popup.classList.remove('daily-login-enter');
+          popup.classList.add('daily-login-exit');
+          setTimeout(() => {
+            popup.style.display = 'none';
+            popup.classList.remove('daily-login-exit');
+          }, 350);
+        });
+      });
+    }
+
+    // --- Parallax scroll effect on mountain background ---
+    const scrollContainer = div.querySelector('#worldmap-scroll-container');
+    const farLayer = div.querySelector('.map-parallax-far');
+    const nearLayer = div.querySelector('.map-parallax-near');
+    if (scrollContainer && farLayer && nearLayer) {
+      scrollContainer.addEventListener('scroll', () => {
+        const scrollY = scrollContainer.scrollTop;
+        farLayer.style.transform = `translateY(${scrollY * 0.08}px)`;
+        nearLayer.style.transform = `translateY(${scrollY * 0.18}px)`;
+      });
+    }
+
     // Scroll to current/active chapter
     const activeCh = div.querySelector('.era-node.node-active');
     if (activeCh) {
-      // Small delay so layout settles
       requestAnimationFrame(() => {
         activeCh.scrollIntoView({ behavior: 'smooth', block: 'center' });
       });

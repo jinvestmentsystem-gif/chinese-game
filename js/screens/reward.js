@@ -1,7 +1,7 @@
 // js/screens/reward.js — Post-quest reward summary
 import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
-import { addXP, xpForLevel, getXPProgress, calculateGoldReward } from '../progression.js';
+import { addXP, xpForLevel, getXPProgress, calculateGoldReward, getEffectiveStats, claimAchievementReward, ACHIEVEMENT_REWARDS } from '../progression.js';
 import { EQUIPMENT_DB } from './inventory.js';
 import { playSound } from '../audio.js';
 import { showCompanionBubble, COMPANION, pick } from './companion.js';
@@ -29,7 +29,7 @@ const MILESTONES = [
   { id: 'xp_2000',      check: s => s.totalXP >= 2000,     title: '身经百战', desc: '累计获得2000经验！' },
 ];
 
-function showAchievement(container, ach) {
+function showAchievement(container, ach, goldAmount) {
   const popup = document.createElement('div');
   popup.style.cssText = `
     position:fixed; top:50%; left:50%; transform:translate(-50%,-50%) scale(0);
@@ -39,11 +39,15 @@ function showAchievement(container, ach) {
     box-shadow:0 0 40px rgba(212,160,23,0.3);
     animation: ach-pop 0.5s cubic-bezier(0.175,0.885,0.32,1.275) forwards;
   `;
+  const goldHTML = goldAmount > 0
+    ? `<div style="font-size:1rem;color:var(--accent-gold);font-weight:700;margin-top:8px;">💰 +${goldAmount} 金币</div>`
+    : '';
   popup.innerHTML = `
     <div style="font-size:2rem;margin-bottom:8px;">🏆</div>
     <div style="font-size:0.75rem;letter-spacing:0.12em;color:var(--accent-gold);opacity:0.7;margin-bottom:4px;">成就解锁！</div>
     <div style="font-size:1.2rem;font-weight:700;color:var(--accent-gold);margin-bottom:4px;">${ach.title}</div>
     <div style="font-size:0.9rem;color:var(--text-secondary);">${ach.desc}</div>
+    ${goldHTML}
   `;
 
   const style = document.createElement('style');
@@ -205,9 +209,9 @@ function buildStarRating(accuracy, parent, onDone) {
   }
 }
 
-// ─── Engagement hook: XP progress and unlock preview ─────────────────────────
+// ─── Engagement hook: stat comparison + XP progress + unlock preview ────────
 
-function buildEngagementHook(profile, levelUpInfo, parent) {
+function buildEngagementHook(profile, levelUpInfo, statsBefore, parent) {
   // Inject pulsing text keyframe once
   if (!document.getElementById('reward-hook-style')) {
     const s = document.createElement('style');
@@ -230,6 +234,39 @@ function buildEngagementHook(profile, levelUpInfo, parent) {
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
   `;
   parent.appendChild(hookWrap);
+
+  // ── Stat comparison: "你的文字侠在变强！" with before/after ──
+  const statsAfter = getEffectiveStats(profile);
+  const statKeys = ['attack', 'defense', 'speed', 'maxHp', 'maxWenli', 'critChance'];
+  const statLabels = { attack: '攻击', defense: '防御', speed: '速度', maxHp: 'HP', maxWenli: '文力', critChance: '暴击率' };
+  const changedStats = statKeys.filter(k => (statsAfter[k] || 0) !== (statsBefore[k] || 0));
+
+  if (changedStats.length > 0) {
+    const compTitle = document.createElement('div');
+    compTitle.style.cssText = `
+      font-size: 1rem; font-weight: 700; color: var(--accent-gold);
+      text-align: center; letter-spacing: 0.06em; margin-bottom: 4px;
+    `;
+    compTitle.textContent = '你的文字侠在变强！';
+    hookWrap.appendChild(compTitle);
+
+    const compGrid = document.createElement('div');
+    compGrid.style.cssText = 'display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:8px;';
+    changedStats.forEach(k => {
+      const before = statsBefore[k] || 0;
+      const after = statsAfter[k] || 0;
+      const diff = after - before;
+      const suffix = k === 'critChance' ? '%' : '';
+      const el = document.createElement('span');
+      el.style.cssText = `
+        background:var(--bg-card);border:1px solid var(--bg-secondary);border-radius:6px;
+        padding:4px 10px;font-size:0.82rem;
+      `;
+      el.innerHTML = `${statLabels[k]}: ${before}${suffix} → <span style="color:var(--accent-jade);font-weight:700;">${after}${suffix}</span> <span style="color:var(--accent-jade);">(+${diff}${suffix})</span>`;
+      compGrid.appendChild(el);
+    });
+    hookWrap.appendChild(compGrid);
+  }
 
   // Recalculate after XP was already applied
   const xpProgress = getXPProgress(profile);
@@ -275,7 +312,7 @@ function buildEngagementHook(profile, levelUpInfo, parent) {
     hookWrap.appendChild(unlockEl);
   }
 
-  // Daily challenge reminder — check if daily challenge done today
+  // ── 每日挑战 reminder ──
   const todayKey = new Date().toISOString().slice(0, 10);
   const lastDaily = profile.lastDailyChallenge || '';
   if (lastDaily !== todayKey) {
@@ -285,8 +322,12 @@ function buildEngagementHook(profile, levelUpInfo, parent) {
       color: #5bc8af;
       text-align: center; letter-spacing: 0.06em;
       margin-top: 4px;
+      padding: 8px 16px;
+      background: rgba(91, 200, 175, 0.08);
+      border: 1px dashed rgba(91, 200, 175, 0.3);
+      border-radius: 8px;
     `;
-    dailyEl.textContent = '今日挑战等你来战！';
+    dailyEl.textContent = '每日挑战等你来战！完成可获额外奖励';
     hookWrap.appendChild(dailyEl);
   }
 
@@ -308,6 +349,11 @@ function renderReward() {
     ? Math.round((results.correct / results.total) * 100)
     : 0;
 
+  // Snapshot stats BEFORE applying XP/level-up so we can show before/after
+  const profile = gameState.profile;
+  const statsBefore = getEffectiveStats(profile);
+  const levelBefore = profile.level;
+
   // Calculate XP and Gold
   const baseXP = results.correct * 10;
   const comboBonus = results.maxCombo * 5;
@@ -315,12 +361,12 @@ function renderReward() {
   results.xpEarned = totalXP;
   const goldEarned = calculateGoldReward(results);
   results.goldEarned = goldEarned;
+  const isPerfect = results.total > 0 && results.correct === results.total;
 
   // Apply XP (also adds gold internally)
   const levelUpInfo = addXP(totalXP);
 
   // Equipment drop (30% chance)
-  const profile = gameState.profile;
   if (Math.random() < 0.3) {
     const available = EQUIPMENT_DB.filter(e => !profile.inventory.includes(e.id));
     if (available.length > 0) {
@@ -357,11 +403,22 @@ function renderReward() {
     profile.stats.totalBossKills++;
   }
 
-  // ── Check for new achievements ──
+  // ── Check for new achievements and claim gold rewards ──
   const newAchievements = MILESTONES.filter(m =>
     m.check(profile.stats) && !profile.achievements.includes(m.id)
   );
-  newAchievements.forEach(a => profile.achievements.push(a.id));
+  const achievementGold = {};
+  newAchievements.forEach(a => {
+    profile.achievements.push(a.id);
+    const goldAwarded = claimAchievementReward(profile, a.id);
+    if (goldAwarded > 0) achievementGold[a.id] = goldAwarded;
+  });
+
+  // ── Detect talent point gain from leveling ──
+  let talentPointGained = false;
+  if (levelUpInfo && levelUpInfo.newLevel >= 4 && levelUpInfo.newLevel % 2 === 0) {
+    talentPointGained = true;
+  }
 
   gameState.save();
 
@@ -386,8 +443,8 @@ function renderReward() {
   div.appendChild(title);
   div.appendChild(card);
 
-  // Engagement hook (inserted before buttons)
-  const engagementHook = buildEngagementHook(profile, levelUpInfo, div);
+  // Engagement hook (inserted before buttons) — now with stat comparison
+  const engagementHook = buildEngagementHook(profile, levelUpInfo, statsBefore, div);
 
   // Detect chapter completion — did finishing this quest complete the chapter?
   const chapterQuestTotal = CHAPTER_QUESTS[quest.chapterId] || Infinity;
@@ -440,7 +497,12 @@ function renderReward() {
 
   // XP row placeholder (will be replaced by the animated bar)
   const xpRow = buildStat('获得经验', `+${totalXP} XP`, 'var(--accent-gold)', 3);
-  const goldRow = buildStat('获得金币', `+${goldEarned} 💰`, 'var(--accent-gold)', 4);
+
+  // Gold row: show perfect bonus in the display if applicable
+  const goldLabel = isPerfect
+    ? `+${goldEarned} 💰 <span style="font-size:0.78rem;color:#e67e22;font-weight:600;">(含满分奖励 +50)</span>`
+    : `+${goldEarned} 💰`;
+  const goldRow = buildStat('获得金币', goldLabel, 'var(--accent-gold)', 4);
 
   // ── Animated sequence ──
 
@@ -505,6 +567,29 @@ function renderReward() {
           requestAnimationFrame(() => { lvlBadge.style.transform = 'scale(1)'; });
         });
         try { playSound('levelup'); } catch (_) {}
+
+        // Talent point notification
+        if (talentPointGained) {
+          setTimeout(() => {
+            const talentBadge = document.createElement('div');
+            talentBadge.style.cssText = `
+              font-size:1rem; color:#a855f7; font-weight:700;
+              margin-top:6px; text-align:center;
+              padding:6px 14px;
+              background:rgba(168,85,247,0.1);
+              border:1px solid rgba(168,85,247,0.3);
+              border-radius:8px;
+              transform:scale(0);
+              transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+            `;
+            talentBadge.textContent = `获得天赋点！(共 ${profile.talentPoints || 1} 点可用)`;
+            card.appendChild(talentBadge);
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => { talentBadge.style.transform = 'scale(1)'; });
+            });
+          }, 600);
+        }
+
         // Companion celebrates level up (after bar animation completes)
         setTimeout(() => showCompanionBubble(div, pick(COMPANION.rewardLevelUp), 4000), 1400);
       }, 1300); // after bar overfills and resets
@@ -572,7 +657,8 @@ function renderReward() {
   if (newAchievements.length > 0) {
     setTimeout(() => {
       newAchievements.forEach((ach, i) => {
-        setTimeout(() => showAchievement(div, ach), i * 1500);
+        const goldAmt = achievementGold[ach.id] || 0;
+        setTimeout(() => showAchievement(div, ach, goldAmt), i * 1500);
       });
     }, 4000);
   }

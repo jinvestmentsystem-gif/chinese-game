@@ -2,7 +2,7 @@
 import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
 import { getCurrentEncounter, advanceEncounter, recordAnswer } from '../game-engine.js';
-import { hasAbility } from '../progression.js';
+import { hasAbility, calcDamage, calcDamageTaken, getTimerDuration, rollCrit, getEffectiveMaxHp, getTalentEffects } from '../progression.js';
 import { loadChengyu } from '../content-loader.js';
 import { SPRITES } from '../sprites.js';
 import { playSound, playMusic, setMusicIntensity, playStinger } from '../audio.js';
@@ -399,8 +399,11 @@ function renderBoss() {
   let doubleActive = false;
   let isFirstRender = true;
 
-  // Timer value depends on half_timer ability
-  const bossBaseTimer = abilityActive(bossAbility, 'half_timer') ? 10 : 20;
+  // Timer value depends on half_timer ability — use stat-based timer with base 20
+  const bossBaseTimer = abilityActive(bossAbility, 'half_timer')
+    ? Math.round(getTimerDuration(profile, 20) / 2)
+    : getTimerDuration(profile, 20);
+  const effectiveMaxHp = getEffectiveMaxHp(profile);
 
   function getCurrentPhaseForHp() {
     if (bossHp > 66) return 0;
@@ -487,8 +490,9 @@ function renderBoss() {
       return `<button class="boss-option" data-idx="${i}">${opt}${confusingTag}</button>`;
     }).join('');
 
-    // Intent damage preview
-    const wrongDamage = Math.round(20 * (1 - profile.defense * 0.01));
+    // Intent damage preview — use new stat formula with boss base 25
+    const wrongDmgInfo = calcDamageTaken(profile, 25);
+    const wrongDamage = wrongDmgInfo.damage;
     const bossIntentHTML = `
       <div style="
         background:rgba(192,57,43,0.12);border:1px solid rgba(192,57,43,0.35);
@@ -496,6 +500,7 @@ function renderBoss() {
         font-size:0.82rem;color:#e8a0a0;
       ">
         ⚠ ${bossInfo.name}将攻击: -${wrongDamage} HP
+        ${wrongDmgInfo.thornsReturn > 0 ? `<span style="margin-left:8px;color:#27ae60;">🌿 反刺 ${wrongDmgInfo.thornsReturn}</span>` : ''}
         ${abilityActive(bossAbility, 'half_timer') ? `<span style="margin-left:10px;color:#f39c12;">⏱ 仅${bossBaseTimer}秒</span>` : ''}
       </div>
     `;
@@ -544,8 +549,8 @@ function renderBoss() {
       <div class="boss-hud">
         <div>
           <div style="font-weight:700;">${profile.name} HP</div>
-          <div class="boss-hp-bg"><div class="player-hp" id="player-hp-bar" style="width:${(playerHp / profile.maxHp) * 100}%"></div></div>
-          <div style="font-size:0.8rem;color:var(--text-secondary);">${playerHp}/${profile.maxHp}</div>
+          <div class="boss-hp-bg"><div class="player-hp" id="player-hp-bar" style="width:${(playerHp / effectiveMaxHp) * 100}%"></div></div>
+          <div style="font-size:0.8rem;color:var(--text-secondary);">${playerHp}/${effectiveMaxHp}</div>
         </div>
         <div style="text-align:right;">
           <div style="font-weight:700; color:var(--accent-red);">BOSS HP</div>
@@ -654,14 +659,24 @@ function renderBoss() {
       if (bossTimerBar) bossTimerBar.style.width = Math.max(0, (bossTimeLeft / bossBaseTimer) * 100) + '%';
       if (bossTimeLeft <= 0) {
         clearInterval(bossTimerInterval);
-        // Timeout acts like wrong answer — apply HP loss and continue
-        const hpLoss = Math.round(20 * (1 - profile.defense * 0.01));
+        // Timeout acts like wrong answer — apply HP loss and thorns
+        const timeoutDmg = calcDamageTaken(profile, 25);
+        const hpLoss = timeoutDmg.damage;
+        const thornsReturn = timeoutDmg.thornsReturn;
         playerHp = Math.max(0, playerHp - hpLoss);
+
+        // Apply thorns on timeout
+        if (thornsReturn > 0) {
+          bossHp = Math.max(0, bossHp - thornsReturn);
+          const bossHpBar = div.querySelector('#boss-hp-bar');
+          if (bossHpBar) bossHpBar.style.width = bossHp + '%';
+        }
+
         redBorderFlash(div);
         const playerHpBar = div.querySelector('#player-hp-bar');
-        if (playerHpBar) playerHpBar.style.width = (playerHp / profile.maxHp) * 100 + '%';
+        if (playerHpBar) playerHpBar.style.width = (playerHp / effectiveMaxHp) * 100 + '%';
         const feedbackEl = div.querySelector('#feedback');
-        if (feedbackEl) feedbackEl.textContent = `⏱ 超时！${bossInfo.name}乘虚而入，失去 ${hpLoss} HP。`;
+        if (feedbackEl) feedbackEl.textContent = `⏱ 超时！${bossInfo.name}乘虚而入，失去 ${hpLoss} HP。${thornsReturn > 0 ? ` 荆棘反刺 ${thornsReturn} 伤害！` : ''}`;
         // Disable options
         div.querySelectorAll('.boss-option').forEach(b => { b.style.pointerEvents = 'none'; });
         setTimeout(() => {
@@ -747,9 +762,19 @@ function renderBoss() {
         const bossWrap = div.querySelector('#boss-sprite-wrap');
 
         if (correct) {
-          const dmgMultiplier = (1 + profile.attack * 0.01) * (doubleActive ? 2 : 1);
+          // ── New stat-based boss damage calculation ──
+          const isCrit = rollCrit(profile);
+          const bossCombo = (gameState.currentQuest?.results?.combo || 0);
+          let dmg = calcDamage(profile, bossCombo, isCrit, bossTimeLeft);
+          if (doubleActive) dmg *= 2;
           doubleActive = false;
-          const dmg = Math.round(12 * dmgMultiplier);
+
+          // Executioner talent: boss HP < 30% = +40% damage
+          const talents = getTalentEffects(profile);
+          if (talents.executePct && bossHp < 30) {
+            dmg = Math.round(dmg * (1 + talents.executePct / 100));
+          }
+
           bossHp = Math.max(0, bossHp - dmg);
 
           // Golden slash across boss
@@ -788,7 +813,7 @@ function renderBoss() {
               const divRect = div.getBoundingClientRect();
               const numX = bwRect.left - divRect.left + bwRect.width / 2 - 35;
               const numY = bwRect.top - divRect.top - 20;
-              floatingNumber(div, `-${dmg}`, numX, numY, '#d4a017', '4rem', 1800);
+              floatingNumber(div, `${isCrit ? '暴击！' : ''}-${dmg}`, numX, numY, isCrit ? '#ffd700' : '#d4a017', '4rem', 1800);
             }
             // White screen flash: opacity 0 → 0.8 → 0 over 400ms
             epicWhiteFlash(div);
@@ -805,14 +830,59 @@ function renderBoss() {
             const divRect = div.getBoundingClientRect();
             const numX = bwRect.left - divRect.left + bwRect.width / 2 - 25;
             const numY = bwRect.top - divRect.top - 15;
-            floatingNumber(div, `-${dmg}`, numX, numY, '#d4a017');
+            floatingNumber(div, `-${dmg}`, numX, numY, isCrit ? '#ffd700' : '#d4a017');
           }
 
-          div.querySelector('#feedback').textContent = `✓ 正确！对${bossInfo.name}造成 ${dmg} 点伤害！${q.explanation}`;
+          // ── CRITICAL HIT banner + screen shake for boss combat ──
+          if (isCrit) {
+            const critBanner = document.createElement('div');
+            critBanner.textContent = '暴击！CRITICAL HIT';
+            critBanner.style.cssText = `
+              position:absolute; top:28%; left:50%;
+              transform:translate(-50%,-50%) scale(0);
+              color:#ffd700; font-size:2.2rem; font-weight:900;
+              text-shadow: 0 0 20px #ffd700, 0 0 40px #f39c12, 0 0 60px #d4a017, 2px 2px 0 #000;
+              pointer-events:none; z-index:1005;
+              transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s ease-out;
+              letter-spacing: 3px;
+            `;
+            div.appendChild(critBanner);
+            requestAnimationFrame(() => requestAnimationFrame(() => {
+              critBanner.style.transform = 'translate(-50%,-50%) scale(1)';
+            }));
+            setTimeout(() => {
+              critBanner.style.opacity = '0';
+              critBanner.style.transform = 'translate(-50%,-50%) scale(1.3)';
+            }, 700);
+            setTimeout(() => critBanner.remove(), 1100);
+            shakeScreen(div, 10, 500);
+          }
+
+          div.querySelector('#feedback').textContent = `✓ 正确！${isCrit ? '暴击！' : ''}对${bossInfo.name}造成 ${dmg} 点伤害！${q.explanation}`;
 
         } else {
-          const hpLoss = Math.round(20 * (1 - profile.defense * 0.01));
+          // ── New stat-based damage taken calculation with thorns ──
+          const wrongResult = calcDamageTaken(profile, 25);
+          const hpLoss = wrongResult.damage;
+          const thornsReturn = wrongResult.thornsReturn;
           playerHp = Math.max(0, playerHp - hpLoss);
+
+          // ── Thorns: reflect damage back to boss ──
+          if (thornsReturn > 0) {
+            bossHp = Math.max(0, bossHp - thornsReturn);
+            const bossHpBar = div.querySelector('#boss-hp-bar');
+            if (bossHpBar) bossHpBar.style.width = bossHp + '%';
+            // Thorns floating number on boss
+            setTimeout(() => {
+              if (bossWrap) {
+                const bwRect = bossWrap.getBoundingClientRect();
+                const divRect = div.getBoundingClientRect();
+                const numX = bwRect.left - divRect.left + bwRect.width / 2 - 30;
+                const numY = bwRect.top - divRect.top - 15;
+                floatingNumber(div, `荆棘 -${thornsReturn}`, numX, numY, '#27ae60');
+              }
+            }, 500);
+          }
 
           // Boss aggressive lunge toward player
           lungeElement(bossSprite, -55, 220, null);
@@ -831,7 +901,7 @@ function renderBoss() {
 
           // Player HP bar update
           const playerHpBar = div.querySelector('#player-hp-bar');
-          if (playerHpBar) playerHpBar.style.width = (playerHp / profile.maxHp) * 100 + '%';
+          if (playerHpBar) playerHpBar.style.width = (playerHp / effectiveMaxHp) * 100 + '%';
 
           // Floating red number near player HP
           if (playerHpSection) {
@@ -842,7 +912,7 @@ function renderBoss() {
             floatingNumber(div, `-${hpLoss}HP`, numX, numY, '#e74c3c');
           }
 
-          div.querySelector('#feedback').textContent = `✗ 错误！${bossInfo.name}反击，失去 ${hpLoss} HP。${q.explanation}`;
+          div.querySelector('#feedback').textContent = `✗ 错误！${bossInfo.name}反击，失去 ${hpLoss} HP。${thornsReturn > 0 ? `荆棘反刺 ${thornsReturn}！` : ''}${q.explanation}`;
         }
 
         setTimeout(() => {

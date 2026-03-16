@@ -2,7 +2,7 @@
 import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
 import { getCurrentEncounter, advanceEncounter, recordAnswer } from '../game-engine.js';
-import { hasAbility } from '../progression.js';
+import { hasAbility, calcDamage, calcDamageTaken, getTimerDuration, rollCrit, getEffectiveMaxHp, getTalentEffects } from '../progression.js';
 import { SPRITES, ENEMY_SPRITES } from '../sprites.js';
 import { playSound, playMusic, setMusicIntensity, playStinger } from '../audio.js';
 import { showCompanionBubble, showEnemyTaunt, COMPANION, ENEMY_TAUNTS, pick } from './companion.js';
@@ -330,6 +330,7 @@ function renderCombat() {
   const profile = gameState.profile;
   const questions = encounter.questions;
   let qIndex = 0;
+  const effectiveMaxHp = getEffectiveMaxHp(profile);
   let playerHp = profile.hp;
   let enemyHp = 100;
   let combo = 0;
@@ -349,7 +350,7 @@ function renderCombat() {
   playStinger('battle_start');
   setTimeout(() => setMusicIntensity(1), 300);
   const enemyName = ENEMY_NAMES[Math.floor(Math.random() * ENEMY_NAMES.length)];
-  const baseTimer = 20 + (profile.speed * 1.5);
+  const baseTimer = getTimerDuration(profile);
   const enemySvg = ENEMY_SPRITES[Math.floor(Math.random() * ENEMY_SPRITES.length)];
 
   // Cancel breathing animations cleanup refs
@@ -456,8 +457,10 @@ function renderCombat() {
     else if (combo >= 4) comboColor = '#e67e22';
 
     // ── Enemy intent: damage on wrong answer / timeout ──
-    const wrongDamage = Math.round(15 * (1 - profile.defense * 0.01));
-    const timeoutDamage = Math.round(20 * (1 - profile.defense * 0.01));
+    const wrongDmgInfo = calcDamageTaken(profile, 15);
+    const timeoutDmgInfo = calcDamageTaken(profile, 20);
+    const wrongDamage = wrongDmgInfo.damage;
+    const timeoutDamage = timeoutDmgInfo.damage;
 
     div.innerHTML = `
       <style>
@@ -733,9 +736,9 @@ function renderCombat() {
           <div class="hud-player-name">${profile.name}</div>
           <div class="hud-hp-wrap">
             <div class="hud-hp-bar-bg">
-              <div class="hud-hp-bar hp-player" id="player-hp" style="width:${(playerHp / profile.maxHp) * 100}%"></div>
+              <div class="hud-hp-bar hp-player" id="player-hp" style="width:${(playerHp / effectiveMaxHp) * 100}%"></div>
             </div>
-            <div class="hud-hp-text">HP: ${playerHp}/${profile.maxHp}</div>
+            <div class="hud-hp-text">HP: ${playerHp}/${effectiveMaxHp}</div>
           </div>
           <div class="hud-combo" id="combo" style="color:${comboColor};">${combo > 1 ? combo + ' 连击！' : ''}</div>
           <div class="hud-hp-wrap">
@@ -888,7 +891,7 @@ function renderCombat() {
       if (timeLeft <= 0) {
         clearInterval(timerInterval);
         clearInterval(timerPulseInterval);
-        handleAnswer(-1, q);
+        handleAnswer(-1, q, true);
       }
     }, 100);
 
@@ -945,7 +948,7 @@ function renderCombat() {
     });
   }
 
-  function handleAnswer(idx, q) {
+  function handleAnswer(idx, q, isTimeout = false) {
     stopBreaths();
     const correct = idx === q.correct;
     const buttons = div.querySelectorAll('.combat-option');
@@ -990,9 +993,20 @@ function renderCombat() {
       if (combo >= 5) setMusicIntensity(3);
       else if (combo >= 3) setMusicIntensity(2);
 
-      const dmgMultiplier = (1 + (combo > 1 ? combo * 0.15 : 0) + (profile.attack * 0.01)) * (doubleActive ? 2 : 1);
+      // ── New stat-based damage calculation ──
+      const isCrit = rollCrit(profile);
+      const timerBar = div.querySelector('#timer-bar');
+      const currentTimeLeft = timerBar ? (parseFloat(timerBar.style.width) / 100) * baseTimer : 0;
+      let dmg = calcDamage(profile, combo, isCrit, currentTimeLeft);
+      if (doubleActive) dmg *= 2;
       doubleActive = false;
-      const dmg = Math.round(20 * dmgMultiplier);
+
+      // Executioner talent: enemy HP < 30% = +40% damage
+      const talents = getTalentEffects(profile);
+      if (talents.executePct && enemyHp < 30) {
+        dmg = Math.round(dmg * (1 + talents.executePct / 100));
+      }
+
       enemyHp = Math.max(0, enemyHp - dmg);
 
       // ── CSS animation on selected correct button ──
@@ -1058,7 +1072,88 @@ function renderCombat() {
         const divRect = div.getBoundingClientRect();
         const numX = ewRect.left - divRect.left + ewRect.width / 2 - 20;
         const numY = ewRect.top - divRect.top - 10;
-        floatingNumber(div, `-${dmg}`, numX, numY, '#e74c3c');
+        floatingNumber(div, `-${dmg}`, numX, numY, isCrit ? '#ffd700' : '#e74c3c');
+      }
+
+      // ── CRITICAL HIT banner + screen shake ──
+      if (isCrit) {
+        playSound('attack');
+        // Big golden CRITICAL HIT text
+        const critBanner = document.createElement('div');
+        critBanner.textContent = '暴击！CRITICAL HIT';
+        critBanner.style.cssText = `
+          position:absolute; top:28%; left:50%;
+          transform:translate(-50%,-50%) scale(0);
+          color:#ffd700; font-size:2.2rem; font-weight:900;
+          text-shadow: 0 0 20px #ffd700, 0 0 40px #f39c12, 0 0 60px #d4a017, 2px 2px 0 #000;
+          pointer-events:none; z-index:1005;
+          transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s ease-out;
+          letter-spacing: 3px;
+        `;
+        div.appendChild(critBanner);
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          critBanner.style.transform = 'translate(-50%,-50%) scale(1)';
+        }));
+        setTimeout(() => {
+          critBanner.style.opacity = '0';
+          critBanner.style.transform = 'translate(-50%,-50%) scale(1.3)';
+        }, 700);
+        setTimeout(() => critBanner.remove(), 1100);
+
+        // Extra screen shake on crit
+        shakeElement(div, 10, 500);
+      }
+
+      // ── Speed bonus indicator (answered within 5 seconds) ──
+      {
+        const answerTime = baseTimer - currentTimeLeft;
+        if (answerTime <= 5 && talents.speedBonusPct) {
+          const speedIndicator = document.createElement('div');
+          speedIndicator.textContent = `SPEED BONUS +${talents.speedBonusPct}%`;
+          speedIndicator.style.cssText = `
+            position:absolute; top:38%; left:50%;
+            transform:translate(-50%,-50%) scale(0);
+            color:#00e5ff; font-size:1.1rem; font-weight:900;
+            text-shadow: 0 0 12px #00e5ff, 0 0 24px #0088ff;
+            pointer-events:none; z-index:1004;
+            transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), opacity 0.25s ease-out;
+            letter-spacing: 2px;
+          `;
+          div.appendChild(speedIndicator);
+          requestAnimationFrame(() => requestAnimationFrame(() => {
+            speedIndicator.style.transform = 'translate(-50%,-50%) scale(1)';
+          }));
+          setTimeout(() => {
+            speedIndicator.style.opacity = '0';
+          }, 600);
+          setTimeout(() => speedIndicator.remove(), 900);
+        }
+      }
+
+      // ── Prominent combo counter display ──
+      if (combo >= 2) {
+        const comboDisplay = document.createElement('div');
+        const comboScale = Math.min(1 + combo * 0.08, 2.0);
+        const comboColors = combo >= 10 ? '#ff0040' : combo >= 7 ? '#e74c3c' : combo >= 4 ? '#e67e22' : '#d4a017';
+        comboDisplay.textContent = `x${combo} COMBO`;
+        comboDisplay.style.cssText = `
+          position:absolute; top:22%; left:50%;
+          transform:translate(-50%,-50%) scale(0);
+          color:${comboColors}; font-size:${1.4 * comboScale}rem; font-weight:900;
+          text-shadow: 0 0 16px ${comboColors}, 0 0 32px ${comboColors}80, 2px 2px 0 #000;
+          pointer-events:none; z-index:1003;
+          transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), opacity 0.4s ease-out;
+          letter-spacing: 2px;
+        `;
+        div.appendChild(comboDisplay);
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          comboDisplay.style.transform = `translate(-50%,-50%) scale(${comboScale})`;
+        }));
+        setTimeout(() => {
+          comboDisplay.style.opacity = '0';
+          comboDisplay.style.transform = `translate(-50%,-50%) scale(${comboScale * 1.2})`;
+        }, 500);
+        setTimeout(() => comboDisplay.remove(), 900);
       }
 
       // Green flash on options panel
@@ -1094,7 +1189,7 @@ function renderCombat() {
         }, { once: true });
       }
 
-      div.querySelector('#feedback').textContent = `✓ 正确！造成 ${dmg} 点伤害！${q.explanation}`;
+      div.querySelector('#feedback').textContent = `✓ 正确！${isCrit ? '暴击！' : ''}造成 ${dmg} 点伤害！${combo > 1 ? `(${combo}连击)` : ''} ${q.explanation}`;
 
       // Update enemy HP bar with damage flash
       const enemyHpBar = div.querySelector('#enemy-hp');
@@ -1115,8 +1210,28 @@ function renderCombat() {
     } else {
       combo = 0;
       setMusicIntensity(1); // Drop back to base battle intensity
-      const hpLoss = Math.round(15 * (1 - profile.defense * 0.01));
+      const dmgResult = calcDamageTaken(profile, isTimeout ? 20 : 15);
+      const hpLoss = dmgResult.damage;
+      const thornsReturn = dmgResult.thornsReturn;
       playerHp = Math.max(0, playerHp - hpLoss);
+
+      // ── Thorns damage: reflect damage back to enemy ──
+      if (thornsReturn > 0) {
+        enemyHp = Math.max(0, enemyHp - thornsReturn);
+        // Show thorns damage floating number on enemy
+        setTimeout(() => {
+          if (enemyWrap) {
+            const ewRect = enemyWrap.getBoundingClientRect();
+            const divRect = div.getBoundingClientRect();
+            const numX = ewRect.left - divRect.left + ewRect.width / 2 - 20;
+            const numY = ewRect.top - divRect.top - 10;
+            floatingNumber(div, `荆棘 -${thornsReturn}`, numX, numY, '#27ae60');
+          }
+          // Update enemy HP bar for thorns
+          const enemyHpBar = div.querySelector('#enemy-hp');
+          if (enemyHpBar) enemyHpBar.style.width = enemyHp + '%';
+        }, 600);
+      }
 
       // ── CSS animation on the wrong-selected button ──
       if (idx >= 0) {
@@ -1194,12 +1309,12 @@ function renderCombat() {
         comboEl.textContent = '';
       }
 
-      div.querySelector('#feedback').textContent = `✗ 错误！失去 ${hpLoss} HP。${q.explanation}`;
+      div.querySelector('#feedback').textContent = `✗ 错误！失去 ${hpLoss} HP。${thornsReturn > 0 ? `荆棘反弹 ${thornsReturn} 伤害！` : ''}${q.explanation}`;
 
       // Update player HP bar with damage flash and critical pulse
       const playerHpBar = div.querySelector('#player-hp');
       if (playerHpBar) {
-        const pct = (playerHp / profile.maxHp) * 100;
+        const pct = (playerHp / effectiveMaxHp) * 100;
         playerHpBar.style.animation = 'hp-damage-flash 0.35s ease-out';
         playerHpBar.addEventListener('animationend', () => {
           playerHpBar.style.animation = pct < 30 ? 'hp-critical-pulse 0.8s ease-in-out infinite' : '';
@@ -1210,7 +1325,7 @@ function renderCombat() {
       }
 
       // Companion encouragement on wrong answer; warn if HP drops low
-      if (playerHp < profile.maxHp * 0.3) {
+      if (playerHp < effectiveMaxHp * 0.3) {
         showCompanionBubble(div, pick(COMPANION.lowHP));
       } else {
         showCompanionBubble(div, pick(COMPANION.wrongAnswer));

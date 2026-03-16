@@ -1916,3 +1916,715 @@ input[type="text"]:focus, input[type="number"]:focus {
   100% { transform: scale(0)   rotate(-10deg); opacity: 0;   }
 }
 
+/* =============================================================
+   VISUAL POLISH OVERHAUL — Ink-Wash RPG Enhancement Pass
+   ============================================================= */
+
+/* ── 1. Enhanced Button System — Animated Glow Border ────────── */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, #d4a017, #f0c040, #d4a017, #f0c040);
+  background-size: 300% 300%;
+  animation: btn-glow-shift 3s ease infinite;
+  border-radius: inherit;
+  z-index: -1;
+}
+@keyframes btn-glow-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ── 2. Combat Option Buttons — Touch-Friendly Answer Cards ──── */
+/* NOTE: these restyle .combat-option as larger touch targets;
+   the existing .combat-option rules above still provide the base
+   via !important overrides from inline JS styles. These add on top. */
+.combat-option--enhanced {
+  padding: 16px 24px;
+  font-size: 1.1rem;
+  background: rgba(28, 30, 58, 0.9);
+  border: 2px solid rgba(212, 160, 23, 0.25);
+  border-radius: 12px;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+.combat-option--enhanced:hover {
+  border-color: rgba(212, 160, 23, 0.6);
+  background: rgba(40, 42, 70, 0.95);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(212, 160, 23, 0.15);
+}
+.combat-option--enhanced.correct {
+  border-color: var(--jade);
+  background: rgba(46, 204, 138, 0.15);
+  box-shadow: 0 0 20px rgba(46, 204, 138, 0.3);
+}
+.combat-option--enhanced.wrong {
+  border-color: var(--red);
+  background: rgba(214, 48, 49, 0.15);
+  box-shadow: 0 0 20px rgba(214, 48, 49, 0.3);
+}
+
+/* ── 3. Critical Hit Animation ───────────────────────────────── */
+@keyframes crit-flash {
+  0%   { transform: scale(0) rotate(-10deg); opacity: 0; }
+  50%  { transform: scale(1.3) rotate(5deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+.crit-text {
+  animation: crit-flash 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  color: #f0c040;
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-shadow: 0 0 20px #d4a017, 0 0 40px #d4a017, 2px 2px 0 #000;
+}
+
+/* ── 4. Combo Counter Overlay ────────────────────────────────── */
+.combo-counter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--gold-bright);
+  text-shadow: 0 0 30px var(--gold), 0 0 60px var(--gold-dim);
+  pointer-events: none;
+  z-index: 100;
+  animation: combo-pulse 0.3s ease-out;
+}
+@keyframes combo-pulse {
+  0%   { transform: translate(-50%, -50%) scale(2); opacity: 0; }
+  60%  { transform: translate(-50%, -50%) scale(0.9); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+/* ── 5. Talent Tree Styles ───────────────────────────────────── */
+.talent-tree {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+  padding: 12px;
+}
+.talent-node {
+  background: var(--bg-card);
+  border: 2px solid var(--bg-secondary);
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.25s;
+  position: relative;
+}
+.talent-node.learned {
+  border-color: var(--gold);
+  box-shadow: 0 0 12px rgba(212, 160, 23, 0.3);
+}
+.talent-node.available {
+  border-color: rgba(212, 160, 23, 0.5);
+  animation: talent-available 2s ease-in-out infinite;
+}
+.talent-node.locked {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.talent-node .talent-icon {
+  font-size: 1.8rem;
+  margin-bottom: 4px;
+}
+.talent-node .talent-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+.talent-node .talent-rank {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+@keyframes talent-available {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 160, 23, 0.4); }
+  50%      { box-shadow: 0 0 0 8px rgba(212, 160, 23, 0); }
+}
+
+/* ── 6. HP Bar Enhancements — New Container / Fill System ────── */
+.hp-bar-container {
+  position: relative;
+  height: 22px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 11px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.hp-bar-fill {
+  height: 100%;
+  border-radius: 11px;
+  transition: width 0.5s ease-out;
+  position: relative;
+}
+.hp-bar-fill.hp-high {
+  background: linear-gradient(90deg, #27ae60, #2ecc71);
+}
+.hp-bar-fill.hp-mid {
+  background: linear-gradient(90deg, #f39c12, #e67e22);
+}
+.hp-bar-fill.hp-low {
+  background: linear-gradient(90deg, #e74c3c, #c0392b);
+  animation: hp-low-pulse 1s ease-in-out infinite;
+}
+.hp-bar-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.15), transparent);
+  border-radius: 11px 11px 0 0;
+}
+@keyframes hp-low-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.7; }
+}
+
+/* ── 7. Daily Reward Popup ───────────────────────────────────── */
+.daily-reward-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: linear-gradient(135deg, var(--bg-card), rgba(212, 160, 23, 0.1));
+  border: 2px solid var(--gold);
+  border-radius: 20px;
+  padding: 32px 48px;
+  text-align: center;
+  z-index: 1000;
+  box-shadow: 0 0 60px rgba(212, 160, 23, 0.3), 0 20px 60px rgba(0, 0, 0, 0.5);
+  animation: popup-scale 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+@keyframes popup-scale {
+  from { transform: translate(-50%, -50%) scale(0); }
+  to   { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* ── 8. Screen Enter / Exit Transitions ──────────────────────── */
+.screen-fade-in {
+  animation: screenFadeIn 0.35s ease-out forwards;
+}
+.screen-fade-out {
+  animation: screenFadeOut 0.25s ease-in forwards;
+}
+@keyframes screenFadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes screenFadeOut {
+  from { opacity: 1; transform: scale(1); }
+  to   { opacity: 0; transform: scale(1.02); }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   9. CINEMATIC TITLE SCREEN
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Ink-Wash Landscape Background ─────────────────────────────── */
+.title-ink-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.title-mountain {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 60% 50% 0 0 / 100% 100% 0 0;
+  opacity: 0.08;
+}
+.title-mountain-1 {
+  height: 45%;
+  background: linear-gradient(180deg, rgba(212,160,23,0.3), rgba(30,20,60,0.6));
+  transform: scaleX(1.3) translateX(-5%);
+  animation: title-mountain-drift 25s ease-in-out infinite alternate;
+}
+.title-mountain-2 {
+  height: 35%;
+  background: linear-gradient(180deg, rgba(46,204,138,0.2), rgba(20,15,50,0.5));
+  transform: scaleX(1.1) translateX(8%);
+  animation: title-mountain-drift 30s ease-in-out infinite alternate-reverse;
+}
+.title-mountain-3 {
+  height: 25%;
+  background: linear-gradient(180deg, rgba(142,68,173,0.15), rgba(15,10,40,0.4));
+  transform: scaleX(1.5);
+  animation: title-mountain-drift 20s ease-in-out infinite alternate;
+}
+
+@keyframes title-mountain-drift {
+  0%   { transform: scaleX(1.3) translateX(-5%); }
+  100% { transform: scaleX(1.3) translateX(3%); }
+}
+
+.title-mist {
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  height: 80px;
+  background: linear-gradient(90deg, transparent, rgba(200,190,170,0.04), transparent);
+  animation: title-mist-drift linear infinite;
+  opacity: 0.5;
+}
+.title-mist-1 { bottom: 30%; animation-duration: 35s; }
+.title-mist-2 { bottom: 50%; animation-duration: 45s; animation-delay: -10s; }
+
+@keyframes title-mist-drift {
+  0%   { transform: translateX(-20%); }
+  100% { transform: translateX(20%); }
+}
+
+/* Floating calligraphy characters */
+.title-float-char {
+  position: absolute;
+  font-family: 'Noto Serif SC', 'SimSun', serif;
+  color: rgba(212,160,23,0.8);
+  pointer-events: none;
+  animation: title-float-drift linear infinite;
+  user-select: none;
+}
+
+@keyframes title-float-drift {
+  0%   { transform: translateY(0) rotate(0deg); }
+  50%  { transform: translateY(-30px) rotate(3deg); }
+  100% { transform: translateY(0) rotate(-2deg); }
+}
+
+/* ── Audio control buttons ─────────────────────────────────────── */
+.title-audio-btn {
+  position: absolute;
+  top: 16px;
+  z-index: 10;
+  background: transparent;
+  border: 1px solid var(--text-secondary);
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: border-color 0.2s, color 0.2s;
+}
+.title-audio-btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.title-audio-icon { font-size: 1rem; }
+
+/* ── Logo: brush-stroke reveal ─────────────────────────────────── */
+.title-logo-wrap {
+  position: relative;
+  z-index: 2;
+  margin-top: -2rem;
+}
+
+.title-logo {
+  display: flex;
+  gap: 0.15em;
+  justify-content: center;
+}
+
+@keyframes brush-reveal {
+  0%   { clip-path: inset(0 100% 0 0); opacity: 0; filter: blur(6px); transform: scaleY(0.7) translateY(10px); }
+  40%  { clip-path: inset(0 20% 0 0); opacity: 0.7; filter: blur(2px); transform: scaleY(1.05) translateY(-2px); }
+  70%  { clip-path: inset(0 0 0 0); opacity: 0.9; filter: blur(0.5px); transform: scaleY(1) translateY(0); }
+  100% { clip-path: inset(0 0 0 0); opacity: 1; filter: blur(0); transform: scaleY(1) translateY(0); }
+}
+
+.title-char {
+  display: inline-block;
+  font-size: clamp(3.5rem, 12vw, 5.5rem);
+  font-weight: 900;
+  color: var(--gold);
+  text-shadow:
+    0 0 12px rgba(212,160,23,0.9),
+    0 0 40px rgba(212,160,23,0.5),
+    0 0 80px rgba(212,160,23,0.2),
+    3px 3px 0 rgba(0,0,0,0.9);
+  opacity: 0;
+  animation: brush-reveal 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.title-char-1 { animation-delay: 0.2s; }
+.title-char-2 { animation-delay: 0.65s; }
+.title-char-3 { animation-delay: 1.1s; }
+
+/* Ink splatter accents */
+.title-ink-splatter {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,160,23,0.25) 0%, transparent 70%);
+  pointer-events: none;
+  opacity: 0;
+  animation: ink-splat 0.5s ease-out forwards;
+}
+.title-splat-1 {
+  width: 60px; height: 60px;
+  top: -15px; left: 5%;
+  animation-delay: 0.4s;
+}
+.title-splat-2 {
+  width: 45px; height: 45px;
+  top: 10px; right: 10%;
+  animation-delay: 0.85s;
+}
+.title-splat-3 {
+  width: 80px; height: 80px;
+  bottom: -20px; left: 50%;
+  transform: translateX(-50%);
+  animation-delay: 1.3s;
+}
+
+@keyframes ink-splat {
+  0%   { transform: scale(0); opacity: 0; }
+  50%  { transform: scale(1.3); opacity: 0.6; }
+  100% { transform: scale(1); opacity: 0.35; }
+}
+
+/* ── Subtitle letter-spacing fade-in ───────────────────────────── */
+.title-subtitle {
+  font-size: clamp(1rem, 3vw, 1.4rem);
+  color: var(--text-secondary);
+  letter-spacing: 0.8em;
+  opacity: 0;
+  animation: title-subtitle-in 1s ease forwards;
+  animation-delay: 1.6s;
+  margin-top: 0.8rem;
+  margin-bottom: 2.5rem;
+  z-index: 2;
+  text-transform: uppercase;
+}
+
+@keyframes title-subtitle-in {
+  0%   { opacity: 0; letter-spacing: 1.5em; filter: blur(4px); }
+  100% { opacity: 1; letter-spacing: 0.35em; filter: blur(0); }
+}
+
+/* ── Menu buttons: slide-in from bottom + glow ─────────────────── */
+.title-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 2;
+  width: min(85vw, 280px);
+}
+
+.title-menu-btn {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: title-btn-slide-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  box-shadow: 0 0 0 0 rgba(212,160,23,0);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+.title-menu-btn:hover {
+  box-shadow: 0 0 20px rgba(212,160,23,0.25), 0 0 40px rgba(212,160,23,0.1);
+}
+.title-menu-btn-1 { animation-delay: 1.9s; }
+.title-menu-btn-2 { animation-delay: 2.1s; }
+.title-menu-btn-3 { animation-delay: 2.3s; }
+
+@keyframes title-btn-slide-in {
+  0%   { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Version badge ─────────────────────────────────────────────── */
+.title-version {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+  z-index: 2;
+  opacity: 0.6;
+}
+
+/* ── Daily login reward popup ──────────────────────────────────── */
+.daily-login-popup {
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(4px);
+}
+
+.daily-login-content {
+  background: linear-gradient(135deg, var(--bg-card), rgba(212,160,23,0.08));
+  border: 2px solid var(--gold);
+  border-radius: 20px;
+  padding: 32px 40px;
+  text-align: center;
+  box-shadow: 0 0 50px rgba(212,160,23,0.25), 0 16px 48px rgba(0,0,0,0.5);
+  max-width: 340px;
+}
+
+.daily-login-streak {
+  font-size: 1.3rem;
+  color: var(--gold-bright);
+  font-weight: 900;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(212,160,23,0.6);
+}
+.daily-login-streak strong {
+  font-size: 1.8rem;
+  color: var(--gold-bright);
+}
+
+.daily-login-reward {
+  font-size: 1rem;
+  color: var(--jade);
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.daily-login-close {
+  margin-top: 4px;
+}
+
+.daily-login-enter {
+  animation: daily-popup-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+.daily-login-exit {
+  animation: daily-popup-out 0.35s ease-in forwards;
+}
+
+@keyframes daily-popup-in {
+  0%   { opacity: 0; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes daily-popup-out {
+  0%   { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.9); }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SCREEN TRANSITION (ROUTER)
+   ═══════════════════════════════════════════════════════════════ */
+.screen-transitioning > .screen {
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   WORLD MAP ENHANCEMENTS
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Active title badge next to player name ────────────────────── */
+.wm-active-title {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--jade);
+  background: rgba(46,204,138,0.1);
+  border: 1px solid rgba(46,204,138,0.25);
+  border-radius: 12px;
+  padding: 1px 8px;
+  margin-left: 6px;
+  vertical-align: middle;
+  letter-spacing: 0.03em;
+}
+
+/* ── Player Stats Bar ──────────────────────────────────────────── */
+.wm-stats-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 20px;
+  margin: 0;
+  background: rgba(0,0,0,0.25);
+  border-bottom: 1px solid rgba(212,160,23,0.08);
+  flex-wrap: wrap;
+}
+
+.wm-stat-level {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(212,160,23,0.2), rgba(212,160,23,0.05));
+  border: 1px solid rgba(212,160,23,0.4);
+  border-radius: 8px;
+  padding: 4px 12px;
+  flex-shrink: 0;
+}
+.wm-level-num {
+  font-size: 0.85rem;
+  font-weight: 900;
+  color: var(--gold-bright);
+  text-shadow: 0 0 6px rgba(212,160,23,0.5);
+}
+
+.wm-stat-block {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  min-width: 100px;
+}
+
+.wm-stat-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  letter-spacing: 0.06em;
+  width: 22px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.wm-bar-track {
+  flex: 1;
+  height: 10px;
+  background: rgba(0,0,0,0.45);
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.wm-bar-fill {
+  height: 100%;
+  border-radius: 5px;
+  transition: width 0.6s ease;
+  position: relative;
+}
+.wm-bar-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.2), transparent);
+  border-radius: 5px 5px 0 0;
+}
+
+.wm-bar-hp {
+  box-shadow: 0 0 6px rgba(39,174,96,0.4);
+}
+
+.wm-bar-xp {
+  background: linear-gradient(90deg, var(--purple), #a855f7);
+  box-shadow: 0 0 6px rgba(142,68,173,0.4);
+}
+
+.wm-stat-val {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 50px;
+}
+
+.wm-stat-gold {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  padding: 3px 10px;
+  background: rgba(212,160,23,0.08);
+  border: 1px solid rgba(212,160,23,0.2);
+  border-radius: 14px;
+}
+
+.wm-gold-icon {
+  color: var(--gold-bright);
+  font-size: 0.9rem;
+}
+
+.wm-gold-num {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+/* ── Parallax layers on map background ─────────────────────────── */
+.map-parallax-wrap {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 45vh;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.065;
+  overflow: hidden;
+}
+
+.map-parallax-layer {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.1s linear;
+  will-change: transform;
+}
+
+/* Responsive tweaks for stats bar */
+@media (max-width: 640px) {
+  .wm-stats-bar {
+    gap: 8px;
+    padding: 8px 12px;
+  }
+  .wm-stat-block {
+    min-width: 80px;
+  }
+  .title-logo .title-char {
+    font-size: 3rem;
+  }
+}
+
+/* ── 10. Meteor Trail Enhancement — Subtle Ink-Wash Streaks ──── */
+.meteor-subtle {
+  position: absolute;
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(180deg, rgba(212,160,23,0.35), rgba(212,160,23,0.08), transparent);
+  border-radius: 50%;
+  animation: meteor-fall linear infinite;
+  opacity: 0;
+  filter: blur(0.5px);
+}
+.ink-streak {
+  position: absolute;
+  width: 2px;
+  height: 120px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(180, 170, 150, 0.12) 20%,
+    rgba(180, 170, 150, 0.06) 60%,
+    transparent 100%
+  );
+  border-radius: 1px;
+  animation: ink-streak-fall linear infinite;
+  opacity: 0;
+  filter: blur(1px);
+}
+@keyframes ink-streak-fall {
+  0%   { transform: translateY(-140px) translateX(0) rotate(-25deg); opacity: 0; }
+  8%   { opacity: 0.5; }
+  40%  { opacity: 0.2; }
+  100% { transform: translateY(120vh) translateX(-120px) rotate(-25deg); opacity: 0; }
+}
+

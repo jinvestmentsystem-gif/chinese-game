@@ -2,6 +2,7 @@
 import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
 import { getCurrentEncounter, advanceEncounter, recordAnswer } from '../game-engine.js';
+import { calcDamageTaken, getEffectiveMaxHp } from '../progression.js';
 import { playSound, playMusic, setMusicIntensity } from '../audio.js';
 import { SPRITES } from '../sprites.js';
 import { setParticleMode } from '../particles.js';
@@ -80,6 +81,7 @@ function renderPuzzle() {
 
   const encounter = getCurrentEncounter();
   const profile = gameState.profile;
+  const effectiveMaxHp = getEffectiveMaxHp(profile);
   const passage = encounter.passage;
   const questions = passage.questions;
   let qIndex = 0;
@@ -310,7 +312,7 @@ function renderPuzzle() {
 
     const q = questions[qIndex];
     const sealPct = sealHp;
-    const playerPct = (playerHp / profile.maxHp) * 100;
+    const playerPct = (playerHp / effectiveMaxHp) * 100;
 
     // ── Inner flex container that fills height ──
     const inner = document.createElement('div');
@@ -326,7 +328,7 @@ function renderPuzzle() {
         <div class="puzzle-hp-bg">
           <div class="puzzle-hp-bar puzzle-hp-player" id="player-hp-bar" style="width:${playerPct}%"></div>
         </div>
-        <div style="font-size:0.75rem; color:var(--text-secondary); margin-top:2px;">HP: ${playerHp}/${profile.maxHp}</div>
+        <div style="font-size:0.75rem; color:var(--text-secondary); margin-top:2px;">HP: ${playerHp}/${effectiveMaxHp}</div>
       </div>
       <div style="font-size:0.8rem; color:var(--text-secondary); text-align:center; align-self:center;">
         问题 ${qIndex + 1} / ${totalQuestions}
@@ -370,8 +372,10 @@ function renderPuzzle() {
       }
     }
 
-    // Seal intent
-    const sealWrongDmg = Math.round(8 * (1 - profile.defense * 0.01));
+    // Seal intent — use new stat formula
+    const sealDmgInfo = calcDamageTaken(profile, 8);
+    const sealWrongDmg = sealDmgInfo.damage;
+    const sealThorns = sealDmgInfo.thornsReturn;
     const intentDiv = document.createElement('div');
     intentDiv.style.cssText = `
       display:flex; justify-content:center; align-items:center;
@@ -381,7 +385,7 @@ function renderPuzzle() {
       border-radius:6px; font-size:0.82rem;
       flex-shrink:0;
     `;
-    intentDiv.innerHTML = `<span style="color:#e74c3c;">⚠ 答错: 封印反噬 -${sealWrongDmg} HP</span>`;
+    intentDiv.innerHTML = `<span style="color:#e74c3c;">⚠ 答错: 封印反噬 -${sealWrongDmg} HP</span>${sealThorns > 0 ? `<span style="color:#27ae60;margin-left:8px;">🌿 反刺 ${sealThorns}</span>` : ''}`;
     inner.appendChild(intentDiv);
 
     // Narrative
@@ -480,11 +484,27 @@ function renderPuzzle() {
             setTimeout(() => sealIcon.classList.remove('seal-pulsing'), 550);
           }
 
-          // Player takes minor damage
-          const hpLoss = Math.round(8 * (1 - profile.defense * 0.01));
+          // Player takes minor damage — use new stat formula
+          const puzzleDmg = calcDamageTaken(profile, 8);
+          const hpLoss = puzzleDmg.damage;
+          const puzzleThorns = puzzleDmg.thornsReturn;
           playerHp = Math.max(0, playerHp - hpLoss);
           const playerBar = inner.querySelector('#player-hp-bar');
-          if (playerBar) playerBar.style.width = (playerHp / profile.maxHp) * 100 + '%';
+          if (playerBar) playerBar.style.width = (playerHp / effectiveMaxHp) * 100 + '%';
+
+          // ── Thorns: reflect damage against the seal ──
+          if (puzzleThorns > 0) {
+            sealHp = Math.max(0, sealHp - Math.round(puzzleThorns * 0.5));
+            const sealBar = inner.querySelector('#seal-hp-bar');
+            if (sealBar) sealBar.style.width = sealHp + '%';
+            // Thorns visual on seal
+            setTimeout(() => {
+              if (sealIcon) {
+                sealIcon.classList.add('seal-cracking');
+                setTimeout(() => sealIcon.classList.remove('seal-cracking'), 550);
+              }
+            }, 400);
+          }
 
           // Screen red flash
           const flash = document.createElement('div');
@@ -501,7 +521,7 @@ function renderPuzzle() {
           }, 120);
           setTimeout(() => flash.remove(), 450);
 
-          feedbackDiv.innerHTML = `<span style="color:var(--accent-red);">✗ 错误！封印反弹！-${hpLoss} HP</span> ${q.explanation}`;
+          feedbackDiv.innerHTML = `<span style="color:var(--accent-red);">✗ 错误！封印反弹！-${hpLoss} HP</span>${puzzleThorns > 0 ? ` <span style="color:#27ae60;">荆棘反刺封印！</span>` : ''} ${q.explanation}`;
         }
 
         setTimeout(() => {

@@ -12,10 +12,10 @@ const DEFAULT_PROFILE = {
   maxHp: 100,
   wenli: 5,
   maxWenli: 5,
-  attack: 0,
-  defense: 0,
+  attack: 5,
+  defense: 5,
   speed: 0,
-  equipment: { weapon: null, armor: null },
+  equipment: { weapon: null, armor: null, accessory: null },
   gold: 0,
   consumables: {},
   chapterProgress: { 1: { questsCompleted: 0 } },
@@ -34,7 +34,25 @@ const DEFAULT_PROFILE = {
     totalBossKills: 0,
     maxCombo: 0,
     totalXP: 0,
+    totalGoldEarned: 0,
+    fastestAnswer: Infinity,
+    perfectQuests: 0,
   },
+  // Talent tree — each key maps to rank (0 = unlearned)
+  talents: {},
+  talentPoints: 0,
+  // Titles earned + active title
+  titles: ['新手文字侠'],
+  activeTitle: '新手文字侠',
+  // Daily login reward tracking
+  dailyLogin: { lastDate: null, streak: 0, totalDays: 0 },
+  // Elemental affinity (unlocked via chengyu sets)
+  affinities: { metal: 0, wood: 0, water: 0, fire: 0, earth: 0 },
+  // Combo record per session
+  currentCombo: 0,
+  // Critical hit stats
+  critChance: 5,
+  critMultiplier: 1.5,
 };
 
 class GameState {
@@ -71,19 +89,32 @@ class GameState {
     if (!('achievements' in p))   p.achievements = [];
     if (!('difficultyBase' in p)) p.difficultyBase = p.tier === 'grade7' ? 3 : 2;
     if (!('stats' in p) || !p.stats) {
-      p.stats = { totalCorrect: 0, totalWrong: 0, totalQuests: 0, totalBossKills: 0, maxCombo: 0, totalXP: 0 };
+      p.stats = { totalCorrect: 0, totalWrong: 0, totalQuests: 0, totalBossKills: 0, maxCombo: 0, totalXP: 0, totalGoldEarned: 0, fastestAnswer: Infinity, perfectQuests: 0 };
     } else {
-      // Ensure all stat keys exist
-      const defaults = { totalCorrect: 0, totalWrong: 0, totalQuests: 0, totalBossKills: 0, maxCombo: 0, totalXP: 0 };
+      const defaults = { totalCorrect: 0, totalWrong: 0, totalQuests: 0, totalBossKills: 0, maxCombo: 0, totalXP: 0, totalGoldEarned: 0, fastestAnswer: Infinity, perfectQuests: 0 };
       for (const [k, v] of Object.entries(defaults)) {
         if (!(k in p.stats)) p.stats[k] = v;
       }
     }
-    if (!p.seenQuestions)  p.seenQuestions = { vocab: [], reading: [], classical: [] };
-    if (!p.accuracy)       p.accuracy = { vocab: [], reading: [], classical: [] };
-    if (!p.inventory)      p.inventory = [];
-    if (!p.chengyu)        p.chengyu = [];
-    if (!p.equipment)      p.equipment = { weapon: null, armor: null };
+    if (!p.seenQuestions)   p.seenQuestions = { vocab: [], reading: [], classical: [] };
+    if (!p.accuracy)        p.accuracy = { vocab: [], reading: [], classical: [] };
+    if (!p.inventory)       p.inventory = [];
+    if (!p.chengyu)         p.chengyu = [];
+    if (!p.equipment)       p.equipment = { weapon: null, armor: null, accessory: null };
+    if (!p.equipment.accessory && p.equipment.accessory !== null) p.equipment.accessory = null;
+    // New fields backfill
+    if (!p.talents)         p.talents = {};
+    if (!('talentPoints' in p)) p.talentPoints = Math.max(0, Math.floor((p.level - 1) / 2) - Object.values(p.talents || {}).reduce((s, v) => s + v, 0));
+    if (!p.titles)          p.titles = ['新手文字侠'];
+    if (!p.activeTitle)     p.activeTitle = '新手文字侠';
+    if (!p.dailyLogin)      p.dailyLogin = { lastDate: null, streak: 0, totalDays: 0 };
+    if (!p.affinities)      p.affinities = { metal: 0, wood: 0, water: 0, fire: 0, earth: 0 };
+    if (!('critChance' in p))     p.critChance = 5;
+    if (!('critMultiplier' in p)) p.critMultiplier = 1.5;
+    if (!('currentCombo' in p))   p.currentCombo = 0;
+    // Migrate old profiles with 0 attack/defense to new base values
+    if (p.attack === 0 && p.level === 1 && !p.equipment.weapon) p.attack = 5;
+    if (p.defense === 0 && p.level === 1 && !p.equipment.armor) p.defense = 5;
     return p;
   }
 
