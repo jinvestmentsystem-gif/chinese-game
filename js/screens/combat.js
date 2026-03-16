@@ -7,6 +7,7 @@ import { SPRITES, ENEMY_SPRITES } from '../sprites.js';
 import { playSound, playMusic, setMusicIntensity, playStinger } from '../audio.js';
 import { showCompanionBubble, showEnemyTaunt, COMPANION, ENEMY_TAUNTS, pick } from './companion.js';
 import { setParticleMode, burstParticles } from '../particles.js';
+import { getPixelSprites, createSpriteImg } from '../pixel-sprites.js';
 
 const ENEMY_NAMES = ['墨灵', '暗字兵', '墨影卫', '乱笔妖', '黑墨士'];
 
@@ -355,6 +356,44 @@ function renderCombat() {
   let stopPlayerBreath = null;
   let stopEnemyBreath = null;
 
+  // PixiJS overlay handle
+  let pixiApp = null;
+
+  function pixiParticleBurst(x, y, color, count) {
+    if (!pixiApp) return;
+    for (let i = 0; i < count; i++) {
+      const g = new PIXI.Graphics();
+      g.beginFill(color);
+      g.drawCircle(0, 0, 2 + Math.random() * 4);
+      g.endFill();
+      g.x = x;
+      g.y = y;
+
+      const angle = Math.random() * Math.PI * 2;
+      const speed = 2 + Math.random() * 6;
+      const vx = Math.cos(angle) * speed;
+      const vy = Math.sin(angle) * speed - 2;
+      const life = 30 + Math.random() * 30;
+      let frame = 0;
+
+      pixiApp.stage.addChild(g);
+
+      const ticker = () => {
+        g.x += vx;
+        g.y += vy + frame * 0.1; // gravity
+        g.alpha = 1 - (frame / life);
+        g.scale.set(1 - (frame / life) * 0.5);
+        frame++;
+        if (frame >= life) {
+          pixiApp.stage.removeChild(g);
+          pixiApp.ticker.remove(ticker);
+          g.destroy();
+        }
+      };
+      pixiApp.ticker.add(ticker);
+    }
+  }
+
   function stopBreaths() {
     if (stopPlayerBreath) { stopPlayerBreath(); stopPlayerBreath = null; }
     if (stopEnemyBreath) { stopEnemyBreath(); stopEnemyBreath = null; }
@@ -521,12 +560,8 @@ function renderCombat() {
         .sprite-container {
           height: 180px;
           display: flex;
-          align-items: center;
+          align-items: flex-end;
           justify-content: center;
-        }
-        .sprite-container svg {
-          height: 100%;
-          width: auto;
         }
         .arena-center {
           flex: 1;
@@ -716,7 +751,7 @@ function renderCombat() {
         <div class="battle-arena" id="arena">
           <div class="sprite-wrap" id="player-sprite-wrap">
             <div class="sprite-label">${profile.name}</div>
-            <div id="player-sprite" class="sprite-container">${SPRITES.player}</div>
+            <div id="player-sprite" class="sprite-container"></div>
           </div>
 
           <div class="arena-center">
@@ -725,7 +760,7 @@ function renderCombat() {
 
           <div class="sprite-wrap" id="enemy-sprite-wrap">
             <div class="sprite-label" style="color:var(--accent-red);">${enemyName}</div>
-            <div id="enemy-sprite" class="sprite-container">${enemySvg}</div>
+            <div id="enemy-sprite" class="sprite-container"></div>
           </div>
         </div>
 
@@ -766,6 +801,24 @@ function renderCombat() {
 
       </div>
     `;
+
+    // ── Inject pixel art sprites into empty containers ──
+    {
+      const sprites = getPixelSprites();
+      const playerContainer = div.querySelector('#player-sprite');
+      if (playerContainer) {
+        playerContainer.innerHTML = '';
+        playerContainer.appendChild(createSpriteImg(sprites.player, 160));
+      }
+      const enemyContainer = div.querySelector('#enemy-sprite');
+      if (enemyContainer) {
+        enemyContainer.innerHTML = '';
+        const enemySprites = [sprites.enemy_ink, sprites.enemy_soldier];
+        // Use same random enemy type that was chosen for this combat session
+        const enemyImg = createSpriteImg(enemySprites[Math.floor(Math.random() * enemySprites.length)], 160);
+        enemyContainer.appendChild(enemyImg);
+      }
+    }
 
     // Start breathing animations
     const playerSpriteEl = div.querySelector('#player-sprite');
@@ -1014,6 +1067,15 @@ function renderCombat() {
       // Particle sparkle burst on correct answer
       burstParticles(15, 'victory');
 
+      // PixiJS gold particle burst on enemy hit
+      const enemyRectPx = div.querySelector('#enemy-sprite')?.getBoundingClientRect();
+      const divRectPx = div.getBoundingClientRect();
+      if (enemyRectPx && pixiApp) {
+        const ex = enemyRectPx.left - divRectPx.left + enemyRectPx.width / 2;
+        const ey = enemyRectPx.top - divRectPx.top + enemyRectPx.height / 2;
+        pixiParticleBurst(ex, ey, 0xd4a017, 20);
+      }
+
       // Combo display — CSS keyframe scale-up with gold glow
       const comboEl = div.querySelector('#combo');
       if (comboEl) {
@@ -1091,6 +1153,15 @@ function renderCombat() {
 
       // Red screen flash
       redFlashOverlay(div);
+
+      // PixiJS red particle burst on player hit
+      const playerRectPx = div.querySelector('#player-sprite')?.getBoundingClientRect();
+      const divRectWrong = div.getBoundingClientRect();
+      if (playerRectPx && pixiApp) {
+        const px = playerRectPx.left - divRectWrong.left + playerRectPx.width / 2;
+        const py = playerRectPx.top - divRectWrong.top + playerRectPx.height / 2;
+        pixiParticleBurst(px, py, 0xc0392b, 15);
+      }
 
       // Floating "-HP" above player
       if (playerWrap) {
@@ -1173,6 +1244,12 @@ function renderCombat() {
     // Guard against double-calls (multiple code paths can trigger endCombat)
     if (encounter.completed !== undefined && encounter.completed !== false) return;
 
+    // Clean up PixiJS overlay
+    if (pixiApp) {
+      try { pixiApp.destroy(true); } catch(e) {}
+      pixiApp = null;
+    }
+
     clearInterval(timerInterval);
     clearInterval(timerPulseInterval);
     setMusicIntensity(0); // Back to ambient
@@ -1245,6 +1322,25 @@ function renderCombat() {
 
   // ── Mini-progress bar (on top of everything) ─────────────────────────────
   createMiniProgress(div);
+
+  // ── PixiJS combat effects overlay ────────────────────────────────────────
+  try {
+    if (window.PIXI) {
+      const pixiContainer = document.createElement('div');
+      pixiContainer.style.cssText = 'position:absolute;inset:0;pointer-events:none;z-index:100;';
+      div.appendChild(pixiContainer);
+
+      pixiApp = new PIXI.Application({
+        width: div.clientWidth || 1280,
+        height: div.clientHeight || 720,
+        backgroundAlpha: 0,
+        resolution: window.devicePixelRatio || 1,
+        autoDensity: true,
+      });
+      pixiContainer.appendChild(pixiApp.view);
+      pixiApp.view.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none;';
+    }
+  } catch(e) { console.warn('PixiJS init failed:', e); }
 
   // ── First-ever combat tutorial overlay ──────────────────────────────────
   if (profile.accuracy.vocab.length === 0) {

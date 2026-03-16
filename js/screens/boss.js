@@ -8,6 +8,7 @@ import { SPRITES } from '../sprites.js';
 import { playSound, playMusic, setMusicIntensity, playStinger } from '../audio.js';
 import { showCompanionBubble, showEnemyTaunt, COMPANION, ENEMY_TAUNTS, pick } from './companion.js';
 import { setParticleMode, burstParticles } from '../particles.js';
+import { getPixelSprites, createSpriteImg } from '../pixel-sprites.js';
 
 const BOSS_NARRATIVES = {
   phase1: [
@@ -536,7 +537,6 @@ function renderBoss() {
       <div class="boss-sprite-container">
         <div class="boss-svg-wrap" id="boss-sprite-wrap">
           <div id="boss-sprite" style="width:120px;height:200px;display:flex;align-items:center;justify-content:center;${isFirstRender ? 'transform:scale(2.5);opacity:0;' : `filter:${getDamageFilter()};`}">
-            ${bossSvg}
           </div>
         </div>
       </div>
@@ -563,6 +563,16 @@ function renderBoss() {
       <div style="display:flex;gap:8px;justify-content:center;margin-top:8px;" id="abilities"></div>
       <div class="boss-feedback" id="feedback"></div>
     `;
+
+    // ── Inject pixel art boss sprite ──
+    {
+      const sprites = getPixelSprites();
+      const bossContainer = div.querySelector('#boss-sprite');
+      if (bossContainer) {
+        bossContainer.innerHTML = '';
+        bossContainer.appendChild(createSpriteImg(sprites.boss_cangjie, 200));
+      }
+    }
 
     // ── Boss entrance animation (first render only) ──
     const bossSprite = div.querySelector('#boss-sprite');

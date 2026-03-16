@@ -5,6 +5,7 @@ import { getCurrentEncounter, advanceEncounter, recordAnswer } from '../game-eng
 import { playSound, playMusic, setMusicIntensity } from '../audio.js';
 import { SPRITES } from '../sprites.js';
 import { setParticleMode } from '../particles.js';
+import { getPixelSprites, createSpriteImg } from '../pixel-sprites.js';
 
 const PUZZLE_NARRATIVES = [
   "古老卷轴上浮现出一段被墨暗污染的文字……解读它才能打破封印！",
@@ -345,7 +346,7 @@ function renderPuzzle() {
     arenaDiv.className = 'puzzle-arena';
     arenaDiv.innerHTML = `
       <div class="puzzle-player-sprite" id="player-sprite-wrap">
-        <div id="player-sprite" style="width:70px;height:120px;display:flex;align-items:center;justify-content:center;">${SPRITES.player}</div>
+        <div id="player-sprite" style="width:70px;height:120px;display:flex;align-items:flex-end;justify-content:center;"></div>
         <div style="font-size:0.75rem;color:var(--text-secondary);margin-top:2px;">${profile.name}</div>
       </div>
       <div class="puzzle-vs">⚡</div>
@@ -358,6 +359,16 @@ function renderPuzzle() {
       </div>
     `;
     inner.appendChild(arenaDiv);
+
+    // ── Inject pixel art player sprite ──
+    {
+      const sprites = getPixelSprites();
+      const playerEl = inner.querySelector('#player-sprite');
+      if (playerEl) {
+        playerEl.innerHTML = '';
+        playerEl.appendChild(createSpriteImg(sprites.player, 120));
+      }
+    }
 
     // Seal intent
     const sealWrongDmg = Math.round(8 * (1 - profile.defense * 0.01));
