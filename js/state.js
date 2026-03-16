@@ -5,6 +5,7 @@ const SAVE_KEY = 'wenzi-xia-save';
 const DEFAULT_PROFILE = {
   name: '',
   tier: 'grade7',
+  difficultyBase: 3,
   level: 1,
   xp: 0,
   hp: 100,
@@ -53,8 +54,8 @@ class GameState {
     return this.profiles[this.activeProfileIndex] || null;
   }
 
-  createProfile(name, tier) {
-    const p = { ...DEFAULT_PROFILE, name, tier, createdAt: Date.now() };
+  createProfile(name, tier, difficultyBase = 3) {
+    const p = { ...DEFAULT_PROFILE, name, tier, difficultyBase, createdAt: Date.now() };
     // Deep clone nested objects
     p.equipment = { ...DEFAULT_PROFILE.equipment };
     p.chapterProgress = { 1: { questsCompleted: 0 } };

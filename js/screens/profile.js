@@ -3,6 +3,22 @@ import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
 import { playSound } from '../audio.js';
 
+// Grade range options: label shown to user → internal tier + difficultyBase
+const GRADE_OPTIONS = [
+  { label: '1-2年级', tier: 'grade3', difficultyBase: 1 },
+  { label: '3-4年级', tier: 'grade3', difficultyBase: 2 },
+  { label: '5-6年级', tier: 'grade7', difficultyBase: 2 },
+  { label: '初一/初二', tier: 'grade7', difficultyBase: 3 },
+  { label: '初三+',    tier: 'grade7', difficultyBase: 4 },
+];
+
+function gradeLabel(profile) {
+  const opt = GRADE_OPTIONS.find(
+    o => o.tier === profile.tier && o.difficultyBase === (profile.difficultyBase ?? 3)
+  );
+  return opt ? opt.label : (profile.tier === 'grade7' ? '初一/初二' : '3-4年级');
+}
+
 function renderProfileSelect(params = {}) {
   const mode = params.mode || 'solo';
   const div = document.createElement('div');
@@ -23,7 +39,7 @@ function renderProfileSelect(params = {}) {
         border-radius:50%; transition:opacity 0.2s;
       " onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.4'">✕</button>
       <div class="profile-name">${p.name}</div>
-      <div class="profile-info">${p.tier === 'grade7' ? '七年级' : '三年级'} · Lv.${p.level}</div>
+      <div class="profile-info">${gradeLabel(p)} · Lv.${p.level}</div>
     </div>
   `).join('');
 
@@ -40,9 +56,13 @@ function renderProfileSelect(params = {}) {
         style="font-size:1.1rem; padding:8px 16px; background:var(--bg-secondary);
         border:1px solid var(--accent-gold); color:var(--text-primary); border-radius:4px;
         font-family:var(--font-main); margin-bottom:12px; display:block; width:240px; margin-left:auto; margin-right:auto;">
-      <div style="display:flex; gap:12px; justify-content:center; margin-bottom:12px;">
-        <button class="btn tier-btn" data-tier="grade3">三年级</button>
-        <button class="btn tier-btn" data-tier="grade7">七年级</button>
+      <p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:8px;">选择年级</p>
+      <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin-bottom:12px;">
+        <button class="btn tier-btn" data-grade-idx="0">1-2年级</button>
+        <button class="btn tier-btn" data-grade-idx="1">3-4年级</button>
+        <button class="btn tier-btn" data-grade-idx="2">5-6年级</button>
+        <button class="btn tier-btn" data-grade-idx="3">初一/初二</button>
+        <button class="btn tier-btn" data-grade-idx="4">初三+</button>
       </div>
       <button class="btn btn-primary" id="confirm-create" disabled>创建</button>
     </div>
@@ -73,7 +93,7 @@ function renderProfileSelect(params = {}) {
   div.appendChild(style);
 
   setTimeout(() => {
-    let selectedTier = null;
+    let selectedGradeIdx = null;
 
     // Delete buttons
     div.querySelectorAll('.delete-profile-btn').forEach(btn => {
@@ -144,21 +164,22 @@ function renderProfileSelect(params = {}) {
         playSound('click');
         div.querySelectorAll('.tier-btn').forEach(b => b.classList.remove('selected'));
         btn.classList.add('selected');
-        selectedTier = btn.dataset.tier;
+        selectedGradeIdx = parseInt(btn.dataset.gradeIdx);
         const nameInput = div.querySelector('#name-input');
-        div.querySelector('#confirm-create').disabled = !(nameInput.value.trim() && selectedTier);
+        div.querySelector('#confirm-create').disabled = !(nameInput.value.trim() && selectedGradeIdx !== null);
       });
     });
 
     div.querySelector('#name-input').addEventListener('input', (e) => {
-      div.querySelector('#confirm-create').disabled = !(e.target.value.trim() && selectedTier);
+      div.querySelector('#confirm-create').disabled = !(e.target.value.trim() && selectedGradeIdx !== null);
     });
 
     div.querySelector('#confirm-create').addEventListener('click', () => {
       const name = div.querySelector('#name-input').value.trim();
-      if (name && selectedTier) {
+      if (name && selectedGradeIdx !== null) {
         playSound('correct');
-        gameState.createProfile(name, selectedTier);
+        const { tier, difficultyBase } = GRADE_OPTIONS[selectedGradeIdx];
+        gameState.createProfile(name, tier, difficultyBase);
         showScreen('profile', params);
       }
     });

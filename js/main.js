@@ -19,6 +19,7 @@ import './screens/inventory.js';
 import './screens/daily.js';
 import './screens/arena.js';
 import './screens/story.js';
+import './screens/encounter-intro.js';
 
 // Initialize audio on the very first user interaction (browser autoplay policy)
 let audioReady = false;
@@ -104,13 +105,17 @@ registerScreen('title', () => {
 // Boot
 initRouter();
 
-// If no profiles exist → show opening cinematic first, then title
-// If profiles exist → go straight to title
 if (gameState.profiles.length === 0) {
+  // New player: opening cinematic (shortened) → profile creation → worldmap
   showScreen('story', {
     storyKey: 'opening',
-    onComplete: () => showScreen('title'),
+    onComplete: () => showScreen('profile', { mode: 'solo' }),
   });
+} else if (gameState.profiles.length === 1) {
+  // Returning player with a single profile — auto-select and go to title
+  gameState.selectProfile(0);
+  showScreen('title');
 } else {
+  // Multiple profiles — show title as normal
   showScreen('title');
 }

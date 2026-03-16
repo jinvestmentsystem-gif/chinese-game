@@ -357,22 +357,34 @@ function renderQuest(params) {
 
     const chapterProgress = profile.chapterProgress[chapterId] || { questsCompleted: 0 };
 
-    function startFirstEncounter() {
-      const enc = getCurrentEncounter();
+    function navigateToEncounter(enc) {
       if (enc.type === 'combat') showScreen('combat');
       else if (enc.type === 'puzzle') showScreen('puzzle');
       else if (enc.type === 'boss') showScreen('boss');
     }
 
+    function showEncounterIntroThen(enc, onComplete) {
+      showScreen('encounter-intro', {
+        type: enc.type,
+        onComplete,
+      });
+    }
+
+    function startFirstEncounter() {
+      const enc = getCurrentEncounter();
+      showEncounterIntroThen(enc, () => navigateToEncounter(enc));
+    }
+
     function startWithBossIntro() {
+      const enc = getCurrentEncounter();
       if (hasChapterBoss) {
         try { playMusic('boss'); } catch (_) {}
         showScreen('story', {
           storyKey: chapterBossKey,
-          onComplete: () => showScreen('boss'),
+          onComplete: () => showEncounterIntroThen(enc, () => showScreen('boss')),
         });
       } else {
-        showScreen('boss');
+        showEncounterIntroThen(enc, () => showScreen('boss'));
       }
     }
 
