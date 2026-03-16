@@ -1,7 +1,7 @@
 // js/screens/reward.js — Post-quest reward summary
 import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
-import { addXP, xpForLevel, getXPProgress } from '../progression.js';
+import { addXP, xpForLevel, getXPProgress, calculateGoldReward } from '../progression.js';
 import { EQUIPMENT_DB } from './inventory.js';
 import { playSound } from '../audio.js';
 import { showCompanionBubble, COMPANION, pick } from './companion.js';
@@ -305,13 +305,15 @@ function renderReward() {
     ? Math.round((results.correct / results.total) * 100)
     : 0;
 
-  // Calculate XP
+  // Calculate XP and Gold
   const baseXP = results.correct * 10;
   const comboBonus = results.maxCombo * 5;
   const totalXP = baseXP + comboBonus;
   results.xpEarned = totalXP;
+  const goldEarned = calculateGoldReward(results);
+  results.goldEarned = goldEarned;
 
-  // Apply XP
+  // Apply XP (also adds gold internally)
   const levelUpInfo = addXP(totalXP);
 
   // Equipment drop (30% chance)
@@ -432,6 +434,7 @@ function renderReward() {
 
   // XP row placeholder (will be replaced by the animated bar)
   const xpRow = buildStat('获得经验', `+${totalXP} XP`, 'var(--accent-gold)');
+  const goldRow = buildStat('获得金币', `+${goldEarned} 💰`, 'var(--accent-gold)');
 
   // ── Animated sequence ──
 
@@ -462,6 +465,12 @@ function renderReward() {
     comboRow.style.transform = 'translateX(0)';
     comboRow.style.opacity = '1';
   }, 1000);
+
+  // Step 2.5 (1200ms): gold slides in
+  setTimeout(() => {
+    goldRow.style.transform = 'translateX(0)';
+    goldRow.style.opacity = '1';
+  }, 1200);
 
   // Step 3 (1500ms): replace xpRow with animated XP bar
   setTimeout(() => {
