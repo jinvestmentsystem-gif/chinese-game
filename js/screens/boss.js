@@ -507,9 +507,15 @@ function renderBoss() {
           else if (bIdx === idx) b.classList.add('wrong');
         });
 
-        recordAnswer('classical', correct);
-        if (!profile.seenQuestions.classical.includes(q.id)) {
-          profile.seenQuestions.classical.push(q.id);
+        recordAnswer('classical', correct, q.id);
+
+        // Correct/wrong SFX — fire immediately before animation delays
+        if (correct) {
+          playSound('correct');
+          playSound('attack');
+        } else {
+          playSound('wrong');
+          playSound('hit');
         }
 
         const bossSprite = div.querySelector('#boss-sprite');

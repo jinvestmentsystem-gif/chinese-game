@@ -471,10 +471,7 @@ function renderCombat() {
       else if (bIdx === idx) btn.classList.add('wrong');
     });
 
-    recordAnswer('vocab', correct);
-    if (!profile.seenQuestions.vocab.includes(q.id)) {
-      profile.seenQuestions.vocab.push(q.id);
-    }
+    recordAnswer('vocab', correct, q.id);
 
     const arena = div.querySelector('#arena');
     const playerSprite = div.querySelector('#player-sprite');
@@ -485,6 +482,15 @@ function renderCombat() {
 
     // Click sound on every answer
     playSound('click');
+
+    // Correct/wrong SFX — fire immediately before animation delays
+    if (correct) {
+      playSound('correct');
+      playSound('attack');
+    } else {
+      playSound('wrong');
+      playSound('hit');
+    }
 
     if (correct) {
       combo++;
@@ -527,17 +533,32 @@ function renderCombat() {
       // Green flash on options panel
       if (optionsPanel) greenFlash(optionsPanel);
 
-      // Combo display with scale-up animation
+      // Combo display — flash gold, show "+1 COMBO!", shake at 3+
       const comboEl = div.querySelector('#combo');
-      if (comboEl && combo > 1) {
+      if (comboEl) {
         let comboColor = 'var(--accent-gold)';
         if (combo >= 6) comboColor = '#e74c3c';
         else if (combo >= 4) comboColor = '#e67e22';
-        comboEl.style.color = comboColor;
-        comboEl.textContent = combo + ' 连击！';
-        comboEl.style.transform = 'scale(1.5)';
-        comboEl.style.transition = 'transform 0.3s ease-out';
-        setTimeout(() => { comboEl.style.transform = 'scale(1)'; }, 300);
+
+        // Flash gold briefly on increment
+        comboEl.style.transition = 'color 0.05s, transform 0.3s ease-out';
+        comboEl.style.color = '#fff';
+        setTimeout(() => { comboEl.style.color = comboColor; }, 80);
+
+        // Show "+1 COMBO!" text briefly, then the running count
+        comboEl.textContent = '+1 COMBO!';
+        comboEl.style.color = '#d4a017';
+        comboEl.style.transform = 'scale(1.7)';
+        setTimeout(() => {
+          comboEl.textContent = combo > 1 ? combo + ' 连击！' : '';
+          comboEl.style.color = comboColor;
+          comboEl.style.transform = 'scale(1)';
+        }, 400);
+
+        // Shake the combo counter at 3+
+        if (combo >= 3) {
+          shakeElement(comboEl, 5, 350);
+        }
       }
 
       div.querySelector('#feedback').textContent = `✓ 正确！造成 ${dmg} 点伤害！${q.explanation}`;

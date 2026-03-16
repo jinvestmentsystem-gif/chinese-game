@@ -74,18 +74,19 @@ function renderPuzzle() {
           else if (bIdx === idx) b.classList.add('wrong');
         });
 
-        recordAnswer('reading', correct);
+        recordAnswer('reading', correct, passage.id);
         if (correct) correctCount++;
+
+        // Correct/wrong SFX
+        if (correct) {
+          playSound('correct');
+        } else {
+          playSound('wrong');
+        }
 
         div.querySelector('#feedback').textContent = correct
           ? `✓ 正确！${q.explanation}`
           : `✗ 错误。${q.explanation}`;
-
-        // Track seen
-        const profile = gameState.profile;
-        if (!profile.seenQuestions.reading.includes(passage.id)) {
-          profile.seenQuestions.reading.push(passage.id);
-        }
 
         setTimeout(() => {
           qIndex++;

@@ -25,13 +25,10 @@ export async function loadChengyu() {
 }
 
 export function pickQuestions(pool, count, seenIds = [], difficultyTarget = 3, sessionUsed = []) {
-  // 1. Exclude questions already used in THIS SESSION (prevents within-quest repeats)
+  // 1. HARD FILTER — never return a question already used this session
   let available = pool.filter(q => !sessionUsed.includes(q.id));
 
-  // 2. If session exclusion leaves too few, fall back to the full pool minus session
-  //    (session dedup is hard; recency is soft)
-  if (available.length < count) available = pool.filter(q => !sessionUsed.includes(q.id));
-  // If still too few (tiny pool), allow session repeats as last resort
+  // 2. If hard filter leaves too few, relax to scoring only (last resort fallback)
   if (available.length < count) available = pool;
 
   // 3. Deprioritize recently-seen questions via scoring (last 40 tracked)
