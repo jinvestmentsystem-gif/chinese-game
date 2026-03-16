@@ -222,7 +222,8 @@ function injectStyles(div) {
 function renderQuest(params) {
   const div = document.createElement('div');
   div.className = 'screen';
-  div.style.cssText = 'position:relative; overflow:hidden; padding:0;';
+  // Must keep position:absolute (from .screen class) — position:relative causes 0-height bug
+  div.style.cssText = 'padding:0;';
 
   const { chapterId } = params;
   const profile = gameState.profile;

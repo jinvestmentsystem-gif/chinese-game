@@ -57,7 +57,7 @@ function createMiniProgress(container) {
 function renderPuzzle() {
   const div = document.createElement('div');
   div.className = 'screen';
-  div.style.cssText = 'position:relative; overflow:hidden;';
+  div.style.cssText = 'overflow:hidden;';
 
   // Set puzzle music — light rhythm (intensity 1)
   const chapterId = gameState.currentQuest?.chapterId || 1;

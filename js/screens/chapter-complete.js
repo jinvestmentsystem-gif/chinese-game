@@ -184,7 +184,7 @@ function renderChapterComplete() {
   const div = document.createElement('div');
   div.className = 'screen';
   div.style.cssText = `
-    position: relative; overflow: hidden;
+    overflow: hidden;
     background: linear-gradient(135deg, #1a0e00, #2a1500, #0d0800, #1f1000);
     background-size: 400% 400%;
     animation: chcompl-bg-shift 8s ease-in-out infinite;

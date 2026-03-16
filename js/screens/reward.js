@@ -297,7 +297,7 @@ function buildEngagementHook(profile, levelUpInfo, parent) {
 function renderReward() {
   const div = document.createElement('div');
   div.className = 'screen';
-  div.style.cssText = 'position:relative; overflow:hidden;';
+  div.style.cssText = 'overflow:hidden;';
 
   const quest = gameState.currentQuest;
   const results = quest.results;
