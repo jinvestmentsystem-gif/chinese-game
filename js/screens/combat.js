@@ -311,7 +311,17 @@ function createMiniProgress(container) {
 function renderCombat() {
   const div = document.createElement('div');
   div.className = 'screen';
-  div.style.cssText = 'overflow:hidden;';
+  div.style.cssText = `
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    background:
+      radial-gradient(ellipse at 50% 25%, rgba(15,52,96,0.25) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, rgba(120,50,20,0.15) 0%, transparent 40%),
+      linear-gradient(180deg, #0a0c1a 0%, #111428 50%, #0a0c1a 100%);
+  `;
 
   const encounter = getCurrentEncounter();
   const profile = gameState.profile;
@@ -410,37 +420,268 @@ function renderCombat() {
 
     div.innerHTML = `
       <style>
-        .combat-hud { display:flex; justify-content:space-between; width:100%; padding:16px 32px; padding-top:44px; }
-        .hp-section { text-align:center; }
-        .hp-bar-bg { width:200px; height:16px; background:var(--bg-secondary); border-radius:8px; overflow:hidden; margin-top:4px; }
-        .hp-bar { height:100%; border-radius:8px; transition:width 0.3s; }
-        .hp-player { background:var(--hp-green); }
-        .hp-enemy { background:var(--hp-red); }
-        .timer-bar-bg { width:80%; max-width:500px; height:8px; background:var(--bg-secondary); border-radius:4px; overflow:hidden; margin:8px auto; }
-        .timer-bar { height:100%; background:var(--timer-yellow); border-radius:4px; transition:width 0.1s linear; }
-        .combo-display { font-size:1.2rem; font-weight:700; min-height:1.5em; display:flex; align-items:center; justify-content:center; }
-        .combat-question { font-size:1.3rem; margin:12px 0 16px; padding:0 32px; text-align:center; }
-        .combat-narrative { font-style:italic; font-size:0.88rem; color:#d4a017; text-align:center; padding:4px 32px; opacity:0.85; text-shadow:0 0 6px rgba(212,160,23,0.4); }
-        .battle-arena { display:flex; align-items:flex-end; justify-content:space-between; width:100%; max-width:600px; padding:0 32px; margin:8px 0; position:relative; min-height:160px; }
-        .sprite-wrap { display:flex; flex-direction:column; align-items:center; position:relative; }
-        .sprite-label { font-size:0.85rem; color:var(--text-secondary); margin-bottom:4px; }
-        .sprite-svg { display:block; }
+        /* ── Full-screen combat layout ── */
+        .combat-screen-inner {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          width: 100%;
+          position: relative;
+          overflow: hidden;
+        }
+
+        /* ── HUD row ── */
+        .combat-hud {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 4px 12px 4px;
+          padding-top: 38px; /* clear the mini-progress bar */
+          background: rgba(0,0,0,0.35);
+          border-bottom: 1px solid rgba(255,255,255,0.06);
+          flex-shrink: 0;
+        }
+        .hud-player-name {
+          font-size: 0.8rem;
+          font-weight: 700;
+          color: #e8e6d8;
+          white-space: nowrap;
+          min-width: 50px;
+        }
+        .hud-hp-wrap {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+          flex: 1;
+        }
+        .hud-hp-bar-bg {
+          height: 10px;
+          background: rgba(255,255,255,0.1);
+          border-radius: 5px;
+          overflow: hidden;
+        }
+        .hud-hp-bar {
+          height: 100%;
+          border-radius: 5px;
+          transition: width 0.3s;
+        }
+        .hp-player { background: linear-gradient(90deg, #27ae60, #2ecc71); }
+        .hp-enemy  { background: linear-gradient(90deg, #c0392b, #e74c3c); }
+        .hud-hp-text {
+          font-size: 0.65rem;
+          color: var(--text-secondary);
+          line-height: 1;
+        }
+        .hud-divider {
+          font-size: 1.2rem;
+          color: rgba(255,255,255,0.15);
+          flex-shrink: 0;
+          padding: 0 4px;
+        }
+        .hud-enemy-name {
+          font-size: 0.8rem;
+          font-weight: 700;
+          color: #e74c3c;
+          white-space: nowrap;
+          min-width: 50px;
+          text-align: right;
+        }
+        .hud-combo {
+          font-size: 0.85rem;
+          font-weight: 700;
+          min-width: 60px;
+          text-align: center;
+          flex-shrink: 0;
+        }
+
+        /* ── Battle arena ── */
+        .battle-arena {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0 20px;
+          flex: 0 0 auto;
+          min-height: 200px;
+          position: relative;
+        }
+        .sprite-wrap {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          position: relative;
+          flex-shrink: 0;
+        }
+        .sprite-label {
+          font-size: 0.75rem;
+          color: var(--text-secondary);
+          margin-bottom: 4px;
+        }
+        .sprite-container {
+          height: 180px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .sprite-container svg {
+          height: 100%;
+          width: auto;
+        }
+        .arena-center {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 6px;
+          position: relative;
+        }
+        .energy-bolts {
+          font-size: 1.6rem;
+          letter-spacing: 4px;
+          animation: boltFlicker 0.8s infinite alternate;
+        }
+        @keyframes boltFlicker {
+          0%   { opacity: 0.6; transform: scale(0.95); }
+          100% { opacity: 1;   transform: scale(1.05); }
+        }
+
+        /* ── Intent + score strip ── */
+        .intent-score-row {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 12px;
+          padding: 3px 12px;
+          flex-shrink: 0;
+        }
         .enemy-intent-bar {
-          display:flex; gap:16px; justify-content:center;
-          font-size:0.85rem; margin:4px 0 2px; opacity:0.9;
-          padding:5px 20px; border-radius:6px;
-          background:rgba(0,0,0,0.35);
-          border:1px solid rgba(192,57,43,0.25);
-          max-width:420px; width:100%; box-sizing:border-box;
+          display: flex;
+          gap: 12px;
+          font-size: 0.78rem;
+          opacity: 0.9;
+          padding: 4px 12px;
+          border-radius: 6px;
+          background: rgba(0,0,0,0.35);
+          border: 1px solid rgba(192,57,43,0.25);
+          flex-shrink: 0;
         }
         .score-panel {
-          display:flex; align-items:center; justify-content:center; gap:4px;
-          font-size:0.9rem; padding:5px 18px;
-          background:rgba(0,0,0,0.5);
-          border:1px solid rgba(212,160,23,0.3);
-          border-radius:6px; max-width:320px; width:100%;
-          box-sizing:border-box;
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          font-size: 0.82rem;
+          padding: 4px 12px;
+          background: rgba(0,0,0,0.5);
+          border: 1px solid rgba(212,160,23,0.3);
+          border-radius: 6px;
+          flex-shrink: 0;
         }
+
+        /* ── Narrative strip ── */
+        .combat-narrative {
+          font-style: italic;
+          font-size: 0.82rem;
+          color: #d4a017;
+          text-align: center;
+          padding: 4px 16px;
+          opacity: 0.85;
+          text-shadow: 0 0 6px rgba(212,160,23,0.4);
+          border-top: 1px solid rgba(255,255,255,0.05);
+          border-bottom: 1px solid rgba(255,255,255,0.05);
+          background: rgba(0,0,0,0.2);
+          flex-shrink: 0;
+        }
+
+        /* ── Question ── */
+        .combat-question {
+          font-size: 1.2rem;
+          font-weight: 700;
+          text-align: center;
+          padding: 10px 16px 6px;
+          color: #e8e6d8;
+          flex-shrink: 0;
+          line-height: 1.4;
+        }
+
+        /* ── Answer options ── */
+        .combat-options {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 8px;
+          padding: 0 12px;
+          flex: 1 1 auto;
+          min-height: 0;
+          align-content: stretch;
+        }
+        .combat-option {
+          padding: 12px 16px;
+          font-size: 1.05rem;
+          font-weight: 600;
+          min-height: 52px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: linear-gradient(145deg, rgba(15,52,96,0.9), rgba(10,25,50,0.95));
+          border: 1px solid rgba(212,160,23,0.25);
+          border-radius: 10px;
+          color: #e8e6d8;
+          cursor: pointer;
+          transition: all 0.15s;
+          box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+          text-align: center;
+          line-height: 1.3;
+          width: 100%;
+        }
+        .combat-option:hover {
+          background: linear-gradient(145deg, rgba(25,72,116,0.95), rgba(15,40,70,0.98));
+          border-color: rgba(212,160,23,0.5);
+          transform: translateY(-1px);
+          box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+        .combat-option.correct {
+          background: linear-gradient(145deg, rgba(39,174,96,0.5), rgba(30,120,60,0.7)) !important;
+          border-color: #27ae60 !important;
+        }
+        .combat-option.wrong {
+          background: linear-gradient(145deg, rgba(192,57,43,0.5), rgba(140,30,20,0.7)) !important;
+          border-color: #e74c3c !important;
+        }
+
+        /* ── Feedback text ── */
+        .feedback-text {
+          font-size: 0.8rem;
+          text-align: center;
+          padding: 2px 12px;
+          min-height: 1.2em;
+          color: var(--text-secondary);
+          flex-shrink: 0;
+        }
+
+        /* ── Abilities ── */
+        .abilities-row {
+          display: flex;
+          gap: 6px;
+          justify-content: center;
+          padding: 2px 12px 2px;
+          flex-shrink: 0;
+        }
+
+        /* ── Timer bar at very bottom ── */
+        .timer-track {
+          height: 12px;
+          background: rgba(0,0,0,0.4);
+          border-radius: 0;
+          overflow: hidden;
+          flex-shrink: 0;
+          margin-top: auto;
+        }
+        .timer-bar {
+          height: 100%;
+          background: linear-gradient(90deg, #f39c12, #e67e22);
+          transition: width 0.1s linear;
+          border-radius: 0;
+        }
+
         @keyframes multPulse {
           0%   { transform:scale(1); }
           50%  { transform:scale(1.6); text-shadow:0 0 12px #d4a017; }
@@ -448,52 +689,80 @@ function renderCombat() {
         }
       </style>
 
-      <div class="combat-hud">
-        <div class="hp-section">
-          <div style="font-weight:700;">${profile.name}</div>
-          <div class="hp-bar-bg"><div class="hp-bar hp-player" id="player-hp" style="width:${(playerHp / profile.maxHp) * 100}%"></div></div>
-          <div style="font-size:0.8rem; color:var(--text-secondary);">HP: ${playerHp}/${profile.maxHp}</div>
-        </div>
-        <div class="combo-display" id="combo" style="color:${comboColor};">${combo > 1 ? combo + ' 连击！' : ''}</div>
-        <div class="hp-section">
-          <div style="font-weight:700; color:var(--accent-red);">${enemyName}</div>
-          <div class="hp-bar-bg"><div class="hp-bar hp-enemy" id="enemy-hp" style="width:${enemyHp}%"></div></div>
-          <div style="font-size:0.8rem; color:var(--text-secondary);">HP: ${enemyHp}%</div>
-        </div>
-      </div>
+      <div class="combat-screen-inner">
 
-      <div class="battle-arena" id="arena">
-        <div class="sprite-wrap" id="player-sprite-wrap">
-          <div class="sprite-label">${profile.name}</div>
-          <div id="player-sprite" class="sprite-svg" style="width:80px;height:150px;display:flex;align-items:center;justify-content:center;">${SPRITES.player}</div>
+        <!-- HUD row: player name + HP bar + divider + combo + divider + enemy HP bar + enemy name -->
+        <div class="combat-hud">
+          <div class="hud-player-name">${profile.name}</div>
+          <div class="hud-hp-wrap">
+            <div class="hud-hp-bar-bg">
+              <div class="hud-hp-bar hp-player" id="player-hp" style="width:${(playerHp / profile.maxHp) * 100}%"></div>
+            </div>
+            <div class="hud-hp-text">HP: ${playerHp}/${profile.maxHp}</div>
+          </div>
+          <div class="hud-combo" id="combo" style="color:${comboColor};">${combo > 1 ? combo + ' 连击！' : ''}</div>
+          <div class="hud-hp-wrap">
+            <div class="hud-hp-bar-bg">
+              <div class="hud-hp-bar hp-enemy" id="enemy-hp" style="width:${enemyHp}%"></div>
+            </div>
+            <div class="hud-hp-text" style="text-align:right;">HP: ${enemyHp}%</div>
+          </div>
+          <div class="hud-enemy-name">${enemyName}</div>
         </div>
-        <div style="flex:1;"></div>
-        <div class="sprite-wrap" id="enemy-sprite-wrap">
-          <div class="sprite-label" style="color:var(--accent-red);">${enemyName}</div>
-          <div id="enemy-sprite" class="sprite-svg" style="width:80px;height:150px;display:flex;align-items:center;justify-content:center;">${enemySvg}</div>
-        </div>
-      </div>
 
-      <div style="display:flex;flex-direction:column;align-items:center;gap:4px;width:100%;">
-        <div class="enemy-intent-bar">
-          <span style="color:var(--accent-red);">⚠ 答错: -${wrongDamage} HP</span>
-          <span style="color:#f39c12;">⏱ 超时: -${timeoutDamage} HP</span>
-        </div>
-        <div class="score-panel" id="score-panel">
-          <span style="color:#e8e8e8;">得分: <strong>${chips}</strong></span>
-          <span style="color:var(--accent-gold); margin:0 6px;">×</span>
-          <span id="score-mult" style="color:var(--accent-gold);font-weight:900;">${multiplier.toFixed(1)}×</span>
-          <span style="color:var(--text-secondary); margin:0 6px;">=</span>
-          <span id="score-total" style="color:var(--accent-jade);font-weight:700;">${Math.round(chips * multiplier)}</span>
-        </div>
-      </div>
+        <!-- Battle arena: player sprite | energy | enemy sprite -->
+        <div class="battle-arena" id="arena">
+          <div class="sprite-wrap" id="player-sprite-wrap">
+            <div class="sprite-label">${profile.name}</div>
+            <div id="player-sprite" class="sprite-container">${SPRITES.player}</div>
+          </div>
 
-      <div class="timer-bar-bg"><div class="timer-bar" id="timer-bar" style="width:100%"></div></div>
-      <div class="combat-narrative">${combatNarrative}</div>
-      <div class="combat-question">${q.prompt}</div>
-      <div class="combat-options" id="options">${optionsHTML}</div>
-      <div style="display:flex;gap:8px;justify-content:center;margin-top:12px;" id="abilities"></div>
-      <div class="feedback-text" id="feedback"></div>
+          <div class="arena-center">
+            <div class="energy-bolts">⚡⚡</div>
+          </div>
+
+          <div class="sprite-wrap" id="enemy-sprite-wrap">
+            <div class="sprite-label" style="color:var(--accent-red);">${enemyName}</div>
+            <div id="enemy-sprite" class="sprite-container">${enemySvg}</div>
+          </div>
+        </div>
+
+        <!-- Intent + score strip -->
+        <div class="intent-score-row">
+          <div class="enemy-intent-bar">
+            <span style="color:var(--accent-red);">⚠ 答错: -${wrongDamage} HP</span>
+            <span style="color:#f39c12;">⏱ 超时: -${timeoutDamage} HP</span>
+          </div>
+          <div class="score-panel" id="score-panel">
+            <span style="color:#e8e8e8;">得分: <strong>${chips}</strong></span>
+            <span style="color:var(--accent-gold); margin:0 4px;">×</span>
+            <span id="score-mult" style="color:var(--accent-gold);font-weight:900;">${multiplier.toFixed(1)}×</span>
+            <span style="color:var(--text-secondary); margin:0 4px;">=</span>
+            <span id="score-total" style="color:var(--accent-jade);font-weight:700;">${Math.round(chips * multiplier)}</span>
+          </div>
+        </div>
+
+        <!-- Narrative -->
+        <div class="combat-narrative">${combatNarrative}</div>
+
+        <!-- Question -->
+        <div class="combat-question">${q.prompt}</div>
+
+        <!-- Answer options: 2×2 grid, filling width -->
+        <div class="combat-options" id="options">${optionsHTML}</div>
+
+        <!-- Feedback -->
+        <div class="feedback-text" id="feedback"></div>
+
+        <!-- Abilities -->
+        <div class="abilities-row" id="abilities"></div>
+
+        <!-- Timer bar pinned to very bottom -->
+        <div class="timer-track">
+          <div class="timer-bar" id="timer-bar" style="width:100%"></div>
+        </div>
+
+      </div>
     `;
 
     // Start breathing animations
