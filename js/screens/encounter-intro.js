@@ -89,6 +89,10 @@ function renderEncounterIntro({ type, onComplete } = {}) {
   const sprite = getEncounterSprite(encounterType);
   const name = getEncounterName(encounterType);
 
+  const isCombat = encounterType === 'combat';
+  const isBoss   = encounterType === 'boss';
+  const accentRgb = (isCombat || isBoss) ? '139,0,0' : '212,160,23';
+
   const div = document.createElement('div');
   div.className = 'screen';
   div.style.cssText = `
@@ -129,8 +133,52 @@ function renderEncounterIntro({ type, onComplete } = {}) {
       0%, 100% { text-shadow: 0 0 12px rgba(212,160,23,0.8), 0 0 28px rgba(212,160,23,0.4); }
       50%       { text-shadow: 0 0 24px rgba(212,160,23,1),   0 0 48px rgba(212,160,23,0.6); }
     }
+    @keyframes ei-rumble {
+      0%   { transform: translate(0,0); }
+      15%  { transform: translate(-4px, 2px); }
+      30%  { transform: translate(4px, -2px); }
+      45%  { transform: translate(-3px, 3px); }
+      60%  { transform: translate(3px, -1px); }
+      75%  { transform: translate(-2px, 2px); }
+      90%  { transform: translate(2px, -1px); }
+      100% { transform: translate(0,0); }
+    }
+    @keyframes ei-flash {
+      0%   { opacity: 1; }
+      100% { opacity: 0; }
+    }
+    @keyframes ei-btn-pulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(212,160,23,0.7); }
+      50%      { box-shadow: 0 0 0 10px rgba(212,160,23,0); }
+    }
+    @keyframes ei-vs-drop {
+      0%   { transform: scale(3) translateY(-20px); opacity: 0; }
+      60%  { transform: scale(0.9) translateY(4px); opacity: 1; }
+      100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+    @keyframes ei-vignette-in {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
   `;
   document.head.appendChild(styleEl);
+
+  // Vignette overlay — dark edges, bright centre
+  const vignette = document.createElement('div');
+  vignette.style.cssText = `
+    position: absolute; inset: 0; pointer-events: none; z-index: 1;
+    background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.75) 100%);
+    animation: ei-vignette-in 0.6s ease-out both;
+  `;
+  div.appendChild(vignette);
+
+  // Flash overlay — white burst before enemy zooms in
+  const flash = document.createElement('div');
+  flash.style.cssText = `
+    position: absolute; inset: 0; pointer-events: none; z-index: 10;
+    background: white; opacity: 0; animation: ei-flash 0.15s ease-out 0.05s both;
+  `;
+  div.appendChild(flash);
 
   // Radial pulse rings behind sprite
   const ringsHtml = [0, 1, 2].map(i => `
@@ -138,14 +186,27 @@ function renderEncounterIntro({ type, onComplete } = {}) {
       position:absolute;
       width:200px; height:200px;
       border-radius:50%;
-      border:2px solid rgba(${encounterType === 'puzzle' ? '212,160,23' : '139,0,0'},0.5);
+      border:2px solid rgba(${accentRgb},0.5);
       animation: ei-pulse-ring 1.8s ease-out ${i * 0.6}s infinite;
       pointer-events:none;
     "></div>
   `).join('');
 
-  div.innerHTML = `
-    <div style="position:relative; display:flex; flex-direction:column; align-items:center; gap:0;">
+  // VS text — only for combat encounters
+  const vsHtml = isCombat ? `
+    <div id="ei-vs" style="
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: 0.1em;
+      text-shadow: 0 0 20px rgba(212,160,23,0.9), 0 0 40px rgba(212,160,23,0.4), 2px 2px 0 #8b0000;
+      animation: ei-vs-drop 0.5s cubic-bezier(0.34,1.56,0.64,1) 0.55s both;
+      margin-bottom: 0.5rem;
+    ">VS</div>
+  ` : '';
+
+  div.innerHTML += `
+    <div id="ei-scene" style="position:relative; display:flex; flex-direction:column; align-items:center; gap:0; z-index:2;">
 
       <!-- Pulse rings -->
       <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); pointer-events:none;">
@@ -154,12 +215,14 @@ function renderEncounterIntro({ type, onComplete } = {}) {
 
       <!-- Enemy sprite with zoom-in animation -->
       <div id="ei-sprite" style="
-        animation: ei-zoom-in 0.7s cubic-bezier(0.34,1.56,0.64,1) both,
+        animation: ei-zoom-in 0.7s cubic-bezier(0.34,1.56,0.64,1) 0.1s both,
                    ei-flicker 3s ease-in-out 0.8s infinite;
-        filter: drop-shadow(0 0 24px rgba(${encounterType === 'puzzle' ? '212,160,23' : '139,0,0'},0.9));
+        filter: drop-shadow(0 0 24px rgba(${accentRgb},0.9));
         margin-bottom: 1.5rem;
         position:relative; z-index:2;
       ">${sprite}</div>
+
+      ${vsHtml}
 
       <!-- Enemy name -->
       <div style="
@@ -185,7 +248,7 @@ function renderEncounterIntro({ type, onComplete } = {}) {
         padding: 0 1rem;
       ">${intro.text}</div>
 
-      <!-- Action button -->
+      <!-- Action button with gold pulse -->
       <button id="ei-action-btn" style="
         padding: 0.75rem 2.5rem;
         background: transparent;
@@ -197,7 +260,7 @@ function renderEncounterIntro({ type, onComplete } = {}) {
         cursor: pointer;
         border-radius: 6px;
         font-family: var(--font-main);
-        animation: ei-slide-up 0.5s ease-out 0.9s both;
+        animation: ei-slide-up 0.5s ease-out 0.9s both, ei-btn-pulse 1.6s ease-in-out 1.4s infinite;
         transition: background 0.2s, transform 0.1s;
       ">${intro.action}</button>
     </div>
@@ -219,6 +282,25 @@ function renderEncounterIntro({ type, onComplete } = {}) {
       if (onComplete) onComplete();
     }, 360);
   }
+
+  // Rumble + sound when sprite appears
+  setTimeout(() => {
+    const scene = div.querySelector('#ei-scene');
+    if (scene) {
+      scene.style.animation = 'ei-rumble 0.2s ease-out';
+      setTimeout(() => { scene.style.animation = ''; }, 220);
+    }
+    // Play encounter-appropriate sound
+    try {
+      if (isBoss) {
+        playSound('boss_roar');
+      } else if (isCombat) {
+        playSound('attack');
+      } else {
+        playSound('encounter');
+      }
+    } catch (_) {}
+  }, 120);
 
   // Auto-advance after 3 seconds if not clicked
   const autoTimer = setTimeout(proceed, 3000);
@@ -242,9 +324,6 @@ function renderEncounterIntro({ type, onComplete } = {}) {
         btn.style.transform = 'scale(1)';
       });
     }
-
-    // Play suspense sound
-    try { playSound('encounter'); } catch (_) {}
   }, 0);
 
   return div;

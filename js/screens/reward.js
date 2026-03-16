@@ -1,7 +1,7 @@
 // js/screens/reward.js — Post-quest reward summary
 import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
-import { addXP } from '../progression.js';
+import { addXP, xpForLevel, getXPProgress } from '../progression.js';
 import { EQUIPMENT_DB } from './inventory.js';
 import { playSound } from '../audio.js';
 
@@ -150,6 +150,94 @@ function buildStarRating(accuracy, parent, onDone) {
   }
 }
 
+// ─── Engagement hook: XP progress and unlock preview ─────────────────────────
+
+function buildEngagementHook(profile, levelUpInfo, parent) {
+  // Inject pulsing text keyframe once
+  if (!document.getElementById('reward-hook-style')) {
+    const s = document.createElement('style');
+    s.id = 'reward-hook-style';
+    s.textContent = `
+      @keyframes reward-hook-pulse {
+        0%,100% { opacity: 1; transform: scale(1); }
+        50%      { opacity: 0.75; transform: scale(1.04); }
+      }
+    `;
+    document.head.appendChild(s);
+  }
+
+  const hookWrap = document.createElement('div');
+  hookWrap.style.cssText = `
+    width: 100%; max-width: 520px;
+    display: flex; flex-direction: column; gap: 8px;
+    margin-bottom: 1rem;
+    opacity: 0; transform: translateY(12px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  `;
+  parent.appendChild(hookWrap);
+
+  // Recalculate after XP was already applied
+  const xpProgress = getXPProgress(profile);
+  const xpToNext = xpProgress.needed - xpProgress.current;
+  const xpPct = xpProgress.percent;
+
+  // "距离下一次升级还需 X 经验"
+  const xpDistEl = document.createElement('div');
+  xpDistEl.style.cssText = `
+    font-size: 0.95rem; color: var(--text-secondary);
+    text-align: center; letter-spacing: 0.05em;
+  `;
+  xpDistEl.textContent = `距离下一次升级还需 ${xpToNext} 经验`;
+  hookWrap.appendChild(xpDistEl);
+
+  // Pulsing "再赢一场就能升级！" when XP bar > 70%
+  if (xpPct >= 70) {
+    const almostEl = document.createElement('div');
+    almostEl.style.cssText = `
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--accent-gold);
+      text-align: center; letter-spacing: 0.08em;
+      animation: reward-hook-pulse 1.4s ease-in-out infinite;
+    `;
+    almostEl.textContent = '再赢一场就能升级！';
+    hookWrap.appendChild(almostEl);
+  }
+
+  // Next unlock preview — find the next unlock above current level
+  const UNLOCKS_MAP = { 2: '提示技能', 3: '武器槽', 5: '跳过技能', 7: '防具槽', 10: '双倍技能' };
+  const nextUnlockLevel = Object.keys(UNLOCKS_MAP)
+    .map(Number)
+    .sort((a, b) => a - b)
+    .find(lvl => lvl > profile.level);
+
+  if (nextUnlockLevel) {
+    const unlockEl = document.createElement('div');
+    unlockEl.style.cssText = `
+      font-size: 0.9rem; color: #888;
+      text-align: center; letter-spacing: 0.05em;
+    `;
+    unlockEl.textContent = `Level ${nextUnlockLevel} 解锁: ${UNLOCKS_MAP[nextUnlockLevel]}`;
+    hookWrap.appendChild(unlockEl);
+  }
+
+  // Daily challenge reminder — check if daily challenge done today
+  const todayKey = new Date().toISOString().slice(0, 10);
+  const lastDaily = profile.lastDailyChallenge || '';
+  if (lastDaily !== todayKey) {
+    const dailyEl = document.createElement('div');
+    dailyEl.style.cssText = `
+      font-size: 1rem; font-weight: 700;
+      color: #5bc8af;
+      text-align: center; letter-spacing: 0.06em;
+      margin-top: 4px;
+    `;
+    dailyEl.textContent = '今日挑战等你来战！';
+    hookWrap.appendChild(dailyEl);
+  }
+
+  return hookWrap;
+}
+
 // ─── Main render ─────────────────────────────────────────────────────────────
 
 function renderReward() {
@@ -212,6 +300,9 @@ function renderReward() {
   `;
   div.appendChild(title);
   div.appendChild(card);
+
+  // Engagement hook (inserted before buttons)
+  const engagementHook = buildEngagementHook(profile, levelUpInfo, div);
 
   // Continue / map buttons container — hidden until step 7
   const btnRow = document.createElement('div');
@@ -348,10 +439,15 @@ function renderReward() {
     buildStarRating(accuracy, card, null);
   }, 3000);
 
-  // Step 6 (3500ms): "继续" button fades in with pulse glow
+  // Step 6 (3500ms): engagement hook slides in, then "继续" button fades in with pulse glow
   setTimeout(() => {
-    btnRow.style.opacity = '1';
-    btnContinue.style.animation = 'reward-btn-pulse 1.8s ease-in-out infinite';
+    engagementHook.style.opacity = '1';
+    engagementHook.style.transform = 'translateY(0)';
+
+    setTimeout(() => {
+      btnRow.style.opacity = '1';
+      btnContinue.style.animation = 'reward-btn-pulse 1.8s ease-in-out infinite';
+    }, 400);
   }, 3500);
 
   // Wire up button listeners

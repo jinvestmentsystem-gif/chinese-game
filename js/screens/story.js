@@ -115,17 +115,56 @@ function typewriterEffect(el, text, msPerChar = 50) {
   });
 }
 
+// Inject particle-rise keyframe once per page load
+(function injectParticleKeyframe() {
+  if (document.getElementById('story-particle-style')) return;
+  const s = document.createElement('style');
+  s.id = 'story-particle-style';
+  s.textContent = `
+    @keyframes particle-rise {
+      0%   { transform: translateY(0) translateX(0);    opacity: 0; }
+      10%  { opacity: 0.8; }
+      90%  { opacity: 0.6; }
+      100% { transform: translateY(-100vh) translateX(var(--px-drift)); opacity: 0; }
+    }
+  `;
+  document.head.appendChild(s);
+})();
+
+function addParticles(container) {
+  for (let i = 0; i < 25; i++) {
+    const particle = document.createElement('div');
+    const size    = 2 + Math.random() * 4;
+    const x       = Math.random() * 100;
+    const delay   = Math.random() * 8;
+    const duration = 6 + Math.random() * 8;
+    const drift   = ((Math.random() - 0.5) * 40).toFixed(1) + 'px';
+    particle.style.cssText = `
+      position:absolute; left:${x}%; bottom:-10px;
+      width:${size}px; height:${size}px; border-radius:50%;
+      background:radial-gradient(circle, rgba(212,160,23,0.8), transparent);
+      --px-drift:${drift};
+      animation: particle-rise ${duration}s ${delay}s linear infinite;
+      pointer-events:none; z-index:0;
+    `;
+    container.appendChild(particle);
+  }
+}
+
 function renderStory({ storyKey, onComplete } = {}) {
   const story = STORIES[storyKey];
 
   const div = document.createElement('div');
   div.className = 'screen';
 
-  // Full-screen dark overlay layout
+  // Full-screen ink-wash atmospheric layout
   div.style.cssText = `
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.96);
+    background:
+      radial-gradient(ellipse at 30% 50%, rgba(15,52,96,0.4) 0%, transparent 60%),
+      radial-gradient(ellipse at 70% 30%, rgba(83,52,131,0.3) 0%, transparent 50%),
+      linear-gradient(180deg, #0b0c1a 0%, #1a1a2e 50%, #16213e 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -133,42 +172,73 @@ function renderStory({ storyKey, onComplete } = {}) {
     z-index: 1000;
     padding: 2rem;
     box-sizing: border-box;
+    overflow: hidden;
   `;
 
-  div.innerHTML = `
+  // Floating particles layer
+  addParticles(div);
+
+  div.innerHTML += `
     <div id="story-container" style="
+      position: relative;
+      z-index: 1;
       max-width: 700px;
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 2rem;
+      gap: 1.5rem;
       min-height: 220px;
       justify-content: center;
     ">
-      <div id="story-speaker" style="
-        font-size: 1rem;
-        color: #c8a96e;
-        letter-spacing: 0.15em;
-        min-height: 1.5rem;
-        text-align: center;
+      <div id="story-speaker-row" style="
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-height: 2rem;
         opacity: 0;
         transition: opacity 0.4s;
-      "></div>
+      ">
+        <div id="story-speaker-icon" style="
+          width: 32px; height: 32px; border-radius: 50%;
+          background: rgba(212,160,23,0.25);
+          border: 1px solid rgba(212,160,23,0.5);
+          display: flex; align-items: center; justify-content: center;
+          font-size: 1rem; color: #d4a017; font-weight: 700;
+          flex-shrink: 0;
+        "></div>
+        <div id="story-speaker" style="
+          font-size: 1rem;
+          color: #c8a96e;
+          letter-spacing: 0.15em;
+          text-align: center;
+        "></div>
+      </div>
 
-      <div id="story-text" style="
-        font-size: 1.4rem;
-        line-height: 2.2rem;
-        color: #f0e8d0;
-        text-align: center;
-        text-shadow: 0 0 12px rgba(200, 169, 110, 0.6), 0 0 24px rgba(200, 169, 110, 0.2);
-        letter-spacing: 0.08em;
-        min-height: 4rem;
+      <div id="story-text-area" style="
+        background: rgba(15,20,40,0.7);
+        border: 1px solid rgba(212,160,23,0.3);
+        border-radius: 12px;
+        padding: 32px 40px;
         max-width: 600px;
-      "></div>
+        width: 100%;
+        box-sizing: border-box;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 0 30px rgba(212,160,23,0.1);
+      ">
+        <div id="story-text" style="
+          font-size: 1.4rem;
+          line-height: 2.2rem;
+          color: #f0e8d0;
+          text-align: center;
+          text-shadow: 0 0 12px rgba(200,169,110,0.6), 0 0 24px rgba(200,169,110,0.2);
+          letter-spacing: 0.08em;
+          min-height: 4rem;
+        "></div>
+      </div>
 
       <button id="btn-continue" style="
-        margin-top: 1.5rem;
+        margin-top: 0.5rem;
         padding: 0.6rem 2rem;
         background: transparent;
         border: 1px solid #c8a96e;
@@ -180,12 +250,14 @@ function renderStory({ storyKey, onComplete } = {}) {
         opacity: 0;
         transition: opacity 0.4s, background 0.2s;
         pointer-events: none;
+        position: relative;
+        z-index: 2;
       ">继续</button>
 
       <div id="story-progress" style="
         display: flex;
         gap: 8px;
-        margin-top: 0.5rem;
+        margin-top: 0.25rem;
       "></div>
     </div>
   `;
@@ -203,10 +275,12 @@ function renderStory({ storyKey, onComplete } = {}) {
   let typing = false;
   let typingDone = false;
 
-  const speakerEl = div.querySelector('#story-speaker');
-  const textEl = div.querySelector('#story-text');
-  const btnContinue = div.querySelector('#btn-continue');
-  const progressEl = div.querySelector('#story-progress');
+  const speakerRowEl = div.querySelector('#story-speaker-row');
+  const speakerIconEl = div.querySelector('#story-speaker-icon');
+  const speakerEl    = div.querySelector('#story-speaker');
+  const textEl       = div.querySelector('#story-text');
+  const btnContinue  = div.querySelector('#btn-continue');
+  const progressEl   = div.querySelector('#story-progress');
 
   // Build progress dots
   pages.forEach((_, idx) => {
@@ -242,13 +316,17 @@ function renderStory({ storyKey, onComplete } = {}) {
 
     const page = pages[idx];
 
-    // Speaker name
+    // Speaker name with icon
     if (page.speaker) {
-      speakerEl.style.opacity = '1';
+      speakerRowEl.style.opacity = '1';
       speakerEl.textContent = page.speaker + '：';
+      // Show first character of speaker name in the icon circle
+      speakerIconEl.style.display = 'flex';
+      speakerIconEl.textContent = page.speaker.charAt(0);
     } else {
-      speakerEl.style.opacity = '0';
+      speakerRowEl.style.opacity = '0';
       speakerEl.textContent = '';
+      speakerIconEl.textContent = '';
     }
 
     textEl.textContent = '';
