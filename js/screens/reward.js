@@ -4,6 +4,7 @@ import { registerScreen, showScreen } from '../main.js';
 import { addXP, xpForLevel, getXPProgress } from '../progression.js';
 import { EQUIPMENT_DB } from './inventory.js';
 import { playSound } from '../audio.js';
+import { showCompanionBubble, COMPANION, pick } from './companion.js';
 
 // ─── Sparkle effect for loot items ───────────────────────────────────────────
 
@@ -387,6 +388,9 @@ function renderReward() {
     card.removeChild(xpRow);
     buildXpBar(profile, totalXP, levelUpInfo, card);
 
+    // Companion reacts to XP gain
+    showCompanionBubble(div, pick(COMPANION.rewardXP), 3000);
+
     // Level-up bounce if applicable
     if (levelUpInfo) {
       setTimeout(() => {
@@ -402,6 +406,8 @@ function renderReward() {
           requestAnimationFrame(() => { lvlBadge.style.transform = 'scale(1)'; });
         });
         try { playSound('levelup'); } catch (_) {}
+        // Companion celebrates level up (after bar animation completes)
+        setTimeout(() => showCompanionBubble(div, pick(COMPANION.rewardLevelUp), 4000), 1400);
       }, 1300); // after bar overfills and resets
     }
   }, 1500);
@@ -426,6 +432,8 @@ function renderReward() {
           });
         });
         try { playSound('correct'); } catch (_) {}
+        // Companion reacts to first item drop only
+        if (i === 0) showCompanionBubble(div, pick(COMPANION.rewardItem), 3000);
       }, 2500 + i * 200);
     });
   }

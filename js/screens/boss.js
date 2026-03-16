@@ -6,6 +6,7 @@ import { hasAbility } from '../progression.js';
 import { loadChengyu } from '../content-loader.js';
 import { SPRITES } from '../sprites.js';
 import { playSound, playMusic, setMusicIntensity, playStinger } from '../audio.js';
+import { showCompanionBubble, showEnemyTaunt, COMPANION, ENEMY_TAUNTS, pick } from './companion.js';
 
 const BOSS_NARRATIVES = {
   phase1: [
@@ -456,8 +457,10 @@ function renderBoss() {
       }
 
     } else if (phaseTransition) {
-      // Phase transition: flash, hue-rotate, phase label animation
+      // Phase transition: flash, hue-rotate, phase label animation + companion/boss dialogue
       screenFlash(div, '#c0392b');
+      showCompanionBubble(div, pick(COMPANION.bossPhaseChange));
+      showEnemyTaunt(div, pick(bossTaunts), 2500);
       if (bossSprite) {
         bossSprite.style.transition = 'filter 0.3s ease-in-out';
         const origFilter = getDamageFilter();
@@ -702,6 +705,9 @@ function renderBoss() {
       setTimeout(() => goldenLightExpansion(div, cx, cy), 400);
     }
 
+    // Companion celebrates boss victory
+    showCompanionBubble(div, pick(COMPANION.bossVictory), 5000);
+
     // Victory fanfare text
     setTimeout(() => {
       const fanfare = document.createElement('div');
@@ -770,7 +776,17 @@ function renderBoss() {
     }, 2000);
   }
 
+  // Resolve boss-specific taunts once so phase change can reuse them
+  const bossKey = { 1: 'boss_cangjie', 2: 'boss_moli', 3: 'boss_shimo', 4: 'boss_cisha', 5: 'boss_final' }[quest.chapterId] || 'combat';
+  const bossTaunts = ENEMY_TAUNTS[bossKey] || ENEMY_TAUNTS.combat;
+
   render();
+
+  // Companion warning on boss start (short delay so the entrance animation is underway)
+  setTimeout(() => showCompanionBubble(div, pick(COMPANION.bossStart), 3000), 500);
+  // Boss entrance taunt (after sprite has landed)
+  setTimeout(() => showEnemyTaunt(div, pick(bossTaunts), 3000), 1500);
+
   return div;
 }
 

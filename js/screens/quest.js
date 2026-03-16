@@ -4,6 +4,7 @@ import { registerScreen, showScreen } from '../main.js';
 import { startQuest, getCurrentEncounter } from '../game-engine.js';
 import { STORIES } from './story.js';
 import { playMusic } from '../audio.js';
+import { showCompanionBubble, COMPANION, pick } from './companion.js';
 
 // Map chapter IDs to era names for music
 const CHAPTER_ERA = {
@@ -346,6 +347,8 @@ function renderQuest(params) {
             animatePathDraw(conn.line);
           }
         }
+        // Companion chimes in between encounters
+        showCompanionBubble(div, pick(COMPANION.betweenEncounters), 3000);
       });
     }
 

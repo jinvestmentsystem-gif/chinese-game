@@ -5,6 +5,7 @@ import { getCurrentEncounter, advanceEncounter, recordAnswer } from '../game-eng
 import { hasAbility } from '../progression.js';
 import { SPRITES, ENEMY_SPRITES } from '../sprites.js';
 import { playSound, playMusic, setMusicIntensity, playStinger } from '../audio.js';
+import { showCompanionBubble, showEnemyTaunt, COMPANION, ENEMY_TAUNTS, pick } from './companion.js';
 
 const ENEMY_NAMES = ['墨灵', '暗字兵', '墨影卫', '乱笔妖', '黑墨士'];
 
@@ -580,6 +581,10 @@ function renderCombat() {
       const enemyHpBar = div.querySelector('#enemy-hp');
       if (enemyHpBar) enemyHpBar.style.width = enemyHp + '%';
 
+      // Companion combo reactions — only on notable milestones
+      if (combo === 2) showCompanionBubble(div, pick(COMPANION.correctStreak2));
+      else if (combo === 4) showCompanionBubble(div, pick(COMPANION.correctStreak4));
+
     } else {
       combo = 0;
       setMusicIntensity(1); // Drop back to base battle intensity
@@ -613,6 +618,13 @@ function renderCombat() {
       // Update player HP bar
       const playerHpBar = div.querySelector('#player-hp');
       if (playerHpBar) playerHpBar.style.width = (playerHp / profile.maxHp) * 100 + '%';
+
+      // Companion encouragement on wrong answer; warn if HP drops low
+      if (playerHp < profile.maxHp * 0.3) {
+        showCompanionBubble(div, pick(COMPANION.lowHP));
+      } else {
+        showCompanionBubble(div, pick(COMPANION.wrongAnswer));
+      }
     }
 
     const quest = gameState.currentQuest;
@@ -648,6 +660,8 @@ function renderCombat() {
     gameState.save();
 
     if (!won) {
+      // Companion comfort on defeat
+      showCompanionBubble(div, pick(COMPANION.defeat), 4000);
       // Grayscale defeat
       div.style.filter = 'grayscale(1)';
       div.innerHTML = `
@@ -667,6 +681,9 @@ function renderCombat() {
       }, 0);
       return;
     }
+
+    // Companion celebration on victory
+    showCompanionBubble(div, pick(COMPANION.victory), 4000);
 
     // Victory: enemy fades out + particle explosion
     const enemyWrap = div.querySelector('#enemy-sprite-wrap');
@@ -715,7 +732,14 @@ function renderCombat() {
       </div>
     `;
     div.appendChild(tutorial);
-    tutorial.querySelector('button').addEventListener('click', () => tutorial.remove());
+    tutorial.querySelector('button').addEventListener('click', () => {
+      tutorial.remove();
+      // Enemy taunts after tutorial dismissal
+      showEnemyTaunt(div, pick(ENEMY_TAUNTS.combat), 3000);
+    });
+  } else {
+    // No tutorial — show enemy taunt immediately on combat start
+    showEnemyTaunt(div, pick(ENEMY_TAUNTS.combat), 3000);
   }
 
   return div;
