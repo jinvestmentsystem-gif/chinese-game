@@ -753,8 +753,10 @@ function renderQuest(params) {
     }
 
     btnStart.addEventListener('click', () => {
+      console.log('[QUEST] START clicked');
       const enc = getCurrentEncounter();
-      if (!enc) return;
+      console.log('[QUEST] getCurrentEncounter:', enc?.type, enc ? 'exists' : 'NULL');
+      if (!enc) { console.log('[QUEST] No encounter, returning'); return; }
 
       if (enc.type === 'boss') {
         startWithBossIntro();
