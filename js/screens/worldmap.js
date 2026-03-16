@@ -352,6 +352,7 @@ function renderWorldMap() {
 
         <div class="nav-buttons">
           <button class="btn btn-sm" id="btn-inventory" title="打开背包">背包</button>
+          <button class="btn btn-sm" id="btn-shop" title="前往商店">商店</button>
           <button class="btn btn-sm" id="btn-chengyu" title="查看成语">成语</button>
           <button class="btn btn-sm" id="btn-back" title="返回主菜单">返回</button>
         </div>
@@ -421,6 +422,7 @@ function renderWorldMap() {
     // Nav buttons
     div.querySelector('#btn-back')?.addEventListener('click', () => showScreen('title'));
     div.querySelector('#btn-inventory')?.addEventListener('click', () => showScreen('inventory'));
+    div.querySelector('#btn-shop')?.addEventListener('click', () => showScreen('shop'));
     div.querySelector('#btn-chengyu')?.addEventListener('click', () => showScreen('chengyu'));
 
     // Scroll to current/active chapter

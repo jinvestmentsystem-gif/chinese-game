@@ -13,9 +13,23 @@ export function xpForLevel(level) {
   return Math.round(100 * Math.pow(level, 1.5));
 }
 
+/**
+ * Calculate gold reward for a quest/combat result.
+ * reward.js should call this and add the result to profile.gold.
+ */
+export function calculateGoldReward(results) {
+  const baseGold = results.correct * 5;
+  const comboBonus = results.maxCombo * 3;
+  const accuracyBonus = results.total > 0 && (results.correct / results.total) > 0.8 ? 20 : 0;
+  return baseGold + comboBonus + accuracyBonus;
+}
+
 export function addXP(amount) {
   const profile = gameState.profile;
   profile.xp += amount;
+
+  // Gold = half of XP earned (rounded)
+  profile.gold = (profile.gold || 0) + Math.round(amount * 0.5);
 
   let leveledUp = false;
   let newLevel = profile.level;
@@ -26,11 +40,8 @@ export function addXP(amount) {
     newLevel++;
     leveledUp = true;
 
-    // Level 15+ stat boosts every 5 levels
-    if (newLevel >= 15 && newLevel % 5 === 0) {
-      profile.maxHp += 10;
-      profile.maxWenli += 1;
-    }
+    // NOTE: stat boosts on level-up are now handled by the levelup screen
+    // (stat allocation by the player replaces automatic boosts)
 
     if (UNLOCKS[newLevel]) {
       unlock = UNLOCKS[newLevel].name;
@@ -39,13 +50,14 @@ export function addXP(amount) {
 
   if (leveledUp) {
     profile.level = newLevel;
-    profile.hp = profile.maxHp; // Full heal on level up
-    profile.wenli = profile.maxWenli;
+    // HP/wenli restore is deferred to after stat allocation in the levelup screen
   }
 
   gameState.save();
 
-  return leveledUp ? { newLevel, unlock } : null;
+  // Return showLevelUpScreen flag so callers (reward.js) can navigate to the
+  // levelup screen instead of auto-applying stats via a text banner.
+  return leveledUp ? { newLevel, unlock, showLevelUpScreen: true } : null;
 }
 
 export function getXPProgress(profile) {

@@ -16,6 +16,8 @@ import './screens/puzzle.js';
 import './screens/boss.js';
 import './screens/chengyu.js';
 import './screens/inventory.js';
+import './screens/shop.js';
+import './screens/levelup.js';
 import './screens/daily.js';
 import './screens/arena.js';
 import './screens/story.js';
