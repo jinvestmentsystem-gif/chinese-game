@@ -797,6 +797,9 @@ function renderCombat() {
 
   function endCombat(won) {
     stopBreaths();
+    // Guard against double-calls (multiple code paths can trigger endCombat)
+    if (encounter.completed !== undefined && encounter.completed !== false) return;
+
     clearInterval(timerInterval);
     clearInterval(timerPulseInterval);
     setMusicIntensity(0); // Back to ambient
