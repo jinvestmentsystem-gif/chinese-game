@@ -51,8 +51,40 @@ class GameState {
     const raw = localStorage.getItem(SAVE_KEY);
     if (raw) {
       const data = JSON.parse(raw);
-      this.profiles = data.profiles || [];
+      const profiles = (data.profiles || []);
+      let changed = false;
+      this.profiles = profiles.map(p => {
+        const before = JSON.stringify(p);
+        const fixed = this._backfill(p);
+        if (JSON.stringify(fixed) !== before) changed = true;
+        return fixed;
+      });
+      // Persist backfilled data immediately so localStorage stays consistent
+      if (changed) this.save();
     }
+  }
+
+  // Backfill missing fields for profiles saved before new features were added
+  _backfill(p) {
+    if (!('gold' in p))           p.gold = 0;
+    if (!('consumables' in p))    p.consumables = {};
+    if (!('achievements' in p))   p.achievements = [];
+    if (!('difficultyBase' in p)) p.difficultyBase = p.tier === 'grade7' ? 3 : 2;
+    if (!('stats' in p) || !p.stats) {
+      p.stats = { totalCorrect: 0, totalWrong: 0, totalQuests: 0, totalBossKills: 0, maxCombo: 0, totalXP: 0 };
+    } else {
+      // Ensure all stat keys exist
+      const defaults = { totalCorrect: 0, totalWrong: 0, totalQuests: 0, totalBossKills: 0, maxCombo: 0, totalXP: 0 };
+      for (const [k, v] of Object.entries(defaults)) {
+        if (!(k in p.stats)) p.stats[k] = v;
+      }
+    }
+    if (!p.seenQuestions)  p.seenQuestions = { vocab: [], reading: [], classical: [] };
+    if (!p.accuracy)       p.accuracy = { vocab: [], reading: [], classical: [] };
+    if (!p.inventory)      p.inventory = [];
+    if (!p.chengyu)        p.chengyu = [];
+    if (!p.equipment)      p.equipment = { weapon: null, armor: null };
+    return p;
   }
 
   save() {
