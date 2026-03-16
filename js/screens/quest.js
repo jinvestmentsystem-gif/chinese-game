@@ -1,12 +1,14 @@
-// js/screens/quest.js — Quest encounter path visualization
+// js/screens/quest.js — Visual Journey Map (Ring Fit Adventure inspired)
 import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
 import { startQuest, getCurrentEncounter } from '../game-engine.js';
 import { STORIES } from './story.js';
 import { playMusic } from '../audio.js';
+import { SPRITES } from '../sprites.js';
 import { showCompanionBubble, COMPANION, pick } from './companion.js';
 
-// Map chapter IDs to era names for music
+// ─── Chapter era configuration ─────────────────────────────────────────────
+
 const CHAPTER_ERA = {
   1: 'xianqin',
   2: 'han',
@@ -15,231 +17,204 @@ const CHAPTER_ERA = {
   5: 'modern',
 };
 
-// ─── Travel animation ─────────────────────────────────────────────────────────
+// Era-specific visual themes
+const ERA_THEME = {
+  xianqin: {
+    bg:     'linear-gradient(180deg, #1a0e00 0%, #2d1800 25%, #3d2200 50%, #2a1500 75%, #1a0c00 100%)',
+    accent: '#c8861a',
+    sky:    '#1a0e00',
+    cloud:  'rgba(180,130,60,0.18)',
+    ground: 'linear-gradient(180deg, #3d2200 0%, #2a1500 100%)',
+    tree:   '#2a1800',
+    mtn:    '#1a0c00',
+    label:  '先秦',
+    glow:   'rgba(200,134,26,0.6)',
+    bossGlow: 'rgba(220,80,20,0.8)',
+  },
+  han: {
+    bg:     'linear-gradient(180deg, #1a0000 0%, #2d0808 25%, #400a0a 50%, #2d0505 75%, #1a0000 100%)',
+    accent: '#e03030',
+    sky:    '#1a0000',
+    cloud:  'rgba(200,80,80,0.18)',
+    ground: 'linear-gradient(180deg, #400a0a 0%, #2d0505 100%)',
+    tree:   '#2d0808',
+    mtn:    '#1a0000',
+    label:  '汉',
+    glow:   'rgba(220,60,60,0.6)',
+    bossGlow: 'rgba(220,30,30,0.85)',
+  },
+  tang: {
+    bg:     'linear-gradient(180deg, #0d0a00 0%, #1e1600 25%, #2e2000 50%, #1e1600 75%, #0d0a00 100%)',
+    accent: '#d4a017',
+    sky:    '#0d0a00',
+    cloud:  'rgba(212,160,23,0.18)',
+    ground: 'linear-gradient(180deg, #2e2000 0%, #1e1600 100%)',
+    tree:   '#1e1600',
+    mtn:    '#0d0a00',
+    label:  '唐',
+    glow:   'rgba(212,160,23,0.6)',
+    bossGlow: 'rgba(212,100,20,0.85)',
+  },
+  song: {
+    bg:     'linear-gradient(180deg, #001a10 0%, #002818 25%, #00381e 50%, #002818 75%, #001a10 100%)',
+    accent: '#2ecc8a',
+    sky:    '#001a10',
+    cloud:  'rgba(46,204,138,0.15)',
+    ground: 'linear-gradient(180deg, #00381e 0%, #002818 100%)',
+    tree:   '#00281a',
+    mtn:    '#001a10',
+    label:  '宋',
+    glow:   'rgba(46,204,138,0.6)',
+    bossGlow: 'rgba(46,180,100,0.85)',
+  },
+  modern: {
+    bg:     'linear-gradient(180deg, #0a0018 0%, #120028 25%, #1a0038 50%, #120028 75%, #0a0018 100%)',
+    accent: '#9060ff',
+    sky:    '#0a0018',
+    cloud:  'rgba(140,80,255,0.15)',
+    ground: 'linear-gradient(180deg, #1a0038 0%, #120028 100%)',
+    tree:   '#120028',
+    mtn:    '#0a0018',
+    label:  '现代',
+    glow:   'rgba(140,80,255,0.6)',
+    bossGlow: 'rgba(140,60,255,0.9)',
+  },
+};
 
-function showTravelAnimation(container, onComplete) {
-  // Overlay fills the container with a parallax travel scene
-  const travel = document.createElement('div');
-  travel.style.cssText = `
-    position:absolute; inset:0; overflow:hidden; z-index:500;
-    background:linear-gradient(180deg, #1a1a2e 0%, #16213e 40%, #0f3460 70%, #533483 100%);
-  `;
-  container.appendChild(travel);
+// ─── Encounter icon / label helpers ──────────────────────────────────────────
 
-  // ── Far layer: mountain silhouettes ──
-  const mountainLayer = document.createElement('div');
-  mountainLayer.style.cssText = `
-    position:absolute; bottom:30%; left:0;
-    width:300%; height:120px;
-    pointer-events:none;
-  `;
-  // Build mountain shapes using inline SVG so no external assets needed
+function encIcon(enc) {
+  if (enc.type === 'boss')   return '👹';
+  if (enc.type === 'combat') return '⚔️';
+  return '📖';
+}
+
+function encLabel(enc) {
+  if (enc.type === 'boss')   return 'BOSS';
+  if (enc.type === 'combat') return '战斗';
+  return '解谜';
+}
+
+// ─── Build the winding SVG path between nodes ─────────────────────────────
+
+// Given an array of [x, y] node centres (top → bottom order) returns an
+// SVG path string for a smooth S-curve passing through all of them.
+function buildWindingPath(points) {
+  if (points.length < 2) return '';
+  let d = `M ${points[0][0]},${points[0][1]}`;
+  for (let i = 1; i < points.length; i++) {
+    const [x0, y0] = points[i - 1];
+    const [x1, y1] = points[i];
+    const midY = (y0 + y1) / 2;
+    // Bezier control points pull horizontally to create the S-curve
+    const cx0 = x0;
+    const cy0 = midY;
+    const cx1 = x1;
+    const cy1 = midY;
+    d += ` C ${cx0},${cy0} ${cx1},${cy1} ${x1},${y1}`;
+  }
+  return d;
+}
+
+// ─── Era decorative background elements ──────────────────────────────────────
+
+function buildBackground(container, theme, svgW, svgH) {
+  // Sky clouds (CSS circles)
+  for (let c = 0; c < 5; c++) {
+    const cloud = document.createElement('div');
+    const size = 40 + Math.random() * 60;
+    const top  = 10 + Math.random() * 20;
+    const left = 5 + Math.random() * 85;
+    cloud.style.cssText = `
+      position:absolute;
+      left:${left}%; top:${top}%;
+      width:${size}px; height:${size * 0.4}px;
+      border-radius:50%;
+      background:${theme.cloud};
+      pointer-events:none; z-index:0;
+      animation: cloud-drift ${12 + c * 3}s ease-in-out infinite alternate;
+    `;
+    container.appendChild(cloud);
+  }
+
+  // Mountain silhouettes at ~80% height
   const mtnSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   mtnSvg.setAttribute('width', '100%');
-  mtnSvg.setAttribute('height', '120');
-  mtnSvg.setAttribute('viewBox', '0 0 1200 120');
-  mtnSvg.setAttribute('preserveAspectRatio', 'none');
-  mtnSvg.style.cssText = 'display:block; width:100%; height:100%;';
-  // Two repeating mountain ridge strips (wide + slightly offset) to allow seamless loop
+  mtnSvg.setAttribute('height', '80');
+  mtnSvg.style.cssText = `position:absolute; bottom:12%; left:0; pointer-events:none; z-index:0;`;
   const mtnPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-  mtnPath.setAttribute('d', [
-    'M0,120', 'L0,80', 'L60,40', 'L120,70', 'L200,20', 'L280,60',
-    'L360,30', 'L440,75', 'L520,15', 'L600,50', 'L680,25', 'L760,65',
-    'L840,10', 'L920,55', 'L1000,30', 'L1080,70', 'L1160,20', 'L1200,50',
-    'L1200,120', 'Z',
-  ].join(' '));
-  mtnPath.setAttribute('fill', '#0d1b2a');
-  mtnPath.setAttribute('opacity', '0.85');
+  mtnPath.setAttribute('d', 'M0,80 L0,50 L40,20 L80,45 L130,10 L180,40 L230,15 L280,50 L320,25 L360,55 L400,30 L450,55 L480,20 L520,48 L560,8 L600,40 L600,80 Z');
+  mtnPath.setAttribute('fill', theme.mtn);
+  mtnPath.setAttribute('opacity', '0.9');
   mtnSvg.appendChild(mtnPath);
-  mountainLayer.appendChild(mtnSvg);
-  travel.appendChild(mountainLayer);
+  container.appendChild(mtnSvg);
 
-  // ── Mid layer: trees / pagodas ──
-  const treeLayer = document.createElement('div');
-  treeLayer.style.cssText = `
-    position:absolute; bottom:22%; left:0;
-    width:300%; height:80px;
-    pointer-events:none;
-  `;
+  // Tree silhouettes at bottom
   const treeSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   treeSvg.setAttribute('width', '100%');
-  treeSvg.setAttribute('height', '80');
-  treeSvg.setAttribute('viewBox', '0 0 1200 80');
-  treeSvg.setAttribute('preserveAspectRatio', 'none');
-  treeSvg.style.cssText = 'display:block; width:100%; height:100%;';
-  // Repeating tree/pagoda silhouettes
-  const treeData = [
-    // [x, treeType] — type 0 = triangle tree, type 1 = pagoda rect
-    [30,0],[80,0],[130,1],[190,0],[250,0],[300,1],[370,0],[420,0],
-    [480,1],[540,0],[600,0],[640,1],[700,0],[760,0],[810,1],[870,0],
-    [920,0],[980,1],[1040,0],[1090,0],[1140,1],[1200,0],
-  ];
-  treeData.forEach(([x, type]) => {
-    if (type === 0) {
-      // Triangle tree
-      const tri = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
-      const w = 18 + Math.round(Math.random() * 12);
-      const h = 30 + Math.round(Math.random() * 20);
-      tri.setAttribute('points', `${x},80 ${x + w / 2},${80 - h} ${x + w},80`);
-      tri.setAttribute('fill', '#162447');
-      treeSvg.appendChild(tri);
-    } else {
-      // Pagoda-style rect stack (3 tiers)
-      for (let t = 0; t < 3; t++) {
-        const r = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-        const tw = 18 - t * 4;
-        const th = 10;
-        r.setAttribute('x', x - tw / 2);
-        r.setAttribute('y', 80 - (t + 1) * (th + 2));
-        r.setAttribute('width', tw);
-        r.setAttribute('height', th);
-        r.setAttribute('fill', '#1f4068');
-        treeSvg.appendChild(r);
-      }
+  treeSvg.setAttribute('height', '50');
+  treeSvg.style.cssText = `position:absolute; bottom:0; left:0; pointer-events:none; z-index:0;`;
+  const treePositions = [5, 12, 20, 30, 38, 50, 60, 68, 78, 88, 95];
+  treePositions.forEach(pct => {
+    const tri = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+    const cx = (pct / 100) * 600;
+    const h  = 22 + Math.random() * 18;
+    const w  = 10 + Math.random() * 8;
+    tri.setAttribute('points', `${cx},50 ${cx - w},50 ${cx},${50 - h} ${cx + w},50`);
+    tri.setAttribute('fill', theme.tree);
+    treeSvg.appendChild(tri);
+  });
+  container.appendChild(treeSvg);
+}
+
+// ─── Keyframe style block (injected once) ────────────────────────────────────
+
+function injectStyles(div) {
+  const s = document.createElement('style');
+  s.id = 'quest-map-styles';
+  s.textContent = `
+    @keyframes node-pulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(212,160,23,0.55); }
+      50%      { box-shadow: 0 0 0 10px rgba(212,160,23,0); }
     }
-  });
-  treeLayer.appendChild(treeSvg);
-  travel.appendChild(treeLayer);
-
-  // ── Near layer: ground / road strip ──
-  const groundLayer = document.createElement('div');
-  groundLayer.style.cssText = `
-    position:absolute; bottom:0; left:0;
-    width:300%; height:22%;
-    background:linear-gradient(180deg, #2c3e50 0%, #1a252f 100%);
-    pointer-events:none;
+    @keyframes boss-pulse {
+      0%,100% { box-shadow: 0 0 8px 3px rgba(220,60,20,0.5); filter: brightness(1); }
+      50%      { box-shadow: 0 0 22px 8px rgba(220,60,20,0.85); filter: brightness(1.15); }
+    }
+    @keyframes player-float {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-5px); }
+    }
+    @keyframes cloud-drift {
+      from { transform: translateX(0px); }
+      to   { transform: translateX(12px); }
+    }
+    @keyframes map-fade-in {
+      from { opacity:0; transform:translateY(16px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    @keyframes walk-up {
+      from { transform: translateY(0px); }
+      to   { transform: translateY(var(--walk-dist, -60px)); }
+    }
+    @keyframes btn-glow {
+      0%,100% { box-shadow: 0 0 8px 2px rgba(212,160,23,0.35); }
+      50%      { box-shadow: 0 0 20px 6px rgba(212,160,23,0.7); }
+    }
+    @keyframes boss-warning {
+      0%   { opacity:0; transform:scale(0.8); }
+      15%  { opacity:1; transform:scale(1.05); }
+      85%  { opacity:1; transform:scale(1); }
+      100% { opacity:0; transform:scale(0.95); }
+    }
+    @keyframes step-flash {
+      0%   { opacity:0; }
+      30%  { opacity:1; }
+      70%  { opacity:1; }
+      100% { opacity:0; }
+    }
   `;
-  // Road dashes
-  const roadSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-  roadSvg.setAttribute('width', '100%');
-  roadSvg.setAttribute('height', '100%');
-  roadSvg.style.cssText = 'position:absolute; inset:0;';
-  for (let i = 0; i < 24; i++) {
-    const dash = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-    dash.setAttribute('x', i * 120);
-    dash.setAttribute('y', '45%');
-    dash.setAttribute('width', '60');
-    dash.setAttribute('height', '6');
-    dash.setAttribute('rx', '3');
-    dash.setAttribute('fill', 'rgba(212,160,23,0.5)');
-    roadSvg.appendChild(dash);
-  }
-  groundLayer.appendChild(roadSvg);
-  travel.appendChild(groundLayer);
-
-  // ── Player sprite walking ──
-  const playerWrap = document.createElement('div');
-  playerWrap.style.cssText = `
-    position:absolute; bottom:22%; left:18%;
-    width:48px; height:80px;
-    display:flex; align-items:flex-end; justify-content:center;
-    pointer-events:none;
-  `;
-  // Simple walking stick figure using SVG
-  const walkSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-  walkSvg.setAttribute('viewBox', '0 0 32 60');
-  walkSvg.setAttribute('width', '32');
-  walkSvg.setAttribute('height', '60');
-  walkSvg.style.cssText = 'display:block;';
-  walkSvg.innerHTML = `
-    <circle cx="16" cy="8" r="6" fill="#d4a017"/>
-    <line x1="16" y1="14" x2="16" y2="36" stroke="#d4a017" stroke-width="3" stroke-linecap="round"/>
-    <line x1="16" y1="22" x2="6"  y2="30" stroke="#d4a017" stroke-width="2.5" stroke-linecap="round" id="arm-l"/>
-    <line x1="16" y1="22" x2="26" y2="30" stroke="#d4a017" stroke-width="2.5" stroke-linecap="round" id="arm-r"/>
-    <line x1="16" y1="36" x2="9"  y2="52" stroke="#d4a017" stroke-width="2.5" stroke-linecap="round" id="leg-l"/>
-    <line x1="16" y1="36" x2="23" y2="52" stroke="#d4a017" stroke-width="2.5" stroke-linecap="round" id="leg-r"/>
-  `;
-  playerWrap.appendChild(walkSvg);
-  travel.appendChild(playerWrap);
-
-  // ── Sky stars ──
-  for (let s = 0; s < 40; s++) {
-    const star = document.createElement('div');
-    const sz = 1 + Math.random() * 2;
-    star.style.cssText = `
-      position:absolute;
-      left:${Math.random() * 100}%;
-      top:${Math.random() * 35}%;
-      width:${sz}px; height:${sz}px;
-      border-radius:50%; background:#fff;
-      opacity:${0.3 + Math.random() * 0.7};
-      pointer-events:none;
-    `;
-    travel.appendChild(star);
-  }
-
-  // ── CSS keyframe animation strings injected as a style element ──
-  const styleEl = document.createElement('style');
-  styleEl.textContent = `
-    @keyframes travel-far   { from { transform:translateX(0); } to { transform:translateX(-33.33%); } }
-    @keyframes travel-mid   { from { transform:translateX(0); } to { transform:translateX(-33.33%); } }
-    @keyframes travel-near  { from { transform:translateX(0); } to { transform:translateX(-33.33%); } }
-    @keyframes walk-bob     { 0%,100% { transform:translateY(0px); } 50% { transform:translateY(-4px); } }
-    @keyframes leg-swing-l  { 0%,100% { transform-origin:16px 36px; transform:rotate(-25deg); } 50% { transform-origin:16px 36px; transform:rotate(20deg); } }
-    @keyframes leg-swing-r  { 0%,100% { transform-origin:16px 36px; transform:rotate(20deg); } 50% { transform-origin:16px 36px; transform:rotate(-25deg); } }
-    @keyframes arm-swing-l  { 0%,100% { transform-origin:16px 22px; transform:rotate(20deg); } 50% { transform-origin:16px 22px; transform:rotate(-20deg); } }
-    @keyframes arm-swing-r  { 0%,100% { transform-origin:16px 22px; transform:rotate(-20deg); } 50% { transform-origin:16px 22px; transform:rotate(20deg); } }
-  `;
-  document.head.appendChild(styleEl);
-
-  mountainLayer.style.animation = 'travel-far 4s linear infinite';
-  treeLayer.style.animation    = 'travel-mid 2.5s linear infinite';
-  groundLayer.style.animation  = 'travel-near 1.2s linear infinite';
-  playerWrap.style.animation   = 'walk-bob 0.45s ease-in-out infinite';
-
-  const legL = walkSvg.querySelector('#leg-l');
-  const legR = walkSvg.querySelector('#leg-r');
-  const armL = walkSvg.querySelector('#arm-l');
-  const armR = walkSvg.querySelector('#arm-r');
-  if (legL) legL.style.animation = 'leg-swing-l 0.45s ease-in-out infinite';
-  if (legR) legR.style.animation = 'leg-swing-r 0.45s ease-in-out infinite';
-  if (armL) armL.style.animation = 'arm-swing-l 0.45s ease-in-out infinite';
-  if (armR) armR.style.animation = 'arm-swing-r 0.45s ease-in-out infinite';
-
-  // ── Fade out after 2.5 seconds ──
-  setTimeout(() => {
-    travel.style.transition = 'opacity 0.5s ease-out';
-    travel.style.opacity = '0';
-    setTimeout(() => {
-      travel.remove();
-      styleEl.remove();
-      onComplete();
-    }, 500);
-  }, 2500);
-}
-
-// ─── Node completion animation ────────────────────────────────────────────────
-
-function animateNodeComplete(node) {
-  // Border glow → gold fill → checkmark
-  node.style.transition = 'background 0.4s, border-color 0.4s, box-shadow 0.4s';
-  node.style.boxShadow = '0 0 12px 4px var(--accent-gold)';
-  node.style.borderColor = 'var(--accent-gold)';
-  setTimeout(() => {
-    node.style.background = 'var(--accent-gold)';
-    node.textContent = '✓';
-    node.style.color = '#000';
-    node.style.fontWeight = '900';
-    node.style.fontSize = '1.3rem';
-    setTimeout(() => {
-      node.style.boxShadow = '0 0 6px 2px var(--accent-gold)';
-    }, 400);
-  }, 300);
-}
-
-// ─── Dotted SVG path draw animation ──────────────────────────────────────────
-
-function animatePathDraw(svgLine) {
-  if (!svgLine) return;
-  const len = svgLine.getTotalLength ? svgLine.getTotalLength() : 100;
-  svgLine.style.strokeDasharray = `${len}`;
-  svgLine.style.strokeDashoffset = `${len}`;
-  svgLine.style.transition = 'stroke-dashoffset 0.7s ease-out';
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      svgLine.style.strokeDashoffset = '0';
-    });
-  });
+  div.appendChild(s);
 }
 
 // ─── Main render ──────────────────────────────────────────────────────────────
@@ -247,116 +222,505 @@ function animatePathDraw(svgLine) {
 function renderQuest(params) {
   const div = document.createElement('div');
   div.className = 'screen';
-  div.style.cssText = 'position:relative; overflow:hidden;';
+  div.style.cssText = 'position:relative; overflow:hidden; padding:0;';
 
   const { chapterId } = params;
   const profile = gameState.profile;
   const progress = profile.chapterProgress[chapterId] || { questsCompleted: 0 };
   const questIndex = params.questIndex ?? progress.questsCompleted;
-
-  // Flag set by combat/boss/puzzle when returning to quest after completing an encounter
   const justFinishedEncounter = params.justFinishedEncounter || false;
 
-  div.innerHTML = `
-    <h2 style="margin-bottom:0.5rem;">第${chapterId}章 · 第${questIndex + 1}关</h2>
-    <p style="color:var(--text-secondary); margin-bottom:1.5rem;">准备好迎接挑战了吗？</p>
-    <div id="encounter-path" style="display:flex; align-items:center; gap:0; margin-bottom:2rem; position:relative;"></div>
-    <div style="display:flex; gap:12px;">
-      <button class="btn btn-primary" id="btn-start">开始</button>
-      <button class="btn" id="btn-back">返回</button>
-    </div>
-  `;
+  const era   = CHAPTER_ERA[chapterId] || 'xianqin';
+  const theme = ERA_THEME[era] || ERA_THEME.xianqin;
 
+  // Inject CSS keyframes
+  injectStyles(div);
+
+  // ── Full-screen journey map container ──
+  const mapWrap = document.createElement('div');
+  mapWrap.style.cssText = `
+    position:absolute; inset:0;
+    background:${theme.bg};
+    overflow-y:auto; overflow-x:hidden;
+    display:flex; flex-direction:column;
+    align-items:center;
+  `;
+  div.appendChild(mapWrap);
+
+  // ── Chapter title bar ──
+  const titleBar = document.createElement('div');
+  titleBar.style.cssText = `
+    position:sticky; top:0; left:0; right:0; z-index:50;
+    padding:10px 20px 8px;
+    background:linear-gradient(180deg,rgba(0,0,0,0.85) 0%,rgba(0,0,0,0) 100%);
+    display:flex; align-items:center; justify-content:space-between;
+    pointer-events:none;
+  `;
+  titleBar.innerHTML = `
+    <div style="font-size:1rem; font-weight:700; color:${theme.accent}; letter-spacing:0.06em;">
+      第${chapterId}章 · ${theme.label}
+    </div>
+    <div style="font-size:0.8rem; color:rgba(255,255,255,0.55);">第 ${questIndex + 1} 关</div>
+  `;
+  mapWrap.appendChild(titleBar);
+
+  // ── Content area (fixed size, centred) ──
+  const content = document.createElement('div');
+  content.style.cssText = `
+    position:relative; width:100%; max-width:400px;
+    flex:1; display:flex; flex-direction:column; align-items:center;
+    padding:0 20px; box-sizing:border-box;
+    animation: map-fade-in 0.5s ease-out both;
+  `;
+  mapWrap.appendChild(content);
+
+  // Build decorative background inside content area
+  buildBackground(content, theme, 400, 600);
+
+  // ── Back button (top-left, above map) ──
+  const btnBack = document.createElement('button');
+  btnBack.className = 'btn';
+  btnBack.style.cssText = `
+    position:absolute; top:4px; left:4px; z-index:60;
+    padding:6px 12px; font-size:0.8rem;
+    pointer-events:auto;
+  `;
+  btnBack.textContent = '← 返回';
+  btnBack.addEventListener('click', () => showScreen('worldmap'));
+  content.appendChild(btnBack);
+
+  // ── Loading state — actual quest is built asynchronously ──
+  const loadingEl = document.createElement('div');
+  loadingEl.style.cssText = `
+    position:absolute; top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    color:rgba(255,255,255,0.4); font-size:0.9rem;
+    z-index:10;
+  `;
+  loadingEl.textContent = '加载中…';
+  content.appendChild(loadingEl);
+
+  // ─── Async: build the map once quest data is ready ───────────────────────
   setTimeout(async () => {
     const quest = await startQuest(chapterId, questIndex);
-    const pathEl = div.querySelector('#encounter-path');
+    loadingEl.remove();
 
-    // Build node array and SVG connector line
-    const nodeEls = [];
-    const svgConnectors = [];
+    const encounters = quest.encounters;   // [{type, index, completed}, …]
+    const N = encounters.length;           // typically 5
 
-    quest.encounters.forEach((enc, i) => {
-      const icon = enc.type === 'combat' ? '⚔️' : enc.type === 'puzzle' ? '📖' : '👹';
-      const completed = enc.completed;
-      const isCurrent = !completed && (i === 0 || quest.encounters[i - 1]?.completed);
+    // ── Layout constants ──
+    // We place nodes along a winding vertical path.
+    // Node positions are in [0..1] fractional coordinates of the content box.
+    // The map SVG is drawn over a 360×600 canvas inside the content div.
 
-      const node = document.createElement('div');
-      node.dataset.idx = i;
-      node.style.cssText = [
-        'width:48px; height:48px; border-radius:50%;',
-        'display:flex; align-items:center; justify-content:center;',
-        'font-size:1.3rem; position:relative; z-index:2;',
-        'flex-shrink:0; transition: all 0.3s;',
-        completed
-          ? 'background:var(--accent-gold); border:2px solid var(--accent-gold); color:#000; font-weight:900; box-shadow:0 0 6px 2px var(--accent-gold);'
-          : isCurrent
-            ? 'background:var(--bg-card); border:2px solid var(--accent-gold); animation:quest-pulse 1.5s ease-in-out infinite;'
-            : 'background:var(--bg-card); border:2px solid var(--bg-secondary); opacity:0.55;',
-      ].join('');
-      node.textContent = completed ? '✓' : icon;
-      nodeEls.push(node);
-      pathEl.appendChild(node);
+    const SVG_W = 320;
+    const SVG_H = 560;
+    const NODE_R = 22;          // radius of encounter node circle
+    const BOSS_R = 32;          // radius of boss node
 
-      // Connector line between nodes
-      if (i < quest.encounters.length - 1) {
-        const connWrap = document.createElement('div');
-        connWrap.style.cssText = 'width:32px; height:2px; position:relative; flex-shrink:0; align-self:center;';
-        const connSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-        connSvg.setAttribute('width', '32');
-        connSvg.setAttribute('height', '8');
-        connSvg.style.cssText = 'position:absolute; top:-3px; left:0;';
-        const connLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-        connLine.setAttribute('x1', '2'); connLine.setAttribute('y1', '4');
-        connLine.setAttribute('x2', '30'); connLine.setAttribute('y2', '4');
-        connLine.setAttribute('stroke', completed ? 'var(--accent-gold)' : 'var(--bg-secondary)');
-        connLine.setAttribute('stroke-width', '2');
-        connLine.setAttribute('stroke-dasharray', '4 3');
-        connLine.setAttribute('stroke-linecap', 'round');
-        connSvg.appendChild(connLine);
-        connWrap.appendChild(connSvg);
-        pathEl.appendChild(connWrap);
-        svgConnectors.push({ line: connLine, afterIdx: i });
-      }
-    });
+    // Y positions: boss at top (y=80), start at bottom (y=SVG_H-60)
+    // Distribute evenly, with boss at index 0 = TOP
+    // but our encounter array is 0=first, N-1=boss
+    // So we reverse for layout: encounter[N-1] (boss) → top, encounter[0] → near bottom
 
-    // Inject pulse keyframe for current node
-    const pulseStyle = document.createElement('style');
-    pulseStyle.textContent = `
-      @keyframes quest-pulse {
-        0%,100% { box-shadow:0 0 0 0 rgba(212,160,23,0.5); border-color:var(--accent-gold); }
-        50%      { box-shadow:0 0 0 8px rgba(212,160,23,0); border-color:#f39c12; }
-      }
-    `;
-    div.appendChild(pulseStyle);
+    const totalSpan = SVG_H - 140;   // space between start pt and boss
+    const nodePositions = [];        // [x, y] in SVG space, index 0 = first encounter
+    const nodeCount = N + 1;         // +1 for "起点" start marker at the very bottom
 
-    // ── If returning from an encounter, show travel animation then mark node done ──
-    if (justFinishedEncounter) {
-      // Find the first completed-but-not-yet-visually-marked node (the one just finished)
-      const justCompletedIdx = quest.encounters.findIndex((e, i) => {
-        return e.completed && nodeEls[i] && nodeEls[i].textContent !== '✓';
-      });
+    // Start point
+    const startY = SVG_H - 50;
+    const startX = SVG_W / 2;
 
-      showTravelAnimation(div, () => {
-        // Animate the completed node
-        if (justCompletedIdx >= 0) {
-          animateNodeComplete(nodeEls[justCompletedIdx]);
-          // Animate the connecting line to the next node
-          const conn = svgConnectors.find(c => c.afterIdx === justCompletedIdx);
-          if (conn) {
-            conn.line.setAttribute('stroke', 'var(--accent-gold)');
-            animatePathDraw(conn.line);
-          }
-        }
-        // Companion chimes in between encounters
-        showCompanionBubble(div, pick(COMPANION.betweenEncounters), 3000);
-      });
+    // Boss at top
+    const bossY = 80;
+
+    // Intermediate nodes (encounter 0 … N-2, with N-1 being boss)
+    // Y: evenly spaced between start and boss
+    // X: sinusoidal weave for S-curve feel
+    for (let i = 0; i < N; i++) {
+      const t = i / (N - 1);             // 0 (first enc) → 1 (boss)
+      const y = startY - 50 - t * (startY - 50 - bossY);
+      // X weave: alternate left/right with diminishing amplitude near top
+      const amp = SVG_W * 0.22 * (1 - t * 0.4);
+      const wave = Math.sin(i * Math.PI * 0.75 + Math.PI * 0.25);
+      const x = SVG_W / 2 + wave * amp;
+      nodePositions.push([x, y]);
     }
 
-    // Determine what story keys are available
+    // Full path points: start marker → enc[0] → … → enc[N-1] (boss)
+    const allPoints = [[startX, startY], ...nodePositions];
+
+    // ── SVG layer for path ──
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('width', SVG_W);
+    svg.setAttribute('height', SVG_H);
+    svg.style.cssText = `
+      position:absolute; top:40px; left:50%;
+      transform:translateX(-50%);
+      z-index:1; pointer-events:none;
+      overflow:visible;
+    `;
+    content.appendChild(svg);
+
+    // Build path segments: one per gap, coloured by completion status
+    // allPoints[0] = start, allPoints[i+1] = encounters[i]
+    for (let i = 0; i < N; i++) {
+      const fromPt  = allPoints[i];
+      const toPt    = allPoints[i + 1];
+      const enc     = encounters[i];
+      const prevEnc = i === 0 ? null : encounters[i - 1];
+      const segCompleted = enc.completed;     // segment leading TO this node is "done"
+
+      const pathEl = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      pathEl.setAttribute('d', buildWindingPath([fromPt, toPt]));
+      pathEl.setAttribute('fill', 'none');
+      pathEl.setAttribute('stroke-width', '4');
+      pathEl.setAttribute('stroke-linecap', 'round');
+      pathEl.setAttribute('data-seg-idx', i);
+
+      if (segCompleted) {
+        pathEl.setAttribute('stroke', theme.accent);
+        pathEl.setAttribute('stroke-dasharray', 'none');
+        pathEl.setAttribute('opacity', '0.9');
+      } else {
+        pathEl.setAttribute('stroke', 'rgba(255,255,255,0.18)');
+        pathEl.setAttribute('stroke-dasharray', '8 6');
+        pathEl.setAttribute('opacity', '0.7');
+      }
+      svg.appendChild(pathEl);
+    }
+
+    // ── Start marker ("起点") ──
+    const startG = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    startG.setAttribute('transform', `translate(${startX}, ${startY})`);
+    startG.innerHTML = `
+      <circle r="16" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+      <text y="5" text-anchor="middle" font-size="14" fill="rgba(255,255,255,0.6)">🏠</text>
+    `;
+    svg.appendChild(startG);
+
+    // ── Encounter nodes ──
+    const nodeEls = [];    // DOM elements for animation
+
+    encounters.forEach((enc, i) => {
+      const [nx, ny] = nodePositions[i];
+      const isBoss    = enc.type === 'boss';
+      const completed = enc.completed;
+      const isCurrent = !completed && (i === 0 || encounters[i - 1]?.completed);
+      const r = isBoss ? BOSS_R : NODE_R;
+
+      // Node group
+      const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      g.setAttribute('transform', `translate(${nx}, ${ny})`);
+      g.setAttribute('data-enc-idx', i);
+
+      // Shadow / glow ring beneath node
+      const glowCirc = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      glowCirc.setAttribute('r', r + 8);
+      glowCirc.setAttribute('fill', 'none');
+      glowCirc.setAttribute('stroke', isBoss ? theme.bossGlow : theme.glow);
+      glowCirc.setAttribute('stroke-width', '2');
+      glowCirc.setAttribute('opacity', isBoss ? '0.65' : completed ? '0.5' : isCurrent ? '0.4' : '0.1');
+      g.appendChild(glowCirc);
+
+      // Main circle
+      const circ = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      circ.setAttribute('r', r);
+      if (completed) {
+        circ.setAttribute('fill', theme.accent);
+        circ.setAttribute('stroke', theme.accent);
+        circ.setAttribute('stroke-width', '3');
+      } else if (isCurrent) {
+        circ.setAttribute('fill', 'rgba(20,15,5,0.9)');
+        circ.setAttribute('stroke', theme.accent);
+        circ.setAttribute('stroke-width', '3');
+      } else if (isBoss) {
+        circ.setAttribute('fill', 'rgba(30,0,0,0.92)');
+        circ.setAttribute('stroke', theme.bossGlow);
+        circ.setAttribute('stroke-width', '3');
+      } else {
+        circ.setAttribute('fill', 'rgba(10,8,5,0.7)');
+        circ.setAttribute('stroke', 'rgba(255,255,255,0.2)');
+        circ.setAttribute('stroke-width', '2');
+      }
+      g.appendChild(circ);
+
+      // Icon / label text
+      const iconText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      iconText.setAttribute('y', '-4');
+      iconText.setAttribute('text-anchor', 'middle');
+      iconText.setAttribute('font-size', isBoss ? '22' : completed ? '16' : '18');
+      iconText.setAttribute('fill', completed ? '#000' : 'rgba(255,255,255,0.9)');
+      iconText.setAttribute('dominant-baseline', 'middle');
+      iconText.textContent = completed ? '✓' : encIcon(enc);
+      g.appendChild(iconText);
+
+      // Label below node
+      const labelText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      labelText.setAttribute('y', r + 14);
+      labelText.setAttribute('text-anchor', 'middle');
+      labelText.setAttribute('font-size', '10');
+      labelText.setAttribute('fill', completed ? theme.accent : isBoss ? 'rgba(255,100,80,0.85)' : isCurrent ? theme.accent : 'rgba(255,255,255,0.35)');
+      labelText.textContent = completed ? '已完成' : isBoss ? `BOSS: ${encLabel(enc)}` : `${encLabel(enc)} ${i + 1}`;
+      g.appendChild(labelText);
+
+      // "你在这里" tag on current node
+      if (isCurrent && !isBoss) {
+        const tag = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        tag.setAttribute('x', r + 8);
+        tag.setAttribute('y', '-4');
+        tag.setAttribute('font-size', '10');
+        tag.setAttribute('fill', theme.accent);
+        tag.textContent = '← 你在这里';
+        g.appendChild(tag);
+      }
+
+      // Boss glow animation via SVG animate
+      if (isBoss) {
+        const anim = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+        anim.setAttribute('attributeName', 'stroke-opacity');
+        anim.setAttribute('values', '0.5;1;0.5');
+        anim.setAttribute('dur', '2s');
+        anim.setAttribute('repeatCount', 'indefinite');
+        glowCirc.appendChild(anim);
+
+        // Boss name label above node
+        const bossName = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        bossName.setAttribute('y', -(r + 16));
+        bossName.setAttribute('text-anchor', 'middle');
+        bossName.setAttribute('font-size', '11');
+        bossName.setAttribute('fill', 'rgba(255,120,80,0.9)');
+        bossName.setAttribute('font-weight', 'bold');
+        bossName.textContent = '⚠ BOSS 终点';
+        g.appendChild(bossName);
+      }
+
+      svg.appendChild(g);
+      nodeEls.push(g);
+    });
+
+    // ── Player avatar (small, next to current node) ──
+    // Find current encounter index
+    const currentIdx = encounters.findIndex(
+      (e, i) => !e.completed && (i === 0 || encounters[i - 1]?.completed)
+    );
+
+    let playerAvatarGroup = null;
+    let playerStartPos   = null;
+
+    if (currentIdx >= 0) {
+      const [px, py] = nodePositions[currentIdx];
+      const enc      = encounters[currentIdx];
+      const r        = enc.type === 'boss' ? BOSS_R : NODE_R;
+
+      playerAvatarGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      // Place player to the left of the node
+      const avatarX = px - r - 30;
+      const avatarY = py - 20;
+      playerAvatarGroup.setAttribute('transform', `translate(${avatarX}, ${avatarY})`);
+      playerAvatarGroup.style.animation = 'player-float 2.2s ease-in-out infinite';
+
+      // Small player SVG embedded as foreignObject would be tricky; use a simplified inline mini-sprite
+      // Using a small "adventurer figure" in SVG path form (scaled down from SPRITES.player concept)
+      playerAvatarGroup.innerHTML = `
+        <circle r="16" fill="rgba(0,0,0,0.5)"/>
+        <circle cy="-6" r="6" fill="#c8a87a"/>
+        <rect x="-5" y="0" width="10" height="12" rx="2" fill="#1a2540"/>
+        <rect x="-3" y="9" width="3" height="8" rx="1" fill="#1a2540"/>
+        <rect x="0" y="9" width="3" height="8" rx="1" fill="#131d30"/>
+        <line x1="0" y1="3" x2="-8" y2="8" stroke="#d4a017" stroke-width="2" stroke-linecap="round"/>
+        <line x1="0" y1="3" x2="8" y2="8" stroke="#d4a017" stroke-width="2" stroke-linecap="round"/>
+        <text y="30" text-anchor="middle" font-size="9" fill="${theme.accent}">★</text>
+      `;
+
+      svg.appendChild(playerAvatarGroup);
+      playerStartPos = { x: avatarX, y: avatarY };
+    }
+
+    // ── Progress bar ──
+    const completedCount = encounters.filter(e => e.completed).length;
+    const progressWrap = document.createElement('div');
+    progressWrap.style.cssText = `
+      position:sticky; bottom:0; left:0; right:0; z-index:50;
+      background:linear-gradient(0deg,rgba(0,0,0,0.92) 0%,rgba(0,0,0,0) 100%);
+      padding:16px 24px 20px;
+      display:flex; flex-direction:column; align-items:center; gap:10px;
+      width:100%; box-sizing:border-box;
+    `;
+
+    const progressLabel = document.createElement('div');
+    progressLabel.style.cssText = `font-size:0.8rem; color:rgba(255,255,255,0.5); text-align:center;`;
+    progressLabel.textContent = `进度：${completedCount} / ${N}`;
+    progressWrap.appendChild(progressLabel);
+
+    const barTrack = document.createElement('div');
+    barTrack.style.cssText = `
+      width:100%; max-width:300px; height:8px;
+      border-radius:4px; background:rgba(255,255,255,0.12);
+      overflow:hidden;
+    `;
+    const barFill = document.createElement('div');
+    barFill.id = 'quest-progress-fill';
+    barFill.style.cssText = `
+      height:100%; border-radius:4px;
+      background: linear-gradient(90deg, ${theme.accent} 0%, rgba(255,255,255,0.7) 100%);
+      width:${(completedCount / N) * 100}%;
+      transition: width 0.8s ease-out;
+    `;
+    barTrack.appendChild(barFill);
+    progressWrap.appendChild(barTrack);
+
+    // Action button
+    const btnStart = document.createElement('button');
+    btnStart.id = 'btn-start';
+    btnStart.className = 'btn btn-primary';
+    btnStart.style.cssText = `
+      min-width:180px; font-size:1rem; padding:12px 28px;
+      animation: btn-glow 2s ease-in-out infinite;
+      letter-spacing:0.05em;
+    `;
+    const isNextBoss = currentIdx >= 0 && encounters[currentIdx]?.type === 'boss';
+    btnStart.textContent = isNextBoss ? '⚠ 挑战BOSS' : completedCount === 0 ? '开始冒险' : '继续冒险';
+    progressWrap.appendChild(btnStart);
+
+    mapWrap.appendChild(progressWrap);
+
+    // Spacer so content doesn't hide under sticky bar
+    const spacer = document.createElement('div');
+    spacer.style.cssText = `height:${SVG_H + 120}px; width:100%; flex-shrink:0;`;
+    content.appendChild(spacer);
+
+    // ── Handle justFinishedEncounter: animate player walking up ──────────
+    if (justFinishedEncounter) {
+      // Find the encounter that was just completed
+      // It's the one that IS completed but whose predecessor was the last visible current
+      const justCompletedIdx = (() => {
+        // walk through and find the most-recently-completed one
+        for (let i = N - 1; i >= 0; i--) {
+          if (encounters[i].completed) return i;
+        }
+        return -1;
+      })();
+
+      const nextIdx = justCompletedIdx + 1;  // the new current node (may be out of range if quest done)
+
+      // 1) Play travel animation: player avatar walks up to completed node
+      if (justCompletedIdx >= 0 && playerAvatarGroup) {
+        // Player was visually at the PREVIOUS current (justCompletedIdx before completion)
+        // In the new state, the node is already marked completed, but we animate anyway.
+        const targetPos = nodePositions[justCompletedIdx];
+        const currentG  = nodeEls[justCompletedIdx];
+
+        // We'll animate the player SVG group upward using a CSS transform
+        // First set player back to where they would have been (before this encounter)
+        const prevIdx = justCompletedIdx - 1;
+        const prevPos = prevIdx >= 0 ? nodePositions[prevIdx] : [startX, startY];
+        const startAvatarX = prevPos[0] - (encounters[prevIdx >= 0 ? prevIdx : 0]?.type === 'boss' ? BOSS_R : NODE_R) - 30;
+        const startAvatarY = prevPos[1] - 20;
+
+        playerAvatarGroup.setAttribute('transform', `translate(${startAvatarX}, ${startAvatarY})`);
+
+        const destX   = targetPos[0] - NODE_R - 30;
+        const destY   = targetPos[1] - 20;
+        const walkDx  = destX - startAvatarX;
+        const walkDy  = destY - startAvatarY;
+
+        // Use SMIL animate for SVG translate
+        const animX = document.createElementNS('http://www.w3.org/2000/svg', 'animateTransform');
+        animX.setAttribute('attributeName', 'transform');
+        animX.setAttribute('attributeType', 'XML');
+        animX.setAttribute('type', 'translate');
+        animX.setAttribute('from', `${startAvatarX} ${startAvatarY}`);
+        animX.setAttribute('to', `${destX} ${destY}`);
+        animX.setAttribute('dur', '1.4s');
+        animX.setAttribute('begin', '0.3s');
+        animX.setAttribute('fill', 'freeze');
+        animX.setAttribute('calcMode', 'spline');
+        animX.setAttribute('keySplines', '0.25 0.1 0.25 1');
+        playerAvatarGroup.appendChild(animX);
+
+        // 2) After walk completes: mark node gold, update path, show companion bubble
+        setTimeout(() => {
+          // Flash "又前进了一步！"
+          const flash = document.createElement('div');
+          flash.style.cssText = `
+            position:absolute; top:45%; left:50%; transform:translate(-50%,-50%);
+            font-size:1.3rem; font-weight:700; color:${theme.accent};
+            text-shadow: 0 0 16px ${theme.accent};
+            animation: step-flash 2s ease-out both;
+            z-index:100; pointer-events:none; white-space:nowrap;
+          `;
+          flash.textContent = '又前进了一步！';
+          content.appendChild(flash);
+          setTimeout(() => flash.remove(), 2100);
+
+          // Animate node → gold / checkmark (recreate the node's visuals)
+          const g = nodeEls[justCompletedIdx];
+          const mainCirc = g.querySelectorAll('circle')[1];
+          const iconT    = g.querySelector('text');
+          if (mainCirc) {
+            mainCirc.setAttribute('fill', theme.accent);
+            mainCirc.setAttribute('stroke', theme.accent);
+          }
+          if (iconT) {
+            iconT.textContent = '✓';
+            iconT.setAttribute('fill', '#000');
+          }
+
+          // Animate the path segment to gold
+          const seg = svg.querySelector(`[data-seg-idx="${justCompletedIdx}"]`);
+          if (seg) {
+            seg.setAttribute('stroke', theme.accent);
+            seg.removeAttribute('stroke-dasharray');
+            const totalLen = seg.getTotalLength ? seg.getTotalLength() : 200;
+            seg.setAttribute('stroke-dasharray', `${totalLen}`);
+            seg.setAttribute('stroke-dashoffset', `${totalLen}`);
+            seg.style.transition = 'stroke-dashoffset 0.7s ease-out';
+            requestAnimationFrame(() => requestAnimationFrame(() => {
+              seg.setAttribute('stroke-dashoffset', '0');
+            }));
+          }
+
+          // Update progress bar
+          const newCompleted = encounters.filter(e => e.completed).length;
+          const fill = div.querySelector('#quest-progress-fill');
+          if (fill) fill.style.width = `${(newCompleted / N) * 100}%`;
+          progressLabel.textContent = `进度：${newCompleted} / ${N}`;
+
+          // Companion line
+          showCompanionBubble(div, pick(COMPANION.betweenEncounters), 3500);
+
+          // Boss warning if next node is boss
+          if (nextIdx < N && encounters[nextIdx]?.type === 'boss') {
+            setTimeout(() => {
+              const warn = document.createElement('div');
+              warn.style.cssText = `
+                position:absolute; top:35%; left:50%; transform:translate(-50%,-50%);
+                background:rgba(60,0,0,0.92); border:2px solid rgba(220,60,20,0.8);
+                border-radius:12px; padding:16px 28px;
+                font-size:1.1rem; font-weight:700; color:#ff6040;
+                text-shadow:0 0 12px rgba(220,60,20,0.8);
+                animation: boss-warning 3s ease-out both;
+                z-index:100; pointer-events:none; text-align:center;
+              `;
+              warn.innerHTML = '⚠ BOSS战即将开始！<br><span style="font-size:0.85rem;opacity:0.7;">做好准备！</span>';
+              content.appendChild(warn);
+              setTimeout(() => warn.remove(), 3100);
+            }, 1800);
+          }
+        }, 1700);
+      } else {
+        // No player avatar visible (all done?), still show companion bubble
+        showCompanionBubble(div, pick(COMPANION.betweenEncounters), 3000);
+      }
+    }
+
+    // ─── Story / encounter navigation logic (preserved from original) ────────
+
     const chapterIntroKey = `chapter${chapterId}_intro`;
-    const chapterBossKey = `chapter${chapterId}_boss`;
+    const chapterBossKey  = `chapter${chapterId}_boss`;
     const hasChapterIntro = Boolean(STORIES[chapterIntroKey]);
-    const hasChapterBoss = Boolean(STORIES[chapterBossKey]);
+    const hasChapterBoss  = Boolean(STORIES[chapterBossKey]);
 
     const chapterProgress = profile.chapterProgress[chapterId] || { questsCompleted: 0 };
 
@@ -367,10 +731,7 @@ function renderQuest(params) {
     }
 
     function showEncounterIntroThen(enc, onComplete) {
-      showScreen('encounter-intro', {
-        type: enc.type,
-        onComplete,
-      });
+      showScreen('encounter-intro', { type: enc.type, onComplete });
     }
 
     function startFirstEncounter() {
@@ -391,8 +752,9 @@ function renderQuest(params) {
       }
     }
 
-    div.querySelector('#btn-start').addEventListener('click', () => {
+    btnStart.addEventListener('click', () => {
       const enc = getCurrentEncounter();
+      if (!enc) return;
 
       if (enc.type === 'boss') {
         startWithBossIntro();
@@ -404,8 +766,8 @@ function renderQuest(params) {
         profile.chapterProgress[chapterId] = chapterProgress;
         gameState.save();
 
-        const era = CHAPTER_ERA[chapterId] || 'xianqin';
-        try { playMusic(era); } catch (_) {}
+        const eraKey = CHAPTER_ERA[chapterId] || 'xianqin';
+        try { playMusic(eraKey); } catch (_) {}
 
         showScreen('story', {
           storyKey: chapterIntroKey,
@@ -417,7 +779,6 @@ function renderQuest(params) {
       startFirstEncounter();
     });
 
-    div.querySelector('#btn-back').addEventListener('click', () => showScreen('worldmap'));
   }, 0);
 
   return div;
