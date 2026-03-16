@@ -2,6 +2,7 @@
 import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
 import { loadContent, pickQuestions } from '../content-loader.js';
+import { playSound, playMusic, setMusicIntensity, playStinger } from '../audio.js';
 
 async function renderArena() {
   const div = document.createElement('div');
@@ -27,7 +28,12 @@ async function renderArena() {
   let p1Score = 0;
   let p2Score = 0;
   const totalRounds = 10;
-  const baseTimer = 15;
+  const baseTimer = 20;
+
+  // Arena battle music
+  playMusic('tang');
+  playStinger('battle_start');
+  setTimeout(() => setMusicIntensity(2), 300);
 
   function renderInterstitial() {
     const name = currentPlayer === 1 ? p1.name : p2.name;

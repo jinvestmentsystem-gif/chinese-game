@@ -2,10 +2,16 @@
 import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
 import { getCurrentEncounter, advanceEncounter, recordAnswer } from '../game-engine.js';
-import { playSound } from '../audio.js';
+import { playSound, playMusic, setMusicIntensity } from '../audio.js';
 
 function renderPuzzle() {
   const div = document.createElement('div');
+
+  // Set puzzle music — light rhythm (intensity 1)
+  const chapterId = gameState.currentQuest?.chapterId || 1;
+  const eraMap = {1:'xianqin',2:'han',3:'tang',4:'song',5:'modern'};
+  playMusic(eraMap[chapterId] || 'xianqin');
+  setTimeout(() => setMusicIntensity(1), 200);
   div.className = 'screen';
   const encounter = getCurrentEncounter();
   const passage = encounter.passage;

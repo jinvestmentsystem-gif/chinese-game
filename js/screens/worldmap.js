@@ -2,6 +2,7 @@
 import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
 import { SPRITES } from '../sprites.js';
+import { playMusic, setMusicIntensity } from '../audio.js';
 
 // ── Chapter / Era Data ────────────────────────────────────────────────────────
 const CHAPTERS = [
@@ -192,6 +193,12 @@ function renderWorldMap() {
   const div = document.createElement('div');
   div.className = 'screen';
   const profile = gameState.profile;
+
+  // Play map music — find current chapter era
+  const currentChapter = Object.keys(profile.chapterProgress || {}).reduce((max, k) => Math.max(max, parseInt(k)), 1);
+  const eraMap = {1:'xianqin',2:'han',3:'tang',4:'song',5:'modern'};
+  playMusic(eraMap[currentChapter] || 'xianqin');
+  setMusicIntensity(0); // ambient for map
 
   // Compute unlock & progress for each chapter
   const chapters = CHAPTERS.map(ch => {

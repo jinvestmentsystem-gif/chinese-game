@@ -101,14 +101,6 @@ registerScreen('title', () => {
   return div;
 });
 
-// Expose audio functions globally for debugging
-import { setMusicIntensity as _smi, playStinger as _ps } from './audio.js';
-window._audioDebug = {
-  initAudio, playMusic, setMusicIntensity: _smi, playStinger: _ps,
-  test: () => { initAudio(); playMusic('xianqin'); setTimeout(() => _smi(1), 300); console.log('Battle music should start in 300ms'); }
-};
-console.log('Audio debug: type _audioDebug.test() in console to test battle music');
-
 // Boot
 initRouter();
 

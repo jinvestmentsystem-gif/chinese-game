@@ -4,6 +4,7 @@ import { registerScreen, showScreen } from '../main.js';
 import { loadContent, pickQuestions, pickReadingPassage } from '../content-loader.js';
 import { recordAnswer } from '../game-engine.js';
 import { addXP } from '../progression.js';
+import { playSound, playMusic, setMusicIntensity, playStinger } from '../audio.js';
 
 function getDailySeed() {
   const d = new Date();
@@ -26,6 +27,11 @@ async function renderDaily() {
   div.className = 'screen';
   const profile = gameState.profile;
   const today = getDailySeed();
+
+  // Daily challenge music
+  playMusic('tang');
+  playStinger('battle_start');
+  setTimeout(() => setMusicIntensity(1), 300);
 
   // Check if already completed today
   if (profile.lastDailyDate === today) {
@@ -99,6 +105,7 @@ async function renderDaily() {
 
     div.querySelectorAll('.daily-option').forEach(btn => {
       btn.addEventListener('click', () => {
+        playSound('click');
         const idx = parseInt(btn.dataset.idx);
         const isCorrect = idx === q.correct;
         div.querySelectorAll('.daily-option').forEach(b => {
