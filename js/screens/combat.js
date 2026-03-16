@@ -324,6 +324,11 @@ function renderCombat() {
   let timerPulseInterval = null;
   let doubleActive = false;
 
+  // ── Balatro-style multiplicative scoring ──
+  let chips = 0;
+  let multiplier = 1.0;
+  let totalScore = 0;
+
   // Start battle music — explicitly set era and intensity
   const chapterId = gameState.currentQuest?.chapterId || 1;
   const eraMap = {1:'xianqin',2:'han',3:'tang',4:'song',5:'modern'};
@@ -341,6 +346,44 @@ function renderCombat() {
   function stopBreaths() {
     if (stopPlayerBreath) { stopPlayerBreath(); stopPlayerBreath = null; }
     if (stopEnemyBreath) { stopEnemyBreath(); stopEnemyBreath = null; }
+  }
+
+  // ── Score panel updater ──
+  function updateScorePanel(animateMultReset = false) {
+    const panel = div.querySelector('#score-panel');
+    if (!panel) return;
+    const roundedMult = multiplier.toFixed(1);
+    const score = Math.round(chips * multiplier);
+    totalScore = score;
+
+    if (animateMultReset) {
+      // Multiplier BREAK: red flash, number visibly drops
+      panel.style.transition = 'background 0.05s';
+      panel.style.background = 'rgba(192,57,43,0.35)';
+      setTimeout(() => {
+        panel.style.transition = 'background 0.4s';
+        panel.style.background = 'rgba(0,0,0,0.5)';
+      }, 80);
+    }
+
+    panel.innerHTML = `
+      <span id="score-chips" style="color:#e8e8e8;">得分: <strong>${chips}</strong></span>
+      <span style="color:var(--accent-gold); margin:0 6px;">×</span>
+      <span id="score-mult" style="color:${multiplier >= 3.0 ? '#e74c3c' : multiplier >= 2.0 ? '#e67e22' : 'var(--accent-gold)'};font-weight:900;transition:transform 0.2s,color 0.2s;">${roundedMult}×</span>
+      <span style="color:var(--text-secondary); margin:0 6px;">=</span>
+      <span id="score-total" style="color:var(--accent-jade);font-weight:700;">${score}</span>
+    `;
+  }
+
+  function animateMultiplierPulse() {
+    const multEl = div.querySelector('#score-mult');
+    if (!multEl) return;
+    multEl.style.transform = 'scale(1.6)';
+    multEl.style.textShadow = '0 0 12px #d4a017';
+    setTimeout(() => {
+      multEl.style.transform = 'scale(1)';
+      multEl.style.textShadow = '';
+    }, 250);
   }
 
   function render() {
@@ -361,6 +404,10 @@ function renderCombat() {
     if (combo >= 6) comboColor = '#e74c3c';
     else if (combo >= 4) comboColor = '#e67e22';
 
+    // ── Enemy intent: damage on wrong answer / timeout ──
+    const wrongDamage = Math.round(15 * (1 - profile.defense * 0.01));
+    const timeoutDamage = Math.round(20 * (1 - profile.defense * 0.01));
+
     div.innerHTML = `
       <style>
         .combat-hud { display:flex; justify-content:space-between; width:100%; padding:16px 32px; padding-top:44px; }
@@ -369,10 +416,10 @@ function renderCombat() {
         .hp-bar { height:100%; border-radius:8px; transition:width 0.3s; }
         .hp-player { background:var(--hp-green); }
         .hp-enemy { background:var(--hp-red); }
-        .timer-bar-bg { width:80%; max-width:500px; height:8px; background:var(--bg-secondary); border-radius:4px; overflow:hidden; margin:12px auto; }
+        .timer-bar-bg { width:80%; max-width:500px; height:8px; background:var(--bg-secondary); border-radius:4px; overflow:hidden; margin:8px auto; }
         .timer-bar { height:100%; background:var(--timer-yellow); border-radius:4px; transition:width 0.1s linear; }
         .combo-display { font-size:1.2rem; font-weight:700; min-height:1.5em; display:flex; align-items:center; justify-content:center; }
-        .combat-question { font-size:1.3rem; margin:16px 0; padding:0 32px; text-align:center; }
+        .combat-question { font-size:1.3rem; margin:12px 0 16px; padding:0 32px; text-align:center; }
         .combat-options { display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:0 32px; max-width:600px; width:100%; }
         .combat-option {
           font-family:var(--font-main); font-size:1rem; padding:14px 20px; background:var(--bg-card);
@@ -388,6 +435,27 @@ function renderCombat() {
         .sprite-wrap { display:flex; flex-direction:column; align-items:center; position:relative; }
         .sprite-label { font-size:0.85rem; color:var(--text-secondary); margin-bottom:4px; }
         .sprite-svg { display:block; }
+        .enemy-intent-bar {
+          display:flex; gap:16px; justify-content:center;
+          font-size:0.85rem; margin:4px 0 2px; opacity:0.9;
+          padding:5px 20px; border-radius:6px;
+          background:rgba(0,0,0,0.35);
+          border:1px solid rgba(192,57,43,0.25);
+          max-width:420px; width:100%; box-sizing:border-box;
+        }
+        .score-panel {
+          display:flex; align-items:center; justify-content:center; gap:4px;
+          font-size:0.9rem; padding:5px 18px;
+          background:rgba(0,0,0,0.5);
+          border:1px solid rgba(212,160,23,0.3);
+          border-radius:6px; max-width:320px; width:100%;
+          box-sizing:border-box;
+        }
+        @keyframes multPulse {
+          0%   { transform:scale(1); }
+          50%  { transform:scale(1.6); text-shadow:0 0 12px #d4a017; }
+          100% { transform:scale(1); }
+        }
       </style>
 
       <div class="combat-hud">
@@ -413,6 +481,20 @@ function renderCombat() {
         <div class="sprite-wrap" id="enemy-sprite-wrap">
           <div class="sprite-label" style="color:var(--accent-red);">${enemyName}</div>
           <div id="enemy-sprite" class="sprite-svg" style="width:80px;height:150px;display:flex;align-items:center;justify-content:center;">${enemySvg}</div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;align-items:center;gap:4px;width:100%;">
+        <div class="enemy-intent-bar">
+          <span style="color:var(--accent-red);">⚠ 答错: -${wrongDamage} HP</span>
+          <span style="color:#f39c12;">⏱ 超时: -${timeoutDamage} HP</span>
+        </div>
+        <div class="score-panel" id="score-panel">
+          <span style="color:#e8e8e8;">得分: <strong>${chips}</strong></span>
+          <span style="color:var(--accent-gold); margin:0 6px;">×</span>
+          <span id="score-mult" style="color:var(--accent-gold);font-weight:900;">${multiplier.toFixed(1)}×</span>
+          <span style="color:var(--text-secondary); margin:0 6px;">=</span>
+          <span id="score-total" style="color:var(--accent-jade);font-weight:700;">${Math.round(chips * multiplier)}</span>
         </div>
       </div>
 
@@ -558,6 +640,25 @@ function renderCombat() {
       const dmg = Math.round(20 * dmgMultiplier);
       enemyHp = Math.max(0, enemyHp - dmg);
 
+      // ── Update Balatro scoring ──
+      // Speed bonus: remaining timer approximated from last known timeLeft via closure
+      // We add a flat 10 chips + speed bonus embedded here
+      const speedBonus = Math.round(baseTimer * 0.3); // approximate bonus, not exact timeLeft
+      chips += 10 + speedBonus;
+      multiplier = parseFloat((multiplier + 0.5).toFixed(1));
+      updateScorePanel(false);
+      setTimeout(() => animateMultiplierPulse(), 80);
+
+      // Floating score gain above score panel
+      const scorePanel = div.querySelector('#score-panel');
+      if (scorePanel) {
+        const spRect = scorePanel.getBoundingClientRect();
+        const divRect = div.getBoundingClientRect();
+        const numX = spRect.left - divRect.left + spRect.width / 2 - 20;
+        const numY = spRect.top - divRect.top - 5;
+        floatingNumber(div, `+${chips} ×${multiplier.toFixed(1)}`, numX - 30, numY, '#d4a017');
+      }
+
       // Player lunges forward
       lungeElement(playerSprite, 50, 200, null);
 
@@ -632,6 +733,10 @@ function renderCombat() {
       const hpLoss = Math.round(15 * (1 - profile.defense * 0.01));
       playerHp = Math.max(0, playerHp - hpLoss);
 
+      // ── Multiplier BREAK animation ──
+      multiplier = 1.0;
+      updateScorePanel(true); // triggers red flash on panel
+
       // Enemy lunges toward player
       lungeElement(enemySprite, -50, 200, null);
 
@@ -648,6 +753,16 @@ function renderCombat() {
         const numX = pwRect.left - divRect.left + pwRect.width / 2 - 15;
         const numY = pwRect.top - divRect.top - 10;
         floatingNumber(div, `-${hpLoss}HP`, numX, numY, '#e74c3c');
+      }
+
+      // Show "×1.0 BREAK!" float over score panel
+      const scorePanel = div.querySelector('#score-panel');
+      if (scorePanel) {
+        const spRect = scorePanel.getBoundingClientRect();
+        const divRect = div.getBoundingClientRect();
+        const numX = spRect.left - divRect.left + spRect.width / 2 - 30;
+        const numY = spRect.top - divRect.top - 5;
+        floatingNumber(div, '×1.0 BREAK!', numX - 20, numY, '#e74c3c');
       }
 
       // Reset combo display

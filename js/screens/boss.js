@@ -39,6 +39,45 @@ const bossSprites = {
   5: 'boss_final',
 };
 
+// ─── Boss special abilities (Balatro Boss Blind-inspired) ─────────────────────
+
+const BOSS_ABILITIES = {
+  1: {
+    name: '文字迷雾',
+    desc: '所有选项的顺序被打乱',
+    effect: 'shuffle_options',
+  },
+  2: {
+    name: '墨封',
+    desc: '提示技能被封印，无法使用',
+    effect: 'seal_abilities',
+  },
+  3: {
+    name: '诗韵干扰',
+    desc: '错误答案看起来更诱人——有一个选项被标记为"相似"',
+    effect: 'confusing_options',
+  },
+  4: {
+    name: '时间压迫',
+    desc: '每道题只有10秒（正常20秒）',
+    effect: 'half_timer',
+  },
+  5: {
+    name: '全面压制',
+    desc: '所有BOSS能力同时生效！',
+    effect: 'all_abilities',
+  },
+};
+
+function getBossAbility(chapterId) {
+  return BOSS_ABILITIES[chapterId] || BOSS_ABILITIES[1];
+}
+
+function abilityActive(ability, effectName) {
+  if (!ability) return false;
+  return ability.effect === effectName || ability.effect === 'all_abilities';
+}
+
 // ─── Animation helpers ────────────────────────────────────────────────────────
 
 function shakeElement(el, intensity = 8, duration = 450) {
@@ -334,6 +373,7 @@ function renderBoss() {
   const profile = gameState.profile;
   const quest = gameState.currentQuest;
   const bossInfo = BOSS_NAMES[quest.chapterId] || BOSS_NAMES[1];
+  const bossAbility = getBossAbility(quest.chapterId);
 
   // Boss music — set era to boss and max intensity
   playMusic('boss');
@@ -356,6 +396,9 @@ function renderBoss() {
   let doubleActive = false;
   let isFirstRender = true;
 
+  // Timer value depends on half_timer ability
+  const bossBaseTimer = abilityActive(bossAbility, 'half_timer') ? 10 : 20;
+
   function getCurrentPhaseForHp() {
     if (bossHp > 66) return 0;
     if (bossHp > 33) return 1;
@@ -366,6 +409,38 @@ function renderBoss() {
     if (bossHp <= 33) return 'sepia(0.5) hue-rotate(-20deg) saturate(1.5)';
     if (bossHp <= 66) return 'saturate(0.7) brightness(0.85)';
     return '';
+  }
+
+  // ── Apply option shuffling (shuffle_options ability) ──
+  function prepareOptions(q) {
+    if (!abilityActive(bossAbility, 'shuffle_options')) return q;
+    // Shuffle options while tracking correct index
+    const indexed = q.options.map((opt, i) => ({ opt, isCorrect: i === q.correct }));
+    for (let i = indexed.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [indexed[i], indexed[j]] = [indexed[j], indexed[i]];
+    }
+    const newCorrect = indexed.findIndex(o => o.isCorrect);
+    return { ...q, options: indexed.map(o => o.opt), correct: newCorrect };
+  }
+
+  // ── Find distractor closest to correct for confusing_options ──
+  function getConfusingDistractorIdx(q) {
+    // Simple heuristic: pick the wrong option with the most characters in common with the correct
+    const correctOpt = q.options[q.correct];
+    let bestIdx = -1;
+    let bestScore = -1;
+    q.options.forEach((opt, i) => {
+      if (i === q.correct) return;
+      let score = 0;
+      for (const ch of opt) { if (correctOpt.includes(ch)) score++; }
+      if (score > bestScore) { bestScore = score; bestIdx = i; }
+    });
+    // Fallback: just pick first wrong option
+    if (bestIdx === -1) {
+      bestIdx = q.options.findIndex((_, i) => i !== q.correct);
+    }
+    return bestIdx;
   }
 
   function render() {
@@ -389,26 +464,51 @@ function renderBoss() {
 
     const phaseTransition = prevPhase !== phase && !isFirstRender;
 
-    const q = currentPhase[qIndex];
+    const rawQ = currentPhase[qIndex];
+    // Apply shuffle if ability active
+    const q = prepareOptions(rawQ);
+
     const phaseLabel = ['第一阶段：句意翻译', '第二阶段：虚词辨析', '第三阶段：篇章理解'][phase] || '';
     const phaseNarrativePool = BOSS_NARRATIVES[['phase1','phase2','phase3'][phase]] || BOSS_NARRATIVES.phase1;
     const bossNarrative = phaseNarrativePool[Math.floor(Math.random() * phaseNarrativePool.length)];
-    const optionsHTML = q.options.map((opt, i) => `
-      <button class="boss-option" data-idx="${i}">${opt}</button>
-    `).join('');
+
+    // confusing_options: find the distractor to mark
+    const confusingIdx = abilityActive(bossAbility, 'confusing_options')
+      ? getConfusingDistractorIdx(q)
+      : -1;
+
+    const optionsHTML = q.options.map((opt, i) => {
+      const confusingTag = (i === confusingIdx)
+        ? `<span style="font-size:0.7rem;color:#e67e22;margin-left:6px;opacity:0.8;">相似</span>`
+        : '';
+      return `<button class="boss-option" data-idx="${i}">${opt}${confusingTag}</button>`;
+    }).join('');
+
+    // Intent damage preview
+    const wrongDamage = Math.round(20 * (1 - profile.defense * 0.01));
+    const bossIntentHTML = `
+      <div style="
+        background:rgba(192,57,43,0.12);border:1px solid rgba(192,57,43,0.35);
+        border-radius:6px;padding:5px 14px;text-align:center;margin:4px 32px 6px;
+        font-size:0.82rem;color:#e8a0a0;
+      ">
+        ⚠ ${bossInfo.name}将攻击: -${wrongDamage} HP
+        ${abilityActive(bossAbility, 'half_timer') ? `<span style="margin-left:10px;color:#f39c12;">⏱ 仅${bossBaseTimer}秒</span>` : ''}
+      </div>
+    `;
 
     div.innerHTML = `
       <style>
         .boss-header { text-align:center; margin-bottom:4px; position:relative; padding-top:36px; }
         .boss-sprite-container { display:flex; justify-content:center; align-items:flex-end; margin:4px 0; position:relative; min-height:140px; }
         .boss-svg-wrap { display:inline-block; position:relative; }
-        .boss-phase { font-size:0.9rem; color:var(--accent-jade); margin-bottom:8px; }
-        .boss-hud { display:flex; justify-content:space-between; width:100%; padding:0 32px; margin-bottom:10px; }
+        .boss-phase { font-size:0.9rem; color:var(--accent-jade); margin-bottom:4px; }
+        .boss-hud { display:flex; justify-content:space-between; width:100%; padding:0 32px; margin-bottom:6px; }
         .boss-hp-bg { width:250px; height:18px; background:var(--bg-secondary); border-radius:9px; overflow:hidden; }
         .boss-hp { height:100%; background:var(--accent-red); border-radius:9px; transition:width 0.5s ease-out; }
         .player-hp { height:100%; background:var(--hp-green); border-radius:9px; transition:width 0.5s; }
-        .boss-narrative { font-style:italic; font-size:0.9rem; color:#e57373; text-align:center; padding:4px 32px 8px; opacity:0.9; text-shadow:0 0 8px rgba(192,57,43,0.5); }
-        .boss-question { font-size:1.2rem; margin:8px 32px; text-align:center; background:var(--bg-card); padding:16px 20px; border-radius:8px; border-left:4px solid var(--accent-gold); }
+        .boss-narrative { font-style:italic; font-size:0.9rem; color:#e57373; text-align:center; padding:4px 32px 6px; opacity:0.9; text-shadow:0 0 8px rgba(192,57,43,0.5); }
+        .boss-question { font-size:1.2rem; margin:6px 32px 10px; text-align:center; background:var(--bg-card); padding:14px 20px; border-radius:8px; border-left:4px solid var(--accent-gold); }
         .boss-options { display:flex; flex-direction:column; gap:8px; padding:0 32px; max-width:600px; margin:0 auto; width:100%; }
         .boss-option {
           font-family:var(--font-main); font-size:1rem; padding:12px 20px; background:var(--bg-card);
@@ -418,13 +518,26 @@ function renderBoss() {
         .boss-option:hover { border-color:var(--accent-red); }
         .boss-option.correct { border-color:var(--accent-jade); background:rgba(39,174,96,0.2); }
         .boss-option.wrong { border-color:var(--accent-red); background:rgba(192,57,43,0.2); }
-        .boss-feedback { font-size:0.95rem; color:var(--text-secondary); margin-top:8px; padding:0 32px; text-align:center; min-height:2.5em; }
+        .boss-feedback { font-size:0.95rem; color:var(--text-secondary); margin-top:6px; padding:0 32px; text-align:center; min-height:2.5em; }
         .phase-label-anim { display:inline-block; }
+        .boss-ability-banner {
+          background:rgba(192,57,43,0.15);
+          border:1px solid rgba(192,57,43,0.4);
+          border-radius:8px; padding:6px 16px;
+          text-align:center; margin:0 32px 8px;
+        }
+        .boss-timer-bg { width:80%; max-width:500px; height:6px; background:var(--bg-secondary); border-radius:3px; overflow:hidden; margin:4px auto 0; }
+        .boss-timer-bar { height:100%; background:${abilityActive(bossAbility, 'half_timer') ? '#e74c3c' : 'var(--timer-yellow)'}; border-radius:3px; transition:width 0.1s linear; }
       </style>
 
       <div class="boss-header">
         <h2 id="boss-name" style="color:var(--accent-red); margin:0; transform:translateY(0); opacity:1;">${bossInfo.name}</h2>
         <div class="boss-phase phase-label-anim" id="phase-label">${phaseLabel}</div>
+      </div>
+
+      <div class="boss-ability-banner">
+        <div style="font-size:0.75rem;color:var(--accent-red);margin-bottom:2px;">BOSS 特殊能力</div>
+        <div style="font-weight:700;color:#e8a0a0;">${bossAbility.name}: ${bossAbility.desc}</div>
       </div>
 
       <div class="boss-sprite-container">
@@ -447,6 +560,9 @@ function renderBoss() {
           <div style="font-size:0.8rem;color:var(--text-secondary);">${bossHp}%</div>
         </div>
       </div>
+
+      ${bossIntentHTML}
+      <div class="boss-timer-bg"><div class="boss-timer-bar" id="boss-timer-bar" style="width:100%"></div></div>
 
       <div class="boss-narrative">${bossNarrative}</div>
       <div class="boss-question">${q.prompt}</div>
@@ -527,13 +643,45 @@ function renderBoss() {
     // ── Mini-progress bar ──
     createMiniProgress(div);
 
+    // ── Timer for boss (respects half_timer ability) ──
+    let bossTimeLeft = bossBaseTimer;
+    const bossTimerBar = div.querySelector('#boss-timer-bar');
+    let bossTimerInterval = setInterval(() => {
+      bossTimeLeft -= 0.1;
+      if (bossTimerBar) bossTimerBar.style.width = Math.max(0, (bossTimeLeft / bossBaseTimer) * 100) + '%';
+      if (bossTimeLeft <= 0) {
+        clearInterval(bossTimerInterval);
+        // Timeout acts like wrong answer — apply HP loss and continue
+        const hpLoss = Math.round(20 * (1 - profile.defense * 0.01));
+        playerHp = Math.max(0, playerHp - hpLoss);
+        redBorderFlash(div);
+        const playerHpBar = div.querySelector('#player-hp-bar');
+        if (playerHpBar) playerHpBar.style.width = (playerHp / profile.maxHp) * 100 + '%';
+        const feedbackEl = div.querySelector('#feedback');
+        if (feedbackEl) feedbackEl.textContent = `⏱ 超时！${bossInfo.name}乘虚而入，失去 ${hpLoss} HP。`;
+        // Disable options
+        div.querySelectorAll('.boss-option').forEach(b => { b.style.pointerEvents = 'none'; });
+        setTimeout(() => {
+          if (playerHp <= 0) { endBoss(false); return; }
+          qIndex++;
+          render();
+        }, 1600);
+      }
+    }, 100);
+
     // ── Ability buttons ──
     const abilitiesEl = div.querySelector('#abilities');
     if (abilitiesEl) {
+      // seal_abilities: hide hint/skip/double entirely
+      const sealed = abilityActive(bossAbility, 'seal_abilities');
       let btns = '';
-      if (hasAbility(profile, 'hint'))   btns += `<button class="btn" id="btn-hint"   style="padding:6px 14px;font-size:0.85rem;" ${profile.wenli < 1 ? 'disabled' : ''}>提示 (1文力)</button>`;
-      if (hasAbility(profile, 'skip'))   btns += `<button class="btn" id="btn-skip"   style="padding:6px 14px;font-size:0.85rem;" ${profile.wenli < 2 ? 'disabled' : ''}>跳过 (2文力)</button>`;
-      if (hasAbility(profile, 'double')) btns += `<button class="btn" id="btn-double" style="padding:6px 14px;font-size:0.85rem;" ${profile.wenli < 2 ? 'disabled' : ''}>双倍 (2文力)</button>`;
+      if (!sealed) {
+        if (hasAbility(profile, 'hint'))   btns += `<button class="btn" id="btn-hint"   style="padding:6px 14px;font-size:0.85rem;" ${profile.wenli < 1 ? 'disabled' : ''}>提示 (1文力)</button>`;
+        if (hasAbility(profile, 'skip'))   btns += `<button class="btn" id="btn-skip"   style="padding:6px 14px;font-size:0.85rem;" ${profile.wenli < 2 ? 'disabled' : ''}>跳过 (2文力)</button>`;
+        if (hasAbility(profile, 'double')) btns += `<button class="btn" id="btn-double" style="padding:6px 14px;font-size:0.85rem;" ${profile.wenli < 2 ? 'disabled' : ''}>双倍 (2文力)</button>`;
+      } else {
+        btns = `<div style="font-size:0.8rem;color:var(--accent-red);opacity:0.8;">【墨封】技能已被封印</div>`;
+      }
       abilitiesEl.innerHTML = btns;
     }
 
@@ -553,6 +701,7 @@ function renderBoss() {
     if (skipBtn) skipBtn.addEventListener('click', () => {
       if (profile.wenli < 2) return;
       profile.wenli -= 2;
+      clearInterval(bossTimerInterval);
       qIndex++;
       render();
     });
@@ -568,6 +717,7 @@ function renderBoss() {
 
     div.querySelectorAll('.boss-option').forEach(btn => {
       btn.addEventListener('click', () => {
+        clearInterval(bossTimerInterval);
         playSound('click');
         const idx = parseInt(btn.dataset.idx);
         const correct = idx === q.correct;

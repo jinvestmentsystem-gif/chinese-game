@@ -312,6 +312,19 @@ function renderPuzzle() {
     `;
     div.appendChild(arenaDiv);
 
+    // ── Seal intent: show damage preview on wrong answer ──
+    const sealWrongDmg = Math.round(8 * (1 - profile.defense * 0.01));
+    const intentDiv = document.createElement('div');
+    intentDiv.style.cssText = `
+      display:flex; justify-content:center; align-items:center;
+      margin:2px 32px 4px; padding:5px 14px;
+      background:rgba(124,58,237,0.12);
+      border:1px solid rgba(168,85,247,0.3);
+      border-radius:6px; font-size:0.82rem;
+    `;
+    intentDiv.innerHTML = `<span style="color:#e74c3c;">⚠ 答错: 封印反噬 -${sealWrongDmg} HP</span>`;
+    div.appendChild(intentDiv);
+
     const narrativeDiv = document.createElement('div');
     narrativeDiv.className = 'puzzle-narrative';
     narrativeDiv.textContent = narrative;
