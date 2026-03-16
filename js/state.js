@@ -53,6 +53,8 @@ const DEFAULT_PROFILE = {
   // Critical hit stats
   critChance: 5,
   critMultiplier: 1.5,
+  // Tutorial onboarding — tracks which tooltip hints have been shown
+  tutorialSeen: {},
 };
 
 class GameState {
@@ -112,6 +114,8 @@ class GameState {
     if (!('critChance' in p))     p.critChance = 5;
     if (!('critMultiplier' in p)) p.critMultiplier = 1.5;
     if (!('currentCombo' in p))   p.currentCombo = 0;
+    if (!p.upgrades)              p.upgrades = {};
+    if (!p.tutorialSeen)          p.tutorialSeen = {};
     // Migrate old profiles with 0 attack/defense to new base values
     if (p.attack === 0 && p.level === 1 && !p.equipment.weapon) p.attack = 5;
     if (p.defense === 0 && p.level === 1 && !p.equipment.armor) p.defense = 5;

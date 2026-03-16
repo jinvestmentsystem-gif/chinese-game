@@ -1305,6 +1305,191 @@ export function playSound(type) {
       break;
     }
 
+    case 'crit': {
+      // Sharp metallic ring + rising pitch — critical hit indicator
+      // Metallic FM ring at 1200Hz
+      playFMNote(1200, 1200 * 3.01, 2.5, 0.30, 0.005, 0.18, 'sine', dest, now);
+      // Rising pitch sweep 800→2400Hz in 200ms
+      const critOsc = audioCtx.createOscillator();
+      const critGain = audioCtx.createGain();
+      critOsc.type = 'square';
+      critOsc.frequency.setValueAtTime(800, now);
+      critOsc.frequency.exponentialRampToValueAtTime(2400, now + 0.20);
+      critGain.gain.setValueAtTime(0.0, now);
+      critGain.gain.linearRampToValueAtTime(0.22, now + 0.01);
+      critGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.25);
+      critOsc.connect(critGain);
+      critGain.connect(dest);
+      critOsc.start(now);
+      critOsc.stop(now + 0.28);
+      // Bright noise transient for impact
+      const critNoise = audioCtx.createBufferSource();
+      critNoise.buffer = makeNoiseBuffer(0.05);
+      const critHpf = audioCtx.createBiquadFilter();
+      critHpf.type = 'highpass';
+      critHpf.frequency.value = 6000;
+      const critNG = audioCtx.createGain();
+      critNG.gain.setValueAtTime(0.28, now);
+      critNG.gain.exponentialRampToValueAtTime(0.0001, now + 0.05);
+      critNoise.connect(critHpf);
+      critHpf.connect(critNG);
+      critNG.connect(dest);
+      critNoise.start(now);
+      critNoise.stop(now + 0.06);
+      break;
+    }
+
+    case 'combo': {
+      // Quick ascending notes C5→E5→G5→C6 in rapid succession (combo increment)
+      const comboFreqs = [523.25, 659.26, 783.99, 1046.50];
+      comboFreqs.forEach((freq, i) => {
+        const t = now + i * 0.05;
+        const osc = audioCtx.createOscillator();
+        const g = audioCtx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.value = freq;
+        g.gain.setValueAtTime(0.0, t);
+        g.gain.linearRampToValueAtTime(0.18, t + 0.006);
+        g.gain.exponentialRampToValueAtTime(0.0001, t + 0.10);
+        osc.connect(g);
+        g.connect(dest);
+        osc.start(t);
+        osc.stop(t + 0.12);
+      });
+      break;
+    }
+
+    case 'talent': {
+      // Magical chime — two detuned sine tones + FM shimmer, bell-like decay
+      const chimeFreqs = [880, 1318.51]; // A5, E6
+      chimeFreqs.forEach((freq, i) => {
+        const t = now + i * 0.08;
+        playFMNote(freq, freq * 2.5, 1.2, 0.20, 0.01, 0.40, 'sine', dest, t);
+        // Detuned chorus layer
+        const chorusOsc = audioCtx.createOscillator();
+        const chorusG = audioCtx.createGain();
+        chorusOsc.type = 'sine';
+        chorusOsc.frequency.value = freq;
+        chorusOsc.detune.value = 8;
+        chorusG.gain.setValueAtTime(0.0, t);
+        chorusG.gain.linearRampToValueAtTime(0.10, t + 0.01);
+        chorusG.gain.exponentialRampToValueAtTime(0.0001, t + 0.45);
+        chorusOsc.connect(chorusG);
+        chorusG.connect(dest);
+        chorusOsc.start(t);
+        chorusOsc.stop(t + 0.48);
+      });
+      break;
+    }
+
+    case 'gold': {
+      // Coin jingle — two quick high metallic taps, then a bright ring
+      const goldTaps = [2200, 2600, 3100];
+      goldTaps.forEach((freq, i) => {
+        const t = now + i * 0.06;
+        const osc = audioCtx.createOscillator();
+        const g = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.value = freq;
+        g.gain.setValueAtTime(0.0, t);
+        g.gain.linearRampToValueAtTime(0.22, t + 0.003);
+        g.gain.exponentialRampToValueAtTime(0.0001, t + 0.12);
+        osc.connect(g);
+        g.connect(dest);
+        osc.start(t);
+        osc.stop(t + 0.14);
+      });
+      // Bright ring tail
+      playFMNote(3100, 3100 * 1.5, 0.8, 0.12, 0.005, 0.25, 'sine', dest, now + 0.18);
+      break;
+    }
+
+    case 'forge': {
+      // Anvil strike + sparkle — low metallic clang then high shimmer
+      // Anvil: low square wave burst through bandpass
+      const anvilOsc = audioCtx.createOscillator();
+      const anvilBpf = audioCtx.createBiquadFilter();
+      const anvilG = audioCtx.createGain();
+      anvilOsc.type = 'square';
+      anvilOsc.frequency.setValueAtTime(180, now);
+      anvilOsc.frequency.exponentialRampToValueAtTime(90, now + 0.08);
+      anvilBpf.type = 'bandpass';
+      anvilBpf.frequency.value = 800;
+      anvilBpf.Q.value = 4.0;
+      anvilG.gain.setValueAtTime(0.35, now);
+      anvilG.gain.exponentialRampToValueAtTime(0.0001, now + 0.15);
+      anvilOsc.connect(anvilBpf);
+      anvilBpf.connect(anvilG);
+      anvilG.connect(dest);
+      anvilOsc.start(now);
+      anvilOsc.stop(now + 0.18);
+      // Noise impact
+      const forgeNoise = audioCtx.createBufferSource();
+      forgeNoise.buffer = makeNoiseBuffer(0.06);
+      const forgeLpf = audioCtx.createBiquadFilter();
+      forgeLpf.type = 'lowpass';
+      forgeLpf.frequency.value = 3000;
+      const forgeNG = audioCtx.createGain();
+      forgeNG.gain.setValueAtTime(0.30, now);
+      forgeNG.gain.exponentialRampToValueAtTime(0.0001, now + 0.06);
+      forgeNoise.connect(forgeLpf);
+      forgeLpf.connect(forgeNG);
+      forgeNG.connect(dest);
+      forgeNoise.start(now);
+      forgeNoise.stop(now + 0.07);
+      // Sparkle: high FM chime after the strike
+      playFMNote(1800, 1800 * 3.0, 1.5, 0.12, 0.008, 0.30, 'sine', dest, now + 0.12);
+      break;
+    }
+
+    case 'daily': {
+      // Cheerful fanfare — ascending major triad + bright resolve note
+      const dailyNotes = [523.25, 659.26, 783.99, 1046.50]; // C5 E5 G5 C6
+      dailyNotes.forEach((freq, i) => {
+        const t = now + i * 0.10;
+        const osc = audioCtx.createOscillator();
+        const g = audioCtx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.value = freq;
+        g.gain.setValueAtTime(0.0, t);
+        g.gain.linearRampToValueAtTime(0.20, t + 0.008);
+        g.gain.exponentialRampToValueAtTime(0.0001, t + (i === 3 ? 0.40 : 0.18));
+        osc.connect(g);
+        g.connect(dest);
+        osc.start(t);
+        osc.stop(t + (i === 3 ? 0.42 : 0.20));
+      });
+      break;
+    }
+
+    case 'tutorial': {
+      // Soft bell tone — gentle sine with slow attack and warm decay
+      const bellOsc = audioCtx.createOscillator();
+      const bellG = audioCtx.createGain();
+      bellOsc.type = 'sine';
+      bellOsc.frequency.value = 880; // A5
+      bellG.gain.setValueAtTime(0.0, now);
+      bellG.gain.linearRampToValueAtTime(0.15, now + 0.04);
+      bellG.gain.exponentialRampToValueAtTime(0.0001, now + 0.40);
+      bellOsc.connect(bellG);
+      bellG.connect(dest);
+      bellOsc.start(now);
+      bellOsc.stop(now + 0.42);
+      // Soft harmonic overtone
+      const bellOvt = audioCtx.createOscillator();
+      const bellOvtG = audioCtx.createGain();
+      bellOvt.type = 'sine';
+      bellOvt.frequency.value = 1760; // A6 (octave above)
+      bellOvtG.gain.setValueAtTime(0.0, now);
+      bellOvtG.gain.linearRampToValueAtTime(0.06, now + 0.04);
+      bellOvtG.gain.exponentialRampToValueAtTime(0.0001, now + 0.35);
+      bellOvt.connect(bellOvtG);
+      bellOvtG.connect(dest);
+      bellOvt.start(now);
+      bellOvt.stop(now + 0.38);
+      break;
+    }
+
     default:
       break;
   }
@@ -1327,3 +1512,42 @@ export function toggleSFX() {
 
 export function isMusicEnabled() { return musicEnabled; }
 export function isSFXEnabled()   { return sfxEnabled; }
+
+// ─── Volume control (persisted to localStorage) ──────────────────────────────
+const VOL_KEY = 'wenzi-xia-audio';
+
+function _loadVolumes() {
+  try {
+    const raw = localStorage.getItem(VOL_KEY);
+    return raw ? JSON.parse(raw) : { music: 0.65, sfx: 0.35 };
+  } catch { return { music: 0.65, sfx: 0.35 }; }
+}
+function _saveVolumes(v) {
+  localStorage.setItem(VOL_KEY, JSON.stringify(v));
+}
+
+/** Get current music volume (0-1) */
+export function getMusicVolume() {
+  return _loadVolumes().music;
+}
+/** Get current SFX volume (0-1) */
+export function getSfxVolume() {
+  return _loadVolumes().sfx;
+}
+/** Set music volume (0-1 range), persists to localStorage and applies immediately */
+export function setMusicVolume(vol) {
+  const clamped = Math.max(0, Math.min(1, vol));
+  const v = _loadVolumes();
+  v.music = clamped;
+  _saveVolumes(v);
+  if (masterMusicGain) masterMusicGain.gain.value = clamped;
+}
+/** Set SFX volume (0-1 range), persists to localStorage and applies immediately */
+export function setSfxVolume(vol) {
+  const clamped = Math.max(0, Math.min(1, vol));
+  const v = _loadVolumes();
+  v.sfx = clamped;
+  _saveVolumes(v);
+  if (masterSfxGain) masterSfxGain.gain.value = clamped;
+  if (masterStingerGain) masterStingerGain.gain.value = clamped;
+}

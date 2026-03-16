@@ -9,6 +9,7 @@ import { playSound, playMusic, setMusicIntensity, playStinger } from '../audio.j
 import { showCompanionBubble, showEnemyTaunt, COMPANION, ENEMY_TAUNTS, pick } from './companion.js';
 import { setParticleMode, burstParticles } from '../particles.js';
 import { getPixelSprites, createSpriteImg } from '../pixel-sprites.js';
+import { showTutorial } from '../tutorial.js';
 
 const BOSS_NARRATIVES = {
   phase1: [
@@ -764,7 +765,9 @@ function renderBoss() {
         if (correct) {
           // ── New stat-based boss damage calculation ──
           const isCrit = rollCrit(profile);
+          if (isCrit) playSound('crit');
           const bossCombo = (gameState.currentQuest?.results?.combo || 0);
+          if (bossCombo >= 3) playSound('combo');
           let dmg = calcDamage(profile, bossCombo, isCrit, bossTimeLeft);
           if (doubleActive) dmg *= 2;
           doubleActive = false;
@@ -933,22 +936,114 @@ function renderBoss() {
     gameState.save();
 
     if (!won) {
+      // ── Enhanced boss defeat screen ───────────────────────────────────
+      const quest = gameState.currentQuest;
+      const results = quest ? quest.results : { correct: 0, total: 0, maxCombo: 0 };
+      const bossDamageDealt = 100 - bossHp;
+      const motivationalTexts = [
+        "文字之路没有捷径，但每次失败都让你更强！",
+        "墨暗之力只是暂时的胜利——你的知识终将战胜一切！",
+        "连最强的文字侠也有过失败——重要的是永不放弃！",
+      ];
+      const motivation = motivationalTexts[Math.floor(Math.random() * motivationalTexts.length)];
+
       div.innerHTML = `
-        <div class="screen">
-          <h2 style="color:var(--accent-red);">败北……</h2>
-          <p style="margin:1rem 0;">${bossInfo.name}将你击败了。</p>
-          <div style="display:flex; gap:12px; justify-content:center;">
-            <button class="btn btn-primary" id="btn-retry">再战一次</button>
-            <button class="btn" id="btn-retreat">撤退</button>
+        <style>
+          @keyframes defeat-vignette-in {
+            0% { opacity:0; }
+            100% { opacity:1; }
+          }
+          @keyframes defeat-text-fade {
+            0% { opacity:0; transform:translateY(20px); }
+            100% { opacity:1; transform:translateY(0); }
+          }
+          @keyframes defeat-btn-pulse {
+            0%,100% { box-shadow:0 0 0 0 rgba(192,57,43,0.5); }
+            50% { box-shadow:0 0 0 10px rgba(192,57,43,0); }
+          }
+          .defeat-overlay {
+            position:absolute; inset:0; z-index:10;
+            background:
+              radial-gradient(ellipse at center, transparent 40%, rgba(139,0,0,0.35) 80%, rgba(0,0,0,0.85) 100%),
+              rgba(0,0,0,0.75);
+            display:flex; flex-direction:column; align-items:center; justify-content:center;
+            padding:24px;
+            animation: defeat-vignette-in 1.2s ease-out forwards;
+          }
+          .defeat-title {
+            font-size:2.8rem; font-weight:900; color:#c0392b;
+            text-shadow: 0 0 30px rgba(192,57,43,0.6), 0 0 60px rgba(192,57,43,0.3);
+            margin-bottom:8px; opacity:0;
+            animation: defeat-text-fade 0.8s ease-out 0.4s forwards;
+          }
+          .defeat-subtitle {
+            font-size:1.1rem; color:var(--text-secondary); margin-bottom:20px; opacity:0;
+            animation: defeat-text-fade 0.6s ease-out 0.8s forwards;
+          }
+          .defeat-stats {
+            background:rgba(0,0,0,0.5); border:1px solid rgba(192,57,43,0.3);
+            border-radius:10px; padding:16px 28px; margin-bottom:16px;
+            width:100%; max-width:360px; opacity:0;
+            animation: defeat-text-fade 0.6s ease-out 1.2s forwards;
+          }
+          .defeat-stat-row {
+            display:flex; justify-content:space-between; align-items:center;
+            padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.06);
+            font-size:0.95rem;
+          }
+          .defeat-stat-row:last-child { border-bottom:none; }
+          .defeat-stat-label { color:var(--text-secondary); }
+          .defeat-stat-value { font-weight:700; color:var(--accent-gold); }
+          .defeat-motivation {
+            font-style:italic; font-size:0.95rem; color:#e8a0a0;
+            text-align:center; max-width:380px; line-height:1.5;
+            margin-bottom:20px; opacity:0;
+            animation: defeat-text-fade 0.6s ease-out 1.6s forwards;
+          }
+          .defeat-buttons {
+            display:flex; flex-wrap:wrap; gap:10px; justify-content:center;
+            opacity:0;
+            animation: defeat-text-fade 0.6s ease-out 2.0s forwards;
+          }
+          .defeat-btn-retry {
+            animation: defeat-btn-pulse 1.8s ease-in-out infinite;
+          }
+        </style>
+        <div class="defeat-overlay">
+          <div class="defeat-title">败北</div>
+          <div class="defeat-subtitle">${bossInfo.name}将你击败了……</div>
+          <div class="defeat-stats">
+            <div class="defeat-stat-row">
+              <span class="defeat-stat-label">答对</span>
+              <span class="defeat-stat-value">${results.correct} / ${results.total} 题</span>
+            </div>
+            <div class="defeat-stat-row">
+              <span class="defeat-stat-label">最高连击</span>
+              <span class="defeat-stat-value">${results.maxCombo || 0}</span>
+            </div>
+            <div class="defeat-stat-row">
+              <span class="defeat-stat-label">造成伤害</span>
+              <span class="defeat-stat-value">${bossDamageDealt} 点</span>
+            </div>
+          </div>
+          <div class="defeat-motivation">"${motivation}"</div>
+          <div class="defeat-buttons">
+            <button class="btn btn-primary defeat-btn-retry" id="btn-retry" style="padding:10px 28px;font-size:1rem;">再战一次</button>
+            <button class="btn" id="btn-retreat" style="padding:10px 20px;">回到地图</button>
+            ${profile.gold > 0 ? '<button class="btn" id="btn-shop" style="padding:10px 20px;">强化自己</button>' : ''}
           </div>
         </div>
       `;
+      // Companion encouragement (shown after vignette fades in)
+      setTimeout(() => showCompanionBubble(div, pick(COMPANION.defeat), 5000), 1400);
       setTimeout(() => {
         div.querySelector('#btn-retry').addEventListener('click', () => {
           profile.hp = profile.maxHp;
           showScreen('boss');
         });
         div.querySelector('#btn-retreat').addEventListener('click', () => showScreen('worldmap'));
+        const shopBtn = div.querySelector('#btn-shop');
+        if (shopBtn) shopBtn.addEventListener('click', () => showScreen('shop'));
       }, 0);
       return;
     }
@@ -1073,6 +1168,14 @@ function renderBoss() {
   setTimeout(() => showCompanionBubble(div, pick(COMPANION.bossStart), 3000), 500);
   // Boss entrance taunt (after sprite has landed)
   setTimeout(() => showEnemyTaunt(div, pick(bossTaunts), 3000), 1500);
+
+  // Tutorial: first boss encounter
+  if (profile.stats.totalBossKills === 0) {
+    showTutorial(div, 'tutorial_boss', {
+      targetSelector: '.boss-ability-banner',
+      position: 'bottom',
+    });
+  }
 
   return div;
 }

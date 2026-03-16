@@ -539,6 +539,7 @@ function renderReward() {
   setTimeout(() => {
     goldRow.style.transform = 'translateX(0)';
     goldRow.style.opacity = '1';
+    if (goldEarned > 0) playSound('gold');
   }, 1200);
 
   // Step 3 (1500ms): replace xpRow with animated XP bar

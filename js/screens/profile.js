@@ -2,6 +2,9 @@
 import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
 import { playSound } from '../audio.js';
+import { getPixelSprites } from '../pixel-sprites.js';
+import { getEffectiveStats } from '../progression.js';
+import { SHOP_ITEMS } from './shop.js';
 
 // Grade range options: label shown to user → internal tier + difficultyBase
 const GRADE_OPTIONS = [
@@ -17,6 +20,116 @@ function gradeLabel(profile) {
     o => o.tier === profile.tier && o.difficultyBase === (profile.difficultyBase ?? 3)
   );
   return opt ? opt.label : (profile.tier === 'grade7' ? '初一/初二' : '3-4年级');
+}
+
+// ─── Character card overlay (RPG "character select" feel) ──────────────────
+function showCharacterCard(profile, div, onContinue) {
+  const sprites = getPixelSprites();
+  const stats = getEffectiveStats(profile);
+  const equipment = profile.equipment || {};
+
+  // Stat bar helper: value out of a reasonable max for that stat
+  function statBar(label, value, max, color) {
+    const pct = Math.min(100, Math.round((value / max) * 100));
+    return `
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+        <span style="width:40px;font-size:0.8rem;color:var(--text-secondary);text-align:right;">${label}</span>
+        <div style="flex:1;height:10px;background:var(--bg-secondary);border-radius:5px;overflow:hidden;min-width:80px;">
+          <div style="width:${pct}%;height:100%;background:${color};border-radius:5px;transition:width 0.6s ease;"></div>
+        </div>
+        <span style="width:28px;font-size:0.78rem;font-weight:700;color:${color};">${value}</span>
+      </div>`;
+  }
+
+  // Equipment slot helper
+  function equipSlot(slotName, slotLabel, icon) {
+    const itemId = equipment[slotName];
+    const item = itemId ? SHOP_ITEMS.find(i => i.id === itemId) : null;
+    const upgrades = profile.upgrades || {};
+    const upgradeLevel = item ? (upgrades[item.id] || 0) : 0;
+    const upgradeStr = upgradeLevel > 0 ? ` <span style="color:var(--accent-gold);font-weight:700;">+${upgradeLevel}</span>` : '';
+    const displayName = item ? `${item.name}${upgradeStr}` : `<span style="color:var(--text-dim);">${slotLabel}</span>`;
+    return `
+      <div style="display:flex;align-items:center;gap:8px;padding:6px 10px;background:var(--bg-secondary);border-radius:6px;">
+        <span style="font-size:1.1rem;">${icon}</span>
+        <span style="font-size:0.82rem;">${displayName}</span>
+      </div>`;
+  }
+
+  const overlay = document.createElement('div');
+  overlay.className = 'char-card-overlay';
+  overlay.innerHTML = `
+    <div class="char-card-box">
+      <div class="char-card-sprite">
+        <img src="${sprites.player}" style="height:128px;width:auto;image-rendering:pixelated;image-rendering:crisp-edges;">
+      </div>
+      <div class="char-card-name">${profile.name}</div>
+      <div class="char-card-title">${profile.activeTitle || '新手文字侠'}</div>
+      <div class="char-card-level">Lv.${profile.level}</div>
+      <div class="char-card-stats">
+        ${statBar('攻击', stats.attack, 50, '#e74c3c')}
+        ${statBar('防御', stats.defense, 50, '#3498db')}
+        ${statBar('速度', stats.speed, 20, '#2ecc71')}
+      </div>
+      <div class="char-card-equips">
+        ${equipSlot('weapon', '武器空位', '⚔️')}
+        ${equipSlot('armor', '防具空位', '🛡️')}
+        ${equipSlot('accessory', '饰品空位', '💍')}
+      </div>
+      <button class="btn btn-primary char-card-enter" id="char-card-enter">进入游戏</button>
+    </div>
+  `;
+
+  const style = document.createElement('style');
+  style.textContent = `
+    .char-card-overlay {
+      position:fixed; inset:0; background:rgba(0,0,0,0.8); display:flex;
+      align-items:center; justify-content:center; z-index:1000;
+      animation: charCardFadeIn 0.3s ease;
+    }
+    @keyframes charCardFadeIn { from { opacity:0; } to { opacity:1; } }
+    .char-card-box {
+      background:var(--bg-card); border:2px solid var(--accent-gold); border-radius:16px;
+      padding:28px 36px; text-align:center; max-width:340px; width:90%;
+      box-shadow:0 0 40px rgba(212,160,23,0.2), 0 8px 32px rgba(0,0,0,0.5);
+      animation: charCardSlideUp 0.4s ease;
+    }
+    @keyframes charCardSlideUp { from { transform:translateY(30px); opacity:0; } to { transform:translateY(0); opacity:1; } }
+    .char-card-sprite { margin-bottom:12px; }
+    .char-card-name { font-size:1.4rem; font-weight:800; color:var(--text-primary); margin-bottom:2px; }
+    .char-card-title { font-size:0.82rem; color:var(--accent-gold); margin-bottom:8px; letter-spacing:0.06em; }
+    .char-card-level {
+      display:inline-block; background:linear-gradient(135deg,var(--accent-gold),#e67e22);
+      color:#1a1035; font-weight:800; font-size:0.8rem; padding:3px 14px;
+      border-radius:12px; margin-bottom:14px;
+    }
+    .char-card-stats { text-align:left; margin-bottom:14px; }
+    .char-card-equips { display:flex; flex-direction:column; gap:6px; margin-bottom:18px; }
+    .char-card-enter { width:100%; font-size:1rem; padding:10px 0; }
+  `;
+  overlay.appendChild(style);
+  div.appendChild(overlay);
+
+  overlay.querySelector('#char-card-enter').addEventListener('click', () => {
+    playSound('correct');
+    overlay.style.animation = 'charCardFadeIn 0.25s ease reverse forwards';
+    setTimeout(() => {
+      overlay.remove();
+      onContinue();
+    }, 250);
+  });
+
+  // Allow clicking backdrop to dismiss
+  overlay.addEventListener('click', (ev) => {
+    if (ev.target === overlay) {
+      playSound('click');
+      overlay.style.animation = 'charCardFadeIn 0.25s ease reverse forwards';
+      setTimeout(() => {
+        overlay.remove();
+        onContinue();
+      }, 250);
+    }
+  });
 }
 
 function renderProfileSelect(params = {}) {
@@ -149,7 +262,11 @@ function renderProfileSelect(params = {}) {
         } else if (mode === 'daily') {
           showScreen('daily');
         } else {
-          showScreen('worldmap');
+          // Show character card overlay before entering worldmap
+          const selectedProfile = profiles[idx];
+          showCharacterCard(selectedProfile, div, () => {
+            showScreen('worldmap');
+          });
         }
       });
     });

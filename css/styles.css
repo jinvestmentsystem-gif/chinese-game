@@ -2628,3 +2628,987 @@ input[type="text"]:focus, input[type="number"]:focus {
   100% { transform: translateY(120vh) translateX(-120px) rotate(-25deg); opacity: 0; }
 }
 
+/* =============================================================
+   RESPONSIVE / MOBILE STYLES
+   Comprehensive responsive overrides for tablet + phone
+   ============================================================= */
+
+/* ── Safe Area Insets for Notched Phones ────────────────────── */
+:root {
+  --safe-top:    env(safe-area-inset-top, 0px);
+  --safe-right:  env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left:   env(safe-area-inset-left, 0px);
+}
+
+#game-root {
+  padding:
+    var(--safe-top)
+    var(--safe-right)
+    var(--safe-bottom)
+    var(--safe-left);
+}
+
+/* ── Prevent Text Selection During Gameplay ────────────────── */
+.combat-screen,
+.boss-intro,
+.combat-options,
+.combat-arena,
+.combat-hud,
+.puzzle-option,
+.boss-option,
+.combat-option {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* ── Smooth Scrolling on iOS ───────────────────────────────── */
+.screen,
+.worldmap-container,
+.quest-list,
+.inventory-grid,
+.chapter-grid {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ── Touch Device: Larger Touch Targets ────────────────────── */
+@media (pointer: coarse) {
+  .btn, button {
+    min-height: 44px;
+  }
+  .combat-option,
+  .boss-option,
+  .puzzle-option {
+    min-height: 52px;
+    padding: 14px 18px !important;
+  }
+  .tier-btn {
+    min-height: 44px;
+    padding: 10px 18px;
+  }
+  .btn-sm {
+    min-height: 40px;
+    padding: 8px 14px;
+  }
+  .nav-buttons .btn {
+    min-height: 40px;
+    min-width: 44px;
+  }
+  .stat-btn {
+    min-height: 40px;
+    min-width: 40px;
+  }
+  .equip-btn {
+    min-height: 40px;
+    padding: 6px 14px;
+  }
+  .shop-buy-btn {
+    min-height: 44px;
+  }
+  .era-node {
+    min-height: 52px;
+  }
+  .quest-item {
+    min-height: 52px;
+  }
+  .profile-card {
+    min-height: 52px;
+  }
+  input[type="text"], input[type="number"] {
+    min-height: 44px;
+    font-size: 16px; /* prevents iOS zoom on focus */
+  }
+}
+
+/* ── Hover Effects: Only on Devices That Support Hover ──────── */
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover::before {
+    transform: translateX(120%);
+  }
+  .btn:hover {
+    transform: translateY(-2px) scale(1.02);
+  }
+  .card:hover {
+    transform: translateY(-4px);
+  }
+  .chapter-card.unlocked:hover {
+    transform: translateY(-5px);
+  }
+  .era-node.node-active:hover,
+  .era-node.node-completed:hover {
+    transform: translateX(6px);
+  }
+  .quest-item:hover {
+    transform: translateX(6px);
+  }
+  .item-card:hover {
+    transform: translateY(-3px);
+  }
+}
+
+/* Remove hover transforms on touch devices */
+@media (hover: none) {
+  .btn:hover {
+    transform: none;
+  }
+  .btn:hover::before {
+    transform: translateX(-120%);
+  }
+  .card:hover {
+    transform: none;
+  }
+  .chapter-card.unlocked:hover {
+    transform: none;
+  }
+  .era-node.node-active:hover,
+  .era-node.node-completed:hover {
+    transform: none;
+  }
+  .quest-item:hover {
+    transform: none;
+  }
+  .item-card:hover {
+    transform: none;
+  }
+  .combat-option:hover {
+    transform: none;
+  }
+  .puzzle-option:hover {
+    transform: none;
+  }
+  .boss-option:hover {
+    transform: none;
+  }
+  .profile-card:hover {
+    transform: none;
+  }
+  .talent-node:hover {
+    transform: none;
+  }
+  /* Active state feedback instead of hover */
+  .btn:active {
+    transform: scale(0.96);
+    filter: brightness(1.1);
+  }
+  .combat-option:active,
+  .puzzle-option:active,
+  .boss-option:active {
+    transform: scale(0.97);
+    filter: brightness(1.15);
+  }
+  .era-node:active {
+    transform: scale(0.98);
+    filter: brightness(1.05);
+  }
+}
+
+/* =============================================================
+   TABLET PORTRAIT — max-width: 768px
+   ============================================================= */
+@media (max-width: 768px) {
+
+  /* ── General ──────────────────────────────────────────────── */
+  .container {
+    padding: 0 16px;
+  }
+  h1 {
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+  }
+  h2 {
+    font-size: clamp(1.2rem, 3.5vw, 1.7rem);
+  }
+
+  /* ── Title Screen ─────────────────────────────────────────── */
+  .title-menu {
+    width: min(90vw, 320px);
+    gap: 12px;
+  }
+  .title-char {
+    font-size: clamp(3rem, 10vw, 4.5rem);
+  }
+  .title-subtitle {
+    font-size: clamp(0.85rem, 2.5vw, 1.2rem);
+    letter-spacing: 0.5em;
+  }
+
+  /* ── World Map ────────────────────────────────────────────── */
+  .top-bar {
+    padding: 10px 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .player-badge .name {
+    font-size: 0.95rem;
+  }
+  .nav-buttons {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .nav-buttons .btn {
+    font-size: 0.82rem;
+    padding: 7px 12px;
+  }
+  .wm-stats-bar {
+    gap: 8px;
+    padding: 8px 12px;
+    flex-wrap: wrap;
+  }
+  .wm-stat-block {
+    min-width: 100px;
+  }
+
+  .era-node {
+    gap: 16px;
+    padding: 16px 18px;
+  }
+  .era-icon {
+    font-size: 2.2rem;
+    width: 56px;
+    height: 56px;
+  }
+  .era-title {
+    font-size: 1.15rem;
+  }
+
+  .worldmap-path {
+    padding: 24px 12px 40px;
+  }
+
+  /* ── Combat / Boss / Puzzle ───────────────────────────────── */
+  .combat-screen {
+    padding: 10px;
+    gap: 8px;
+  }
+  .combat-hud {
+    padding: 10px 14px;
+    gap: 10px;
+  }
+  .combat-actor {
+    min-width: 130px;
+  }
+  .hp-section {
+    width: 160px;
+  }
+
+  .combat-arena {
+    padding: 8px 16px;
+  }
+  .battle-sprite-container svg {
+    max-width: 120px;
+    max-height: 120px;
+  }
+
+  .combat-question {
+    font-size: 1.1rem;
+  }
+  .combat-options {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .timer-bar-bg {
+    width: 90%;
+    max-width: none;
+  }
+
+  .boss-name {
+    font-size: 2rem;
+  }
+
+  /* ── Shop ──────────────────────────────────────────────────── */
+  .shop-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important;
+    gap: 10px !important;
+    padding: 0 12px 30px !important;
+  }
+  .set-bonus-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+    padding: 0 12px 14px !important;
+  }
+
+  /* ── Inventory ─────────────────────────────────────────────── */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  .inv-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+    gap: 10px !important;
+  }
+  .inventory-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+    padding: 12px 14px;
+  }
+  .info-section {
+    padding: 12px 14px !important;
+  }
+
+  /* ── Level-up ──────────────────────────────────────────────── */
+  .talent-tree {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+    padding: 10px;
+  }
+  .talent-node .talent-icon {
+    font-size: 1.5rem;
+  }
+
+  /* ── Reward ────────────────────────────────────────────────── */
+  .reward-screen {
+    padding: 28px 16px;
+  }
+
+  /* ── Profile Selection ─────────────────────────────────────── */
+  .profile-list {
+    gap: 12px;
+    padding: 0 14px;
+  }
+  .profile-card {
+    padding: 16px 24px;
+    min-width: 140px;
+  }
+
+  /* ── Quest list ────────────────────────────────────────────── */
+  .quest-list {
+    padding: 12px 14px;
+  }
+
+  /* ── Chapter grid ──────────────────────────────────────────── */
+  .chapter-grid {
+    gap: 14px;
+    padding: 8px 14px 24px;
+  }
+  .chapter-card {
+    width: 145px;
+    padding: 18px 14px;
+  }
+
+  /* ── Daily Login ───────────────────────────────────────────── */
+  .daily-login-content {
+    padding: 24px 28px;
+    max-width: 300px;
+  }
+  .daily-reward-popup {
+    padding: 24px 32px;
+  }
+}
+
+/* =============================================================
+   PHONE — max-width: 480px
+   ============================================================= */
+@media (max-width: 480px) {
+
+  /* ── General ──────────────────────────────────────────────── */
+  body {
+    font-size: 15px;
+  }
+  .container {
+    padding: 0 10px;
+  }
+  h1 {
+    font-size: clamp(1.5rem, 7vw, 2.2rem);
+  }
+  h2 {
+    font-size: clamp(1.1rem, 4vw, 1.4rem);
+  }
+  h3 {
+    font-size: 1rem;
+  }
+  .btn {
+    font-size: 0.88rem;
+    padding: 10px 18px;
+  }
+  .btn-sm {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
+
+  /* ── Title Screen ─────────────────────────────────────────── */
+  .title-menu {
+    width: min(92vw, 300px);
+    gap: 10px;
+  }
+  .title-menu-btn {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 12px 16px;
+  }
+  .title-char {
+    font-size: clamp(2.5rem, 14vw, 4rem);
+  }
+  .title-subtitle {
+    font-size: clamp(0.75rem, 2.5vw, 1rem);
+    letter-spacing: 0.3em;
+    margin-bottom: 2rem;
+  }
+  .title-logo-wrap {
+    margin-top: -1rem;
+  }
+  .title-version {
+    bottom: calc(10px + var(--safe-bottom));
+    left: 10px;
+  }
+  .title-audio-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* ── World Map ────────────────────────────────────────────── */
+  .top-bar {
+    padding: 8px 10px;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .player-badge .name {
+    font-size: 0.85rem;
+  }
+  .player-badge .level {
+    font-size: 0.75rem;
+    padding: 2px 6px;
+  }
+  .nav-buttons {
+    flex-wrap: wrap;
+    gap: 4px;
+    width: 100%;
+    justify-content: flex-end;
+  }
+  .nav-buttons .btn {
+    font-size: 0.78rem;
+    padding: 6px 10px;
+  }
+
+  .wm-stats-bar {
+    gap: 6px;
+    padding: 6px 8px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .wm-stat-block {
+    min-width: 0;
+    width: 100%;
+  }
+  .wm-stat-gold {
+    align-self: flex-start;
+  }
+  .wm-stat-level {
+    align-self: flex-start;
+  }
+  .wm-active-title {
+    font-size: 0.62rem;
+  }
+
+  .worldmap-path {
+    padding: 16px 8px 40px;
+  }
+  .era-node {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    padding: 14px 12px;
+    width: 100%;
+  }
+  .era-badge {
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+  }
+  .era-icon {
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+  }
+  .era-title {
+    font-size: 1.1rem;
+  }
+  .era-subtitle {
+    font-size: 0.8rem;
+  }
+  .era-progress-bar {
+    max-width: none;
+    width: 100%;
+  }
+
+  .path-connector {
+    padding-left: 24px;
+  }
+  .path-line {
+    height: 24px;
+    margin-left: 8px;
+  }
+
+  /* ── Combat / Boss / Puzzle ───────────────────────────────── */
+  .combat-screen {
+    padding: 6px;
+    gap: 6px;
+  }
+  .combat-hud {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+  }
+  .combat-actor {
+    min-width: 0;
+    width: 100%;
+  }
+  .combat-actor-name {
+    font-size: 0.85rem;
+  }
+  .hp-section {
+    width: 100%;
+    max-width: 240px;
+  }
+
+  .combat-arena {
+    padding: 6px 10px;
+  }
+  .battle-sprite-container svg {
+    max-width: 90px;
+    max-height: 90px;
+  }
+  .sprite-label {
+    font-size: 0.7rem;
+  }
+
+  .combo-display {
+    font-size: 0.95rem;
+  }
+
+  .combat-question-panel {
+    padding: 10px 14px;
+  }
+  .combat-question {
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+  }
+
+  .combat-options {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .combat-option {
+    font-size: 0.92rem;
+    padding: 12px 14px !important;
+  }
+  .puzzle-option {
+    font-size: 0.92rem;
+    padding: 12px 14px !important;
+  }
+  .boss-option {
+    font-size: 0.92rem;
+    padding: 12px 14px !important;
+  }
+
+  .feedback-text {
+    font-size: 0.82rem;
+    padding: 0 4px;
+  }
+
+  .timer-bar-bg {
+    width: 100%;
+    max-width: none;
+    margin: 6px auto;
+  }
+
+  .boss-intro {
+    padding: 24px 14px;
+  }
+  .boss-name {
+    font-size: 1.6rem;
+    margin: 14px 0 6px;
+  }
+
+  /* ── Damage numbers ────────────────────────────────────────── */
+  .damage-number {
+    font-size: 1.2rem;
+  }
+  .crit-text {
+    font-size: 1.8rem;
+  }
+  .combo-counter {
+    font-size: 2.8rem;
+  }
+
+  /* ── Shop ──────────────────────────────────────────────────── */
+  .shop-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    padding: 0 8px 24px !important;
+  }
+  .set-bonus-grid {
+    grid-template-columns: 1fr !important;
+    padding: 0 8px 12px !important;
+  }
+
+  /* ── Inventory ─────────────────────────────────────────────── */
+  .stats-grid {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+  .stat-card {
+    padding: 10px !important;
+  }
+  .stat-value {
+    font-size: 1.3rem !important;
+  }
+  .inv-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    padding: 0 8px !important;
+  }
+  .inventory-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 10px 8px;
+  }
+  .item-card {
+    padding: 12px;
+  }
+  .info-section {
+    padding: 10px 12px !important;
+    max-width: none !important;
+  }
+  .xp-bar-bg {
+    max-width: none !important;
+  }
+
+  /* ── Level-up ──────────────────────────────────────────────── */
+  .talent-tree {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 8px;
+    padding: 8px;
+  }
+  .talent-node {
+    padding: 10px 8px;
+  }
+  .talent-node .talent-icon {
+    font-size: 1.3rem;
+    margin-bottom: 2px;
+  }
+  .talent-node .talent-name {
+    font-size: 0.78rem;
+  }
+  .talent-node .talent-rank {
+    font-size: 0.68rem;
+  }
+
+  /* ── Reward Screen ─────────────────────────────────────────── */
+  .reward-screen {
+    padding: 20px 10px;
+  }
+  .reward-stars {
+    gap: 8px;
+    margin: 16px 0;
+  }
+  .star {
+    font-size: 2rem;
+  }
+
+  /* ── Profile Selection ─────────────────────────────────────── */
+  .profile-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 0 10px;
+  }
+  .profile-card {
+    width: 100%;
+    max-width: 280px;
+    padding: 14px 20px;
+    min-width: 0;
+  }
+
+  /* ── Quest list ────────────────────────────────────────────── */
+  .quest-list {
+    padding: 10px 8px;
+    gap: 10px;
+  }
+  .quest-item {
+    padding: 12px 14px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  /* ── Chapter grid ──────────────────────────────────────────── */
+  .chapter-grid {
+    gap: 10px;
+    padding: 6px 8px 20px;
+    justify-content: center;
+  }
+  .chapter-card {
+    width: 130px;
+    padding: 14px 10px;
+  }
+  .chapter-name {
+    font-size: 0.95rem;
+  }
+  .chapter-era {
+    font-size: 0.68rem;
+  }
+  .chapter-boss {
+    font-size: 0.72rem;
+  }
+
+  /* ── Daily Login ───────────────────────────────────────────── */
+  .daily-login-content {
+    padding: 20px 22px;
+    max-width: 280px;
+  }
+  .daily-login-streak {
+    font-size: 1.1rem;
+  }
+  .daily-login-streak strong {
+    font-size: 1.5rem;
+  }
+  .daily-reward-popup {
+    padding: 20px 24px;
+    width: 90vw;
+    max-width: 320px;
+  }
+
+  /* ── Cards general ─────────────────────────────────────────── */
+  .card {
+    padding: 14px 16px;
+  }
+
+  /* ── HP Bar compact ────────────────────────────────────────── */
+  .hp-bar-bg,
+  .puzzle-hp-bg,
+  .boss-hp-bg {
+    height: 12px;
+  }
+  .hp-bar-container {
+    height: 18px;
+  }
+
+  /* ── Tier buttons wrap ─────────────────────────────────────── */
+  .tier-btn {
+    min-width: 80px;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+/* =============================================================
+   SMALL PHONES — max-width: 360px
+   ============================================================= */
+@media (max-width: 360px) {
+  .title-char {
+    font-size: clamp(2rem, 15vw, 3rem);
+  }
+  .title-subtitle {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+  }
+  .combat-options {
+    gap: 6px;
+  }
+  .combat-option,
+  .puzzle-option,
+  .boss-option {
+    font-size: 0.85rem;
+    padding: 10px 12px !important;
+  }
+  .nav-buttons .btn {
+    font-size: 0.72rem;
+    padding: 5px 8px;
+  }
+  .chapter-card {
+    width: 110px;
+    padding: 12px 8px;
+  }
+  .chapter-name {
+    font-size: 0.85rem;
+  }
+  .era-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 1.6rem;
+  }
+  .era-title {
+    font-size: 1rem;
+  }
+}
+
+/* =============================================================
+   LANDSCAPE PHONE — constrained height
+   ============================================================= */
+@media (max-height: 500px) and (orientation: landscape) {
+  .combat-screen {
+    padding: 4px 8px;
+    gap: 4px;
+  }
+  .combat-hud {
+    padding: 6px 10px;
+    flex-direction: row;
+  }
+  .combat-arena {
+    padding: 4px 10px;
+  }
+  .battle-sprite-container svg {
+    max-width: 70px;
+    max-height: 70px;
+  }
+  .title-logo-wrap {
+    margin-top: -2rem;
+  }
+  .title-char {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+  .title-subtitle {
+    margin-bottom: 1rem;
+  }
+  .title-menu {
+    gap: 8px;
+  }
+  .boss-name {
+    font-size: 1.4rem;
+  }
+}
+
+/* =============================================================
+   REDUCED MOTION — Accessibility
+   ============================================================= */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  body {
+    animation: none;
+    background-size: 100% 100%;
+  }
+  body::before {
+    animation: none;
+  }
+  .ink-particle,
+  .meteor,
+  .meteor-subtle,
+  .ink-streak {
+    animation: none !important;
+    display: none;
+  }
+  .title-char {
+    opacity: 1;
+    animation: none;
+    clip-path: none;
+    filter: none;
+    transform: none;
+  }
+  .title-subtitle {
+    opacity: 1;
+    animation: none;
+    filter: none;
+  }
+  .title-menu-btn {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+  .title-ink-splatter {
+    display: none;
+  }
+  .title-mist {
+    animation: none;
+  }
+  .title-mountain {
+    animation: none;
+  }
+  .title-float-char {
+    animation: none;
+    display: none;
+  }
+  .hp-bar::after,
+  .timer-bar::after {
+    animation: none;
+  }
+  .btn-primary {
+    animation: none;
+  }
+  .era-node.node-active {
+    animation: none;
+  }
+  .era-status-badge.active {
+    animation: none;
+    opacity: 1;
+  }
+  .hp-bar.hp-low,
+  .hp-critical {
+    animation: none;
+  }
+  .timer-bar.timer-urgent {
+    animation: none;
+  }
+  .screen-enter,
+  .screen-exit,
+  .screen-fade-in,
+  .screen-fade-out {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .glow-border::after {
+    animation: none;
+  }
+  .shimmer::before {
+    animation: none;
+  }
+  .magic-border {
+    animation: none;
+  }
+  .pulse-glow {
+    animation: none;
+  }
+  .float-gentle {
+    animation: none;
+  }
+  .combo-display {
+    animation: none;
+  }
+  .star {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* =============================================================
+   PRINT STYLES — Hide game entirely
+   ============================================================= */
+@media print {
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  body::before,
+  body::after {
+    display: none !important;
+  }
+  #game-root {
+    display: none !important;
+  }
+  .ink-particles,
+  .meteor-container,
+  .map-bg-silhouette,
+  .map-parallax-wrap {
+    display: none !important;
+  }
+  /* Show a simple message instead */
+  body::before {
+    content: '文字侠 (Word Hero) — This game cannot be printed.';
+    display: block !important;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 2rem;
+    color: #333;
+  }
+}
+

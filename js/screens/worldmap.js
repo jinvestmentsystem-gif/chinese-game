@@ -4,6 +4,7 @@ import { registerScreen, showScreen } from '../main.js';
 import { SPRITES } from '../sprites.js';
 import { playMusic, setMusicIntensity } from '../audio.js';
 import { getXPProgress, getEffectiveMaxHp, checkDailyLogin } from '../progression.js';
+import { showTutorial } from '../tutorial.js';
 
 // ── Chapter / Era Data ────────────────────────────────────────────────────────
 const CHAPTERS = [
@@ -375,6 +376,8 @@ function renderWorldMap() {
           <button class="btn btn-sm" id="btn-inventory" title="打开背包">背包</button>
           <button class="btn btn-sm" id="btn-shop" title="前往商店">商店</button>
           <button class="btn btn-sm" id="btn-chengyu" title="查看成语">成语</button>
+          <button class="btn btn-sm" id="btn-stats" title="学习统计">统计</button>
+          <button class="btn btn-sm" id="btn-settings" title="设置" style="font-size:1.05rem;padding:4px 10px;">&#x2699;</button>
           <button class="btn btn-sm" id="btn-back" title="返回主菜单">返回</button>
         </div>
       </div>
@@ -500,6 +503,8 @@ function renderWorldMap() {
     div.querySelector('#btn-inventory')?.addEventListener('click', () => showScreen('inventory'));
     div.querySelector('#btn-shop')?.addEventListener('click', () => showScreen('shop'));
     div.querySelector('#btn-chengyu')?.addEventListener('click', () => showScreen('chengyu'));
+    div.querySelector('#btn-stats')?.addEventListener('click', () => showScreen('stats', { returnTo: 'worldmap' }));
+    div.querySelector('#btn-settings')?.addEventListener('click', () => showScreen('settings', { returnTo: 'worldmap' }));
 
     // --- Daily reward button ---
     const btnDaily = div.querySelector('#btn-daily-reward');
@@ -567,6 +572,14 @@ function renderWorldMap() {
     if (activeCh) {
       requestAnimationFrame(() => {
         activeCh.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+    }
+
+    // Tutorial: first worldmap visit (show for level-1 players)
+    if (profile.level === 1) {
+      showTutorial(div, 'tutorial_worldmap', {
+        targetSelector: '.era-node.node-active, .era-node:first-child',
+        position: 'bottom',
       });
     }
   }, 0);

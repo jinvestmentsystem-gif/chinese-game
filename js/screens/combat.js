@@ -8,6 +8,7 @@ import { playSound, playMusic, setMusicIntensity, playStinger } from '../audio.j
 import { showCompanionBubble, showEnemyTaunt, COMPANION, ENEMY_TAUNTS, pick } from './companion.js';
 import { setParticleMode, burstParticles } from '../particles.js';
 import { getPixelSprites, createSpriteImg } from '../pixel-sprites.js';
+import { showTutorial } from '../tutorial.js';
 
 const ENEMY_NAMES = ['墨灵', '暗字兵', '墨影卫', '乱笔妖', '黑墨士'];
 
@@ -989,6 +990,8 @@ function renderCombat() {
 
     if (correct) {
       combo++;
+      // Combo SFX on 3+ combo
+      if (combo >= 3) playSound('combo');
       // Ramp music intensity with combo
       if (combo >= 5) setMusicIntensity(3);
       else if (combo >= 3) setMusicIntensity(2);
@@ -1077,7 +1080,7 @@ function renderCombat() {
 
       // ── CRITICAL HIT banner + screen shake ──
       if (isCrit) {
-        playSound('attack');
+        playSound('crit');
         // Big golden CRITICAL HIT text
         const critBanner = document.createElement('div');
         critBanner.textContent = '暴击！CRITICAL HIT';
@@ -1374,24 +1377,116 @@ function renderCombat() {
     gameState.save();
 
     if (!won) {
-      // Companion comfort on defeat
-      showCompanionBubble(div, pick(COMPANION.defeat), 4000);
-      // Grayscale defeat
-      div.style.filter = 'grayscale(1)';
+      // ── Enhanced defeat screen ──────────────────────────────────────────
+      const quest = gameState.currentQuest;
+      const results = quest ? quest.results : { correct: 0, total: 0, maxCombo: 0 };
+      const damageDealt = 100 - enemyHp;
+      const motivationalTexts = [
+        "文字之路没有捷径，但每次失败都让你更强！",
+        "墨暗之力只是暂时的胜利——你的知识终将战胜一切！",
+        "连最强的文字侠也有过失败——重要的是永不放弃！",
+      ];
+      const motivation = motivationalTexts[Math.floor(Math.random() * motivationalTexts.length)];
+
+      // Dark + red vignette overlay with fade-in
+      div.style.filter = '';
       div.innerHTML = `
-        <div class="screen">
-          <h2 style="color:var(--accent-red);">战斗失败</h2>
-          <p style="margin:1rem 0;">你被${enemyName}击败了……</p>
-          <button class="btn btn-primary" id="btn-retry">重试</button>
-          <button class="btn" id="btn-retreat" style="margin-top:8px;">撤退</button>
+        <style>
+          @keyframes defeat-vignette-in {
+            0% { opacity:0; }
+            100% { opacity:1; }
+          }
+          @keyframes defeat-text-fade {
+            0% { opacity:0; transform:translateY(20px); }
+            100% { opacity:1; transform:translateY(0); }
+          }
+          @keyframes defeat-btn-pulse {
+            0%,100% { box-shadow:0 0 0 0 rgba(192,57,43,0.5); }
+            50% { box-shadow:0 0 0 10px rgba(192,57,43,0); }
+          }
+          .defeat-overlay {
+            position:absolute; inset:0; z-index:10;
+            background:
+              radial-gradient(ellipse at center, transparent 40%, rgba(139,0,0,0.35) 80%, rgba(0,0,0,0.85) 100%),
+              rgba(0,0,0,0.75);
+            display:flex; flex-direction:column; align-items:center; justify-content:center;
+            padding:24px;
+            animation: defeat-vignette-in 1.2s ease-out forwards;
+          }
+          .defeat-title {
+            font-size:2.8rem; font-weight:900; color:#c0392b;
+            text-shadow: 0 0 30px rgba(192,57,43,0.6), 0 0 60px rgba(192,57,43,0.3);
+            margin-bottom:8px; opacity:0;
+            animation: defeat-text-fade 0.8s ease-out 0.4s forwards;
+          }
+          .defeat-subtitle {
+            font-size:1.1rem; color:var(--text-secondary); margin-bottom:20px; opacity:0;
+            animation: defeat-text-fade 0.6s ease-out 0.8s forwards;
+          }
+          .defeat-stats {
+            background:rgba(0,0,0,0.5); border:1px solid rgba(192,57,43,0.3);
+            border-radius:10px; padding:16px 28px; margin-bottom:16px;
+            width:100%; max-width:360px; opacity:0;
+            animation: defeat-text-fade 0.6s ease-out 1.2s forwards;
+          }
+          .defeat-stat-row {
+            display:flex; justify-content:space-between; align-items:center;
+            padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.06);
+            font-size:0.95rem;
+          }
+          .defeat-stat-row:last-child { border-bottom:none; }
+          .defeat-stat-label { color:var(--text-secondary); }
+          .defeat-stat-value { font-weight:700; color:var(--accent-gold); }
+          .defeat-motivation {
+            font-style:italic; font-size:0.95rem; color:#e8a0a0;
+            text-align:center; max-width:380px; line-height:1.5;
+            margin-bottom:20px; opacity:0;
+            animation: defeat-text-fade 0.6s ease-out 1.6s forwards;
+          }
+          .defeat-buttons {
+            display:flex; flex-wrap:wrap; gap:10px; justify-content:center;
+            opacity:0;
+            animation: defeat-text-fade 0.6s ease-out 2.0s forwards;
+          }
+          .defeat-btn-retry {
+            animation: defeat-btn-pulse 1.8s ease-in-out infinite;
+          }
+        </style>
+        <div class="defeat-overlay">
+          <div class="defeat-title">败北</div>
+          <div class="defeat-subtitle">你被${enemyName}击败了……</div>
+          <div class="defeat-stats">
+            <div class="defeat-stat-row">
+              <span class="defeat-stat-label">答对</span>
+              <span class="defeat-stat-value">${results.correct} / ${results.total} 题</span>
+            </div>
+            <div class="defeat-stat-row">
+              <span class="defeat-stat-label">最高连击</span>
+              <span class="defeat-stat-value">${results.maxCombo || 0}</span>
+            </div>
+            <div class="defeat-stat-row">
+              <span class="defeat-stat-label">造成伤害</span>
+              <span class="defeat-stat-value">${damageDealt} 点</span>
+            </div>
+          </div>
+          <div class="defeat-motivation">"${motivation}"</div>
+          <div class="defeat-buttons">
+            <button class="btn btn-primary defeat-btn-retry" id="btn-retry" style="padding:10px 28px;font-size:1rem;">再战一次</button>
+            <button class="btn" id="btn-retreat" style="padding:10px 20px;">回到地图</button>
+            ${profile.gold > 0 ? '<button class="btn" id="btn-shop" style="padding:10px 20px;">强化自己</button>' : ''}
+          </div>
         </div>
       `;
+      // Companion encouragement (shown after vignette fades in)
+      setTimeout(() => showCompanionBubble(div, pick(COMPANION.defeat), 5000), 1400);
       setTimeout(() => {
         div.querySelector('#btn-retry').addEventListener('click', () => {
           profile.hp = profile.maxHp;
           showScreen('combat');
         });
         div.querySelector('#btn-retreat').addEventListener('click', () => showScreen('worldmap'));
+        const shopBtn = div.querySelector('#btn-shop');
+        if (shopBtn) shopBtn.addEventListener('click', () => showScreen('shop'));
       }, 0);
       return;
     }
@@ -1457,25 +1552,12 @@ function renderCombat() {
     }
   } catch(e) { console.warn('PixiJS init failed:', e); }
 
-  // ── First-ever combat tutorial overlay ──────────────────────────────────
-  if (profile.accuracy.vocab.length === 0) {
-    const tutorial = document.createElement('div');
-    tutorial.style.cssText = `position:absolute;inset:0;background:rgba(0,0,0,0.8);display:flex;align-items:center;justify-content:center;z-index:100;`;
-    tutorial.innerHTML = `
-      <div style="background:var(--bg-card);border:2px solid var(--accent-gold);border-radius:12px;padding:32px;max-width:400px;text-align:center;">
-        <h3 style="color:var(--accent-gold);margin-bottom:12px;">文字就是你的武器！</h3>
-        <p style="margin-bottom:8px;">回答正确 → 攻击敌人</p>
-        <p style="margin-bottom:8px;">回答错误 → 敌人反击</p>
-        <p style="margin-bottom:8px;">连续答对 → 连击加成伤害</p>
-        <p style="margin-bottom:16px;color:var(--text-secondary);">答得越快，伤害越高！</p>
-        <button class="btn btn-primary" style="padding:10px 24px;">开战！</button>
-      </div>
-    `;
-    div.appendChild(tutorial);
-    tutorial.querySelector('button').addEventListener('click', () => {
-      tutorial.remove();
-      // Enemy taunts after tutorial dismissal
-      showEnemyTaunt(div, pick(ENEMY_TAUNTS.combat), 3000);
+  // ── First-ever combat tutorial tooltip ──────────────────────────────────
+  if (profile.stats.totalQuests === 0) {
+    showTutorial(div, 'tutorial_combat', {
+      targetSelector: '.combat-option',
+      position: 'top',
+      onDismiss: () => showEnemyTaunt(div, pick(ENEMY_TAUNTS.combat), 3000),
     });
   } else {
     // No tutorial — show enemy taunt immediately on combat start

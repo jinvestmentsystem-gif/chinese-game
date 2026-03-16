@@ -22,6 +22,38 @@ const CHENGYU_BONUS_LABELS = {
 
 // ─── Helpers to decompose stat sources ────────────────────────────────────────
 
+function getPrimaryStat(item) {
+  if (item.type === 'weapon') return 'attack';
+  if (item.type === 'armor') return 'defense';
+  if (item.stats) {
+    let best = null, bestVal = 0;
+    for (const [k, v] of Object.entries(item.stats)) {
+      if (v > bestVal) { best = k; bestVal = v; }
+    }
+    return best || 'attack';
+  }
+  return 'attack';
+}
+
+function getUpgradeStatTotal(profile, statKey) {
+  let total = 0;
+  const slots = ['weapon', 'armor', 'accessory'];
+  const upgrades = profile.upgrades || {};
+  for (const slot of slots) {
+    const equipId = (profile.equipment || {})[slot];
+    if (!equipId) continue;
+    const item = EQUIPMENT_DB.find(e => e.id === equipId);
+    if (!item) continue;
+    const level = upgrades[equipId] || 0;
+    if (level <= 0) continue;
+    const primaryStat = getPrimaryStat(item);
+    // Map primary stat to effective stat key
+    const mappedKey = primaryStat === 'hp' ? 'maxHp' : primaryStat === 'wenli' ? 'maxWenli' : primaryStat;
+    if (mappedKey === statKey) total += level * 2;
+  }
+  return total;
+}
+
 function getEquipmentStatTotal(profile, statKey) {
   let total = 0;
   const slots = ['weapon', 'armor', 'accessory'];
@@ -78,15 +110,17 @@ function renderInventory() {
     const base = baseStatMap[key] || 0;
     // Subtract equipment contribution from base since profile already includes equipped stats
     const equipBonus = getEquipmentStatTotal(profile, key);
+    const upgradeBonus = getUpgradeStatTotal(profile, key);
     const talentBonus = getTalentStatTotal(profile, key);
     const chengyuBonus = getChengyuStatTotal(profile, key);
-    // Base displayed = effective - equipment - talent - chengyu (the raw base)
-    const rawBase = base - equipBonus;
+    // Base displayed = effective - equipment - talent - chengyu - upgrade (the raw base)
+    const rawBase = base - equipBonus - upgradeBonus;
     const suffix = key === 'critChance' ? '%' : '';
 
     let breakdownHTML = '';
     const parts = [];
     if (equipBonus > 0) parts.push(`<span style="color:#5bc8af;">+${equipBonus}${suffix}</span>`);
+    if (upgradeBonus > 0) parts.push(`<span style="color:#e67e22;">+${upgradeBonus}${suffix}</span>`);
     if (talentBonus > 0) parts.push(`<span style="color:#a855f7;">+${talentBonus}${suffix}</span>`);
     if (chengyuBonus > 0) parts.push(`<span style="color:#d4a017;">+${chengyuBonus}${suffix}</span>`);
     if (parts.length > 0) {
@@ -102,25 +136,33 @@ function renderInventory() {
   }).join('');
 
   // ─── Equipment inventory ────────────────────────────────────────────────────
+  const upgrades = profile.upgrades || {};
   const inventoryHTML = profile.inventory.length === 0
     ? '<p style="color:var(--text-secondary);">还没有装备，前往商店购买装备吧！</p>'
     : profile.inventory.map(itemId => {
       const item = EQUIPMENT_DB.find(e => e.id === itemId);
       if (!item) return '';
       const equipped = (profile.equipment.weapon === itemId || profile.equipment.armor === itemId || profile.equipment.accessory === itemId);
+      const upgradeLevel = upgrades[itemId] || 0;
+      const upgradeStars = upgradeLevel > 0 ? ' ' + Array.from({length: upgradeLevel}, () => '★').join('') : '';
+      const upgradeBadge = upgradeLevel > 0 ? `<span style="color:var(--accent-gold);font-weight:800;font-size:0.78rem;"> +${upgradeLevel}</span>` : '';
+      const primary = getPrimaryStat(item);
       const statsText = Object.entries(item.stats).map(([k, v]) => {
         const labels = { attack: '攻击', defense: '防御', speed: '速度', wenli: '文力', hp: 'HP', critChance: '暴击率' };
-        return `${labels[k] || k}+${v}`;
+        const isP = k === primary;
+        const bonus = isP ? upgradeLevel * 2 : 0;
+        const bonusStr = bonus > 0 ? `<span style="color:#e67e22;"> (+${bonus})</span>` : '';
+        return `<span style="color:var(--accent-jade);">${labels[k] || k}+${v + bonus}</span>${bonusStr}`;
       }).join(' ');
       const typeLabel = { weapon: '武器', armor: '防具', accessory: '饰品' }[item.type] || '';
       return `
         <div class="inv-item ${equipped ? 'equipped' : ''}" data-id="${itemId}" data-type="${item.type}">
           <div style="display:flex;justify-content:space-between;align-items:center;">
-            <div style="font-weight:700;">${item.name} ${equipped ? '(装备中)' : ''}</div>
+            <div style="font-weight:700;">${item.name}${upgradeBadge} <span style="color:var(--accent-gold);font-size:0.78rem;">${upgradeStars}</span> ${equipped ? '<span style="font-size:0.78rem;color:var(--accent-jade);">(装备中)</span>' : ''}</div>
             <span style="font-size:0.68rem;color:var(--text-dim);background:var(--bg-secondary);padding:2px 6px;border-radius:4px;">${typeLabel}</span>
           </div>
           <div style="font-size:0.85rem;color:var(--text-secondary);">${item.desc || item.description || ''}</div>
-          <div style="font-size:0.85rem;color:var(--accent-jade);">${statsText}</div>
+          <div style="font-size:0.85rem;">${statsText}</div>
           <button class="btn equip-btn" style="padding:4px 12px;font-size:0.8rem;margin-top:4px;">${equipped ? '卸下' : '装备'}</button>
         </div>
       `;
@@ -197,6 +239,7 @@ function renderInventory() {
     <div style="display:flex;gap:12px;flex-wrap:wrap;font-size:0.7rem;margin-bottom:12px;">
       <span style="color:#fff;">■ 基础</span>
       <span style="color:#5bc8af;">■ 装备</span>
+      <span style="color:#e67e22;">■ 强化</span>
       <span style="color:#a855f7;">■ 天赋</span>
       <span style="color:#d4a017;">■ 成语</span>
     </div>`;
@@ -229,6 +272,7 @@ function renderInventory() {
             color:var(--accent-gold);
           ">💰 ${profile.gold || 0}</div>
           <button class="btn btn-sm" id="btn-shop">前往商店</button>
+          <button class="btn btn-sm" id="btn-forge" style="border-color:#e67e22;color:#e67e22;">前往锻造</button>
           <button class="btn" id="btn-back">返回</button>
         </div>
       </div>
@@ -271,6 +315,7 @@ function renderInventory() {
   setTimeout(() => {
     div.querySelector('#btn-back').addEventListener('click', () => showScreen('worldmap'));
     div.querySelector('#btn-shop').addEventListener('click', () => showScreen('shop'));
+    div.querySelector('#btn-forge').addEventListener('click', () => showScreen('shop', { tab: 'forge' }));
 
     div.querySelectorAll('.equip-btn').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -279,19 +324,40 @@ function renderInventory() {
         const type = item.dataset.type;
         const equip = EQUIPMENT_DB.find(e => e.id === id);
         if (!equip) return;
+        const upgrades = profile.upgrades || {};
         if (profile.equipment[type] === id) {
-          // Unequip — remove stats
+          // Unequip — remove base stats
           Object.entries(equip.stats).forEach(([k, v]) => { profile[k] = (profile[k] || 0) - v; });
+          // Remove upgrade bonus
+          const uLevel = upgrades[id] || 0;
+          if (uLevel > 0) {
+            const pStat = getPrimaryStat(equip);
+            profile[pStat] = (profile[pStat] || 0) - (uLevel * 2);
+          }
           profile.equipment[type] = null;
         } else {
           // Unequip current first
           if (profile.equipment[type]) {
-            const old = EQUIPMENT_DB.find(e => e.id === profile.equipment[type]);
-            if (old) Object.entries(old.stats).forEach(([k, v]) => { profile[k] = (profile[k] || 0) - v; });
+            const oldId = profile.equipment[type];
+            const old = EQUIPMENT_DB.find(e => e.id === oldId);
+            if (old) {
+              Object.entries(old.stats).forEach(([k, v]) => { profile[k] = (profile[k] || 0) - v; });
+              const oldULevel = upgrades[oldId] || 0;
+              if (oldULevel > 0) {
+                const oldPStat = getPrimaryStat(old);
+                profile[oldPStat] = (profile[oldPStat] || 0) - (oldULevel * 2);
+              }
+            }
           }
-          // Equip new
+          // Equip new — add base stats
           profile.equipment[type] = id;
           Object.entries(equip.stats).forEach(([k, v]) => { profile[k] = (profile[k] || 0) + v; });
+          // Add upgrade bonus
+          const uLevel = upgrades[id] || 0;
+          if (uLevel > 0) {
+            const pStat = getPrimaryStat(equip);
+            profile[pStat] = (profile[pStat] || 0) + (uLevel * 2);
+          }
         }
         gameState.save();
         showScreen('inventory');

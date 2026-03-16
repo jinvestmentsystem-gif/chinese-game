@@ -1,7 +1,7 @@
 // js/main.js — App initialization, imports all screens, boots the game
 import { gameState } from './state.js';
 import { initRouter, registerScreen, showScreen } from './router.js';
-import { initAudio, playMusic, toggleMusic, toggleSFX, isMusicEnabled, isSFXEnabled } from './audio.js';
+import { initAudio, playMusic, playSound, toggleMusic, toggleSFX, isMusicEnabled, isSFXEnabled } from './audio.js';
 import { startParticles, setParticleMode } from './particles.js';
 import { checkDailyLogin } from './progression.js';
 
@@ -28,6 +28,8 @@ import './screens/arena.js';
 import './screens/story.js';
 import './screens/encounter-intro.js';
 import './screens/chapter-complete.js';
+import './screens/settings.js';
+import './screens/stats-screen.js';
 
 // Initialize audio on the very first user interaction (browser autoplay policy)
 let audioReady = false;
@@ -71,6 +73,11 @@ registerScreen('title', () => {
       <div class="title-mist title-mist-2"></div>
       ${floatingHTML}
     </div>
+
+    <!-- Settings gear (top-left) -->
+    <button id="btn-title-settings" class="title-audio-btn" title="设置" style="left:16px;right:auto;">
+      <span class="title-audio-icon">&#x2699;</span>
+    </button>
 
     <!-- Audio controls -->
     <button id="btn-audio-music" class="title-audio-btn" title="音乐" style="right:60px;">
@@ -140,6 +147,12 @@ registerScreen('title', () => {
       updateSFXBtn();
     });
 
+    // --- Settings gear ---
+    div.querySelector('#btn-title-settings')?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showScreen('settings', { returnTo: 'title' });
+    });
+
     // --- Menu navigation ---
     div.querySelector('#btn-solo').addEventListener('click', () => showScreen('profile', { mode: 'solo' }));
     div.querySelector('#btn-arena').addEventListener('click', () => showScreen('profile', { mode: 'arena' }));
@@ -160,6 +173,7 @@ registerScreen('title', () => {
         `;
         popup.style.display = 'flex';
         popup.classList.add('daily-login-enter');
+        playSound('daily');
 
         popup.querySelector('#btn-close-daily').addEventListener('click', () => {
           popup.classList.remove('daily-login-enter');

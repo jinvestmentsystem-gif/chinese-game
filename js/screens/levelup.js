@@ -3,6 +3,7 @@ import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
 import { playSound } from '../audio.js';
 import { TALENT_TREE, canLearnTalent, learnTalent } from '../progression.js';
+import { showTutorial } from '../tutorial.js';
 
 // ─── Branch metadata ─────────────────────────────────────────────────────────
 const BRANCHES = {
@@ -88,6 +89,7 @@ function renderLevelUp(params) {
     for (const [key, ranks] of Object.entries(pendingTalents)) {
       for (let i = 0; i < ranks; i++) {
         learnTalent(profile, key);
+        playSound('talent');
       }
     }
 
@@ -475,6 +477,21 @@ function renderLevelUp(params) {
   // ── kick off ────────────────────────────────────────────────────────────
   playSound('levelup');
   render();
+
+  // Tutorial: first level-up
+  showTutorial(div, 'tutorial_levelup', {
+    targetSelector: '.stat-plus',
+    position: 'top',
+  });
+
+  // Tutorial: first talent points available
+  if (hasTalentPoints) {
+    showTutorial(div, 'tutorial_talents', {
+      targetSelector: '.talent-node',
+      position: 'top',
+    });
+  }
+
   return div;
 }
 

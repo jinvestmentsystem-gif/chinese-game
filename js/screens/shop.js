@@ -3,6 +3,7 @@ import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
 import { playSound } from '../audio.js';
 import { getEffectiveStats } from '../progression.js';
+import { showTutorial } from '../tutorial.js';
 
 export const SHOP_ITEMS = [
   // Weapons (sorted by tier)
@@ -73,10 +74,36 @@ const TIER_LABEL = ['', '一阶', '二阶', '三阶', '四阶'];
 
 const STAT_LABELS = { attack: '攻击', defense: '防御', speed: '速度', wenli: '文力', hp: 'HP', critChance: '暴击率' };
 
-function renderShop() {
+// ─── Forge: primary stat for each equipment type ──────────────────────────────
+function getPrimaryStat(item) {
+  if (item.type === 'weapon') return 'attack';
+  if (item.type === 'armor') return 'defense';
+  // For accessories, pick the stat with the highest value
+  if (item.stats) {
+    let best = null, bestVal = 0;
+    for (const [k, v] of Object.entries(item.stats)) {
+      if (v > bestVal) { best = k; bestVal = v; }
+    }
+    return best || 'attack';
+  }
+  return 'attack';
+}
+
+const MAX_UPGRADE = 3;
+
+function getUpgradeLevel(profile, itemId) {
+  return (profile.upgrades || {})[itemId] || 0;
+}
+
+function getUpgradeCost(item, currentLevel) {
+  return item.price * (currentLevel + 1);
+}
+
+function renderShop(params = {}) {
   const div = document.createElement('div');
   div.className = 'screen';
   const profile = gameState.profile;
+  const activeTab = params.tab || 'shop';
 
   function getOwned(item) {
     if (item.type === 'consumable') {
@@ -251,6 +278,108 @@ function renderShop() {
     ...consumables.map(buildItemCard),
   ].join('');
 
+  // ─── Forge tab content ─────────────────────────────────────────────────────
+  const ownedEquipment = (profile.inventory || []).map(id => SHOP_ITEMS.find(i => i.id === id)).filter(Boolean);
+  const FORGE_STAT_LABELS = { attack: '攻击', defense: '防御', speed: '速度', wenli: '文力', hp: 'HP', critChance: '暴击率' };
+
+  function buildForgeCard(item) {
+    const level = getUpgradeLevel(profile, item.id);
+    const cost = getUpgradeCost(item, level);
+    const canUpgrade = level < MAX_UPGRADE && (profile.gold || 0) >= cost;
+    const isMaxed = level >= MAX_UPGRADE;
+    const primaryStat = getPrimaryStat(item);
+    const primaryLabel = FORGE_STAT_LABELS[primaryStat] || primaryStat;
+    const baseVal = item.stats[primaryStat] || 0;
+    const bonusVal = level * 2;
+    const nextBonusVal = (level + 1) * 2;
+    const salvageGold = Math.floor(item.price * 0.4);
+
+    // Star display
+    const stars = Array.from({length: MAX_UPGRADE}, (_, i) =>
+      i < level ? '<span style="color:var(--accent-gold);">★</span>' : '<span style="color:var(--text-dim);">☆</span>'
+    ).join('');
+
+    // Type icon
+    const typeIcon = TYPE_ICON[item.type] || '📦';
+
+    // Upgrade badge
+    const upgradeBadge = level > 0
+      ? `<span style="background:linear-gradient(135deg,#d4a017,#e67e22);color:#1a1035;font-size:0.7rem;font-weight:800;padding:2px 8px;border-radius:4px;">+${level}</span>`
+      : '';
+
+    // Stat breakdown
+    const statLines = Object.entries(item.stats).map(([k, v]) => {
+      const isP = k === primaryStat;
+      const bonus = isP ? bonusVal : 0;
+      const totalVal = v + bonus;
+      const bonusStr = bonus > 0 ? ` <span style="color:var(--accent-gold);font-weight:700;">(+${bonus})</span>` : '';
+      return `<span style="font-size:0.78rem;color:${isP ? 'var(--accent-jade)' : 'var(--text-secondary)'};">${FORGE_STAT_LABELS[k] || k}: ${totalVal}${bonusStr}</span>`;
+    }).join('<br>');
+
+    // Upgrade preview
+    const upgradePreview = !isMaxed
+      ? `<div style="font-size:0.72rem;color:var(--text-dim);margin-top:4px;">强化后: ${primaryLabel} ${baseVal + nextBonusVal} <span style="color:var(--accent-gold);">(+${nextBonusVal})</span></div>`
+      : `<div style="font-size:0.72rem;color:var(--accent-gold);margin-top:4px;">已满级 ✦</div>`;
+
+    return `
+      <div class="forge-item-card" data-forge-id="${item.id}" style="
+        background:var(--bg-card);
+        border:1px solid ${isMaxed ? 'var(--accent-gold)' : 'var(--bg-secondary)'};
+        border-radius:10px;
+        padding:14px;
+        display:flex;
+        flex-direction:column;
+        gap:4px;
+        ${isMaxed ? 'box-shadow:0 0 12px rgba(212,160,23,0.15);' : ''}
+        position:relative;
+        overflow:hidden;
+      ">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+            <span style="font-size:1.3rem;">${typeIcon}</span>
+            <span style="font-weight:700;font-size:0.95rem;">${item.name}</span>
+            ${upgradeBadge}
+          </div>
+          <div style="font-size:0.85rem;">${stars}</div>
+        </div>
+        <div style="margin:4px 0;">${statLines}</div>
+        ${upgradePreview}
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;gap:8px;">
+          ${!isMaxed ? `
+            <button class="btn forge-upgrade-btn" data-upgrade-id="${item.id}"
+              style="padding:4px 14px;font-size:0.8rem;flex:1;${canUpgrade ? '' : 'opacity:0.4;cursor:not-allowed;'}"
+              ${canUpgrade ? '' : 'disabled'}>
+              强化 <span style="color:var(--accent-gold);">💰${cost}</span>
+            </button>
+          ` : `
+            <span style="font-size:0.8rem;color:var(--accent-gold);flex:1;text-align:center;font-weight:700;">MAX</span>
+          `}
+          <button class="btn forge-salvage-btn" data-salvage-id="${item.id}"
+            style="padding:4px 10px;font-size:0.75rem;border-color:var(--accent-red);color:var(--accent-red);">
+            分解 💰${salvageGold}
+          </button>
+        </div>
+      </div>`;
+  }
+
+  const forgeItemsHTML = ownedEquipment.length === 0
+    ? '<p style="color:var(--text-secondary);text-align:center;grid-column:1/-1;">还没有装备可以锻造，先去商店购买装备吧！</p>'
+    : ownedEquipment.map(buildForgeCard).join('');
+
+  const forgeContentHTML = `
+    <div style="padding:0 20px 8px;">
+      <h3 style="margin:0 0 6px;font-size:0.95rem;color:var(--text-secondary);letter-spacing:0.06em;">装备强化</h3>
+      <p style="font-size:0.78rem;color:var(--text-dim);margin:0 0 14px;">强化装备增加属性，每级+2主属性 (最高+3)</p>
+    </div>
+    <div class="forge-grid" id="forge-grid">
+      ${forgeItemsHTML}
+    </div>
+  `;
+
+  // ─── Tab selection ──────────────────────────────────────────────────────────
+  const isShopTab = activeTab === 'shop';
+  const isForgeTab = activeTab === 'forge';
+
   div.innerHTML = `
     <style>
       .shop-grid {
@@ -266,6 +395,42 @@ function renderShop() {
         gap:10px;
         padding:0 20px 16px;
         width:100%;
+      }
+      .forge-grid {
+        display:grid;
+        grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));
+        gap:12px;
+        padding:0 20px 40px;
+        width:100%;
+      }
+      .shop-tab-bar {
+        display:flex; gap:0; margin-bottom:16px;
+      }
+      .shop-tab {
+        padding:10px 28px; font-size:0.95rem; font-weight:700;
+        cursor:pointer; border:2px solid var(--bg-secondary);
+        background:var(--bg-secondary); color:var(--text-secondary);
+        transition:all 0.2s; letter-spacing:0.05em;
+      }
+      .shop-tab:first-child { border-radius:8px 0 0 8px; }
+      .shop-tab:last-child { border-radius:0 8px 8px 0; }
+      .shop-tab.active {
+        background:var(--bg-card); color:var(--accent-gold);
+        border-color:var(--accent-gold);
+      }
+      .shop-tab:hover:not(.active) { color:var(--text-primary); }
+      @keyframes forgeSparkle {
+        0% { transform:scale(0); opacity:1; }
+        50% { transform:scale(1.5); opacity:0.8; }
+        100% { transform:scale(2); opacity:0; }
+      }
+      .forge-sparkle-burst {
+        position:absolute; inset:0; pointer-events:none; z-index:10;
+        display:flex; align-items:center; justify-content:center;
+      }
+      .forge-sparkle-burst span {
+        position:absolute; font-size:1.2rem;
+        animation: forgeSparkle 0.6s ease forwards;
       }
     </style>
     <div style="width:100%;padding:20px 20px 0;">
@@ -288,20 +453,35 @@ function renderShop() {
           <button class="btn" id="btn-back-shop">返回</button>
         </div>
       </div>
+      <div class="shop-tab-bar">
+        <div class="shop-tab ${isShopTab ? 'active' : ''}" data-tab="shop">商店</div>
+        <div class="shop-tab ${isForgeTab ? 'active' : ''}" data-tab="forge">锻造</div>
+      </div>
     </div>
-    <div style="padding:0 20px 8px;">
-      <h3 style="margin:0 0 10px;font-size:0.9rem;color:var(--text-secondary);letter-spacing:0.06em;">套装效果</h3>
-    </div>
-    <div class="set-bonus-grid">${setBonusHTML}</div>
-    <div class="shop-grid" id="shop-grid">
-      ${itemsHTML}
-    </div>
+    ${isShopTab ? `
+      <div style="padding:0 20px 8px;">
+        <h3 style="margin:0 0 10px;font-size:0.9rem;color:var(--text-secondary);letter-spacing:0.06em;">套装效果</h3>
+      </div>
+      <div class="set-bonus-grid">${setBonusHTML}</div>
+      <div class="shop-grid" id="shop-grid">
+        ${itemsHTML}
+      </div>
+    ` : forgeContentHTML}
   `;
 
   setTimeout(() => {
     div.querySelector('#btn-back-shop').addEventListener('click', () => showScreen('worldmap'));
     div.querySelector('#btn-inventory-from-shop').addEventListener('click', () => showScreen('inventory'));
 
+    // Tab switching
+    div.querySelectorAll('.shop-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        playSound('click');
+        showScreen('shop', { tab: tab.dataset.tab });
+      });
+    });
+
+    // Shop buy buttons (only present in shop tab)
     div.querySelectorAll('.shop-buy-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const itemId = btn.dataset.id;
@@ -327,12 +507,133 @@ function renderShop() {
         playSound('correct');
 
         // Re-render shop in place
-        showScreen('shop');
+        showScreen('shop', { tab: activeTab });
       });
+    });
+
+    // Forge upgrade buttons
+    div.querySelectorAll('.forge-upgrade-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const itemId = btn.dataset.upgradeId;
+        const item = SHOP_ITEMS.find(i => i.id === itemId);
+        if (!item) return;
+
+        if (!profile.upgrades) profile.upgrades = {};
+        const level = profile.upgrades[itemId] || 0;
+        if (level >= MAX_UPGRADE) return;
+
+        const cost = getUpgradeCost(item, level);
+        if ((profile.gold || 0) < cost) return;
+
+        profile.gold -= cost;
+        profile.upgrades[itemId] = level + 1;
+
+        // If item is currently equipped, add upgrade bonus to profile stats
+        const slots = ['weapon', 'armor', 'accessory'];
+        for (const slot of slots) {
+          if (profile.equipment[slot] === itemId) {
+            const primaryStat = getPrimaryStat(item);
+            profile[primaryStat] = (profile[primaryStat] || 0) + 2;
+            break;
+          }
+        }
+
+        gameState.save();
+        playSound('correct');
+
+        // Golden sparkle burst animation on the card
+        const card = btn.closest('.forge-item-card');
+        if (card) {
+          const sparkle = document.createElement('div');
+          sparkle.className = 'forge-sparkle-burst';
+          const particles = ['✦', '✧', '★', '⚡', '✦', '✧', '★', '⚡'];
+          sparkle.innerHTML = particles.map((p, i) => {
+            const angle = (i / particles.length) * 360;
+            const rad = angle * Math.PI / 180;
+            const dist = 30 + Math.random() * 20;
+            const dx = Math.cos(rad) * dist;
+            const dy = Math.sin(rad) * dist;
+            return `<span style="color:var(--accent-gold);transform:translate(${dx}px,${dy}px);animation-delay:${i * 0.05}s;">${p}</span>`;
+          }).join('');
+          card.appendChild(sparkle);
+          setTimeout(() => sparkle.remove(), 700);
+        }
+
+        // Re-render after a short delay for the animation
+        setTimeout(() => showScreen('shop', { tab: 'forge' }), 500);
+      });
+    });
+
+    // Forge salvage buttons
+    div.querySelectorAll('.forge-salvage-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const itemId = btn.dataset.salvageId;
+        const item = SHOP_ITEMS.find(i => i.id === itemId);
+        if (!item) return;
+
+        const salvageGold = Math.floor(item.price * 0.4);
+        playSound('click');
+
+        // Confirmation dialog
+        const overlay = document.createElement('div');
+        overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;z-index:999;';
+        overlay.innerHTML = `
+          <div style="background:var(--bg-card);border:2px solid var(--accent-red);border-radius:12px;padding:24px 32px;text-align:center;max-width:320px;">
+            <p style="margin-bottom:16px;font-size:1.1rem;">确定要分解 <strong style="color:var(--accent-gold);">${item.name}</strong>？</p>
+            <p style="margin-bottom:20px;font-size:0.9rem;color:var(--text-secondary);">将获得 <span style="color:var(--accent-gold);font-weight:700;">💰${salvageGold}</span> 金币</p>
+            <div style="display:flex;gap:12px;justify-content:center;">
+              <button class="btn" id="cancel-salvage">取消</button>
+              <button class="btn" id="confirm-salvage" style="border-color:var(--accent-red);color:var(--accent-red);">分解</button>
+            </div>
+          </div>
+        `;
+        div.appendChild(overlay);
+
+        overlay.querySelector('#cancel-salvage').addEventListener('click', () => overlay.remove());
+        overlay.addEventListener('click', (ev) => { if (ev.target === overlay) overlay.remove(); });
+
+        overlay.querySelector('#confirm-salvage').addEventListener('click', () => {
+          // Unequip if currently equipped
+          const slots = ['weapon', 'armor', 'accessory'];
+          for (const slot of slots) {
+            if (profile.equipment[slot] === itemId) {
+              const equip = SHOP_ITEMS.find(e => e.id === itemId);
+              if (equip) {
+                Object.entries(equip.stats).forEach(([k, v]) => { profile[k] = (profile[k] || 0) - v; });
+                // Also remove upgrade bonus from stats
+                const upgradeLevel = getUpgradeLevel(profile, itemId);
+                if (upgradeLevel > 0) {
+                  const primaryStat = getPrimaryStat(equip);
+                  profile[primaryStat] = (profile[primaryStat] || 0) - (upgradeLevel * 2);
+                }
+              }
+              profile.equipment[slot] = null;
+              break;
+            }
+          }
+
+          // Remove from inventory
+          profile.inventory = (profile.inventory || []).filter(id => id !== itemId);
+          // Remove upgrades
+          if (profile.upgrades) delete profile.upgrades[itemId];
+          // Add gold
+          profile.gold = (profile.gold || 0) + salvageGold;
+
+          gameState.save();
+          playSound('correct');
+          overlay.remove();
+          showScreen('shop', { tab: 'forge' });
+        });
+      });
+    });
+    // Tutorial: first shop visit
+    showTutorial(div, 'tutorial_shop', {
+      targetSelector: '.shop-buy-btn',
+      position: 'top',
     });
   }, 0);
 
   return div;
 }
 
-registerScreen('shop', renderShop);
+registerScreen('shop', (params) => renderShop(params));
