@@ -510,15 +510,6 @@ function renderBoss() {
         .boss-narrative { font-style:italic; font-size:0.9rem; color:#e57373; text-align:center; padding:4px 32px 6px; opacity:0.9; text-shadow:0 0 8px rgba(192,57,43,0.5); }
         .boss-question { font-size:1.2rem; margin:6px 32px 10px; text-align:center; background:var(--bg-card); padding:14px 20px; border-radius:8px; border-left:4px solid var(--accent-gold); }
         .boss-options { display:flex; flex-direction:column; gap:8px; padding:0 32px; max-width:600px; margin:0 auto; width:100%; }
-        .boss-option {
-          font-family:var(--font-main); font-size:1rem; padding:12px 20px; background:var(--bg-card);
-          border:2px solid var(--bg-secondary); color:var(--text-primary); border-radius:8px;
-          cursor:pointer; transition:all 0.2s; text-align:left;
-        }
-        .boss-option:hover { border-color:var(--accent-red); }
-        .boss-option.correct { border-color:var(--accent-jade); background:rgba(39,174,96,0.2); }
-        .boss-option.wrong { border-color:var(--accent-red); background:rgba(192,57,43,0.2); }
-        .boss-feedback { font-size:0.95rem; color:var(--text-secondary); margin-top:6px; padding:0 32px; text-align:center; min-height:2.5em; }
         .phase-label-anim { display:inline-block; }
         .boss-ability-banner {
           background:rgba(192,57,43,0.15);

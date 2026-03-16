@@ -420,16 +420,6 @@ function renderCombat() {
         .timer-bar { height:100%; background:var(--timer-yellow); border-radius:4px; transition:width 0.1s linear; }
         .combo-display { font-size:1.2rem; font-weight:700; min-height:1.5em; display:flex; align-items:center; justify-content:center; }
         .combat-question { font-size:1.3rem; margin:12px 0 16px; padding:0 32px; text-align:center; }
-        .combat-options { display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:0 32px; max-width:600px; width:100%; }
-        .combat-option {
-          font-family:var(--font-main); font-size:1rem; padding:14px 20px; background:var(--bg-card);
-          border:2px solid var(--bg-secondary); color:var(--text-primary); border-radius:8px;
-          cursor:pointer; transition:all 0.2s; text-align:center;
-        }
-        .combat-option:hover { border-color:var(--accent-gold); }
-        .combat-option.correct { border-color:var(--accent-jade); background:rgba(39,174,96,0.2); }
-        .combat-option.wrong { border-color:var(--accent-red); background:rgba(192,57,43,0.2); }
-        .feedback-text { font-size:0.95rem; color:var(--text-secondary); margin-top:12px; padding:0 32px; text-align:center; min-height:3em; }
         .combat-narrative { font-style:italic; font-size:0.88rem; color:#d4a017; text-align:center; padding:4px 32px; opacity:0.85; text-shadow:0 0 6px rgba(212,160,23,0.4); }
         .battle-arena { display:flex; align-items:flex-end; justify-content:space-between; width:100%; max-width:600px; padding:0 32px; margin:8px 0; position:relative; min-height:160px; }
         .sprite-wrap { display:flex; flex-direction:column; align-items:center; position:relative; }

@@ -181,24 +181,6 @@ function renderPuzzle() {
     .puzzle-question {
       font-size:1.1rem; margin:0 32px 12px; text-align:center; font-weight:600;
     }
-    .puzzle-options {
-      display:grid; grid-template-columns:1fr 1fr;
-      gap:10px; padding:0 32px;
-      max-width:600px; width:100%; box-sizing:border-box;
-    }
-    .puzzle-option {
-      font-family:var(--font-main); font-size:0.95rem; padding:12px 16px;
-      background:var(--bg-card); border:2px solid var(--bg-secondary);
-      color:var(--text-primary); border-radius:8px;
-      cursor:pointer; transition:all 0.2s; text-align:center;
-    }
-    .puzzle-option:hover { border-color:#a855f7; }
-    .puzzle-option.correct { border-color:var(--accent-jade); background:rgba(39,174,96,0.2); }
-    .puzzle-option.wrong { border-color:var(--accent-red); background:rgba(192,57,43,0.2); }
-    .puzzle-feedback {
-      font-size:0.9rem; color:var(--text-secondary); margin-top:8px;
-      padding:0 32px; text-align:center; min-height:2.5em;
-    }
     @keyframes sealCrack {
       0%   { box-shadow:0 0 18px rgba(168,85,247,0.6), inset 0 0 16px rgba(124,58,237,0.3); border-color:#a855f7; }
       30%  { box-shadow:0 0 30px rgba(255,80,80,0.8), inset 0 0 20px rgba(220,50,50,0.4); border-color:#ff5050; }
