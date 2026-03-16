@@ -10,8 +10,8 @@ let musicLoopHandle = null;
 let currentEra = 'menu';
 let currentIntensity = 0; // 0=ambient, 1=combat, 2=combo, 3=boss/critical
 let masterMusicGain = null;   // GainNode — master volume for all music layers
-let beatClock = null;         // setInterval handle for the 375ms master tick
-let beatStep = 0;             // 0–31 (two bars of 16 16th-notes each)
+let beatClock = null;         // setInterval handle for the beat tick
+let beatStep = 0;             // 0–63 (4 bars × 16 steps)
 let activeLayerNodes = {};    // keyed by layer name: 'bass', 'melody', 'counter', 'drone'
 let layerGains = {};          // GainNode per layer so we can fade in/out
 
@@ -38,7 +38,6 @@ const ERA_SETTINGS = {
 };
 
 // ─── Era-specific battle flavors ──────────────────────────────────────────────
-// Each era colours the drum/bass/melody layers differently
 const ERA_BATTLE = {
   //                bpm factor, kick freq, bass octave shift, melody density (0–1), snare Q
   xianqin: { bpmFactor: 0.80, kickHz: 50,  bassShift: -1, melodyDensity: 0.40, snareQ: 0.8 },
@@ -50,28 +49,199 @@ const ERA_BATTLE = {
   menu:    { bpmFactor: 0.85, kickHz: 60,  bassShift:  0, melodyDensity: 0.45, snareQ: 1.0 },
 };
 
-// ─── Drum patterns (16 steps per bar, index = step 0–15) ──────────────────────
-// 1 = hit, 0 = rest
-const PATTERNS = {
-  kick:       [1,0,0,0, 0,0,0,0, 1,0,0,0, 0,0,0,0],   // beats 1 and 3
-  kick_boss:  [1,0,0,0, 0,0,1,0, 1,0,0,1, 0,0,0,0],   // busier boss kick
-  snare:      [0,0,0,0, 1,0,0,0, 0,0,0,0, 1,0,0,0],   // beats 2 and 4
-  hihat_4th:  [1,0,0,0, 1,0,0,0, 1,0,0,0, 1,0,0,0],   // every beat (intensity 1)
-  hihat_8th:  [1,0,1,0, 1,0,1,0, 1,0,1,0, 1,0,1,0],   // every 8th (intensity 2+)
-  hihat_16th: [1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1],   // every 16th (intensity 3)
-  // bass plays on kick beats with chromatic walk on beat 3 offbeat
-  bass:       [1,0,0,0, 0,0,0,1, 1,0,0,0, 0,1,0,0],
-  // melody — 16-step pattern; actual note chosen per-era
-  melody:     [1,0,0,1, 0,1,0,0, 1,0,1,0, 0,0,1,0],
-  // counter-melody (intensity 3) — fills the gaps of the melody pattern
-  counter:    [0,1,0,0, 1,0,1,1, 0,1,0,1, 1,0,0,1],
-  // han military march — strong downbeats, double snare
-  han_kick:   [1,0,1,0, 0,0,0,0, 1,0,1,0, 0,0,0,0],
-  han_snare:  [0,0,0,0, 1,0,1,0, 0,0,0,0, 1,0,1,0],
-  // xianqin — slower, tribal, every 2 beats
-  xian_kick:  [1,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0],
-  xian_bass:  [1,0,0,0, 0,0,0,0, 1,0,0,0, 0,0,0,0],
+// ─── Drum patterns (16 steps per bar) ─────────────────────────────────────────
+const DRUMS = {
+  // Driving battle kick: four-on-floor feel + offbeat punch
+  kick:        [1,0,0,0, 1,0,0,0, 1,0,0,1, 0,0,1,0],
+  // Boss: heavier, syncopated
+  kick_boss:   [1,0,0,0, 0,0,1,0, 1,0,0,1, 0,1,0,0],
+  // Han military march: strong downbeats
+  kick_han:    [1,0,1,0, 0,0,0,0, 1,0,1,0, 0,0,0,0],
+  // Xianqin tribal: sparse, ancient feel
+  kick_xian:   [1,0,0,0, 0,0,0,0, 0,0,0,0, 1,0,0,0],
+  // Snare: classic backbeat on 2 and 4
+  snare:       [0,0,0,0, 1,0,0,0, 0,0,0,0, 1,0,0,0],
+  snare_han:   [0,0,0,0, 1,0,1,0, 0,0,0,0, 1,0,1,0],
+  // Hi-hat densities
+  hihat_4th:   [1,0,0,0, 1,0,0,0, 1,0,0,0, 1,0,0,0],
+  hihat_8th:   [1,0,1,0, 1,0,1,0, 1,0,1,0, 1,0,1,0],
+  hihat_16th:  [1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1],
 };
+
+// ─── Composed battle melody (8 bars = 128 steps; entry = null means rest) ─────
+// Chinese RPG battle theme in E minor pentatonic (E G A B D)
+// Each entry covers one 16th-note step. Most steps are null (rests between notes).
+// {f: freq, d: durationMultiplier} — duration controls note decay length
+const NULL16 = new Array(16).fill(null);
+
+// Bar helper: returns 16-element array with notes placed at specific steps
+function bar(...hits) {
+  // hits = [{step, f, d}, ...]
+  const b = new Array(16).fill(null);
+  for (const h of hits) b[h.step] = { f: h.f, d: h.d };
+  return b;
+}
+
+// E minor pentatonic note frequencies
+const E4 = 329.63, G4 = 392.00, A4 = 440.00, B4 = 493.88, D5 = 587.33;
+const E5 = 659.26, G5 = 783.99, A5 = 880.00, B3 = 246.94, D4 = 293.66;
+const E3 = 164.81, G3 = 196.00, A3 = 220.00;
+
+// 8 bars of composed melody — catchy Chinese RPG battle theme
+// Bar 1: Punchy opening motif — three quick notes then a held accent
+const bar1 = bar(
+  {step:0, f:E4, d:0.8},
+  {step:2, f:G4, d:0.8},
+  {step:4, f:A4, d:0.8},
+  {step:6, f:B4, d:1.6},   // held
+  {step:10, f:A4, d:0.8},
+  {step:12, f:G4, d:1.2},
+);
+// Bar 2: Climb and fall — tension builds
+const bar2 = bar(
+  {step:0, f:E4, d:0.8},
+  {step:2, f:G4, d:0.8},
+  {step:4, f:A4, d:0.8},
+  {step:6, f:E5, d:2.0},   // high accent, held
+  {step:10, f:D5, d:0.8},
+  {step:12, f:B4, d:0.8},
+  {step:14, f:A4, d:0.8},
+);
+// Bar 3: Quick descending run — Chinese erhu feel
+const bar3 = bar(
+  {step:0, f:G4, d:0.8},
+  {step:2, f:E4, d:0.8},
+  {step:4, f:D4, d:1.2},
+  {step:7, f:E4, d:0.8},
+  {step:9, f:G4, d:0.8},
+  {step:11, f:A4, d:0.8},
+  {step:13, f:G4, d:1.2},
+);
+// Bar 4: Resolve back to root — satisfying cadence
+const bar4 = bar(
+  {step:0, f:E4, d:0.8},
+  {step:3, f:D4, d:0.8},
+  {step:5, f:E4, d:1.6},   // held
+  {step:9, f:G4, d:0.8},
+  {step:11, f:E4, d:2.4},  // long resolve
+);
+// Bar 5: Chorus — rises to high register (more energetic)
+const bar5 = bar(
+  {step:0, f:A4, d:0.8},
+  {step:2, f:B4, d:0.8},
+  {step:4, f:D5, d:0.8},
+  {step:6, f:E5, d:1.6},   // peak
+  {step:10, f:D5, d:0.8},
+  {step:12, f:B4, d:0.8},
+  {step:14, f:A4, d:0.6},
+);
+// Bar 6: Driving syncopation — battle intensity
+const bar6 = bar(
+  {step:0, f:G4, d:0.6},
+  {step:1, f:A4, d:0.6},
+  {step:3, f:B4, d:0.8},
+  {step:5, f:D5, d:0.8},
+  {step:7, f:E5, d:1.2},
+  {step:10, f:D5, d:0.6},
+  {step:11, f:B4, d:0.6},
+  {step:13, f:A4, d:0.6},
+  {step:15, f:G4, d:0.6},
+);
+// Bar 7: Counter-figure — pentatonic triplet feel
+const bar7 = bar(
+  {step:0, f:E4, d:0.8},
+  {step:2, f:A4, d:0.8},
+  {step:4, f:G4, d:0.8},
+  {step:6, f:E4, d:0.8},
+  {step:8, f:D4, d:1.2},
+  {step:11, f:E4, d:0.8},
+  {step:13, f:G4, d:1.2},
+);
+// Bar 8: Final phrase — tension release back to start
+const bar8 = bar(
+  {step:0, f:A4, d:0.8},
+  {step:2, f:G4, d:0.8},
+  {step:4, f:E4, d:0.8},
+  {step:6, f:D4, d:1.6},
+  {step:9, f:E4, d:0.8},
+  {step:12, f:G4, d:0.8},
+  {step:14, f:E4, d:2.4},  // long final note — loops back cleanly
+);
+
+// Flatten 8 bars into a 128-step array
+const BATTLE_MELODY = [
+  ...bar1, ...bar2, ...bar3, ...bar4,
+  ...bar5, ...bar6, ...bar7, ...bar8,
+];
+
+// ─── Counter-melody (intensity 3) — higher register, fills gaps ───────────────
+const cb1 = bar(
+  {step:3, f:E5, d:0.8},
+  {step:7, f:D5, d:1.2},
+  {step:11, f:E5, d:0.8},
+  {step:15, f:G5, d:0.8},
+);
+const cb2 = bar(
+  {step:1, f:A5, d:0.8},
+  {step:5, f:G5, d:1.2},
+  {step:9, f:E5, d:0.8},
+  {step:13, f:D5, d:1.2},
+);
+const cb3 = bar(
+  {step:2, f:E5, d:0.8},
+  {step:6, f:D5, d:0.8},
+  {step:10, f:B4, d:1.2},
+  {step:14, f:A4, d:0.8},
+);
+const cb4 = bar(
+  {step:1, f:G4, d:0.8},
+  {step:4, f:A4, d:0.8},
+  {step:8, f:G4, d:1.6},
+  {step:13, f:E4, d:2.0},
+);
+
+const COUNTER_MELODY = [
+  ...cb1, ...cb2, ...cb1, ...cb4,
+  ...cb2, ...cb3, ...cb1, ...cb4,
+];
+
+// ─── Bass line — follows 4-chord progression per 4 bars ───────────────────────
+// Progression: Em → G → Am → D (repeating, one chord per bar)
+// Bass plays root on beats 1 & 3, octave-walk on beat 2
+const E2 = 82.41, G2 = 98.00, A2 = 110.00, D2 = 73.42;
+const E2h = 82.41 * 1.5; // E2 * 1.5 for walk note
+
+// Bass patterns per bar (16 steps) — {f: freq, d: dur} or null
+function bassBar(root, walk) {
+  const b = new Array(16).fill(null);
+  b[0]  = { f: root, d: 1.5 };   // beat 1
+  b[4]  = { f: walk, d: 1.2 };   // beat 2 (walk note adds groove)
+  b[8]  = { f: root, d: 1.5 };   // beat 3
+  b[12] = { f: root * 1.122, d: 1.0 }; // beat 4 (leading tone up)
+  return b;
+}
+
+const BASS_LINE = [
+  ...bassBar(E2, G2),    // Bar 1: Em  — root E2, walk to G2
+  ...bassBar(G2, A2),    // Bar 2: G   — root G2, walk to A2
+  ...bassBar(A2, E2),    // Bar 3: Am  — root A2, walk down to E2
+  ...bassBar(D2, E2),    // Bar 4: D   — root D2, walk to E2
+  ...bassBar(E2, G2),    // Bar 5: Em  (repeat progression)
+  ...bassBar(G2, A2),    // Bar 6: G
+  ...bassBar(A2, G2),    // Bar 7: Am  — walk down for variety
+  ...bassBar(D2, A2),    // Bar 8: D   — walk up to A2
+];
+
+// ─── Ambient chord progression ─────────────────────────────────────────────────
+// Am → C → G/B → Em — each chord arpeggiated slowly, Chinese pentatonic feel
+const AMBIENT_CHORDS = [
+  [220.00, 261.63, 329.63, 440.00],   // Am: A3 C4 E4 A4
+  [261.63, 329.63, 392.00, 523.25],   // C:  C4 E4 G4 C5
+  [196.00, 246.94, 329.63, 392.00],   // G/B: G3 B3 E4 G4
+  [164.81, 220.00, 246.94, 329.63],   // Em: E3 A3 B3 E4
+];
+let ambientChordIdx = 0;
+let ambientNoteIdx = 0;
 
 // ─── Build a simple feedback delay (reverb-like effect) ───────────────────────
 function createDelayNode(ctx, delayTime = 0.5, feedback = 0.3, wetGain = 0.25) {
@@ -252,109 +422,107 @@ function playMelodyNote(freq, wave = 'triangle', gainPeak = 0.12, durationMult =
   osc.stop(now + decay + 0.02);
 }
 
-// ─── Beat-clock tick — called every 375ms (160 BPM, 16th note) ───────────────
+// ─── Beat-clock tick — called every step (16th note at ~150 BPM = 100ms) ──────
 function onBeat() {
   if (!audioCtx || !musicEnabled) return;
   if (currentIntensity === 0) return; // ambient mode has its own scheduler
 
-  const step = beatStep % 16; // 0–15 within current bar
   const era = currentEra;
   const flavor = ERA_BATTLE[era] || ERA_BATTLE.menu;
-  const notes = PENTATONIC[era] || PENTATONIC.menu;
-  const settings = ERA_SETTINGS[era] || ERA_SETTINGS.menu;
   const dest = masterMusicGain || audioCtx.destination;
+
+  // Step within current bar (0-15) and absolute step within 128-step loop
+  const step = beatStep % 16;
+  const absStep = beatStep % 128; // full 8-bar loop
 
   // ── Drums (intensity 1+) ──────────────────────────────────────────────────
   if (currentIntensity >= 1) {
     // Era-specific kick pattern
-    let kickPattern = (era === 'xianqin') ? PATTERNS.xian_kick
-                    : (era === 'han')     ? PATTERNS.han_kick
-                    : (era === 'boss')    ? PATTERNS.kick_boss
-                    :                       PATTERNS.kick;
+    const kickPattern = (era === 'xianqin') ? DRUMS.kick_xian
+                      : (era === 'han')     ? DRUMS.kick_han
+                      : (era === 'boss')    ? DRUMS.kick_boss
+                      :                       DRUMS.kick;
     if (kickPattern[step] === 1) {
       playKick(flavor.kickHz, 0.55, dest);
     }
 
     // Snare
-    let snarePattern = (era === 'han') ? PATTERNS.han_snare : PATTERNS.snare;
+    const snarePattern = (era === 'han') ? DRUMS.snare_han : DRUMS.snare;
     if (snarePattern[step] === 1) {
       playSnare(flavor.snareQ, 0.38, dest);
     }
 
     // Hi-hat — level 1: every quarter; level 2+: every 8th; level 3: every 16th
-    let hhPattern = (currentIntensity >= 3) ? PATTERNS.hihat_16th
-                  : (currentIntensity >= 2) ? PATTERNS.hihat_8th
-                  :                            PATTERNS.hihat_4th;
+    const hhPattern = (currentIntensity >= 3) ? DRUMS.hihat_16th
+                    : (currentIntensity >= 2) ? DRUMS.hihat_8th
+                    :                           DRUMS.hihat_4th;
     if (hhPattern[step] === 1) {
       playHihat(false, 0.18, dest);
     }
-    // Occasional open hi-hat on upbeats at intensity 2+
+    // Open hi-hat on upbeats at intensity 2+
     if (currentIntensity >= 2 && (step === 2 || step === 10)) {
       playHihat(true, 0.12, dest);
     }
   }
 
-  // ── Bass line (intensity 1+) ──────────────────────────────────────────────
+  // ── Bass line (intensity 1+) — follows composed BASS_LINE ────────────────
   if (currentIntensity >= 1) {
-    let bassPattern = (era === 'xianqin') ? PATTERNS.xian_bass : PATTERNS.bass;
-    if (bassPattern[step] === 1) {
-      // Root note from pentatonic, shifted down an octave
-      const bassIdx = (step < 8) ? 0 : 2; // root on beat 1, walk on beat 3 area
-      const baseFreq = notes[bassIdx % notes.length];
-      const freq = baseFreq / (flavor.bassShift >= 0 ? 2 : 4); // octave shift
+    const bassNote = BASS_LINE[absStep];
+    if (bassNote) {
       const wave = (era === 'boss') ? 'sawtooth' : (era === 'modern') ? 'square' : 'triangle';
-      playBassNote(freq, wave, 0.22, dest);
+      // Shift bass down an octave for boss/xianqin eras
+      const freqShift = (flavor.bassShift < 0) ? 0.5 : 1.0;
+      playBassNote(bassNote.f * freqShift, wave, 0.24, dest);
     }
-    // Bass drop on step 7 at intensity 3 (the "drop" before beat 3)
-    if (currentIntensity >= 3 && step === 7) {
-      playBassNote(notes[0] / 4, 'sine', 0.30, dest);
+    // Bass drop sub-hit at intensity 3 on beat 3 offbeat (step 9)
+    if (currentIntensity >= 3 && step === 9) {
+      const rootFreq = BASS_LINE[Math.floor(absStep / 16) * 16];
+      if (rootFreq) playBassNote(rootFreq.f * 0.5, 'sine', 0.28, dest);
     }
   }
 
-  // ── Melody (intensity 2+) ─────────────────────────────────────────────────
+  // ── Melody (intensity 2+) — plays composed BATTLE_MELODY ─────────────────
   if (currentIntensity >= 2) {
-    if (PATTERNS.melody[step] === 1) {
-      // Pick note based on step position — cycles through pentatonic with density filter
-      if (Math.random() < flavor.melodyDensity) {
-        const melIdx = (step * 3 + beatStep) % notes.length;
-        const melFreq = notes[melIdx];
-        const melWave = settings.wave;
-        const durationMult = (era === 'song') ? 2.0 : (era === 'xianqin') ? 1.8 : 1.0;
-        playMelodyNote(melFreq, melWave, 0.12, durationMult, dest);
-      }
+    const melNote = BATTLE_MELODY[absStep];
+    if (melNote) {
+      // Era tint: use sawtooth for modern/boss, triangle for others
+      const wave = (era === 'modern' || era === 'boss') ? 'sawtooth' : 'triangle';
+      playMelodyNote(melNote.f, wave, 0.13, melNote.d, dest);
     }
   }
 
   // ── Counter-melody (intensity 3) ──────────────────────────────────────────
   if (currentIntensity >= 3) {
-    if (PATTERNS.counter[step] === 1) {
-      // Play a higher pentatonic note as counter
-      const ctrIdx = (step + 3) % notes.length;
-      const ctrFreq = notes[ctrIdx] * 2; // one octave up
+    const ctrNote = COUNTER_MELODY[absStep];
+    if (ctrNote) {
       const wave = (era === 'boss') ? 'sawtooth' : 'square';
-      const dissonance = (era === 'boss' && Math.random() < 0.25) ? 1.059 : 1.0; // tritone clash for boss
-      playMelodyNote(ctrFreq * dissonance, wave, 0.09, 0.7, dest);
+      // Boss: occasional tritone dissonance for menace
+      const dissonance = (era === 'boss' && Math.random() < 0.2) ? 1.414 : 1.0;
+      playMelodyNote(ctrNote.f * dissonance, wave, 0.09, ctrNote.d * 0.7, dest);
     }
-    // Boss: rumbling low drone note every 8 steps
+    // Boss: rumbling low drone on beat 1 of each bar
     if (era === 'boss' && step === 0) {
-      playBassNote(notes[0] / 4, 'sine', 0.14, dest);
+      playBassNote(E2 * 0.5, 'sine', 0.14, dest);
     }
   }
 
-  beatStep++;
+  beatStep = (beatStep + 1) % 128;
 }
 
-// ─── Ambient scheduler (intensity 0 only) ─────────────────────────────────────
-// Uses the old random-interval approach so menus stay calm
+// ─── Ambient scheduler (intensity 0) — arpeggiated chord progression ──────────
 function startAmbientLoop(era) {
-  const notes = PENTATONIC[era] || PENTATONIC.menu;
   const settings = ERA_SETTINGS[era] || ERA_SETTINGS.menu;
-
   const dest = masterMusicGain || audioCtx.destination;
+
+  // Build a delay effect for atmosphere
   const delayFx = createDelayNode(audioCtx, settings.delayTime, 0.28, 0.22);
   delayFx.output.connect(audioCtx.destination);
 
-  // Boss era adds a low drone in ambient too
+  // Reset arpeggio position when (re)starting
+  ambientChordIdx = 0;
+  ambientNoteIdx = 0;
+
+  // Boss era: low drone underneath
   if (era === 'boss') {
     const droneOsc = audioCtx.createOscillator();
     const droneGain = audioCtx.createGain();
@@ -377,28 +545,39 @@ function startAmbientLoop(era) {
     currentMusicNodes.push(droneOsc);
   }
 
-  function scheduleNextNote() {
+  function scheduleAmbientNote() {
     if (!musicEnabled || !audioCtx || currentIntensity !== 0) return;
 
-    const freq = notes[Math.floor(Math.random() * notes.length)];
-    const [minMs, maxMs] = settings.interval;
-    const delay = minMs + Math.random() * (maxMs - minMs);
-    const attackTime = 0.12 + Math.random() * 0.15;
-    const decayTime = 1.2 + Math.random() * 1.8;
+    // Pull next note from the composed chord arpeggio
+    const chord = AMBIENT_CHORDS[ambientChordIdx];
+    const freq = chord[ambientNoteIdx];
 
-    playNote(freq, settings.wave, settings.gain, attackTime, decayTime, dest);
-    playNote(freq, settings.wave, settings.gain * 0.3, attackTime, decayTime, delayFx.input);
+    // Slightly vary gain and timing for humanised feel
+    const gainJitter = 0.85 + Math.random() * 0.3;
+    const attackTime = 0.18 + Math.random() * 0.10;
+    const decayTime  = 2.2  + Math.random() * 1.2;
 
-    if (Math.random() < 0.35) {
-      const harmonyIdx = Math.min(notes.indexOf(freq) + 2, notes.length - 1);
-      const harmonyFreq = notes[harmonyIdx];
-      playNote(harmonyFreq, settings.wave, settings.gain * 0.45, attackTime + 0.08, decayTime * 0.8, dest);
+    playNote(freq, 'triangle', settings.gain * gainJitter, attackTime, decayTime, dest);
+    // Wet copy into delay for spatial depth
+    playNote(freq, 'triangle', settings.gain * 0.28, attackTime, decayTime, delayFx.input);
+
+    // Every 4th note (new chord), add a soft low root for grounding
+    if (ambientNoteIdx === 0) {
+      playNote(freq * 0.5, 'sine', settings.gain * 0.4, attackTime + 0.05, decayTime * 1.3, dest);
     }
 
-    musicLoopHandle = setTimeout(scheduleNextNote, delay);
+    // Advance arpeggio
+    ambientNoteIdx++;
+    if (ambientNoteIdx >= chord.length) {
+      ambientNoteIdx = 0;
+      ambientChordIdx = (ambientChordIdx + 1) % AMBIENT_CHORDS.length;
+    }
+
+    // Steady 800ms between notes — arpeggiated feel, not random scatter
+    musicLoopHandle = setTimeout(scheduleAmbientNote, 800);
   }
 
-  musicLoopHandle = setTimeout(scheduleNextNote, 300);
+  musicLoopHandle = setTimeout(scheduleAmbientNote, 300);
 }
 
 // ─── Start/restart the beat clock ─────────────────────────────────────────────
@@ -406,8 +585,8 @@ function startBeatClock(era) {
   stopBeatClock();
   beatStep = 0;
   const flavor = ERA_BATTLE[era] || ERA_BATTLE.menu;
-  // 160 BPM base × era factor → ms per 16th note
-  const msPerStep = Math.round((375 / flavor.bpmFactor));
+  // Base: 150 BPM × 16th note = 100ms per step; scaled by era factor
+  const msPerStep = Math.round(100 / flavor.bpmFactor);
   beatClock = setInterval(onBeat, msPerStep);
 }
 
@@ -480,7 +659,6 @@ export function setMusicIntensity(level) {
 
   if (clamped === 0) {
     // Transitioning back to ambient — stop beat clock, restart ambient loop
-    // Fade out master music gain briefly then restart
     if (masterMusicGain) {
       const now = audioCtx.currentTime;
       masterMusicGain.gain.setValueAtTime(masterMusicGain.gain.value, now);
@@ -489,7 +667,6 @@ export function setMusicIntensity(level) {
     stopBeatClock();
     setTimeout(() => {
       if (!musicEnabled || !audioCtx) return;
-      // Guard: don't restart ambient if intensity has already changed
       if (currentIntensity !== 0) return;
       if (masterMusicGain) {
         const now = audioCtx.currentTime;
@@ -513,7 +690,7 @@ export function setMusicIntensity(level) {
       }
       startBeatClock(currentEra);
     } else {
-      // Battle intensity shift — just change level (beat clock keeps running)
+      // Battle intensity shift — beat clock keeps running, just change level
       // Briefly duck then restore for the "impact" feel
       if (masterMusicGain) {
         const now = audioCtx.currentTime;
