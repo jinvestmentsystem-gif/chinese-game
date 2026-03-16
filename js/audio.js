@@ -546,6 +546,43 @@ function scheduleNote(time) {
     }
   }
 
+  // ── Heroic pitch-bend entry note — beat 1 of each 4-bar cycle (absStep 0) ──
+  // Slide from C4 up to E4 over 200ms for "heroic entry" feel
+  if (currentIntensity >= 2 && absStep === 0) {
+    const heroOsc = audioCtx.createOscillator();
+    const heroGain = audioCtx.createGain();
+    heroOsc.type = 'square';
+    heroOsc.frequency.setValueAtTime(C4, time);
+    heroOsc.frequency.linearRampToValueAtTime(E4, time + 0.20);
+    heroGain.gain.setValueAtTime(0, time);
+    heroGain.gain.linearRampToValueAtTime(0.14, time + 0.01);
+    heroGain.gain.setValueAtTime(0.14, time + 0.18);
+    heroGain.gain.linearRampToValueAtTime(0, time + 0.22);
+    heroOsc.connect(heroGain);
+    heroGain.connect(masterMusicGain || audioCtx.destination);
+    heroOsc.start(time);
+    heroOsc.stop(time + 0.25);
+  }
+
+  // ── Crash cymbal — beat 1 of bar 1 of each 4-bar loop (absStep 0) ─────────
+  // White noise through highpass at 8000Hz, fast decay
+  if (currentIntensity >= 2 && absStep === 0) {
+    const crashBuf = makeNoiseBuffer(0.35);
+    const crashSrc = audioCtx.createBufferSource();
+    crashSrc.buffer = crashBuf;
+    const crashHpf = audioCtx.createBiquadFilter();
+    crashHpf.type = 'highpass';
+    crashHpf.frequency.value = 8000;
+    const crashGain = audioCtx.createGain();
+    crashGain.gain.setValueAtTime(0.28, time);
+    crashGain.gain.exponentialRampToValueAtTime(0.0001, time + 0.32);
+    crashSrc.connect(crashHpf);
+    crashHpf.connect(crashGain);
+    crashGain.connect(masterMusicGain || audioCtx.destination);
+    crashSrc.start(time);
+    crashSrc.stop(time + 0.36);
+  }
+
   // ── Counter-melody (intensity 3) ──────────────────────────────────────────
   if (currentIntensity >= 3) {
     const cnote = COUNTER_MELODY[absStep];
@@ -655,7 +692,7 @@ export function initAudio() {
 
   // Master gain for all music — kept below SFX headroom
   masterMusicGain = audioCtx.createGain();
-  masterMusicGain.gain.value = 0.55; // Music softer overall
+  masterMusicGain.gain.value = 0.65; // Music volume
   masterMusicGain.connect(audioCtx.destination);
 
   // Feedback delay for reverb-like spatial depth
@@ -905,164 +942,366 @@ export function playStinger(type) {
   }
 }
 
-// ─── SFX (unchanged) ─────────────────────────────────────────────────────────
+// ─── FM Synthesis helper ──────────────────────────────────────────────────────
+function playFMNote(carrierFreq, modFreq, modIndex, gainPeak, attackTime, decayTime, waveType, dest, startTime) {
+  const now = startTime || audioCtx.currentTime;
+
+  // Modulator
+  const mod = audioCtx.createOscillator();
+  const modGain = audioCtx.createGain();
+  mod.frequency.value = modFreq;
+  modGain.gain.value = modIndex * modFreq; // FM depth
+  mod.connect(modGain);
+
+  // Carrier
+  const car = audioCtx.createOscillator();
+  car.type = waveType || 'sine';
+  car.frequency.value = carrierFreq;
+  modGain.connect(car.frequency); // FM connection
+
+  // Envelope
+  const env = audioCtx.createGain();
+  env.gain.setValueAtTime(0, now);
+  env.gain.linearRampToValueAtTime(gainPeak, now + attackTime);
+  env.gain.exponentialRampToValueAtTime(0.001, now + attackTime + decayTime);
+
+  car.connect(env);
+  env.connect(dest);
+
+  mod.start(now);
+  car.start(now);
+  mod.stop(now + attackTime + decayTime + 0.05);
+  car.stop(now + attackTime + decayTime + 0.05);
+}
+
+// ─── WaveShaper distortion helper ────────────────────────────────────────────
+function createDistortion(amount) {
+  const ws = audioCtx.createWaveShaper();
+  const samples = 44100;
+  const curve = new Float32Array(samples);
+  for (let i = 0; i < samples; i++) {
+    const x = (i * 2) / samples - 1;
+    curve[i] = ((3 + amount) * x * 20 * (Math.PI / 180)) / (Math.PI + amount * Math.abs(x));
+  }
+  ws.curve = curve;
+  ws.oversample = '4x';
+  return ws;
+}
+
+// ─── SFX — professional jsfxr-style sounds ───────────────────────────────────
 
 export function playSound(type) {
   if (!audioCtx || !sfxEnabled) return;
 
   const now = audioCtx.currentTime;
+  const dest = masterSfxGain || audioCtx.destination;
 
   switch (type) {
 
     case 'correct': {
-      // Short ascending two-note chime (pentatonic E → G)
-      [329.63, 392.00].forEach((freq, i) => {
-        const osc = audioCtx.createOscillator();
-        const g = audioCtx.createGain();
-        osc.type = 'triangle';
-        osc.frequency.value = freq;
-        g.gain.setValueAtTime(0, now + i * 0.12);
-        g.gain.linearRampToValueAtTime(0.18, now + i * 0.12 + 0.02);
-        g.gain.exponentialRampToValueAtTime(0.0001, now + i * 0.12 + 0.35);
-        osc.connect(g); g.connect(masterSfxGain || audioCtx.destination);
-        osc.start(now + i * 0.12);
-        osc.stop(now + i * 0.12 + 0.4);
+      // Bright ascending arpeggio C5→E5→G5 with FM metallic shimmer + reverb tail
+      const arpFreqs = [C5, E5, G5]; // 523.25, 659.26, 783.99
+      arpFreqs.forEach((freq, i) => {
+        const t = now + i * 0.09;
+        // FM note: modIndex increases slightly for each step (brighter shimmer)
+        playFMNote(freq, freq * 2.01, 0.5 + i * 0.15, 0.22, 0.008, 0.28, 'sine', dest, t);
       });
+      // Reverb tail — quiet delayed echo of the last note
+      const tailDelay = audioCtx.createDelay(0.5);
+      tailDelay.delayTime.value = 0.18;
+      const tailGain = audioCtx.createGain();
+      tailGain.gain.setValueAtTime(0, now + 0.27);
+      tailGain.gain.linearRampToValueAtTime(0.06, now + 0.32);
+      tailGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.75);
+      const tailOsc = audioCtx.createOscillator();
+      tailOsc.type = 'sine';
+      tailOsc.frequency.value = G5;
+      tailOsc.connect(tailGain);
+      tailGain.connect(dest);
+      tailOsc.start(now + 0.27);
+      tailOsc.stop(now + 0.78);
       break;
     }
 
     case 'wrong': {
-      // Low descending buzz
+      // Descending buzzy horn: sawtooth + resonant bandpass sweep 2000→200Hz
+      // Noise burst transient at the start for impact
+      const noiseBuf = makeNoiseBuffer(0.04);
+      const noiseSrc = audioCtx.createBufferSource();
+      noiseSrc.buffer = noiseBuf;
+      const noiseHpf = audioCtx.createBiquadFilter();
+      noiseHpf.type = 'bandpass';
+      noiseHpf.frequency.value = 1200;
+      noiseHpf.Q.value = 1.0;
+      const noiseGain = audioCtx.createGain();
+      noiseGain.gain.setValueAtTime(0.35, now);
+      noiseGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.04);
+      noiseSrc.connect(noiseHpf);
+      noiseHpf.connect(noiseGain);
+      noiseGain.connect(dest);
+      noiseSrc.start(now);
+      noiseSrc.stop(now + 0.05);
+
+      // Sawtooth horn with bandpass sweep
       const osc = audioCtx.createOscillator();
-      const g = audioCtx.createGain();
       const bpf = audioCtx.createBiquadFilter();
-      bpf.type = 'bandpass';
-      bpf.frequency.value = 180;
-      bpf.Q.value = 1.5;
+      const g = audioCtx.createGain();
       osc.type = 'sawtooth';
-      osc.frequency.setValueAtTime(220, now);
-      osc.frequency.linearRampToValueAtTime(110, now + 0.3);
-      g.gain.setValueAtTime(0.18, now);
-      g.gain.exponentialRampToValueAtTime(0.0001, now + 0.35);
-      osc.connect(bpf); bpf.connect(g); g.connect(masterSfxGain || audioCtx.destination);
-      osc.start(now); osc.stop(now + 0.4);
+      osc.frequency.setValueAtTime(240, now);
+      osc.frequency.exponentialRampToValueAtTime(110, now + 0.38);
+      bpf.type = 'bandpass';
+      bpf.frequency.setValueAtTime(2000, now);
+      bpf.frequency.exponentialRampToValueAtTime(200, now + 0.38);
+      bpf.Q.value = 3.5;
+      g.gain.setValueAtTime(0.0, now);
+      g.gain.linearRampToValueAtTime(0.32, now + 0.012);
+      g.gain.exponentialRampToValueAtTime(0.0001, now + 0.42);
+      osc.connect(bpf);
+      bpf.connect(g);
+      g.connect(dest);
+      osc.start(now);
+      osc.stop(now + 0.45);
       break;
     }
 
     case 'attack': {
-      // Quick whoosh: white noise burst filtered with bandpass, fast decay
-      const bufLen = audioCtx.sampleRate * 0.25;
-      const buffer = audioCtx.createBuffer(1, bufLen, audioCtx.sampleRate);
-      const data = buffer.getChannelData(0);
-      for (let i = 0; i < bufLen; i++) data[i] = (Math.random() * 2 - 1);
-      const noise = audioCtx.createBufferSource();
-      noise.buffer = buffer;
+      // White noise burst through sweeping bandpass 8000→400Hz in 150ms
+      const atkBufLen = Math.ceil(audioCtx.sampleRate * 0.22);
+      const atkBuf = audioCtx.createBuffer(1, atkBufLen, audioCtx.sampleRate);
+      const atkData = atkBuf.getChannelData(0);
+      for (let i = 0; i < atkBufLen; i++) atkData[i] = Math.random() * 2 - 1;
+      const noiseSrc = audioCtx.createBufferSource();
+      noiseSrc.buffer = atkBuf;
       const bpf = audioCtx.createBiquadFilter();
       bpf.type = 'bandpass';
-      bpf.frequency.setValueAtTime(1800, now);
-      bpf.frequency.exponentialRampToValueAtTime(400, now + 0.2);
-      bpf.Q.value = 2.5;
-      const g = audioCtx.createGain();
-      g.gain.setValueAtTime(0.28, now);
-      g.gain.exponentialRampToValueAtTime(0.0001, now + 0.22);
-      noise.connect(bpf); bpf.connect(g); g.connect(masterSfxGain || audioCtx.destination);
-      noise.start(now); noise.stop(now + 0.25);
+      bpf.frequency.setValueAtTime(8000, now);
+      bpf.frequency.exponentialRampToValueAtTime(400, now + 0.15);
+      bpf.Q.value = 1.8;
+      const noiseGain = audioCtx.createGain();
+      noiseGain.gain.setValueAtTime(0.38, now);
+      noiseGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.20);
+      noiseSrc.connect(bpf);
+      bpf.connect(noiseGain);
+      noiseGain.connect(dest);
+      noiseSrc.start(now);
+      noiseSrc.stop(now + 0.22);
+
+      // Sine whoosh 800→200Hz layered under noise for body
+      const whoosh = audioCtx.createOscillator();
+      const wg = audioCtx.createGain();
+      whoosh.type = 'sine';
+      whoosh.frequency.setValueAtTime(800, now);
+      whoosh.frequency.exponentialRampToValueAtTime(200, now + 0.15);
+      wg.gain.setValueAtTime(0.0, now);
+      wg.gain.linearRampToValueAtTime(0.22, now + 0.01);
+      wg.gain.exponentialRampToValueAtTime(0.0001, now + 0.18);
+      whoosh.connect(wg);
+      wg.connect(dest);
+      whoosh.start(now);
+      whoosh.stop(now + 0.20);
       break;
     }
 
     case 'hit': {
-      // Impact thud: low sine burst ~80Hz
-      const osc = audioCtx.createOscillator();
-      const g = audioCtx.createGain();
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(90, now);
-      osc.frequency.exponentialRampToValueAtTime(40, now + 0.15);
-      g.gain.setValueAtTime(0.45, now);
-      g.gain.exponentialRampToValueAtTime(0.0001, now + 0.18);
-      osc.connect(g); g.connect(masterSfxGain || audioCtx.destination);
-      osc.start(now); osc.stop(now + 0.2);
+      // Low-frequency thud: 60Hz→30Hz pitch drop
+      const thud = audioCtx.createOscillator();
+      const thudGain = audioCtx.createGain();
+      thud.type = 'sine';
+      thud.frequency.setValueAtTime(60, now);
+      thud.frequency.exponentialRampToValueAtTime(30, now + 0.12);
+      thudGain.gain.setValueAtTime(0.55, now);
+      thudGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.16);
+      thud.connect(thudGain);
+      thudGain.connect(dest);
+      thud.start(now);
+      thud.stop(now + 0.18);
+
+      // Noise burst through lowpass for texture
+      const hitBuf = makeNoiseBuffer(0.12);
+      const hitNoise = audioCtx.createBufferSource();
+      hitNoise.buffer = hitBuf;
+      const lpf = audioCtx.createBiquadFilter();
+      lpf.type = 'lowpass';
+      lpf.frequency.setValueAtTime(2500, now);
+      lpf.frequency.exponentialRampToValueAtTime(200, now + 0.10);
+      const hitNoiseGain = audioCtx.createGain();
+      hitNoiseGain.gain.setValueAtTime(0.40, now);
+      hitNoiseGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.12);
+      hitNoise.connect(lpf);
+      lpf.connect(hitNoiseGain);
+      hitNoiseGain.connect(dest);
+      hitNoise.start(now);
+      hitNoise.stop(now + 0.13);
+
+      // Click transient: very short 2000Hz sine burst, 5ms
+      const click = audioCtx.createOscillator();
+      const clickGain = audioCtx.createGain();
+      click.type = 'sine';
+      click.frequency.value = 2000;
+      clickGain.gain.setValueAtTime(0.30, now);
+      clickGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.005);
+      click.connect(clickGain);
+      clickGain.connect(dest);
+      click.start(now);
+      click.stop(now + 0.007);
       break;
     }
 
     case 'levelup': {
-      // Ascending arpeggio: C-E-G-C each 100ms, triangle wave
-      [261.63, 329.63, 392.00, 523.25].forEach((freq, i) => {
-        const osc = audioCtx.createOscillator();
-        const g = audioCtx.createGain();
-        osc.type = 'triangle';
-        osc.frequency.value = freq;
-        const t = now + i * 0.11;
-        g.gain.setValueAtTime(0, t);
-        g.gain.linearRampToValueAtTime(0.22, t + 0.02);
-        g.gain.exponentialRampToValueAtTime(0.0001, t + 0.28);
-        osc.connect(g); g.connect(masterSfxGain || audioCtx.destination);
-        osc.start(t); osc.stop(t + 0.3);
+      // Bright ascending major scale arpeggio C4→E4→G4→C5→E5→G5 with FM
+      // Each note 80ms, increasing brightness (modulation index)
+      const lvlFreqs = [C4, E4, G4, C5, E5, G5];
+      lvlFreqs.forEach((freq, i) => {
+        const t = now + i * 0.08;
+        const modIdx = 0.3 + i * 0.18; // increasing modulation = brighter
+        playFMNote(freq, freq * 1.995, modIdx, 0.20, 0.006, 0.22, 'sine', dest, t);
+      });
+      // Sustained shimmer chord at the end: C5+E5+G5 with slight detune
+      const chordStart = now + lvlFreqs.length * 0.08 + 0.02;
+      [C5, E5, G5].forEach((freq, i) => {
+        const detunes = [-4, 0, 4];
+        playFMNote(freq * Math.pow(2, detunes[i] / 1200), freq * 2, 0.8, 0.12, 0.08, 0.60, 'sine', dest, chordStart);
       });
       break;
     }
 
     case 'boss_roar': {
-      // Low rumble: 50Hz sine with vibrato, 1s, high gain
-      const osc = audioCtx.createOscillator();
+      // Deep sub-bass rumble 30-50Hz with heavy vibrato + waveshaper distortion
+      const distortion = createDistortion(180);
+      distortion.connect(dest);
+
+      const roarOsc = audioCtx.createOscillator();
       const vibOsc = audioCtx.createOscillator();
       const vibGain = audioCtx.createGain();
-      const g = audioCtx.createGain();
-      osc.type = 'sine';
-      osc.frequency.value = 50;
-      vibOsc.frequency.value = 6;
-      vibGain.gain.value = 8;
+      const roarGain = audioCtx.createGain();
+      roarOsc.type = 'sawtooth';
+      roarOsc.frequency.setValueAtTime(38, now);
+      roarOsc.frequency.linearRampToValueAtTime(50, now + 0.4);
+      roarOsc.frequency.linearRampToValueAtTime(32, now + 1.1);
+      vibOsc.frequency.value = 7;
+      vibGain.gain.value = 12;
       vibOsc.connect(vibGain);
-      vibGain.connect(osc.frequency);
-      g.gain.setValueAtTime(0, now);
-      g.gain.linearRampToValueAtTime(0.5, now + 0.1);
-      g.gain.setValueAtTime(0.5, now + 0.7);
-      g.gain.exponentialRampToValueAtTime(0.0001, now + 1.1);
-      osc.connect(g); g.connect(masterSfxGain || audioCtx.destination);
-      vibOsc.start(now); vibOsc.stop(now + 1.15);
-      osc.start(now); osc.stop(now + 1.15);
-      break;
-    }
+      vibGain.connect(roarOsc.frequency);
+      roarGain.gain.setValueAtTime(0, now);
+      roarGain.gain.linearRampToValueAtTime(0.60, now + 0.12);
+      roarGain.gain.setValueAtTime(0.60, now + 0.9);
+      roarGain.gain.exponentialRampToValueAtTime(0.0001, now + 1.5);
+      roarOsc.connect(roarGain);
+      roarGain.connect(distortion);
+      vibOsc.start(now); vibOsc.stop(now + 1.55);
+      roarOsc.start(now); roarOsc.stop(now + 1.55);
 
-    case 'text': {
-      // Very soft high-frequency click, 5ms
-      const osc = audioCtx.createOscillator();
-      const g = audioCtx.createGain();
-      osc.type = 'square';
-      osc.frequency.value = 1800 + Math.random() * 400;
-      g.gain.setValueAtTime(0.03, now);
-      g.gain.exponentialRampToValueAtTime(0.0001, now + 0.008);
-      osc.connect(g); g.connect(masterSfxGain || audioCtx.destination);
-      osc.start(now); osc.stop(now + 0.01);
+      // Filtered noise "wind" layer
+      const windBuf = makeNoiseBuffer(1.5);
+      const windSrc = audioCtx.createBufferSource();
+      windSrc.buffer = windBuf;
+      const windBpf = audioCtx.createBiquadFilter();
+      windBpf.type = 'bandpass';
+      windBpf.frequency.setValueAtTime(120, now);
+      windBpf.frequency.linearRampToValueAtTime(600, now + 0.6);
+      windBpf.frequency.exponentialRampToValueAtTime(80, now + 1.5);
+      windBpf.Q.value = 2.0;
+      const windGain = audioCtx.createGain();
+      windGain.gain.setValueAtTime(0, now);
+      windGain.gain.linearRampToValueAtTime(0.35, now + 0.15);
+      windGain.gain.setValueAtTime(0.35, now + 0.9);
+      windGain.gain.exponentialRampToValueAtTime(0.0001, now + 1.5);
+      windSrc.connect(windBpf);
+      windBpf.connect(windGain);
+      windGain.connect(dest);
+      windSrc.start(now);
+      windSrc.stop(now + 1.55);
       break;
     }
 
     case 'click': {
-      // Soft pop: sine burst 400Hz, 20ms
-      const osc = audioCtx.createOscillator();
-      const g = audioCtx.createGain();
-      osc.type = 'sine';
-      osc.frequency.value = 400;
-      g.gain.setValueAtTime(0.12, now);
-      g.gain.exponentialRampToValueAtTime(0.0001, now + 0.022);
-      osc.connect(g); g.connect(masterSfxGain || audioCtx.destination);
-      osc.start(now); osc.stop(now + 0.025);
+      // Short crisp transient: 3ms sine at 1200Hz + 3ms noise burst through highpass
+      const clickOsc = audioCtx.createOscillator();
+      const clickGain = audioCtx.createGain();
+      clickOsc.type = 'sine';
+      clickOsc.frequency.value = 1200;
+      clickGain.gain.setValueAtTime(0.25, now);
+      clickGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.003);
+      clickOsc.connect(clickGain);
+      clickGain.connect(dest);
+      clickOsc.start(now);
+      clickOsc.stop(now + 0.005);
+
+      const cNoiseBuf = makeNoiseBuffer(0.006);
+      const cNoiseSrc = audioCtx.createBufferSource();
+      cNoiseSrc.buffer = cNoiseBuf;
+      const cHpf = audioCtx.createBiquadFilter();
+      cHpf.type = 'highpass';
+      cHpf.frequency.value = 5000;
+      const cNoiseGain = audioCtx.createGain();
+      cNoiseGain.gain.setValueAtTime(0.20, now);
+      cNoiseGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.003);
+      cNoiseSrc.connect(cHpf);
+      cHpf.connect(cNoiseGain);
+      cNoiseGain.connect(dest);
+      cNoiseSrc.start(now);
+      cNoiseSrc.stop(now + 0.007);
       break;
     }
 
     case 'victory': {
-      // Major chord: C-E-G played simultaneously, 2s sustain, triangle wave
-      [261.63, 329.63, 392.00].forEach((freq) => {
-        const osc = audioCtx.createOscillator();
-        const g = audioCtx.createGain();
-        osc.type = 'triangle';
-        osc.frequency.value = freq;
-        g.gain.setValueAtTime(0, now);
-        g.gain.linearRampToValueAtTime(0.14, now + 0.08);
-        g.gain.setValueAtTime(0.14, now + 1.6);
-        g.gain.exponentialRampToValueAtTime(0.0001, now + 2.1);
-        osc.connect(g); g.connect(masterSfxGain || audioCtx.destination);
-        osc.start(now); osc.stop(now + 2.2);
+      // C major chord C4,E4,G4,C5 — slow attack swell 300ms, 3s sustain, chorus effect
+      const victFreqs = [C4, E4, G4, C5]; // 261.63, 329.63, 392.00, 523.25
+      victFreqs.forEach((freq) => {
+        // Main voice
+        const osc1 = audioCtx.createOscillator();
+        const g1 = audioCtx.createGain();
+        osc1.type = 'triangle';
+        osc1.frequency.value = freq;
+        g1.gain.setValueAtTime(0, now);
+        g1.gain.linearRampToValueAtTime(0.14, now + 0.30);
+        g1.gain.setValueAtTime(0.14, now + 2.7);
+        g1.gain.exponentialRampToValueAtTime(0.0001, now + 3.2);
+        osc1.connect(g1); g1.connect(dest);
+        osc1.start(now); osc1.stop(now + 3.25);
+
+        // Chorus copy +5 cents
+        const osc2 = audioCtx.createOscillator();
+        const g2 = audioCtx.createGain();
+        osc2.type = 'triangle';
+        osc2.frequency.value = freq;
+        osc2.detune.value = 5;
+        g2.gain.setValueAtTime(0, now);
+        g2.gain.linearRampToValueAtTime(0.07, now + 0.32);
+        g2.gain.setValueAtTime(0.07, now + 2.7);
+        g2.gain.exponentialRampToValueAtTime(0.0001, now + 3.2);
+        osc2.connect(g2); g2.connect(dest);
+        osc2.start(now); osc2.stop(now + 3.25);
+
+        // Chorus copy -5 cents
+        const osc3 = audioCtx.createOscillator();
+        const g3 = audioCtx.createGain();
+        osc3.type = 'triangle';
+        osc3.frequency.value = freq;
+        osc3.detune.value = -5;
+        g3.gain.setValueAtTime(0, now);
+        g3.gain.linearRampToValueAtTime(0.07, now + 0.32);
+        g3.gain.setValueAtTime(0.07, now + 2.7);
+        g3.gain.exponentialRampToValueAtTime(0.0001, now + 3.2);
+        osc3.connect(g3); g3.connect(dest);
+        osc3.start(now); osc3.stop(now + 3.25);
       });
+      break;
+    }
+
+    case 'text': {
+      // Extremely short 3ms soft high-pitched tap; randomize pitch 1500-2500Hz
+      const textFreq = 1500 + Math.random() * 1000;
+      const tOsc = audioCtx.createOscillator();
+      const tGain = audioCtx.createGain();
+      tOsc.type = 'sine';
+      tOsc.frequency.value = textFreq;
+      tGain.gain.setValueAtTime(0.04, now);
+      tGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.003);
+      tOsc.connect(tGain);
+      tGain.connect(dest);
+      tOsc.start(now);
+      tOsc.stop(now + 0.005);
       break;
     }
 
