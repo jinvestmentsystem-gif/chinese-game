@@ -773,6 +773,31 @@ function renderCombat() {
     stopPlayerBreath = startBreathingAnimation(playerSpriteEl);
     stopEnemyBreath = startBreathingAnimation(enemySpriteEl);
 
+    // ── Question text blur-in from top ──
+    const questionEl = div.querySelector('.combat-question');
+    if (questionEl) {
+      questionEl.style.opacity = '0';
+      questionEl.style.transform = 'translateY(-15px)';
+      questionEl.style.filter = 'blur(4px)';
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        questionEl.style.transition = 'all 0.4s ease-out';
+        questionEl.style.opacity = '1';
+        questionEl.style.transform = 'translateY(0)';
+        questionEl.style.filter = 'blur(0)';
+      }));
+    }
+
+    // ── Option card staggered entrance ──
+    div.querySelectorAll('.combat-option').forEach((opt, i) => {
+      opt.style.opacity = '0';
+      opt.style.transform = 'translateY(30px)';
+      opt.style.transition = `opacity 0.3s ${i * 0.08}s ease-out, transform 0.3s ${i * 0.08}s ease-out`;
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        opt.style.opacity = '1';
+        opt.style.transform = 'translateY(0)';
+      }));
+    });
+
     // ── Timer ──
     let timeLeft = baseTimer;
     const timerBar = div.querySelector('#timer-bar');
@@ -781,7 +806,15 @@ function renderCombat() {
       timeLeft -= 0.1;
       if (timerBar) timerBar.style.width = Math.max(0, (timeLeft / baseTimer) * 100) + '%';
 
-      // Timer pulse at < 3s
+      // Timer urgency at < 5s — CSS class pulse; legacy JS pulse at < 3s
+      if (timerBar) {
+        if (timeLeft < 5 && timeLeft > 0) {
+          timerBar.classList.add('timer-urgent');
+        } else {
+          timerBar.classList.remove('timer-urgent');
+        }
+      }
+
       if (timeLeft < 3 && timeLeft > 0) {
         clearInterval(timerPulseInterval);
         timerPulseInterval = null;
@@ -866,8 +899,15 @@ function renderCombat() {
     buttons.forEach(btn => {
       btn.style.pointerEvents = 'none';
       const bIdx = parseInt(btn.dataset.idx);
-      if (bIdx === q.correct) btn.classList.add('correct');
-      else if (bIdx === idx) btn.classList.add('wrong');
+      if (bIdx === q.correct) {
+        btn.classList.add('correct');
+      } else if (bIdx === idx) {
+        btn.classList.add('wrong');
+      } else {
+        // Fade out non-selected, non-correct options to focus attention
+        btn.style.opacity = '0.3';
+        btn.style.transition = 'opacity 0.2s ease-out';
+      }
     });
 
     recordAnswer('vocab', correct, q.id);
@@ -902,6 +942,14 @@ function renderCombat() {
       const dmg = Math.round(20 * dmgMultiplier);
       enemyHp = Math.max(0, enemyHp - dmg);
 
+      // ── CSS animation on selected correct button ──
+      const selectedBtn = idx >= 0 ? [...buttons].find(b => parseInt(b.dataset.idx) === idx) : null;
+      const correctBtn  = [...buttons].find(b => parseInt(b.dataset.idx) === q.correct);
+      if (correctBtn) {
+        correctBtn.style.animation = 'correct-pulse 0.4s ease-out';
+        correctBtn.style.boxShadow = '0 0 20px rgba(39,174,96,0.5)';
+      }
+
       // ── Update Balatro scoring ──
       // Speed bonus: remaining timer approximated from last known timeLeft via closure
       // We add a flat 10 chips + speed bonus embedded here
@@ -921,8 +969,13 @@ function renderCombat() {
         floatingNumber(div, `+${chips} ×${multiplier.toFixed(1)}`, numX - 30, numY, '#d4a017');
       }
 
-      // Player lunges forward
-      lungeElement(playerSprite, 50, 200, null);
+      // ── Player sprite attack via CSS keyframe ──
+      if (playerSprite) {
+        playerSprite.style.animation = 'sprite-attack 0.55s ease-out';
+        playerSprite.addEventListener('animationend', () => {
+          playerSprite.style.animation = '';
+        }, { once: true });
+      }
 
       // Slash effect (diagonal line through center of arena)
       if (arena) {
@@ -936,8 +989,15 @@ function renderCombat() {
         setTimeout(() => slashEffect(div, cx - 40, cy - 60, cx + 20, cy + 20, '#d4a017'), 80);
       }
 
-      // Enemy shakes after slight delay
-      setTimeout(() => shakeElement(enemySprite, 8, 350), 220);
+      // ── Enemy recoil via CSS keyframe ──
+      setTimeout(() => {
+        if (enemySprite) {
+          enemySprite.style.animation = 'sprite-recoil 0.45s ease-out';
+          enemySprite.addEventListener('animationend', () => {
+            enemySprite.style.animation = '';
+          }, { once: true });
+        }
+      }, 220);
 
       // Floating damage number above enemy sprite
       if (enemyWrap) {
@@ -954,39 +1014,37 @@ function renderCombat() {
       // Particle sparkle burst on correct answer
       burstParticles(15, 'victory');
 
-      // Combo display — flash gold, show "+1 COMBO!", shake at 3+
+      // Combo display — CSS keyframe scale-up with gold glow
       const comboEl = div.querySelector('#combo');
       if (comboEl) {
         let comboColor = 'var(--accent-gold)';
         if (combo >= 6) comboColor = '#e74c3c';
         else if (combo >= 4) comboColor = '#e67e22';
 
-        // Flash gold briefly on increment
-        comboEl.style.transition = 'color 0.05s, transform 0.3s ease-out';
-        comboEl.style.color = '#fff';
-        setTimeout(() => { comboEl.style.color = comboColor; }, 80);
-
-        // Show "+1 COMBO!" text briefly, then the running count
+        // Show "+1 COMBO!" briefly then roll to running count
         comboEl.textContent = '+1 COMBO!';
         comboEl.style.color = '#d4a017';
-        comboEl.style.transform = 'scale(1.7)';
-        setTimeout(() => {
+        comboEl.style.animation = 'combo-increment 0.45s ease-out';
+        comboEl.addEventListener('animationend', () => {
+          comboEl.style.animation = '';
           comboEl.textContent = combo > 1 ? combo + ' 连击！' : '';
           comboEl.style.color = comboColor;
-          comboEl.style.transform = 'scale(1)';
-        }, 400);
-
-        // Shake the combo counter at 3+
-        if (combo >= 3) {
-          shakeElement(comboEl, 5, 350);
-        }
+        }, { once: true });
       }
 
       div.querySelector('#feedback').textContent = `✓ 正确！造成 ${dmg} 点伤害！${q.explanation}`;
 
-      // Update enemy HP bar
+      // Update enemy HP bar with damage flash
       const enemyHpBar = div.querySelector('#enemy-hp');
-      if (enemyHpBar) enemyHpBar.style.width = enemyHp + '%';
+      if (enemyHpBar) {
+        enemyHpBar.style.animation = 'hp-damage-flash 0.35s ease-out';
+        enemyHpBar.addEventListener('animationend', () => {
+          enemyHpBar.style.animation = enemyHp < 30 ? 'hp-critical-pulse 0.8s ease-in-out infinite' : '';
+        }, { once: true });
+        enemyHpBar.style.width = enemyHp + '%';
+        if (enemyHp < 30) enemyHpBar.classList.add('hp-critical');
+        else enemyHpBar.classList.remove('hp-critical');
+      }
 
       // Companion combo reactions — only on notable milestones
       if (combo === 2) showCompanionBubble(div, pick(COMPANION.correctStreak2));
@@ -998,15 +1056,38 @@ function renderCombat() {
       const hpLoss = Math.round(15 * (1 - profile.defense * 0.01));
       playerHp = Math.max(0, playerHp - hpLoss);
 
+      // ── CSS animation on the wrong-selected button ──
+      if (idx >= 0) {
+        const wrongBtn = [...buttons].find(b => parseInt(b.dataset.idx) === idx);
+        if (wrongBtn) {
+          wrongBtn.style.animation = 'wrong-shake 0.4s ease-out';
+          wrongBtn.addEventListener('animationend', () => {
+            wrongBtn.style.animation = '';
+          }, { once: true });
+        }
+      }
+
       // ── Multiplier BREAK animation ──
       multiplier = 1.0;
       updateScorePanel(true); // triggers red flash on panel
 
-      // Enemy lunges toward player
-      lungeElement(enemySprite, -50, 200, null);
+      // ── Enemy dashes forward via CSS keyframe ──
+      if (enemySprite) {
+        enemySprite.style.animation = 'sprite-damage 0.5s ease-out';
+        enemySprite.addEventListener('animationend', () => {
+          enemySprite.style.animation = '';
+        }, { once: true });
+      }
 
-      // Player shakes
-      setTimeout(() => shakeElement(playerSprite, 8, 350), 220);
+      // ── Player hurt via CSS keyframe (replaces plain shake) ──
+      setTimeout(() => {
+        if (playerSprite) {
+          playerSprite.style.animation = 'player-hurt 0.45s ease-out';
+          playerSprite.addEventListener('animationend', () => {
+            playerSprite.style.animation = '';
+          }, { once: true });
+        }
+      }, 200);
 
       // Red screen flash
       redFlashOverlay(div);
@@ -1030,15 +1111,32 @@ function renderCombat() {
         floatingNumber(div, '×1.0 BREAK!', numX - 20, numY, '#e74c3c');
       }
 
-      // Reset combo display
+      // Reset combo display — CSS combo-break shatter animation
       const comboEl = div.querySelector('#combo');
-      if (comboEl) comboEl.textContent = '';
+      if (comboEl && comboEl.textContent.trim() !== '') {
+        comboEl.style.animation = 'combo-break 0.4s ease-out forwards';
+        comboEl.addEventListener('animationend', () => {
+          comboEl.style.animation = '';
+          comboEl.textContent = '';
+        }, { once: true });
+      } else if (comboEl) {
+        comboEl.textContent = '';
+      }
 
       div.querySelector('#feedback').textContent = `✗ 错误！失去 ${hpLoss} HP。${q.explanation}`;
 
-      // Update player HP bar
+      // Update player HP bar with damage flash and critical pulse
       const playerHpBar = div.querySelector('#player-hp');
-      if (playerHpBar) playerHpBar.style.width = (playerHp / profile.maxHp) * 100 + '%';
+      if (playerHpBar) {
+        const pct = (playerHp / profile.maxHp) * 100;
+        playerHpBar.style.animation = 'hp-damage-flash 0.35s ease-out';
+        playerHpBar.addEventListener('animationend', () => {
+          playerHpBar.style.animation = pct < 30 ? 'hp-critical-pulse 0.8s ease-in-out infinite' : '';
+        }, { once: true });
+        playerHpBar.style.width = pct + '%';
+        if (pct < 30) playerHpBar.classList.add('hp-critical');
+        else playerHpBar.classList.remove('hp-critical');
+      }
 
       // Companion encouragement on wrong answer; warn if HP drops low
       if (playerHp < profile.maxHp * 0.3) {
