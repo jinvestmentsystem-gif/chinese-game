@@ -303,7 +303,13 @@ function renderQuest(params) {
 
   // ─── Async: build the map once quest data is ready ───────────────────────
   setTimeout(async () => {
-    const quest = await startQuest(chapterId, questIndex);
+    // If returning from a completed encounter, reuse the existing quest state
+    // to preserve encounter completion progress. Only create a new quest if
+    // there isn't one or it's for a different chapter/quest.
+    let quest = gameState.currentQuest;
+    if (!quest || quest.chapterId !== chapterId || quest.questIndex !== questIndex) {
+      quest = await startQuest(chapterId, questIndex);
+    }
     loadingEl.remove();
 
     const encounters = quest.encounters;   // [{type, index, completed}, …]
