@@ -210,7 +210,7 @@ function makeNoiseBuffer(durationSecs) {
 // ─── Scheduled drum / bass / melody hit generators ────────────────────────────
 // All accept a `time` parameter (Web Audio clock time) for sample-accurate placement.
 
-function playKickAt(time, gainPeak = 0.55) {
+function playKickAt(time, gainPeak = 0.70) {
   if (!audioCtx) return;
   const dest = masterMusicGain || audioCtx.destination;
 
@@ -242,7 +242,7 @@ function playKickAt(time, gainPeak = 0.55) {
   noiseSrc.stop(time + 0.05);
 }
 
-function playSnareAt(time, gainPeak = 0.38) {
+function playSnareAt(time, gainPeak = 0.50) {
   if (!audioCtx) return;
   const dest = masterMusicGain || audioCtx.destination;
 
@@ -314,20 +314,42 @@ function playBassAt(freq, time, duration) {
 function playMelodyAt(freq, time, duration) {
   if (!audioCtx) return;
   const dest = masterMusicGain || audioCtx.destination;
+  const vol = 0.18;  // slightly louder
 
-  const osc = audioCtx.createOscillator();
-  const gain = audioCtx.createGain();
-  osc.type = 'square';
-  osc.frequency.value = freq;
-  const vol = 0.15;
-  gain.gain.setValueAtTime(0, time);
-  gain.gain.linearRampToValueAtTime(vol, time + 0.01);
-  gain.gain.setValueAtTime(vol, time + duration - 0.02);
-  gain.gain.linearRampToValueAtTime(0, time + duration);
-  osc.connect(gain);
-  gain.connect(dest);
-  osc.start(time);
-  osc.stop(time + duration + 0.01);
+  // Main voice
+  const osc1 = audioCtx.createOscillator();
+  const g1 = audioCtx.createGain();
+  osc1.type = 'square';
+  osc1.frequency.value = freq;
+  g1.gain.setValueAtTime(0, time);
+  g1.gain.linearRampToValueAtTime(vol, time + 0.008);
+  g1.gain.setValueAtTime(vol, time + duration - 0.015);
+  g1.gain.linearRampToValueAtTime(0, time + duration);
+  osc1.connect(g1); g1.connect(dest);
+  osc1.start(time); osc1.stop(time + duration + 0.01);
+
+  // Detuned sawtooth layer
+  const osc2 = audioCtx.createOscillator();
+  const g2 = audioCtx.createGain();
+  osc2.type = 'sawtooth';
+  osc2.frequency.value = freq;
+  osc2.detune.value = 3; // slight chorus effect
+  g2.gain.setValueAtTime(0, time);
+  g2.gain.linearRampToValueAtTime(vol * 0.5, time + 0.008);
+  g2.gain.linearRampToValueAtTime(0, time + duration);
+  osc2.connect(g2); g2.connect(dest);
+  osc2.start(time); osc2.stop(time + duration + 0.01);
+
+  // Sub-octave warmth
+  const osc3 = audioCtx.createOscillator();
+  const g3 = audioCtx.createGain();
+  osc3.type = 'sine';
+  osc3.frequency.value = freq / 2;
+  g3.gain.setValueAtTime(0, time);
+  g3.gain.linearRampToValueAtTime(vol * 0.25, time + 0.01);
+  g3.gain.linearRampToValueAtTime(0, time + duration);
+  osc3.connect(g3); g3.connect(dest);
+  osc3.start(time); osc3.stop(time + duration + 0.01);
 }
 
 function playCounterAt(freq, time, duration) {
@@ -491,6 +513,37 @@ function scheduleNote(time) {
     }
   }
 
+  // ── Chord pads (intensity 2+) — sustained harmony on beat 1 of each bar ──
+  if (currentIntensity >= 2 && step === 0) {
+    // Chord pad — sustained chord matching the bass note's key
+    // Bar 1 & 2: Am — A3, C4, E4
+    // Bar 3: F  — F3(174.61), A3(220), C4(261.63)
+    // Bar 4: G  — G3(196), B3(246.94), D4(293.66)
+    const barStart = absStep - (absStep % 16);
+    const chordMap = {
+       0: [A3, C4, E4],
+      16: [A3, C4, E4],
+      32: [174.61, A3, C4],
+      48: [G3, 246.94, D4],
+    };
+    const chordFreqs = chordMap[barStart];
+    if (chordFreqs) {
+      chordFreqs.forEach(f => {
+        const osc = audioCtx.createOscillator();
+        const g = audioCtx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.value = f;
+        const padVol = 0.04;
+        g.gain.setValueAtTime(0, time);
+        g.gain.linearRampToValueAtTime(padVol, time + 0.1);
+        g.gain.setValueAtTime(padVol, time + SIXTEENTH_DURATION * 14);
+        g.gain.linearRampToValueAtTime(0, time + SIXTEENTH_DURATION * 16);
+        osc.connect(g); g.connect(masterMusicGain);
+        osc.start(time); osc.stop(time + SIXTEENTH_DURATION * 16 + 0.02);
+      });
+    }
+  }
+
   // ── Counter-melody (intensity 3) ──────────────────────────────────────────
   if (currentIntensity >= 3) {
     const cnote = COUNTER_MELODY[absStep];
@@ -550,12 +603,15 @@ function startAmbientLoop() {
     const attackTime = 0.18;
     const decayTime  = 2.0;
 
-    playNote(freq, 'triangle', 0.06 * gainJitter, attackTime, decayTime, dest);
-    playNote(freq, 'triangle', 0.06 * 0.28,       attackTime, decayTime, delayFx.input);
+    playNote(freq, 'triangle', 0.08 * gainJitter, attackTime, decayTime, dest);
+    playNote(freq, 'triangle', 0.08 * 0.28,       attackTime, decayTime, delayFx.input);
+
+    // Octave-up sine voice for shimmer (25% of main volume)
+    playNote(freq * 2, 'sine', 0.08 * gainJitter * 0.25, attackTime, decayTime * 0.85, dest);
 
     // Add soft low root note on the first note of each chord
     if (ambientNoteIdx === 0) {
-      playNote(freq * 0.5, 'sine', 0.06 * 0.4, attackTime + 0.05, decayTime * 1.3, dest);
+      playNote(freq * 0.5, 'sine', 0.08 * 0.4, attackTime + 0.05, decayTime * 1.3, dest);
     }
 
     ambientNoteIdx++;
@@ -587,8 +643,22 @@ export function initAudio() {
 
   // Master gain for all music — kept below SFX headroom
   masterMusicGain = audioCtx.createGain();
-  masterMusicGain.gain.value = 0.72;
+  masterMusicGain.gain.value = 0.85;
   masterMusicGain.connect(audioCtx.destination);
+
+  // Feedback delay for reverb-like spatial depth
+  const reverbDelay = audioCtx.createDelay(1.0);
+  reverbDelay.delayTime.value = 0.15;
+  const reverbFeedback = audioCtx.createGain();
+  reverbFeedback.gain.value = 0.2;
+  const reverbWet = audioCtx.createGain();
+  reverbWet.gain.value = 0.15;
+
+  masterMusicGain.connect(reverbDelay);
+  reverbDelay.connect(reverbFeedback);
+  reverbFeedback.connect(reverbDelay);
+  reverbDelay.connect(reverbWet);
+  reverbWet.connect(audioCtx.destination);
 }
 
 export function playMusic(era) {
@@ -645,7 +715,7 @@ export function setMusicIntensity(level) {
       if (masterMusicGain) {
         const now = audioCtx.currentTime;
         masterMusicGain.gain.setValueAtTime(0.0, now);
-        masterMusicGain.gain.linearRampToValueAtTime(0.72, now + FADE);
+        masterMusicGain.gain.linearRampToValueAtTime(0.85, now + FADE);
       }
       startAmbientLoop();
     }, FADE * 500);
@@ -656,7 +726,7 @@ export function setMusicIntensity(level) {
       if (masterMusicGain) {
         const now = audioCtx.currentTime;
         masterMusicGain.gain.setValueAtTime(0.0, now);
-        masterMusicGain.gain.linearRampToValueAtTime(0.72, now + FADE);
+        masterMusicGain.gain.linearRampToValueAtTime(0.85, now + FADE);
       }
       startScheduler();
     } else {
@@ -665,7 +735,7 @@ export function setMusicIntensity(level) {
         const now = audioCtx.currentTime;
         masterMusicGain.gain.setValueAtTime(masterMusicGain.gain.value, now);
         masterMusicGain.gain.linearRampToValueAtTime(0.50, now + 0.05);
-        masterMusicGain.gain.linearRampToValueAtTime(0.72, now + 0.05 + FADE);
+        masterMusicGain.gain.linearRampToValueAtTime(0.85, now + 0.05 + FADE);
       }
     }
   }
