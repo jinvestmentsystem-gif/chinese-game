@@ -4723,3 +4723,60 @@ input[type="text"]:focus, input[type="number"]:focus {
 
 /* Ensure explanation text in feedback is readable */
 .explanation-text { font-size: max(0.9rem, 14px); }
+
+/* ── SVG Sprite Idle Animations — breathing, floating, glow ── */
+@keyframes sprite-idle-breathe {
+  0%, 100% { transform: scaleY(1) translateY(0); }
+  50% { transform: scaleY(1.02) translateY(-2px); }
+}
+@keyframes sprite-idle-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes sprite-enemy-hover {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-4px) rotate(1deg); }
+  75% { transform: translateY(-4px) rotate(-1deg); }
+}
+@keyframes sprite-boss-menace {
+  0%, 100% { transform: scale(1) translateY(0); filter: brightness(1); }
+  30% { transform: scale(1.02) translateY(-3px); filter: brightness(1.05); }
+  60% { transform: scale(0.99) translateY(-1px); filter: brightness(0.95); }
+}
+
+/* Player sprite in combat */
+#player-sprite svg {
+  animation: sprite-idle-breathe 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 12px rgba(46, 204, 138, 0.3));
+}
+
+/* Enemy sprite in combat */
+#enemy-sprite svg {
+  animation: sprite-enemy-hover 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 12px rgba(106, 13, 173, 0.4));
+}
+
+/* Boss sprite */
+#boss-sprite svg {
+  animation: sprite-boss-menace 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(214, 48, 49, 0.5)) drop-shadow(0 0 40px rgba(214, 48, 49, 0.2));
+}
+
+/* Sprite attack animation */
+@keyframes sprite-attack-lunge {
+  0% { transform: translateX(0); }
+  30% { transform: translateX(40px) scale(1.1); }
+  60% { transform: translateX(10px) scale(1.05); }
+  100% { transform: translateX(0) scale(1); }
+}
+
+/* Sprite hurt animation */
+@keyframes sprite-hurt-recoil {
+  0% { transform: translateX(0); filter: brightness(1); }
+  20% { transform: translateX(-20px); filter: brightness(2) hue-rotate(30deg); }
+  60% { transform: translateX(5px); filter: brightness(1.2); }
+  100% { transform: translateX(0); filter: brightness(1); }
+}
+
+.sprite-attacking svg { animation: sprite-attack-lunge 0.5s ease-out !important; }
+.sprite-hurting svg { animation: sprite-hurt-recoil 0.5s ease-out !important; }

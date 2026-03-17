@@ -6,10 +6,11 @@ import { hasAbility, calcDamage, calcDamageTaken, getTimerDuration, rollCrit, ge
 import { playSound, playMusic, setMusicIntensity, playStinger } from '../audio.js';
 import { showCompanionBubble, showEnemyTaunt, COMPANION, ENEMY_TAUNTS, pick } from './companion.js';
 import { setParticleMode, burstParticles } from '../particles.js';
-import { getPixelSprites, createSpriteImg } from '../pixel-sprites.js';
+import { SPRITES } from '../sprites.js';
 import { showTutorial } from '../tutorial.js';
 import { shakeElement, lungeElement, slashEffect, screenFlash, floatingText } from '../effects.js';
 import { recordWrongAnswer, recordCorrectReview } from '../spaced-repetition.js';
+import { createCombatBackground, destroyCombatBackground } from '../pixi-backgrounds.js';
 
 // ─── Enemy type system ──────────────────────────────────────────────────────
 const ENEMY_TYPES = [
@@ -337,6 +338,11 @@ function renderCombat() {
       ${eraBg.gradient};
   `;
 
+  // Create PixiJS dynamic background
+  const eraMap = {1:'xianqin',2:'han',3:'tang',4:'song',5:'modern'};
+  const eraKey = eraMap[gameState.currentQuest?.chapterId] || 'xianqin';
+  createCombatBackground(div, eraKey);
+
   const encounter = getCurrentEncounter();
   const profile = gameState.profile;
   const questions = encounter.questions;
@@ -346,7 +352,6 @@ function renderCombat() {
 
   // Start battle music — explicitly set era and intensity
   const chapterId = gameState.currentQuest?.chapterId || 1;
-  const eraMap = {1:'xianqin',2:'han',3:'tang',4:'song',5:'modern'};
   playMusic(eraMap[chapterId] || 'xianqin');
   playStinger('battle_start');
   setTimeout(() => setMusicIntensity(1), 300);
@@ -1102,26 +1107,20 @@ function renderCombat() {
       if (arena) arena.classList.add('bg-depth-near');
     }
 
-    // ── Inject pixel art sprites into empty containers ──
+    // ── Inject SVG sprites into empty containers ──
     {
-      const sprites = getPixelSprites();
       const playerContainer = div.querySelector('#player-sprite');
       if (playerContainer) {
-        playerContainer.innerHTML = '';
-        playerContainer.appendChild(createSpriteImg(sprites.player, 180));
+        playerContainer.innerHTML = SPRITES.player;
+        playerContainer.style.width = '140px';
+        playerContainer.style.height = '180px';
       }
       const enemyContainer = div.querySelector('#enemy-sprite');
       if (enemyContainer) {
-        enemyContainer.innerHTML = '';
-        // Map enemy type sprite to available pixel sprites
-        const spriteMap = {
-          'enemy_moling': sprites.enemy_ink,
-          'enemy_guard': sprites.enemy_soldier,
-          'enemy_shadow': sprites.enemy_ink, // shadow uses ink sprite with different coloring
-        };
-        const enemyPixelSprite = spriteMap[enemyType.sprite] || sprites.enemy_ink;
-        const enemyImg = createSpriteImg(enemyPixelSprite, 180);
-        enemyContainer.appendChild(enemyImg);
+        const spriteKey = enemyType.sprite || 'enemy_moling';
+        enemyContainer.innerHTML = SPRITES[spriteKey] || SPRITES.enemy_moling;
+        enemyContainer.style.width = '140px';
+        enemyContainer.style.height = '180px';
 
         // Add shield icon overlay if shield is active
         if (shieldActive) {
@@ -2107,6 +2106,7 @@ function renderCombat() {
   }
 
   function endCombat(won) {
+    destroyCombatBackground();
     stopBreaths();
     // Guard against double-calls (multiple code paths can trigger endCombat)
     if (encounter.completed !== undefined && encounter.completed !== false) return;

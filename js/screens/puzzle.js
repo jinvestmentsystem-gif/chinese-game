@@ -6,7 +6,6 @@ import { calcDamageTaken, getEffectiveMaxHp } from '../progression.js';
 import { playSound, playMusic, setMusicIntensity } from '../audio.js';
 import { SPRITES } from '../sprites.js';
 import { setParticleMode } from '../particles.js';
-import { getPixelSprites, createSpriteImg } from '../pixel-sprites.js';
 
 const PUZZLE_NARRATIVES = [
   "古老卷轴上浮现出一段被墨暗污染的文字……解读它才能打破封印！",
@@ -365,13 +364,13 @@ function renderPuzzle() {
     `;
     inner.appendChild(arenaDiv);
 
-    // ── Inject pixel art player sprite ──
+    // ── Inject SVG player sprite ──
     {
-      const sprites = getPixelSprites();
       const playerEl = inner.querySelector('#player-sprite');
       if (playerEl) {
-        playerEl.innerHTML = '';
-        playerEl.appendChild(createSpriteImg(sprites.player, 140));
+        playerEl.innerHTML = SPRITES.player;
+        playerEl.style.width = '140px';
+        playerEl.style.height = '180px';
       }
     }
 

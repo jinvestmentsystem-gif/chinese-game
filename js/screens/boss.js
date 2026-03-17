@@ -8,9 +8,9 @@ import { SPRITES } from '../sprites.js';
 import { playSound, playMusic, setMusicIntensity, playStinger } from '../audio.js';
 import { showCompanionBubble, showEnemyTaunt, COMPANION, ENEMY_TAUNTS, pick } from './companion.js';
 import { setParticleMode, burstParticles } from '../particles.js';
-import { getPixelSprites, createSpriteImg } from '../pixel-sprites.js';
 import { showTutorial } from '../tutorial.js';
 import { shakeElement, shakeContainer, lungeElement, floatingText } from '../effects.js';
+import { createCombatBackground, destroyCombatBackground } from '../pixi-backgrounds.js';
 
 const BOSS_NARRATIVES = {
   phase1: [
@@ -355,6 +355,11 @@ function renderBoss() {
       radial-gradient(ellipse at 50% 70%, ${bossBg.accent} 0%, transparent 45%),
       ${bossBg.gradient};
   `;
+  // Create PixiJS dynamic background
+  const eraMap = {1:'xianqin',2:'han',3:'tang',4:'song',5:'modern'};
+  const eraKey = eraMap[quest.chapterId] || 'xianqin';
+  createCombatBackground(div, eraKey);
+
   const bossAbility = getBossAbility(quest.chapterId);
 
   // Boss music — set era to boss and max intensity
@@ -579,13 +584,15 @@ function renderBoss() {
       <div class="boss-feedback" id="feedback"></div>
     `;
 
-    // ── Inject pixel art boss sprite ──
+    // ── Inject SVG boss sprite ──
     {
-      const sprites = getPixelSprites();
       const bossContainer = div.querySelector('#boss-sprite');
       if (bossContainer) {
-        bossContainer.innerHTML = '';
-        bossContainer.appendChild(createSpriteImg(sprites.boss_cangjie, 220));
+        const quest = gameState.currentQuest;
+        const bossSpriteKey = bossSprites[quest?.chapterId] || 'boss_cangjie';
+        bossContainer.innerHTML = SPRITES[bossSpriteKey] || SPRITES.boss_cangjie;
+        bossContainer.style.width = '160px';
+        bossContainer.style.height = '200px';
       }
     }
 
@@ -1050,6 +1057,7 @@ function renderBoss() {
   }
 
   async function endBoss(won) {
+    destroyCombatBackground();
     setMusicIntensity(0);
     if (won) playStinger('victory');
     encounter.completed = won;
