@@ -1,0 +1,4826 @@
+[
+  {
+    "id": "v7-302",
+    "type": "vocab",
+    "prompt": "「贮蓄」的「贮」字正确读音是？",
+    "options": [
+      "zhù",
+      "chǔ",
+      "zhǔ",
+      "chù"
+    ],
+    "correct": 0,
+    "explanation": "贮读作 zhù，贮蓄意为储存、积蓄。注意不读 chǔ。",
+    "difficulty": 3,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-303",
+    "type": "vocab",
+    "prompt": "「应和」的「和」字在此处读音是？",
+    "options": [
+      "hè",
+      "hé",
+      "huó",
+      "hú"
+    ],
+    "correct": 0,
+    "explanation": "应和的「和」读 hè，意为响应、附和。",
+    "difficulty": 3,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-304",
+    "type": "vocab",
+    "prompt": "「朗润」的「润」字正确读音是？",
+    "options": [
+      "rùn",
+      "yùn",
+      "lùn",
+      "rǔn"
+    ],
+    "correct": 0,
+    "explanation": "润读作 rùn，朗润形容明朗润泽。",
+    "difficulty": 2,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-305",
+    "type": "vocab",
+    "prompt": "「抖擞」的正确读音是？",
+    "options": [
+      "dǒu sǒu",
+      "dǒu shǒu",
+      "dòu sǒu",
+      "dǒu sōu"
+    ],
+    "correct": 0,
+    "explanation": "抖擞读作 dǒu sǒu，意为振作、振奋。",
+    "difficulty": 3,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-306",
+    "type": "vocab",
+    "prompt": "「窠巢」的「窠」字正确读音是？",
+    "options": [
+      "kē",
+      "guǒ",
+      "wō",
+      "ké"
+    ],
+    "correct": 0,
+    "explanation": "窠读作 kē，窠巢即鸟兽的窝。",
+    "difficulty": 4,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-307",
+    "type": "vocab",
+    "prompt": "「看护」的「看」字在此处读音是？",
+    "options": [
+      "kān",
+      "kàn",
+      "kǎn",
+      "gān"
+    ],
+    "correct": 0,
+    "explanation": "看护的「看」读 kān，意为守护、照料。",
+    "difficulty": 3,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-308",
+    "type": "vocab",
+    "prompt": "「混为一谈」的「混」字正确读音是？",
+    "options": [
+      "hùn",
+      "hún",
+      "hǔn",
+      "gǔn"
+    ],
+    "correct": 0,
+    "explanation": "混为一谈的「混」读 hùn，意为将不同事物混淆在一起。",
+    "difficulty": 3,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-309",
+    "type": "vocab",
+    "prompt": "「莅临」的「莅」字正确读音是？",
+    "options": [
+      "lì",
+      "wèi",
+      "lí",
+      "lǐ"
+    ],
+    "correct": 0,
+    "explanation": "莅读作 lì，莅临意为来到、光临，多用于书面敬语。",
+    "difficulty": 3,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-311",
+    "type": "vocab",
+    "prompt": "「粗犷」的「犷」字正确读音是？",
+    "options": [
+      "guǎng",
+      "kuàng",
+      "guàng",
+      "kuǎng"
+    ],
+    "correct": 0,
+    "explanation": "犷读作 guǎng，粗犷意为粗豪、豪放。注意不读 kuàng。",
+    "difficulty": 4,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-312",
+    "type": "vocab",
+    "prompt": "「嘹亮」的「嘹」字正确读音是？",
+    "options": [
+      "liáo",
+      "liào",
+      "liǎo",
+      "láo"
+    ],
+    "correct": 0,
+    "explanation": "嘹读作 liáo，嘹亮形容声音清晰响亮。",
+    "difficulty": 2,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-313",
+    "type": "vocab",
+    "prompt": "「静谧」的「谧」字正确读音是？",
+    "options": [
+      "mì",
+      "bì",
+      "nì",
+      "mò"
+    ],
+    "correct": 0,
+    "explanation": "谧读作 mì，静谧形容安静、平和。",
+    "difficulty": 4,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-314",
+    "type": "vocab",
+    "prompt": "「高邈」的「邈」字正确读音是？",
+    "options": [
+      "miǎo",
+      "miào",
+      "mào",
+      "mǎo"
+    ],
+    "correct": 0,
+    "explanation": "邈读作 miǎo，高邈形容高远辽阔。",
+    "difficulty": 4,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-315",
+    "type": "vocab",
+    "prompt": "「棱镜」的「棱」字正确读音是？",
+    "options": [
+      "léng",
+      "líng",
+      "lèng",
+      "lēng"
+    ],
+    "correct": 0,
+    "explanation": "棱镜的「棱」读 léng，指物体上不同方向的两个平面相连的部分。",
+    "difficulty": 3,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-316",
+    "type": "vocab",
+    "prompt": "「淅沥」的正确读音是？",
+    "options": [
+      "xī lì",
+      "xī lí",
+      "shī lì",
+      "xì lì"
+    ],
+    "correct": 0,
+    "explanation": "淅沥读作 xī lì，形容轻微的风声、雨声。",
+    "difficulty": 3,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-317",
+    "type": "vocab",
+    "prompt": "「干涩」的「涩」字正确读音是？",
+    "options": [
+      "sè",
+      "shè",
+      "sī",
+      "sǎ"
+    ],
+    "correct": 0,
+    "explanation": "涩读作 sè，干涩形容不润滑或不流畅。",
+    "difficulty": 3,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-318",
+    "type": "vocab",
+    "prompt": "「碣石」的「碣」字正确读音是？",
+    "options": [
+      "jié",
+      "jiē",
+      "gě",
+      "qì"
+    ],
+    "correct": 0,
+    "explanation": "碣读作 jié，碣石是古代山名，见于曹操《观沧海》。",
+    "difficulty": 4,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-319",
+    "type": "vocab",
+    "prompt": "「竦峙」的「竦」字正确读音是？",
+    "options": [
+      "sǒng",
+      "cóng",
+      "shù",
+      "sōng"
+    ],
+    "correct": 0,
+    "explanation": "竦读作 sǒng，竦峙意为高高耸立。见于《观沧海》。",
+    "difficulty": 5,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-320",
+    "type": "vocab",
+    "prompt": "「决眦」的「眦」字正确读音是？",
+    "options": [
+      "zì",
+      "cì",
+      "zī",
+      "chì"
+    ],
+    "correct": 0,
+    "explanation": "眦读作 zì，决眦意为睁大眼睛，眼眶像要裂开。",
+    "difficulty": 5,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-322",
+    "type": "vocab",
+    "prompt": "「憔悴」的正确读音是？",
+    "options": [
+      "qiáo cuì",
+      "jiāo cuì",
+      "qiáo zú",
+      "qiǎo cuì"
+    ],
+    "correct": 0,
+    "explanation": "憔悴读作 qiáo cuì，形容面色不好、精神萎靡。",
+    "difficulty": 3,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-323",
+    "type": "vocab",
+    "prompt": "「侍弄」的「侍」字正确读音是？",
+    "options": [
+      "shì",
+      "sì",
+      "shí",
+      "chì"
+    ],
+    "correct": 0,
+    "explanation": "侍读作 shì，侍弄意为经管、照料。",
+    "difficulty": 3,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-324",
+    "type": "vocab",
+    "prompt": "「匿笑」的「匿」字正确读音是？",
+    "options": [
+      "nì",
+      "nè",
+      "ruò",
+      "nǐ"
+    ],
+    "correct": 0,
+    "explanation": "匿读作 nì，匿笑意为偷偷地笑。",
+    "difficulty": 3,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-325",
+    "type": "vocab",
+    "prompt": "「攲斜」的「攲」字正确读音是？",
+    "options": [
+      "qī",
+      "jī",
+      "yǐ",
+      "qí"
+    ],
+    "correct": 0,
+    "explanation": "攲读作 qī，攲斜意为倾斜、歪斜。",
+    "difficulty": 5,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-326",
+    "type": "vocab",
+    "prompt": "「菡萏」的正确读音是？",
+    "options": [
+      "hàn dàn",
+      "hán dàn",
+      "hàn dān",
+      "hán dān"
+    ],
+    "correct": 0,
+    "explanation": "菡萏读作 hàn dàn，指含苞未放的荷花。",
+    "difficulty": 5,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-327",
+    "type": "vocab",
+    "prompt": "「徘徊」的正确读音是？",
+    "options": [
+      "pái huái",
+      "bài huí",
+      "pái huí",
+      "péi huái"
+    ],
+    "correct": 0,
+    "explanation": "徘徊读作 pái huái，意为来回走动，犹豫不决。",
+    "difficulty": 3,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-328",
+    "type": "vocab",
+    "prompt": "「粼粼」的「粼」字正确读音是？",
+    "options": [
+      "lín",
+      "lìn",
+      "líng",
+      "lǐn"
+    ],
+    "correct": 0,
+    "explanation": "粼读作 lín，粼粼形容水清澈的样子。",
+    "difficulty": 4,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-329",
+    "type": "vocab",
+    "prompt": "「确凿」的「凿」字在此处读音是？",
+    "options": [
+      "záo",
+      "zuò",
+      "zháo",
+      "zǎo"
+    ],
+    "correct": 0,
+    "explanation": "确凿的「凿」读 záo，意为真实、确实。",
+    "difficulty": 3,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-330",
+    "type": "vocab",
+    "prompt": "「秕谷」的「秕」字正确读音是？",
+    "options": [
+      "bǐ",
+      "bì",
+      "pǐ",
+      "pí"
+    ],
+    "correct": 0,
+    "explanation": "秕读作 bǐ，秕谷指不饱满的谷粒。",
+    "difficulty": 4,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-331",
+    "type": "vocab",
+    "prompt": "「蝉蜕」的「蜕」字正确读音是？",
+    "options": [
+      "tuì",
+      "duì",
+      "shuì",
+      "tuō"
+    ],
+    "correct": 0,
+    "explanation": "蜕读作 tuì，蝉蜕指蝉脱下的壳。",
+    "difficulty": 3,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-332",
+    "type": "vocab",
+    "prompt": "「倜傥」的正确读音是？",
+    "options": [
+      "tì tǎng",
+      "zhōu tǎng",
+      "tì dàng",
+      "tí tǎng"
+    ],
+    "correct": 0,
+    "explanation": "倜傥读作 tì tǎng，形容洒脱、不拘束。",
+    "difficulty": 4,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-333",
+    "type": "vocab",
+    "prompt": "「绽开」的「绽」字正确读音是？",
+    "options": [
+      "zhàn",
+      "dìng",
+      "zhān",
+      "dìan"
+    ],
+    "correct": 0,
+    "explanation": "绽读作 zhàn，绽开意为裂开、开放。",
+    "difficulty": 3,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-334",
+    "type": "vocab",
+    "prompt": "「搓捻」的「捻」字正确读音是？",
+    "options": [
+      "niǎn",
+      "niàn",
+      "diǎn",
+      "niē"
+    ],
+    "correct": 0,
+    "explanation": "捻读作 niǎn，搓捻意为用手指搓。",
+    "difficulty": 4,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-335",
+    "type": "vocab",
+    "prompt": "「怦怦」的「怦」字正确读音是？",
+    "options": [
+      "pēng",
+      "píng",
+      "bēng",
+      "péng"
+    ],
+    "correct": 0,
+    "explanation": "怦读作 pēng，怦怦形容心跳的声音。",
+    "difficulty": 2,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-336",
+    "type": "vocab",
+    "prompt": "「截然不同」的「截」字正确读音是？",
+    "options": [
+      "jié",
+      "qiē",
+      "zāi",
+      "jiē"
+    ],
+    "correct": 0,
+    "explanation": "截读作 jié，截然不同形容两者完全不同。",
+    "difficulty": 2,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-337",
+    "type": "vocab",
+    "prompt": "「收敛」的「敛」字正确读音是？",
+    "options": [
+      "liǎn",
+      "jiǎn",
+      "liàn",
+      "liān"
+    ],
+    "correct": 0,
+    "explanation": "敛读作 liǎn，收敛意为收拢、约束。",
+    "difficulty": 3,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-338",
+    "type": "vocab",
+    "prompt": "「澄清」在「把水澄清」中的「澄」字读音是？",
+    "options": [
+      "dèng",
+      "chéng",
+      "dēng",
+      "chèng"
+    ],
+    "correct": 0,
+    "explanation": "在「把水澄清」中，澄读 dèng，意为使液体中的杂质沉下去。",
+    "difficulty": 4,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-339",
+    "type": "vocab",
+    "prompt": "「黄晕」的「晕」字在此处读音是？",
+    "options": [
+      "yùn",
+      "yūn",
+      "hūn",
+      "yǔn"
+    ],
+    "correct": 0,
+    "explanation": "黄晕的「晕」读 yùn，指太阳或月亮周围的光圈。",
+    "difficulty": 3,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-340",
+    "type": "vocab",
+    "prompt": "「着落」的「着」字在此处读音是？",
+    "options": [
+      "zhuó",
+      "zháo",
+      "zhāo",
+      "zhe"
+    ],
+    "correct": 0,
+    "explanation": "着落的「着」读 zhuó，意为落实、下落。",
+    "difficulty": 3,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-341",
+    "type": "vocab",
+    "prompt": "「霎时」的「霎」字正确读音是？",
+    "options": [
+      "shà",
+      "shā",
+      "chà",
+      "sà"
+    ],
+    "correct": 0,
+    "explanation": "霎读作 shà，霎时意为极短的时间。",
+    "difficulty": 3,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-342",
+    "type": "vocab",
+    "prompt": "「絮叨」的「絮」字正确读音是？",
+    "options": [
+      "xù",
+      "rú",
+      "xū",
+      "sù"
+    ],
+    "correct": 0,
+    "explanation": "絮读作 xù，絮叨形容说话啰嗦。",
+    "difficulty": 3,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-343",
+    "type": "vocab",
+    "prompt": "「分歧」的「歧」字正确读音是？",
+    "options": [
+      "qí",
+      "zhī",
+      "jī",
+      "qǐ"
+    ],
+    "correct": 0,
+    "explanation": "歧读作 qí，分歧意为意见不一致或道路岔开。",
+    "difficulty": 2,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-344",
+    "type": "vocab",
+    "prompt": "「嗅觉」的「嗅」字正确读音是？",
+    "options": [
+      "xiù",
+      "chòu",
+      "xiū",
+      "qiú"
+    ],
+    "correct": 0,
+    "explanation": "嗅读作 xiù，嗅觉指鼻子辨别气味的感觉。",
+    "difficulty": 3,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-345",
+    "type": "vocab",
+    "prompt": "「地毯」的「毯」字正确读音是？",
+    "options": [
+      "tǎn",
+      "dàn",
+      "tán",
+      "dǎn"
+    ],
+    "correct": 0,
+    "explanation": "毯读作 tǎn，地毯指铺在地上的厚织物。",
+    "difficulty": 2,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-346",
+    "type": "vocab",
+    "prompt": "「预兆」的「兆」字正确读音是？",
+    "options": [
+      "zhào",
+      "tiǎo",
+      "shào",
+      "cháo"
+    ],
+    "correct": 0,
+    "explanation": "兆读作 zhào，预兆指事情发生前的征兆。",
+    "difficulty": 2,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-347",
+    "type": "vocab",
+    "prompt": "「滑稽」的「稽」字在此处读音是？",
+    "options": [
+      "jī",
+      "jì",
+      "qǐ",
+      "jí"
+    ],
+    "correct": 0,
+    "explanation": "滑稽的「稽」读 jī，形容言行引人发笑。",
+    "difficulty": 3,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-348",
+    "type": "vocab",
+    "prompt": "「称职」的「称」字在此处读音是？",
+    "options": [
+      "chèn",
+      "chēng",
+      "chèng",
+      "chén"
+    ],
+    "correct": 0,
+    "explanation": "称职的「称」读 chèn，意为适合、相当。",
+    "difficulty": 3,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-349",
+    "type": "vocab",
+    "prompt": "「庇护」的「庇」字正确读音是？",
+    "options": [
+      "bì",
+      "pì",
+      "bǐ",
+      "pí"
+    ],
+    "correct": 0,
+    "explanation": "庇读作 bì，庇护意为包庇、保护。",
+    "difficulty": 3,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-350",
+    "type": "vocab",
+    "prompt": "「蜷伏」的「蜷」字正确读音是？",
+    "options": [
+      "quán",
+      "juǎn",
+      "juàn",
+      "quǎn"
+    ],
+    "correct": 0,
+    "explanation": "蜷读作 quán，蜷伏意为弯曲身体趴伏。",
+    "difficulty": 4,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-351",
+    "type": "vocab",
+    "prompt": "下列词语中「决」字使用正确的是哪一项？",
+    "options": [
+      "诀别",
+      "决窍",
+      "决择",
+      "口决"
+    ],
+    "correct": 0,
+    "explanation": "诀别正确。秘诀（不是决窍）、抉择（不是决择）、口诀（不是口决）。",
+    "difficulty": 3,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-352",
+    "type": "vocab",
+    "prompt": "下列词语中没有错别字的是哪一项？",
+    "options": [
+      "出类拔萃",
+      "纯粹精华",
+      "鞠躬尽粹",
+      "猝然精萃"
+    ],
+    "correct": 0,
+    "explanation": "出类拔萃正确。鞠躬尽瘁（不是粹），猝然（对）但精萃应为精粹。",
+    "difficulty": 3,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-353",
+    "type": "vocab",
+    "prompt": "「趋之若____」应填入哪个字？",
+    "options": [
+      "鹜",
+      "骛",
+      "务",
+      "雾"
+    ],
+    "correct": 0,
+    "explanation": "趋之若鹜，鹜是鸭子。骛意为追求（如好高骛远），注意区分。",
+    "difficulty": 4,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-354",
+    "type": "vocab",
+    "prompt": "「好高____远」应填入哪个字？",
+    "options": [
+      "骛",
+      "鹜",
+      "务",
+      "雾"
+    ],
+    "correct": 0,
+    "explanation": "好高骛远，骛意为追求。鹜是鸭子（趋之若鹜），注意区分。",
+    "difficulty": 4,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-355",
+    "type": "vocab",
+    "prompt": "下列哪组词语的字形全部正确？",
+    "options": [
+      "嬉戏 嘻闹 熙攘",
+      "嬉戏 嬉闹 熙攘",
+      "嘻戏 嬉闹 熙攘",
+      "嬉戏 嘻闹 嘻攘"
+    ],
+    "correct": 0,
+    "explanation": "嬉戏（女字旁）、嘻闹（口字旁表示嘻嘻哈哈的闹）、熙攘（熙熙攘攘）。",
+    "difficulty": 4,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-356",
+    "type": "vocab",
+    "prompt": "「不求甚____」应填入哪个字？",
+    "options": [
+      "解",
+      "介",
+      "借",
+      "届"
+    ],
+    "correct": 0,
+    "explanation": "不求甚解，意为不追求过于深入的理解。",
+    "difficulty": 2,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-357",
+    "type": "vocab",
+    "prompt": "下列词语中有错别字的是哪一项？",
+    "options": [
+      "人声顶沸",
+      "花枝招展",
+      "截然不同",
+      "翻来覆去"
+    ],
+    "correct": 0,
+    "explanation": "人声鼎沸的「鼎」不是「顶」，鼎指古代煮食器具。",
+    "difficulty": 3,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-358",
+    "type": "vocab",
+    "prompt": "「____然不同」应填入哪个字？",
+    "options": [
+      "截",
+      "洁",
+      "节",
+      "杰"
+    ],
+    "correct": 0,
+    "explanation": "截然不同，截意为割断，截然指界限分明的样子。",
+    "difficulty": 2,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-359",
+    "type": "vocab",
+    "prompt": "下列词语中字形全部正确的是哪一项？",
+    "options": [
+      "各得其所",
+      "各得其索",
+      "各的其所",
+      "各得其锁"
+    ],
+    "correct": 0,
+    "explanation": "各得其所，所指适当的位置或安排。",
+    "difficulty": 2,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-360",
+    "type": "vocab",
+    "prompt": "「喜出____外」应填入哪个字？",
+    "options": [
+      "望",
+      "忘",
+      "旺",
+      "汪"
+    ],
+    "correct": 0,
+    "explanation": "喜出望外，望指期望、盼望，意为遇到出乎意料的好事而高兴。",
+    "difficulty": 2,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-361",
+    "type": "vocab",
+    "prompt": "下列哪个词语中有错别字？",
+    "options": [
+      "混为一潭",
+      "恍然大悟",
+      "美不胜收",
+      "不可救药"
+    ],
+    "correct": 0,
+    "explanation": "混为一谈的「谈」不是「潭」。谈指说话、谈论。",
+    "difficulty": 3,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-362",
+    "type": "vocab",
+    "prompt": "「____寒料峭」应填入哪个字？",
+    "options": [
+      "春",
+      "风",
+      "冬",
+      "天"
+    ],
+    "correct": 0,
+    "explanation": "春寒料峭，形容初春的寒冷。料峭指微寒。",
+    "difficulty": 3,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-364",
+    "type": "vocab",
+    "prompt": "「小心____翼」应填入哪个字？",
+    "options": [
+      "翼",
+      "冀",
+      "异",
+      "意"
+    ],
+    "correct": 0,
+    "explanation": "小心翼翼，翼翼形容恭敬谨慎的样子。注意「翼」与「冀」的区别。",
+    "difficulty": 3,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-365",
+    "type": "vocab",
+    "prompt": "下列「像/象/相」使用正确的是哪一项？",
+    "options": [
+      "好像是他",
+      "好象是他",
+      "好相是他",
+      "好向是他"
+    ],
+    "correct": 0,
+    "explanation": "好像是他正确。现代汉语中「好像」用「像」，不用「象」。",
+    "difficulty": 3,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-366",
+    "type": "vocab",
+    "prompt": "下列词语字形全部正确的是？",
+    "options": [
+      "蝉蜕 确凿 绽开",
+      "蝉退 确凿 绽开",
+      "蝉蜕 确做 绽开",
+      "蝉蜕 确凿 站开"
+    ],
+    "correct": 0,
+    "explanation": "蝉蜕（蜕不是退）、确凿（凿不是做）、绽开（绽不是站）。",
+    "difficulty": 3,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-367",
+    "type": "vocab",
+    "prompt": "「花枝____展」应填入哪个字？",
+    "options": [
+      "招",
+      "昭",
+      "召",
+      "照"
+    ],
+    "correct": 0,
+    "explanation": "花枝招展，招展形容花枝迎风摆动，比喻女子打扮得漂亮。",
+    "difficulty": 2,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-369",
+    "type": "vocab",
+    "prompt": "「水波____粼」应填入哪个字？",
+    "options": [
+      "粼",
+      "鳞",
+      "嶙",
+      "磷"
+    ],
+    "correct": 0,
+    "explanation": "水波粼粼，粼粼形容水清澈。鳞是鱼鳞，嶙是嶙峋，磷是化学元素。",
+    "difficulty": 4,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-370",
+    "type": "vocab",
+    "prompt": "下列词语中字形全部正确的是？",
+    "options": [
+      "匍匐前进",
+      "扑伏前进",
+      "匍伏前进",
+      "扑匐前进"
+    ],
+    "correct": 0,
+    "explanation": "匍匐前进正确，匍匐指爬行。",
+    "difficulty": 4,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-371",
+    "type": "vocab",
+    "prompt": "「____然大悟」应填入哪个字？",
+    "options": [
+      "恍",
+      "晃",
+      "惶",
+      "煌"
+    ],
+    "correct": 0,
+    "explanation": "恍然大悟，恍意为突然明白，心里猛然一亮。",
+    "difficulty": 3,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-372",
+    "type": "vocab",
+    "prompt": "「油然而____」应填入哪个字？",
+    "options": [
+      "生",
+      "升",
+      "声",
+      "胜"
+    ],
+    "correct": 0,
+    "explanation": "油然而生，意为自然而然地产生（某种情感）。生指产生。",
+    "difficulty": 3,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-373",
+    "type": "vocab",
+    "prompt": "下列哪个词语的字形有误？",
+    "options": [
+      "波光鳞鳞",
+      "波光粼粼",
+      "水波荡漾",
+      "碧波万顷"
+    ],
+    "correct": 0,
+    "explanation": "波光粼粼才对，粼粼形容水面闪光，不是鱼鳞的「鳞」。",
+    "difficulty": 3,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-374",
+    "type": "vocab",
+    "prompt": "「疲倦不____」应填入哪个字？",
+    "options": [
+      "堪",
+      "刊",
+      "勘",
+      "坎"
+    ],
+    "correct": 0,
+    "explanation": "疲倦不堪，堪意为能忍受。",
+    "difficulty": 3,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-375",
+    "type": "vocab",
+    "prompt": "下列哪组词语中的字全部正确？",
+    "options": [
+      "滚瓜烂熟 咄咄逼人",
+      "滚瓜烂熟 咄咄必人",
+      "混瓜烂熟 咄咄逼人",
+      "滚瓜烂熟 突突逼人"
+    ],
+    "correct": 0,
+    "explanation": "滚瓜烂熟（形容读得极流利）、咄咄逼人（形容气势汹汹）均正确。",
+    "difficulty": 3,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-376",
+    "type": "vocab",
+    "prompt": "下列词语中没有错别字的一项是？",
+    "options": [
+      "感慨万千",
+      "感概万千",
+      "感慨万迁",
+      "感溉万千"
+    ],
+    "correct": 0,
+    "explanation": "感慨万千正确，慨是感慨的慨，不是概括的概。",
+    "difficulty": 3,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-377",
+    "type": "vocab",
+    "prompt": "「废____忘食」应填入哪个字？",
+    "options": [
+      "寝",
+      "侵",
+      "浸",
+      "寑"
+    ],
+    "correct": 0,
+    "explanation": "废寝忘食，寝指睡觉。形容非常专心努力。",
+    "difficulty": 3,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-379",
+    "type": "vocab",
+    "prompt": "「____高气扬」应填入哪个字？",
+    "options": [
+      "趾",
+      "指",
+      "止",
+      "知"
+    ],
+    "correct": 0,
+    "explanation": "趾高气扬，趾指脚趾，形容骄傲自满、得意忘形的样子。",
+    "difficulty": 3,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-380",
+    "type": "vocab",
+    "prompt": "下列词语中没有错别字的是？",
+    "options": [
+      "畏罪潜逃",
+      "畏罪浅逃",
+      "威罪潜逃",
+      "畏最潜逃"
+    ],
+    "correct": 0,
+    "explanation": "畏罪潜逃正确。畏指害怕，潜指秘密地。",
+    "difficulty": 3,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-381",
+    "type": "vocab",
+    "prompt": "「____不胜收」应填入哪个字？",
+    "options": [
+      "美",
+      "眉",
+      "每",
+      "梅"
+    ],
+    "correct": 0,
+    "explanation": "美不胜收，意为美好的东西太多，来不及一一欣赏。",
+    "difficulty": 2,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-382",
+    "type": "vocab",
+    "prompt": "下列词语书写完全正确的是？",
+    "options": [
+      "瘫痪 侍弄 憔悴",
+      "滩痪 侍弄 憔悴",
+      "瘫痪 待弄 憔悴",
+      "瘫痪 侍弄 樵悴"
+    ],
+    "correct": 0,
+    "explanation": "瘫痪（病字头）、侍弄（侍不是待）、憔悴（忄旁不是木旁）。",
+    "difficulty": 3,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-384",
+    "type": "vocab",
+    "prompt": "「____不经心」应填入哪个字？",
+    "options": [
+      "漫",
+      "慢",
+      "蔓",
+      "曼"
+    ],
+    "correct": 0,
+    "explanation": "漫不经心，漫意为随便、不受约束，形容做事不认真。",
+    "difficulty": 3,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-385",
+    "type": "vocab",
+    "prompt": "下列词语书写正确的是？",
+    "options": [
+      "骇人听闻",
+      "骸人听闻",
+      "害人听闻",
+      "骇人厅闻"
+    ],
+    "correct": 0,
+    "explanation": "骇人听闻正确，骇意为惊吓。",
+    "difficulty": 3,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-387",
+    "type": "vocab",
+    "prompt": "下列词语中字形全部正确的一项是？",
+    "options": [
+      "锲而不舍",
+      "契而不舍",
+      "锲而不合",
+      "锲而不社"
+    ],
+    "correct": 0,
+    "explanation": "锲而不舍正确，锲意为雕刻，舍意为放弃。形容坚持不懈。",
+    "difficulty": 3,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-389",
+    "type": "vocab",
+    "prompt": "「见义勇____」应填入哪个字？",
+    "options": [
+      "为",
+      "维",
+      "围",
+      "威"
+    ],
+    "correct": 0,
+    "explanation": "见义勇为，意为看到正义的事勇敢地去做。",
+    "difficulty": 2,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-391",
+    "type": "vocab",
+    "prompt": "下列哪组词语书写完全正确？",
+    "options": [
+      "恍然大悟 花枝招展",
+      "晃然大悟 花枝招展",
+      "恍然大悟 花枝昭展",
+      "恍然大误 花枝招展"
+    ],
+    "correct": 0,
+    "explanation": "恍然大悟和花枝招展均正确。恍不是晃，招不是昭，悟不是误。",
+    "difficulty": 3,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-392",
+    "type": "vocab",
+    "prompt": "下列哪个词语的字形是正确的？",
+    "options": [
+      "形影不离",
+      "形影不历",
+      "型影不离",
+      "形颖不离"
+    ],
+    "correct": 0,
+    "explanation": "形影不离正确。形是身形，影是影子，离是分离。",
+    "difficulty": 2,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-393",
+    "type": "vocab",
+    "prompt": "下列词语中有错别字的是？",
+    "options": [
+      "迫不急待",
+      "迫不及待",
+      "急不可待",
+      "刻不容缓"
+    ],
+    "correct": 0,
+    "explanation": "迫不及待的「及」不是「急」。及意为来得及。",
+    "difficulty": 3,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-394",
+    "type": "vocab",
+    "prompt": "下列词语书写完全正确的一组是？",
+    "options": [
+      "人迹罕至 宽宏大量",
+      "人迹罕至 宽洪大量",
+      "人际罕至 宽宏大量",
+      "人迹罕致 宽宏大量"
+    ],
+    "correct": 0,
+    "explanation": "人迹罕至（迹不是际，至不是致）、宽宏大量（宏不是洪）。",
+    "difficulty": 3,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-395",
+    "type": "vocab",
+    "prompt": "下列哪个词语中没有错别字？",
+    "options": [
+      "获益匪浅",
+      "获益非浅",
+      "获意匪浅",
+      "获益匪潜"
+    ],
+    "correct": 0,
+    "explanation": "获益匪浅正确。匪意为不是，匪浅即不浅、很多。",
+    "difficulty": 3,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-396",
+    "type": "vocab",
+    "prompt": "下列词语中有错别字的一项是？",
+    "options": [
+      "声名狼籍",
+      "声名狼藉",
+      "臭名昭著",
+      "名声大噪"
+    ],
+    "correct": 0,
+    "explanation": "声名狼藉的「藉」不是「籍」。藉（jiè）意为践踏、凌乱。",
+    "difficulty": 4,
+    "tags": [
+      "字形辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-399",
+    "type": "vocab",
+    "prompt": "「花枝招展」中的「招展」意思是？",
+    "options": [
+      "迎风摆动",
+      "招手展示",
+      "招揽展览",
+      "招呼展开"
+    ],
+    "correct": 0,
+    "explanation": "招展意为迎风摆动。花枝招展原指花枝在风中摇曳，比喻女子打扮得十分漂亮。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-400",
+    "type": "vocab",
+    "prompt": "下列句子中「翻来覆去」使用正确的是？",
+    "options": [
+      "他翻来覆去睡不着，满脑子都是明天的考试",
+      "花园里的花翻来覆去地开放",
+      "他翻来覆去地走过了这条街",
+      "这件衣服翻来覆去地挂在衣架上"
+    ],
+    "correct": 0,
+    "explanation": "翻来覆去形容来回翻动身体（睡不着）或反复思考，第一句用法正确。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-401",
+    "type": "vocab",
+    "prompt": "「人声鼎沸」形容的是什么？",
+    "options": [
+      "人群的声音嘈杂喧闹",
+      "人们愤怒的呐喊",
+      "人们欢快的歌唱",
+      "人群安静有序"
+    ],
+    "correct": 0,
+    "explanation": "人声鼎沸形容人群的声音吵闹喧哗，像水在鼎中沸腾一样。",
+    "difficulty": 2,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-402",
+    "type": "vocab",
+    "prompt": "下列句子中「截然不同」使用正确的是？",
+    "options": [
+      "双胞胎姐妹的性格截然不同",
+      "这件衣服和昨天的截然不同了一些",
+      "他们的观点截然不同但又有些相似",
+      "今天的天气截然不同地晴朗"
+    ],
+    "correct": 0,
+    "explanation": "截然不同指完全不同，没有任何共同之处。不能加「了一些」或「又有些相似」。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-403",
+    "type": "vocab",
+    "prompt": "「各得其所」的意思是？",
+    "options": [
+      "每个人都得到合适的安排",
+      "每个人都得到了好处",
+      "各自找到了自己的住所",
+      "各人得到自己丢失的东西"
+    ],
+    "correct": 0,
+    "explanation": "各得其所意为每个人或事物都得到了合适的安排或位置。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-404",
+    "type": "vocab",
+    "prompt": "下列句子中「喜出望外」使用不恰当的是？",
+    "options": [
+      "他考了100分，喜出望外地笑了，因为他早就知道自己能考满分",
+      "得知女儿被大学录取，父亲喜出望外",
+      "中奖的消息让他喜出望外",
+      "多年未见的老友突然来访，她喜出望外"
+    ],
+    "correct": 0,
+    "explanation": "喜出望外指因意外的好事而高兴。如果早就知道结果，就不是「望外」了。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-405",
+    "type": "vocab",
+    "prompt": "「不求甚解」现在多用来形容什么？",
+    "options": [
+      "学习不深入，只了解大概",
+      "对什么都不感兴趣",
+      "完全不理解",
+      "不愿意学习"
+    ],
+    "correct": 0,
+    "explanation": "不求甚解原指读书不过分追求字句的解释，现多形容学习或做事不认真、不深入。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-406",
+    "type": "vocab",
+    "prompt": "「咄咄逼人」形容的是什么？",
+    "options": [
+      "气势汹汹，给人很大压力",
+      "说话声音很大",
+      "态度温和有礼",
+      "默默无闻"
+    ],
+    "correct": 0,
+    "explanation": "咄咄逼人形容气势汹汹、盛气凌人，使人难以忍受。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-407",
+    "type": "vocab",
+    "prompt": "下列句子中加点词语使用恰当的是？",
+    "options": [
+      "看到精彩的魔术表演，观众们都恍然大悟地鼓掌",
+      "他反复思考后恍然大悟，终于找到了解题思路",
+      "他每天恍然大悟地学习",
+      "老师恍然大悟地批评了他"
+    ],
+    "correct": 1,
+    "explanation": "恍然大悟指突然明白过来，用于经过思考后突然理解。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-409",
+    "type": "vocab",
+    "prompt": "下列哪个句子中「油然而生」使用正确？",
+    "options": [
+      "站在长城上，一种自豪感油然而生",
+      "他油然而生地走进了教室",
+      "花园里的花油然而生",
+      "他油然而生地完成了作业"
+    ],
+    "correct": 0,
+    "explanation": "油然而生指自然而然地产生某种情感，常搭配情感类词语。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-410",
+    "type": "vocab",
+    "prompt": "「小心翼翼」中「翼翼」的意思是？",
+    "options": [
+      "恭敬谨慎的样子",
+      "翅膀拍动的样子",
+      "害怕的样子",
+      "小声说话的样子"
+    ],
+    "correct": 0,
+    "explanation": "翼翼形容恭敬谨慎的样子。小心翼翼指做事十分小心。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-411",
+    "type": "vocab",
+    "prompt": "下列句子中「刨根问底」使用恰当的是？",
+    "options": [
+      "他对这件事刨根问底，非要弄个明白",
+      "他刨根问底地种了一棵树",
+      "大家刨根问底地吃完了午饭",
+      "她刨根问底地打扫了房间"
+    ],
+    "correct": 0,
+    "explanation": "刨根问底比喻追究事情的根底、细节，用于探究真相的语境。",
+    "difficulty": 2,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-412",
+    "type": "vocab",
+    "prompt": "「废寝忘食」形容什么状态？",
+    "options": [
+      "非常专心，顾不上吃饭睡觉",
+      "生活没有规律",
+      "身体非常虚弱",
+      "食欲不振，失眠"
+    ],
+    "correct": 0,
+    "explanation": "废寝忘食形容非常专心努力，连吃饭睡觉都忘了。",
+    "difficulty": 2,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-413",
+    "type": "vocab",
+    "prompt": "下列句子中「花枝招展」使用恰当的是？",
+    "options": [
+      "春天来了，姑娘们花枝招展地走在街上",
+      "花园里的花花枝招展地开放着",
+      "他花枝招展地跑了过来",
+      "老爷爷花枝招展地散步"
+    ],
+    "correct": 0,
+    "explanation": "花枝招展多用于形容女子打扮得漂亮。不用于形容花本身或男性。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-414",
+    "type": "vocab",
+    "prompt": "「形影不离」形容什么关系？",
+    "options": [
+      "非常亲密，总在一起",
+      "互相帮助",
+      "互相竞争",
+      "互不相干"
+    ],
+    "correct": 0,
+    "explanation": "形影不离形容彼此关系非常亲密，像身体和影子一样不可分离。",
+    "difficulty": 2,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-415",
+    "type": "vocab",
+    "prompt": "下列哪个句子中词语使用不恰当？",
+    "options": [
+      "他做事总是小心翼翼，所以效率很高",
+      "她做化学实验时小心翼翼，生怕出错",
+      "他拿着刚修好的花瓶，小心翼翼地放好",
+      "小偷小心翼翼地潜入了房间"
+    ],
+    "correct": 0,
+    "explanation": "小心翼翼形容做事谨慎，但谨慎不等于效率高，语意搭配不当。",
+    "difficulty": 4,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-416",
+    "type": "vocab",
+    "prompt": "「人迹罕至」中「罕」的意思是？",
+    "options": [
+      "稀少",
+      "没有",
+      "很多",
+      "曾经"
+    ],
+    "correct": 0,
+    "explanation": "罕意为稀少。人迹罕至指很少有人去的地方。",
+    "difficulty": 2,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-417",
+    "type": "vocab",
+    "prompt": "下列句子中「温故知新」使用正确的是？",
+    "options": [
+      "复习旧知识时有新体会，真是温故知新",
+      "他温故知新地去了学校",
+      "她温故知新地打扫房间",
+      "他温故知新地跑了起来"
+    ],
+    "correct": 0,
+    "explanation": "温故知新指复习旧的知识而获得新的理解和体会，出自《论语》。",
+    "difficulty": 2,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-418",
+    "type": "vocab",
+    "prompt": "「见异思迁」形容什么品质？",
+    "options": [
+      "意志不坚定，喜欢新的就丢弃旧的",
+      "善于发现新事物",
+      "勇于追求进步",
+      "敢于改变自己"
+    ],
+    "correct": 0,
+    "explanation": "见异思迁指看到不同的事物就改变主意，形容意志不坚定。含贬义。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-419",
+    "type": "vocab",
+    "prompt": "下列哪个句子中「不可救药」使用正确？",
+    "options": [
+      "他的病已经不可救药了",
+      "这道数学题不可救药地难",
+      "今天的天气不可救药地好",
+      "她不可救药地漂亮"
+    ],
+    "correct": 0,
+    "explanation": "不可救药比喻人或事已经坏到无法挽救，用于病情或品行恶劣的情况。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-420",
+    "type": "vocab",
+    "prompt": "「呼朋引伴」的意思是？",
+    "options": [
+      "呼唤朋友，招引同伴",
+      "大声呼喊",
+      "带领队伍前进",
+      "独自一人前行"
+    ],
+    "correct": 0,
+    "explanation": "呼朋引伴意为呼唤朋友、招引同伴。",
+    "difficulty": 2,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-421",
+    "type": "vocab",
+    "prompt": "「混为一谈」的意思是？",
+    "options": [
+      "把不同的事物混淆在一起来谈论",
+      "将话题合在一起讨论",
+      "混乱地谈话",
+      "不分场合地说话"
+    ],
+    "correct": 0,
+    "explanation": "混为一谈指将本质不同的事物混淆在一起来看待或谈论。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-422",
+    "type": "vocab",
+    "prompt": "下列哪个词语含有贬义？",
+    "options": [
+      "见异思迁",
+      "废寝忘食",
+      "温故知新",
+      "刨根问底"
+    ],
+    "correct": 0,
+    "explanation": "见异思迁含贬义，形容人意志不坚定。其他三个词是中性或褒义。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-423",
+    "type": "vocab",
+    "prompt": "下列句子中「迫不及待」使用正确的是？",
+    "options": [
+      "听到游乐场开门的消息，孩子们迫不及待地跑了过去",
+      "他迫不及待地慢慢走回家",
+      "她迫不及待地等了一个小时",
+      "老师迫不及待地给我们留了作业"
+    ],
+    "correct": 0,
+    "explanation": "迫不及待形容心情急迫，来不及等待。不能和「慢慢」「等了一个小时」搭配。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-424",
+    "type": "vocab",
+    "prompt": "「随声附和」含有什么感情色彩？",
+    "options": [
+      "贬义",
+      "褒义",
+      "中性",
+      "敬语"
+    ],
+    "correct": 0,
+    "explanation": "随声附和是贬义词，形容没有主见、别人说什么就跟着说什么。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-425",
+    "type": "vocab",
+    "prompt": "下列哪个词语不能用来形容声音？",
+    "options": [
+      "花枝招展",
+      "人声鼎沸",
+      "嘹亮",
+      "淅淅沥沥"
+    ],
+    "correct": 0,
+    "explanation": "花枝招展形容打扮漂亮，不形容声音。其他三个都与声音有关。",
+    "difficulty": 2,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-426",
+    "type": "vocab",
+    "prompt": "下列句子中词语使用正确的是？",
+    "options": [
+      "博物馆里的文物美不胜收",
+      "他考试不及格，真是美不胜收",
+      "今天的作业美不胜收",
+      "这条路美不胜收地长"
+    ],
+    "correct": 0,
+    "explanation": "美不胜收形容美好的东西很多，看不过来。用于形容博物馆文物恰当。",
+    "difficulty": 2,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-427",
+    "type": "vocab",
+    "prompt": "「获益匪浅」中「匪」的意思是？",
+    "options": [
+      "不是、非",
+      "匪徒",
+      "很",
+      "特别"
+    ],
+    "correct": 0,
+    "explanation": "获益匪浅的「匪」同「非」，意为不是。匪浅即不浅，收获很大。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-428",
+    "type": "vocab",
+    "prompt": "下列哪个词语形容做事不认真？",
+    "options": [
+      "漫不经心",
+      "废寝忘食",
+      "小心翼翼",
+      "全神贯注"
+    ],
+    "correct": 0,
+    "explanation": "漫不经心形容做事随随便便、不放在心上。其他三个都形容认真。",
+    "difficulty": 2,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-429",
+    "type": "vocab",
+    "prompt": "下列句子中「各得其所」使用恰当的是？",
+    "options": [
+      "老师根据同学们的特长分配了任务，大家各得其所",
+      "他各得其所地回到了家",
+      "考试结束后大家各得其所地交了卷",
+      "下雨了，同学们各得其所地撑开了伞"
+    ],
+    "correct": 0,
+    "explanation": "各得其所指每个人都得到了合适的安排。根据特长分配任务符合语义。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-430",
+    "type": "vocab",
+    "prompt": "「感慨万千」中「万千」的意思是？",
+    "options": [
+      "形容很多",
+      "一万一千",
+      "无法计数的",
+      "极其巨大的"
+    ],
+    "correct": 0,
+    "explanation": "感慨万千中的「万千」是形容很多的意思，不是具体数字。",
+    "difficulty": 2,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-431",
+    "type": "vocab",
+    "prompt": "下列哪个词语可以用来形容自然风景？",
+    "options": [
+      "美不胜收",
+      "花枝招展",
+      "人声鼎沸",
+      "翻来覆去"
+    ],
+    "correct": 0,
+    "explanation": "美不胜收可以形容自然风景美好事物多，看不过来。",
+    "difficulty": 2,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-432",
+    "type": "vocab",
+    "prompt": "下列句子中加点词语使用有误的是？",
+    "options": [
+      "春天的公园里鸟语花香，人声鼎沸，十分热闹",
+      "集市上人声鼎沸，好不热闹",
+      "除夕夜，家家户户灯火通明，街上人声鼎沸",
+      "下课铃一响，操场上立刻人声鼎沸"
+    ],
+    "correct": 0,
+    "explanation": "人声鼎沸偏重人声喧闹，与「鸟语花香」的宁静意境不协调。",
+    "difficulty": 4,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-433",
+    "type": "vocab",
+    "prompt": "「喜出望外」与下列哪个词语意思最接近？",
+    "options": [
+      "大喜过望",
+      "欣喜若狂",
+      "心花怒放",
+      "乐不可支"
+    ],
+    "correct": 0,
+    "explanation": "大喜过望意为结果超过期望，非常高兴，与喜出望外意思最接近。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-434",
+    "type": "vocab",
+    "prompt": "「骇人听闻」形容什么？",
+    "options": [
+      "使人听了非常震惊",
+      "声音很大",
+      "消息传播很快",
+      "让人听不懂"
+    ],
+    "correct": 0,
+    "explanation": "骇人听闻形容事情使人听了非常震惊，多指坏事。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-435",
+    "type": "vocab",
+    "prompt": "下列句子中词语使用不恰当的是？",
+    "options": [
+      "他的成绩一直很好，所以考了第一名，真是喜出望外",
+      "失散多年的母子终于团聚，两人喜出望外",
+      "他没想到能中奖，得知消息后喜出望外",
+      "原以为约不到的专家号竟然约到了，她喜出望外"
+    ],
+    "correct": 0,
+    "explanation": "「一直很好所以考了第一名」是预料之中，不符合「望外」的意思。",
+    "difficulty": 4,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-436",
+    "type": "vocab",
+    "prompt": "「整装待发」的意思是？",
+    "options": [
+      "整理好行装等待出发",
+      "整理行李准备回家",
+      "穿好衣服等待",
+      "收拾好准备休息"
+    ],
+    "correct": 0,
+    "explanation": "整装待发指整理好行装等待出发。",
+    "difficulty": 2,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-437",
+    "type": "vocab",
+    "prompt": "下列句子中「锲而不舍」使用正确的是？",
+    "options": [
+      "凭着锲而不舍的精神，他终于攻克了难题",
+      "他锲而不舍地吃完了午饭",
+      "她锲而不舍地去了趟超市",
+      "同学们锲而不舍地放学回家了"
+    ],
+    "correct": 0,
+    "explanation": "锲而不舍指不断雕刻不放弃，比喻有恒心有毅力。用于坚持做困难之事。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-438",
+    "type": "vocab",
+    "prompt": "下列哪个词语形容人专心致志？",
+    "options": [
+      "全神贯注",
+      "心不在焉",
+      "漫不经心",
+      "走马观花"
+    ],
+    "correct": 0,
+    "explanation": "全神贯注形容精神高度集中。其他三个都含有不专心的意思。",
+    "difficulty": 2,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-439",
+    "type": "vocab",
+    "prompt": "下列句子中加点成语使用正确的是？",
+    "options": [
+      "这道题他百思不得其解，突然灵机一动，恍然大悟",
+      "他恍然大悟地走进了教室",
+      "恍然大悟之后，她决定不去了",
+      "这个问题他恍然大悟了好几次"
+    ],
+    "correct": 0,
+    "explanation": "恍然大悟指突然醒悟、明白过来，与「百思不得其解后突然想通」搭配恰当。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-441",
+    "type": "vocab",
+    "prompt": "下列句子中有语病的是？",
+    "options": [
+      "为了防止这类事故不再发生，我们加强了安全管理",
+      "为了防止这类事故再次发生，我们加强了安全管理",
+      "我们加强了安全管理，防止事故再次发生",
+      "安全管理的加强有效防止了事故的发生"
+    ],
+    "correct": 0,
+    "explanation": "「防止」和「不再发生」构成双重否定，意思变成了「让事故发生」，逻辑不通。",
+    "difficulty": 3,
+    "tags": [
+      "病句修改"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-442",
+    "type": "vocab",
+    "prompt": "下列句子的语病类型是什么？「他的学习成绩是全班同学中最好的一个。」",
+    "options": [
+      "搭配不当",
+      "语序不当",
+      "成分残缺",
+      "重复啰嗦"
+    ],
+    "correct": 0,
+    "explanation": "「成绩」不能说成「一个」，主语「成绩」和宾语「一个」搭配不当。应为「最好的」。",
+    "difficulty": 3,
+    "tags": [
+      "病句修改"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-444",
+    "type": "vocab",
+    "prompt": "下列句子有什么语病？「他大约用了差不多一个小时完成了作业。」",
+    "options": [
+      "重复啰嗦",
+      "搭配不当",
+      "语序不当",
+      "成分残缺"
+    ],
+    "correct": 0,
+    "explanation": "「大约」和「差不多」意思重复，应删去其一。",
+    "difficulty": 3,
+    "tags": [
+      "病句修改"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-446",
+    "type": "vocab",
+    "prompt": "下列句子有什么语病？「老师对我们的表现给予了充分的肯定和赞赏。」",
+    "options": [
+      "没有语病",
+      "搭配不当",
+      "语序不当",
+      "重复啰嗦"
+    ],
+    "correct": 0,
+    "explanation": "这句话没有语病。「给予肯定和赞赏」搭配正确。",
+    "difficulty": 3,
+    "tags": [
+      "病句修改"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-447",
+    "type": "vocab",
+    "prompt": "下列句子的语病是什么？「听了英雄的报告，使我深受感动。」",
+    "options": [
+      "成分残缺（缺主语）",
+      "搭配不当",
+      "语序不当",
+      "重复啰嗦"
+    ],
+    "correct": 0,
+    "explanation": "「听了……使我」导致主语缺失。应去掉「使」或「听了」。",
+    "difficulty": 3,
+    "tags": [
+      "病句修改"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-449",
+    "type": "vocab",
+    "prompt": "下列句子有什么语病？「全校师生和班主任都参加了植树活动。」",
+    "options": [
+      "概念并列不当",
+      "搭配不当",
+      "成分残缺",
+      "重复啰嗦"
+    ],
+    "correct": 0,
+    "explanation": "「全校师生」已经包含了「班主任」，两者不能并列。属于概念并列不当。",
+    "difficulty": 3,
+    "tags": [
+      "病句修改"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-451",
+    "type": "vocab",
+    "prompt": "下列句子有什么语病？「这篇文章的内容和见解都很丰富。」",
+    "options": [
+      "搭配不当",
+      "语序不当",
+      "成分残缺",
+      "重复啰嗦"
+    ],
+    "correct": 0,
+    "explanation": "「内容丰富」搭配正确，但「见解丰富」搭配不当，应为「见解深刻」。",
+    "difficulty": 4,
+    "tags": [
+      "病句修改"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-452",
+    "type": "vocab",
+    "prompt": "下列句子有什么语病？「夏天的北京是一个美丽的季节。」",
+    "options": [
+      "搭配不当（主宾不搭配）",
+      "语序不当",
+      "成分残缺",
+      "重复啰嗦"
+    ],
+    "correct": 0,
+    "explanation": "「北京」是地方，不是「季节」。主语和宾语搭配不当。应为「北京的夏天是一个美丽的季节」。",
+    "difficulty": 3,
+    "tags": [
+      "病句修改"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-454",
+    "type": "vocab",
+    "prompt": "下列句子有什么语病？「他基本上把作业全部做完了。」",
+    "options": [
+      "前后矛盾",
+      "搭配不当",
+      "语序不当",
+      "成分残缺"
+    ],
+    "correct": 0,
+    "explanation": "「基本上」表示大部分，「全部」表示全部完成，前后矛盾。应去掉其一。",
+    "difficulty": 3,
+    "tags": [
+      "病句修改"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-455",
+    "type": "vocab",
+    "prompt": "下列句子有什么语病？「减轻学生过重的课业负担是当前教育的当务之急。」",
+    "options": [
+      "重复啰嗦",
+      "搭配不当",
+      "语序不当",
+      "成分残缺"
+    ],
+    "correct": 0,
+    "explanation": "「当前」和「当务之急」的「当」都表示当前、紧迫，语义重复。",
+    "difficulty": 4,
+    "tags": [
+      "病句修改"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-457",
+    "type": "vocab",
+    "prompt": "下列句子有什么语病？「我们班的同学讨论并听取了校长的报告。」",
+    "options": [
+      "语序不当",
+      "搭配不当",
+      "成分残缺",
+      "重复啰嗦"
+    ],
+    "correct": 0,
+    "explanation": "逻辑上应先「听取」后「讨论」，语序不当。应为「听取并讨论了」。",
+    "difficulty": 3,
+    "tags": [
+      "病句修改"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-459",
+    "type": "vocab",
+    "prompt": "下列句子有什么语病？「为了避免今后不再发生类似的事故，我们必须加强管理。」",
+    "options": [
+      "否定不当（多重否定导致意思相反）",
+      "搭配不当",
+      "语序不当",
+      "成分残缺"
+    ],
+    "correct": 0,
+    "explanation": "「避免」已有否定含义，再加「不再」就变成双重否定，意思变为「让事故发生」。",
+    "difficulty": 4,
+    "tags": [
+      "病句修改"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-460",
+    "type": "vocab",
+    "prompt": "下列句子有什么语病？「他虽然成绩很好，但是学习很努力。」",
+    "options": [
+      "关联词使用不当",
+      "搭配不当",
+      "成分残缺",
+      "重复啰嗦"
+    ],
+    "correct": 0,
+    "explanation": "「虽然……但是」表转折，「成绩好」和「学习努力」不构成转折，应为因果关系。",
+    "difficulty": 3,
+    "tags": [
+      "病句修改"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-461",
+    "type": "vocab",
+    "prompt": "下列句子有什么语病？「他写的作文层次和语句都很通顺。」",
+    "options": [
+      "搭配不当",
+      "语序不当",
+      "成分残缺",
+      "重复啰嗦"
+    ],
+    "correct": 0,
+    "explanation": "「层次通顺」搭配不当，层次应搭配「清楚」，语句才可以搭配「通顺」。",
+    "difficulty": 3,
+    "tags": [
+      "病句修改"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-463",
+    "type": "vocab",
+    "prompt": "下列句子有什么语病？「我们必须认真克服并随时发现工作中的缺点。」",
+    "options": [
+      "语序不当",
+      "搭配不当",
+      "成分残缺",
+      "重复啰嗦"
+    ],
+    "correct": 0,
+    "explanation": "应先「发现」后「克服」，逻辑语序不当。应为「随时发现并认真克服」。",
+    "difficulty": 3,
+    "tags": [
+      "病句修改"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-464",
+    "type": "vocab",
+    "prompt": "下列句子有什么语病？「同学们以敬佩的目光注视着和倾听着班长的报告。」",
+    "options": [
+      "搭配不当",
+      "语序不当",
+      "成分残缺",
+      "重复啰嗦"
+    ],
+    "correct": 0,
+    "explanation": "「目光」可以「注视」但不能「倾听」。应将「倾听」的主语改为其他表述。",
+    "difficulty": 4,
+    "tags": [
+      "病句修改"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-466",
+    "type": "vocab",
+    "prompt": "下列句子有什么语病？「他的写作水平明显改进了。」",
+    "options": [
+      "搭配不当",
+      "语序不当",
+      "成分残缺",
+      "重复啰嗦"
+    ],
+    "correct": 0,
+    "explanation": "「水平」应搭配「提高」，不能搭配「改进」。改进搭配「方法、措施」等。",
+    "difficulty": 3,
+    "tags": [
+      "病句修改"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-468",
+    "type": "vocab",
+    "prompt": "下列句子有什么语病？「我估计他今天大概不会来了。」",
+    "options": [
+      "重复啰嗦",
+      "搭配不当",
+      "语序不当",
+      "成分残缺"
+    ],
+    "correct": 0,
+    "explanation": "「估计」和「大概」都表示推测，意思重复。应删去其一。",
+    "difficulty": 3,
+    "tags": [
+      "病句修改"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-469",
+    "type": "vocab",
+    "prompt": "下列句子有什么语病？「班会上，同学们提出了许多宝贵的意见和建议，老师也认真地做了一一回答。」",
+    "options": [
+      "没有语病",
+      "搭配不当",
+      "语序不当",
+      "重复啰嗦"
+    ],
+    "correct": 0,
+    "explanation": "这句话没有语病，表达通顺完整。",
+    "difficulty": 3,
+    "tags": [
+      "病句修改"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-470",
+    "type": "vocab",
+    "prompt": "《朝花夕拾》是鲁迅的一部什么性质的作品集？",
+    "options": [
+      "散文集",
+      "小说集",
+      "诗歌集",
+      "杂文集"
+    ],
+    "correct": 0,
+    "explanation": "《朝花夕拾》是鲁迅的一部回忆性散文集，收录了他回忆童年和青年时期的十篇散文。",
+    "difficulty": 2,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-471",
+    "type": "vocab",
+    "prompt": "《朝花夕拾》中，鲁迅回忆了哪位保姆？",
+    "options": [
+      "阿长",
+      "祥林嫂",
+      "华老栓",
+      "闰土"
+    ],
+    "correct": 0,
+    "explanation": "阿长（长妈妈）是鲁迅小时候的保姆，《阿长与〈山海经〉》详细描写了她。",
+    "difficulty": 2,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-472",
+    "type": "vocab",
+    "prompt": "《朝花夕拾》原名是什么？",
+    "options": [
+      "《旧事重提》",
+      "《往事如烟》",
+      "《回忆录》",
+      "《童年往事》"
+    ],
+    "correct": 0,
+    "explanation": "《朝花夕拾》原名《旧事重提》，后改为《朝花夕拾》。",
+    "difficulty": 3,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-473",
+    "type": "vocab",
+    "prompt": "鲁迅的原名是什么？",
+    "options": [
+      "周树人",
+      "周作人",
+      "周建人",
+      "周恩来"
+    ],
+    "correct": 0,
+    "explanation": "鲁迅原名周树人，字豫才，浙江绍兴人，中国现代文学的奠基人之一。",
+    "difficulty": 2,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-474",
+    "type": "vocab",
+    "prompt": "《从百草园到三味书屋》出自鲁迅的哪部作品集？",
+    "options": [
+      "《朝花夕拾》",
+      "《呐喊》",
+      "《彷徨》",
+      "《野草》"
+    ],
+    "correct": 0,
+    "explanation": "《从百草园到三味书屋》出自鲁迅的散文集《朝花夕拾》。",
+    "difficulty": 2,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-475",
+    "type": "vocab",
+    "prompt": "《朝花夕拾》中，鲁迅在哪位老师的私塾中学习？",
+    "options": [
+      "寿镜吾",
+      "藤野先生",
+      "章太炎",
+      "蔡元培"
+    ],
+    "correct": 0,
+    "explanation": "三味书屋的老师是寿镜吾先生。藤野先生是鲁迅在日本仙台的医学老师。",
+    "difficulty": 3,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-476",
+    "type": "vocab",
+    "prompt": "冰心原名是什么？",
+    "options": [
+      "谢婉莹",
+      "丁玲",
+      "萧红",
+      "张爱玲"
+    ],
+    "correct": 0,
+    "explanation": "冰心原名谢婉莹，福建长乐人，现代著名女作家。",
+    "difficulty": 3,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-477",
+    "type": "vocab",
+    "prompt": "冰心的代表诗集是？",
+    "options": [
+      "《繁星》《春水》",
+      "《女神》",
+      "《再别康桥》",
+      "《死水》"
+    ],
+    "correct": 0,
+    "explanation": "《繁星》《春水》是冰心的代表诗集，受泰戈尔《飞鸟集》影响。",
+    "difficulty": 2,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-478",
+    "type": "vocab",
+    "prompt": "冰心作品的三大主题是什么？",
+    "options": [
+      "母爱、童真、自然",
+      "爱情、战争、和平",
+      "故乡、童年、友情",
+      "理想、奋斗、自由"
+    ],
+    "correct": 0,
+    "explanation": "冰心作品以歌颂母爱、赞美童真、描写自然为三大主题。",
+    "difficulty": 3,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-479",
+    "type": "vocab",
+    "prompt": "朱自清的散文名篇《春》描写的是什么季节的景色？",
+    "options": [
+      "春天",
+      "夏天",
+      "秋天",
+      "冬天"
+    ],
+    "correct": 0,
+    "explanation": "《春》是朱自清的经典散文，描绘了春天的各种景象。",
+    "difficulty": 2,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-480",
+    "type": "vocab",
+    "prompt": "朱自清是哪个时代的作家？",
+    "options": [
+      "现代",
+      "古代",
+      "当代",
+      "近代"
+    ],
+    "correct": 0,
+    "explanation": "朱自清（1898—1948）是中国现代散文家、诗人、学者。",
+    "difficulty": 2,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-481",
+    "type": "vocab",
+    "prompt": "老舍原名是什么？",
+    "options": [
+      "舒庆春",
+      "舒乙",
+      "老向",
+      "巴金"
+    ],
+    "correct": 0,
+    "explanation": "老舍原名舒庆春，字舍予。北京人，满族，现代著名作家。",
+    "difficulty": 3,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-482",
+    "type": "vocab",
+    "prompt": "《济南的冬天》的作者是谁？",
+    "options": [
+      "老舍",
+      "朱自清",
+      "鲁迅",
+      "冰心"
+    ],
+    "correct": 0,
+    "explanation": "《济南的冬天》是老舍的散文名篇，描写了济南冬天温晴的特点。",
+    "difficulty": 2,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-483",
+    "type": "vocab",
+    "prompt": "老舍被授予什么称号？",
+    "options": [
+      "人民艺术家",
+      "人民作家",
+      "革命文学家",
+      "人民诗人"
+    ],
+    "correct": 0,
+    "explanation": "老舍被授予「人民艺术家」的光荣称号。代表作有《骆驼祥子》《四世同堂》等。",
+    "difficulty": 3,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-484",
+    "type": "vocab",
+    "prompt": "史铁生的散文《秋天的怀念》表达的主要情感是？",
+    "options": [
+      "对母亲的怀念和愧疚",
+      "对秋天景色的赞美",
+      "对故乡的思念",
+      "对童年的回忆"
+    ],
+    "correct": 0,
+    "explanation": "《秋天的怀念》表达了史铁生对去世母亲深切的怀念和内心的愧疚。",
+    "difficulty": 2,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-485",
+    "type": "vocab",
+    "prompt": "泰戈尔是哪个国家的诗人？",
+    "options": [
+      "印度",
+      "英国",
+      "美国",
+      "法国"
+    ],
+    "correct": 0,
+    "explanation": "泰戈尔是印度诗人、文学家，1913年获得诺贝尔文学奖。",
+    "difficulty": 2,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-486",
+    "type": "vocab",
+    "prompt": "泰戈尔的代表诗集是？",
+    "options": [
+      "《吉檀迦利》",
+      "《飞鸟集》",
+      "《新月集》",
+      "以上都是"
+    ],
+    "correct": 3,
+    "explanation": "泰戈尔的代表诗集包括《吉檀迦利》《飞鸟集》《新月集》《园丁集》等。",
+    "difficulty": 3,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-487",
+    "type": "vocab",
+    "prompt": "《金色花》的作者是谁？",
+    "options": [
+      "泰戈尔",
+      "冰心",
+      "普希金",
+      "雪莱"
+    ],
+    "correct": 0,
+    "explanation": "《金色花》是泰戈尔的散文诗，表达了母子之间的深厚感情。",
+    "difficulty": 2,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-488",
+    "type": "vocab",
+    "prompt": "《观沧海》的作者是谁？",
+    "options": [
+      "曹操",
+      "曹丕",
+      "曹植",
+      "诸葛亮"
+    ],
+    "correct": 0,
+    "explanation": "《观沧海》是曹操的诗作，写于北征乌桓凯旋途经碣石时。",
+    "difficulty": 2,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-489",
+    "type": "vocab",
+    "prompt": "曹操是哪个时代的人物？",
+    "options": [
+      "东汉末年",
+      "西汉",
+      "唐朝",
+      "宋朝"
+    ],
+    "correct": 0,
+    "explanation": "曹操（155—220），东汉末年杰出的政治家、军事家、文学家。",
+    "difficulty": 2,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-490",
+    "type": "vocab",
+    "prompt": "《次北固山下》的作者是谁？",
+    "options": [
+      "王湾",
+      "王维",
+      "王勃",
+      "王昌龄"
+    ],
+    "correct": 0,
+    "explanation": "《次北固山下》是唐代诗人王湾的作品。次指旅途中停留。",
+    "difficulty": 3,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-491",
+    "type": "vocab",
+    "prompt": "「海日生残夜，江春入旧年」出自哪首诗？",
+    "options": [
+      "《次北固山下》",
+      "《观沧海》",
+      "《天净沙·秋思》",
+      "《闻王昌龄左迁龙标遥有此寄》"
+    ],
+    "correct": 0,
+    "explanation": "这两句诗出自王湾的《次北固山下》，蕴含了新旧交替的哲理。",
+    "difficulty": 3,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-492",
+    "type": "vocab",
+    "prompt": "《天净沙·秋思》的作者是谁？",
+    "options": [
+      "马致远",
+      "关汉卿",
+      "白朴",
+      "郑光祖"
+    ],
+    "correct": 0,
+    "explanation": "《天净沙·秋思》是元代曲作家马致远的作品，被称为「秋思之祖」。",
+    "difficulty": 2,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-493",
+    "type": "vocab",
+    "prompt": "「天净沙」属于什么文学体裁？",
+    "options": [
+      "曲牌名",
+      "词牌名",
+      "诗歌",
+      "赋"
+    ],
+    "correct": 0,
+    "explanation": "天净沙是曲牌名，不是词牌名。《天净沙·秋思》是一首小令。",
+    "difficulty": 3,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-494",
+    "type": "vocab",
+    "prompt": "《闻王昌龄左迁龙标遥有此寄》的作者是谁？",
+    "options": [
+      "李白",
+      "王昌龄",
+      "杜甫",
+      "白居易"
+    ],
+    "correct": 0,
+    "explanation": "这首诗是李白写的，得知好友王昌龄被贬谪后写来寄赠的。",
+    "difficulty": 2,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-495",
+    "type": "vocab",
+    "prompt": "朱自清的另一篇著名散文是？",
+    "options": [
+      "《背影》",
+      "《故都的秋》",
+      "《荷塘月色》",
+      "《背影》和《荷塘月色》"
+    ],
+    "correct": 3,
+    "explanation": "朱自清的代表散文有《春》《背影》《荷塘月色》等。",
+    "difficulty": 3,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-496",
+    "type": "vocab",
+    "prompt": "《世说新语》是哪个朝代的作品？",
+    "options": [
+      "南朝宋",
+      "唐朝",
+      "北宋",
+      "东汉"
+    ],
+    "correct": 0,
+    "explanation": "《世说新语》是南朝宋刘义庆组织编写的志人小说集。",
+    "difficulty": 3,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-497",
+    "type": "vocab",
+    "prompt": "《论语》记录的是谁及其弟子的言行？",
+    "options": [
+      "孔子",
+      "老子",
+      "孟子",
+      "庄子"
+    ],
+    "correct": 0,
+    "explanation": "《论语》是记录孔子及其弟子言行的书，由孔子弟子及再传弟子编纂。",
+    "difficulty": 2,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-498",
+    "type": "vocab",
+    "prompt": "「三人行，必有我师焉」出自哪部经典？",
+    "options": [
+      "《论语》",
+      "《孟子》",
+      "《大学》",
+      "《中庸》"
+    ],
+    "correct": 0,
+    "explanation": "这句话出自《论语·述而》，孔子说与他人同行必有可以学习的地方。",
+    "difficulty": 2,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-499",
+    "type": "vocab",
+    "prompt": "史铁生的代表作品是？",
+    "options": [
+      "《我与地坛》",
+      "《边城》",
+      "《围城》",
+      "《家》"
+    ],
+    "correct": 0,
+    "explanation": "《我与地坛》是史铁生的代表散文，叙述了他在地坛公园的思考和感悟。",
+    "difficulty": 3,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-500",
+    "type": "vocab",
+    "prompt": "下列关于鲁迅的说法正确的是？",
+    "options": [
+      "他是中国现代文学的奠基人之一",
+      "他是唐代诗人",
+      "他的代表作是《红楼梦》",
+      "他是法国作家"
+    ],
+    "correct": 0,
+    "explanation": "鲁迅（1881—1936）是中国现代文学的奠基人之一，代表作有《狂人日记》《阿Q正传》等。",
+    "difficulty": 2,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-501",
+    "type": "vocab",
+    "prompt": "下列关于《朝花夕拾》的篇目，不属于该书的是？",
+    "options": [
+      "《故乡》",
+      "《藤野先生》",
+      "《从百草园到三味书屋》",
+      "《阿长与〈山海经〉》"
+    ],
+    "correct": 0,
+    "explanation": "《故乡》收录在小说集《呐喊》中，不属于散文集《朝花夕拾》。",
+    "difficulty": 3,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-502",
+    "type": "vocab",
+    "prompt": "《荷叶·母亲》的作者是谁？",
+    "options": [
+      "冰心",
+      "朱自清",
+      "泰戈尔",
+      "老舍"
+    ],
+    "correct": 0,
+    "explanation": "《荷叶·母亲》是冰心的散文诗，借荷叶护莲花比喻母亲对子女的爱。",
+    "difficulty": 3,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-503",
+    "type": "vocab",
+    "prompt": "下列哪位作家被称为「语言大师」？",
+    "options": [
+      "老舍",
+      "鲁迅",
+      "冰心",
+      "朱自清"
+    ],
+    "correct": 0,
+    "explanation": "老舍以独特的语言风格著称，被誉为「语言大师」，善用北京方言写作。",
+    "difficulty": 3,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-504",
+    "type": "vocab",
+    "prompt": "泰戈尔获得诺贝尔文学奖是在哪一年？",
+    "options": [
+      "1913年",
+      "1920年",
+      "1935年",
+      "1901年"
+    ],
+    "correct": 0,
+    "explanation": "泰戈尔于1913年凭借诗集《吉檀迦利》获得诺贝尔文学奖。",
+    "difficulty": 3,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-505",
+    "type": "vocab",
+    "prompt": "《散步》这篇课文的作者是谁？",
+    "options": [
+      "莫怀戚",
+      "史铁生",
+      "朱自清",
+      "老舍"
+    ],
+    "correct": 0,
+    "explanation": "《散步》是莫怀戚的作品，通过一家人散步的故事表达了尊老爱幼的主题。",
+    "difficulty": 3,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-506",
+    "type": "vocab",
+    "prompt": "《再塑生命的人》的作者海伦·凯勒是哪国人？",
+    "options": [
+      "美国",
+      "英国",
+      "法国",
+      "德国"
+    ],
+    "correct": 0,
+    "explanation": "海伦·凯勒是美国作家、教育家，自幼失聪失明，在老师沙利文帮助下学会交流。",
+    "difficulty": 2,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-507",
+    "type": "vocab",
+    "prompt": "《皇帝的新装》的作者是谁？",
+    "options": [
+      "安徒生",
+      "格林兄弟",
+      "伊索",
+      "莎士比亚"
+    ],
+    "correct": 0,
+    "explanation": "《皇帝的新装》是丹麦作家安徒生的著名童话。",
+    "difficulty": 2,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-508",
+    "type": "vocab",
+    "prompt": "安徒生是哪个国家的作家？",
+    "options": [
+      "丹麦",
+      "瑞典",
+      "挪威",
+      "芬兰"
+    ],
+    "correct": 0,
+    "explanation": "安徒生（1805—1875）是丹麦著名的童话作家，被誉为「世界童话之王」。",
+    "difficulty": 2,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-509",
+    "type": "vocab",
+    "prompt": "下列哪个标点符号表示语气的停顿最长？",
+    "options": [
+      "句号",
+      "逗号",
+      "顿号",
+      "分号"
+    ],
+    "correct": 0,
+    "explanation": "标点符号表示的停顿从长到短依次为：句号 > 分号 > 逗号 > 顿号。",
+    "difficulty": 2,
+    "tags": [
+      "标点符号"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-510",
+    "type": "vocab",
+    "prompt": "顿号的主要作用是什么？",
+    "options": [
+      "用于并列词语之间的停顿",
+      "用于句子末尾",
+      "用于问句末尾",
+      "用于表示解释说明"
+    ],
+    "correct": 0,
+    "explanation": "顿号（、）用于句中并列的词语之间的停顿。",
+    "difficulty": 2,
+    "tags": [
+      "标点符号"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-511",
+    "type": "vocab",
+    "prompt": "下列句子标点使用正确的是？",
+    "options": [
+      "他买了苹果、橘子、香蕉等水果。",
+      "他买了苹果，橘子，香蕉，等水果。",
+      "他买了苹果、橘子、香蕉、等水果。",
+      "他买了苹果。橘子。香蕉等水果。"
+    ],
+    "correct": 0,
+    "explanation": "并列的名词之间用顿号，「等」字前不需要顿号。",
+    "difficulty": 3,
+    "tags": [
+      "标点符号"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-512",
+    "type": "vocab",
+    "prompt": "下列句子中引号的作用是什么？「他所谓的'努力'不过是做做样子罢了。」",
+    "options": [
+      "表示否定、讽刺",
+      "表示引用",
+      "表示特定称谓",
+      "表示强调"
+    ],
+    "correct": 0,
+    "explanation": "这里的引号表示否定、讽刺，暗示他并非真正在努力。",
+    "difficulty": 3,
+    "tags": [
+      "标点符号"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-513",
+    "type": "vocab",
+    "prompt": "下列句子中破折号的作用是什么？「我的朋友——也是我的老师——给了我很大帮助。」",
+    "options": [
+      "表示解释说明",
+      "表示话题转换",
+      "表示声音延长",
+      "表示递进"
+    ],
+    "correct": 0,
+    "explanation": "这里的破折号用来对「我的朋友」进行补充解释说明。",
+    "difficulty": 3,
+    "tags": [
+      "标点符号"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-515",
+    "type": "vocab",
+    "prompt": "省略号一般由几个小圆点组成？",
+    "options": [
+      "六个",
+      "三个",
+      "四个",
+      "五个"
+    ],
+    "correct": 0,
+    "explanation": "省略号由六个小圆点组成（……），占两个字的位置。",
+    "difficulty": 2,
+    "tags": [
+      "标点符号"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-516",
+    "type": "vocab",
+    "prompt": "下列句子中省略号的作用是什么？「她轻轻地哼着歌：'啦……啦……啦……'」",
+    "options": [
+      "表示声音的延长",
+      "表示省略内容",
+      "表示说话中断",
+      "表示话题转换"
+    ],
+    "correct": 0,
+    "explanation": "这里省略号表示歌声的延长和重复。",
+    "difficulty": 3,
+    "tags": [
+      "标点符号"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-517",
+    "type": "vocab",
+    "prompt": "下列句子中冒号的使用正确的是？",
+    "options": [
+      "老师说：「明天不上课。」",
+      "老师说明天：不上课。",
+      "老师：说明天不上课。",
+      "老师说明天不上课："
+    ],
+    "correct": 0,
+    "explanation": "冒号用在「说」字后面，引出直接引语。",
+    "difficulty": 2,
+    "tags": [
+      "标点符号"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-518",
+    "type": "vocab",
+    "prompt": "下列句子中分号使用正确的是？",
+    "options": [
+      "春天，万物复苏；夏天，绿树成荫。",
+      "春天；万物复苏，夏天；绿树成荫。",
+      "春天，万物复苏，夏天；绿树成荫。",
+      "春天，万物复苏。夏天；绿树成荫。"
+    ],
+    "correct": 0,
+    "explanation": "分号用于并列的分句之间。两个并列的描写季节的分句用分号连接正确。",
+    "difficulty": 3,
+    "tags": [
+      "标点符号"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-519",
+    "type": "vocab",
+    "prompt": "书名号用于标示什么？",
+    "options": [
+      "书名、篇名、报纸名、刊物名等",
+      "人名和地名",
+      "机关名称和团体名称",
+      "商品名称"
+    ],
+    "correct": 0,
+    "explanation": "书名号（《》）用于标示书名、篇名、报纸名、刊物名、电影名等作品名。",
+    "difficulty": 2,
+    "tags": [
+      "标点符号"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-520",
+    "type": "vocab",
+    "prompt": "下列哪个句子的标点符号使用有误？",
+    "options": [
+      "《论语》六则是七年级课文。",
+      "「论语」六则是七年级课文。",
+      "我读了《论语》这本书。",
+      "《论语》是记录孔子言行的书。"
+    ],
+    "correct": 1,
+    "explanation": "《论语》是书名，应该用书名号，不用引号。",
+    "difficulty": 3,
+    "tags": [
+      "标点符号"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-521",
+    "type": "vocab",
+    "prompt": "下列句子中破折号的作用是什么？「'呜——'火车开动了。」",
+    "options": [
+      "表示声音的延长",
+      "表示解释说明",
+      "表示话题转换",
+      "表示递进"
+    ],
+    "correct": 0,
+    "explanation": "这里破折号表示火车鸣笛声的延长。",
+    "difficulty": 2,
+    "tags": [
+      "标点符号"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-522",
+    "type": "vocab",
+    "prompt": "下列哪种情况不应该使用问号？",
+    "options": [
+      "他不知道什么时候出发。",
+      "你明天来吗？",
+      "这是怎么回事？",
+      "难道你不知道吗？"
+    ],
+    "correct": 0,
+    "explanation": "这是一个陈述句（间接转述），虽含有疑问词但不表疑问，应用句号而非问号。",
+    "difficulty": 3,
+    "tags": [
+      "标点符号"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-523",
+    "type": "vocab",
+    "prompt": "下列句子标点正确的是？",
+    "options": [
+      "我不知道他去哪儿了。",
+      "我不知道他去哪儿了？",
+      "我不知道，他去哪儿了。",
+      "我，不知道他去哪儿了。"
+    ],
+    "correct": 0,
+    "explanation": "这是陈述语气（转述疑问），不是直接提问，句末用句号。",
+    "difficulty": 3,
+    "tags": [
+      "标点符号"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-524",
+    "type": "vocab",
+    "prompt": "下列句子中引号的作用是什么？「地球是人类的'摇篮'。」",
+    "options": [
+      "表示特殊含义",
+      "表示引用",
+      "表示否定讽刺",
+      "表示强调"
+    ],
+    "correct": 0,
+    "explanation": "这里引号表示「摇篮」具有特殊含义，将地球比作人类的摇篮。",
+    "difficulty": 3,
+    "tags": [
+      "标点符号"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-525",
+    "type": "vocab",
+    "prompt": "下列句子中省略号的作用是？「张华考上了北大，李萍考上了清华，我在百货公司当售货员……我们都有光明的前途。」",
+    "options": [
+      "表示列举的省略",
+      "表示声音延长",
+      "表示说话中断",
+      "表示沉默"
+    ],
+    "correct": 0,
+    "explanation": "这里省略号表示还有其他人的去向没有一一列举。",
+    "difficulty": 3,
+    "tags": [
+      "标点符号"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-527",
+    "type": "vocab",
+    "prompt": "下列句子中感叹号使用恰当的是？",
+    "options": [
+      "多么美丽的景色啊！",
+      "他说他不去了！",
+      "我们学校有五百名学生！",
+      "今天星期三！"
+    ],
+    "correct": 0,
+    "explanation": "感叹号用于表达强烈感情的句子末尾。只有A句表达了强烈的赞叹之情。",
+    "difficulty": 2,
+    "tags": [
+      "标点符号"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-529",
+    "type": "vocab",
+    "prompt": "「红的像火，粉的像霞，白的像雪。」这句话运用了什么修辞手法？",
+    "options": [
+      "比喻和排比",
+      "拟人和夸张",
+      "对偶和反复",
+      "设问和反问"
+    ],
+    "correct": 0,
+    "explanation": "用火、霞、雪来比喻花的颜色是比喻，三个句式相同的短句构成排比。出自朱自清《春》。",
+    "difficulty": 3,
+    "tags": [
+      "修辞手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-530",
+    "type": "vocab",
+    "prompt": "「春天像刚落地的娃娃，从头到脚都是新的。」这句话运用了什么修辞手法？",
+    "options": [
+      "比喻",
+      "拟人",
+      "夸张",
+      "排比"
+    ],
+    "correct": 0,
+    "explanation": "用「刚落地的娃娃」比喻春天，有本体（春天）、喻体（娃娃）和比喻词（像），是比喻。",
+    "difficulty": 2,
+    "tags": [
+      "修辞手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-531",
+    "type": "vocab",
+    "prompt": "「小草偷偷地从土里钻出来。」这句话运用了什么修辞手法？",
+    "options": [
+      "拟人",
+      "比喻",
+      "夸张",
+      "排比"
+    ],
+    "correct": 0,
+    "explanation": "「偷偷地」「钻」赋予小草人的动作和情态，是拟人手法。出自朱自清《春》。",
+    "difficulty": 2,
+    "tags": [
+      "修辞手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-532",
+    "type": "vocab",
+    "prompt": "「飞流直下三千尺，疑是银河落九天。」运用了什么修辞手法？",
+    "options": [
+      "夸张",
+      "比喻",
+      "拟人",
+      "排比"
+    ],
+    "correct": 0,
+    "explanation": "「三千尺」和「落九天」都是极度夸大瀑布的高度和气势，属于夸张手法。",
+    "difficulty": 2,
+    "tags": [
+      "修辞手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-533",
+    "type": "vocab",
+    "prompt": "「是谁创造了人类世界？是我们劳动群众。」这运用了什么修辞手法？",
+    "options": [
+      "设问",
+      "反问",
+      "比喻",
+      "排比"
+    ],
+    "correct": 0,
+    "explanation": "先提出问题，再自己回答，这是设问。设问的特点是自问自答。",
+    "difficulty": 3,
+    "tags": [
+      "修辞手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-534",
+    "type": "vocab",
+    "prompt": "「难道我们能浪费时间吗？」这运用了什么修辞手法？",
+    "options": [
+      "反问",
+      "设问",
+      "比喻",
+      "夸张"
+    ],
+    "correct": 0,
+    "explanation": "反问是用疑问的形式表达确定的意思，不需要回答。这里意思是不能浪费时间。",
+    "difficulty": 2,
+    "tags": [
+      "修辞手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-535",
+    "type": "vocab",
+    "prompt": "设问和反问的区别是什么？",
+    "options": [
+      "设问有问有答，反问无需回答",
+      "设问无需回答，反问有问有答",
+      "两者完全一样",
+      "设问用于书面，反问用于口语"
+    ],
+    "correct": 0,
+    "explanation": "设问是自问自答，目的是引起注意；反问用疑问句表达确定意思，答案已在问句中。",
+    "difficulty": 3,
+    "tags": [
+      "修辞手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-536",
+    "type": "vocab",
+    "prompt": "「看，像牛毛，像花针，像细丝。」运用了什么修辞手法？",
+    "options": [
+      "比喻和排比",
+      "拟人和夸张",
+      "对偶和排比",
+      "反复和比喻"
+    ],
+    "correct": 0,
+    "explanation": "用牛毛、花针、细丝比喻春雨是比喻；三个「像……」构成排比。出自朱自清《春》。",
+    "difficulty": 3,
+    "tags": [
+      "修辞手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-537",
+    "type": "vocab",
+    "prompt": "「枯藤老树昏鸦，小桥流水人家。」运用了什么表现手法？",
+    "options": [
+      "白描（列锦）",
+      "拟人",
+      "夸张",
+      "反问"
+    ],
+    "correct": 0,
+    "explanation": "这两句由名词意象直接组合（枯藤、老树、昏鸦等），属于白描或列锦手法。",
+    "difficulty": 4,
+    "tags": [
+      "修辞手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-538",
+    "type": "vocab",
+    "prompt": "「日月之行，若出其中；星汉灿烂，若出其里。」运用了什么修辞手法？",
+    "options": [
+      "夸张和对偶",
+      "比喻和排比",
+      "拟人和反复",
+      "设问和反问"
+    ],
+    "correct": 0,
+    "explanation": "想象日月星辰从大海中运行升起是夸张；两组句式相对是对偶。出自曹操《观沧海》。",
+    "difficulty": 4,
+    "tags": [
+      "修辞手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-539",
+    "type": "vocab",
+    "prompt": "比喻的三个组成部分是？",
+    "options": [
+      "本体、喻体、比喻词",
+      "主语、谓语、宾语",
+      "起始、发展、结局",
+      "引子、正文、结语"
+    ],
+    "correct": 0,
+    "explanation": "比喻由本体（被比喻的事物）、喻体（用来比喻的事物）、比喻词（像、如、似等）组成。",
+    "difficulty": 2,
+    "tags": [
+      "修辞手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-540",
+    "type": "vocab",
+    "prompt": "「山朗润起来了，水涨起来了，太阳的脸红起来了。」哪个部分用了拟人？",
+    "options": [
+      "太阳的脸红起来了",
+      "山朗润起来了",
+      "水涨起来了",
+      "三个都没有拟人"
+    ],
+    "correct": 0,
+    "explanation": "「太阳的脸红起来了」赋予太阳人的面部特征（脸红），是拟人。其他两句是一般描写。",
+    "difficulty": 3,
+    "tags": [
+      "修辞手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-541",
+    "type": "vocab",
+    "prompt": "「吹面不寒杨柳风」中的「杨柳风」运用了什么修辞？",
+    "options": [
+      "借代",
+      "比喻",
+      "拟人",
+      "夸张"
+    ],
+    "correct": 0,
+    "explanation": "「杨柳风」用杨柳来代指春天，再指代春风，属于借代手法。",
+    "difficulty": 4,
+    "tags": [
+      "修辞手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-542",
+    "type": "vocab",
+    "prompt": "「盼望着，盼望着，东风来了，春天的脚步近了。」运用了什么修辞？",
+    "options": [
+      "反复和拟人",
+      "比喻和排比",
+      "夸张和对偶",
+      "设问和反问"
+    ],
+    "correct": 0,
+    "explanation": "「盼望着」重复出现是反复；「春天的脚步」赋予春天人的动作是拟人。",
+    "difficulty": 3,
+    "tags": [
+      "修辞手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-543",
+    "type": "vocab",
+    "prompt": "下列哪个句子没有使用修辞手法？",
+    "options": [
+      "今天天气很好",
+      "风像一把刀子",
+      "花儿在微笑",
+      "白发三千丈"
+    ],
+    "correct": 0,
+    "explanation": "「今天天气很好」是普通陈述句；B句是比喻，C句是拟人，D句是夸张。",
+    "difficulty": 2,
+    "tags": [
+      "修辞手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-544",
+    "type": "vocab",
+    "prompt": "「我寄愁心与明月，随风直到夜郎西。」运用了什么修辞手法？",
+    "options": [
+      "拟人",
+      "比喻",
+      "夸张",
+      "排比"
+    ],
+    "correct": 0,
+    "explanation": "将明月人格化，让它能传递愁绪，赋予明月人的行为和感情，是拟人手法。出自李白诗。",
+    "difficulty": 3,
+    "tags": [
+      "修辞手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-545",
+    "type": "vocab",
+    "prompt": "「春天像小姑娘，花枝招展的。」属于哪种比喻？",
+    "options": [
+      "明喻",
+      "暗喻",
+      "借喻",
+      "博喻"
+    ],
+    "correct": 0,
+    "explanation": "有本体（春天）、比喻词（像）、喻体（小姑娘），是明喻。",
+    "difficulty": 3,
+    "tags": [
+      "修辞手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-546",
+    "type": "vocab",
+    "prompt": "对偶的特点是什么？",
+    "options": [
+      "字数相等，结构相同，意思相关",
+      "句式重复三次以上",
+      "用具体事物代替抽象概念",
+      "故意说得很夸张"
+    ],
+    "correct": 0,
+    "explanation": "对偶要求字数相等、结构相似、意思相关或相反。",
+    "difficulty": 3,
+    "tags": [
+      "修辞手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-547",
+    "type": "vocab",
+    "prompt": "「绿树村边合，青山郭外斜。」运用了什么修辞手法？",
+    "options": [
+      "对偶",
+      "排比",
+      "夸张",
+      "反复"
+    ],
+    "correct": 0,
+    "explanation": "「绿树」对「青山」，「村边」对「郭外」，「合」对「斜」，结构相对，是对偶。",
+    "difficulty": 3,
+    "tags": [
+      "修辞手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-548",
+    "type": "vocab",
+    "prompt": "排比的特点是什么？",
+    "options": [
+      "三个或三个以上结构相似的句子并列",
+      "两个结构相对的句子",
+      "用疑问句表确定意思",
+      "自问自答"
+    ],
+    "correct": 0,
+    "explanation": "排比是由三个或三个以上结构相似、语气一致、意思相关的短语或句子排列在一起。",
+    "difficulty": 2,
+    "tags": [
+      "修辞手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-549",
+    "type": "vocab",
+    "prompt": "下列哪个句子运用了夸张手法？",
+    "options": [
+      "他跑得比兔子还快",
+      "天空像一块蓝色的幕布",
+      "春风轻轻地抚摸着大地",
+      "你去了吗？去了。"
+    ],
+    "correct": 0,
+    "explanation": "「比兔子还快」是夸大其词，属于夸张。B是比喻，C是拟人，D是设问。",
+    "difficulty": 2,
+    "tags": [
+      "修辞手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-550",
+    "type": "vocab",
+    "prompt": "「我仿佛又闻到了那花的清香。」这里的「仿佛」表示什么？",
+    "options": [
+      "想象，不是真正的比喻",
+      "比喻",
+      "夸张",
+      "拟人"
+    ],
+    "correct": 0,
+    "explanation": "这里「仿佛」表示想象或回忆中似乎感受到了，不是比喻。比喻需要有本体和喻体。",
+    "difficulty": 4,
+    "tags": [
+      "修辞手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-551",
+    "type": "vocab",
+    "prompt": "「鸟儿将窠巢安在繁花嫩叶当中，高兴起来了，呼朋引伴地卖弄清脆的喉咙。」运用了什么修辞？",
+    "options": [
+      "拟人",
+      "比喻",
+      "夸张",
+      "排比"
+    ],
+    "correct": 0,
+    "explanation": "「高兴」「呼朋引伴」「卖弄」赋予鸟儿人的感情和行为，是拟人手法。出自《春》。",
+    "difficulty": 3,
+    "tags": [
+      "修辞手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-552",
+    "type": "vocab",
+    "prompt": "下列对修辞手法判断正确的是？",
+    "options": [
+      "「大海是一面镜子」——暗喻",
+      "「大海像一面镜子」——暗喻",
+      "「那面镜子般的大海」——明喻",
+      "「那面巨大的镜子」——明喻"
+    ],
+    "correct": 0,
+    "explanation": "「大海是一面镜子」用「是」连接本体和喻体，属于暗喻。用「像」的是明喻。",
+    "difficulty": 4,
+    "tags": [
+      "修辞手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-553",
+    "type": "vocab",
+    "prompt": "下列选项中，哪个不是夸张的表达？",
+    "options": [
+      "他像一阵风一样跑过来",
+      "他的嗓门大得能把房顶掀翻",
+      "白发三千丈",
+      "飞流直下三千尺"
+    ],
+    "correct": 0,
+    "explanation": "「像一阵风一样跑过来」是比喻，不是夸张。其他三个都运用了夸张。",
+    "difficulty": 3,
+    "tags": [
+      "修辞手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-554",
+    "type": "vocab",
+    "prompt": "「水何澹澹」的「澹澹」是什么意思？",
+    "options": [
+      "水波荡漾的样子",
+      "水很清澈",
+      "水很深",
+      "水流很急"
+    ],
+    "correct": 0,
+    "explanation": "澹澹形容水波荡漾的样子。出自曹操《观沧海》。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-555",
+    "type": "vocab",
+    "prompt": "「乡书何处达？归雁洛阳边」中「乡书」指什么？",
+    "options": [
+      "家书、家信",
+      "家乡的书籍",
+      "关于家乡的书",
+      "乡间的书院"
+    ],
+    "correct": 0,
+    "explanation": "乡书即家书、家信。诗人想把家信寄回家乡，却不知如何送达。出自《次北固山下》。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-557",
+    "type": "vocab",
+    "prompt": "「我寄愁心与明月」中「与」的意思是？",
+    "options": [
+      "给",
+      "和",
+      "同",
+      "跟"
+    ],
+    "correct": 0,
+    "explanation": "这里「与」是「给」的意思。我把忧愁的心情托付给明月。出自李白诗。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-558",
+    "type": "vocab",
+    "prompt": "下列句子中「落」字读音与其他三项不同的是？",
+    "options": [
+      "丢三落四",
+      "落叶归根",
+      "落花流水",
+      "一落千丈"
+    ],
+    "correct": 0,
+    "explanation": "丢三落四的「落」读 là（遗漏）。其他三项的「落」读 luò。",
+    "difficulty": 4,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-559",
+    "type": "vocab",
+    "prompt": "下列词语中「藏」字读音不同于其他三项的是？",
+    "options": [
+      "宝藏",
+      "藏书",
+      "隐藏",
+      "藏起来"
+    ],
+    "correct": 0,
+    "explanation": "宝藏的「藏」读 zàng（储存东西的地方）。其他三项读 cáng（隐藏）。",
+    "difficulty": 3,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-561",
+    "type": "vocab",
+    "prompt": "「学而不思则罔，思而不学则殆」中「殆」的意思是？",
+    "options": [
+      "疑惑、危险",
+      "懒惰",
+      "快乐",
+      "后悔"
+    ],
+    "correct": 0,
+    "explanation": "殆意为有害、危险。只思考不学习则精神疲倦且无所得。出自《论语》。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-562",
+    "type": "vocab",
+    "prompt": "「温故而知新，可以为师矣」中「故」的意思是？",
+    "options": [
+      "旧的知识",
+      "故事",
+      "原因",
+      "故意"
+    ],
+    "correct": 0,
+    "explanation": "「故」指旧的、学过的知识。温习旧知识获得新理解就可以当老师了。出自《论语》。",
+    "difficulty": 2,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-563",
+    "type": "vocab",
+    "prompt": "下列各组加点字注音全部正确的是？",
+    "options": [
+      "瞬间(shùn) 嫩绿(nèn) 酝酿(niàng)",
+      "瞬间(sùn) 嫩绿(nùn) 酝酿(niàng)",
+      "瞬间(shùn) 嫩绿(lèn) 酝酿(liàng)",
+      "瞬间(shùn) 嫩绿(nèn) 酝酿(ràng)"
+    ],
+    "correct": 0,
+    "explanation": "瞬间 shùn、嫩绿 nèn、酝酿 niàng，A组全部正确。",
+    "difficulty": 3,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-565",
+    "type": "vocab",
+    "prompt": "「潮平两岸阔」的「阔」形容什么？",
+    "options": [
+      "江面开阔",
+      "两岸距离远",
+      "潮水很大",
+      "天空辽阔"
+    ],
+    "correct": 0,
+    "explanation": "潮平两岸阔描写涨潮时江水几乎与岸齐平，放眼望去江面显得非常开阔。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-566",
+    "type": "vocab",
+    "prompt": "下列作家作品搭配错误的是？",
+    "options": [
+      "冰心——《骆驼祥子》",
+      "老舍——《济南的冬天》",
+      "鲁迅——《朝花夕拾》",
+      "朱自清——《春》"
+    ],
+    "correct": 0,
+    "explanation": "《骆驼祥子》是老舍的作品，不是冰心的。冰心的代表作是《繁星》《春水》等。",
+    "difficulty": 2,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-567",
+    "type": "vocab",
+    "prompt": "「响晴」这个词在《济南的冬天》中是什么意思？",
+    "options": [
+      "晴朗无云",
+      "声音响亮",
+      "阳光灿烂炎热",
+      "又响又晴"
+    ],
+    "correct": 0,
+    "explanation": "响晴是老舍用来形容济南冬天天气特别晴朗的词语，意为天空没有一点云。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-569",
+    "type": "vocab",
+    "prompt": "「春天像健壮的青年，有铁一般的胳膊和腰脚，他领着我们上前去。」运用了什么修辞？",
+    "options": [
+      "比喻和拟人",
+      "排比和夸张",
+      "对偶和反复",
+      "设问和反问"
+    ],
+    "correct": 0,
+    "explanation": "把春天比作健壮的青年是比喻；让春天「领着我们上前去」是拟人。出自朱自清《春》。",
+    "difficulty": 3,
+    "tags": [
+      "修辞手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-570",
+    "type": "vocab",
+    "prompt": "「夕阳西下，断肠人在天涯。」表达了什么情感？",
+    "options": [
+      "思乡之情",
+      "壮志豪情",
+      "闲适之情",
+      "喜悦之情"
+    ],
+    "correct": 0,
+    "explanation": "夕阳西下，漂泊天涯的游子看此情景更加思念家乡，表达深切的思乡之情。",
+    "difficulty": 2,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-571",
+    "type": "vocab",
+    "prompt": "下列词语中「薄」字读音不同于其他三项的是？",
+    "options": [
+      "薄荷",
+      "薄弱",
+      "薄雾",
+      "刻薄"
+    ],
+    "correct": 0,
+    "explanation": "薄荷的「薄」读 bò。其他三项的「薄」读 bó。",
+    "difficulty": 4,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-572",
+    "type": "vocab",
+    "prompt": "下列哪组词语感情色彩完全相同？",
+    "options": [
+      "坚强 勇敢 正直",
+      "固执 勇敢 正直",
+      "坚强 鲁莽 正直",
+      "坚强 勇敢 狡猾"
+    ],
+    "correct": 0,
+    "explanation": "坚强、勇敢、正直都是褒义词。固执偏贬义，鲁莽偏贬义，狡猾是贬义词。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-573",
+    "type": "vocab",
+    "prompt": "下列句子中加点词语使用最恰当的是？",
+    "options": [
+      "他在困难面前毫不退缩，表现得非常坚强",
+      "他在困难面前毫不退缩，表现得非常固执",
+      "他在困难面前毫不退缩，表现得非常顽固",
+      "他在困难面前毫不退缩，表现得非常倔强"
+    ],
+    "correct": 0,
+    "explanation": "面对困难不退缩是积极品质，应用褒义词「坚强」。固执、顽固偏贬义。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-574",
+    "type": "vocab",
+    "prompt": "下列句子有什么语病？「经过老师和同学们的帮助，使我的成绩有了很大进步。」",
+    "options": [
+      "成分残缺（缺主语）",
+      "搭配不当",
+      "语序不当",
+      "重复啰嗦"
+    ],
+    "correct": 0,
+    "explanation": "「经过……使……」导致主语缺失。应去掉「经过」或「使」。",
+    "difficulty": 3,
+    "tags": [
+      "病句修改"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-575",
+    "type": "vocab",
+    "prompt": "「不亦说乎」中「说」的正确读音是？",
+    "options": [
+      "yuè",
+      "shuō",
+      "shuì",
+      "tuō"
+    ],
+    "correct": 0,
+    "explanation": "「不亦说乎」中「说」通「悦」，读 yuè，意为喜悦、高兴。出自《论语》。",
+    "difficulty": 3,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-576",
+    "type": "vocab",
+    "prompt": "「人不知而不愠」中「愠」的意思是？",
+    "options": [
+      "生气、恼怒",
+      "温和",
+      "温暖",
+      "运动"
+    ],
+    "correct": 0,
+    "explanation": "愠意为生气、恼怒。别人不了解自己也不恼怒。出自《论语》。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-577",
+    "type": "vocab",
+    "prompt": "下列句子有什么语病？「我们一定要防止此类事件不再发生。」",
+    "options": [
+      "否定不当",
+      "搭配不当",
+      "语序不当",
+      "成分残缺"
+    ],
+    "correct": 0,
+    "explanation": "「防止」已含否定意义，再加「不再」变成双重否定，意思变为让事件发生。应为「防止再次发生」。",
+    "difficulty": 3,
+    "tags": [
+      "病句修改"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-578",
+    "type": "vocab",
+    "prompt": "下列关于「词」这种文学体裁的说法正确的是？",
+    "options": [
+      "词又称「长短句」，兴盛于宋代",
+      "词兴盛于唐代",
+      "词每句字数相同",
+      "词不需要押韵"
+    ],
+    "correct": 0,
+    "explanation": "词又称长短句、诗余，兴盛于宋代。词的句子有长有短，需要按词牌填写。",
+    "difficulty": 3,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-579",
+    "type": "vocab",
+    "prompt": "「逝者如斯夫，不舍昼夜」中「逝」的意思是？",
+    "options": [
+      "流逝、过去",
+      "死亡",
+      "离开",
+      "放弃"
+    ],
+    "correct": 0,
+    "explanation": "逝在这里指流逝、过去。孔子感叹时光像河水一样日夜不停地流去。出自《论语》。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-580",
+    "type": "vocab",
+    "prompt": "下列句子中使用了借喻修辞的是？",
+    "options": [
+      "落红不是无情物，化作春泥更护花",
+      "月亮像一面镜子",
+      "她是我们班的百灵鸟",
+      "风儿轻轻地唱着歌"
+    ],
+    "correct": 0,
+    "explanation": "「落红」直接用来代指落花（不用本体和比喻词），属于借喻。B是明喻，C是暗喻，D是拟人。",
+    "difficulty": 4,
+    "tags": [
+      "修辞手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-581",
+    "type": "vocab",
+    "prompt": "「遥怜故园菊」中「怜」的意思是？",
+    "options": [
+      "怜爱、喜爱",
+      "可怜",
+      "怜悯",
+      "哀怜"
+    ],
+    "correct": 0,
+    "explanation": "古诗中「怜」常作「爱」解。遥怜故园菊意为远方怜爱家乡的菊花。",
+    "difficulty": 4,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-583",
+    "type": "vocab",
+    "prompt": "下列哪个是鲁迅的小说集？",
+    "options": [
+      "《呐喊》",
+      "《朝花夕拾》",
+      "《野草》",
+      "《坟》"
+    ],
+    "correct": 0,
+    "explanation": "《呐喊》是鲁迅的小说集。《朝花夕拾》是散文集，《野草》是散文诗集，《坟》是杂文集。",
+    "difficulty": 3,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-584",
+    "type": "vocab",
+    "prompt": "下列词语中全部是褒义词的一组是？",
+    "options": [
+      "高尚 崇高 伟大",
+      "高尚 崇高 卑鄙",
+      "伟大 渺小 崇高",
+      "高尚 阴险 伟大"
+    ],
+    "correct": 0,
+    "explanation": "高尚、崇高、伟大都是褒义词。卑鄙、阴险是贬义词，渺小偏中性或贬义。",
+    "difficulty": 2,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-585",
+    "type": "vocab",
+    "prompt": "「知之者不如好之者，好之者不如乐之者」中「好」的读音是？",
+    "options": [
+      "hào",
+      "hǎo",
+      "háo",
+      "hāo"
+    ],
+    "correct": 0,
+    "explanation": "好在这里读 hào，意为喜好、爱好。出自《论语》。",
+    "difficulty": 3,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-586",
+    "type": "vocab",
+    "prompt": "下列句子中哪一项标点使用正确？",
+    "options": [
+      "语文、数学、英语是初中的主要科目。",
+      "语文，数学，英语，是初中的主要科目。",
+      "语文、数学、英语，是初中的主要科目。",
+      "语文、数学和、英语是初中的主要科目。"
+    ],
+    "correct": 0,
+    "explanation": "三个并列词语间用顿号，整句用句号。A选项标点使用正确。",
+    "difficulty": 2,
+    "tags": [
+      "标点符号"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-587",
+    "type": "vocab",
+    "prompt": "下列关于《世说新语》的说法错误的是？",
+    "options": [
+      "它是一部长篇小说",
+      "它是志人小说集",
+      "它的编者是刘义庆",
+      "它记录了魏晋名士的言谈轶事"
+    ],
+    "correct": 0,
+    "explanation": "《世说新语》不是长篇小说，而是一部志人小说集，记录魏晋名士的言行和轶事。",
+    "difficulty": 3,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-588",
+    "type": "vocab",
+    "prompt": "「白雪纷纷何所似」中「何所似」的意思是？",
+    "options": [
+      "像什么",
+      "在哪里",
+      "为什么像",
+      "什么时候"
+    ],
+    "correct": 0,
+    "explanation": "何所似即「似何所」，意为像什么。这是谢安询问雪花像什么。出自《咏雪》。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-589",
+    "type": "vocab",
+    "prompt": "下列词语的读音完全正确的一组是？",
+    "options": [
+      "嫩(nèn)绿 酝酿(niàng) 朗润(rùn)",
+      "嫩(nùn)绿 酝酿(niàng) 朗润(rùn)",
+      "嫩(nèn)绿 酝酿(liàng) 朗润(rùn)",
+      "嫩(nèn)绿 酝酿(niàng) 朗润(yùn)"
+    ],
+    "correct": 0,
+    "explanation": "嫩 nèn、酝酿 niàng、朗润 rùn，A组全部正确。",
+    "difficulty": 3,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-590",
+    "type": "vocab",
+    "prompt": "下列句子有什么语病？「他的语文成绩之所以好，是因为他刻苦学习的结果。」",
+    "options": [
+      "句式杂糅",
+      "搭配不当",
+      "语序不当",
+      "成分残缺"
+    ],
+    "correct": 0,
+    "explanation": "把「之所以……是因为……」和「……的结果」两种句式杂糅在一起了。",
+    "difficulty": 4,
+    "tags": [
+      "病句修改"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-591",
+    "type": "vocab",
+    "prompt": "「未若柳絮因风起」用柳絮比喻什么？",
+    "options": [
+      "雪花",
+      "落花",
+      "柳叶",
+      "棉花"
+    ],
+    "correct": 0,
+    "explanation": "出自《咏雪》，谢道韫用柳絮乘风飞舞来比喻雪花纷纷飘落的样子。",
+    "difficulty": 2,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-592",
+    "type": "vocab",
+    "prompt": "「陈太丘与友期行」中「期」的意思是？",
+    "options": [
+      "约定",
+      "期望",
+      "日期",
+      "期限"
+    ],
+    "correct": 0,
+    "explanation": "期在这里是动词，意为约定。陈太丘与朋友约定一起出行。",
+    "difficulty": 2,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-593",
+    "type": "vocab",
+    "prompt": "下列句子中，破折号使用正确的是？",
+    "options": [
+      "他有一个毛病——爱迟到",
+      "他有一个毛病，——爱迟到",
+      "他有一个毛病——，爱迟到",
+      "他有——一个毛病爱迟到"
+    ],
+    "correct": 0,
+    "explanation": "破折号用于解释说明时，直接放在被解释的内容后面，前后不再加逗号。",
+    "difficulty": 3,
+    "tags": [
+      "标点符号"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-594",
+    "type": "vocab",
+    "prompt": "「友人惭，下车引之」中「引」的意思是？",
+    "options": [
+      "拉、牵",
+      "引导",
+      "引用",
+      "引起"
+    ],
+    "correct": 0,
+    "explanation": "引在这里是拉、牵的意思。友人感到惭愧，下车来拉元方。出自《陈太丘与友期行》。",
+    "difficulty": 3,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-595",
+    "type": "vocab",
+    "prompt": "下列句子中哪一句有语病？",
+    "options": [
+      "我们要继承和发扬革命前辈的光荣事迹",
+      "我们要继承和发扬革命前辈的光荣传统",
+      "我们要学习革命前辈的光荣事迹",
+      "革命前辈的光荣传统值得我们继承和发扬"
+    ],
+    "correct": 0,
+    "explanation": "「继承和发扬」不能搭配「事迹」，事迹只能学习，传统才能继承和发扬。",
+    "difficulty": 3,
+    "tags": [
+      "病句修改"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-596",
+    "type": "vocab",
+    "prompt": "「元方入门不顾」中「顾」的意思是？",
+    "options": [
+      "回头看",
+      "照顾",
+      "顾客",
+      "顾虑"
+    ],
+    "correct": 0,
+    "explanation": "顾在这里是回头看的意思。元方走进门去不回头看。出自《陈太丘与友期行》。",
+    "difficulty": 2,
+    "tags": [
+      "词语运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-597",
+    "type": "vocab",
+    "prompt": "下列哪句运用了反复的修辞手法？",
+    "options": [
+      "盼望着，盼望着，东风来了",
+      "红的像火，粉的像霞",
+      "春天像刚落地的娃娃",
+      "太阳的脸红起来了"
+    ],
+    "correct": 0,
+    "explanation": "「盼望着」连续出现两次，是反复修辞，强调盼望春天的急切心情。",
+    "difficulty": 2,
+    "tags": [
+      "修辞手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-598",
+    "type": "vocab",
+    "prompt": "下列各组词语中读音全部正确的一组是？",
+    "options": [
+      "贮(zhù)蓄 粗犷(guǎng) 静谧(mì)",
+      "贮(chǔ)蓄 粗犷(guǎng) 静谧(mì)",
+      "贮(zhù)蓄 粗犷(kuàng) 静谧(mì)",
+      "贮(zhù)蓄 粗犷(guǎng) 静谧(bì)"
+    ],
+    "correct": 0,
+    "explanation": "贮 zhù、犷 guǎng、谧 mì，A组全部正确。",
+    "difficulty": 4,
+    "tags": [
+      "字音辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-599",
+    "type": "vocab",
+    "prompt": "下列句子没有语病的一项是？",
+    "options": [
+      "这次比赛的结果令人非常满意",
+      "这次比赛的结果非常使人满意",
+      "非常这次比赛的结果令人满意",
+      "这次比赛的结果令人满意得非常"
+    ],
+    "correct": 0,
+    "explanation": "A句语序正确、搭配恰当。B句「非常」位置不当，C、D句语序混乱。",
+    "difficulty": 3,
+    "tags": [
+      "病句修改"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-600",
+    "type": "vocab",
+    "prompt": "下列关于七年级上册课文的说法，正确的是？",
+    "options": [
+      "《春》《济南的冬天》都是写景抒情散文",
+      "《春》是小说，《济南的冬天》是散文",
+      "《春》《济南的冬天》都是诗歌",
+      "《春》是散文，《济南的冬天》是小说"
+    ],
+    "correct": 0,
+    "explanation": "《春》（朱自清）和《济南的冬天》（老舍）都是经典的写景抒情散文。",
+    "difficulty": 2,
+    "tags": [
+      "文学常识"
+    ],
+    "source": "curriculum"
+  }
+]

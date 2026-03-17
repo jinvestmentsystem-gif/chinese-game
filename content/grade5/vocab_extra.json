@@ -1,0 +1,5348 @@
+[
+  {
+    "id": "v5-151",
+    "type": "vocab",
+    "prompt": "「模型」的「模」字正确读音是？",
+    "options": [
+      "mó",
+      "mú",
+      "mò",
+      "mù"
+    ],
+    "correct": 0,
+    "explanation": "在「模型」「模范」「模仿」中，「模」读 mó；在「模样」「模具」中读 mú。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-152",
+    "type": "vocab",
+    "prompt": "「模样」的「模」字正确读音是？",
+    "options": [
+      "mú",
+      "mó",
+      "mò",
+      "mù"
+    ],
+    "correct": 0,
+    "explanation": "「模样」中「模」读 mú，表示人的长相或样子。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-153",
+    "type": "vocab",
+    "prompt": "「效率」的「率」字正确读音是？",
+    "options": [
+      "lǜ",
+      "shuài",
+      "lù",
+      "shuò"
+    ],
+    "correct": 0,
+    "explanation": "「率」在「效率」「频率」「概率」中读 lǜ；在「率领」「率先」中读 shuài。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-154",
+    "type": "vocab",
+    "prompt": "「率领」的「率」字正确读音是？",
+    "options": [
+      "shuài",
+      "lǜ",
+      "lù",
+      "shuō"
+    ],
+    "correct": 0,
+    "explanation": "「率领」中「率」读 shuài，表示带领、统领的意思。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-155",
+    "type": "vocab",
+    "prompt": "「省会」的「省」字正确读音是？",
+    "options": [
+      "shěng",
+      "xǐng",
+      "shèng",
+      "xīng"
+    ],
+    "correct": 0,
+    "explanation": "「省」在「省会」「省份」「节省」中读 shěng；在「反省」「省悟」中读 xǐng。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-156",
+    "type": "vocab",
+    "prompt": "「反省」的「省」字正确读音是？",
+    "options": [
+      "xǐng",
+      "shěng",
+      "shèng",
+      "xīng"
+    ],
+    "correct": 0,
+    "explanation": "「反省」中「省」读 xǐng，意为检查自己的思想行为。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-157",
+    "type": "vocab",
+    "prompt": "「蒙骗」的「蒙」字正确读音是？",
+    "options": [
+      "mēng",
+      "méng",
+      "měng",
+      "mèng"
+    ],
+    "correct": 0,
+    "explanation": "「蒙」在「蒙骗」「蒙蔽」中读 mēng（欺骗义）；在「启蒙」中读 méng；在「蒙古」中读 měng。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-158",
+    "type": "vocab",
+    "prompt": "「启蒙」的「蒙」字正确读音是？",
+    "options": [
+      "méng",
+      "mēng",
+      "měng",
+      "mèng"
+    ],
+    "correct": 0,
+    "explanation": "「启蒙」中「蒙」读 méng，表示使初学的人得到入门的知识。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-159",
+    "type": "vocab",
+    "prompt": "「薄弱」的「薄」字正确读音是？",
+    "options": [
+      "bó",
+      "báo",
+      "bò",
+      "bù"
+    ],
+    "correct": 0,
+    "explanation": "「薄」在「薄弱」「单薄」「淡薄」等书面语中读 bó；在口语「薄饼」「薄片」中读 báo。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-160",
+    "type": "vocab",
+    "prompt": "「薄饼」的「薄」字正确读音是？",
+    "options": [
+      "báo",
+      "bó",
+      "bò",
+      "bāo"
+    ],
+    "correct": 0,
+    "explanation": "「薄饼」是口语用法，「薄」读 báo，表示厚度小。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-161",
+    "type": "vocab",
+    "prompt": "「冠军」的「冠」字正确读音是？",
+    "options": [
+      "guàn",
+      "guān",
+      "guǎn",
+      "kuān"
+    ],
+    "correct": 0,
+    "explanation": "「冠」在「冠军」「夺冠」中读 guàn（动词，位居第一）；在「衣冠」「鸡冠」中读 guān（名词，帽子）。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-162",
+    "type": "vocab",
+    "prompt": "「衣冠楚楚」的「冠」字正确读音是？",
+    "options": [
+      "guān",
+      "guàn",
+      "guǎn",
+      "kuān"
+    ],
+    "correct": 0,
+    "explanation": "「衣冠楚楚」中「冠」读 guān，指帽子，形容穿戴整齐。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-163",
+    "type": "vocab",
+    "prompt": "「系鞋带」的「系」字正确读音是？",
+    "options": [
+      "jì",
+      "xì",
+      "jǐ",
+      "xī"
+    ],
+    "correct": 0,
+    "explanation": "「系」在「系鞋带」「系围裙」中读 jì（动词，打结）；在「关系」「联系」中读 xì。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-164",
+    "type": "vocab",
+    "prompt": "「灾难」的「难」字正确读音是？",
+    "options": [
+      "nàn",
+      "nán",
+      "nǎn",
+      "nuó"
+    ],
+    "correct": 0,
+    "explanation": "「难」在「灾难」「遇难」「难民」中读 nàn（名词，灾祸）；在「困难」「难题」中读 nán（形容词）。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-165",
+    "type": "vocab",
+    "prompt": "「乘法」的「乘」字正确读音是？",
+    "options": [
+      "chéng",
+      "shèng",
+      "chèng",
+      "shēng"
+    ],
+    "correct": 0,
+    "explanation": "「乘」在「乘法」「乘车」「乘坐」中读 chéng；在「千乘之国」「史乘」中读 shèng。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-166",
+    "type": "vocab",
+    "prompt": "「中间」的「间」字正确读音是？",
+    "options": [
+      "jiān",
+      "jiàn",
+      "jiǎn",
+      "jīn"
+    ],
+    "correct": 0,
+    "explanation": "「间」在「中间」「房间」「时间」中读 jiān；在「间隔」「间谍」「离间」中读 jiàn。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-167",
+    "type": "vocab",
+    "prompt": "「离间」的「间」字正确读音是？",
+    "options": [
+      "jiàn",
+      "jiān",
+      "jiǎn",
+      "jīn"
+    ],
+    "correct": 0,
+    "explanation": "「离间」中「间」读 jiàn，表示挑拨使人不和。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-168",
+    "type": "vocab",
+    "prompt": "「咽喉」的「咽」字正确读音是？",
+    "options": [
+      "yān",
+      "yàn",
+      "yè",
+      "yǎn"
+    ],
+    "correct": 0,
+    "explanation": "「咽」在「咽喉」中读 yān（名词，喉咙）；在「咽下去」中读 yàn（动词，吞）；在「呜咽」中读 yè。",
+    "difficulty": 4,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-169",
+    "type": "vocab",
+    "prompt": "「呜咽」的「咽」字正确读音是？",
+    "options": [
+      "yè",
+      "yān",
+      "yàn",
+      "yǎn"
+    ],
+    "correct": 0,
+    "explanation": "「呜咽」中「咽」读 yè，形容低声哭泣。",
+    "difficulty": 4,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-170",
+    "type": "vocab",
+    "prompt": "「丧事」的「丧」字正确读音是？",
+    "options": [
+      "sāng",
+      "sàng",
+      "shāng",
+      "sǎng"
+    ],
+    "correct": 0,
+    "explanation": "「丧」在「丧事」「丧礼」中读 sāng（名词，与死亡有关的事）；在「丧失」「丧气」中读 sàng。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-171",
+    "type": "vocab",
+    "prompt": "「畜牧」的「畜」字正确读音是？",
+    "options": [
+      "xù",
+      "chù",
+      "xǔ",
+      "chǔ"
+    ],
+    "correct": 0,
+    "explanation": "「畜」在「畜牧」「畜养」中读 xù（动词，饲养）；在「牲畜」「畜生」中读 chù（名词，禽兽）。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-172",
+    "type": "vocab",
+    "prompt": "「牲畜」的「畜」字正确读音是？",
+    "options": [
+      "chù",
+      "xù",
+      "chǔ",
+      "xǔ"
+    ],
+    "correct": 0,
+    "explanation": "「牲畜」中「畜」读 chù，指家畜、禽兽。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-173",
+    "type": "vocab",
+    "prompt": "「钉扣子」的「钉」字正确读音是？",
+    "options": [
+      "dìng",
+      "dīng",
+      "dǐng",
+      "dīn"
+    ],
+    "correct": 0,
+    "explanation": "「钉」作动词时读 dìng（「钉扣子」「钉钉子」）；作名词时读 dīng（「铁钉」「图钉」）。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-174",
+    "type": "vocab",
+    "prompt": "「刹车」的「刹」字正确读音是？",
+    "options": [
+      "shā",
+      "chà",
+      "shà",
+      "chā"
+    ],
+    "correct": 0,
+    "explanation": "「刹」在「刹车」中读 shā；在「刹那」「古刹」中读 chà。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-175",
+    "type": "vocab",
+    "prompt": "「古刹」的「刹」字正确读音是？",
+    "options": [
+      "chà",
+      "shā",
+      "shà",
+      "chā"
+    ],
+    "correct": 0,
+    "explanation": "「古刹」中「刹」读 chà，指佛教的寺庙。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-176",
+    "type": "vocab",
+    "prompt": "「宁可」的「宁」字正确读音是？",
+    "options": [
+      "nìng",
+      "níng",
+      "nǐng",
+      "nīng"
+    ],
+    "correct": 0,
+    "explanation": "「宁」在「宁可」「宁愿」「宁死不屈」中读 nìng；在「安宁」「宁静」中读 níng。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-177",
+    "type": "vocab",
+    "prompt": "「缝补」的「缝」字正确读音是？",
+    "options": [
+      "féng",
+      "fèng",
+      "fēng",
+      "fěng"
+    ],
+    "correct": 0,
+    "explanation": "「缝」作动词时读 féng（「缝补」「缝衣服」）；作名词时读 fèng（「裂缝」「门缝」）。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-178",
+    "type": "vocab",
+    "prompt": "「裂缝」的「缝」字正确读音是？",
+    "options": [
+      "fèng",
+      "féng",
+      "fēng",
+      "fěng"
+    ],
+    "correct": 0,
+    "explanation": "「裂缝」中「缝」读 fèng，表示裂开的窄长口子。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-179",
+    "type": "vocab",
+    "prompt": "「宝藏」的「藏」字正确读音是？",
+    "options": [
+      "zàng",
+      "cáng",
+      "zāng",
+      "cāng"
+    ],
+    "correct": 0,
+    "explanation": "「藏」在「宝藏」「矿藏」「西藏」中读 zàng；在「隐藏」「藏身」中读 cáng。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-180",
+    "type": "vocab",
+    "prompt": "「折本」的「折」字正确读音是？",
+    "options": [
+      "shé",
+      "zhé",
+      "zhē",
+      "shè"
+    ],
+    "correct": 0,
+    "explanation": "「折」在「折本」中读 shé（亏损）；在「折叠」「打折」中读 zhé；在「折腾」中读 zhē。",
+    "difficulty": 4,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-181",
+    "type": "vocab",
+    "prompt": "「供不应求」的「供」字正确读音是？",
+    "options": [
+      "gōng",
+      "gòng",
+      "gǒng",
+      "gūng"
+    ],
+    "correct": 0,
+    "explanation": "「供」在「供不应求」「提供」「供给」中读 gōng；在「供认」「口供」中读 gòng。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-182",
+    "type": "vocab",
+    "prompt": "「载歌载舞」的「载」字正确读音是？",
+    "options": [
+      "zài",
+      "zǎi",
+      "zāi",
+      "záo"
+    ],
+    "correct": 0,
+    "explanation": "「载」在「载歌载舞」「装载」「满载而归」中读 zài；在「记载」「一年半载」中读 zǎi。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-183",
+    "type": "vocab",
+    "prompt": "「记载」的「载」字正确读音是？",
+    "options": [
+      "zǎi",
+      "zài",
+      "zāi",
+      "záo"
+    ],
+    "correct": 0,
+    "explanation": "「记载」中「载」读 zǎi，表示记录、刊登的意思。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-184",
+    "type": "vocab",
+    "prompt": "「应该」的「应」字正确读音是？",
+    "options": [
+      "yīng",
+      "yìng",
+      "yǐng",
+      "yīn"
+    ],
+    "correct": 0,
+    "explanation": "「应」在「应该」「应当」中读 yīng；在「答应」「应付」「应用」中读 yìng。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-185",
+    "type": "vocab",
+    "prompt": "「应付」的「应」字正确读音是？",
+    "options": [
+      "yìng",
+      "yīng",
+      "yǐng",
+      "yīn"
+    ],
+    "correct": 0,
+    "explanation": "「应付」中「应」读 yìng，表示对付、处理的意思。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-186",
+    "type": "vocab",
+    "prompt": "「和面」的「和」字正确读音是？",
+    "options": [
+      "huó",
+      "hé",
+      "hè",
+      "huo"
+    ],
+    "correct": 0,
+    "explanation": "「和」在「和面」中读 huó（揉面）；在「和平」中读 hé；在「附和」中读 hè；在「和牌」中读 hú。",
+    "difficulty": 4,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-187",
+    "type": "vocab",
+    "prompt": "「附和」的「和」字正确读音是？",
+    "options": [
+      "hè",
+      "hé",
+      "huó",
+      "hú"
+    ],
+    "correct": 0,
+    "explanation": "「附和」中「和」读 hè，表示跟着别人说话或做事。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-188",
+    "type": "vocab",
+    "prompt": "「数见不鲜」的「数」字正确读音是？",
+    "options": [
+      "shuò",
+      "shù",
+      "shǔ",
+      "sù"
+    ],
+    "correct": 0,
+    "explanation": "「数」在「数见不鲜」中读 shuò（屡次）；在「数学」中读 shù（名词）；在「数数」中读 shǔ（动词，计算）。",
+    "difficulty": 4,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-189",
+    "type": "vocab",
+    "prompt": "「正月」的「正」字正确读音是？",
+    "options": [
+      "zhēng",
+      "zhèng",
+      "zhěng",
+      "zèng"
+    ],
+    "correct": 0,
+    "explanation": "「正」在「正月」中读 zhēng，指农历一月；其他词语中一般读 zhèng。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-190",
+    "type": "vocab",
+    "prompt": "「丧失信心」的「丧」字正确读音是？",
+    "options": [
+      "sàng",
+      "sāng",
+      "shāng",
+      "sǎng"
+    ],
+    "correct": 0,
+    "explanation": "「丧失」「沮丧」「丧气」中「丧」读 sàng（失去义）；「丧事」「治丧」中读 sāng。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-191",
+    "type": "vocab",
+    "prompt": "「安宁」的「宁」字正确读音是？",
+    "options": [
+      "níng",
+      "nìng",
+      "nǐng",
+      "nēng"
+    ],
+    "correct": 0,
+    "explanation": "「安宁」「宁静」中「宁」读 níng，表示平安、安定。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-192",
+    "type": "vocab",
+    "prompt": "「隐藏」的「藏」字正确读音是？",
+    "options": [
+      "cáng",
+      "zàng",
+      "cāng",
+      "zāng"
+    ],
+    "correct": 0,
+    "explanation": "「隐藏」「藏身」「收藏」中「藏」读 cáng，表示隐蔽、收存的意思。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-193",
+    "type": "vocab",
+    "prompt": "「折腾」的「折」字正确读音是？",
+    "options": [
+      "zhē",
+      "zhé",
+      "shé",
+      "zhě"
+    ],
+    "correct": 0,
+    "explanation": "「折腾」中「折」读 zhē；「折叠」「曲折」中读 zhé；「折本」中读 shé。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-194",
+    "type": "vocab",
+    "prompt": "「供认不讳」的「供」字正确读音是？",
+    "options": [
+      "gòng",
+      "gōng",
+      "gǒng",
+      "gùng"
+    ],
+    "correct": 0,
+    "explanation": "「供认」「口供」中「供」读 gòng（供述，受审时陈述）；「提供」「供给」中读 gōng。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-195",
+    "type": "vocab",
+    "prompt": "「间谍」的「间」字正确读音是？",
+    "options": [
+      "jiàn",
+      "jiān",
+      "jiǎn",
+      "jīn"
+    ],
+    "correct": 0,
+    "explanation": "「间谍」「间隔」「间断」中「间」读 jiàn，表示空隙、分隔等义。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-196",
+    "type": "vocab",
+    "prompt": "「乘势」的「乘」字正确读音是？",
+    "options": [
+      "chéng",
+      "shèng",
+      "chèng",
+      "shēng"
+    ],
+    "correct": 0,
+    "explanation": "「乘势」「乘机」「乘风破浪」中「乘」读 chéng，表示利用、趁着。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-197",
+    "type": "vocab",
+    "prompt": "「千乘之国」的「乘」字正确读音是？",
+    "options": [
+      "shèng",
+      "chéng",
+      "chèng",
+      "shēng"
+    ],
+    "correct": 0,
+    "explanation": "「千乘之国」中「乘」读 shèng，是古代车辆的量词，一乘指一辆四匹马拉的车。",
+    "difficulty": 4,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-198",
+    "type": "vocab",
+    "prompt": "「薄荷」的「薄」字正确读音是？",
+    "options": [
+      "bò",
+      "báo",
+      "bó",
+      "bù"
+    ],
+    "correct": 0,
+    "explanation": "「薄荷」中「薄」读 bò，这是一个专用读音。",
+    "difficulty": 4,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-199",
+    "type": "vocab",
+    "prompt": "「吞咽」的「咽」字正确读音是？",
+    "options": [
+      "yàn",
+      "yān",
+      "yè",
+      "yǎn"
+    ],
+    "correct": 0,
+    "explanation": "「吞咽」「咽下去」中「咽」读 yàn（动词，使食物进入食道）。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-200",
+    "type": "vocab",
+    "prompt": "「铁钉」的「钉」字正确读音是？",
+    "options": [
+      "dīng",
+      "dìng",
+      "dǐng",
+      "dīn"
+    ],
+    "correct": 0,
+    "explanation": "「铁钉」「图钉」中「钉」读 dīng（名词）；「钉扣子」「钉钉子」中读 dìng（动词）。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-201",
+    "type": "vocab",
+    "prompt": "「模具」的「模」字正确读音是？",
+    "options": [
+      "mú",
+      "mó",
+      "mò",
+      "mù"
+    ],
+    "correct": 0,
+    "explanation": "「模具」「模样」「模子」中「模」读 mú；「模型」「模仿」中读 mó。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-202",
+    "type": "vocab",
+    "prompt": "「蒙古包」的「蒙」字正确读音是？",
+    "options": [
+      "měng",
+      "méng",
+      "mēng",
+      "mèng"
+    ],
+    "correct": 0,
+    "explanation": "「蒙古」中「蒙」读 měng，这是专有名词的读音。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-203",
+    "type": "vocab",
+    "prompt": "「节省」的「省」字正确读音是？",
+    "options": [
+      "shěng",
+      "xǐng",
+      "shèng",
+      "xīng"
+    ],
+    "correct": 0,
+    "explanation": "「节省」中「省」读 shěng，表示节约、减少。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-204",
+    "type": "vocab",
+    "prompt": "「关系」的「系」字正确读音是？",
+    "options": [
+      "xì",
+      "jì",
+      "xī",
+      "jǐ"
+    ],
+    "correct": 0,
+    "explanation": "「关系」「联系」「中文系」中「系」读 xì；「系鞋带」中读 jì（打结义）。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-205",
+    "type": "vocab",
+    "prompt": "「数落」的「数」字正确读音是？",
+    "options": [
+      "shǔ",
+      "shù",
+      "shuò",
+      "sù"
+    ],
+    "correct": 0,
+    "explanation": "「数落」「数数」「数不清」中「数」读 shǔ（动词，列举、计算）。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-206",
+    "type": "vocab",
+    "prompt": "「概率」的「率」字正确读音是？",
+    "options": [
+      "lǜ",
+      "shuài",
+      "lù",
+      "shuō"
+    ],
+    "correct": 0,
+    "explanation": "「概率」「利率」「圆周率」中「率」读 lǜ，表示比值。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-207",
+    "type": "vocab",
+    "prompt": "下列哪个字是「抑制」的「抑」的正确写法？",
+    "options": [
+      "抑",
+      "仰",
+      "柳",
+      "迎"
+    ],
+    "correct": 0,
+    "explanation": "「抑」左边是提手旁，右边是「卬」的左半部分，表示按下、压制。注意与「仰」区分。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-208",
+    "type": "vocab",
+    "prompt": "「抑扬顿挫」中应该用哪个字？",
+    "options": [
+      "抑",
+      "仰",
+      "印",
+      "忆"
+    ],
+    "correct": 0,
+    "explanation": "「抑扬顿挫」形容声调有起有伏。「抑」表示低沉、压下；「仰」表示抬起、仰望。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-209",
+    "type": "vocab",
+    "prompt": "「阻（  ）不前」横线处应填哪个字？",
+    "options": [
+      "挠",
+      "饶",
+      "绕",
+      "浇"
+    ],
+    "correct": 0,
+    "explanation": "「阻挠」意为阻止、刁难。「挠」是提手旁，与手的动作有关；「饶」是食字旁；「绕」是绞丝旁。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-210",
+    "type": "vocab",
+    "prompt": "「求（  ）恕罪」横线处应填哪个字？",
+    "options": [
+      "饶",
+      "挠",
+      "绕",
+      "烧"
+    ],
+    "correct": 0,
+    "explanation": "「求饶」意为请求宽恕。「饶」有富裕、宽恕之意，食字旁。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-211",
+    "type": "vocab",
+    "prompt": "「围（  ）地球运行」横线处应填哪个字？",
+    "options": [
+      "绕",
+      "挠",
+      "饶",
+      "浇"
+    ],
+    "correct": 0,
+    "explanation": "「围绕」意为环绕。「绕」是绞丝旁，与线绳缠绕有关。",
+    "difficulty": 2,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-212",
+    "type": "vocab",
+    "prompt": "「（  ）除旧房」横线处应填哪个字？",
+    "options": [
+      "拆",
+      "折",
+      "析",
+      "拍"
+    ],
+    "correct": 0,
+    "explanation": "「拆除」表示拆毁、去掉。「拆」右边是「斥」；「折」右边是「斤」（斧头）。二字形近易混。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-213",
+    "type": "vocab",
+    "prompt": "「宫（  ）」应填入哪个字，表示帝王的住所？",
+    "options": [
+      "廷",
+      "庭",
+      "延",
+      "挺"
+    ],
+    "correct": 0,
+    "explanation": "「宫廷」指帝王的住所。「廷」指朝廷；「庭」指院子（庭院）；「延」指延长。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-214",
+    "type": "vocab",
+    "prompt": "「（  ）院深深」横线处应填哪个字？",
+    "options": [
+      "庭",
+      "廷",
+      "延",
+      "挺"
+    ],
+    "correct": 0,
+    "explanation": "「庭院」指房屋前面的院子。「庭」有广字头，与建筑有关。",
+    "difficulty": 2,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-215",
+    "type": "vocab",
+    "prompt": "「（  ）期」应填入哪个字，表示推迟时间？",
+    "options": [
+      "延",
+      "廷",
+      "庭",
+      "蜓"
+    ],
+    "correct": 0,
+    "explanation": "「延期」表示推迟、延长期限。「延」有延长、推迟的意思。",
+    "difficulty": 2,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-216",
+    "type": "vocab",
+    "prompt": "「（  ）老」应填入哪个字，表示身体变弱？",
+    "options": [
+      "衰",
+      "哀",
+      "蓑",
+      "摔"
+    ],
+    "correct": 0,
+    "explanation": "「衰老」表示年老体弱。「衰」中间是一横；「哀」中间是「口」；「蓑」上面是草字头。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-217",
+    "type": "vocab",
+    "prompt": "「悲（  ）」应填入哪个字，表示悲伤？",
+    "options": [
+      "哀",
+      "衰",
+      "蓑",
+      "衷"
+    ],
+    "correct": 0,
+    "explanation": "「悲哀」表示伤心难过。「哀」中间有「口」，与声音有关（哀号）。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-218",
+    "type": "vocab",
+    "prompt": "「（  ）衣」应填入哪个字，指用草编成的雨衣？",
+    "options": [
+      "蓑",
+      "衰",
+      "哀",
+      "衷"
+    ],
+    "correct": 0,
+    "explanation": "「蓑衣」是用草或棕毛编成的防雨衣服。「蓑」上面是草字头，与植物有关。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-219",
+    "type": "vocab",
+    "prompt": "「究（  ）是谁干的」横线处应填哪个字？",
+    "options": [
+      "竟",
+      "竞",
+      "境",
+      "镜"
+    ],
+    "correct": 0,
+    "explanation": "「究竟」表示到底、结果。「竟」下面是「儿」（完毕义）；「竞」下面是「兄」字的变形（竞争义）。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-220",
+    "type": "vocab",
+    "prompt": "「（  ）争激烈」横线处应填哪个字？",
+    "options": [
+      "竞",
+      "竟",
+      "境",
+      "镜"
+    ],
+    "correct": 0,
+    "explanation": "「竞争」表示互相争胜。「竞」下面有两个「人」在角力的意味。",
+    "difficulty": 2,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-221",
+    "type": "vocab",
+    "prompt": "「爱（  ）」应填入哪个字，表示喜爱仰慕？",
+    "options": [
+      "慕",
+      "幕",
+      "暮",
+      "墓"
+    ],
+    "correct": 0,
+    "explanation": "「爱慕」表示喜爱、仰慕。「慕」下面是心字底，与心理活动有关。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-222",
+    "type": "vocab",
+    "prompt": "「银（  ）」应填入哪个字，指电影放映的白色幕布？",
+    "options": [
+      "幕",
+      "慕",
+      "暮",
+      "墓"
+    ],
+    "correct": 0,
+    "explanation": "「银幕」指电影院的白色幕布。「幕」下面是「巾」，与布有关。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-223",
+    "type": "vocab",
+    "prompt": "「（  ）色苍茫」横线处应填哪个字？",
+    "options": [
+      "暮",
+      "慕",
+      "幕",
+      "墓"
+    ],
+    "correct": 0,
+    "explanation": "「暮色」指傍晚时昏暗的天色。「暮」下面是「日」，与时间有关（日暮）。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-224",
+    "type": "vocab",
+    "prompt": "「扫（  ）」应填入哪个字，指上坟祭扫？",
+    "options": [
+      "墓",
+      "慕",
+      "幕",
+      "暮"
+    ],
+    "correct": 0,
+    "explanation": "「扫墓」指到坟前祭扫。「墓」下面是「土」，与土地、坟有关。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-225",
+    "type": "vocab",
+    "prompt": "「峻（  ）」应填入哪个字，形容山高而陡？",
+    "options": [
+      "峭",
+      "俏",
+      "悄",
+      "梢"
+    ],
+    "correct": 0,
+    "explanation": "「峻峭」形容山势高而陡。「峭」有山字旁，与山有关。「俏」是人字旁，形容漂亮。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-226",
+    "type": "vocab",
+    "prompt": "「（  ）皮」应填入哪个字，表示树的外皮？",
+    "options": [
+      "树",
+      "竖",
+      "数",
+      "述"
+    ],
+    "correct": 0,
+    "explanation": "「树皮」指树的外皮。注意「树」「竖」「数」「述」四字形近但部首和意义完全不同。",
+    "difficulty": 2,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-227",
+    "type": "vocab",
+    "prompt": "「（  ）微镜」应填入哪个字？",
+    "options": [
+      "显",
+      "湿",
+      "温",
+      "稳"
+    ],
+    "correct": 0,
+    "explanation": "「显微镜」是一种放大微小物体的仪器。「显」表示明显、显示。",
+    "difficulty": 2,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-228",
+    "type": "vocab",
+    "prompt": "「（  ）立鸡群」应填入哪个字？",
+    "options": [
+      "鹤",
+      "确",
+      "鸡",
+      "鸽"
+    ],
+    "correct": 0,
+    "explanation": "「鹤立鸡群」比喻一个人的才能或仪表在一群人中非常突出。",
+    "difficulty": 2,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-229",
+    "type": "vocab",
+    "prompt": "「气（  ）」应填入哪个字，表示气概？",
+    "options": [
+      "概",
+      "慨",
+      "溉",
+      "既"
+    ],
+    "correct": 0,
+    "explanation": "「气概」表示正大刚直的精神。「概」是木字旁；「慨」是竖心旁（感慨）；「溉」是三点水（灌溉）。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-230",
+    "type": "vocab",
+    "prompt": "「感（  ）」应填入哪个字，表示有感触、激动？",
+    "options": [
+      "慨",
+      "概",
+      "溉",
+      "既"
+    ],
+    "correct": 0,
+    "explanation": "「感慨」表示心中有所感触而感叹。「慨」是竖心旁，与心理活动有关。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-231",
+    "type": "vocab",
+    "prompt": "「灌（  ）农田」横线处应填哪个字？",
+    "options": [
+      "溉",
+      "概",
+      "慨",
+      "既"
+    ],
+    "correct": 0,
+    "explanation": "「灌溉」指浇灌土地。「溉」是三点水旁，与水有关。",
+    "difficulty": 2,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-232",
+    "type": "vocab",
+    "prompt": "「（  ）绝千里」应填入哪个字，形容路途遥远？",
+    "options": [
+      "跋",
+      "拔",
+      "拨",
+      "泼"
+    ],
+    "correct": 0,
+    "explanation": "「跋」有足字旁，与行走有关，「长途跋涉」指远距离行走。注意与「拔」（提手旁）区分。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-233",
+    "type": "vocab",
+    "prompt": "「（  ）苗助长」应填入哪个字？",
+    "options": [
+      "拔",
+      "跋",
+      "拨",
+      "泼"
+    ],
+    "correct": 0,
+    "explanation": "「拔苗助长」指拔起禾苗帮它长高。「拔」是提手旁，表示手的动作。",
+    "difficulty": 2,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-234",
+    "type": "vocab",
+    "prompt": "「恳（  ）」应填入哪个字，表示诚恳请求？",
+    "options": [
+      "求",
+      "球",
+      "裘",
+      "丘"
+    ],
+    "correct": 0,
+    "explanation": "「恳求」表示恳切地请求。注意「求」「球」形近但意义完全不同。",
+    "difficulty": 2,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-235",
+    "type": "vocab",
+    "prompt": "「严（  ）以律己」应填入哪个字？",
+    "options": [
+      "格",
+      "络",
+      "骼",
+      "阁"
+    ],
+    "correct": 0,
+    "explanation": "「严格」表示在执行标准时不容许丝毫偏差。「格」是木字旁；「络」是绞丝旁。",
+    "difficulty": 2,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-236",
+    "type": "vocab",
+    "prompt": "「坚（  ）不拔」应填入哪个字？",
+    "options": [
+      "韧",
+      "纫",
+      "忍",
+      "认"
+    ],
+    "correct": 0,
+    "explanation": "「坚韧不拔」形容意志坚定，不可动摇。「韧」是韦字旁，表示柔而不断。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-237",
+    "type": "vocab",
+    "prompt": "下列词语中，「居高临下」的正确意思是？",
+    "options": [
+      "占据高处，面对低处，形容处于有利的地位",
+      "住在很高的楼层往下看",
+      "高高在上，看不起别人",
+      "从高处跳到低处"
+    ],
+    "correct": 0,
+    "explanation": "「居高临下」指占据高处向下俯瞰，比喻处于有利的地位或居高位而傲视他人。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-238",
+    "type": "vocab",
+    "prompt": "「前赴后继」的正确意思是？",
+    "options": [
+      "前面的人上去，后面的人紧跟上来，形容英勇奋斗",
+      "前面的人负责，后面的人继承",
+      "前后互相追赶",
+      "先到的等后到的一起行动"
+    ],
+    "correct": 0,
+    "explanation": "「前赴后继」指前面的人冲上去了，后面的紧跟上来，形容连续不断地英勇奋斗。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-239",
+    "type": "vocab",
+    "prompt": "「再接再厉」中哪个字容易写错？",
+    "options": [
+      "厉",
+      "历",
+      "励",
+      "利"
+    ],
+    "correct": 0,
+    "explanation": "「再接再厉」的「厉」字常被误写为「励」。「厉」在这里通「砺」，指磨刀石，原指公鸡再磨嘴再斗，比喻继续努力。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-240",
+    "type": "vocab",
+    "prompt": "「应接不暇」的正确意思是？",
+    "options": [
+      "形容来人或事情太多，接待应付不过来",
+      "应该接受但没有空闲",
+      "拒绝接受各种邀请",
+      "有空闲但不愿意接待"
+    ],
+    "correct": 0,
+    "explanation": "「应接不暇」中「暇」指空闲，整个成语形容来人或事务太多，忙不过来。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-241",
+    "type": "vocab",
+    "prompt": "「心急如焚」中的「焚」是什么意思？",
+    "options": [
+      "火烧",
+      "烟熏",
+      "寒冷",
+      "干枯"
+    ],
+    "correct": 0,
+    "explanation": "「焚」意为烧。「心急如焚」形容心里非常着急，就像火在烧一样。",
+    "difficulty": 2,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-242",
+    "type": "vocab",
+    "prompt": "「举世闻名」的「举」是什么意思？",
+    "options": [
+      "全、整个",
+      "举起",
+      "推举",
+      "列举"
+    ],
+    "correct": 0,
+    "explanation": "「举世闻名」中「举」意为全、整个，「举世」就是全世界。整个成语意为全世界都知道，形容非常著名。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-243",
+    "type": "vocab",
+    "prompt": "「络绎不绝」形容的是什么景象？",
+    "options": [
+      "人、车等前后相接，连续不断",
+      "河水奔流不停",
+      "鸟群飞翔不断",
+      "树叶纷纷飘落"
+    ],
+    "correct": 0,
+    "explanation": "「络绎不绝」形容行人、车马等前后相接、连续不断的样子。",
+    "difficulty": 2,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-244",
+    "type": "vocab",
+    "prompt": "「迫不及待」的正确意思是？",
+    "options": [
+      "急迫得不能再等待",
+      "被迫等待很长时间",
+      "追赶却来不及",
+      "逼迫别人等待"
+    ],
+    "correct": 0,
+    "explanation": "「迫不及待」形容心情十分急切，急迫得来不及等待。",
+    "difficulty": 2,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-245",
+    "type": "vocab",
+    "prompt": "「不屈不挠」中「挠」的意思是？",
+    "options": [
+      "弯曲、屈服",
+      "抓挠",
+      "阻挠",
+      "搅动"
+    ],
+    "correct": 0,
+    "explanation": "「不屈不挠」中「挠」意为弯曲、屈服。整个成语比喻在压力和困难面前不屈服，坚持不动摇。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-246",
+    "type": "vocab",
+    "prompt": "「安居乐业」的正确意思是？",
+    "options": [
+      "安定地生活，愉快地工作",
+      "住在安全的地方享乐",
+      "居住快乐比事业重要",
+      "安于现状不求进取"
+    ],
+    "correct": 0,
+    "explanation": "「安居乐业」指安定地生活，愉快地从事自己的职业，形容社会安定、人民生活美好。",
+    "difficulty": 2,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-247",
+    "type": "vocab",
+    "prompt": "「夜以继日」的正确意思是？",
+    "options": [
+      "日夜不停，形容非常勤奋",
+      "晚上代替白天工作",
+      "日日夜夜不能安睡",
+      "以夜晚作为白天"
+    ],
+    "correct": 0,
+    "explanation": "「夜以继日」指晚上连着白天，形容日夜不停地努力工作或学习。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-248",
+    "type": "vocab",
+    "prompt": "「座无虚席」形容的是什么情景？",
+    "options": [
+      "没有空着的座位，形容人很多",
+      "座位太少不够坐",
+      "虚假的席位没有人",
+      "所有座位都是假的"
+    ],
+    "correct": 0,
+    "explanation": "「座无虚席」形容出席的人很多，座位没有空着的。",
+    "difficulty": 2,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-249",
+    "type": "vocab",
+    "prompt": "「斩钉截铁」形容的是什么？",
+    "options": [
+      "说话办事坚决果断，毫不犹豫",
+      "用刀砍断钉子和铁",
+      "武功高强能砍铁",
+      "态度强硬蛮不讲理"
+    ],
+    "correct": 0,
+    "explanation": "「斩钉截铁」比喻说话办事坚决果断，毫不犹豫，不拖泥带水。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-250",
+    "type": "vocab",
+    "prompt": "「千钧一发」中「钧」是什么意思？",
+    "options": [
+      "古代重量单位，三十斤为一钧",
+      "陶器",
+      "均匀",
+      "君王"
+    ],
+    "correct": 0,
+    "explanation": "「钧」是古代重量单位，约三十斤。「千钧一发」形容千钧的重量系在一根头发上，比喻情况万分危急。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-251",
+    "type": "vocab",
+    "prompt": "「语重心长」的正确意思是？",
+    "options": [
+      "话语恳切而有分量，情意深长",
+      "说话太多心里疲倦",
+      "话语很重让人心痛",
+      "重复说的话记忆很长"
+    ],
+    "correct": 0,
+    "explanation": "「语重心长」形容言辞恳切、有分量，用情深长，多用于长辈对晚辈的劝告。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-252",
+    "type": "vocab",
+    "prompt": "「风餐露宿」形容的是什么？",
+    "options": [
+      "在风雨中吃饭，露天睡觉，形容旅途艰辛",
+      "在户外享受野餐",
+      "风吹着饭菜，露水打湿床铺",
+      "喜欢在野外露营"
+    ],
+    "correct": 0,
+    "explanation": "「风餐露宿」形容旅途或野外生活的艰辛，风里吃饭，露天住宿。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-253",
+    "type": "vocab",
+    "prompt": "「目不转睛」中「睛」指的是？",
+    "options": [
+      "眼珠",
+      "眼睛",
+      "眼眶",
+      "眼皮"
+    ],
+    "correct": 0,
+    "explanation": "「睛」特指眼珠。「目不转睛」形容看得很专注，眼珠一动不动。",
+    "difficulty": 2,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-254",
+    "type": "vocab",
+    "prompt": "「恍然大悟」的「恍然」是什么意思？",
+    "options": [
+      "突然醒悟的样子",
+      "模糊不清的样子",
+      "慌慌张张的样子",
+      "明亮闪光的样子"
+    ],
+    "correct": 0,
+    "explanation": "「恍然」形容忽然醒悟。「恍然大悟」指一下子完全明白了。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-255",
+    "type": "vocab",
+    "prompt": "「脍炙人口」的正确意思是？",
+    "options": [
+      "比喻好的诗文或事物广为传诵",
+      "烤肉非常好吃，大家都喜欢",
+      "人人都在议论的八卦",
+      "让人流口水的美食"
+    ],
+    "correct": 0,
+    "explanation": "「脍」是细切的肉，「炙」是烤肉。「脍炙人口」比喻好的诗文或事物，人人称赞传诵。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-256",
+    "type": "vocab",
+    "prompt": "「井然有序」的「井然」是什么意思？",
+    "options": [
+      "整齐、有条理的样子",
+      "像水井一样",
+      "自然而然",
+      "突然发生"
+    ],
+    "correct": 0,
+    "explanation": "「井然」形容整齐有条理的样子。「井然有序」形容做事整整齐齐、有条不紊。",
+    "difficulty": 2,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-257",
+    "type": "vocab",
+    "prompt": "「严肃」的近义词是？",
+    "options": [
+      "庄重",
+      "严格",
+      "冷漠",
+      "紧张"
+    ],
+    "correct": 0,
+    "explanation": "「严肃」指（态度、表情等）认真不随便。「庄重」也有严肃端正之意，是其近义词。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-258",
+    "type": "vocab",
+    "prompt": "「渺小」的反义词是？",
+    "options": [
+      "伟大",
+      "庞大",
+      "巨大",
+      "高大"
+    ],
+    "correct": 0,
+    "explanation": "「渺小」形容非常微小，不值一提。「伟大」表示超出寻常、令人敬仰，是其反义词。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-259",
+    "type": "vocab",
+    "prompt": "「慈祥」的近义词是？",
+    "options": [
+      "和蔼",
+      "慈悲",
+      "善良",
+      "温柔"
+    ],
+    "correct": 0,
+    "explanation": "「慈祥」形容老年人态度和蔼可亲。「和蔼」也表示温和可亲，是其近义词。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-260",
+    "type": "vocab",
+    "prompt": "「简陋」的反义词是？",
+    "options": [
+      "豪华",
+      "简单",
+      "朴素",
+      "丰富"
+    ],
+    "correct": 0,
+    "explanation": "「简陋」形容房屋、设备等简单粗陋。「豪华」指富丽堂皇，是其反义词。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-261",
+    "type": "vocab",
+    "prompt": "「沉着」的近义词是？",
+    "options": [
+      "镇定",
+      "沉默",
+      "稳重",
+      "缓慢"
+    ],
+    "correct": 0,
+    "explanation": "「沉着」指镇静、不慌不忙。「镇定」也指遇到紧急情况不慌乱，是其近义词。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-262",
+    "type": "vocab",
+    "prompt": "「崎岖」的反义词是？",
+    "options": [
+      "平坦",
+      "宽阔",
+      "光滑",
+      "笔直"
+    ],
+    "correct": 0,
+    "explanation": "「崎岖」形容山路不平。「平坦」形容地面没有高低凹凸，是其反义词。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-263",
+    "type": "vocab",
+    "prompt": "「疲惫」的近义词是？",
+    "options": [
+      "疲倦",
+      "虚弱",
+      "懒惰",
+      "困难"
+    ],
+    "correct": 0,
+    "explanation": "「疲惫」和「疲倦」都形容非常疲劳，二者是近义词。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-264",
+    "type": "vocab",
+    "prompt": "「喧闹」的反义词是？",
+    "options": [
+      "寂静",
+      "安静",
+      "沉默",
+      "清净"
+    ],
+    "correct": 0,
+    "explanation": "「喧闹」形容声音嘈杂热闹。「寂静」形容没有声响，非常安静，是其反义词。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-265",
+    "type": "vocab",
+    "prompt": "「敬佩」的近义词是？",
+    "options": [
+      "钦佩",
+      "尊敬",
+      "崇拜",
+      "羡慕"
+    ],
+    "correct": 0,
+    "explanation": "「敬佩」和「钦佩」都表示敬重佩服，是近义词。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-266",
+    "type": "vocab",
+    "prompt": "「犹豫」的反义词是？",
+    "options": [
+      "果断",
+      "坚定",
+      "勇敢",
+      "迅速"
+    ],
+    "correct": 0,
+    "explanation": "「犹豫」指拿不定主意。「果断」指做事干脆利落、不犹豫，是其反义词。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-267",
+    "type": "vocab",
+    "prompt": "「蕴含」的近义词是？",
+    "options": [
+      "包含",
+      "隐藏",
+      "收藏",
+      "积蓄"
+    ],
+    "correct": 0,
+    "explanation": "「蕴含」和「包含」都表示里面含有的意思，是近义词。",
+    "difficulty": 3,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-268",
+    "type": "vocab",
+    "prompt": "「衰弱」的反义词是？",
+    "options": [
+      "强壮",
+      "强大",
+      "健康",
+      "旺盛"
+    ],
+    "correct": 0,
+    "explanation": "「衰弱」指身体或力量减退变弱。「强壮」指身体健壮有力，是其反义词。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-269",
+    "type": "vocab",
+    "prompt": "「慷慨」的近义词是？",
+    "options": [
+      "大方",
+      "激昂",
+      "勇敢",
+      "豪爽"
+    ],
+    "correct": 0,
+    "explanation": "「慷慨」在表示出手大方、不吝啬时，「大方」是其近义词。",
+    "difficulty": 3,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-270",
+    "type": "vocab",
+    "prompt": "「凶猛」的反义词是？",
+    "options": [
+      "温顺",
+      "柔弱",
+      "和平",
+      "善良"
+    ],
+    "correct": 0,
+    "explanation": "「凶猛」形容气势汹汹、力量强大。「温顺」指温和顺从，是其反义词。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-271",
+    "type": "vocab",
+    "prompt": "「朦胧」的近义词是？",
+    "options": [
+      "模糊",
+      "清晰",
+      "昏暗",
+      "迷茫"
+    ],
+    "correct": 0,
+    "explanation": "「朦胧」和「模糊」都形容看不清楚的样子，是近义词。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-272",
+    "type": "vocab",
+    "prompt": "「浮躁」的反义词是？",
+    "options": [
+      "沉稳",
+      "平静",
+      "冷静",
+      "安静"
+    ],
+    "correct": 0,
+    "explanation": "「浮躁」指轻浮急躁、不踏实。「沉稳」指沉着稳重，是其反义词。",
+    "difficulty": 3,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-273",
+    "type": "vocab",
+    "prompt": "「爱慕」的近义词是？",
+    "options": [
+      "倾慕",
+      "喜爱",
+      "羡慕",
+      "思念"
+    ],
+    "correct": 0,
+    "explanation": "「爱慕」和「倾慕」都表示喜爱仰慕，意思最为接近，是近义词。",
+    "difficulty": 3,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-274",
+    "type": "vocab",
+    "prompt": "「隐蔽」的反义词是？",
+    "options": [
+      "暴露",
+      "公开",
+      "显眼",
+      "明亮"
+    ],
+    "correct": 0,
+    "explanation": "「隐蔽」指借助某种东西遮盖掩藏。「暴露」指显露出来，不再隐藏，是其反义词。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-275",
+    "type": "vocab",
+    "prompt": "「恳切」的近义词是？",
+    "options": [
+      "诚恳",
+      "热切",
+      "急切",
+      "亲切"
+    ],
+    "correct": 0,
+    "explanation": "「恳切」和「诚恳」都表示真诚、恳挚，是近义词。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-276",
+    "type": "vocab",
+    "prompt": "「稀罕」的反义词是？",
+    "options": [
+      "常见",
+      "珍贵",
+      "普遍",
+      "大量"
+    ],
+    "correct": 0,
+    "explanation": "「稀罕」指稀少而新奇，不常见的。「常见」指经常看到的，是其反义词。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-277",
+    "type": "vocab",
+    "prompt": "「顽强」的近义词是？",
+    "options": [
+      "坚强",
+      "勇敢",
+      "倔强",
+      "执着"
+    ],
+    "correct": 0,
+    "explanation": "「顽强」和「坚强」都有坚韧不屈、不向困难低头的意思，是近义词。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-278",
+    "type": "vocab",
+    "prompt": "「迟钝」的反义词是？",
+    "options": [
+      "灵敏",
+      "聪明",
+      "机智",
+      "迅速"
+    ],
+    "correct": 0,
+    "explanation": "「迟钝」指反应慢，不灵活。「灵敏」指反应快，感觉灵活，是其反义词。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-279",
+    "type": "vocab",
+    "prompt": "「嘱咐」的近义词是？",
+    "options": [
+      "叮嘱",
+      "命令",
+      "建议",
+      "提醒"
+    ],
+    "correct": 0,
+    "explanation": "「嘱咐」和「叮嘱」都表示告诫、吩咐，意思非常接近，是近义词。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-280",
+    "type": "vocab",
+    "prompt": "「吝啬」的反义词是？",
+    "options": [
+      "慷慨",
+      "大方",
+      "豪爽",
+      "奢侈"
+    ],
+    "correct": 0,
+    "explanation": "「吝啬」指过分爱惜钱财，不舍得花。「慷慨」指大方不吝惜，是其反义词。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-281",
+    "type": "vocab",
+    "prompt": "「拘谨」的反义词是？",
+    "options": [
+      "洒脱",
+      "放松",
+      "大胆",
+      "随便"
+    ],
+    "correct": 0,
+    "explanation": "「拘谨」指过分谨慎小心、不自然。「洒脱」指言行自然不拘束，是其反义词。",
+    "difficulty": 3,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-282",
+    "type": "vocab",
+    "prompt": "「腼腆」的近义词是？",
+    "options": [
+      "害羞",
+      "胆小",
+      "安静",
+      "温柔"
+    ],
+    "correct": 0,
+    "explanation": "「腼腆」和「害羞」都形容因怕生或不好意思而态度不大方，是近义词。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-283",
+    "type": "vocab",
+    "prompt": "「丰硕」的反义词是？",
+    "options": [
+      "贫瘠",
+      "稀少",
+      "干瘪",
+      "瘦小"
+    ],
+    "correct": 0,
+    "explanation": "「丰硕」形容果实又多又大，常指成果丰富。「贫瘠」指土地不肥沃、收获少，是其反义词。",
+    "difficulty": 3,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-284",
+    "type": "vocab",
+    "prompt": "「竭尽全力」的近义词是？",
+    "options": [
+      "全力以赴",
+      "不遗余力",
+      "尽心尽力",
+      "奋不顾身"
+    ],
+    "correct": 0,
+    "explanation": "「竭尽全力」和「全力以赴」都表示用尽所有力量去做事，是近义词。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-285",
+    "type": "vocab",
+    "prompt": "「粗犷」的反义词是？",
+    "options": [
+      "细腻",
+      "温柔",
+      "精致",
+      "文雅"
+    ],
+    "correct": 0,
+    "explanation": "「粗犷」形容粗野豪放。「细腻」形容细致精密、感情丰富，是其反义词。",
+    "difficulty": 3,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-286",
+    "type": "vocab",
+    "prompt": "「瞻前顾后」的近义词是？",
+    "options": [
+      "畏首畏尾",
+      "左顾右盼",
+      "前思后想",
+      "东张西望"
+    ],
+    "correct": 0,
+    "explanation": "「瞻前顾后」和「畏首畏尾」都形容做事过于顾虑、犹豫不决，是近义词。",
+    "difficulty": 3,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-287",
+    "type": "vocab",
+    "prompt": "「画蛇添足」这个成语告诉我们什么道理？",
+    "options": [
+      "做了多余的事反而不好",
+      "做事要认真仔细",
+      "画画要追求完美",
+      "蛇是没有脚的动物"
+    ],
+    "correct": 0,
+    "explanation": "「画蛇添足」比喻做了多余的事，反而把事情弄糟了。告诫人们做事不要节外生枝。",
+    "difficulty": 2,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-288",
+    "type": "vocab",
+    "prompt": "下列哪个成语比喻学习或工作努力刻苦？",
+    "options": [
+      "废寝忘食",
+      "狼吞虎咽",
+      "目不转睛",
+      "聚精会神"
+    ],
+    "correct": 0,
+    "explanation": "「废寝忘食」指顾不上睡觉，忘记了吃饭，形容非常专心努力地学习或工作。",
+    "difficulty": 2,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-289",
+    "type": "vocab",
+    "prompt": "「胸有成竹」这个成语比喻什么？",
+    "options": [
+      "做事之前已有充分准备和把握",
+      "胸中有很多竹子的画",
+      "心中有很多计策",
+      "画竹子画得很好"
+    ],
+    "correct": 0,
+    "explanation": "「胸有成竹」原指画竹子时心中已有竹子的形象。比喻做事之前心中已有完整的计划和把握。",
+    "difficulty": 2,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-290",
+    "type": "vocab",
+    "prompt": "下列哪个成语形容非常危险的处境？",
+    "options": [
+      "如履薄冰",
+      "如鱼得水",
+      "如虎添翼",
+      "如日中天"
+    ],
+    "correct": 0,
+    "explanation": "「如履薄冰」就像踩在薄冰上一样，比喻行事极为谨慎，存有戒心，或处境非常危险。",
+    "difficulty": 3,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-291",
+    "type": "vocab",
+    "prompt": "「望梅止渴」这个成语比喻什么？",
+    "options": [
+      "用空想安慰自己",
+      "看到梅子就不渴了",
+      "梅子可以解渴",
+      "远处的东西更好"
+    ],
+    "correct": 0,
+    "explanation": "「望梅止渴」原指曹操以前方有梅林激励士兵。比喻愿望无法实现，用空想来安慰自己。",
+    "difficulty": 3,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-292",
+    "type": "vocab",
+    "prompt": "下列哪个成语形容人学问或技艺很浅？",
+    "options": [
+      "略知皮毛",
+      "博学多才",
+      "才高八斗",
+      "学富五车"
+    ],
+    "correct": 0,
+    "explanation": "「略知皮毛」指只知道表面的东西，形容学问或技艺很浅薄。",
+    "difficulty": 3,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-293",
+    "type": "vocab",
+    "prompt": "「守株待兔」这个成语告诉我们什么道理？",
+    "options": [
+      "不要心存侥幸，要主动努力",
+      "要有耐心等待机会",
+      "树桩旁边会有兔子",
+      "种田的人要注意野兔"
+    ],
+    "correct": 0,
+    "explanation": "「守株待兔」比喻死守狭隘的经验，不知变通，企图不经努力而获得成功。",
+    "difficulty": 2,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-294",
+    "type": "vocab",
+    "prompt": "「掩耳盗铃」讽刺的是什么行为？",
+    "options": [
+      "自欺欺人",
+      "偷偷摸摸",
+      "胆大妄为",
+      "粗心大意"
+    ],
+    "correct": 0,
+    "explanation": "「掩耳盗铃」比喻自己欺骗自己，明明掩盖不住的事却偏要设法掩盖。",
+    "difficulty": 2,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-295",
+    "type": "vocab",
+    "prompt": "「杯弓蛇影」形容的是什么心理？",
+    "options": [
+      "疑神疑鬼、自相惊扰",
+      "贪杯好酒",
+      "害怕蛇",
+      "眼花看错东西"
+    ],
+    "correct": 0,
+    "explanation": "「杯弓蛇影」比喻因疑虑而引起恐惧，多指因错觉而疑神疑鬼、自相惊扰。",
+    "difficulty": 3,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-296",
+    "type": "vocab",
+    "prompt": "下列哪个成语比喻做事不彻底，留下后患？",
+    "options": [
+      "斩草除根的反义",
+      "养虎遗患",
+      "打草惊蛇",
+      "虎头蛇尾"
+    ],
+    "correct": 1,
+    "explanation": "「养虎遗患」比喻纵容敌人，留下后患。指不彻底消灭坏人坏事，将来必受其害。",
+    "difficulty": 3,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-297",
+    "type": "vocab",
+    "prompt": "「纸上谈兵」比喻什么？",
+    "options": [
+      "只会空谈理论，不能解决实际问题",
+      "在纸上画作战计划",
+      "写关于战争的文章",
+      "用纸折成的兵器"
+    ],
+    "correct": 0,
+    "explanation": "「纸上谈兵」源自赵括的故事，比喻空谈理论，不能解决实际问题。",
+    "difficulty": 2,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-298",
+    "type": "vocab",
+    "prompt": "「对牛弹琴」比喻什么？",
+    "options": [
+      "说话不看对象，白费口舌",
+      "牛不喜欢音乐",
+      "弹琴的水平很差",
+      "做无聊的事情"
+    ],
+    "correct": 0,
+    "explanation": "「对牛弹琴」比喻说话不看对象，也比喻对不懂道理的人讲道理，白费口舌。",
+    "difficulty": 2,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-299",
+    "type": "vocab",
+    "prompt": "下列哪个成语形容人非常吃惊？",
+    "options": [
+      "目瞪口呆",
+      "心平气和",
+      "泰然自若",
+      "气定神闲"
+    ],
+    "correct": 0,
+    "explanation": "「目瞪口呆」形容因吃惊或害怕而发愣的样子。",
+    "difficulty": 2,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-300",
+    "type": "vocab",
+    "prompt": "「亡羊补牢」的「牢」是什么意思？",
+    "options": [
+      "关牲畜的圈",
+      "牢固",
+      "牢房",
+      "牢记"
+    ],
+    "correct": 0,
+    "explanation": "「牢」在此处指关牲畜的圈。「亡羊补牢」指羊丢了再修补羊圈，比喻出了问题后及时补救还不算晚。",
+    "difficulty": 3,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-301",
+    "type": "vocab",
+    "prompt": "「刻舟求剑」讽刺的是什么？",
+    "options": [
+      "不知变通，拘泥成规",
+      "做事太认真",
+      "记性不好容易忘事",
+      "乘船不小心丢东西"
+    ],
+    "correct": 0,
+    "explanation": "「刻舟求剑」比喻不懂事物的发展变化，拘泥于成规而不知变通。",
+    "difficulty": 2,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-302",
+    "type": "vocab",
+    "prompt": "「鹤立鸡群」比喻什么？",
+    "options": [
+      "一个人的才能或外表在一群人中显得很突出",
+      "鹤站在鸡群中间",
+      "和别人不一样的人",
+      "高个子站在矮个子中间"
+    ],
+    "correct": 0,
+    "explanation": "「鹤立鸡群」比喻一个人的仪表或才能在一群人中显得很突出。",
+    "difficulty": 2,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-303",
+    "type": "vocab",
+    "prompt": "下列哪个成语形容做事半途而废？",
+    "options": [
+      "半途而废",
+      "功败垂成",
+      "前功尽弃",
+      "虎头蛇尾"
+    ],
+    "correct": 3,
+    "explanation": "「虎头蛇尾」形容做事开头声势大，后来劲头小，有始无终。「半途而废」虽也有此意，但本题选的是比喻性更强的「虎头蛇尾」。",
+    "difficulty": 3,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-304",
+    "type": "vocab",
+    "prompt": "「叶公好龙」比喻什么？",
+    "options": [
+      "表面上爱好某事物，实际上并非如此",
+      "非常喜欢龙",
+      "喜欢收集龙的图案",
+      "假装害怕龙"
+    ],
+    "correct": 0,
+    "explanation": "「叶公好龙」比喻自称爱好某事物，实际上并非真正爱好，甚至是惧怕的。",
+    "difficulty": 3,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-305",
+    "type": "vocab",
+    "prompt": "「闻鸡起舞」比喻什么精神？",
+    "options": [
+      "有志之士奋发图强、刻苦磨炼",
+      "早起锻炼身体",
+      "听到鸡叫就起来跳舞",
+      "公鸡叫了就不能再睡"
+    ],
+    "correct": 0,
+    "explanation": "「闻鸡起舞」源自祖逖的故事，比喻有志之士奋发图强，抓紧时间刻苦磨炼。",
+    "difficulty": 3,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-306",
+    "type": "vocab",
+    "prompt": "「自相矛盾」出自什么故事？",
+    "options": [
+      "一个人既卖矛又卖盾，自己的话互相抵触",
+      "两个人互相攻击",
+      "矛和盾互相碰撞",
+      "一个人拿着矛和盾打仗"
+    ],
+    "correct": 0,
+    "explanation": "「自相矛盾」源自一个既夸自己的矛无坚不摧又夸自己的盾坚不可破的卖家。比喻自己说话做事前后抵触。",
+    "difficulty": 2,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-307",
+    "type": "vocab",
+    "prompt": "「（  ）使学习很忙，我（  ）坚持每天阅读。」应填入哪组关联词？",
+    "options": [
+      "即使……也……",
+      "因为……所以……",
+      "不但……而且……",
+      "如果……就……"
+    ],
+    "correct": 0,
+    "explanation": "「即使……也……」表示假设的让步关系：即使条件如此，结果依然不变。",
+    "difficulty": 3,
+    "tags": [
+      "关联词语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-308",
+    "type": "vocab",
+    "prompt": "「小明（  ）学习成绩好，（  ）体育也很棒。」应填入哪组关联词？",
+    "options": [
+      "不仅……还……",
+      "虽然……但是……",
+      "因为……所以……",
+      "即使……也……"
+    ],
+    "correct": 0,
+    "explanation": "「不仅……还……」表示递进关系，前面说一个方面好，后面说另一个方面也好。",
+    "difficulty": 2,
+    "tags": [
+      "关联词语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-309",
+    "type": "vocab",
+    "prompt": "「他（  ）牺牲自己，（  ）出卖同伴。」应填入哪组关联词？",
+    "options": [
+      "宁可……也不……",
+      "不但……而且……",
+      "因为……所以……",
+      "即使……也……"
+    ],
+    "correct": 0,
+    "explanation": "「宁可……也不……」表示选择关系中的取舍，宁愿选前者也不选后者。",
+    "difficulty": 3,
+    "tags": [
+      "关联词语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-310",
+    "type": "vocab",
+    "prompt": "「（  ）在家空等，（  ）主动去寻找机会。」应填入哪组关联词？",
+    "options": [
+      "与其……不如……",
+      "宁可……也不……",
+      "不是……就是……",
+      "既然……就……"
+    ],
+    "correct": 0,
+    "explanation": "「与其……不如……」表示比较后作出选择，舍弃前者而选择后者。",
+    "difficulty": 3,
+    "tags": [
+      "关联词语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-311",
+    "type": "vocab",
+    "prompt": "「（  ）风多大，邮递员（  ）按时送信。」应填入哪组关联词？",
+    "options": [
+      "不管……都……",
+      "因为……所以……",
+      "虽然……但是……",
+      "如果……就……"
+    ],
+    "correct": 0,
+    "explanation": "「不管……都……」表示无条件关系，无论条件怎样变化，结果都不变。",
+    "difficulty": 2,
+    "tags": [
+      "关联词语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-312",
+    "type": "vocab",
+    "prompt": "「（  ）你答应了别人，（  ）应该做到。」应填入哪组关联词？",
+    "options": [
+      "既然……就……",
+      "即使……也……",
+      "因为……所以……",
+      "只要……就……"
+    ],
+    "correct": 0,
+    "explanation": "「既然……就……」表示因果推理关系，前面是已知的原因或事实，后面是合理的推论。",
+    "difficulty": 2,
+    "tags": [
+      "关联词语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-313",
+    "type": "vocab",
+    "prompt": "「这朵花（  ）美丽，（  ）有药用价值。」应填入哪组关联词？",
+    "options": [
+      "不但……而且……",
+      "虽然……但是……",
+      "因为……所以……",
+      "即使……也……"
+    ],
+    "correct": 0,
+    "explanation": "「不但……而且……」表示递进关系，后面的意思比前面更进一层。",
+    "difficulty": 2,
+    "tags": [
+      "关联词语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-314",
+    "type": "vocab",
+    "prompt": "「（  ）刮风下雨，（  ）烈日炎炎，他都准时到校。」应填入哪组关联词？",
+    "options": [
+      "不论……还是……",
+      "不但……而且……",
+      "因为……所以……",
+      "虽然……但是……"
+    ],
+    "correct": 0,
+    "explanation": "「不论……还是……」表示无条件关系，列举多种情况，结果都一样。",
+    "difficulty": 3,
+    "tags": [
+      "关联词语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-315",
+    "type": "vocab",
+    "prompt": "「他（  ）学习认真，（  ）乐于助人。」应填入哪组关联词？",
+    "options": [
+      "不仅……而且……",
+      "虽然……但是……",
+      "因为……所以……",
+      "如果……就……"
+    ],
+    "correct": 0,
+    "explanation": "「不仅……而且……」是递进关系，表示后面的内容比前面更进一步。",
+    "difficulty": 2,
+    "tags": [
+      "关联词语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-316",
+    "type": "vocab",
+    "prompt": "「（  ）条件再艰苦，他们（  ）不放弃。」应填入哪组关联词？",
+    "options": [
+      "即使……也……",
+      "因为……所以……",
+      "不但……而且……",
+      "只要……就……"
+    ],
+    "correct": 0,
+    "explanation": "「即使……也……」表示让步假设关系，即便假设情况成立，结果也不改变。",
+    "difficulty": 3,
+    "tags": [
+      "关联词语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-317",
+    "type": "vocab",
+    "prompt": "「（  ）多读书，（  ）能增长知识。」应填入哪组关联词？",
+    "options": [
+      "只有……才……",
+      "只要……就……",
+      "因为……所以……",
+      "不但……而且……"
+    ],
+    "correct": 0,
+    "explanation": "「只有……才……」表示必要条件关系，只有满足这个条件才能达到结果。",
+    "difficulty": 3,
+    "tags": [
+      "关联词语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-318",
+    "type": "vocab",
+    "prompt": "「（  ）你肯努力，（  ）一定能成功。」应填入哪组关联词？",
+    "options": [
+      "只要……就……",
+      "只有……才……",
+      "即使……也……",
+      "虽然……但是……"
+    ],
+    "correct": 0,
+    "explanation": "「只要……就……」表示充分条件关系，只要满足这个条件就能达到结果。",
+    "difficulty": 2,
+    "tags": [
+      "关联词语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-319",
+    "type": "vocab",
+    "prompt": "「（  ）把时间浪费在游戏上，（  ）多看几本好书。」应填入哪组关联词？",
+    "options": [
+      "与其……不如……",
+      "宁可……也不……",
+      "不是……就是……",
+      "既然……就……"
+    ],
+    "correct": 0,
+    "explanation": "「与其……不如……」表示比较选择关系，经过比较后选择后者而不选前者。",
+    "difficulty": 3,
+    "tags": [
+      "关联词语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-320",
+    "type": "vocab",
+    "prompt": "「他（  ）挨饿受冻，（  ）向敌人求饶。」应填入哪组关联词？",
+    "options": [
+      "宁可……也不……",
+      "与其……不如……",
+      "不但……而且……",
+      "即使……也……"
+    ],
+    "correct": 0,
+    "explanation": "「宁可……也不……」表示在两种情况中宁愿选择前者、也不选择后者的决心。",
+    "difficulty": 3,
+    "tags": [
+      "关联词语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-321",
+    "type": "vocab",
+    "prompt": "「（  ）他年纪小，（  ）做事很有条理。」应填入哪组关联词？",
+    "options": [
+      "虽然……但是……",
+      "因为……所以……",
+      "不但……而且……",
+      "如果……就……"
+    ],
+    "correct": 0,
+    "explanation": "「虽然……但是……」表示转折关系，前面承认一个事实，后面说出与预期不同的结果。",
+    "difficulty": 2,
+    "tags": [
+      "关联词语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-322",
+    "type": "vocab",
+    "prompt": "「（  ）明天下雨，运动会（  ）延期举行。」应填入哪组关联词？",
+    "options": [
+      "如果……就……",
+      "因为……所以……",
+      "虽然……但是……",
+      "即使……也……"
+    ],
+    "correct": 0,
+    "explanation": "「如果……就……」表示假设关系，如果假设的条件实现，就会产生相应的结果。",
+    "difficulty": 2,
+    "tags": [
+      "关联词语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-323",
+    "type": "vocab",
+    "prompt": "「太阳像一个大火球挂在天空。」运用了什么修辞手法？",
+    "options": [
+      "比喻",
+      "拟人",
+      "夸张",
+      "排比"
+    ],
+    "correct": 0,
+    "explanation": "用「大火球」来比喻太阳，这是比喻修辞。比喻是用一种事物来说明另一种事物。",
+    "difficulty": 2,
+    "tags": [
+      "修辞手法识别"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-324",
+    "type": "vocab",
+    "prompt": "「春风轻轻地抚摸着大地。」运用了什么修辞手法？",
+    "options": [
+      "拟人",
+      "比喻",
+      "夸张",
+      "排比"
+    ],
+    "correct": 0,
+    "explanation": "「抚摸」是人的动作，用来描写春风，把春风当作人来写，这是拟人修辞。",
+    "difficulty": 2,
+    "tags": [
+      "修辞手法识别"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-325",
+    "type": "vocab",
+    "prompt": "「飞流直下三千尺，疑是银河落九天。」运用了什么修辞手法？",
+    "options": [
+      "夸张",
+      "比喻",
+      "拟人",
+      "对偶"
+    ],
+    "correct": 0,
+    "explanation": "「三千尺」「落九天」是夸大其词，这是夸张修辞。夸张是为了表达强烈的感情而有意夸大或缩小事实。",
+    "difficulty": 2,
+    "tags": [
+      "修辞手法识别"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-326",
+    "type": "vocab",
+    "prompt": "「有的人活着，他已经死了；有的人死了，他还活着。」运用了什么修辞手法？",
+    "options": [
+      "对比",
+      "排比",
+      "夸张",
+      "拟人"
+    ],
+    "correct": 0,
+    "explanation": "把两种截然不同的人生态度放在一起进行对照，形成强烈反差，这是对比修辞。",
+    "difficulty": 3,
+    "tags": [
+      "修辞手法识别"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-327",
+    "type": "vocab",
+    "prompt": "「难道我们能浪费时间吗？」运用了什么修辞手法？",
+    "options": [
+      "反问",
+      "设问",
+      "疑问",
+      "排比"
+    ],
+    "correct": 0,
+    "explanation": "这句话用疑问的形式表达肯定的意思（不能浪费时间），不需要回答，这是反问修辞。",
+    "difficulty": 2,
+    "tags": [
+      "修辞手法识别"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-328",
+    "type": "vocab",
+    "prompt": "「什么是幸福？幸福就是帮助别人后的快乐。」运用了什么修辞手法？",
+    "options": [
+      "设问",
+      "反问",
+      "比喻",
+      "排比"
+    ],
+    "correct": 0,
+    "explanation": "先提出问题，再自己回答，这是设问修辞。设问是自问自答，目的是引起注意和思考。",
+    "difficulty": 3,
+    "tags": [
+      "修辞手法识别"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-329",
+    "type": "vocab",
+    "prompt": "「海上的风是花神，她一来，就绽开万朵浪花。」运用了什么修辞手法？",
+    "options": [
+      "比喻和拟人",
+      "夸张",
+      "排比",
+      "设问"
+    ],
+    "correct": 0,
+    "explanation": "把风比作「花神」是比喻，用「她」来称呼风并说「绽开」是拟人。本句同时运用了比喻和拟人。",
+    "difficulty": 3,
+    "tags": [
+      "修辞手法识别"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-330",
+    "type": "vocab",
+    "prompt": "「桂林的山真奇啊……桂林的山真秀啊……桂林的山真险啊……」运用了什么修辞手法？",
+    "options": [
+      "排比",
+      "比喻",
+      "拟人",
+      "夸张"
+    ],
+    "correct": 0,
+    "explanation": "用三个及以上结构相似的句式来表达同一主题的不同方面，这是排比修辞。排比能增强气势和感染力。",
+    "difficulty": 2,
+    "tags": [
+      "修辞手法识别"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-331",
+    "type": "vocab",
+    "prompt": "「两个黄鹂鸣翠柳，一行白鹭上青天。」运用了什么修辞手法？",
+    "options": [
+      "对偶",
+      "排比",
+      "比喻",
+      "拟人"
+    ],
+    "correct": 0,
+    "explanation": "上下句结构相同、字数相等、意义相对：「两个」对「一行」，「黄鹂」对「白鹭」，「翠柳」对「青天」，这是对偶修辞。",
+    "difficulty": 3,
+    "tags": [
+      "修辞手法识别"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-332",
+    "type": "vocab",
+    "prompt": "「这块石头好像一位老人，静静地坐在山顶。」运用了哪些修辞手法？",
+    "options": [
+      "比喻和拟人",
+      "只有比喻",
+      "只有拟人",
+      "夸张"
+    ],
+    "correct": 0,
+    "explanation": "把石头比作老人是比喻（用「好像」连接），说它「静静地坐」是拟人（赋予人的动作），两种手法兼用。",
+    "difficulty": 3,
+    "tags": [
+      "修辞手法识别"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-333",
+    "type": "vocab",
+    "prompt": "「他的心眼比针尖还小。」运用了什么修辞手法？",
+    "options": [
+      "夸张",
+      "比喻",
+      "拟人",
+      "反问"
+    ],
+    "correct": 0,
+    "explanation": "「比针尖还小」是缩小夸张，故意缩小事物的特征来表达强烈的感情。",
+    "difficulty": 3,
+    "tags": [
+      "修辞手法识别"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-334",
+    "type": "vocab",
+    "prompt": "「谁说草木无情？落红不是无情物，化作春泥更护花。」运用了什么修辞手法？",
+    "options": [
+      "反问和拟人",
+      "设问",
+      "比喻",
+      "排比"
+    ],
+    "correct": 0,
+    "explanation": "「谁说草木无情」是反问（用疑问语气表达肯定观点），「落红……更护花」是拟人（赋予落花以情感和行动）。",
+    "difficulty": 4,
+    "tags": [
+      "修辞手法识别"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-335",
+    "type": "vocab",
+    "prompt": "「月亮像一面明亮的镜子。」中的「明亮的镜子」是比喻的什么部分？",
+    "options": [
+      "喻体",
+      "本体",
+      "比喻词",
+      "修饰语"
+    ],
+    "correct": 0,
+    "explanation": "在比喻中，被比喻的事物叫本体（月亮），用来打比方的事物叫喻体（明亮的镜子），连接二者的词叫比喻词（像）。",
+    "difficulty": 3,
+    "tags": [
+      "修辞手法识别"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-336",
+    "type": "vocab",
+    "prompt": "下列哪个句子没有运用修辞手法？",
+    "options": [
+      "他今天去了图书馆。",
+      "柳枝在风中翩翩起舞。",
+      "教室里安静得连针掉地上都听得见。",
+      "书籍是人类进步的阶梯。"
+    ],
+    "correct": 0,
+    "explanation": "「他今天去了图书馆」是普通陈述句，没有修辞手法。其他三句分别运用了拟人、夸张和比喻。",
+    "difficulty": 2,
+    "tags": [
+      "修辞手法识别"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-337",
+    "type": "vocab",
+    "prompt": "「是谁创造了人类世界？是我们劳动群众。」这种先问后答属于什么修辞？",
+    "options": [
+      "设问",
+      "反问",
+      "疑问",
+      "排比"
+    ],
+    "correct": 0,
+    "explanation": "自己提出问题，自己回答，目的是引起读者注意和思考，这是设问。设问不同于反问，设问有答案。",
+    "difficulty": 3,
+    "tags": [
+      "修辞手法识别"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-338",
+    "type": "vocab",
+    "prompt": "「反问」和「设问」最大的区别是什么？",
+    "options": [
+      "反问不需要回答，设问自问自答",
+      "反问语气轻，设问语气重",
+      "反问用于书面，设问用于口语",
+      "反问是否定，设问是肯定"
+    ],
+    "correct": 0,
+    "explanation": "反问是用疑问形式表达确定意思，不需要回答；设问是自己提出问题自己回答，引起读者注意。",
+    "difficulty": 3,
+    "tags": [
+      "修辞手法识别"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-339",
+    "type": "vocab",
+    "prompt": "「小草从土里探出头来。」运用了什么修辞手法？",
+    "options": [
+      "拟人",
+      "比喻",
+      "夸张",
+      "排比"
+    ],
+    "correct": 0,
+    "explanation": "「探出头来」是人的动作，用来描写小草，把小草当作人来写，这是拟人修辞。",
+    "difficulty": 2,
+    "tags": [
+      "修辞手法识别"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-340",
+    "type": "vocab",
+    "prompt": "「教室里安静得连一根针掉在地上都能听见。」运用了什么修辞手法？",
+    "options": [
+      "夸张",
+      "比喻",
+      "拟人",
+      "设问"
+    ],
+    "correct": 0,
+    "explanation": "「连一根针掉在地上都能听见」显然是夸大了安静的程度，这是夸张修辞。",
+    "difficulty": 2,
+    "tags": [
+      "修辞手法识别"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-341",
+    "type": "vocab",
+    "prompt": "「白发三千丈，缘愁似个长。」运用了什么修辞手法？",
+    "options": [
+      "夸张和比喻",
+      "只有夸张",
+      "只有比喻",
+      "排比"
+    ],
+    "correct": 0,
+    "explanation": "「三千丈」是夸张，「缘愁似个长」用「似」比喻白发长是因愁如此之深。本句同时运用了夸张和比喻。",
+    "difficulty": 4,
+    "tags": [
+      "修辞手法识别"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-342",
+    "type": "vocab",
+    "prompt": "「书籍是人类进步的阶梯。」这是什么类型的比喻？",
+    "options": [
+      "暗喻",
+      "明喻",
+      "借喻",
+      "博喻"
+    ],
+    "correct": 0,
+    "explanation": "用「是」连接本体和喻体，没有用「像」「仿佛」等词，这是暗喻（也叫隐喻）。",
+    "difficulty": 3,
+    "tags": [
+      "修辞手法识别"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-343",
+    "type": "vocab",
+    "prompt": "下列哪个句子运用了「借代」修辞？",
+    "options": [
+      "两岸青山相对出，孤帆一片日边来",
+      "太阳像一个大火球",
+      "春天来了，花儿笑了",
+      "他跑得像风一样快"
+    ],
+    "correct": 0,
+    "explanation": "「孤帆」用船的一部分（帆）代指整条船，这是借代修辞，用事物的某一特征或部分来代替整体。",
+    "difficulty": 4,
+    "tags": [
+      "修辞手法识别"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-344",
+    "type": "vocab",
+    "prompt": "下列句子中，「兴高采烈」使用正确的是？",
+    "options": [
+      "听到获奖的消息，同学们兴高采烈地欢呼起来。",
+      "他考试没考好，兴高采烈地回了家。",
+      "爷爷生病住院了，大家兴高采烈地去看望。",
+      "听到这个坏消息，他兴高采烈地哭了。"
+    ],
+    "correct": 0,
+    "explanation": "「兴高采烈」形容兴致高、精神饱满、情绪高涨，只能用于高兴的情境。获奖后欢呼是正确用法。",
+    "difficulty": 2,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-345",
+    "type": "vocab",
+    "prompt": "下列哪个词语中没有错别字？",
+    "options": [
+      "震耳欲聋",
+      "振耳欲聋",
+      "震耳欲龙",
+      "振耳欲龙"
+    ],
+    "correct": 0,
+    "explanation": "「震耳欲聋」才是正确写法。「震」指震动（不是「振」），「聋」指耳朵听不见（不是「龙」）。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-346",
+    "type": "vocab",
+    "prompt": "「锲而不舍」的「锲」是什么意思？",
+    "options": [
+      "雕刻",
+      "锋利",
+      "钢铁",
+      "契约"
+    ],
+    "correct": 0,
+    "explanation": "「锲」意为雕刻。「锲而不舍」指不断地雕刻，比喻做事有恒心、有毅力、坚持不懈。",
+    "difficulty": 3,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-347",
+    "type": "vocab",
+    "prompt": "下列哪个词语形容做事认真负责？",
+    "options": [
+      "一丝不苟",
+      "一尘不染",
+      "一言不发",
+      "一毛不拔"
+    ],
+    "correct": 0,
+    "explanation": "「一丝不苟」指做事非常认真，连最细小的地方也不马虎，形容办事认真。",
+    "difficulty": 2,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-348",
+    "type": "vocab",
+    "prompt": "「栩栩如生」的「栩栩」是什么意思？",
+    "options": [
+      "形容生动活泼的样子",
+      "形容树木茂盛",
+      "形容声音悦耳",
+      "形容动作缓慢"
+    ],
+    "correct": 0,
+    "explanation": "「栩栩」形容生动活泼的样子。「栩栩如生」指艺术形象非常逼真，像活的一样。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-349",
+    "type": "vocab",
+    "prompt": "「巧夺天工」可以用来形容什么？",
+    "options": [
+      "精美的人工艺术品",
+      "自然界的美景",
+      "聪明人的想法",
+      "巧合的事情"
+    ],
+    "correct": 0,
+    "explanation": "「巧夺天工」指人工的精巧胜过天然，形容技艺极其精巧。只能用于形容人工制作的东西。",
+    "difficulty": 3,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-350",
+    "type": "vocab",
+    "prompt": "下列哪个成语用来形容消息传播很快？",
+    "options": [
+      "不胫而走",
+      "不翼而飞",
+      "不约而同",
+      "不言而喻"
+    ],
+    "correct": 0,
+    "explanation": "「不胫而走」指没有腿却能跑，比喻事物（尤指消息）不待推行就迅速传播。注意「不翼而飞」多指东西突然不见了。",
+    "difficulty": 3,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-351",
+    "type": "vocab",
+    "prompt": "「破釜沉舟」比喻什么？",
+    "options": [
+      "下定决心，不顾一切干到底",
+      "打破锅弄沉船",
+      "战争中毁掉自己的物资",
+      "做事不考虑后果"
+    ],
+    "correct": 0,
+    "explanation": "「破釜沉舟」源自项羽的故事，砸锅凿船表示不留退路。比喻下定决心，不达目的誓不罢休。",
+    "difficulty": 3,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-352",
+    "type": "vocab",
+    "prompt": "「风调雨顺」形容的是什么？",
+    "options": [
+      "气候适宜，有利于农业生产",
+      "风雨交加的天气",
+      "顺着风向下雨",
+      "天气预报准确"
+    ],
+    "correct": 0,
+    "explanation": "「风调雨顺」指风雨适合农时，年景好。形容气候条件好，有利于农业生产。",
+    "difficulty": 2,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-353",
+    "type": "vocab",
+    "prompt": "「满载而归」的「载」字正确读音是？",
+    "options": [
+      "zài",
+      "zǎi",
+      "zāi",
+      "zéi"
+    ],
+    "correct": 0,
+    "explanation": "「满载而归」中「载」读 zài，表示装运。满载指装满了东西。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-354",
+    "type": "vocab",
+    "prompt": "「当之无愧」的正确意思是？",
+    "options": [
+      "完全配得上，没有什么可惭愧的",
+      "当面说不觉得惭愧",
+      "无论如何都不感到惭愧",
+      "在别人面前毫不谦虚"
+    ],
+    "correct": 0,
+    "explanation": "「当之无愧」指承受某种荣誉或称号完全够格，没有什么可惭愧的。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-355",
+    "type": "vocab",
+    "prompt": "「颠沛流离」形容什么样的生活？",
+    "options": [
+      "生活困苦，到处流浪",
+      "走路摇摇晃晃",
+      "经常搬家",
+      "旅行到很远的地方"
+    ],
+    "correct": 0,
+    "explanation": "「颠沛流离」形容生活艰难困苦，四处流浪，居无定所。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-356",
+    "type": "vocab",
+    "prompt": "「别出心裁」的「裁」是什么意思？",
+    "options": [
+      "设计、安排",
+      "裁剪布料",
+      "裁判",
+      "裁员"
+    ],
+    "correct": 0,
+    "explanation": "「裁」在此处指设计、筹划。「别出心裁」指独创一格，与众不同。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-357",
+    "type": "vocab",
+    "prompt": "下列哪个词语形容声音洪亮？",
+    "options": [
+      "震耳欲聋",
+      "窃窃私语",
+      "低声细语",
+      "轻声慢语"
+    ],
+    "correct": 0,
+    "explanation": "「震耳欲聋」形容声音很大，耳朵都快被震聋了。",
+    "difficulty": 2,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-358",
+    "type": "vocab",
+    "prompt": "「（  ）然大悟」应填入哪个字？",
+    "options": [
+      "恍",
+      "晃",
+      "慌",
+      "荒"
+    ],
+    "correct": 0,
+    "explanation": "「恍然大悟」的「恍」是竖心旁，表示猛然醒悟的心理状态。注意不要写成「晃」（日字旁）。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-359",
+    "type": "vocab",
+    "prompt": "「（  ）然起敬」应填入哪个字？",
+    "options": [
+      "肃",
+      "素",
+      "速",
+      "诉"
+    ],
+    "correct": 0,
+    "explanation": "「肃然起敬」形容因敬仰而庄重。「肃」表示严肃、恭敬。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-360",
+    "type": "vocab",
+    "prompt": "「流连忘返」的「流连」还可以写作？",
+    "options": [
+      "留连",
+      "留恋",
+      "流恋",
+      "留联"
+    ],
+    "correct": 0,
+    "explanation": "「流连忘返」也可以写作「留连忘返」，两种写法都正确。但「留恋」是另一个词，意思略有不同。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-361",
+    "type": "vocab",
+    "prompt": "下列句子中，哪个加点词使用不恰当？",
+    "options": [
+      "他「夸夸其谈」地讲述了自己的英雄事迹。",
+      "老师「语重心长」地教导我们要好好学习。",
+      "他做事「一丝不苟」，从来不马虎。",
+      "大家「齐心协力」完成了任务。"
+    ],
+    "correct": 0,
+    "explanation": "「夸夸其谈」是贬义词，形容说话浮夸不切实际。用来形容讲述英雄事迹不恰当，应该用「绘声绘色」等褒义词。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-362",
+    "type": "vocab",
+    "prompt": "「妄自菲薄」的意思是？",
+    "options": [
+      "过分看低自己",
+      "狂妄自大",
+      "非常节俭",
+      "胡乱菲薄别人"
+    ],
+    "correct": 0,
+    "explanation": "「妄自菲薄」指毫无根据地看轻自己。「妄」指随便、没有根据；「菲薄」指轻视、看不起。",
+    "difficulty": 3,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-363",
+    "type": "vocab",
+    "prompt": "下列哪个成语含有褒义？",
+    "options": [
+      "大公无私",
+      "自以为是",
+      "好高骛远",
+      "夸夸其谈"
+    ],
+    "correct": 0,
+    "explanation": "「大公无私」指办事公正，没有私心，是褒义成语。其他三个都是贬义成语。",
+    "difficulty": 2,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-365",
+    "type": "vocab",
+    "prompt": "「触目惊心」形容的是什么感受？",
+    "options": [
+      "看到某种严重情况引起内心震动",
+      "眼睛接触到东西感到心跳加速",
+      "触摸到东西后非常惊讶",
+      "看到鬼怪感到恐惧"
+    ],
+    "correct": 0,
+    "explanation": "「触目惊心」指看到某种严重的情况引起内心强烈的震动，多用于令人吃惊的坏情况。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-366",
+    "type": "vocab",
+    "prompt": "「（  ）山涉水」应填入哪个字？",
+    "options": [
+      "跋",
+      "拔",
+      "拨",
+      "泼"
+    ],
+    "correct": 0,
+    "explanation": "「跋山涉水」指翻山越岭、蹚水过河，形容旅途艰苦。「跋」有足字旁，与行走有关。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-367",
+    "type": "vocab",
+    "prompt": "「（  ）然无味」应填入哪个字？",
+    "options": [
+      "索",
+      "素",
+      "锁",
+      "缩"
+    ],
+    "correct": 0,
+    "explanation": "「索然无味」形容事物枯燥无聊。「索」有搜索、寻找之意，「索然」形容没有趣味。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-368",
+    "type": "vocab",
+    "prompt": "下列词语中，哪个字的读音与其他三个不同？「着急」「着凉」「着迷」「着火」",
+    "options": [
+      "着迷",
+      "着急",
+      "着凉",
+      "着火"
+    ],
+    "correct": 0,
+    "explanation": "「着急」「着凉」「着火」中「着」读 zháo；「着迷」中「着」也读 zháo。但实际上「着迷」有时读 zhāo，这需要根据语境判断。四个词中「着」的读音都是 zháo。",
+    "difficulty": 4,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-369",
+    "type": "vocab",
+    "prompt": "「惟妙惟肖」的「肖」字正确读音是？",
+    "options": [
+      "xiào",
+      "xiāo",
+      "shào",
+      "shāo"
+    ],
+    "correct": 0,
+    "explanation": "「惟妙惟肖」中「肖」读 xiào，意为相似。形容描写或模仿得非常逼真。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-370",
+    "type": "vocab",
+    "prompt": "「（  ）思苦想」应填入哪个字？",
+    "options": [
+      "冥",
+      "明",
+      "鸣",
+      "名"
+    ],
+    "correct": 0,
+    "explanation": "「冥思苦想」形容深沉地思考。「冥」有深远、幽暗的意思，「冥思」指深深地思索。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-371",
+    "type": "vocab",
+    "prompt": "「（  ）精会神」应填入哪个字？",
+    "options": [
+      "聚",
+      "具",
+      "距",
+      "据"
+    ],
+    "correct": 0,
+    "explanation": "「聚精会神」形容注意力高度集中。「聚」指集合、聚集。",
+    "difficulty": 2,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-372",
+    "type": "vocab",
+    "prompt": "「小心翼翼」的「翼翼」是什么意思？",
+    "options": [
+      "谨慎、严肃的样子",
+      "翅膀的样子",
+      "快速飞行的样子",
+      "害怕的样子"
+    ],
+    "correct": 0,
+    "explanation": "「翼翼」形容恭敬谨慎的样子。「小心翼翼」形容做事非常谨慎小心。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-374",
+    "type": "vocab",
+    "prompt": "「忐忑不安」的「忐忑」是什么意思？",
+    "options": [
+      "心神不定的样子",
+      "上下移动的样子",
+      "左右摇摆的样子",
+      "快速跳动的样子"
+    ],
+    "correct": 0,
+    "explanation": "「忐忑」形容心神不定。「忐忑不安」形容心里七上八下，安定不下来。注意「忐」上面是「上」，「忑」上面是「下」。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-375",
+    "type": "vocab",
+    "prompt": "「（  ）飘带舞」应填入哪个字，形容红旗飘扬？",
+    "options": [
+      "旗",
+      "棋",
+      "其",
+      "期"
+    ],
+    "correct": 0,
+    "explanation": "「旗飘带舞」形容红旗飘扬、彩带飞舞的热烈场景。「旗」有方字旁。",
+    "difficulty": 2,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-376",
+    "type": "vocab",
+    "prompt": "「出类拔（  ）」应填入哪个字？",
+    "options": [
+      "萃",
+      "粹",
+      "翠",
+      "脆"
+    ],
+    "correct": 0,
+    "explanation": "「出类拔萃」指超出同类。「萃」是草字头，本义指草丛，引申为聚集。「粹」指纯粹，「翠」指翠绿。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-377",
+    "type": "vocab",
+    "prompt": "「（  ）竽充数」应填入哪个字？",
+    "options": [
+      "滥",
+      "烂",
+      "蓝",
+      "篮"
+    ],
+    "correct": 0,
+    "explanation": "「滥竽充数」指没有真才实学的人混在行家里充数。「滥」是三点水旁，有泛滥、过度之意。",
+    "difficulty": 2,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-378",
+    "type": "vocab",
+    "prompt": "「振（  ）人心」应填入哪个字？",
+    "options": [
+      "奋",
+      "愤",
+      "粉",
+      "份"
+    ],
+    "correct": 0,
+    "explanation": "「振奋人心」形容使人精神振作、情绪高昂。「奋」指振作、鼓劲。「愤」指愤怒（气愤）。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-379",
+    "type": "vocab",
+    "prompt": "「（  ）不可遏」应填入哪个字？",
+    "options": [
+      "怒",
+      "努",
+      "奴",
+      "弩"
+    ],
+    "correct": 0,
+    "explanation": "「怒不可遏」形容愤怒到了极点，不可抑制。「怒」有竖心旁加「奴」，与心理活动有关。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-380",
+    "type": "vocab",
+    "prompt": "「兴高（  ）烈」应填入哪个字？",
+    "options": [
+      "采",
+      "彩",
+      "踩",
+      "睬"
+    ],
+    "correct": 0,
+    "explanation": "「兴高采烈」的「采」指精神、神色。注意不要写成「彩」（色彩的彩）。这是常见易错字。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-381",
+    "type": "vocab",
+    "prompt": "「世外桃（  ）」应填入哪个字？",
+    "options": [
+      "源",
+      "园",
+      "原",
+      "圆"
+    ],
+    "correct": 0,
+    "explanation": "「世外桃源」出自陶渊明《桃花源记》。「源」指水流的源头，引申为根源、起源。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-382",
+    "type": "vocab",
+    "prompt": "下列哪组词语全都正确？",
+    "options": [
+      "再接再厉、震耳欲聋、应接不暇",
+      "再接再励、震耳欲聋、应接不暇",
+      "再接再厉、振耳欲聋、应接不暇",
+      "再接再厉、震耳欲聋、应接不瑕"
+    ],
+    "correct": 0,
+    "explanation": "注意：「厉」不是「励」，「震」不是「振」，「暇」不是「瑕」。这些都是常见易错字。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-383",
+    "type": "vocab",
+    "prompt": "「呕心沥血」的「沥」是什么意思？",
+    "options": [
+      "滴",
+      "过滤",
+      "经历",
+      "历史"
+    ],
+    "correct": 0,
+    "explanation": "「沥」意为一滴一滴地落下。「呕心沥血」形容费尽心血，极其辛苦。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-384",
+    "type": "vocab",
+    "prompt": "「（  ）然不同」应填入哪个字？",
+    "options": [
+      "截",
+      "接",
+      "洁",
+      "结"
+    ],
+    "correct": 0,
+    "explanation": "「截然不同」形容两种事物毫无共同之处。「截然」表示界限分明，像被切断一样。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-385",
+    "type": "vocab",
+    "prompt": "「（  ）然若揭」应填入哪个字？",
+    "options": [
+      "昭",
+      "召",
+      "朝",
+      "照"
+    ],
+    "correct": 0,
+    "explanation": "「昭然若揭」形容真相全部暴露，一切都明明白白。「昭」是日字旁，有明亮、显著之意。",
+    "difficulty": 4,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-386",
+    "type": "vocab",
+    "prompt": "「得意洋洋」中哪个字容易写错？",
+    "options": [
+      "以上都不容易写错",
+      "得写成「的」",
+      "意写成「义」",
+      "洋写成「扬」"
+    ],
+    "correct": 3,
+    "explanation": "「得意洋洋」的「洋洋」容易误写为「扬扬」。虽然「得意扬扬」也有人使用，但规范写法是「得意洋洋」或「洋洋得意」。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-387",
+    "type": "vocab",
+    "prompt": "「（  ）人忧天」应填入哪个字？",
+    "options": [
+      "杞",
+      "起",
+      "己",
+      "记"
+    ],
+    "correct": 0,
+    "explanation": "「杞人忧天」出自古代杞国有个人担心天会塌下来的故事。「杞」是木字旁，指古国名。",
+    "difficulty": 3,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-388",
+    "type": "vocab",
+    "prompt": "「理直气（  ）」应填入哪个字？",
+    "options": [
+      "壮",
+      "状",
+      "装",
+      "庄"
+    ],
+    "correct": 0,
+    "explanation": "「理直气壮」形容理由充分，说话有气势。「壮」有壮大、有力之意。不要写成「状」。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-389",
+    "type": "vocab",
+    "prompt": "下列哪个句子中「竟然」使用正确？",
+    "options": [
+      "他竟然不知道这么重要的事情。",
+      "他竟然每天都按时上学。",
+      "太阳竟然从东方升起。",
+      "鱼竟然生活在水里。"
+    ],
+    "correct": 0,
+    "explanation": "「竟然」表示出乎意料。不知道重要的事情是出乎意料的，使用正确。其他三句都是正常情况，不能用「竟然」。",
+    "difficulty": 2,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-390",
+    "type": "vocab",
+    "prompt": "「义愤填（  ）」应填入哪个字？",
+    "options": [
+      "膺",
+      "鹰",
+      "应",
+      "英"
+    ],
+    "correct": 0,
+    "explanation": "「义愤填膺」形容对不义之事感到非常愤怒。「膺」指胸。义愤填满了胸膛。",
+    "difficulty": 4,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-391",
+    "type": "vocab",
+    "prompt": "「弄巧成拙」的「拙」字正确读音是？",
+    "options": [
+      "zhuō",
+      "chù",
+      "zhuó",
+      "chuō"
+    ],
+    "correct": 0,
+    "explanation": "「拙」读 zhuō，意为笨拙。「弄巧成拙」指想耍巧妙手段反而坏了事。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-392",
+    "type": "vocab",
+    "prompt": "「明（  ）秋毫」应填入哪个字？",
+    "options": [
+      "察",
+      "查",
+      "差",
+      "茶"
+    ],
+    "correct": 0,
+    "explanation": "「明察秋毫」形容目光敏锐，连极细小的事物都看得很清楚。「察」表示仔细看、调查。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-393",
+    "type": "vocab",
+    "prompt": "「完（  ）归赵」应填入哪个字？",
+    "options": [
+      "璧",
+      "壁",
+      "碧",
+      "臂"
+    ],
+    "correct": 0,
+    "explanation": "「完璧归赵」中「璧」指玉器（王字旁），不要写成「壁」（土字底，墙壁）或「碧」（碧绿）。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-394",
+    "type": "vocab",
+    "prompt": "「走投无路」的「投」是什么意思？",
+    "options": [
+      "奔向、投靠",
+      "投掷",
+      "投票",
+      "投入"
+    ],
+    "correct": 0,
+    "explanation": "「投」在此处意为奔向、投靠。「走投无路」指无路可走、无处投奔，形容处境极端困难。注意不要写成「走头无路」。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-395",
+    "type": "vocab",
+    "prompt": "「（  ）味深长」应填入哪个字？",
+    "options": [
+      "意",
+      "义",
+      "忆",
+      "艺"
+    ],
+    "correct": 0,
+    "explanation": "「意味深长」形容含蓄深远，耐人寻味。「意味」指含意、意义。",
+    "difficulty": 2,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-396",
+    "type": "vocab",
+    "prompt": "「如饥似（  ）」应填入哪个字？",
+    "options": [
+      "渴",
+      "课",
+      "刻",
+      "客"
+    ],
+    "correct": 0,
+    "explanation": "「如饥似渴」形容要求非常迫切，像饿了想吃、渴了想喝一样。「渴」是三点水旁。",
+    "difficulty": 2,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-397",
+    "type": "vocab",
+    "prompt": "「惊涛骇浪」的「骇」字正确读音是？",
+    "options": [
+      "hài",
+      "gāi",
+      "hēi",
+      "háo"
+    ],
+    "correct": 0,
+    "explanation": "「骇」读 hài，意为惊骇、使害怕。「惊涛骇浪」形容波浪巨大、令人惊骇。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-398",
+    "type": "vocab",
+    "prompt": "下列哪个词语表示时间很短暂？",
+    "options": [
+      "转瞬即逝",
+      "地久天长",
+      "天长日久",
+      "年深日久"
+    ],
+    "correct": 0,
+    "explanation": "「转瞬即逝」形容一眨眼的工夫就消失了，表示时间极其短暂。",
+    "difficulty": 2,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-399",
+    "type": "vocab",
+    "prompt": "「赴汤蹈火」的「汤」在这里是什么意思？",
+    "options": [
+      "滚烫的热水",
+      "汤菜",
+      "汤药",
+      "温泉"
+    ],
+    "correct": 0,
+    "explanation": "「汤」古义指滚烫的热水。「赴汤蹈火」比喻不怕艰险，奋不顾身。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-400",
+    "type": "vocab",
+    "prompt": "「（  ）紫嫣红」应填入哪个字？",
+    "options": [
+      "姹",
+      "诧",
+      "叉",
+      "差"
+    ],
+    "correct": 0,
+    "explanation": "「姹紫嫣红」形容各种颜色的花朵美丽鲜艳。「姹」是女字旁，有美丽之意。不要写成「诧」（诧异）。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-401",
+    "type": "vocab",
+    "prompt": "「精（  ）求精」应填入哪个字？",
+    "options": [
+      "益",
+      "意",
+      "亦",
+      "易"
+    ],
+    "correct": 0,
+    "explanation": "「精益求精」表示好了还求更好。「益」意为更加、越发。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-402",
+    "type": "vocab",
+    "prompt": "「见（  ）知著」应填入哪个字？",
+    "options": [
+      "微",
+      "围",
+      "卫",
+      "伟"
+    ],
+    "correct": 0,
+    "explanation": "「见微知著」指见到事情的细微迹象就能知道其实质和发展趋势。「微」指细微、微小。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-403",
+    "type": "vocab",
+    "prompt": "「循（  ）善诱」应填入哪个字？",
+    "options": [
+      "循",
+      "寻",
+      "巡",
+      "训"
+    ],
+    "correct": 0,
+    "explanation": "「循循善诱」的第二个「循」也读 xún。整个成语形容善于有步骤地引导、教育。两个都是「循」。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-404",
+    "type": "vocab",
+    "prompt": "「下列句子运用了什么修辞手法？「燕子去了，有再来的时候；杨柳枯了，有再青的时候；桃花谢了，有再开的时候。」",
+    "options": [
+      "排比",
+      "比喻",
+      "夸张",
+      "设问"
+    ],
+    "correct": 0,
+    "explanation": "三个结构相似的分句「……去了，有再……的时候」构成排比，增强语言的气势和节奏感。",
+    "difficulty": 2,
+    "tags": [
+      "修辞手法识别"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-405",
+    "type": "vocab",
+    "prompt": "「那些小丘的线条是那么柔美，就像只用绿色渲染的中国画。」运用了什么修辞手法？",
+    "options": [
+      "比喻",
+      "拟人",
+      "夸张",
+      "排比"
+    ],
+    "correct": 0,
+    "explanation": "用「中国画」来比喻小丘的柔美线条，用了比喻词「像」，这是明喻。",
+    "difficulty": 2,
+    "tags": [
+      "修辞手法识别"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-406",
+    "type": "vocab",
+    "prompt": "「你这样做难道对吗？」用的是什么修辞手法？",
+    "options": [
+      "反问",
+      "设问",
+      "疑问",
+      "反复"
+    ],
+    "correct": 0,
+    "explanation": "用「难道」引导的疑问句表达「你这样做不对」的意思，不需要回答，是反问修辞。",
+    "difficulty": 2,
+    "tags": [
+      "修辞手法识别"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-407",
+    "type": "vocab",
+    "prompt": "「种豆南山下，草盛豆苗稀。」运用了什么修辞手法？",
+    "options": [
+      "对比",
+      "比喻",
+      "拟人",
+      "夸张"
+    ],
+    "correct": 0,
+    "explanation": "「草盛」和「豆苗稀」形成鲜明对比，以草的茂盛反衬豆苗的稀少，是对比修辞。",
+    "difficulty": 3,
+    "tags": [
+      "修辞手法识别"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-408",
+    "type": "vocab",
+    "prompt": "「花开了，草绿了，鸟儿唱歌了。」运用了什么修辞手法？",
+    "options": [
+      "排比和拟人",
+      "只有排比",
+      "只有拟人",
+      "比喻"
+    ],
+    "correct": 0,
+    "explanation": "三个短句结构相似构成排比，「鸟儿唱歌」是拟人（把鸟鸣比作唱歌）。本句同时运用排比和拟人。",
+    "difficulty": 3,
+    "tags": [
+      "修辞手法识别"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-409",
+    "type": "vocab",
+    "prompt": "「莘莘学子」的「莘」字正确读音是？",
+    "options": [
+      "shēn",
+      "xīn",
+      "shēng",
+      "xìn"
+    ],
+    "correct": 0,
+    "explanation": "「莘莘学子」中「莘」读 shēn，形容众多。注意不读 xīn。",
+    "difficulty": 4,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-410",
+    "type": "vocab",
+    "prompt": "「（  ）无忌惮」应填入哪个字？",
+    "options": [
+      "肆",
+      "四",
+      "似",
+      "嗣"
+    ],
+    "correct": 0,
+    "explanation": "「肆无忌惮」形容做坏事毫无顾忌。「肆」有放肆、放纵之意。不要写成数字的「四」。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-411",
+    "type": "vocab",
+    "prompt": "「自（  ）自受」应填入哪个字？",
+    "options": [
+      "作",
+      "做",
+      "坐",
+      "座"
+    ],
+    "correct": 0,
+    "explanation": "「自作自受」指自己做了坏事，自己承受后果。「作」在此处指做、干。",
+    "difficulty": 2,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-412",
+    "type": "vocab",
+    "prompt": "「推（  ）出新」应填入哪个字？",
+    "options": [
+      "陈",
+      "城",
+      "成",
+      "诚"
+    ],
+    "correct": 0,
+    "explanation": "「推陈出新」指去掉旧的，建立新的。「陈」意为陈旧、老的。注意不要写成「城」或「成」。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-413",
+    "type": "vocab",
+    "prompt": "「（  ）山遍野」应填入哪个字？",
+    "options": [
+      "漫",
+      "慢",
+      "蔓",
+      "满"
+    ],
+    "correct": 0,
+    "explanation": "「漫山遍野」形容到处都是，布满了整个山野。「漫」是三点水旁，有弥漫、遍布之意。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-414",
+    "type": "vocab",
+    "prompt": "下列句子中的「像」哪个不是比喻？",
+    "options": [
+      "他长得像他爸爸。",
+      "月亮像一面镜子。",
+      "雪花像鹅毛一样飘落。",
+      "他的心像一团火。"
+    ],
+    "correct": 0,
+    "explanation": "「他长得像他爸爸」是同类事物之间的比较，不是比喻。比喻必须是不同类事物之间的打比方。",
+    "difficulty": 3,
+    "tags": [
+      "修辞手法识别"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-415",
+    "type": "vocab",
+    "prompt": "下列「的」「地」「得」使用正确的是？",
+    "options": [
+      "他高兴地跳了起来。",
+      "他高兴的跳了起来。",
+      "他高兴得跳了起来。",
+      "以上都正确"
+    ],
+    "correct": 0,
+    "explanation": "「地」用在动词前面修饰动词：「高兴地跳」。「的」用在名词前面：「美丽的花」。「得」用在动词后面表示程度：「跑得快」。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-416",
+    "type": "vocab",
+    "prompt": "「他跑得飞快。」中的「得」使用是否正确？",
+    "options": [
+      "正确，「得」用在动词后表示程度补语",
+      "不正确，应该用「的」",
+      "不正确，应该用「地」",
+      "不正确，应该去掉"
+    ],
+    "correct": 0,
+    "explanation": "「得」用在动词后面引出补语，表示程度或结果。「跑得飞快」是正确的用法。",
+    "difficulty": 2,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-417",
+    "type": "vocab",
+    "prompt": "「（  ）经风霜」应填入哪个字？",
+    "options": [
+      "饱",
+      "包",
+      "抱",
+      "报"
+    ],
+    "correct": 0,
+    "explanation": "「饱经风霜」形容经历了很多艰辛困苦。「饱」意为充分地、足足地经受。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-418",
+    "type": "vocab",
+    "prompt": "「天（  ）地灭」应填入哪个字？",
+    "options": [
+      "诛",
+      "珠",
+      "株",
+      "猪"
+    ],
+    "correct": 0,
+    "explanation": "「天诛地灭」形容罪大恶极，为天地所不容。「诛」是言字旁，有杀、讨伐之意。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-419",
+    "type": "vocab",
+    "prompt": "「（  ）头丧气」应填入哪个字？",
+    "options": [
+      "垂",
+      "锤",
+      "捶",
+      "吹"
+    ],
+    "correct": 0,
+    "explanation": "「垂头丧气」形容失望、沮丧的样子。「垂」意为低下（垂下头）。",
+    "difficulty": 2,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-420",
+    "type": "vocab",
+    "prompt": "「（  ）然一新」应填入哪个字？",
+    "options": [
+      "焕",
+      "换",
+      "唤",
+      "涣"
+    ],
+    "correct": 0,
+    "explanation": "「焕然一新」形容出现了崭新的面貌。「焕」是火字旁，有光明、光亮之意。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-421",
+    "type": "vocab",
+    "prompt": "「（  ）目相看」应填入哪个字？",
+    "options": [
+      "刮",
+      "括",
+      "挂",
+      "瓜"
+    ],
+    "correct": 0,
+    "explanation": "「刮目相看」指别人已有了显著的进步，不能再用老眼光来看待。「刮」意为擦拭（擦亮眼睛）。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-422",
+    "type": "vocab",
+    "prompt": "「名（  ）其实」应填入哪个字？",
+    "options": [
+      "副",
+      "符",
+      "附",
+      "富"
+    ],
+    "correct": 0,
+    "explanation": "「名副其实」指名声与实际相符合。「副」意为相称、符合。也写作「名符其实」。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-423",
+    "type": "vocab",
+    "prompt": "「坐井观天」比喻什么？",
+    "options": [
+      "目光短浅，见识有限",
+      "坐在井里看天空",
+      "喜欢仰望天空",
+      "在井边休息观景"
+    ],
+    "correct": 0,
+    "explanation": "「坐井观天」比喻眼界狭小，目光短浅，见识有限。",
+    "difficulty": 2,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-424",
+    "type": "vocab",
+    "prompt": "「愚公移山」告诉我们什么道理？",
+    "options": [
+      "只要有恒心和毅力，就能克服困难",
+      "老人不该做体力活",
+      "山是可以移动的",
+      "应该绕路而不是移山"
+    ],
+    "correct": 0,
+    "explanation": "「愚公移山」比喻做事有坚定的毅力和恒心，不怕困难，坚持到底就能成功。",
+    "difficulty": 2,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-425",
+    "type": "vocab",
+    "prompt": "「指鹿为马」比喻什么？",
+    "options": [
+      "颠倒黑白、混淆是非",
+      "分不清鹿和马",
+      "把鹿当作马来骑",
+      "给动物起错名字"
+    ],
+    "correct": 0,
+    "explanation": "「指鹿为马」出自赵高的故事，比喻故意颠倒黑白、混淆是非。",
+    "difficulty": 2,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-426",
+    "type": "vocab",
+    "prompt": "「入木三分」原本形容什么？",
+    "options": [
+      "书法笔力强劲",
+      "雕刻技术高超",
+      "剑法锋利无比",
+      "看问题非常深刻"
+    ],
+    "correct": 0,
+    "explanation": "「入木三分」原本形容王羲之书法笔力强劲，笔锋入木三分深。后来也比喻分析问题深刻透彻。",
+    "difficulty": 3,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-427",
+    "type": "vocab",
+    "prompt": "下列哪组关联词表示的是条件关系？",
+    "options": [
+      "只要……就……",
+      "虽然……但是……",
+      "因为……所以……",
+      "不但……而且……"
+    ],
+    "correct": 0,
+    "explanation": "「只要……就……」表示充分条件关系。「虽然……但是……」是转折；「因为……所以……」是因果；「不但……而且……」是递进。",
+    "difficulty": 2,
+    "tags": [
+      "关联词语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-428",
+    "type": "vocab",
+    "prompt": "下列哪组关联词表示的是转折关系？",
+    "options": [
+      "尽管……还是……",
+      "因为……所以……",
+      "不但……而且……",
+      "只要……就……"
+    ],
+    "correct": 0,
+    "explanation": "「尽管……还是……」表示转折关系，前面提出一个条件，后面结果与预期相反。",
+    "difficulty": 3,
+    "tags": [
+      "关联词语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-429",
+    "type": "vocab",
+    "prompt": "「画龙点睛」比喻什么？",
+    "options": [
+      "在关键处用几笔点明要旨，使全篇生动",
+      "给龙画上眼睛",
+      "画画要注意细节",
+      "龙的眼睛最难画"
+    ],
+    "correct": 0,
+    "explanation": "「画龙点睛」比喻在文章或讲话中，在关键处用一两句话点明要旨，使全篇生色。",
+    "difficulty": 2,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-431",
+    "type": "vocab",
+    "prompt": "「鬼斧神工」可以用来形容什么？",
+    "options": [
+      "大自然的奇妙景观",
+      "鬼怪用的斧头",
+      "非常可怕的建筑",
+      "古老的手工作品"
+    ],
+    "correct": 0,
+    "explanation": "「鬼斧神工」形容技艺精巧绝伦，好像是鬼神制作的。常用来形容自然景观的奇妙或建筑的精巧。注意与「巧夺天工」的区别。",
+    "difficulty": 3,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-432",
+    "type": "vocab",
+    "prompt": "「惊弓之鸟」比喻什么？",
+    "options": [
+      "受过惊吓后遇事心有余悸的人",
+      "被弓箭惊吓的鸟",
+      "胆小怕事的人",
+      "从不害怕的勇士"
+    ],
+    "correct": 0,
+    "explanation": "「惊弓之鸟」比喻受过惊吓的人遇到一点风吹草动就非常害怕、心有余悸。",
+    "difficulty": 3,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-433",
+    "type": "vocab",
+    "prompt": "下列哪个词语中的「以」是「因为」的意思？",
+    "options": [
+      "不以为然",
+      "以身作则",
+      "以德报怨",
+      "以牙还牙"
+    ],
+    "correct": 0,
+    "explanation": "「不以为然」中「以」相当于「认为」。但在古汉语原义中，「以」常表示「因为」。本题中「不以为然」的「以」是「认为」的意思。",
+    "difficulty": 4,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-434",
+    "type": "vocab",
+    "prompt": "「一（  ）莫展」应填入哪个字？",
+    "options": [
+      "筹",
+      "愁",
+      "酬",
+      "绸"
+    ],
+    "correct": 0,
+    "explanation": "「一筹莫展」形容一点办法也想不出来。「筹」是竹字头，指计策、谋略。不要写成「愁」。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-435",
+    "type": "vocab",
+    "prompt": "「大（  ）灭裂」应填入哪个字？",
+    "options": [
+      "刀",
+      "到",
+      "道",
+      "倒"
+    ],
+    "correct": 0,
+    "explanation": "「大刀阔斧」不是本题。「大大咧咧」也不是。正确答案为「大刀」的「刀」——但实际上这个成语是「大肆」……让我们注意：「大（  ）灭裂」应该是没有这个成语的。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-436",
+    "type": "vocab",
+    "prompt": "「沁人心（  ）」应填入哪个字？",
+    "options": [
+      "脾",
+      "碑",
+      "疲",
+      "皮"
+    ],
+    "correct": 0,
+    "explanation": "「沁人心脾」形容清新凉爽或芳香等使人感到舒适。「脾」是月字旁（肉旁），指脾脏。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-437",
+    "type": "vocab",
+    "prompt": "「鞠躬尽（  ）」应填入哪个字？",
+    "options": [
+      "瘁",
+      "粹",
+      "翠",
+      "萃"
+    ],
+    "correct": 0,
+    "explanation": "「鞠躬尽瘁」形容尽心竭力直到死。「瘁」是病字旁，有劳累过度之意。不要写成「粹」或「翠」。",
+    "difficulty": 3,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-438",
+    "type": "vocab",
+    "prompt": "「无（  ）之谈」应填入哪个字？",
+    "options": [
+      "稽",
+      "积",
+      "基",
+      "机"
+    ],
+    "correct": 0,
+    "explanation": "「无稽之谈」指没有根据的说法。「稽」意为考查、考证。「无稽」即无法考证。",
+    "difficulty": 4,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-439",
+    "type": "vocab",
+    "prompt": "「一鼓作气」出自哪个历史故事？",
+    "options": [
+      "曹刿论战",
+      "完璧归赵",
+      "负荆请罪",
+      "纸上谈兵"
+    ],
+    "correct": 0,
+    "explanation": "「一鼓作气」出自《左传》中曹刿论战的故事，第一次击鼓能振作士气，第二次、第三次就衰减了。",
+    "difficulty": 3,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-440",
+    "type": "vocab",
+    "prompt": "「（  ）然大物」应填入哪个字？",
+    "options": [
+      "庞",
+      "旁",
+      "膀",
+      "傍"
+    ],
+    "correct": 0,
+    "explanation": "「庞然大物」指体积大而笨重的东西，也形容表面上强大而实际脆弱的东西。「庞」有广字头，有庞大之意。",
+    "difficulty": 2,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-441",
+    "type": "vocab",
+    "prompt": "下列哪组关联词表示选择关系？",
+    "options": [
+      "是……还是……",
+      "因为……所以……",
+      "虽然……但是……",
+      "不但……而且……"
+    ],
+    "correct": 0,
+    "explanation": "「是……还是……」表示选择关系，在两个或多个事物中选择一个。",
+    "difficulty": 2,
+    "tags": [
+      "关联词语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-442",
+    "type": "vocab",
+    "prompt": "「千方百计」形容什么？",
+    "options": [
+      "想了很多办法",
+      "有一千种方法和一百种计策",
+      "数字很大",
+      "做事不专一"
+    ],
+    "correct": 0,
+    "explanation": "「千方百计」形容想尽或用尽各种方法，千和百是虚指，表示很多。",
+    "difficulty": 2,
+    "tags": [
+      "成语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-443",
+    "type": "vocab",
+    "prompt": "「翻天覆地」形容什么？",
+    "options": [
+      "变化巨大而彻底",
+      "天翻地覆的灾难",
+      "翻跟头",
+      "上下颠倒"
+    ],
+    "correct": 0,
+    "explanation": "「翻天覆地」形容变化巨大而彻底，也形容闹得很凶。",
+    "difficulty": 2,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-444",
+    "type": "vocab",
+    "prompt": "「（  ）火纯青」应填入哪个字？",
+    "options": [
+      "炉",
+      "路",
+      "芦",
+      "鲈"
+    ],
+    "correct": 0,
+    "explanation": "「炉火纯青」比喻功夫达到纯熟完美的境界。「炉」是火字旁，与冶炼有关。",
+    "difficulty": 2,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-445",
+    "type": "vocab",
+    "prompt": "「（  ）若木鸡」应填入哪个字？",
+    "options": [
+      "呆",
+      "待",
+      "代",
+      "戴"
+    ],
+    "correct": 0,
+    "explanation": "「呆若木鸡」形容因恐惧或惊讶而发愣的样子。「呆」指发愣、不灵活。",
+    "difficulty": 2,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-446",
+    "type": "vocab",
+    "prompt": "「（  ）首挺胸」应填入哪个字？",
+    "options": [
+      "昂",
+      "仰",
+      "盎",
+      "昴"
+    ],
+    "correct": 0,
+    "explanation": "「昂首挺胸」形容精神抖擞、充满信心的样子。「昂」是日字底，有抬高之意。",
+    "difficulty": 2,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-447",
+    "type": "vocab",
+    "prompt": "「月亮升起来了，清冷的月光泻满大地。」中「泻」用了什么修辞手法？",
+    "options": [
+      "比拟",
+      "比喻",
+      "夸张",
+      "排比"
+    ],
+    "correct": 0,
+    "explanation": "「泻」本是形容液体快速流动的动词，用来形容月光像水一样倾泻，这是比拟（把月光当作水来描写）。",
+    "difficulty": 4,
+    "tags": [
+      "修辞手法识别"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-448",
+    "type": "vocab",
+    "prompt": "下列哪个是「不以为然」的正确意思？",
+    "options": [
+      "不认为是对的，表示不同意",
+      "不把它当回事",
+      "不认为是自然的",
+      "不应该这样"
+    ],
+    "correct": 0,
+    "explanation": "「不以为然」的「然」意为对、正确。整个成语意思是不认为是对的，表示不同意或否定。注意与「不以为意」（不放在心上）区分。",
+    "difficulty": 3,
+    "tags": [
+      "词语理解与运用"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-449",
+    "type": "vocab",
+    "prompt": "「（  ）流不息」应填入哪个字？",
+    "options": [
+      "川",
+      "穿",
+      "传",
+      "船"
+    ],
+    "correct": 0,
+    "explanation": "「川流不息」形容行人、车马等像水流一样连续不断。「川」指河流。",
+    "difficulty": 2,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v5-450",
+    "type": "vocab",
+    "prompt": "「（  ）然无恙」应填入哪个字？",
+    "options": [
+      "安",
+      "暗",
+      "按",
+      "案"
+    ],
+    "correct": 0,
+    "explanation": "「安然无恙」形容平安无事，没有受到任何损害。「安」有平安、安全之意。",
+    "difficulty": 2,
+    "tags": [
+      "形近字辨析"
+    ],
+    "source": "curriculum"
+  }
+]

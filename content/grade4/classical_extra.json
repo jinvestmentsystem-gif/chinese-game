@@ -1,0 +1,5455 @@
+[
+  {
+    "id": "c4-151",
+    "type": "classical",
+    "prompt": "「横看成岭侧成峰」的上一句是什么？",
+    "options": [
+      "题西林壁",
+      "不识庐山真面目",
+      "远近高低各不同",
+      "这是全诗的第一句"
+    ],
+    "correct": 3,
+    "explanation": "「横看成岭侧成峰」就是《题西林壁》全诗的第一句，没有上一句。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "名句填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-152",
+    "type": "classical",
+    "prompt": "《题西林壁》中「西林」指的是什么地方？",
+    "options": [
+      "西边的森林",
+      "庐山的西林寺",
+      "西安的一座塔",
+      "杭州西湖旁的林子"
+    ],
+    "correct": 1,
+    "explanation": "「西林」指的是庐山上的西林寺，苏轼在寺壁上题写了这首诗。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-153",
+    "type": "classical",
+    "prompt": "《题西林壁》是苏轼在游览哪座名山时写的？",
+    "options": [
+      "泰山",
+      "黄山",
+      "庐山",
+      "华山"
+    ],
+    "correct": 2,
+    "explanation": "苏轼游览庐山时在西林寺壁上题写了这首诗，描写了庐山变幻多姿的面貌。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-154",
+    "type": "classical",
+    "prompt": "「远近高低各不同」中「各」的意思是？",
+    "options": [
+      "每个、分别",
+      "各自",
+      "特别",
+      "非常"
+    ],
+    "correct": 0,
+    "explanation": "「各不同」是每个角度看到的都不一样的意思，强调庐山从不同角度看千变万化。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-155",
+    "type": "classical",
+    "prompt": "苏轼的号是什么？",
+    "options": [
+      "青莲居士",
+      "香山居士",
+      "东坡居士",
+      "易安居士"
+    ],
+    "correct": 2,
+    "explanation": "苏轼号东坡居士，因此也被称为苏东坡。青莲居士是李白，香山居士是白居易，易安居士是李清照。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-156",
+    "type": "classical",
+    "prompt": "《题西林壁》后两句蕴含的哲理与下列哪句话最接近？",
+    "options": [
+      "三人行必有我师",
+      "知之为知之，不知为不知",
+      "当局者迷，旁观者清",
+      "学而不思则罔"
+    ],
+    "correct": 2,
+    "explanation": "「不识庐山真面目，只缘身在此山中」说的是身在其中看不清全貌，正是当局者迷、旁观者清的道理。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "情感主旨"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-157",
+    "type": "classical",
+    "prompt": "《题西林壁》全诗运用了哪种写作手法？",
+    "options": [
+      "先叙事后抒情",
+      "先写景后说理",
+      "先说理后写景",
+      "全篇抒情"
+    ],
+    "correct": 1,
+    "explanation": "前两句描写庐山景色（写景），后两句阐述哲理（说理），是先写景后说理的结构。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-158",
+    "type": "classical",
+    "prompt": "「只缘身在此山中」中「此山」指的是？",
+    "options": [
+      "泰山",
+      "庐山",
+      "华山",
+      "黄山"
+    ],
+    "correct": 1,
+    "explanation": "全诗写的是庐山，「此山」就是指庐山。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-160",
+    "type": "classical",
+    "prompt": "「骚人阁笔费评章」中「阁」的意思是？",
+    "options": [
+      "楼阁",
+      "搁置、放下",
+      "阁楼",
+      "关闭"
+    ],
+    "correct": 1,
+    "explanation": "「阁」同「搁」，是放下的意思。诗人放下笔、费尽心思也难以评判梅雪高下。",
+    "difficulty": 4,
+    "tags": [
+      "宋诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-161",
+    "type": "classical",
+    "prompt": "《雪梅》中梅花比雪花多了什么？",
+    "options": [
+      "白色",
+      "清香",
+      "美丽",
+      "高度"
+    ],
+    "correct": 1,
+    "explanation": "「雪却输梅一段香」，雪花比不上梅花的一段清香。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-162",
+    "type": "classical",
+    "prompt": "《雪梅》运用了什么写作手法？",
+    "options": [
+      "拟人",
+      "比喻",
+      "对比",
+      "夸张"
+    ],
+    "correct": 2,
+    "explanation": "全诗将梅花和雪花进行对比，各有所长、各有所短，运用了对比的手法。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-163",
+    "type": "classical",
+    "prompt": "「梅须逊雪三分白」中「三分」是什么意思？",
+    "options": [
+      "刚好三成",
+      "几分、一些",
+      "三十分",
+      "百分之三"
+    ],
+    "correct": 1,
+    "explanation": "「三分」是虚指，表示几分、一些的意思，说梅花在白色上稍逊雪花。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-164",
+    "type": "classical",
+    "prompt": "《雪梅》的主旨最接近下面哪句话？",
+    "options": [
+      "梅花是花中之王",
+      "雪景最美丽",
+      "尺有所短，寸有所长",
+      "冬天最有趣"
+    ],
+    "correct": 2,
+    "explanation": "梅和雪各有优劣，正如「尺有所短，寸有所长」，每个人都有长处和短处。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "情感主旨"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-165",
+    "type": "classical",
+    "prompt": "「梅雪争春未肯降」中的「春」指什么？",
+    "options": [
+      "春天",
+      "争当春天的主角、争艳",
+      "春风",
+      "春节"
+    ],
+    "correct": 1,
+    "explanation": "「争春」是争着做春天的代表、争奇斗艳的意思。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-166",
+    "type": "classical",
+    "prompt": "卢梅坡是哪个朝代的诗人？",
+    "options": [
+      "唐代",
+      "宋代",
+      "明代",
+      "清代"
+    ],
+    "correct": 1,
+    "explanation": "卢梅坡是宋代诗人，以《雪梅》二首著称。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-168",
+    "type": "classical",
+    "prompt": "「可怜九月初三夜，露似真珠月似弓」写的是什么时间的景色？",
+    "options": [
+      "白天",
+      "傍晚",
+      "夜晚",
+      "凌晨"
+    ],
+    "correct": 2,
+    "explanation": "「九月初三夜」明确说是夜晚，描写了露珠和弯月的美丽夜景。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-169",
+    "type": "classical",
+    "prompt": "「露似真珠月似弓」中「真珠」指什么？",
+    "options": [
+      "真正的珠子",
+      "珍珠",
+      "水珠",
+      "宝石"
+    ],
+    "correct": 1,
+    "explanation": "「真珠」即珍珠，古代「真」通「珍」，用珍珠比喻露珠晶莹圆润。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-171",
+    "type": "classical",
+    "prompt": "《暮江吟》表达了诗人什么感情？",
+    "options": [
+      "忧愁伤感",
+      "对自然美景的热爱和赞美",
+      "思念家乡",
+      "壮志未酬"
+    ],
+    "correct": 1,
+    "explanation": "全诗描绘了从傍晚到夜晚江边美丽的自然风光，表达了诗人对大自然的热爱和赞美之情。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "情感主旨"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-172",
+    "type": "classical",
+    "prompt": "白居易的字是什么？",
+    "options": [
+      "子美",
+      "太白",
+      "乐天",
+      "子瞻"
+    ],
+    "correct": 2,
+    "explanation": "白居易字乐天，号香山居士。子美是杜甫的字，太白是李白的字，子瞻是苏轼的字。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-173",
+    "type": "classical",
+    "prompt": "「半江瑟瑟半江红」运用了什么修辞手法？",
+    "options": [
+      "比喻",
+      "拟人",
+      "对比",
+      "夸张"
+    ],
+    "correct": 2,
+    "explanation": "一半江水碧绿、一半江水火红，形成鲜明的色彩对比。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-175",
+    "type": "classical",
+    "prompt": "「万里长征人未还」中「长征」的意思是？",
+    "options": [
+      "红军长征",
+      "长途出征、远行作战",
+      "长距离行走",
+      "长途旅行"
+    ],
+    "correct": 1,
+    "explanation": "「长征」指长途出征、远赴边塞作战，描写戍边将士远离故乡。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-176",
+    "type": "classical",
+    "prompt": "《出塞》属于什么题材的诗？",
+    "options": [
+      "田园诗",
+      "边塞诗",
+      "送别诗",
+      "山水诗"
+    ],
+    "correct": 1,
+    "explanation": "《出塞》描写边塞将士生活和对良将的渴望，是典型的边塞诗。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-177",
+    "type": "classical",
+    "prompt": "「不教胡马度阴山」中「阴山」在哪里？",
+    "options": [
+      "在南方",
+      "在今内蒙古境内，古代北方屏障",
+      "在长江边",
+      "在庐山旁"
+    ],
+    "correct": 1,
+    "explanation": "阴山在今内蒙古中部，是古代中原抵御北方游牧民族的重要屏障。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-178",
+    "type": "classical",
+    "prompt": "《出塞》抒发了诗人什么感情？",
+    "options": [
+      "对边塞风光的欣赏",
+      "对战争残酷的悲叹和渴望良将保边疆",
+      "对朋友的思念",
+      "对春天的赞美"
+    ],
+    "correct": 1,
+    "explanation": "诗人悲叹从秦汉以来战争不断、将士难回，渴望有良将镇守边关，表达忧国忧民的情怀。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "情感主旨"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-179",
+    "type": "classical",
+    "prompt": "王昌龄被誉为什么？",
+    "options": [
+      "诗仙",
+      "诗圣",
+      "七绝圣手",
+      "诗豪"
+    ],
+    "correct": 2,
+    "explanation": "王昌龄以七言绝句闻名，被誉为「七绝圣手」。诗仙是李白，诗圣是杜甫，诗豪是刘禹锡。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-180",
+    "type": "classical",
+    "prompt": "「葡萄美酒夜光杯」描写了什么场景？",
+    "options": [
+      "家中饮酒",
+      "边塞将士饮酒",
+      "文人聚会",
+      "皇宫宴会"
+    ],
+    "correct": 1,
+    "explanation": "这首诗描写的是边塞军营中将士们用精美的夜光杯痛饮葡萄酒的场面。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-181",
+    "type": "classical",
+    "prompt": "「醉卧沙场君莫笑」中「沙场」指什么？",
+    "options": [
+      "沙滩",
+      "战场",
+      "沙漠",
+      "操场"
+    ],
+    "correct": 1,
+    "explanation": "「沙场」指战场，全句是说醉倒在战场上请不要笑话我。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-182",
+    "type": "classical",
+    "prompt": "「古来征战几人回」用了什么修辞手法？",
+    "options": [
+      "比喻",
+      "夸张",
+      "反问",
+      "拟人"
+    ],
+    "correct": 2,
+    "explanation": "「古来征战几人回」用反问的语气，意思是自古以来出征的人有几个能活着回来呢。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-183",
+    "type": "classical",
+    "prompt": "《凉州词》表达的情感基调是？",
+    "options": [
+      "悲观绝望",
+      "豪迈旷达、视死如归",
+      "轻松愉快",
+      "愤怒不满"
+    ],
+    "correct": 1,
+    "explanation": "面对生死，将士们痛饮豪歌，表现出豪迈旷达、视死如归的乐观精神。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "情感主旨"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-185",
+    "type": "classical",
+    "prompt": "「欲饮琵琶马上催」中「琵琶」在这里的作用是？",
+    "options": [
+      "弹奏音乐助兴",
+      "当武器使用",
+      "装饰品",
+      "传递信号催促出征"
+    ],
+    "correct": 3,
+    "explanation": "在军旅中，琵琶声常作为出征的号令信号，正要饮酒却听到琵琶声催促出征。",
+    "difficulty": 4,
+    "tags": [
+      "唐诗",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-187",
+    "type": "classical",
+    "prompt": "李清照在《夏日绝句》中提到项羽「不肯过江东」，这是因为？",
+    "options": [
+      "江东太远了",
+      "他不会游泳",
+      "他觉得无颜面对江东父老",
+      "他迷路了"
+    ],
+    "correct": 2,
+    "explanation": "项羽在垓下之战失败后，觉得无颜面对江东父老，宁死不肯渡江逃命。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-188",
+    "type": "classical",
+    "prompt": "《夏日绝句》运用了什么写作手法？",
+    "options": [
+      "借景抒情",
+      "托物言志",
+      "借古讽今",
+      "直抒胸臆"
+    ],
+    "correct": 2,
+    "explanation": "李清照借赞美项羽的气节来讽刺南宋朝廷苟且偷安，这是借古讽今的写作手法。",
+    "difficulty": 4,
+    "tags": [
+      "宋诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-190",
+    "type": "classical",
+    "prompt": "李清照号什么？",
+    "options": [
+      "东坡居士",
+      "易安居士",
+      "香山居士",
+      "青莲居士"
+    ],
+    "correct": 1,
+    "explanation": "李清照号易安居士，是宋代最著名的女词人。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-191",
+    "type": "classical",
+    "prompt": "《夏日绝句》中「人杰」和「鬼雄」分别是谁的典故？",
+    "options": [
+      "刘邦和项羽",
+      "项羽和项羽",
+      "关羽和张飞",
+      "岳飞和韩信"
+    ],
+    "correct": 1,
+    "explanation": "全诗最后提到「至今思项羽」，「人杰」和「鬼雄」都是借项羽的精神来表达志向。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-192",
+    "type": "classical",
+    "prompt": "「王师北定中原日」中「王师」指什么？",
+    "options": [
+      "王家的军队",
+      "朝廷的军队",
+      "地方武装",
+      "外国军队"
+    ],
+    "correct": 1,
+    "explanation": "「王师」指朝廷的正规军队，陆游盼望南宋朝廷的军队能收复中原。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-193",
+    "type": "classical",
+    "prompt": "「家祭无忘告乃翁」中「家祭」的意思是？",
+    "options": [
+      "家庭聚会",
+      "在家中祭祀祖先",
+      "家庭作业",
+      "祭祀家具"
+    ],
+    "correct": 1,
+    "explanation": "「家祭」是在家中祭祀祖先的仪式，陆游嘱咐儿子祭祀时别忘了把好消息告诉自己。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-194",
+    "type": "classical",
+    "prompt": "《示儿》中「示」的意思是？",
+    "options": [
+      "展示",
+      "指示",
+      "告诉、给……看",
+      "示范"
+    ],
+    "correct": 2,
+    "explanation": "「示儿」就是给儿子看、告诉儿子的意思，这是陆游临终前写给儿子们的遗诗。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-195",
+    "type": "classical",
+    "prompt": "陆游一生最大的心愿是什么？",
+    "options": [
+      "写很多诗",
+      "周游天下",
+      "收复中原、统一国家",
+      "做大官"
+    ],
+    "correct": 2,
+    "explanation": "陆游一生渴望收复被金国占领的中原，统一祖国，这在《示儿》中表达得淋漓尽致。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "情感主旨"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-196",
+    "type": "classical",
+    "prompt": "「但悲不见九州同」中「但」的意思是？",
+    "options": [
+      "但是",
+      "只是、只",
+      "然而",
+      "如果"
+    ],
+    "correct": 1,
+    "explanation": "「但」在这里是只是、只的意思，死后什么都不知道了，只是悲伤看不到国家统一。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-197",
+    "type": "classical",
+    "prompt": "《示儿》的体裁是？",
+    "options": [
+      "五言绝句",
+      "七言绝句",
+      "五言律诗",
+      "七言律诗"
+    ],
+    "correct": 1,
+    "explanation": "《示儿》每句七字、共四句，是一首七言绝句。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-199",
+    "type": "classical",
+    "prompt": "「万马齐喑究可哀」运用了什么修辞手法？",
+    "options": [
+      "比喻",
+      "拟人",
+      "夸张",
+      "对偶"
+    ],
+    "correct": 0,
+    "explanation": "用「万马齐喑」比喻社会沉闷、人们都不敢说话的状态，是比喻手法。",
+    "difficulty": 3,
+    "tags": [
+      "清诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-200",
+    "type": "classical",
+    "prompt": "「我劝天公重抖擞」中「天公」指谁？",
+    "options": [
+      "玉皇大帝",
+      "皇帝、朝廷当权者",
+      "老天爷",
+      "龚自珍自己"
+    ],
+    "correct": 1,
+    "explanation": "「天公」表面指天帝，实际上是暗指朝廷当权者，希望他们振作起来改革选才。",
+    "difficulty": 4,
+    "tags": [
+      "清诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-201",
+    "type": "classical",
+    "prompt": "「不拘一格降人才」中「降」的意思是？",
+    "options": [
+      "下降",
+      "投降",
+      "降生、选拔",
+      "降低"
+    ],
+    "correct": 2,
+    "explanation": "「降」是降生、降下的意思，引申为选拔、造就各种人才。",
+    "difficulty": 3,
+    "tags": [
+      "清诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-202",
+    "type": "classical",
+    "prompt": "龚自珍写《己亥杂诗》的社会背景是？",
+    "options": [
+      "国泰民安",
+      "清朝末年社会沉闷、人才被压制",
+      "战争刚结束",
+      "新朝建立"
+    ],
+    "correct": 1,
+    "explanation": "清朝末年，社会因循守旧、言论受压，龚自珍对此深感痛心，呼吁改革。",
+    "difficulty": 3,
+    "tags": [
+      "清诗",
+      "情感主旨"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-203",
+    "type": "classical",
+    "prompt": "《己亥杂诗》中「己亥」指什么？",
+    "options": [
+      "一个地名",
+      "龚自珍的号",
+      "天干地支纪年，指写诗那年",
+      "一种诗歌体裁"
+    ],
+    "correct": 2,
+    "explanation": "「己亥」是天干地支纪年法，指清道光十九年（1839年），即龚自珍写这组诗的年份。",
+    "difficulty": 3,
+    "tags": [
+      "清诗",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-204",
+    "type": "classical",
+    "prompt": "「重抖擞」中「抖擞」的意思是？",
+    "options": [
+      "发抖",
+      "振作精神",
+      "抖落灰尘",
+      "颤抖"
+    ],
+    "correct": 1,
+    "explanation": "「抖擞」是振作精神、奋发图强的意思，希望上天（朝廷）重新振作起来。",
+    "difficulty": 2,
+    "tags": [
+      "清诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-205",
+    "type": "classical",
+    "prompt": "「昼出耘田夜绩麻」描写的是什么季节？",
+    "options": [
+      "春天",
+      "夏天",
+      "秋天",
+      "冬天"
+    ],
+    "correct": 1,
+    "explanation": "「昼出耘田」是夏天田间除草的劳动，《四时田园杂兴》这首诗描写的是夏日农忙场景。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-206",
+    "type": "classical",
+    "prompt": "「村庄儿女各当家」中「当家」的意思是？",
+    "options": [
+      "做家长",
+      "各人担负一定的工作",
+      "当家做主",
+      "看家"
+    ],
+    "correct": 1,
+    "explanation": "「各当家」是各自承担一份劳动的意思，男女老少都有自己的活儿干。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-207",
+    "type": "classical",
+    "prompt": "「童孙未解供耕织」中「供」的意思是？",
+    "options": [
+      "供品",
+      "提供",
+      "从事、参加",
+      "供给"
+    ],
+    "correct": 2,
+    "explanation": "「供耕织」是从事耕田织布的劳动的意思，小孩子还不会。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-208",
+    "type": "classical",
+    "prompt": "《四时田园杂兴》展现了怎样的农村生活？",
+    "options": [
+      "忧愁贫苦的生活",
+      "繁忙而充满生趣的田园生活",
+      "战乱中的逃亡",
+      "奢华的城市生活"
+    ],
+    "correct": 1,
+    "explanation": "大人忙着耕田织麻，小孩在桑树下学种瓜，展现了一幅繁忙而充满田园生趣的画面。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "情感主旨"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-209",
+    "type": "classical",
+    "prompt": "「四时田园杂兴」中「四时」指什么？",
+    "options": [
+      "四个时辰",
+      "四个小时",
+      "四季、一年四季",
+      "四种时光"
+    ],
+    "correct": 2,
+    "explanation": "「四时」指春夏秋冬四季，范成大的这组诗描写了农村四季不同的生活场景。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-210",
+    "type": "classical",
+    "prompt": "「四时田园杂兴」中「兴」的读音和意思是？",
+    "options": [
+      "xīng，兴盛",
+      "xìng，兴致、情趣",
+      "xīng，高兴",
+      "xìng，兴奋"
+    ],
+    "correct": 1,
+    "explanation": "「兴」读 xìng，是兴致、情趣的意思，诗人对田园生活有感而发。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-211",
+    "type": "classical",
+    "prompt": "「篱落疏疏一径深」的下一句是？",
+    "options": [
+      "树头新绿未成阴",
+      "儿童急走追黄蝶",
+      "飞入菜花无处寻",
+      "童孙未解供耕织"
+    ],
+    "correct": 0,
+    "explanation": "「篱落疏疏一径深，树头新绿未成阴」出自杨万里《宿新市徐公店》。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "名句填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-212",
+    "type": "classical",
+    "prompt": "《宿新市徐公店》的作者是谁？",
+    "options": [
+      "范成大",
+      "陆游",
+      "杨万里",
+      "辛弃疾"
+    ],
+    "correct": 2,
+    "explanation": "《宿新市徐公店》是南宋诗人杨万里的作品。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-213",
+    "type": "classical",
+    "prompt": "「篱落疏疏」中「篱落」的意思是？",
+    "options": [
+      "篱笆",
+      "落叶",
+      "院子",
+      "围墙"
+    ],
+    "correct": 0,
+    "explanation": "「篱落」就是篱笆，「疏疏」形容篱笆稀疏，可以看到外面的小路和花田。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-214",
+    "type": "classical",
+    "prompt": "「儿童急走追黄蝶，飞入菜花无处寻」描写了什么场景？",
+    "options": [
+      "孩子在读书",
+      "孩子追蝴蝶追到菜花地里找不到了",
+      "孩子在捉鱼",
+      "孩子在放风筝"
+    ],
+    "correct": 1,
+    "explanation": "孩子跑着追赶黄蝴蝶，蝴蝶飞入金黄色的菜花丛中找不到了，充满童趣。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-215",
+    "type": "classical",
+    "prompt": "「树头新绿未成阴」中「阴」指什么？",
+    "options": [
+      "阴天",
+      "树荫",
+      "阴暗",
+      "阴凉"
+    ],
+    "correct": 1,
+    "explanation": "「阴」指树荫，树上的新叶还没长成浓密的树荫。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-216",
+    "type": "classical",
+    "prompt": "「飞入菜花无处寻」中为什么找不到黄蝶了？",
+    "options": [
+      "蝴蝶飞走了",
+      "黄色蝴蝶和金黄色菜花颜色相近",
+      "蝴蝶躲起来了",
+      "天太黑了"
+    ],
+    "correct": 1,
+    "explanation": "黄蝴蝶飞入同样金黄色的菜花丛中，颜色融为一体，所以找不到了。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-217",
+    "type": "classical",
+    "prompt": "杨万里是哪个朝代的诗人？",
+    "options": [
+      "唐代",
+      "北宋",
+      "南宋",
+      "明代"
+    ],
+    "correct": 2,
+    "explanation": "杨万里（1127—1206）是南宋著名诗人，与陆游、范成大、尤袤并称「中兴四大诗人」。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-218",
+    "type": "classical",
+    "prompt": "「儿童急走追黄蝶」中「走」的意思是？",
+    "options": [
+      "走路",
+      "跑",
+      "走开",
+      "散步"
+    ],
+    "correct": 1,
+    "explanation": "在古代汉语中，「走」是跑的意思。孩子们飞快地跑着追蝴蝶。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-219",
+    "type": "classical",
+    "prompt": "《宿新市徐公店》的「宿」是什么意思？",
+    "options": [
+      "住宿、过夜",
+      "很久",
+      "一晚上",
+      "星宿"
+    ],
+    "correct": 0,
+    "explanation": "「宿」是住宿、过夜的意思。诗人在新市一个姓徐的人开的旅店住宿时写下此诗。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-220",
+    "type": "classical",
+    "prompt": "《宿新市徐公店》描写的是什么季节？",
+    "options": [
+      "夏天",
+      "秋天",
+      "冬天",
+      "春天"
+    ],
+    "correct": 3,
+    "explanation": "「新绿未成阴」说明树叶刚长出来，「菜花」指油菜花，都是晚春的景象。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-221",
+    "type": "classical",
+    "prompt": "「茅檐低小，溪上青青草」出自哪首词？",
+    "options": [
+      "《西江月》",
+      "《清平乐·村居》",
+      "《四时田园杂兴》",
+      "《宿新市徐公店》"
+    ],
+    "correct": 1,
+    "explanation": "「茅檐低小，溪上青青草」出自辛弃疾的《清平乐·村居》。",
+    "difficulty": 2,
+    "tags": [
+      "宋词",
+      "名句填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-222",
+    "type": "classical",
+    "prompt": "《清平乐·村居》的作者是谁？",
+    "options": [
+      "苏轼",
+      "陆游",
+      "辛弃疾",
+      "李清照"
+    ],
+    "correct": 2,
+    "explanation": "《清平乐·村居》是南宋词人辛弃疾的作品。",
+    "difficulty": 2,
+    "tags": [
+      "宋词",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-223",
+    "type": "classical",
+    "prompt": "「清平乐」是什么？",
+    "options": [
+      "诗名",
+      "词牌名",
+      "曲名",
+      "书名"
+    ],
+    "correct": 1,
+    "explanation": "「清平乐」是词牌名，「村居」是词的题目，表示这首词写的是农村生活。",
+    "difficulty": 3,
+    "tags": [
+      "宋词",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-224",
+    "type": "classical",
+    "prompt": "「醉里吴音相媚好，白发谁家翁媪」中「翁媪」指什么？",
+    "options": [
+      "老爷爷和老奶奶",
+      "年轻夫妇",
+      "兄弟姐妹",
+      "父亲和儿子"
+    ],
+    "correct": 0,
+    "explanation": "「翁」是老翁（老爷爷），「媪」是老妇（老奶奶），指一对白发老夫妇。",
+    "difficulty": 3,
+    "tags": [
+      "宋词",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-225",
+    "type": "classical",
+    "prompt": "「相媚好」的意思是？",
+    "options": [
+      "互相取笑",
+      "互相说着亲热的话、感情融洽",
+      "互相争吵",
+      "互相帮助"
+    ],
+    "correct": 1,
+    "explanation": "「相媚好」是互相说着亲热的话、感情融洽的样子，描写老夫妇其乐融融。",
+    "difficulty": 3,
+    "tags": [
+      "宋词",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-226",
+    "type": "classical",
+    "prompt": "「最喜小儿亡赖，溪头卧剥莲蓬」中「亡赖」的意思是？",
+    "options": [
+      "无赖、坏人",
+      "顽皮、淘气",
+      "懒惰",
+      "没有依靠"
+    ],
+    "correct": 1,
+    "explanation": "「亡赖」同「无赖」，这里不是贬义，是顽皮可爱的意思，形容小儿子天真淘气。",
+    "difficulty": 3,
+    "tags": [
+      "宋词",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-227",
+    "type": "classical",
+    "prompt": "《清平乐·村居》描写了几个人物？",
+    "options": [
+      "三个",
+      "四个",
+      "五个",
+      "六个"
+    ],
+    "correct": 2,
+    "explanation": "词中描写了五个人：老翁、老妇、大儿子（锄豆）、二儿子（织鸡笼）、小儿子（剥莲蓬）。",
+    "difficulty": 3,
+    "tags": [
+      "宋词",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-228",
+    "type": "classical",
+    "prompt": "《清平乐·村居》表达了什么情感？",
+    "options": [
+      "对战争的厌恶",
+      "对安宁幸福的农村生活的向往和赞美",
+      "对城市的羡慕",
+      "对官场的追求"
+    ],
+    "correct": 1,
+    "explanation": "辛弃疾通过描绘一家五口的温馨田园生活，表达了对安宁幸福生活的向往。",
+    "difficulty": 3,
+    "tags": [
+      "宋词",
+      "情感主旨"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-229",
+    "type": "classical",
+    "prompt": "辛弃疾是哪个朝代的词人？",
+    "options": [
+      "唐代",
+      "北宋",
+      "南宋",
+      "明代"
+    ],
+    "correct": 2,
+    "explanation": "辛弃疾（1140—1207）是南宋著名的爱国词人，与苏轼并称「苏辛」。",
+    "difficulty": 2,
+    "tags": [
+      "宋词",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-230",
+    "type": "classical",
+    "prompt": "「大儿锄豆溪东」中「锄豆」的意思是？",
+    "options": [
+      "用锄头挖豆子",
+      "给豆田除草",
+      "种豆子",
+      "收豆子"
+    ],
+    "correct": 1,
+    "explanation": "「锄豆」是在豆田里用锄头除草的意思，不是把豆子锄掉。",
+    "difficulty": 3,
+    "tags": [
+      "宋词",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-231",
+    "type": "classical",
+    "prompt": "「明月别枝惊鹊，清风半夜鸣蝉」出自哪首词？",
+    "options": [
+      "《清平乐·村居》",
+      "《西江月·夜行黄沙道中》",
+      "《浣溪沙》",
+      "《卜算子》"
+    ],
+    "correct": 1,
+    "explanation": "这两句出自辛弃疾的《西江月·夜行黄沙道中》。",
+    "difficulty": 2,
+    "tags": [
+      "宋词",
+      "名句填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-232",
+    "type": "classical",
+    "prompt": "「明月别枝惊鹊」中「别枝」的意思是？",
+    "options": [
+      "告别树枝",
+      "另一个树枝、旁边的枝条",
+      "特别的树枝",
+      "离开树枝"
+    ],
+    "correct": 1,
+    "explanation": "「别枝」指旁边的树枝，明月升起惊动了栖息在枝头的喜鹊。",
+    "difficulty": 3,
+    "tags": [
+      "宋词",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-233",
+    "type": "classical",
+    "prompt": "「稻花香里说丰年，听取蛙声一片」描写了什么景象？",
+    "options": [
+      "春天插秧",
+      "夏夜稻花飘香、蛙声一片预示丰收",
+      "秋天收割",
+      "冬天夜晚"
+    ],
+    "correct": 1,
+    "explanation": "夏夜里稻花飘香、蛙声阵阵，人们高兴地谈论着即将到来的丰收。",
+    "difficulty": 2,
+    "tags": [
+      "宋词",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-234",
+    "type": "classical",
+    "prompt": "「七八个星天外，两三点雨山前」运用了什么手法？",
+    "options": [
+      "夸张",
+      "对偶",
+      "比喻",
+      "拟人"
+    ],
+    "correct": 1,
+    "explanation": "「七八个星天外」对「两三点雨山前」，数字对数字，天外对山前，是对偶手法。",
+    "difficulty": 3,
+    "tags": [
+      "宋词",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-235",
+    "type": "classical",
+    "prompt": "「旧时茅店社林边，路转溪桥忽见」中「忽见」表达了什么心情？",
+    "options": [
+      "惊慌",
+      "惊喜",
+      "失望",
+      "伤心"
+    ],
+    "correct": 1,
+    "explanation": "突然看到了以前熟悉的茅屋旅店，表达了诗人的欣喜之情。",
+    "difficulty": 3,
+    "tags": [
+      "宋词",
+      "情感主旨"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-236",
+    "type": "classical",
+    "prompt": "「西江月」是什么？",
+    "options": [
+      "西边的月亮",
+      "词牌名",
+      "一条江",
+      "一首歌"
+    ],
+    "correct": 1,
+    "explanation": "「西江月」是词牌名，「夜行黄沙道中」是词的题目。",
+    "difficulty": 2,
+    "tags": [
+      "宋词",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-237",
+    "type": "classical",
+    "prompt": "《西江月·夜行黄沙道中》描写的是什么季节的夜晚？",
+    "options": [
+      "春天",
+      "夏天",
+      "秋天",
+      "冬天"
+    ],
+    "correct": 1,
+    "explanation": "「稻花香」「鸣蝉」「蛙声」都是夏天的景象，描写的是夏天的夜晚。",
+    "difficulty": 2,
+    "tags": [
+      "宋词",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-238",
+    "type": "classical",
+    "prompt": "《西江月·夜行黄沙道中》表达了什么情感？",
+    "options": [
+      "对城市的向往",
+      "对乡村夏夜的热爱和丰收的喜悦",
+      "对战争的悲愤",
+      "对友人的思念"
+    ],
+    "correct": 1,
+    "explanation": "词中充满了对美好乡村夏夜的热爱，以及对丰收年景的喜悦之情。",
+    "difficulty": 3,
+    "tags": [
+      "宋词",
+      "情感主旨"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-239",
+    "type": "classical",
+    "prompt": "辛弃疾的号是什么？",
+    "options": [
+      "东坡居士",
+      "稼轩居士",
+      "香山居士",
+      "易安居士"
+    ],
+    "correct": 1,
+    "explanation": "辛弃疾号稼轩，人称稼轩居士。",
+    "difficulty": 3,
+    "tags": [
+      "宋词",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-240",
+    "type": "classical",
+    "prompt": "「吾家洗砚池头树，朵朵花开淡墨痕」出自哪首诗？",
+    "options": [
+      "《竹石》",
+      "《石灰吟》",
+      "《墨梅》",
+      "《梅花》"
+    ],
+    "correct": 2,
+    "explanation": "这两句出自元代王冕的《墨梅》。",
+    "difficulty": 2,
+    "tags": [
+      "元诗",
+      "名句填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-241",
+    "type": "classical",
+    "prompt": "《墨梅》的作者是谁？",
+    "options": [
+      "郑燮",
+      "于谦",
+      "王冕",
+      "龚自珍"
+    ],
+    "correct": 2,
+    "explanation": "《墨梅》是元代画家、诗人王冕的作品。",
+    "difficulty": 2,
+    "tags": [
+      "元诗",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-242",
+    "type": "classical",
+    "prompt": "「不要人夸好颜色，只留清气满乾坤」表达了什么品格？",
+    "options": [
+      "追求美丽",
+      "不求人夸赞、只愿保持清高的品格",
+      "想要出名",
+      "孤芳自赏"
+    ],
+    "correct": 1,
+    "explanation": "梅花不需要别人称赞它的颜色，只愿把清香留在天地间，象征高洁不媚俗的品格。",
+    "difficulty": 3,
+    "tags": [
+      "元诗",
+      "情感主旨"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-243",
+    "type": "classical",
+    "prompt": "「墨梅」中「墨」字的含义是？",
+    "options": [
+      "黑色的梅花",
+      "用水墨画法画的梅花",
+      "墨水做的梅花",
+      "枯萎的梅花"
+    ],
+    "correct": 1,
+    "explanation": "「墨梅」是用水墨画法画出的梅花，王冕既是诗人也是著名的墨梅画家。",
+    "difficulty": 3,
+    "tags": [
+      "元诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-244",
+    "type": "classical",
+    "prompt": "「洗砚池」典故与谁有关？",
+    "options": [
+      "苏轼",
+      "王羲之",
+      "颜真卿",
+      "欧阳修"
+    ],
+    "correct": 1,
+    "explanation": "「洗砚池」的典故来自东晋书法家王羲之，相传他练书法后在池中洗砚台，池水都变黑了。",
+    "difficulty": 4,
+    "tags": [
+      "元诗",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-245",
+    "type": "classical",
+    "prompt": "《墨梅》运用了什么写作手法？",
+    "options": [
+      "借景抒情",
+      "托物言志",
+      "直抒胸臆",
+      "借古讽今"
+    ],
+    "correct": 1,
+    "explanation": "诗人借梅花不求人夸颜色、只留清气的特点，来表达自己高洁清白的志向，是托物言志。",
+    "difficulty": 3,
+    "tags": [
+      "元诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-246",
+    "type": "classical",
+    "prompt": "「淡墨痕」形容什么？",
+    "options": [
+      "墨水的痕迹",
+      "梅花颜色淡雅如水墨画",
+      "梅花快枯了",
+      "写字的痕迹"
+    ],
+    "correct": 1,
+    "explanation": "「淡墨痕」形容梅花颜色淡雅，像水墨画中那样素雅，不艳丽。",
+    "difficulty": 3,
+    "tags": [
+      "元诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-247",
+    "type": "classical",
+    "prompt": "王冕是哪个朝代的诗人？",
+    "options": [
+      "宋代",
+      "元代",
+      "明代",
+      "清代"
+    ],
+    "correct": 1,
+    "explanation": "王冕（1310—1359）是元代著名的画家和诗人，尤以画梅花闻名。",
+    "difficulty": 2,
+    "tags": [
+      "元诗",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-248",
+    "type": "classical",
+    "prompt": "「乾坤」的意思是？",
+    "options": [
+      "干燥和昆虫",
+      "天地",
+      "国家",
+      "宫殿"
+    ],
+    "correct": 1,
+    "explanation": "「乾坤」指天地，「清气满乾坤」是清香充满整个天地的意思。",
+    "difficulty": 2,
+    "tags": [
+      "元诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-249",
+    "type": "classical",
+    "prompt": "「咬定青山不放松，立根原在破岩中」出自哪首诗？",
+    "options": [
+      "《墨梅》",
+      "《石灰吟》",
+      "《竹石》",
+      "《己亥杂诗》"
+    ],
+    "correct": 2,
+    "explanation": "这两句出自清代郑燮的《竹石》。",
+    "difficulty": 2,
+    "tags": [
+      "清诗",
+      "名句填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-250",
+    "type": "classical",
+    "prompt": "《竹石》的作者是谁？",
+    "options": [
+      "王冕",
+      "于谦",
+      "郑燮（郑板桥）",
+      "龚自珍"
+    ],
+    "correct": 2,
+    "explanation": "《竹石》是清代书画家郑燮（号板桥）的作品。",
+    "difficulty": 2,
+    "tags": [
+      "清诗",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-251",
+    "type": "classical",
+    "prompt": "「咬定青山不放松」中「咬定」形容什么？",
+    "options": [
+      "竹子吃东西",
+      "竹根紧紧扎在山石中",
+      "竹子在咬石头",
+      "竹子很硬"
+    ],
+    "correct": 1,
+    "explanation": "「咬定」用拟人手法，形容竹子的根紧紧扎在山石之中，毫不动摇。",
+    "difficulty": 3,
+    "tags": [
+      "清诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-252",
+    "type": "classical",
+    "prompt": "「千磨万击还坚劲，任尔东西南北风」表达了什么精神？",
+    "options": [
+      "顺从",
+      "不怕困难、坚韧不拔",
+      "随风摇摆",
+      "逃避困难"
+    ],
+    "correct": 1,
+    "explanation": "经历千万次磨难打击依然坚韧刚劲，任凭各方风吹都不倒，表达了坚韧不拔的精神。",
+    "difficulty": 2,
+    "tags": [
+      "清诗",
+      "情感主旨"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-253",
+    "type": "classical",
+    "prompt": "「任尔东西南北风」中「任」的意思是？",
+    "options": [
+      "任务",
+      "任命",
+      "任凭、随便",
+      "信任"
+    ],
+    "correct": 2,
+    "explanation": "「任」是任凭、随便的意思，任凭你刮什么方向的风我都不怕。",
+    "difficulty": 2,
+    "tags": [
+      "清诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-254",
+    "type": "classical",
+    "prompt": "「尔」在「任尔东西南北风」中的意思是？",
+    "options": [
+      "你",
+      "耳朵",
+      "而且",
+      "如此"
+    ],
+    "correct": 0,
+    "explanation": "「尔」是你的意思，这里指风，任凭你怎样吹也不能动摇竹子。",
+    "difficulty": 3,
+    "tags": [
+      "清诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-255",
+    "type": "classical",
+    "prompt": "《竹石》运用了什么写作手法？",
+    "options": [
+      "借景抒情",
+      "托物言志",
+      "直抒胸臆",
+      "借古讽今"
+    ],
+    "correct": 1,
+    "explanation": "诗人借竹子扎根岩石、不惧风吹的形象来表达自己坚韧不拔的品格，是托物言志。",
+    "difficulty": 3,
+    "tags": [
+      "清诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-256",
+    "type": "classical",
+    "prompt": "郑燮的号是什么？",
+    "options": [
+      "东坡",
+      "板桥",
+      "稼轩",
+      "青莲"
+    ],
+    "correct": 1,
+    "explanation": "郑燮号板桥，世称「郑板桥」，是清代著名的书画家和诗人。",
+    "difficulty": 2,
+    "tags": [
+      "清诗",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-257",
+    "type": "classical",
+    "prompt": "「立根原在破岩中」中「破岩」指什么？",
+    "options": [
+      "破碎的岩石缝隙",
+      "被打破的岩石",
+      "破旧的山崖",
+      "裂开的石头"
+    ],
+    "correct": 0,
+    "explanation": "「破岩」指岩石的裂缝，竹子的根就扎在岩石的缝隙中，环境十分恶劣。",
+    "difficulty": 3,
+    "tags": [
+      "清诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-258",
+    "type": "classical",
+    "prompt": "「千锤万凿出深山，烈火焚烧若等闲」出自哪首诗？",
+    "options": [
+      "《竹石》",
+      "《墨梅》",
+      "《石灰吟》",
+      "《己亥杂诗》"
+    ],
+    "correct": 2,
+    "explanation": "这两句出自明代于谦的《石灰吟》。",
+    "difficulty": 2,
+    "tags": [
+      "明诗",
+      "名句填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-259",
+    "type": "classical",
+    "prompt": "《石灰吟》的作者是谁？",
+    "options": [
+      "郑燮",
+      "王冕",
+      "于谦",
+      "龚自珍"
+    ],
+    "correct": 2,
+    "explanation": "《石灰吟》是明代名臣于谦的作品。",
+    "difficulty": 2,
+    "tags": [
+      "明诗",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-260",
+    "type": "classical",
+    "prompt": "「若等闲」的意思是？",
+    "options": [
+      "好像很重要",
+      "好像平常事一样",
+      "等一会儿",
+      "等待闲暇"
+    ],
+    "correct": 1,
+    "explanation": "「若等闲」是好像平常小事一样的意思，石灰把烈火焚烧看作寻常小事。",
+    "difficulty": 3,
+    "tags": [
+      "明诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-261",
+    "type": "classical",
+    "prompt": "「粉骨碎身浑不怕，要留清白在人间」表达了什么精神？",
+    "options": [
+      "害怕困难",
+      "不惜牺牲、坚守清白",
+      "想要出名",
+      "害怕死亡"
+    ],
+    "correct": 1,
+    "explanation": "即使粉身碎骨也不怕，只求留下清白在人间，表达了不惜牺牲也要坚守清白品格的精神。",
+    "difficulty": 2,
+    "tags": [
+      "明诗",
+      "情感主旨"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-262",
+    "type": "classical",
+    "prompt": "「粉骨碎身浑不怕」中「浑」的意思是？",
+    "options": [
+      "浑浊",
+      "全然、一点也",
+      "混乱",
+      "浑身"
+    ],
+    "correct": 1,
+    "explanation": "「浑」是全然、一点也的意思，一点也不害怕粉身碎骨。",
+    "difficulty": 3,
+    "tags": [
+      "明诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-263",
+    "type": "classical",
+    "prompt": "《石灰吟》中「吟」是什么意思？",
+    "options": [
+      "唱歌",
+      "古诗体裁",
+      "呻吟",
+      "叹息"
+    ],
+    "correct": 1,
+    "explanation": "「吟」是古代诗歌的一种体裁名称，与《暮江吟》中的「吟」相同。",
+    "difficulty": 3,
+    "tags": [
+      "明诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-264",
+    "type": "classical",
+    "prompt": "《石灰吟》运用了什么写作手法？",
+    "options": [
+      "借景抒情",
+      "托物言志",
+      "直抒胸臆",
+      "借古讽今"
+    ],
+    "correct": 1,
+    "explanation": "诗人借石灰不怕烈火焚烧、要留清白的特点来表达自己坚守清白品格的志向，是托物言志。",
+    "difficulty": 3,
+    "tags": [
+      "明诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-265",
+    "type": "classical",
+    "prompt": "于谦是哪个朝代的人？",
+    "options": [
+      "唐代",
+      "宋代",
+      "明代",
+      "清代"
+    ],
+    "correct": 2,
+    "explanation": "于谦（1398—1457）是明代著名的政治家和民族英雄。",
+    "difficulty": 2,
+    "tags": [
+      "明诗",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-266",
+    "type": "classical",
+    "prompt": "「清白」在《石灰吟》中有什么双关意义？",
+    "options": [
+      "既指石灰的白色，又指人的清白品格",
+      "只指石灰的颜色",
+      "只指人的品格",
+      "指天气晴朗"
+    ],
+    "correct": 0,
+    "explanation": "「清白」表面指石灰的洁白颜色，实际暗指诗人要坚守的清白品格和高尚情操，一语双关。",
+    "difficulty": 4,
+    "tags": [
+      "明诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-267",
+    "type": "classical",
+    "prompt": "「千锤万凿」形容什么过程？",
+    "options": [
+      "盖房子",
+      "从深山中开采石灰石的艰难过程",
+      "打铁",
+      "雕刻"
+    ],
+    "correct": 1,
+    "explanation": "「千锤万凿」形容从深山中开采石灰石的过程经历了千万次锤打和凿刻，非常艰辛。",
+    "difficulty": 2,
+    "tags": [
+      "明诗",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-268",
+    "type": "classical",
+    "prompt": "「寒雨连江夜入吴，平明送客楚山孤」出自哪首诗？",
+    "options": [
+      "《出塞》",
+      "《凉州词》",
+      "《芙蓉楼送辛渐》",
+      "《塞下曲》"
+    ],
+    "correct": 2,
+    "explanation": "这两句出自王昌龄的《芙蓉楼送辛渐》。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "名句填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-269",
+    "type": "classical",
+    "prompt": "「洛阳亲友如相问，一片冰心在玉壶」表达了什么？",
+    "options": [
+      "天气很冷",
+      "自己的心像冰一样清白纯洁",
+      "想喝冰水",
+      "玉壶很贵"
+    ],
+    "correct": 1,
+    "explanation": "「冰心在玉壶」比喻自己的心像冰一样纯洁、像玉壶一样透明，表达了诗人清白自守的品格。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "情感主旨"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-270",
+    "type": "classical",
+    "prompt": "「芙蓉楼」在哪里？",
+    "options": [
+      "洛阳",
+      "润州（今镇江）",
+      "长安",
+      "杭州"
+    ],
+    "correct": 1,
+    "explanation": "芙蓉楼在润州（今江苏镇江），王昌龄在此楼送别好友辛渐。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-271",
+    "type": "classical",
+    "prompt": "「平明送客楚山孤」中「平明」的意思是？",
+    "options": [
+      "平常",
+      "天刚亮的时候",
+      "中午",
+      "傍晚"
+    ],
+    "correct": 1,
+    "explanation": "「平明」是天刚亮、清晨的意思。清晨送别友人，远处楚山显得孤寂。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-272",
+    "type": "classical",
+    "prompt": "《芙蓉楼送辛渐》是一首什么类型的诗？",
+    "options": [
+      "边塞诗",
+      "送别诗",
+      "田园诗",
+      "咏物诗"
+    ],
+    "correct": 1,
+    "explanation": "这是一首送别诗，王昌龄在芙蓉楼送别好友辛渐去洛阳。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-273",
+    "type": "classical",
+    "prompt": "「寒雨连江夜入吴」中「吴」指哪里？",
+    "options": [
+      "吴国",
+      "古代吴地，指润州一带",
+      "姓吴的人",
+      "湖北"
+    ],
+    "correct": 1,
+    "explanation": "「吴」指古代吴地，大致在今江苏一带，润州（镇江）属于古吴地。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-274",
+    "type": "classical",
+    "prompt": "「一片冰心在玉壶」运用了什么修辞手法？",
+    "options": [
+      "夸张",
+      "拟人",
+      "比喻",
+      "对偶"
+    ],
+    "correct": 2,
+    "explanation": "用「冰心」和「玉壶」比喻自己纯洁无瑕的品格，是比喻手法。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-275",
+    "type": "classical",
+    "prompt": "「楚山孤」中「孤」字有什么深意？",
+    "options": [
+      "山很矮",
+      "只有一座山",
+      "既写山的孤独，也暗示送别后诗人的孤寂",
+      "山很远"
+    ],
+    "correct": 2,
+    "explanation": "「孤」字既描写了远处楚山的孤零，也暗含了送别友人后诗人内心的孤寂之感。",
+    "difficulty": 4,
+    "tags": [
+      "唐诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-276",
+    "type": "classical",
+    "prompt": "「月黑雁飞高，单于夜遁逃」出自哪首诗？",
+    "options": [
+      "《出塞》",
+      "《凉州词》",
+      "《塞下曲》",
+      "《芙蓉楼送辛渐》"
+    ],
+    "correct": 2,
+    "explanation": "这两句出自卢纶的《塞下曲》。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "名句填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-277",
+    "type": "classical",
+    "prompt": "《塞下曲》的作者是谁？",
+    "options": [
+      "王昌龄",
+      "王翰",
+      "卢纶",
+      "岑参"
+    ],
+    "correct": 2,
+    "explanation": "《塞下曲》是唐代诗人卢纶的作品。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-278",
+    "type": "classical",
+    "prompt": "「月黑」的意思是？",
+    "options": [
+      "月亮是黑色的",
+      "没有月光，夜色昏暗",
+      "月亮被乌云遮住",
+      "月亮很亮"
+    ],
+    "correct": 1,
+    "explanation": "「月黑」指没有月光、夜色昏暗。在漆黑的夜里，大雁被惊得高飞。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-279",
+    "type": "classical",
+    "prompt": "「单于夜遁逃」中「单于」是谁？",
+    "options": [
+      "一个将军的名字",
+      "匈奴的首领",
+      "一个士兵",
+      "一个地名"
+    ],
+    "correct": 1,
+    "explanation": "「单于」是匈奴最高首领的称号，这里指敌方首领趁夜逃跑。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-280",
+    "type": "classical",
+    "prompt": "「欲将轻骑逐，大雪满弓刀」描写了什么场景？",
+    "options": [
+      "在雪中练习射箭",
+      "将军率轻骑追敌，大雪覆满弓刀",
+      "在雪中打猎",
+      "雪中行军"
+    ],
+    "correct": 1,
+    "explanation": "将军想要率领轻骑兵追击逃敌，此时大雪纷飞，落满了弓箭和战刀。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-281",
+    "type": "classical",
+    "prompt": "「欲将轻骑逐」中「逐」的意思是？",
+    "options": [
+      "驱逐",
+      "追赶",
+      "竞逐",
+      "逐渐"
+    ],
+    "correct": 1,
+    "explanation": "「逐」是追赶的意思，将军想率领轻骑兵去追赶逃跑的敌人。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-282",
+    "type": "classical",
+    "prompt": "《塞下曲》属于什么题材的诗？",
+    "options": [
+      "送别诗",
+      "边塞诗",
+      "田园诗",
+      "咏物诗"
+    ],
+    "correct": 1,
+    "explanation": "《塞下曲》描写边塞军旅生活和战斗场面，是典型的边塞诗。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-283",
+    "type": "classical",
+    "prompt": "「大雪满弓刀」这一句有什么表达效果？",
+    "options": [
+      "说明天气很冷",
+      "渲染了寒冷紧张的战斗气氛，衬托将士的英勇",
+      "说明不适合作战",
+      "说明雪下得很大"
+    ],
+    "correct": 1,
+    "explanation": "大雪覆满弓刀的画面渲染了边塞的苦寒和战斗的紧张气氛，衬托出将士们不畏艰苦的英勇形象。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-284",
+    "type": "classical",
+    "prompt": "卢纶是哪个朝代的诗人？",
+    "options": [
+      "宋代",
+      "唐代",
+      "明代",
+      "清代"
+    ],
+    "correct": 1,
+    "explanation": "卢纶是唐代诗人，「大历十才子」之一。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-285",
+    "type": "classical",
+    "prompt": "「九曲黄河万里沙，浪淘风簸自天涯」出自哪首诗？",
+    "options": [
+      "《望洞庭》",
+      "《浪淘沙》",
+      "《望天门山》",
+      "《饮湖上初晴后雨》"
+    ],
+    "correct": 1,
+    "explanation": "这两句出自刘禹锡的《浪淘沙》。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "名句填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-286",
+    "type": "classical",
+    "prompt": "《浪淘沙》（九曲黄河）的作者是谁？",
+    "options": [
+      "白居易",
+      "苏轼",
+      "刘禹锡",
+      "李白"
+    ],
+    "correct": 2,
+    "explanation": "这首《浪淘沙》是唐代诗人刘禹锡的作品。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-287",
+    "type": "classical",
+    "prompt": "「九曲黄河」中「九曲」的意思是？",
+    "options": [
+      "刚好九个弯",
+      "弯曲很多次，形容河道曲折",
+      "九条河",
+      "第九段河"
+    ],
+    "correct": 1,
+    "explanation": "「九曲」是多次弯曲的意思，「九」是虚指，形容黄河河道蜿蜒曲折。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-288",
+    "type": "classical",
+    "prompt": "「浪淘风簸自天涯」中「簸」的意思是？",
+    "options": [
+      "拨弄",
+      "颠簸、翻动",
+      "波浪",
+      "簸箕"
+    ],
+    "correct": 1,
+    "explanation": "「簸」是颠簸、翻动的意思，大浪淘沙、狂风翻涌，好像从天边滚滚而来。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-289",
+    "type": "classical",
+    "prompt": "「如今直上银河去，同到牵牛织女家」运用了什么手法？",
+    "options": [
+      "写实",
+      "想象和夸张",
+      "对比",
+      "拟人"
+    ],
+    "correct": 1,
+    "explanation": "诗人想象黄河之水直通银河，能去到牛郎织女的家，充满了浪漫的想象和夸张。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-290",
+    "type": "classical",
+    "prompt": "「浪淘沙」是什么？",
+    "options": [
+      "一种沙子",
+      "词牌名（也是曲牌名）",
+      "一条河",
+      "一种浪花"
+    ],
+    "correct": 1,
+    "explanation": "「浪淘沙」原为唐代教坊曲名，后来演变为词牌名。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-291",
+    "type": "classical",
+    "prompt": "刘禹锡被誉为什么？",
+    "options": [
+      "诗仙",
+      "诗圣",
+      "诗豪",
+      "七绝圣手"
+    ],
+    "correct": 2,
+    "explanation": "刘禹锡因诗风豪迈奔放而被白居易称为「诗豪」。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-292",
+    "type": "classical",
+    "prompt": "《浪淘沙》表达了诗人什么气概？",
+    "options": [
+      "消极悲观",
+      "豪迈雄壮、积极向上",
+      "安静淡泊",
+      "忧愁伤感"
+    ],
+    "correct": 1,
+    "explanation": "诗人借黄河的雄壮气势和浪漫想象，表达了豪迈不屈、积极向上的精神气概。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "情感主旨"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-293",
+    "type": "classical",
+    "prompt": "「空山不见人，但闻人语响」出自哪首诗？",
+    "options": [
+      "《鸟鸣涧》",
+      "《鹿柴》",
+      "《山居秋暝》",
+      "《独坐敬亭山》"
+    ],
+    "correct": 1,
+    "explanation": "这两句出自王维的《鹿柴》。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "名句填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-294",
+    "type": "classical",
+    "prompt": "《鹿柴》的作者是谁？",
+    "options": [
+      "李白",
+      "杜甫",
+      "王维",
+      "孟浩然"
+    ],
+    "correct": 2,
+    "explanation": "《鹿柴》是唐代诗人王维的作品，王维被誉为「诗佛」。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-295",
+    "type": "classical",
+    "prompt": "「鹿柴」中「柴」的正确读音是？",
+    "options": [
+      "chái（柴火的柴）",
+      "zhài（同寨）",
+      "cái",
+      "chà"
+    ],
+    "correct": 1,
+    "explanation": "「鹿柴」的「柴」读zhài，同「寨」，是围栏的意思，指养鹿的地方或有篱笆的地方。",
+    "difficulty": 4,
+    "tags": [
+      "唐诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-296",
+    "type": "classical",
+    "prompt": "「返景入深林，复照青苔上」中「返景」指什么？",
+    "options": [
+      "返回的风景",
+      "落日的余晖",
+      "倒影",
+      "回头看"
+    ],
+    "correct": 1,
+    "explanation": "「返景」（景同影）指落日的余晖，夕阳的光线射入深林中，照在青苔上。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-297",
+    "type": "classical",
+    "prompt": "《鹿柴》营造了什么样的意境？",
+    "options": [
+      "热闹欢快",
+      "空灵幽静",
+      "雄壮豪迈",
+      "悲伤凄凉"
+    ],
+    "correct": 1,
+    "explanation": "空山、人语、深林、夕照、青苔，共同营造出一种空灵幽静的意境。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "情感主旨"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-298",
+    "type": "classical",
+    "prompt": "「空山不见人，但闻人语响」运用了什么手法？",
+    "options": [
+      "以声衬静",
+      "以动衬静",
+      "拟人",
+      "夸张"
+    ],
+    "correct": 0,
+    "explanation": "空山中听不见人却听到说话声，用声音来反衬山林的幽静，这是以声衬静的手法。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-299",
+    "type": "classical",
+    "prompt": "王维被誉为什么？",
+    "options": [
+      "诗仙",
+      "诗圣",
+      "诗佛",
+      "诗豪"
+    ],
+    "correct": 2,
+    "explanation": "王维因诗中充满禅意，被后人称为「诗佛」。诗仙是李白，诗圣是杜甫，诗豪是刘禹锡。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-300",
+    "type": "classical",
+    "prompt": "苏轼评价王维的诗是「诗中有画，画中有诗」。《鹿柴》中哪一句最能体现「诗中有画」？",
+    "options": [
+      "空山不见人",
+      "但闻人语响",
+      "返景入深林，复照青苔上",
+      "以上都不是"
+    ],
+    "correct": 2,
+    "explanation": "「返景入深林，复照青苔上」描绘了夕阳余晖透过密林照在青苔上的画面，色彩鲜明，极具画面感。",
+    "difficulty": 4,
+    "tags": [
+      "唐诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-301",
+    "type": "classical",
+    "prompt": "「湖光秋月两相和，潭面无风镜未磨」出自哪首诗？",
+    "options": [
+      "《饮湖上初晴后雨》",
+      "《望洞庭》",
+      "《暮江吟》",
+      "《鹿柴》"
+    ],
+    "correct": 1,
+    "explanation": "这两句出自刘禹锡的《望洞庭》。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "名句填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-302",
+    "type": "classical",
+    "prompt": "「潭面无风镜未磨」运用了什么修辞手法？",
+    "options": [
+      "拟人",
+      "夸张",
+      "比喻",
+      "对偶"
+    ],
+    "correct": 2,
+    "explanation": "把风平浪静的洞庭湖面比作未经打磨的铜镜，形象地写出了湖面的朦胧和平静。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-303",
+    "type": "classical",
+    "prompt": "「白银盘里一青螺」运用了什么修辞手法？",
+    "options": [
+      "拟人",
+      "比喻",
+      "夸张",
+      "排比"
+    ],
+    "correct": 1,
+    "explanation": "把洞庭湖比作白银盘，把君山比作青螺，用比喻写出了洞庭湖山水的秀美。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-304",
+    "type": "classical",
+    "prompt": "「遥望洞庭山水翠」中「翠」形容什么？",
+    "options": [
+      "翡翠",
+      "山水苍翠碧绿",
+      "湖水很深",
+      "天空很蓝"
+    ],
+    "correct": 1,
+    "explanation": "「翠」形容远望洞庭湖和君山呈现出苍翠碧绿的颜色。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-305",
+    "type": "classical",
+    "prompt": "《望洞庭》描写的是什么时候的景色？",
+    "options": [
+      "春天白天",
+      "夏天中午",
+      "秋天夜晚",
+      "冬天早晨"
+    ],
+    "correct": 2,
+    "explanation": "「湖光秋月两相和」说明是秋天的月夜，诗人在月光下望洞庭湖。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-306",
+    "type": "classical",
+    "prompt": "「两相和」中「和」的意思是？",
+    "options": [
+      "和平",
+      "融合、和谐",
+      "温暖",
+      "与"
+    ],
+    "correct": 1,
+    "explanation": "「两相和」指湖光和秋月互相融合、交相辉映，十分和谐。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-307",
+    "type": "classical",
+    "prompt": "《望洞庭》全诗的特点是？",
+    "options": [
+      "雄壮豪迈",
+      "清新秀美、比喻精妙",
+      "悲凉忧伤",
+      "热烈奔放"
+    ],
+    "correct": 1,
+    "explanation": "全诗用「镜未磨」「白银盘」「青螺」等精妙比喻，写出了洞庭湖清新秀美的景色。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-308",
+    "type": "classical",
+    "prompt": "「水光潋滟晴方好」中「潋滟」的意思是？",
+    "options": [
+      "波光闪动的样子",
+      "水面平静",
+      "水很深",
+      "水很浑浊"
+    ],
+    "correct": 0,
+    "explanation": "「潋滟」形容水波荡漾、波光闪动的样子，描写晴天西湖水面波光粼粼。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-309",
+    "type": "classical",
+    "prompt": "「山色空蒙雨亦奇」中「空蒙」的意思是？",
+    "options": [
+      "空旷",
+      "迷蒙缥缈",
+      "茫然",
+      "蒙蔽"
+    ],
+    "correct": 1,
+    "explanation": "「空蒙」形容雨中山色迷蒙缥缈的样子，写出了雨中西湖朦胧之美。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-310",
+    "type": "classical",
+    "prompt": "「欲把西湖比西子」中「西子」指谁？",
+    "options": [
+      "西王母",
+      "西施",
+      "王昭君",
+      "杨贵妃"
+    ],
+    "correct": 1,
+    "explanation": "「西子」即西施，春秋时期的美女。苏轼将西湖比作西施，赞美西湖之美。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-311",
+    "type": "classical",
+    "prompt": "「淡妆浓抹总相宜」的意思是？",
+    "options": [
+      "化妆很好看",
+      "无论淡妆还是浓妆都合适",
+      "只适合浓妆",
+      "不需要化妆"
+    ],
+    "correct": 1,
+    "explanation": "无论淡妆还是浓妆都合适，比喻西湖无论晴天还是雨天都一样美丽。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-312",
+    "type": "classical",
+    "prompt": "《饮湖上初晴后雨》中晴天对应「淡妆」还是「浓抹」？",
+    "options": [
+      "淡妆",
+      "浓抹",
+      "都不是",
+      "不确定"
+    ],
+    "correct": 0,
+    "explanation": "晴天西湖水光潋滟，如美人淡妆；雨天山色空蒙，如美人浓抹。晴天对应淡妆。",
+    "difficulty": 4,
+    "tags": [
+      "宋诗",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-313",
+    "type": "classical",
+    "prompt": "《饮湖上初晴后雨》表达了苏轼对西湖什么样的感情？",
+    "options": [
+      "无所谓",
+      "深深的热爱和赞美",
+      "觉得一般",
+      "不太喜欢"
+    ],
+    "correct": 1,
+    "explanation": "苏轼把西湖比作西施，无论晴雨都美，表达了对西湖由衷的热爱和赞美。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "情感主旨"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-314",
+    "type": "classical",
+    "prompt": "西湖因为苏轼的这首诗又被称为什么？",
+    "options": [
+      "明镜湖",
+      "西子湖",
+      "太湖",
+      "鉴湖"
+    ],
+    "correct": 1,
+    "explanation": "因为苏轼「欲把西湖比西子」的千古名句，西湖又被称为「西子湖」。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-315",
+    "type": "classical",
+    "prompt": "「众鸟高飞尽，孤云独去闲」出自哪首诗？",
+    "options": [
+      "《鹿柴》",
+      "《独坐敬亭山》",
+      "《望天门山》",
+      "《鸟鸣涧》"
+    ],
+    "correct": 1,
+    "explanation": "这两句出自李白的《独坐敬亭山》。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "名句填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-316",
+    "type": "classical",
+    "prompt": "《独坐敬亭山》的作者是谁？",
+    "options": [
+      "王维",
+      "杜甫",
+      "李白",
+      "孟浩然"
+    ],
+    "correct": 2,
+    "explanation": "《独坐敬亭山》是唐代大诗人李白的作品。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-317",
+    "type": "classical",
+    "prompt": "「相看两不厌，只有敬亭山」表达了什么感情？",
+    "options": [
+      "喜欢爬山",
+      "诗人以山为知己，表达孤独中的慰藉",
+      "山很好看",
+      "想去旅行"
+    ],
+    "correct": 1,
+    "explanation": "鸟飞云去，只有敬亭山与诗人相对不厌，表达了诗人虽然孤独却以山为知己的深情。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "情感主旨"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-318",
+    "type": "classical",
+    "prompt": "「众鸟高飞尽」中「尽」的意思是？",
+    "options": [
+      "尽头",
+      "全部飞完了、飞尽了",
+      "尽力",
+      "尽管"
+    ],
+    "correct": 1,
+    "explanation": "「尽」是完了的意思，所有的鸟都飞走了，天空中空无一物。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-319",
+    "type": "classical",
+    "prompt": "「孤云独去闲」中「闲」形容什么？",
+    "options": [
+      "无聊",
+      "云悠闲自在地飘去",
+      "空闲",
+      "闲人"
+    ],
+    "correct": 1,
+    "explanation": "「闲」形容云悠闲自在地飘走，烘托出一种寂静闲适的气氛。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-320",
+    "type": "classical",
+    "prompt": "「相看两不厌」运用了什么修辞手法？",
+    "options": [
+      "比喻",
+      "拟人",
+      "夸张",
+      "排比"
+    ],
+    "correct": 1,
+    "explanation": "「相看两不厌」将敬亭山拟人化，好像山也在看着诗人，而且看不够，是拟人手法。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-321",
+    "type": "classical",
+    "prompt": "敬亭山在哪里？",
+    "options": [
+      "安徽宣城",
+      "江西庐山",
+      "浙江杭州",
+      "湖南长沙"
+    ],
+    "correct": 0,
+    "explanation": "敬亭山位于今安徽省宣城市，是一座文化名山。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-322",
+    "type": "classical",
+    "prompt": "李白被誉为什么？",
+    "options": [
+      "诗圣",
+      "诗佛",
+      "诗仙",
+      "诗豪"
+    ],
+    "correct": 2,
+    "explanation": "李白被后人尊称为「诗仙」，因其诗风飘逸洒脱、想象奇特。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-323",
+    "type": "classical",
+    "prompt": "「天门中断楚江开」中「楚江」指什么？",
+    "options": [
+      "楚国的一条河",
+      "长江（流经古楚地的这段）",
+      "汉江",
+      "湘江"
+    ],
+    "correct": 1,
+    "explanation": "「楚江」指长江流经古楚国地域的这一段，天门山在长江边。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-324",
+    "type": "classical",
+    "prompt": "「天门中断楚江开」中「中断」是什么意思？",
+    "options": [
+      "中间断开",
+      "中间停止",
+      "被江水从中间冲断",
+      "中途放弃"
+    ],
+    "correct": 2,
+    "explanation": "「中断」指天门山被长江水从中间冲开，形成东西两座山对峙的壮观景象。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-325",
+    "type": "classical",
+    "prompt": "「碧水东流至此回」中「回」的意思是？",
+    "options": [
+      "回家",
+      "回旋、转弯",
+      "回答",
+      "回来"
+    ],
+    "correct": 1,
+    "explanation": "「回」是回旋、转弯的意思，碧绿的江水向东流到天门山这里转了个弯。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-326",
+    "type": "classical",
+    "prompt": "「两岸青山相对出」中「出」字用得好在哪里？",
+    "options": [
+      "表示山很高",
+      "表示山在生长",
+      "使静止的山有了动态感，仿佛迎面而来",
+      "表示山突然出现"
+    ],
+    "correct": 2,
+    "explanation": "「出」字赋予山以动感，好像两岸的青山在船行进中迎面而来，化静为动，十分生动。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-327",
+    "type": "classical",
+    "prompt": "「孤帆一片日边来」写的是从什么视角观察？",
+    "options": [
+      "从山上俯瞰",
+      "从船上看两岸",
+      "从岸边看远处的船",
+      "从天上看"
+    ],
+    "correct": 2,
+    "explanation": "诗人从天门山远眺，看到一片孤帆从太阳那边驶来，视野开阔壮观。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-328",
+    "type": "classical",
+    "prompt": "《望天门山》展现了什么样的景象？",
+    "options": [
+      "小桥流水",
+      "雄伟壮观的山河景象",
+      "宁静的田园",
+      "凄凉的战场"
+    ],
+    "correct": 1,
+    "explanation": "天门山被大江冲开、碧水回旋、青山对峙、孤帆远来，展现了雄伟壮观的山河景象。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "情感主旨"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-329",
+    "type": "classical",
+    "prompt": "天门山在今天哪个省？",
+    "options": [
+      "湖北",
+      "安徽",
+      "江西",
+      "浙江"
+    ],
+    "correct": 1,
+    "explanation": "天门山位于今安徽省马鞍市境内，由东西两座山（东梁山和西梁山）夹江对峙。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-330",
+    "type": "classical",
+    "prompt": "《精卫填海》中精卫是谁变的？",
+    "options": [
+      "龙王的女儿",
+      "炎帝的小女儿女娃",
+      "黄帝的妻子",
+      "王母的侍女"
+    ],
+    "correct": 1,
+    "explanation": "精卫原是炎帝的小女儿，名叫女娃，在东海溺水身亡后化为精卫鸟。",
+    "difficulty": 2,
+    "tags": [
+      "古代神话",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-334",
+    "type": "classical",
+    "prompt": "「精卫填海」这个故事常用来比喻什么精神？",
+    "options": [
+      "随遇而安",
+      "意志坚定、不畏艰难的精神",
+      "聪明机智",
+      "谦虚谨慎"
+    ],
+    "correct": 1,
+    "explanation": "精卫鸟以微小的力量立志填平大海，比喻意志坚定、不畏艰难、持之以恒的精神。",
+    "difficulty": 2,
+    "tags": [
+      "古代神话",
+      "情感主旨"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-336",
+    "type": "classical",
+    "prompt": "精卫是什么样的鸟？",
+    "options": [
+      "像凤凰",
+      "像鸡一样大小的鸟，花头、白嘴、红爪",
+      "像老鹰",
+      "像鹦鹉"
+    ],
+    "correct": 1,
+    "explanation": "据《山海经》记载，精卫「其状如乌，文首、白喙、赤足」，像乌鸦大小，花纹的头、白色的嘴、红色的脚。",
+    "difficulty": 3,
+    "tags": [
+      "古代神话",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-337",
+    "type": "classical",
+    "prompt": "精卫填海用的是什么材料？",
+    "options": [
+      "泥土",
+      "西山的木头和石子",
+      "沙子",
+      "贝壳"
+    ],
+    "correct": 1,
+    "explanation": "「常衔西山之木石」，精卫衔的是西山（发鸠山）的树枝和石子。",
+    "difficulty": 2,
+    "tags": [
+      "古代神话",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-338",
+    "type": "classical",
+    "prompt": "《女娲补天》中，天为什么会破？",
+    "options": [
+      "天太旧了",
+      "共工怒触不周山，天柱折断，天塌了一角",
+      "被雷劈破了",
+      "太阳烤裂了"
+    ],
+    "correct": 1,
+    "explanation": "水神共工与颛顼争帝失败后怒撞不周山，不周山是天柱，天柱断后天塌了一角。",
+    "difficulty": 3,
+    "tags": [
+      "古代神话",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-339",
+    "type": "classical",
+    "prompt": "女娲用什么补天？",
+    "options": [
+      "泥土",
+      "树枝",
+      "五色石",
+      "金子"
+    ],
+    "correct": 2,
+    "explanation": "女娲炼五色石来补天，使天恢复完好。",
+    "difficulty": 2,
+    "tags": [
+      "古代神话",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-340",
+    "type": "classical",
+    "prompt": "「女娲炼五色石以补苍天」中「苍天」的意思是？",
+    "options": [
+      "青色的天空，即天",
+      "伤心",
+      "苍老的天",
+      "苍白的天"
+    ],
+    "correct": 0,
+    "explanation": "「苍天」就是指天，「苍」是深青色，古人认为天是苍色的。",
+    "difficulty": 2,
+    "tags": [
+      "古代神话",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-341",
+    "type": "classical",
+    "prompt": "《女娲补天》表达了什么主题？",
+    "options": [
+      "天很容易坏",
+      "歌颂女娲不畏困难、拯救苍生的伟大精神",
+      "石头很有用",
+      "不周山不结实"
+    ],
+    "correct": 1,
+    "explanation": "女娲不畏艰难炼石补天、拯救人类，体现了勇于担当、造福苍生的伟大精神。",
+    "difficulty": 2,
+    "tags": [
+      "古代神话",
+      "情感主旨"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-342",
+    "type": "classical",
+    "prompt": "女娲补天的故事出自哪部古书？",
+    "options": [
+      "《山海经》",
+      "《淮南子》",
+      "《论语》",
+      "《史记》"
+    ],
+    "correct": 1,
+    "explanation": "女娲补天的故事主要出自《淮南子·览冥训》。",
+    "difficulty": 3,
+    "tags": [
+      "古代神话",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-343",
+    "type": "classical",
+    "prompt": "女娲补天后还做了什么来稳固天地？",
+    "options": [
+      "种了一棵树",
+      "断鳌足以立四极",
+      "建了一座塔",
+      "什么都没做"
+    ],
+    "correct": 1,
+    "explanation": "女娲除了炼石补天，还斩断大龟的四只脚作为四根天柱，支撑住天的四角。",
+    "difficulty": 3,
+    "tags": [
+      "古代神话",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-344",
+    "type": "classical",
+    "prompt": "「不周山」在神话中有什么特殊意义？",
+    "options": [
+      "是最高的山",
+      "是支撑天地的天柱",
+      "是女娲住的地方",
+      "是最美的山"
+    ],
+    "correct": 1,
+    "explanation": "不周山在神话中是支撑天地的天柱，共工撞断天柱后天才塌了一角。",
+    "difficulty": 3,
+    "tags": [
+      "古代神话",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-345",
+    "type": "classical",
+    "prompt": "《王戎不取道旁李》中，王戎看到路边李树上果实累累，为什么不摘？",
+    "options": [
+      "他不喜欢吃李子",
+      "他推断路边李树果多必定是苦的",
+      "他够不到",
+      "别人不让他摘"
+    ],
+    "correct": 1,
+    "explanation": "王戎认为李树长在路边却果实累累无人摘，一定是苦李子，说明他善于观察和推理。",
+    "difficulty": 2,
+    "tags": [
+      "文言文",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-346",
+    "type": "classical",
+    "prompt": "「看道边李树多子折枝」中「多子折枝」的意思是？",
+    "options": [
+      "李子太多把树枝折断了",
+      "果实很多、压弯了枝条",
+      "孩子太多把树枝弄断",
+      "把树枝折下来"
+    ],
+    "correct": 1,
+    "explanation": "「多子折枝」是果实很多，把树枝都压弯了的意思，形容果实累累。",
+    "difficulty": 3,
+    "tags": [
+      "文言文",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-347",
+    "type": "classical",
+    "prompt": "「诸儿竞走取之，唯戎不动」中「竞走」的意思是？",
+    "options": [
+      "走路比赛",
+      "争着跑过去",
+      "竞赛",
+      "走路"
+    ],
+    "correct": 1,
+    "explanation": "「竞走」是争着跑过去的意思，别的孩子争先恐后地跑去摘李子。",
+    "difficulty": 3,
+    "tags": [
+      "文言文",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-348",
+    "type": "classical",
+    "prompt": "「树在道边而多子，此必苦李」的推理逻辑是？",
+    "options": [
+      "路边的树都是苦的",
+      "如果是甜李子，路人早就摘光了，果实多说明没人摘，必是苦的",
+      "李子越多越苦",
+      "绿色的李子是苦的"
+    ],
+    "correct": 1,
+    "explanation": "王戎的推理是：如果李子是甜的，路人早就摘光了；果实还这么多没人摘，说明一定是苦的。",
+    "difficulty": 3,
+    "tags": [
+      "文言文",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-349",
+    "type": "classical",
+    "prompt": "《王戎不取道旁李》告诉我们什么道理？",
+    "options": [
+      "不要吃路边的东西",
+      "要善于观察和思考，学会推理判断",
+      "李子不好吃",
+      "不要和别人抢东西"
+    ],
+    "correct": 1,
+    "explanation": "这个故事告诉我们遇事要善于观察、认真思考、学会推理判断，不要盲目跟从。",
+    "difficulty": 2,
+    "tags": [
+      "文言文",
+      "情感主旨"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-350",
+    "type": "classical",
+    "prompt": "王戎是哪个时代的人？",
+    "options": [
+      "春秋时期",
+      "战国时期",
+      "西晋时期",
+      "唐代"
+    ],
+    "correct": 2,
+    "explanation": "王戎是西晋名士，「竹林七贤」之一，从小就聪慧过人。",
+    "difficulty": 3,
+    "tags": [
+      "文言文",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-351",
+    "type": "classical",
+    "prompt": "《王戎不取道旁李》出自哪部书？",
+    "options": [
+      "《史记》",
+      "《世说新语》",
+      "《韩非子》",
+      "《论语》"
+    ],
+    "correct": 1,
+    "explanation": "这个故事出自南朝刘义庆编的《世说新语·雅量》。",
+    "difficulty": 3,
+    "tags": [
+      "文言文",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-352",
+    "type": "classical",
+    "prompt": "「唯戎不动」中「唯」的意思是？",
+    "options": [
+      "只有",
+      "因为",
+      "虽然",
+      "唯一"
+    ],
+    "correct": 0,
+    "explanation": "「唯」是只有的意思，只有王戎一个人没有去摘李子。",
+    "difficulty": 2,
+    "tags": [
+      "文言文",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-353",
+    "type": "classical",
+    "prompt": "《囊萤夜读》讲的是谁的故事？",
+    "options": [
+      "匡衡",
+      "孙康",
+      "车胤",
+      "苏秦"
+    ],
+    "correct": 2,
+    "explanation": "《囊萤夜读》讲的是晋代车胤用袋子装萤火虫照明读书的故事。",
+    "difficulty": 2,
+    "tags": [
+      "文言文",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-354",
+    "type": "classical",
+    "prompt": "「囊萤」中「囊」的意思是？",
+    "options": [
+      "口袋",
+      "囊括",
+      "布袋",
+      "用袋子装"
+    ],
+    "correct": 3,
+    "explanation": "「囊」在这里是名词用作动词，意思是用袋子装，车胤用袋子装萤火虫。",
+    "difficulty": 3,
+    "tags": [
+      "文言文",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-355",
+    "type": "classical",
+    "prompt": "车胤为什么要用萤火虫照明读书？",
+    "options": [
+      "他喜欢萤火虫",
+      "家里太穷，买不起灯油",
+      "他觉得这样有趣",
+      "别人教他的"
+    ],
+    "correct": 1,
+    "explanation": "车胤家境贫寒，买不起灯油，但他勤奋好学，就用袋子装萤火虫来照明读书。",
+    "difficulty": 2,
+    "tags": [
+      "文言文",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-356",
+    "type": "classical",
+    "prompt": "「胤恭勤不倦，博学多通」中「恭勤不倦」的意思是？",
+    "options": [
+      "恭敬地工作",
+      "勤奋努力不知疲倦",
+      "恭恭敬敬",
+      "不想休息"
+    ],
+    "correct": 1,
+    "explanation": "「恭勤不倦」是恭谨勤奋、不知疲倦的意思，形容车胤学习非常刻苦。",
+    "difficulty": 3,
+    "tags": [
+      "文言文",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-357",
+    "type": "classical",
+    "prompt": "「博学多通」的意思是？",
+    "options": [
+      "读了很多书",
+      "知识渊博、通晓很多事理",
+      "博览群书",
+      "到处旅行"
+    ],
+    "correct": 1,
+    "explanation": "「博学」是知识广博，「多通」是通晓很多道理，形容车胤学识渊博。",
+    "difficulty": 2,
+    "tags": [
+      "文言文",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-358",
+    "type": "classical",
+    "prompt": "《囊萤夜读》告诉我们什么道理？",
+    "options": [
+      "萤火虫很有用",
+      "无论条件多艰苦都要勤奋学习",
+      "晚上不要读书",
+      "要节约灯油"
+    ],
+    "correct": 1,
+    "explanation": "车胤在困境中依然坚持勤奋读书，告诉我们无论条件多艰苦都不能放弃学习。",
+    "difficulty": 2,
+    "tags": [
+      "文言文",
+      "情感主旨"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-359",
+    "type": "classical",
+    "prompt": "「囊萤夜读」常与哪个成语并列使用？",
+    "options": [
+      "悬梁刺股",
+      "凿壁偷光",
+      "画蛇添足",
+      "守株待兔"
+    ],
+    "correct": 0,
+    "explanation": "「囊萤夜读」常与「悬梁刺股」并列，都是形容刻苦学习的典故。也常与「映雪读书」并称。",
+    "difficulty": 3,
+    "tags": [
+      "文言文",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-360",
+    "type": "classical",
+    "prompt": "「家贫不常得油」中「常」的意思是？",
+    "options": [
+      "经常",
+      "常常能够",
+      "平常",
+      "正常"
+    ],
+    "correct": 1,
+    "explanation": "「不常得油」是不能经常得到（买到）灯油的意思，说明家里很穷。",
+    "difficulty": 2,
+    "tags": [
+      "文言文",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-361",
+    "type": "classical",
+    "prompt": "车胤是哪个朝代的人？",
+    "options": [
+      "汉代",
+      "晋代",
+      "唐代",
+      "宋代"
+    ],
+    "correct": 1,
+    "explanation": "车胤是东晋时期的人，后来官至吏部尚书。",
+    "difficulty": 2,
+    "tags": [
+      "文言文",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-362",
+    "type": "classical",
+    "prompt": "《铁杵成针》讲的是谁小时候的故事？",
+    "options": [
+      "杜甫",
+      "苏轼",
+      "李白",
+      "白居易"
+    ],
+    "correct": 2,
+    "explanation": "《铁杵成针》讲的是李白小时候受到老婆婆启发、发奋读书的故事。",
+    "difficulty": 2,
+    "tags": [
+      "文言文",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-363",
+    "type": "classical",
+    "prompt": "「铁杵」是什么东西？",
+    "options": [
+      "铁锤",
+      "铁制的粗棒",
+      "铁钉",
+      "铁锅"
+    ],
+    "correct": 1,
+    "explanation": "「铁杵」是用铁做的粗棒子，类似于捣衣用的铁棒。",
+    "difficulty": 2,
+    "tags": [
+      "文言文",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-364",
+    "type": "classical",
+    "prompt": "李白在路上遇到老婆婆在做什么？",
+    "options": [
+      "洗衣服",
+      "在溪边磨一根铁杵",
+      "做饭",
+      "织布"
+    ],
+    "correct": 1,
+    "explanation": "李白看到一位老婆婆在溪边的石头上磨一根粗铁棒，想把它磨成绣花针。",
+    "difficulty": 2,
+    "tags": [
+      "文言文",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-365",
+    "type": "classical",
+    "prompt": "「磨针溪，在象耳山下」中「磨针溪」是什么？",
+    "options": [
+      "一种工具",
+      "溪流的名字，因老婆婆磨针而得名",
+      "一种磨刀石",
+      "一种针"
+    ],
+    "correct": 1,
+    "explanation": "「磨针溪」是一条溪流的名字，传说因老婆婆在此磨铁杵成针而得名。",
+    "difficulty": 3,
+    "tags": [
+      "文言文",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-366",
+    "type": "classical",
+    "prompt": "「铁杵成针」告诉我们什么道理？",
+    "options": [
+      "铁可以变成针",
+      "只要功夫深，铁杵磨成针——做事要有恒心和毅力",
+      "不要浪费铁",
+      "磨针很容易"
+    ],
+    "correct": 1,
+    "explanation": "「只要功夫深，铁杵磨成针」，告诉我们只要有恒心和毅力、坚持不懈，就能成功。",
+    "difficulty": 2,
+    "tags": [
+      "文言文",
+      "情感主旨"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-367",
+    "type": "classical",
+    "prompt": "「太白感其意，还卒业」中「卒业」的意思是？",
+    "options": [
+      "死了",
+      "毕业",
+      "完成学业",
+      "开始学习"
+    ],
+    "correct": 2,
+    "explanation": "「卒业」是完成学业的意思。李白被老婆婆的精神感动，回去发奋读书完成了学业。",
+    "difficulty": 3,
+    "tags": [
+      "文言文",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-368",
+    "type": "classical",
+    "prompt": "「太白感其意」中「感」的意思是？",
+    "options": [
+      "感觉",
+      "被感动",
+      "感谢",
+      "感叹"
+    ],
+    "correct": 1,
+    "explanation": "「感」是被感动的意思，李白被老婆婆持之以恒的精神所感动。",
+    "difficulty": 2,
+    "tags": [
+      "文言文",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-369",
+    "type": "classical",
+    "prompt": "「过是溪」中「是」的意思是？",
+    "options": [
+      "是的",
+      "这条",
+      "对的",
+      "正确"
+    ],
+    "correct": 1,
+    "explanation": "「是」在古文中常作指示代词，意思是「这」，「过是溪」就是经过这条溪。",
+    "difficulty": 3,
+    "tags": [
+      "文言文",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-370",
+    "type": "classical",
+    "prompt": "李白小时候为什么会逃学？",
+    "options": [
+      "生病了",
+      "觉得读书太辛苦，不愿意学",
+      "老师太严厉",
+      "学校太远"
+    ],
+    "correct": 1,
+    "explanation": "李白小时候觉得读书太辛苦，中途不想学了就跑出来玩，在路上遇到了磨铁杵的老婆婆。",
+    "difficulty": 2,
+    "tags": [
+      "文言文",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-371",
+    "type": "classical",
+    "prompt": "《墨梅》《竹石》《石灰吟》三首诗的共同写作手法是什么？",
+    "options": [
+      "借景抒情",
+      "托物言志",
+      "直抒胸臆",
+      "借古讽今"
+    ],
+    "correct": 1,
+    "explanation": "三首诗分别借梅花、竹子、石灰来表达高洁品格，都是托物言志的手法。",
+    "difficulty": 3,
+    "tags": [
+      "诗歌比较",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-372",
+    "type": "classical",
+    "prompt": "《出塞》和《凉州词》都属于什么类型的诗？",
+    "options": [
+      "田园诗",
+      "送别诗",
+      "边塞诗",
+      "咏物诗"
+    ],
+    "correct": 2,
+    "explanation": "两首诗都描写了边塞军旅生活，都是典型的唐代边塞诗。",
+    "difficulty": 2,
+    "tags": [
+      "诗歌比较",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-373",
+    "type": "classical",
+    "prompt": "《示儿》和《夏日绝句》表达的共同情感是什么？",
+    "options": [
+      "对自然的热爱",
+      "强烈的爱国情怀",
+      "对朋友的思念",
+      "对田园的向往"
+    ],
+    "correct": 1,
+    "explanation": "《示儿》渴望国家统一，《夏日绝句》赞美气节讽刺苟安，都表达了强烈的爱国情怀。",
+    "difficulty": 3,
+    "tags": [
+      "诗歌比较",
+      "情感主旨"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-374",
+    "type": "classical",
+    "prompt": "「横看成岭侧成峰」的「横」和「侧」分别表示什么观察角度？",
+    "options": [
+      "上和下",
+      "正面和侧面",
+      "远和近",
+      "高和低"
+    ],
+    "correct": 1,
+    "explanation": "「横」是从正面看，「侧」是从侧面看，说明从不同角度看庐山呈现不同的面貌。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-375",
+    "type": "classical",
+    "prompt": "以下哪首诗是七言绝句？",
+    "options": [
+      "《鹿柴》",
+      "《题西林壁》",
+      "《清平乐·村居》",
+      "《西江月·夜行黄沙道中》"
+    ],
+    "correct": 1,
+    "explanation": "《题西林壁》每句七字、共四句，是七言绝句。《鹿柴》是五言绝句，另两首是词。",
+    "difficulty": 3,
+    "tags": [
+      "诗歌常识",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-376",
+    "type": "classical",
+    "prompt": "以下哪首诗是五言绝句？",
+    "options": [
+      "《出塞》",
+      "《暮江吟》",
+      "《鹿柴》",
+      "《浪淘沙》"
+    ],
+    "correct": 2,
+    "explanation": "《鹿柴》每句五字、共四句（空山不见人，但闻人语响），是五言绝句。",
+    "difficulty": 3,
+    "tags": [
+      "诗歌常识",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-377",
+    "type": "classical",
+    "prompt": "「词」和「诗」的主要区别是什么？",
+    "options": [
+      "词更长",
+      "词的句子长短不一，又叫「长短句」",
+      "词是唱的，诗是念的",
+      "没有区别"
+    ],
+    "correct": 1,
+    "explanation": "词又叫「长短句」，每句字数不等，而近体诗每句字数相同（五言或七言）。",
+    "difficulty": 3,
+    "tags": [
+      "诗歌常识",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-378",
+    "type": "classical",
+    "prompt": "以下哪位诗人不是唐代的？",
+    "options": [
+      "白居易",
+      "王昌龄",
+      "陆游",
+      "王维"
+    ],
+    "correct": 2,
+    "explanation": "陆游是南宋诗人，其余三位都是唐代诗人。",
+    "difficulty": 2,
+    "tags": [
+      "作者朝代",
+      "诗歌常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-379",
+    "type": "classical",
+    "prompt": "以下哪位诗人不是宋代的？",
+    "options": [
+      "苏轼",
+      "辛弃疾",
+      "范成大",
+      "王翰"
+    ],
+    "correct": 3,
+    "explanation": "王翰是唐代诗人，苏轼、辛弃疾、范成大都是宋代诗人。",
+    "difficulty": 2,
+    "tags": [
+      "作者朝代",
+      "诗歌常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-380",
+    "type": "classical",
+    "prompt": "「吴音」在《清平乐·村居》中指什么？",
+    "options": [
+      "吴国的音乐",
+      "吴地方言、南方口音",
+      "一种乐器",
+      "一首曲子"
+    ],
+    "correct": 1,
+    "explanation": "「吴音」指吴地的方言，即南方口音。老夫妇用带着吴地口音的方言亲切交谈。",
+    "difficulty": 3,
+    "tags": [
+      "宋词",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-381",
+    "type": "classical",
+    "prompt": "「中儿正织鸡笼」中这个孩子在做什么？",
+    "options": [
+      "养鸡",
+      "编织鸡笼",
+      "画画",
+      "做饭"
+    ],
+    "correct": 1,
+    "explanation": "二儿子正在编织鸡笼，各个孩子都在做力所能及的事。",
+    "difficulty": 2,
+    "tags": [
+      "宋词",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-382",
+    "type": "classical",
+    "prompt": "「溪头卧剥莲蓬」中「卧」字有什么表达效果？",
+    "options": [
+      "说明很累",
+      "写出了小儿子天真自在、无忧无虑的神态",
+      "说明在睡觉",
+      "说明很懒"
+    ],
+    "correct": 1,
+    "explanation": "「卧」字描绘了小儿子趴在溪边剥莲蓬的天真可爱模样，生动传神。",
+    "difficulty": 3,
+    "tags": [
+      "宋词",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-383",
+    "type": "classical",
+    "prompt": "「茅檐低小」说明这家人的生活条件怎样？",
+    "options": [
+      "非常富裕",
+      "简朴清贫",
+      "一般",
+      "豪华"
+    ],
+    "correct": 1,
+    "explanation": "「茅檐低小」描写房屋是低矮的茅草屋，说明这家人生活简朴、清贫。",
+    "difficulty": 2,
+    "tags": [
+      "宋词",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-384",
+    "type": "classical",
+    "prompt": "「稻花香里说丰年」中谁在「说丰年」？",
+    "options": [
+      "诗人",
+      "农民",
+      "青蛙",
+      "稻花"
+    ],
+    "correct": 2,
+    "explanation": "结合下句「听取蛙声一片」，是蛙声仿佛在谈论丰收，用拟人手法写蛙声「说丰年」。",
+    "difficulty": 3,
+    "tags": [
+      "宋词",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-385",
+    "type": "classical",
+    "prompt": "「社林」在「旧时茅店社林边」中指什么？",
+    "options": [
+      "社会的树林",
+      "土地庙周围的树林",
+      "社区花园",
+      "公园"
+    ],
+    "correct": 1,
+    "explanation": "「社林」是土地庙（社庙）周围的树林，古代村庄常有土地庙。",
+    "difficulty": 3,
+    "tags": [
+      "宋词",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-386",
+    "type": "classical",
+    "prompt": "「路转溪桥忽见」中「见」的读音是？",
+    "options": [
+      "jiàn（看见）",
+      "xiàn（同现，出现）",
+      "jiān",
+      "kàn"
+    ],
+    "correct": 1,
+    "explanation": "「见」在这里读xiàn，同「现」，是出现的意思，突然出现了以前的茅店。",
+    "difficulty": 4,
+    "tags": [
+      "宋词",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-387",
+    "type": "classical",
+    "prompt": "王维是哪个朝代的诗人？",
+    "options": [
+      "宋代",
+      "唐代",
+      "明代",
+      "清代"
+    ],
+    "correct": 1,
+    "explanation": "王维是唐代著名诗人和画家，字摩诘，人称「王右丞」。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-388",
+    "type": "classical",
+    "prompt": "《鹿柴》中描写了哪些感官体验？",
+    "options": [
+      "只有视觉",
+      "视觉和听觉",
+      "只有听觉",
+      "触觉和味觉"
+    ],
+    "correct": 1,
+    "explanation": "「不见人」和「返景入深林，复照青苔上」是视觉；「但闻人语响」是听觉。视听结合。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-389",
+    "type": "classical",
+    "prompt": "「复照青苔上」中「复」的意思是？",
+    "options": [
+      "复杂",
+      "又、再",
+      "恢复",
+      "重复"
+    ],
+    "correct": 1,
+    "explanation": "「复」是又、再的意思，夕阳余晖又照在了青苔上。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-390",
+    "type": "classical",
+    "prompt": "《望洞庭》和《饮湖上初晴后雨》分别写的是哪两个湖？",
+    "options": [
+      "洞庭湖和太湖",
+      "鄱阳湖和西湖",
+      "洞庭湖和西湖",
+      "太湖和西湖"
+    ],
+    "correct": 2,
+    "explanation": "《望洞庭》写的是洞庭湖，《饮湖上初晴后雨》写的是西湖（杭州西湖）。",
+    "difficulty": 2,
+    "tags": [
+      "诗歌比较",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-391",
+    "type": "classical",
+    "prompt": "「镜未磨」比喻洞庭湖面的什么状态？",
+    "options": [
+      "非常光滑",
+      "朦胧、不太清晰",
+      "很脏",
+      "破碎"
+    ],
+    "correct": 1,
+    "explanation": "「镜未磨」指没有打磨过的铜镜，表面朦胧不太清晰，比喻月光下湖面微波荡漾、略显朦胧。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-392",
+    "type": "classical",
+    "prompt": "《独坐敬亭山》中「独坐」说明什么？",
+    "options": [
+      "只坐一会儿",
+      "诗人独自一人、内心孤独",
+      "座位只有一个",
+      "一个人的习惯"
+    ],
+    "correct": 1,
+    "explanation": "「独坐」既是实写诗人一人坐在山中，也暗示了诗人内心的孤独寂寞。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-393",
+    "type": "classical",
+    "prompt": "「两不厌」中「厌」的意思是？",
+    "options": [
+      "讨厌",
+      "满足、厌倦",
+      "压",
+      "嫌弃"
+    ],
+    "correct": 1,
+    "explanation": "「厌」是满足、厌倦的意思，「两不厌」是互相看不够、不厌倦。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-394",
+    "type": "classical",
+    "prompt": "「日边来」中「日边」形容什么？",
+    "options": [
+      "太阳旁边，形容很远的地方",
+      "白天",
+      "日子很近",
+      "日落"
+    ],
+    "correct": 0,
+    "explanation": "「日边」指太阳那边，形容极远的地方。一片孤帆从天际那么远的地方驶来。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-395",
+    "type": "classical",
+    "prompt": "《望天门山》的「望」说明诗人的位置在哪里？",
+    "options": [
+      "山顶上",
+      "在远处或船上望向天门山",
+      "天门山脚下",
+      "家中"
+    ],
+    "correct": 1,
+    "explanation": "「望」说明诗人从远处眺望天门山，结合「孤帆日边来」，诗人可能在船上远望。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-396",
+    "type": "classical",
+    "prompt": "「精卫填海」和「女娲补天」有什么共同点？",
+    "options": [
+      "都是历史事实",
+      "都展现了不畏艰难、造福世界的精神",
+      "都出自同一本书",
+      "都发生在同一个时代"
+    ],
+    "correct": 1,
+    "explanation": "两个神话都展现了面对巨大困难不退缩、努力改变世界的伟大精神。",
+    "difficulty": 3,
+    "tags": [
+      "古代神话",
+      "情感主旨"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-397",
+    "type": "classical",
+    "prompt": "「王戎不取道旁李」和「铁杵成针」分别教导我们什么？",
+    "options": [
+      "不要摘果子和不要逃学",
+      "善于思考判断和做事要有恒心",
+      "不要贪吃和要勤劳",
+      "要听话和不要说谎"
+    ],
+    "correct": 1,
+    "explanation": "「王戎不取道旁李」教我们善于观察和思考，「铁杵成针」教我们做事要有恒心和毅力。",
+    "difficulty": 3,
+    "tags": [
+      "文言文",
+      "情感主旨"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-398",
+    "type": "classical",
+    "prompt": "「囊萤夜读」和「铁杵成针」的共同启示是？",
+    "options": [
+      "要利用大自然",
+      "学习和做事需要勤奋刻苦、持之以恒",
+      "要节约资源",
+      "晚上要学习"
+    ],
+    "correct": 1,
+    "explanation": "「囊萤夜读」说明在困境中仍要坚持学习，「铁杵成针」说明只要有恒心就能成功，都强调勤奋和坚持。",
+    "difficulty": 3,
+    "tags": [
+      "文言文",
+      "情感主旨"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-399",
+    "type": "classical",
+    "prompt": "《暮江吟》中哪一句写的是傍晚的景色？",
+    "options": [
+      "可怜九月初三夜",
+      "露似真珠月似弓",
+      "一道残阳铺水中，半江瑟瑟半江红",
+      "以上都是"
+    ],
+    "correct": 2,
+    "explanation": "「一道残阳铺水中，半江瑟瑟半江红」写夕阳映照江面，是傍晚景色。后两句写的是夜晚。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-400",
+    "type": "classical",
+    "prompt": "「费评章」中「评章」的意思是？",
+    "options": [
+      "评价、品评文章",
+      "费用很高",
+      "评论家",
+      "评论章节"
+    ],
+    "correct": 0,
+    "explanation": "「评章」就是评价、品评文章（诗文）的意思，诗人费尽心思也难以评判梅雪高下。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-401",
+    "type": "classical",
+    "prompt": "以下哪首诗表达了「托物言志」的手法？",
+    "options": [
+      "《出塞》",
+      "《暮江吟》",
+      "《竹石》",
+      "《浪淘沙》"
+    ],
+    "correct": 2,
+    "explanation": "《竹石》借竹子扎根岩石、不惧风吹来表达坚韧品格，是典型的托物言志。",
+    "difficulty": 2,
+    "tags": [
+      "诗歌常识",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-402",
+    "type": "classical",
+    "prompt": "以下哪首诗表达了「借古讽今」的手法？",
+    "options": [
+      "《题西林壁》",
+      "《夏日绝句》",
+      "《望洞庭》",
+      "《四时田园杂兴》"
+    ],
+    "correct": 1,
+    "explanation": "《夏日绝句》借赞美项羽来讽刺南宋朝廷苟安，是借古讽今。",
+    "difficulty": 3,
+    "tags": [
+      "诗歌常识",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-403",
+    "type": "classical",
+    "prompt": "「一道残阳铺水中」中「残阳」指什么？",
+    "options": [
+      "残缺的太阳",
+      "将要落山的夕阳",
+      "早晨的太阳",
+      "正午的太阳"
+    ],
+    "correct": 1,
+    "explanation": "「残阳」指将要落山的夕阳，「残」表示将尽、快没了。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-404",
+    "type": "classical",
+    "prompt": "《雪梅》中雪花比梅花多了什么？",
+    "options": [
+      "香味",
+      "三分白",
+      "高度",
+      "美丽"
+    ],
+    "correct": 1,
+    "explanation": "「梅须逊雪三分白」，梅花在白色上不如雪花，雪花比梅花白。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-405",
+    "type": "classical",
+    "prompt": "「秦时明月汉时关」的含义是？",
+    "options": [
+      "秦朝的月亮和汉朝的边关",
+      "从秦汉以来就有的明月和边关",
+      "两个不同的事物",
+      "秦朝和汉朝"
+    ],
+    "correct": 1,
+    "explanation": "运用互文手法，意为秦汉以来就存在的明月和边关，表达边塞自古以来的沧桑。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-406",
+    "type": "classical",
+    "prompt": "下列哪位诗人被称为「诗圣」？",
+    "options": [
+      "李白",
+      "杜甫",
+      "王维",
+      "白居易"
+    ],
+    "correct": 1,
+    "explanation": "杜甫被尊为「诗圣」，因其诗歌反映社会现实、关心民生。李白是诗仙，王维是诗佛。",
+    "difficulty": 2,
+    "tags": [
+      "诗歌常识",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-407",
+    "type": "classical",
+    "prompt": "「醉里吴音相媚好」中「醉」字说明什么？",
+    "options": [
+      "喝醉了很难受",
+      "微醺中的惬意和满足",
+      "酒量不好",
+      "不应该喝酒"
+    ],
+    "correct": 1,
+    "explanation": "「醉」不是大醉，而是微醺，写出了老夫妇生活惬意、心满意足的状态。",
+    "difficulty": 3,
+    "tags": [
+      "宋词",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-408",
+    "type": "classical",
+    "prompt": "「清风半夜鸣蝉」中为什么半夜还有蝉叫？",
+    "options": [
+      "写错了",
+      "夏夜炎热，蝉在半夜也会鸣叫",
+      "蝉失眠了",
+      "被风吹醒了"
+    ],
+    "correct": 1,
+    "explanation": "夏天天气炎热，即使夜半清风拂过，蝉也会鸣叫，这是真实的自然现象。",
+    "difficulty": 3,
+    "tags": [
+      "宋词",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-409",
+    "type": "classical",
+    "prompt": "《竹石》中「千磨万击」用了什么修辞？",
+    "options": [
+      "比喻",
+      "拟人",
+      "夸张",
+      "对偶"
+    ],
+    "correct": 2,
+    "explanation": "「千磨万击」用数字夸张的手法，形容竹子经历了无数的磨难和打击。",
+    "difficulty": 3,
+    "tags": [
+      "清诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-410",
+    "type": "classical",
+    "prompt": "「坚劲」在「千磨万击还坚劲」中的意思是？",
+    "options": [
+      "坚硬",
+      "坚韧有力",
+      "紧张",
+      "僵硬"
+    ],
+    "correct": 1,
+    "explanation": "「坚劲」是坚韧有力的意思，即使经历千万次磨难依然刚劲挺拔。",
+    "difficulty": 2,
+    "tags": [
+      "清诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-411",
+    "type": "classical",
+    "prompt": "「千锤万凿出深山」中「出」的意思是？",
+    "options": [
+      "出去",
+      "被开采出来",
+      "出现",
+      "出生"
+    ],
+    "correct": 1,
+    "explanation": "「出深山」是从深山中被开采出来的意思，石灰石要经过千万次锤打才能开采出来。",
+    "difficulty": 2,
+    "tags": [
+      "明诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-412",
+    "type": "classical",
+    "prompt": "《石灰吟》描写了石灰从开采到使用的哪几个过程？",
+    "options": [
+      "两个",
+      "三个",
+      "四个",
+      "一个"
+    ],
+    "correct": 2,
+    "explanation": "描写了四个过程：千锤万凿开采、烈火焚烧煅烧、粉骨碎身加工、留清白在人间（使用）。",
+    "difficulty": 3,
+    "tags": [
+      "明诗",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-413",
+    "type": "classical",
+    "prompt": "于谦的历史贡献主要是什么？",
+    "options": [
+      "写了很多诗",
+      "保卫北京城、抵抗外族入侵",
+      "发明了造纸术",
+      "修建了长城"
+    ],
+    "correct": 1,
+    "explanation": "于谦在土木堡之变后力挽狂澜，组织保卫北京城，是明代的民族英雄。",
+    "difficulty": 3,
+    "tags": [
+      "明诗",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-414",
+    "type": "classical",
+    "prompt": "「寒雨连江夜入吴」描写了什么样的环境？",
+    "options": [
+      "晴朗温暖",
+      "寒雨连绵、笼罩江面的凄清夜景",
+      "炎热干燥",
+      "大雪纷飞"
+    ],
+    "correct": 1,
+    "explanation": "寒冷的秋雨连接着江面，在夜晚降临吴地，营造了凄清寒凉的送别氛围。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-415",
+    "type": "classical",
+    "prompt": "「平明送客楚山孤」中「客」指谁？",
+    "options": [
+      "王昌龄自己",
+      "辛渐",
+      "不知名的客人",
+      "路上的行人"
+    ],
+    "correct": 1,
+    "explanation": "「客」指辛渐，王昌龄在芙蓉楼送别好友辛渐。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-416",
+    "type": "classical",
+    "prompt": "「遁逃」在「单于夜遁逃」中的意思是？",
+    "options": [
+      "进攻",
+      "偷偷逃跑",
+      "投降",
+      "游荡"
+    ],
+    "correct": 1,
+    "explanation": "「遁逃」是偷偷逃走的意思，敌方首领趁着黑夜偷偷逃走了。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-417",
+    "type": "classical",
+    "prompt": "「欲将轻骑逐」中「将」的意思是？",
+    "options": [
+      "将要",
+      "将军",
+      "率领",
+      "准备"
+    ],
+    "correct": 2,
+    "explanation": "「将」在这里是率领的意思，将军想要率领轻骑兵去追击逃敌。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-418",
+    "type": "classical",
+    "prompt": "「轻骑」指什么？",
+    "options": [
+      "轻便的马车",
+      "轻装的骑兵",
+      "骑马技术好",
+      "瘦弱的马"
+    ],
+    "correct": 1,
+    "explanation": "「轻骑」是轻装快速的骑兵，适合追击逃跑的敌人。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-419",
+    "type": "classical",
+    "prompt": "「浪淘风簸自天涯」中「天涯」的意思是？",
+    "options": [
+      "天的边缘",
+      "极远的地方",
+      "天堂",
+      "天气"
+    ],
+    "correct": 1,
+    "explanation": "「天涯」指极远的地方，黄河的浪涛和风沙好像从极远的天边涌来。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-420",
+    "type": "classical",
+    "prompt": "「如今直上银河去」中「银河」指什么？",
+    "options": [
+      "一条银色的河",
+      "天上的星河",
+      "真正的河流",
+      "银子做的河"
+    ],
+    "correct": 1,
+    "explanation": "「银河」指夜空中的星河（银河），诗人想象黄河直通天上的银河。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-421",
+    "type": "classical",
+    "prompt": "「同到牵牛织女家」运用了哪个传说？",
+    "options": [
+      "嫦娥奔月",
+      "精卫填海",
+      "牛郎织女",
+      "女娲补天"
+    ],
+    "correct": 2,
+    "explanation": "「牵牛织女」是牛郎织女的传说，诗人想象顺黄河直上银河去拜访牛郎织女。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-422",
+    "type": "classical",
+    "prompt": "「万里沙」形容什么？",
+    "options": [
+      "沙滩很长",
+      "黄河裹挟大量泥沙，绵延万里",
+      "沙子很多",
+      "沙漠很大"
+    ],
+    "correct": 1,
+    "explanation": "黄河是世界上含沙量最大的河流，「万里沙」形容黄河裹挟泥沙奔流万里。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-423",
+    "type": "classical",
+    "prompt": "「发鸠之山」在精卫填海的故事中是什么地方？",
+    "options": [
+      "精卫鸟衔木石的地方",
+      "精卫溺水的地方",
+      "炎帝居住的地方",
+      "东海旁的山"
+    ],
+    "correct": 0,
+    "explanation": "「发鸠之山」是精卫鸟经常去衔木石的西山，她带着木石飞向东海去填海。",
+    "difficulty": 3,
+    "tags": [
+      "古代神话",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-425",
+    "type": "classical",
+    "prompt": "《女娲补天》中「四极废」的意思是？",
+    "options": [
+      "四个方向都破了",
+      "天的四根柱子倒塌了",
+      "四个极端",
+      "四季混乱"
+    ],
+    "correct": 1,
+    "explanation": "「四极废」是支撑天四角的柱子倒塌了的意思，导致天塌地陷。",
+    "difficulty": 3,
+    "tags": [
+      "古代神话",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-426",
+    "type": "classical",
+    "prompt": "「杀黑龙以济冀州」中「济」的意思是？",
+    "options": [
+      "经济",
+      "渡河",
+      "拯救",
+      "帮助"
+    ],
+    "correct": 2,
+    "explanation": "「济」是拯救的意思，女娲杀死黑龙来拯救冀州的百姓。",
+    "difficulty": 3,
+    "tags": [
+      "古代神话",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-427",
+    "type": "classical",
+    "prompt": "下面哪组诗人都是南宋的？",
+    "options": [
+      "苏轼、辛弃疾",
+      "陆游、辛弃疾",
+      "李清照、苏轼",
+      "王安石、陆游"
+    ],
+    "correct": 1,
+    "explanation": "陆游和辛弃疾都是南宋人。苏轼和王安石是北宋人，李清照跨北宋和南宋。",
+    "difficulty": 3,
+    "tags": [
+      "作者朝代",
+      "诗歌常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-428",
+    "type": "classical",
+    "prompt": "「人杰」的意思是什么？",
+    "options": [
+      "做人的杰作",
+      "人中豪杰、杰出的人物",
+      "很多人",
+      "杰出的作品"
+    ],
+    "correct": 1,
+    "explanation": "「人杰」是人中豪杰、出类拔萃的人物的意思。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-429",
+    "type": "classical",
+    "prompt": "「至今思项羽」中「至今」说明什么？",
+    "options": [
+      "项羽还活着",
+      "从古到今人们一直敬仰项羽的气节",
+      "项羽很有名",
+      "时间很长"
+    ],
+    "correct": 1,
+    "explanation": "「至今」是到现在的意思，说明从古到今人们一直敬仰项羽宁死不屈的气节。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-430",
+    "type": "classical",
+    "prompt": "「元知万事空」中「万事空」是什么意思？",
+    "options": [
+      "什么都没有了",
+      "什么都不重要了、一切皆空",
+      "万事大吉",
+      "很空虚"
+    ],
+    "correct": 1,
+    "explanation": "人死后什么都不知道了、一切皆空。但陆游说即便如此仍有一件事放不下——国家统一。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-431",
+    "type": "classical",
+    "prompt": "「北定中原」中「北定」的意思是？",
+    "options": [
+      "北方安定了",
+      "向北进军、平定中原",
+      "住在北方",
+      "北方的城市"
+    ],
+    "correct": 1,
+    "explanation": "「北定」是向北进军平定的意思，陆游盼望朝廷军队向北收复被金占领的中原。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-432",
+    "type": "classical",
+    "prompt": "以下哪个不是托物言志的诗？",
+    "options": [
+      "《墨梅》",
+      "《竹石》",
+      "《石灰吟》",
+      "《暮江吟》"
+    ],
+    "correct": 3,
+    "explanation": "《暮江吟》是写景诗，表达对自然美景的喜爱。其余三首都借物抒志，是托物言志。",
+    "difficulty": 3,
+    "tags": [
+      "诗歌比较",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-433",
+    "type": "classical",
+    "prompt": "「不要人夸好颜色」中「颜色」在古代指什么？",
+    "options": [
+      "彩色",
+      "容貌、外表",
+      "颜料",
+      "表情"
+    ],
+    "correct": 1,
+    "explanation": "古代「颜色」指容貌、外表。梅花不需要别人夸赞它的美丽外表。",
+    "difficulty": 3,
+    "tags": [
+      "元诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-434",
+    "type": "classical",
+    "prompt": "「清气满乾坤」中「清气」在这首诗中比喻什么？",
+    "options": [
+      "新鲜空气",
+      "梅花的清香，也比喻高洁的品格",
+      "凉爽的风",
+      "清白的名声"
+    ],
+    "correct": 1,
+    "explanation": "「清气」表面指梅花的清香，深层比喻诗人高洁不媚俗的品格。",
+    "difficulty": 3,
+    "tags": [
+      "元诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-435",
+    "type": "classical",
+    "prompt": "郑板桥最擅长画什么？",
+    "options": [
+      "梅花",
+      "山水",
+      "兰竹",
+      "人物"
+    ],
+    "correct": 2,
+    "explanation": "郑板桥最擅长画兰花和竹子，《竹石》正是他画竹时题写的诗。",
+    "difficulty": 3,
+    "tags": [
+      "清诗",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-436",
+    "type": "classical",
+    "prompt": "「烈火焚烧若等闲」用了什么修辞手法？",
+    "options": [
+      "比喻",
+      "拟人",
+      "夸张",
+      "对偶"
+    ],
+    "correct": 1,
+    "explanation": "将石灰拟人化，赋予它不怕烈火焚烧、视之为平常的品格，是拟人手法。",
+    "difficulty": 3,
+    "tags": [
+      "明诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-437",
+    "type": "classical",
+    "prompt": "「冰心」在「一片冰心在玉壶」中比喻什么？",
+    "options": [
+      "冰冷的心",
+      "纯洁无瑕的品格",
+      "冰做的心",
+      "受伤的心"
+    ],
+    "correct": 1,
+    "explanation": "「冰心」比喻像冰一样纯洁透明的品格，表达了诗人光明磊落、清白自守。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-438",
+    "type": "classical",
+    "prompt": "「诸儿竞走取之」中「之」指什么？",
+    "options": [
+      "路",
+      "树",
+      "李子",
+      "王戎"
+    ],
+    "correct": 2,
+    "explanation": "「之」代指李子，孩子们争着跑去摘李子。",
+    "difficulty": 2,
+    "tags": [
+      "文言文",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-439",
+    "type": "classical",
+    "prompt": "「人问之，答曰：树在道边而多子，此必苦李」中「人问之」的「之」指什么？",
+    "options": [
+      "李子",
+      "王戎不去摘的原因",
+      "道路",
+      "其他孩子"
+    ],
+    "correct": 1,
+    "explanation": "「之」代指他不去摘李子这件事，别人问他为什么不去摘。",
+    "difficulty": 3,
+    "tags": [
+      "文言文",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-440",
+    "type": "classical",
+    "prompt": "「夏练三伏」中「三伏」指一年中最热的时节。辛弃疾《西江月》写的正是哪个时节？",
+    "options": [
+      "春天",
+      "三伏天前后的盛夏",
+      "深秋",
+      "隆冬"
+    ],
+    "correct": 1,
+    "explanation": "鸣蝉、蛙声、稻花香都是盛夏特征，词中描写的正是三伏天前后的盛夏时节。",
+    "difficulty": 3,
+    "tags": [
+      "宋词",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-441",
+    "type": "classical",
+    "prompt": "「恭勤不倦」和「铁杵成针」共同强调了什么品质？",
+    "options": [
+      "聪明才智",
+      "勤奋和坚持不懈",
+      "天赋异禀",
+      "运气好"
+    ],
+    "correct": 1,
+    "explanation": "「恭勤不倦」强调勤奋不知疲倦，「铁杵成针」强调坚持不懈，两者共同强调勤奋和毅力。",
+    "difficulty": 2,
+    "tags": [
+      "文言文",
+      "情感主旨"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-442",
+    "type": "classical",
+    "prompt": "「白发谁家翁媪」中「谁家」是什么语气？",
+    "options": [
+      "真的在问是哪家人",
+      "感叹语气，不一定要回答",
+      "疑问",
+      "否定"
+    ],
+    "correct": 1,
+    "explanation": "「谁家」是一种感叹性的说法，表示看到一对白发老人在亲切交谈，带有欣赏和羡慕。",
+    "difficulty": 4,
+    "tags": [
+      "宋词",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-443",
+    "type": "classical",
+    "prompt": "李白的字是什么？",
+    "options": [
+      "子美",
+      "太白",
+      "乐天",
+      "摩诘"
+    ],
+    "correct": 1,
+    "explanation": "李白字太白，号青莲居士。子美是杜甫字，乐天是白居易字，摩诘是王维字。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-444",
+    "type": "classical",
+    "prompt": "以下哪组都是描写自然风光的诗？",
+    "options": [
+      "《出塞》《凉州词》",
+      "《暮江吟》《望洞庭》",
+      "《示儿》《夏日绝句》",
+      "《石灰吟》《竹石》"
+    ],
+    "correct": 1,
+    "explanation": "《暮江吟》写江边日落月升，《望洞庭》写洞庭湖月色，都是描写自然风光。",
+    "difficulty": 2,
+    "tags": [
+      "诗歌比较",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-445",
+    "type": "classical",
+    "prompt": "「水光潋滟晴方好」中「方」的意思是？",
+    "options": [
+      "方向",
+      "方法",
+      "正、才",
+      "方形"
+    ],
+    "correct": 2,
+    "explanation": "「方」是正、才的意思，晴天时水光潋滟正是好看。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-446",
+    "type": "classical",
+    "prompt": "「山色空蒙雨亦奇」中「亦」的意思是？",
+    "options": [
+      "也",
+      "一",
+      "已经",
+      "又"
+    ],
+    "correct": 0,
+    "explanation": "「亦」是也的意思，晴天好看，雨天也奇妙，都很美。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "字词释义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-447",
+    "type": "classical",
+    "prompt": "以下哪个故事不是出自《山海经》？",
+    "options": [
+      "精卫填海",
+      "夸父逐日",
+      "囊萤夜读",
+      "大禹治水"
+    ],
+    "correct": 2,
+    "explanation": "囊萤夜读是晋代车胤的历史故事，出自《晋书·车胤传》，不是《山海经》中的神话。",
+    "difficulty": 3,
+    "tags": [
+      "文言文",
+      "作者朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-448",
+    "type": "classical",
+    "prompt": "下列古文中哪个故事的主人公最年幼？",
+    "options": [
+      "囊萤夜读的车胤",
+      "铁杵成针的李白",
+      "王戎不取道旁李的王戎",
+      "精卫填海的女娃"
+    ],
+    "correct": 2,
+    "explanation": "王戎「不取道旁李」时是七岁的小孩，是这几个故事中年龄最小的主人公。",
+    "difficulty": 3,
+    "tags": [
+      "文言文",
+      "诗句理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-449",
+    "type": "classical",
+    "prompt": "《竹石》《墨梅》《石灰吟》分别以什么事物言志？",
+    "options": [
+      "竹、梅、石灰",
+      "松、菊、山",
+      "竹、兰、石头",
+      "梅、竹、铁"
+    ],
+    "correct": 0,
+    "explanation": "《竹石》借竹子，《墨梅》借梅花，《石灰吟》借石灰，分别表达高洁品格。",
+    "difficulty": 2,
+    "tags": [
+      "诗歌比较",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c4-450",
+    "type": "classical",
+    "prompt": "以下哪首诗描写了「送别」的场景？",
+    "options": [
+      "《题西林壁》",
+      "《芙蓉楼送辛渐》",
+      "《四时田园杂兴》",
+      "《己亥杂诗》"
+    ],
+    "correct": 1,
+    "explanation": "《芙蓉楼送辛渐》是王昌龄送别好友辛渐时所作的送别诗。",
+    "difficulty": 2,
+    "tags": [
+      "诗歌比较",
+      "写作手法"
+    ],
+    "source": "curriculum"
+  }
+]
