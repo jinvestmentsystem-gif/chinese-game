@@ -442,7 +442,17 @@ function renderBoss() {
       if (bossHp <= 0) { endBoss(true); return; }
       phase++;
       qIndex = 0;
-      if (phase >= phases.length) { endBoss(true); return; }
+      if (phase >= phases.length) {
+        // Loop phases if boss is still alive — shuffle each phase for variety
+        phase = 0;
+        qIndex = 0;
+        for (let p = 0; p < phases.length; p++) {
+          for (let i = phases[p].length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [phases[p][i], phases[p][j]] = [phases[p][j], phases[p][i]];
+          }
+        }
+      }
       render();
       return;
     }
@@ -646,7 +656,7 @@ function renderBoss() {
 
         // Apply thorns on timeout
         if (thornsReturn > 0) {
-          bossHp = Math.max(0, bossHp - thornsReturn);
+          bossHp = Math.max(1, bossHp - thornsReturn); // Thorns can't kill — min 1 HP
           const bossHpBar = div.querySelector('#boss-hp-bar');
           if (bossHpBar) bossHpBar.style.width = bossHp + '%';
         }
@@ -850,7 +860,7 @@ function renderBoss() {
 
           // ── Thorns: reflect damage back to boss ──
           if (thornsReturn > 0) {
-            bossHp = Math.max(0, bossHp - thornsReturn);
+            bossHp = Math.max(1, bossHp - thornsReturn); // Thorns can't kill — min 1 HP
             const bossHpBar = div.querySelector('#boss-hp-bar');
             if (bossHpBar) bossHpBar.style.width = bossHp + '%';
             // Thorns floating number on boss

@@ -464,8 +464,16 @@ function renderCombat() {
     stopBreaths();
     clearInterval(timerPulseInterval);
 
+    if (qIndex >= questions.length) {
+      // Loop questions if enemy is still alive
+      qIndex = 0;
+      // Shuffle questions for variety
+      for (let i = questions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [questions[i], questions[j]] = [questions[j], questions[i]];
+      }
+    }
     const q = questions[qIndex];
-    if (!q) { endCombat(true); return; }
     const optionsHTML = q.options.map((opt, i) => `
       <button class="combat-option" data-idx="${i}">${opt}</button>
     `).join('');
@@ -1120,7 +1128,15 @@ function renderCombat() {
       clearInterval(timerPulseInterval);
       if (scrambleTimer) { clearTimeout(scrambleTimer); scrambleTimer = null; }
       qIndex++;
-      if (qIndex >= questions.length) { endCombat(true); return; }
+      if (qIndex >= questions.length) {
+        // Loop questions if enemy is still alive
+        qIndex = 0;
+        // Shuffle questions for variety
+        for (let i = questions.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [questions[i], questions[j]] = [questions[j], questions[i]];
+        }
+      }
       render();
     });
 
@@ -1260,7 +1276,15 @@ function renderCombat() {
         quest.results.combo = combo;
         setTimeout(() => {
           qIndex++;
-          if (qIndex >= questions.length) { endCombat(true); return; }
+          if (qIndex >= questions.length) {
+            // Loop questions if enemy is still alive
+            qIndex = 0;
+            // Shuffle questions for variety
+            for (let i = questions.length - 1; i > 0; i--) {
+              const j = Math.floor(Math.random() * (i + 1));
+              [questions[i], questions[j]] = [questions[j], questions[i]];
+            }
+          }
           render();
         }, 1800);
         return;
@@ -1571,7 +1595,15 @@ function renderCombat() {
         quest.results.combo = combo;
         setTimeout(() => {
           qIndex++;
-          if (qIndex >= questions.length) { endCombat(true); return; }
+          if (qIndex >= questions.length) {
+            // Loop questions if enemy is still alive
+            qIndex = 0;
+            // Shuffle questions for variety
+            for (let i = questions.length - 1; i > 0; i--) {
+              const j = Math.floor(Math.random() * (i + 1));
+              [questions[i], questions[j]] = [questions[j], questions[i]];
+            }
+          }
           render();
         }, 1800);
         return;
@@ -1585,7 +1617,7 @@ function renderCombat() {
 
       // ── Thorns damage: reflect damage back to enemy ──
       if (thornsReturn > 0) {
-        enemyHp = Math.max(0, enemyHp - thornsReturn);
+        enemyHp = Math.max(1, enemyHp - thornsReturn); // Thorns can't kill — min 1 HP
         // Show thorns damage floating number on enemy
         setTimeout(() => {
           if (enemyWrap) {
@@ -1718,7 +1750,15 @@ function renderCombat() {
     setTimeout(() => {
       if (playerHp <= 0) { endCombat(false); return; }
       qIndex++;
-      if (qIndex >= questions.length) { endCombat(true); return; }
+      if (qIndex >= questions.length) {
+        // Loop questions if enemy is still alive
+        qIndex = 0;
+        // Shuffle questions for variety
+        for (let i = questions.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [questions[i], questions[j]] = [questions[j], questions[i]];
+        }
+      }
       render();
     }, 1800);
   }
