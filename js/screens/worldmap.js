@@ -5,6 +5,7 @@ import { SPRITES } from '../sprites.js';
 import { playMusic, setMusicIntensity } from '../audio.js';
 import { getXPProgress, getEffectiveMaxHp, checkDailyLogin } from '../progression.js';
 import { showTutorial } from '../tutorial.js';
+import { getReviewStats } from '../spaced-repetition.js';
 
 // ── Chapter / Era Data ────────────────────────────────────────────────────────
 const CHAPTERS = [
@@ -340,6 +341,9 @@ function renderWorldMap() {
   const todayStr = new Date().toISOString().slice(0, 10);
   const dailyClaimed = dailyLogin.lastDate === todayStr;
 
+  // Review stats for spaced repetition indicator
+  const reviewStats = getReviewStats();
+
   div.innerHTML = `
     ${buildLandscapeBg()}
 
@@ -409,6 +413,29 @@ function renderWorldMap() {
           <span class="wm-gold-icon">&#x2726;</span>
           <span class="wm-gold-num">${profile.gold || 0}</span>
         </div>
+        ${reviewStats.due > 0 ? `
+        <!-- Review indicator -->
+        <div class="wm-review-indicator" style="
+          display:flex; align-items:center; gap:4px;
+          padding:3px 10px;
+          background:rgba(142,68,173,0.25);
+          border:1px solid rgba(142,68,173,0.45);
+          border-radius:6px;
+          font-size:0.78rem; font-weight:700;
+          color:#c89bdf;
+          animation: wm-review-pulse 1.5s ease-in-out infinite alternate;
+          white-space:nowrap;
+        ">
+          <span style="font-size:1rem;">&#x1F4DD;</span>
+          <span>${reviewStats.due}题待复习</span>
+        </div>
+        <style>
+          @keyframes wm-review-pulse {
+            0%   { box-shadow: 0 0 0 0 rgba(142,68,173,0.3); }
+            100% { box-shadow: 0 0 10px 2px rgba(142,68,173,0.5); }
+          }
+        </style>
+        ` : ''}
       </div>
 
       <!-- ── Overall progress bar ── -->

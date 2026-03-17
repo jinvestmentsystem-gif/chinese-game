@@ -1,0 +1,15 @@
+{
+  "name": "文字侠 — Word Hero",
+  "short_name": "文字侠",
+  "description": "用文字力量拯救世界的RPG冒险游戏",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b0c1a",
+  "theme_color": "#d4a017",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

@@ -6,6 +6,7 @@ import { EQUIPMENT_DB } from './inventory.js';
 import { playSound } from '../audio.js';
 import { showCompanionBubble, COMPANION, pick } from './companion.js';
 import { setParticleMode, burstParticles } from '../particles.js';
+import { showToast } from '../toast.js';
 
 // ─── Chapter quest counts (mirrors worldmap.js CHAPTERS) ─────────────────────
 // Kept here to avoid circular dependency with worldmap.js.
@@ -412,6 +413,7 @@ function renderReward() {
     profile.achievements.push(a.id);
     const goldAwarded = claimAchievementReward(profile, a.id);
     if (goldAwarded > 0) achievementGold[a.id] = goldAwarded;
+    showToast(`成就解锁！${a.title}`, { type: 'achievement', duration: 4000, sub: a.desc });
   });
 
   // ── Detect talent point gain from leveling ──
@@ -568,6 +570,7 @@ function renderReward() {
           requestAnimationFrame(() => { lvlBadge.style.transform = 'scale(1)'; });
         });
         try { playSound('levelup'); } catch (_) {}
+        showToast(`升级到 Lv.${levelUpInfo.newLevel}！`, { type: 'levelup', duration: 3500 });
 
         // Talent point notification
         if (talentPointGained) {

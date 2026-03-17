@@ -59,6 +59,9 @@ const DEFAULT_PROFILE = {
   dailyBestScore: 0,
   dailyBestAccuracy: 0,
   dailyHistory: [],
+  // Spaced repetition data: tracks wrong answers for review
+  wrongAnswerLog: [],  // Array of { questionId, contentType, wrongCount, lastSeen, nextReview, correctStreak }
+  masteredQuestions: [], // IDs of questions answered correctly 3+ times in a row
 };
 
 class GameState {
@@ -125,6 +128,9 @@ class GameState {
     if (!('dailyBestAccuracy' in p)) p.dailyBestAccuracy = 0;
     if (!p.dailyHistory)             p.dailyHistory = [];
     if (!p.chaptersRewarded)         p.chaptersRewarded = [];
+    // Spaced repetition backfill
+    if (!p.wrongAnswerLog)           p.wrongAnswerLog = [];
+    if (!p.masteredQuestions)         p.masteredQuestions = [];
     // Migrate old profiles with 0 attack/defense to new base values
     if (p.attack === 0 && p.level === 1 && !p.equipment.weapon) p.attack = 5;
     if (p.defense === 0 && p.level === 1 && !p.equipment.armor) p.defense = 5;
@@ -135,6 +141,8 @@ class GameState {
     localStorage.setItem(SAVE_KEY, JSON.stringify({
       profiles: this.profiles,
     }));
+    // Dispatch save event for UI indicator
+    window.dispatchEvent(new CustomEvent('game-saved'));
   }
 
   get profile() {

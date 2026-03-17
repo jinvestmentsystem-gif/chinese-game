@@ -2,6 +2,7 @@
 import { registerScreen, showScreen } from '../main.js';
 import { playSound } from '../audio.js';
 import { SPRITES, ENEMY_SPRITES } from '../sprites.js';
+import { gameState } from '../state.js';
 
 const COMBAT_INTROS = [
   { text: "一只墨灵挡住了你的去路！它扭曲着周围的文字……", action: "击败它！" },
@@ -82,23 +83,51 @@ function getEncounterName(type) {
   return pickRandom(names);
 }
 
+// Era-specific background tints keyed by chapter
+const ERA_TINTS = {
+  1: { center: '#1a0e00', edge: '#000',     tintRgb: '180,130,60'  },  // xianqin: bronze
+  2: { center: '#1a0000', edge: '#000',     tintRgb: '200,60,60'   },  // han: red
+  3: { center: '#1a0a00', edge: '#000',     tintRgb: '212,160,23'  },  // tang: gold
+  4: { center: '#001a10', edge: '#000',     tintRgb: '46,204,138'  },  // song: jade
+  5: { center: '#0a0018', edge: '#000',     tintRgb: '140,80,255'  },  // modern: purple
+};
+
 function renderEncounterIntro({ type, onComplete } = {}) {
   const encounterType = type || 'combat';
+  const isCombat = encounterType === 'combat';
+  const isBoss   = encounterType === 'boss';
+
+  // ── Skip logic: skip intro if player has seen 3+ encounters this quest ──
+  const quest = gameState.currentQuest;
+  if (quest && !isBoss) {
+    const completedCount = quest.encounters.filter(e => e.completed).length;
+    if (completedCount >= 3) {
+      // Skip the intro entirely for repeat encounters (non-boss)
+      if (onComplete) setTimeout(onComplete, 0);
+      const emptyDiv = document.createElement('div');
+      emptyDiv.className = 'screen';
+      emptyDiv.style.display = 'none';
+      return emptyDiv;
+    }
+  }
+
   const intros = encounterType === 'puzzle' ? PUZZLE_INTROS : COMBAT_INTROS;
   const intro = pickRandom(intros);
   const sprite = getEncounterSprite(encounterType);
   const name = getEncounterName(encounterType);
 
-  const isCombat = encounterType === 'combat';
-  const isBoss   = encounterType === 'boss';
   const accentRgb = (isCombat || isBoss) ? '139,0,0' : '212,160,23';
+
+  // ── Era-specific background tint ──
+  const chapterId = quest?.chapterId || 1;
+  const eraTint = ERA_TINTS[chapterId] || ERA_TINTS[3]; // default to tang gold
 
   const div = document.createElement('div');
   div.className = 'screen';
   div.style.cssText = `
     position: fixed;
     inset: 0;
-    background: radial-gradient(ellipse at center, #1a0a00 0%, #000 70%);
+    background: radial-gradient(ellipse at center, ${eraTint.center} 0%, ${eraTint.edge} 70%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -383,8 +412,9 @@ function renderEncounterIntro({ type, onComplete } = {}) {
     } catch (_) {}
   }, 120);
 
-  // Auto-advance after 3 seconds if not clicked
-  const autoTimer = setTimeout(proceed, 3000);
+  // Auto-advance: boss encounters get full 3s, non-boss get a quicker 2s
+  const autoAdvanceMs = isBoss ? 3000 : 2000;
+  const autoTimer = setTimeout(proceed, autoAdvanceMs);
 
   setTimeout(() => {
     const btn = div.querySelector('#ei-action-btn');

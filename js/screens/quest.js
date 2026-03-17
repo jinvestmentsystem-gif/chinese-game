@@ -1,12 +1,12 @@
 // js/screens/quest.js — Visual Journey Map (Ring Fit Adventure inspired)
 import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
-import { startQuest, getCurrentEncounter } from '../game-engine.js';
+import { startQuest, getCurrentEncounter, advanceEncounter } from '../game-engine.js';
 import { STORIES } from './story.js';
-import { playMusic } from '../audio.js';
+import { playMusic, playSound } from '../audio.js';
 import { SPRITES } from '../sprites.js';
 import { showCompanionBubble, COMPANION, pick } from './companion.js';
-import { setParticleMode } from '../particles.js';
+import { setParticleMode, burstAtPoint } from '../particles.js';
 
 // ─── Chapter era configuration ─────────────────────────────────────────────
 
@@ -138,6 +138,35 @@ function buildEncIconSVG(type, fillColor, size) {
                fill="${fillColor}" opacity="0.6"/>
       <ellipse cx="${sw / 2}" cy="0" rx="3" ry="${sh / 2}"
                fill="${fillColor}" opacity="0.6"/>
+    `;
+  } else if (type === 'treasure') {
+    // Treasure chest shape
+    const cw = half * 0.9;
+    const ch = half * 0.7;
+    g.innerHTML = `
+      <rect x="-${cw/2}" y="-${ch/2 + 2}" width="${cw}" height="${ch * 0.6}"
+            rx="3" fill="${fillColor}" opacity="0.9"/>
+      <rect x="-${cw/2}" y="${-ch/2 + ch * 0.55}" width="${cw}" height="${ch * 0.45}"
+            rx="2" fill="${fillColor}" opacity="0.7"/>
+      <line x1="-${cw/2}" y1="${-ch/2 + ch * 0.55}" x2="${cw/2}" y2="${-ch/2 + ch * 0.55}"
+            stroke="${fillColor}" stroke-width="2.5" opacity="1"/>
+      <circle cx="0" cy="${-ch/2 + ch * 0.55}" r="${half * 0.12}"
+              fill="${fillColor}" opacity="1"/>
+    `;
+  } else if (type === 'rest') {
+    // Campfire shape
+    g.innerHTML = `
+      <path d="M 0,-${half * 0.6} Q ${half * 0.25},-${half * 0.9} 0,-${half * 0.35}
+               Q -${half * 0.25},-${half * 0.9} 0,-${half * 0.6}"
+            fill="${fillColor}" opacity="0.85"/>
+      <path d="M -${half * 0.15},-${half * 0.4} Q 0,-${half * 0.75} ${half * 0.15},-${half * 0.4}"
+            fill="${fillColor}" opacity="0.6"/>
+      <line x1="-${half * 0.4}" y1="${half * 0.15}" x2="-${half * 0.1}" y2="-${half * 0.15}"
+            stroke="${fillColor}" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+      <line x1="${half * 0.4}" y1="${half * 0.15}" x2="${half * 0.1}" y2="-${half * 0.15}"
+            stroke="${fillColor}" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+      <line x1="0" y1="${half * 0.2}" x2="0" y2="-${half * 0.1}"
+            stroke="${fillColor}" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
     `;
   } else {
     // Boss: skull / demon shape
@@ -834,7 +863,8 @@ function renderQuest(params) {
       } else if (isBoss) {
         labelText.textContent = chapterBossName;
       } else {
-        labelText.textContent = enc.type === 'combat' ? `战斗 ${i + 1}` : `解谜 ${i + 1}`;
+        const typeLabels = { combat: '战斗', puzzle: '解谜', treasure: '宝箱', rest: '休息' };
+        labelText.textContent = `${typeLabels[enc.type] || enc.type} ${i + 1}`;
       }
       g.appendChild(labelText);
 
@@ -953,8 +983,18 @@ function renderQuest(params) {
       animation: btn-glow 2s ease-in-out infinite;
       letter-spacing:0.05em;
     `;
-    const isNextBoss = currentIdx >= 0 && encounters[currentIdx]?.type === 'boss';
-    btnStart.textContent = isNextBoss ? `⚠ 挑战${chapterBossName}` : completedCount === 0 ? '开始冒险' : '继续冒险';
+    const nextEncType = currentIdx >= 0 ? encounters[currentIdx]?.type : null;
+    if (nextEncType === 'boss') {
+      btnStart.textContent = `⚠ 挑战${chapterBossName}`;
+    } else if (nextEncType === 'treasure') {
+      btnStart.textContent = '打开宝箱';
+    } else if (nextEncType === 'rest') {
+      btnStart.textContent = '休息一下';
+    } else if (completedCount === 0) {
+      btnStart.textContent = '开始冒险';
+    } else {
+      btnStart.textContent = '继续冒险';
+    }
     progressWrap.appendChild(btnStart);
 
     mapWrap.appendChild(progressWrap);
@@ -1059,31 +1099,99 @@ function renderQuest(params) {
           if (fill) fill.style.width = `${(newCompleted / N) * 100}%`;
           progressLabel.textContent = `进度：${newCompleted} / ${N}`;
 
+          // (Task 4.1) Encounter-complete animation on the completed node
+          const completedG = nodeEls[justCompletedIdx];
+          if (completedG) {
+            // Add a brief golden ring burst animation
+            const completeBurst = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            completeBurst.setAttribute('r', NODE_R);
+            completeBurst.setAttribute('fill', 'none');
+            completeBurst.setAttribute('stroke', theme.accent);
+            completeBurst.setAttribute('stroke-width', '4');
+            const burstAnimR = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+            burstAnimR.setAttribute('attributeName', 'r');
+            burstAnimR.setAttribute('values', `${NODE_R};${NODE_R + 40}`);
+            burstAnimR.setAttribute('dur', '0.8s');
+            burstAnimR.setAttribute('fill', 'freeze');
+            const burstAnimOp = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+            burstAnimOp.setAttribute('attributeName', 'opacity');
+            burstAnimOp.setAttribute('values', '0.9;0');
+            burstAnimOp.setAttribute('dur', '0.8s');
+            burstAnimOp.setAttribute('fill', 'freeze');
+            completeBurst.appendChild(burstAnimR);
+            completeBurst.appendChild(burstAnimOp);
+            completedG.appendChild(completeBurst);
+            setTimeout(() => completeBurst.remove(), 900);
+          }
+
+          // (Task 4.2) Scroll the map to center on the next encounter node
+          if (nextIdx < N) {
+            setTimeout(() => {
+              const nextNodePos = nodePositions[nextIdx];
+              if (nextNodePos && mapWrap) {
+                // Calculate where the next node is in the content area and scroll there
+                const svgTop = 40; // top offset of SVG in content
+                const targetScrollY = svgTop + nextNodePos[1] - mapWrap.clientHeight / 2;
+                mapWrap.scrollTo({ top: Math.max(0, targetScrollY), behavior: 'smooth' });
+              }
+            }, 2200);
+          }
+
           // Companion line
           showCompanionBubble(div, pick(COMPANION.betweenEncounters), 3500);
 
-          // Boss warning if next node is boss
-          if (nextIdx < N && encounters[nextIdx]?.type === 'boss') {
+          // (Task 4.3) If all encounters complete, auto-navigate to reward screen
+          if (newCompleted === N) {
             setTimeout(() => {
-              const warn = document.createElement('div');
-              warn.style.cssText = `
-                position:absolute; top:35%; left:50%; transform:translate(-50%,-50%);
-                background:rgba(60,0,0,0.92); border:2px solid rgba(220,60,20,0.8);
-                border-radius:12px; padding:16px 28px;
-                font-size:1.1rem; font-weight:700; color:#ff6040;
-                text-shadow:0 0 12px rgba(220,60,20,0.8);
-                animation: boss-warning 3s ease-out both;
-                z-index:100; pointer-events:none; text-align:center;
+              // Celebratory flash
+              const celebration = document.createElement('div');
+              celebration.style.cssText = `
+                position:absolute; top:40%; left:50%; transform:translate(-50%,-50%);
+                font-size:1.5rem; font-weight:900; color:${theme.accent};
+                text-shadow: 0 0 20px ${theme.accent}, 0 0 40px ${theme.accent};
+                animation: step-flash 2.5s ease-out both;
+                z-index:100; pointer-events:none; white-space:nowrap;
+                text-align:center;
               `;
-              warn.innerHTML = `⚠ ${chapterBossName}即将出现！<br><span style="font-size:0.85rem;opacity:0.7;">做好准备！</span>`;
-              content.appendChild(warn);
-              setTimeout(() => warn.remove(), 3100);
-            }, 1800);
+              celebration.textContent = '全部完成！';
+              content.appendChild(celebration);
+
+              setTimeout(() => {
+                showScreen('reward');
+              }, 2000);
+            }, 2500);
+          } else {
+            // Boss warning if next node is boss
+            if (nextIdx < N && encounters[nextIdx]?.type === 'boss') {
+              setTimeout(() => {
+                const warn = document.createElement('div');
+                warn.style.cssText = `
+                  position:absolute; top:35%; left:50%; transform:translate(-50%,-50%);
+                  background:rgba(60,0,0,0.92); border:2px solid rgba(220,60,20,0.8);
+                  border-radius:12px; padding:16px 28px;
+                  font-size:1.1rem; font-weight:700; color:#ff6040;
+                  text-shadow:0 0 12px rgba(220,60,20,0.8);
+                  animation: boss-warning 3s ease-out both;
+                  z-index:100; pointer-events:none; text-align:center;
+                `;
+                warn.innerHTML = `⚠ ${chapterBossName}即将出现！<br><span style="font-size:0.85rem;opacity:0.7;">做好准备！</span>`;
+                content.appendChild(warn);
+                setTimeout(() => warn.remove(), 3100);
+              }, 1800);
+            }
           }
         }, 1700);
       } else {
         // No player avatar visible (all done?), still show companion bubble
         showCompanionBubble(div, pick(COMPANION.betweenEncounters), 3000);
+
+        // (Task 4.3) If returning and all encounters are already complete, auto-navigate
+        const allDone = encounters.every(e => e.completed);
+        if (allDone) {
+          setTimeout(() => {
+            showScreen('reward');
+          }, 1500);
+        }
       }
     }
 
@@ -1100,6 +1208,290 @@ function renderQuest(params) {
       if (enc.type === 'combat') showScreen('combat');
       else if (enc.type === 'puzzle') showScreen('puzzle');
       else if (enc.type === 'boss') showScreen('boss');
+      else if (enc.type === 'treasure') showTreasureInline(enc);
+      else if (enc.type === 'rest') showRestInline(enc);
+    }
+
+    // ── Treasure encounter (inline overlay) ───────────────────────────────
+    function showTreasureInline(enc) {
+      const overlay = document.createElement('div');
+      overlay.style.cssText = `
+        position:fixed; inset:0; z-index:800;
+        background: radial-gradient(ellipse at center, rgba(40,30,0,0.95) 0%, rgba(0,0,0,0.97) 70%);
+        display:flex; flex-direction:column; align-items:center; justify-content:center;
+        gap:20px; opacity:0; transition:opacity 0.4s ease-out;
+      `;
+
+      // Treasure chest SVG with animated opening
+      overlay.innerHTML = `
+        <style>
+          @keyframes chest-bounce {
+            0%   { transform: scale(0.3) translateY(40px); opacity:0; }
+            50%  { transform: scale(1.1) translateY(-10px); opacity:1; }
+            100% { transform: scale(1) translateY(0); opacity:1; }
+          }
+          @keyframes chest-lid {
+            0%   { transform: rotateX(0deg); }
+            50%  { transform: rotateX(-120deg); }
+            100% { transform: rotateX(-110deg); }
+          }
+          @keyframes gold-burst {
+            0%   { transform: scale(0); opacity:0; }
+            40%  { transform: scale(1.2); opacity:1; }
+            100% { transform: scale(1); opacity:1; }
+          }
+          @keyframes treasure-glow-pulse {
+            0%,100% { box-shadow: 0 0 30px rgba(212,160,23,0.3), 0 0 60px rgba(212,160,23,0.1); }
+            50%      { box-shadow: 0 0 50px rgba(212,160,23,0.6), 0 0 100px rgba(212,160,23,0.2); }
+          }
+          @keyframes item-float-in {
+            from { transform: translateY(20px); opacity:0; }
+            to   { transform: translateY(0); opacity:1; }
+          }
+        </style>
+
+        <div id="treasure-chest" style="
+          animation: chest-bounce 0.8s cubic-bezier(0.34,1.56,0.64,1) both;
+          text-align:center;
+        ">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" width="140" height="120" style="filter: drop-shadow(0 0 20px rgba(212,160,23,0.6));">
+            <rect x="15" y="45" width="90" height="50" rx="6" fill="#5c3a10" stroke="#d4a017" stroke-width="2"/>
+            <rect x="20" y="50" width="80" height="40" rx="3" fill="#3a2008"/>
+            <rect x="48" y="55" width="24" height="16" rx="3" fill="#d4a017" opacity="0.9"/>
+            <circle cx="60" cy="63" r="4" fill="#f0c040"/>
+            <rect id="chest-lid-rect" x="15" y="30" width="90" height="20" rx="5" fill="#6b4412" stroke="#d4a017" stroke-width="2"
+                  style="transform-origin: 60px 45px; animation: chest-lid 1s ease-out 0.6s both;"/>
+            <rect x="45" y="34" width="30" height="12" rx="2" fill="#d4a017" opacity="0.7"
+                  style="transform-origin: 60px 45px; animation: chest-lid 1s ease-out 0.6s both;"/>
+          </svg>
+        </div>
+
+        <div id="treasure-rewards" style="
+          text-align:center; opacity:0;
+          animation: gold-burst 0.6s ease-out 1.4s both;
+        ">
+          <div style="font-size:2.2rem; font-weight:900; color:#f0c040;
+                      text-shadow: 0 0 20px rgba(212,160,23,0.8), 0 0 40px rgba(212,160,23,0.4);
+                      margin-bottom:8px;">
+            +${enc.goldReward || 50} 金币
+          </div>
+          ${enc.itemDrop ? `
+            <div style="
+              font-size:1.1rem; color:#2ecc8a; margin-top:12px;
+              animation: item-float-in 0.5s ease-out 1.8s both;
+              text-shadow: 0 0 10px rgba(46,204,138,0.5);
+            ">
+              获得道具：恢复药水
+            </div>
+          ` : ''}
+        </div>
+
+        <button id="btn-collect-treasure" style="
+          padding: 12px 36px;
+          background: linear-gradient(145deg, rgba(0,0,0,0.6), rgba(20,10,0,0.7));
+          border: 2px solid #d4a017;
+          color: #f0c040;
+          font-size: 1.2rem;
+          font-weight: 700;
+          letter-spacing: 0.15em;
+          cursor: pointer;
+          border-radius: 8px;
+          font-family: var(--font-main);
+          opacity:0;
+          animation: item-float-in 0.5s ease-out 2s both,
+                     treasure-glow-pulse 2s ease-in-out 2.5s infinite;
+          transition: background 0.2s, transform 0.15s;
+        ">收集宝物</button>
+      `;
+
+      div.appendChild(overlay);
+      requestAnimationFrame(() => { overlay.style.opacity = '1'; });
+
+      // Apply rewards
+      const profile = gameState.profile;
+      profile.gold = (profile.gold || 0) + (enc.goldReward || 50);
+      if (enc.itemDrop === 'hp-potion') {
+        profile.inventory = profile.inventory || [];
+        profile.inventory.push({ id: 'hp-potion', name: '恢复药水', type: 'consumable' });
+        gameState.currentQuest.results.itemsFound.push('hp-potion');
+      }
+      gameState.save();
+
+      // Mark encounter complete and advance
+      setTimeout(() => {
+        const btn = overlay.querySelector('#btn-collect-treasure');
+        if (btn) {
+          btn.addEventListener('click', () => {
+            try { playSound('gold'); } catch(_) {}
+            enc.completed = true;
+            overlay.style.opacity = '0';
+            setTimeout(() => {
+              overlay.remove();
+              const next = advanceEncounter();
+              if (!next) {
+                showScreen('reward');
+              } else {
+                showScreen('quest', {
+                  chapterId: gameState.currentQuest.chapterId,
+                  questIndex: gameState.currentQuest.questIndex,
+                  justFinishedEncounter: true,
+                });
+              }
+            }, 400);
+          });
+        }
+      }, 0);
+    }
+
+    // ── Rest encounter (inline overlay) ───────────────────────────────────
+    function showRestInline(enc) {
+      const profile = gameState.profile;
+      const hpBefore = profile.hp;
+      const maxHp = profile.maxHp || 100;
+      const restoreAmount = Math.floor(maxHp * (enc.hpRestorePercent || 0.3));
+      const hpAfter = Math.min(maxHp, hpBefore + restoreAmount);
+      const narrative = enc.narrative || '你在路旁稍作休息，恢复了一些体力。';
+
+      const overlay = document.createElement('div');
+      overlay.style.cssText = `
+        position:fixed; inset:0; z-index:800;
+        background: radial-gradient(ellipse at center, rgba(0,20,10,0.95) 0%, rgba(0,0,0,0.97) 70%);
+        display:flex; flex-direction:column; align-items:center; justify-content:center;
+        gap:20px; padding:24px; opacity:0; transition:opacity 0.4s ease-out;
+      `;
+
+      overlay.innerHTML = `
+        <style>
+          @keyframes fire-flicker {
+            0%,100% { transform: scaleY(1) scaleX(1); opacity:0.9; }
+            25%     { transform: scaleY(1.05) scaleX(0.97); opacity:1; }
+            50%     { transform: scaleY(0.95) scaleX(1.03); opacity:0.85; }
+            75%     { transform: scaleY(1.02) scaleX(0.98); opacity:0.95; }
+          }
+          @keyframes rest-fade-in {
+            from { transform: translateY(16px); opacity:0; }
+            to   { transform: translateY(0); opacity:1; }
+          }
+          @keyframes hp-fill-anim {
+            from { width: ${(hpBefore / maxHp) * 100}%; }
+            to   { width: ${(hpAfter / maxHp) * 100}%; }
+          }
+          @keyframes rest-glow {
+            0%,100% { text-shadow: 0 0 10px rgba(46,204,138,0.4); }
+            50%      { text-shadow: 0 0 25px rgba(46,204,138,0.7); }
+          }
+        </style>
+
+        <!-- Campfire SVG -->
+        <div style="animation: rest-fade-in 0.6s ease-out both;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" width="100" height="120"
+               style="filter: drop-shadow(0 0 20px rgba(240,140,20,0.5));">
+            <!-- Logs -->
+            <line x1="25" y1="100" x2="75" y2="95" stroke="#5c3a10" stroke-width="8" stroke-linecap="round"/>
+            <line x1="25" y1="95" x2="75" y2="100" stroke="#4a2e0c" stroke-width="8" stroke-linecap="round"/>
+            <!-- Flames -->
+            <g style="animation: fire-flicker 0.8s ease-in-out infinite; transform-origin: 50px 90px;">
+              <ellipse cx="50" cy="70" rx="18" ry="28" fill="#ff6600" opacity="0.7"/>
+              <ellipse cx="50" cy="65" rx="12" ry="22" fill="#ff9900" opacity="0.8"/>
+              <ellipse cx="50" cy="60" rx="7" ry="16" fill="#ffcc00" opacity="0.9"/>
+            </g>
+            <!-- Sparks -->
+            <circle cx="42" cy="48" r="1.5" fill="#ffdd44" opacity="0.6">
+              <animate attributeName="cy" values="48;30" dur="1.5s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0.6;0" dur="1.5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="58" cy="45" r="1" fill="#ffdd44" opacity="0.5">
+              <animate attributeName="cy" values="45;25" dur="2s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0.5;0" dur="2s" repeatCount="indefinite"/>
+            </circle>
+          </svg>
+        </div>
+
+        <!-- Narrative text -->
+        <div style="
+          font-size:1.05rem; color:#c8dcc0; line-height:1.8;
+          max-width:340px; text-align:center;
+          animation: rest-fade-in 0.6s ease-out 0.3s both;
+          letter-spacing:0.03em;
+        ">${narrative}</div>
+
+        <!-- HP restore bar -->
+        <div style="
+          width:100%; max-width:280px;
+          animation: rest-fade-in 0.6s ease-out 0.6s both;
+        ">
+          <div style="font-size:0.85rem; color:rgba(255,255,255,0.5); text-align:center; margin-bottom:6px;">
+            HP 恢复
+          </div>
+          <div style="
+            width:100%; height:14px; border-radius:7px;
+            background:rgba(255,255,255,0.1); overflow:hidden;
+            border:1px solid rgba(46,204,138,0.3);
+          ">
+            <div id="rest-hp-fill" style="
+              height:100%; border-radius:7px;
+              background: linear-gradient(90deg, #27ae60, #2ecc8a);
+              width: ${(hpBefore / maxHp) * 100}%;
+              animation: hp-fill-anim 1.5s ease-out 1s both;
+              box-shadow: 0 0 8px rgba(46,204,138,0.4);
+            "></div>
+          </div>
+          <div style="
+            font-size:0.9rem; color:#2ecc8a; text-align:center; margin-top:6px;
+            animation: rest-fade-in 0.5s ease-out 2s both; opacity:0;
+            font-weight:700;
+          ">+${restoreAmount} HP</div>
+        </div>
+
+        <!-- Continue button -->
+        <button id="btn-rest-continue" style="
+          padding: 12px 36px;
+          background: linear-gradient(145deg, rgba(0,0,0,0.6), rgba(0,20,10,0.7));
+          border: 2px solid #2ecc8a;
+          color: #2ecc8a;
+          font-size: 1.2rem;
+          font-weight: 700;
+          letter-spacing: 0.15em;
+          cursor: pointer;
+          border-radius: 8px;
+          font-family: var(--font-main);
+          opacity:0;
+          animation: rest-fade-in 0.5s ease-out 2.5s both,
+                     rest-glow 2s ease-in-out 3s infinite;
+          transition: background 0.2s, transform 0.15s;
+        ">继续前进</button>
+      `;
+
+      div.appendChild(overlay);
+      requestAnimationFrame(() => { overlay.style.opacity = '1'; });
+
+      // Apply HP restore
+      profile.hp = hpAfter;
+      gameState.save();
+
+      setTimeout(() => {
+        const btn = overlay.querySelector('#btn-rest-continue');
+        if (btn) {
+          btn.addEventListener('click', () => {
+            try { playSound('heal'); } catch(_) {}
+            enc.completed = true;
+            overlay.style.opacity = '0';
+            setTimeout(() => {
+              overlay.remove();
+              const next = advanceEncounter();
+              if (!next) {
+                showScreen('reward');
+              } else {
+                showScreen('quest', {
+                  chapterId: gameState.currentQuest.chapterId,
+                  questIndex: gameState.currentQuest.questIndex,
+                  justFinishedEncounter: true,
+                });
+              }
+            }, 400);
+          });
+        }
+      }, 0);
     }
 
     function showEncounterIntroThen(enc, onComplete) {
@@ -1129,6 +1521,16 @@ function renderQuest(params) {
       const enc = getCurrentEncounter();
       console.log('[QUEST] getCurrentEncounter:', enc?.type, enc ? 'exists' : 'NULL');
       if (!enc) { console.log('[QUEST] No encounter, returning'); return; }
+
+      // Treasure and rest encounters play inline — no intro screen needed
+      if (enc.type === 'treasure') {
+        showTreasureInline(enc);
+        return;
+      }
+      if (enc.type === 'rest') {
+        showRestInline(enc);
+        return;
+      }
 
       if (enc.type === 'boss') {
         startWithBossIntro();

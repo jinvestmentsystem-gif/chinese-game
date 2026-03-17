@@ -9,6 +9,7 @@ import { setParticleMode, burstParticles } from '../particles.js';
 import { getPixelSprites, createSpriteImg } from '../pixel-sprites.js';
 import { showTutorial } from '../tutorial.js';
 import { shakeElement, lungeElement, slashEffect, screenFlash, floatingText } from '../effects.js';
+import { recordWrongAnswer, recordCorrectReview } from '../spaced-repetition.js';
 
 // ─── Enemy type system ──────────────────────────────────────────────────────
 const ENEMY_TYPES = [
@@ -281,12 +282,49 @@ function createMiniProgress(container) {
   container.insertBefore(bar, container.firstChild);
 }
 
+// ─── Era-specific combat backgrounds ─────────────────────────────────────────
+const ERA_COMBAT_BG = {
+  1: { // Pre-Qin: bronze/amber oracle bone feel
+    gradient: 'linear-gradient(180deg, #1a0e00 0%, #2d1800 30%, #3d2200 60%, #1a0c00 100%)',
+    accent: 'rgba(193,127,60,0.15)',
+    particles: 'gold',
+  },
+  2: { // Han: dark red imperial
+    gradient: 'linear-gradient(180deg, #1a0000 0%, #2d0808 30%, #3a0a0a 60%, #1a0000 100%)',
+    accent: 'rgba(214,48,49,0.12)',
+    particles: 'red',
+  },
+  3: { // Tang: warm gold/amber
+    gradient: 'linear-gradient(180deg, #0d0a00 0%, #1e1600 30%, #2a1e00 60%, #0d0a00 100%)',
+    accent: 'rgba(212,160,23,0.10)',
+    particles: 'gold',
+  },
+  4: { // Song: jade green
+    gradient: 'linear-gradient(180deg, #001a10 0%, #002818 30%, #003020 60%, #001a10 100%)',
+    accent: 'rgba(46,204,138,0.12)',
+    particles: 'jade',
+  },
+  5: { // Modern: deep purple void
+    gradient: 'linear-gradient(180deg, #0a0018 0%, #120028 30%, #1a0038 60%, #0a0018 100%)',
+    accent: 'rgba(142,68,173,0.15)',
+    particles: 'purple',
+  },
+};
+
 // ─── Main render ─────────────────────────────────────────────────────────────
 
 function renderCombat() {
-  setParticleMode('combat');
+  // Apply era-specific background and particles based on current chapter
+  const eraBgChapter = gameState.currentQuest?.chapterId || 1;
+  const eraBg = ERA_COMBAT_BG[eraBgChapter] || ERA_COMBAT_BG[1];
+
+  // Set era-matched particle mode (combat_gold, combat_red, etc.)
+  const particleModeMap = { gold: 'combat_gold', red: 'combat_red', jade: 'combat_jade', purple: 'combat_purple' };
+  setParticleMode(particleModeMap[eraBg.particles] || 'combat');
+
   const div = document.createElement('div');
   div.className = 'screen';
+
   div.style.cssText = `
     overflow: hidden;
     display: flex;
@@ -294,9 +332,9 @@ function renderCombat() {
     height: 100%;
     position: relative;
     background:
-      radial-gradient(ellipse at 50% 25%, rgba(15,52,96,0.25) 0%, transparent 60%),
-      radial-gradient(ellipse at 20% 80%, rgba(120,50,20,0.15) 0%, transparent 40%),
-      linear-gradient(180deg, #0a0c1a 0%, #111428 50%, #0a0c1a 100%);
+      radial-gradient(ellipse at 50% 25%, ${eraBg.accent} 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, ${eraBg.accent} 0%, transparent 40%),
+      ${eraBg.gradient};
   `;
 
   const encounter = getCurrentEncounter();
@@ -628,6 +666,42 @@ function renderCombat() {
           line-height: 1.4;
         }
 
+        /* ── Review badge ── */
+        .review-badge {
+          display: inline-block;
+          background: rgba(142,68,173,0.85);
+          color: #fff;
+          font-size: 0.7rem;
+          font-weight: 700;
+          padding: 2px 8px;
+          border-radius: 4px;
+          margin-right: 6px;
+          vertical-align: middle;
+          letter-spacing: 0.05em;
+          box-shadow: 0 0 8px rgba(142,68,173,0.4);
+          animation: review-badge-pulse 1.5s ease-in-out infinite alternate;
+        }
+        @keyframes review-badge-pulse {
+          0%   { box-shadow: 0 0 8px rgba(142,68,173,0.4); }
+          100% { box-shadow: 0 0 14px rgba(142,68,173,0.7); }
+        }
+
+        /* ── Mastered celebration ── */
+        .mastered-celebration {
+          position: absolute;
+          top: 35%;
+          left: 50%;
+          transform: translate(-50%, -50%) scale(0);
+          color: #2ecc71;
+          font-size: 2rem;
+          font-weight: 900;
+          text-shadow: 0 0 20px #2ecc71, 0 0 40px #27ae60, 2px 2px 0 #000;
+          pointer-events: none;
+          z-index: 1006;
+          transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), opacity 0.4s ease-out;
+          white-space: nowrap;
+        }
+
         /* ── Answer options ── */
         .combat-options {
           display: grid;
@@ -843,7 +917,7 @@ function renderCombat() {
         <div class="combat-narrative">${combatNarrative}</div>
 
         <!-- Question -->
-        <div class="combat-question text-reveal">${q.prompt}</div>
+        <div class="combat-question text-reveal">${q.isReview ? '<span class="review-badge">复习</span>' : ''}${q.prompt}</div>
 
         <!-- Answer options: 2×2 grid, filling width -->
         <div class="combat-options" id="options">${optionsHTML}</div>
@@ -1090,6 +1164,34 @@ function renderCombat() {
     });
 
     recordAnswer('vocab', correct, q.id);
+
+    // ── Spaced repetition tracking ──
+    if (!correct) {
+      recordWrongAnswer(q.id, 'vocab');
+    } else if (q.isReview) {
+      // Check if this correct review answer triggers mastery (correctStreak reaches 3)
+      const profile_ = gameState.profile;
+      const entry = profile_.wrongAnswerLog.find(e => e.questionId === q.id);
+      const willMaster = entry && (entry.correctStreak || 0) + 1 >= 3;
+      recordCorrectReview(q.id);
+      if (willMaster) {
+        // Show mastered celebration
+        setTimeout(() => {
+          const masteredEl = document.createElement('div');
+          masteredEl.className = 'mastered-celebration';
+          masteredEl.textContent = '已掌握！';
+          div.appendChild(masteredEl);
+          requestAnimationFrame(() => requestAnimationFrame(() => {
+            masteredEl.style.transform = 'translate(-50%, -50%) scale(1)';
+          }));
+          setTimeout(() => {
+            masteredEl.style.opacity = '0';
+            masteredEl.style.transform = 'translate(-50%, -50%) scale(1.3)';
+          }, 900);
+          setTimeout(() => masteredEl.remove(), 1300);
+        }, 200);
+      }
+    }
 
     const arena = div.querySelector('#arena');
     const playerSprite = div.querySelector('#player-sprite');

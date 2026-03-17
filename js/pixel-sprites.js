@@ -27,7 +27,8 @@ function drawPixels(ctx, pixels, palette) {
 }
 
 // ── Player: Wuxia warrior with brush-sword ──────────────────────
-function generatePlayer() {
+// frameOffset: 0 = normal, 1 = breathing (torso shifts 1px up)
+function generatePlayer(frameOffset = 0) {
   const c = createSpriteCanvas(16, 32);
   const ctx = c.getContext('2d');
   const P = {
@@ -45,8 +46,9 @@ function generatePlayer() {
     'b': '#0f3460', // navy (boot)
   };
 
-  const pixels = [
-    // Hair/head (rows 0-9)
+  // Frame 0: normal pose
+  // Frame 1: torso rows (10-16) shift 1px up — breathing effect
+  const headRows = [
     '....0aaaa0......',
     '...0a66660......',
     '..0a666666a0....',
@@ -57,7 +59,9 @@ function generatePlayer() {
     '..0.2222.0......',
     '...022220.......',
     '....0000........',
-    // Shoulders/torso (rows 10-19)
+  ];
+
+  const torsoNormal = [
     '...033330.......',
     '..0334433091....',
     '..034443309910...',
@@ -65,10 +69,22 @@ function generatePlayer() {
     '.03444430..910..',
     '.03388330..91...',
     '..0344430..1....',
+  ];
+
+  const torsoBreath = [
+    '................',  // vacated row (torso shifted up 1px)
+    '...033330.......',
+    '..0334433091....',
+    '..034443309910...',
+    '.03344430.9910..',
+    '.03444430..910..',
+    '.03388330..91...',
+  ];
+
+  const lowerBody = [
     '..0355530.......',
     '..0355530.......',
     '..0355530.......',
-    // Legs/boots (rows 20-29)
     '..035.530.......',
     '..035.530.......',
     '..0b5.5b0.......',
@@ -83,12 +99,16 @@ function generatePlayer() {
     '................',
   ];
 
+  const torso = frameOffset === 1 ? torsoBreath : torsoNormal;
+  const pixels = [...headRows, ...torso, ...lowerBody];
+
   drawPixels(ctx, pixels, P);
   return c.toDataURL();
 }
 
 // ── Enemy: Ink Spirit (墨灵) ──────────────────────────────────
-function generateInkSpirit() {
+// frameOffset: 0 = normal, 1 = bob (whole sprite shifts 1px up)
+function generateInkSpirit(frameOffset = 0) {
   const c = createSpriteCanvas(16, 32);
   const ctx = c.getContext('2d');
   const P = {
@@ -103,7 +123,7 @@ function generateInkSpirit() {
     '8': '#330033', // deep shadow
   };
 
-  const pixels = [
+  const basePixels = [
     '................',
     '................',
     '................',
@@ -138,12 +158,21 @@ function generateInkSpirit() {
     '................',
   ];
 
+  // Frame 1: shift entire sprite 1px up (remove first row, add blank at bottom)
+  let pixels;
+  if (frameOffset === 1) {
+    pixels = [...basePixels.slice(1), '................'];
+  } else {
+    pixels = basePixels;
+  }
+
   drawPixels(ctx, pixels, P);
   return c.toDataURL();
 }
 
 // ── Enemy: Dark Soldier (暗字兵) ─────────────────────────────
-function generateDarkSoldier() {
+// frameOffset: 0 = normal, 1 = bob (whole sprite shifts 1px up)
+function generateDarkSoldier(frameOffset = 0) {
   const c = createSpriteCanvas(16, 32);
   const ctx = c.getContext('2d');
   const P = {
@@ -159,7 +188,7 @@ function generateDarkSoldier() {
     '9': '#333333', // shadow
   };
 
-  const pixels = [
+  const basePixels = [
     '................',
     '.....07780......',
     '....0788870.....',
@@ -194,12 +223,21 @@ function generateDarkSoldier() {
     '................',
   ];
 
+  // Frame 1: shift entire sprite 1px up (remove first row, add blank at bottom)
+  let pixels;
+  if (frameOffset === 1) {
+    pixels = [...basePixels.slice(1), '................'];
+  } else {
+    pixels = basePixels;
+  }
+
   drawPixels(ctx, pixels, P);
   return c.toDataURL();
 }
 
 // ── Boss: Shadow of Cangjie (仓颉之影) ──────────────────────
-function generateBossCangjie() {
+// frameOffset: 0 = normal, 1 = bob (whole sprite shifts 1px up)
+function generateBossCangjie(frameOffset = 0) {
   const c = createSpriteCanvas(24, 40);
   const ctx = c.getContext('2d');
   const P = {
@@ -217,7 +255,7 @@ function generateBossCangjie() {
     'b': '#ff6666', // red accent
   };
 
-  const pixels = [
+  const basePixels = [
     '........................',
     '........044440..........',
     '.......04555540.........',
@@ -260,30 +298,54 @@ function generateBossCangjie() {
     '........................',
   ];
 
+  // Frame 1: shift entire sprite 1px up (remove first row, add blank at bottom)
+  let pixels;
+  if (frameOffset === 1) {
+    pixels = [...basePixels.slice(1), '........................'];
+  } else {
+    pixels = basePixels;
+  }
+
   drawPixels(ctx, pixels, P);
   return c.toDataURL();
 }
 
-// ── Generate all sprites ─────────────────────────────────────
+// ── Generate all sprites (arrays of frames for idle animation) ──
 let _cache = null;
 
 export function getPixelSprites() {
   if (_cache) return _cache;
 
   _cache = {
-    player: generatePlayer(),
-    enemy_ink: generateInkSpirit(),
-    enemy_soldier: generateDarkSoldier(),
-    boss_cangjie: generateBossCangjie(),
+    // Player: 3 frames — normal, breathe (torso up), normal
+    player: [generatePlayer(0), generatePlayer(1), generatePlayer(0)],
+    // Ink Spirit: 3 frames — normal, bob (up 1px), normal
+    enemy_ink: [generateInkSpirit(0), generateInkSpirit(1), generateInkSpirit(0)],
+    // Dark Soldier: 3 frames — normal, bob (up 1px), normal
+    enemy_soldier: [generateDarkSoldier(0), generateDarkSoldier(1), generateDarkSoldier(0)],
+    // Boss Cangjie: 3 frames — normal, bob (up 1px), normal
+    boss_cangjie: [generateBossCangjie(0), generateBossCangjie(1), generateBossCangjie(0)],
   };
 
   return _cache;
 }
 
-// Helper: create an <img> element from a sprite data URL
-export function createSpriteImg(dataUrl, height = 160) {
+// Helper: create an <img> element from a sprite data URL or frame array
+// If dataUrlOrArray is an array, cycles through frames for idle animation
+export function createSpriteImg(dataUrlOrArray, height = 160, animSpeed = 400) {
   const img = document.createElement('img');
-  img.src = dataUrl;
+  if (Array.isArray(dataUrlOrArray)) {
+    let frame = 0;
+    img.src = dataUrlOrArray[0];
+    const intervalId = setInterval(() => {
+      frame = (frame + 1) % dataUrlOrArray.length;
+      img.src = dataUrlOrArray[frame];
+    }, animSpeed);
+    // Store interval ID so callers can clean up if needed
+    img._spriteInterval = intervalId;
+  } else {
+    img.src = dataUrlOrArray;
+  }
   img.style.cssText = `
     height: ${height}px;
     width: auto;

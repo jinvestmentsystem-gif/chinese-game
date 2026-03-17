@@ -304,18 +304,57 @@ function createMiniProgress(container) {
   container.insertBefore(bar, container.firstChild);
 }
 
+// ─── Era-specific boss backgrounds (more intense than regular combat) ────────
+const ERA_BOSS_BG = {
+  1: { // Pre-Qin: deep bronze/amber, stronger oracle bone glow
+    gradient: 'linear-gradient(180deg, #120800 0%, #241200 25%, #3d2200 50%, #241200 75%, #120800 100%)',
+    accent: 'rgba(193,127,60,0.25)',
+    particles: 'gold',
+  },
+  2: { // Han: deep crimson imperial
+    gradient: 'linear-gradient(180deg, #120000 0%, #240404 25%, #3a0a0a 50%, #240404 75%, #120000 100%)',
+    accent: 'rgba(214,48,49,0.22)',
+    particles: 'red',
+  },
+  3: { // Tang: intense golden amber
+    gradient: 'linear-gradient(180deg, #080600 0%, #1a1000 25%, #2a1e00 50%, #1a1000 75%, #080600 100%)',
+    accent: 'rgba(212,160,23,0.20)',
+    particles: 'gold',
+  },
+  4: { // Song: deep jade abyss
+    gradient: 'linear-gradient(180deg, #00120a 0%, #002010 25%, #003820 50%, #002010 75%, #00120a 100%)',
+    accent: 'rgba(46,204,138,0.22)',
+    particles: 'jade',
+  },
+  5: { // Modern: abyssal purple void
+    gradient: 'linear-gradient(180deg, #060010 0%, #0e001e 25%, #1e0042 50%, #0e001e 75%, #060010 100%)',
+    accent: 'rgba(142,68,173,0.25)',
+    particles: 'purple',
+  },
+};
+
 // ─── Main render ─────────────────────────────────────────────────────────────
 
 function renderBoss() {
-  setParticleMode('boss');
-  const div = document.createElement('div');
-  div.className = 'screen';
-  div.style.cssText = 'overflow:hidden;';
-
   const encounter = getCurrentEncounter();
   const profile = gameState.profile;
   const quest = gameState.currentQuest;
   const bossInfo = BOSS_NAMES[quest.chapterId] || BOSS_NAMES[1];
+
+  // Apply era-specific boss background and particles
+  const bossBg = ERA_BOSS_BG[quest.chapterId] || ERA_BOSS_BG[1];
+  const bossParticleModeMap = { gold: 'boss_gold', red: 'boss_red', jade: 'boss_jade', purple: 'boss_purple' };
+  setParticleMode(bossParticleModeMap[bossBg.particles] || 'boss');
+
+  const div = document.createElement('div');
+  div.className = 'screen';
+  div.style.cssText = `
+    overflow:hidden;
+    background:
+      radial-gradient(ellipse at 50% 30%, ${bossBg.accent} 0%, transparent 55%),
+      radial-gradient(ellipse at 50% 70%, ${bossBg.accent} 0%, transparent 45%),
+      ${bossBg.gradient};
+  `;
   const bossAbility = getBossAbility(quest.chapterId);
 
   // Boss music — set era to boss and max intensity

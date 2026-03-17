@@ -187,6 +187,46 @@ function renderSettings(params) {
         </div>
         ` : ''}
 
+        <!-- ══ Save Management Section ══ -->
+        <div class="settings-section">
+          <div class="settings-section-header">
+            <span class="settings-section-icon">&#x1F4BE;</span>
+            <span>存档管理</span>
+          </div>
+
+          <div class="settings-row">
+            <div class="settings-row-label">导出存档</div>
+            <div class="settings-row-controls">
+              <button class="btn btn-sm" id="btn-export-save" style="font-size:0.8rem;">导出存档</button>
+            </div>
+          </div>
+
+          <div class="settings-row">
+            <div class="settings-row-label">导入存档</div>
+            <div class="settings-row-controls">
+              <button class="btn btn-sm" id="btn-import-save" style="font-size:0.8rem;">导入存档</button>
+              <input type="file" id="input-import-save" accept=".json" style="display:none;" />
+            </div>
+          </div>
+          <div id="import-confirm-area" style="display:none;"></div>
+
+          <div class="settings-row">
+            <div class="settings-row-label">复制存档代码</div>
+            <div class="settings-row-controls">
+              <button class="btn btn-sm" id="btn-copy-save" style="font-size:0.8rem;">复制存档代码</button>
+            </div>
+          </div>
+
+          <div class="settings-row" style="flex-wrap:wrap;gap:8px;">
+            <div class="settings-row-label">粘贴存档代码</div>
+            <div class="settings-row-controls" style="flex:1;min-width:200px;">
+              <input type="text" id="input-paste-save" placeholder="粘贴存档代码……"
+                style="flex:1;background:rgba(0,0,0,0.4);border:1px solid rgba(212,160,23,0.2);border-radius:6px;padding:6px 10px;color:var(--text-primary);font-size:0.82rem;font-family:var(--font-main);outline:none;min-width:0;" />
+              <button class="btn btn-sm" id="btn-paste-save" style="font-size:0.8rem;white-space:nowrap;">应用</button>
+            </div>
+          </div>
+        </div>
+
         <!-- ══ About Section ══ -->
         <div class="settings-section">
           <div class="settings-section-header">
@@ -753,6 +793,135 @@ function renderSettings(params) {
           // Focus the input
           setTimeout(() => inputEl.focus(), 100);
         });
+      }
+    });
+
+    // ── Export Save ──
+    div.querySelector('#btn-export-save')?.addEventListener('click', () => {
+      try {
+        const saveData = localStorage.getItem('wenzi-xia-save');
+        if (!saveData) {
+          window.showToast?.('没有可导出的存档数据', 'error');
+          return;
+        }
+        const blob = new Blob([saveData], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        const date = new Date().toISOString().slice(0, 10);
+        a.href = url;
+        a.download = `wenzi-xia-save-${date}.json`;
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(() => {
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+        }, 100);
+        window.showToast?.('存档已导出', 'success');
+      } catch (e) {
+        window.showToast?.('导出失败: ' + e.message, 'error');
+      }
+    });
+
+    // ── Import Save ──
+    const btnImport = div.querySelector('#btn-import-save');
+    const inputImport = div.querySelector('#input-import-save');
+    const importArea = div.querySelector('#import-confirm-area');
+
+    btnImport?.addEventListener('click', () => {
+      inputImport?.click();
+    });
+
+    inputImport?.addEventListener('change', (e) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = (evt) => {
+        try {
+          const text = evt.target.result;
+          const data = JSON.parse(text);
+
+          // Validate: must have a profiles array
+          if (!data.profiles || !Array.isArray(data.profiles)) {
+            window.showToast?.('无效的存档文件：缺少 profiles 数据', 'error');
+            inputImport.value = '';
+            return;
+          }
+
+          // Show confirmation dialog
+          importArea.style.display = 'block';
+          importArea.innerHTML = `
+            <div class="settings-confirm" style="border-color:rgba(212,160,23,0.3);background:rgba(212,160,23,0.06);">
+              <p style="color:var(--gold);">导入存档将覆盖当前进度。确定继续吗？<br>
+                <span style="font-size:0.8rem;color:var(--text-dim);">文件包含 ${data.profiles.length} 个角色档案</span>
+              </p>
+              <div class="settings-confirm-actions">
+                <button class="btn-cancel" id="btn-import-cancel">取消</button>
+                <button class="btn-confirm-danger" id="btn-import-confirm" style="background:rgba(46,204,138,0.2);border-color:rgba(46,204,138,0.4);color:var(--jade);">确认导入</button>
+              </div>
+            </div>`;
+
+          importArea.querySelector('#btn-import-cancel').addEventListener('click', () => {
+            importArea.style.display = 'none';
+            inputImport.value = '';
+          });
+
+          importArea.querySelector('#btn-import-confirm').addEventListener('click', () => {
+            localStorage.setItem('wenzi-xia-save', text);
+            importArea.innerHTML = `
+              <div class="settings-confirm" style="border-color:rgba(46,204,138,0.3);background:rgba(46,204,138,0.08);">
+                <p style="color:var(--jade);">存档已导入。页面即将刷新……</p>
+              </div>`;
+            setTimeout(() => location.reload(), 1500);
+          });
+
+        } catch (err) {
+          window.showToast?.('无法解析文件：不是有效的 JSON', 'error');
+          inputImport.value = '';
+        }
+      };
+      reader.readAsText(file);
+    });
+
+    // ── Copy Save to Clipboard (base64) ──
+    div.querySelector('#btn-copy-save')?.addEventListener('click', async () => {
+      try {
+        const saveData = localStorage.getItem('wenzi-xia-save');
+        if (!saveData) {
+          window.showToast?.('没有可复制的存档数据', 'error');
+          return;
+        }
+        const encoded = btoa(unescape(encodeURIComponent(saveData)));
+        await navigator.clipboard.writeText(encoded);
+        window.showToast?.('已复制！', 'success');
+      } catch (e) {
+        window.showToast?.('复制失败: ' + e.message, 'error');
+      }
+    });
+
+    // ── Paste Save from Clipboard (base64) ──
+    div.querySelector('#btn-paste-save')?.addEventListener('click', () => {
+      const input = div.querySelector('#input-paste-save');
+      const code = input?.value?.trim();
+      if (!code) {
+        window.showToast?.('请先粘贴存档代码', 'error');
+        return;
+      }
+      try {
+        const decoded = decodeURIComponent(escape(atob(code)));
+        const data = JSON.parse(decoded);
+        if (!data.profiles || !Array.isArray(data.profiles)) {
+          window.showToast?.('无效的存档代码：缺少 profiles 数据', 'error');
+          return;
+        }
+        if (confirm('导入存档将覆盖当前进度。确定继续吗？')) {
+          localStorage.setItem('wenzi-xia-save', decoded);
+          window.showToast?.('存档已导入，即将刷新……', 'success');
+          setTimeout(() => location.reload(), 1200);
+        }
+      } catch (e) {
+        window.showToast?.('无效的存档代码：无法解码', 'error');
       }
     });
 

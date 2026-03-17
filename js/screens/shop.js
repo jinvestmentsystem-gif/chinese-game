@@ -4,6 +4,7 @@ import { registerScreen, showScreen } from '../main.js';
 import { playSound } from '../audio.js';
 import { getEffectiveStats } from '../progression.js';
 import { showTutorial } from '../tutorial.js';
+import { showToast } from '../toast.js';
 
 export const SHOP_ITEMS = [
   // Weapons (sorted by tier)
@@ -505,6 +506,7 @@ function renderShop(params = {}) {
 
         gameState.save();
         playSound('correct');
+        showToast(`购买成功！${item.name}`, { type: 'item', duration: 2500 });
 
         // Re-render shop in place
         showScreen('shop', { tab: activeTab });
@@ -540,6 +542,7 @@ function renderShop(params = {}) {
 
         gameState.save();
         playSound('correct');
+        showToast(`强化成功！${item.name}+${profile.upgrades[itemId]}`, { type: 'forge', duration: 2500 });
 
         // Golden sparkle burst animation on the card
         const card = btn.closest('.forge-item-card');

@@ -1,5 +1,6 @@
 // js/progression.js — XP, leveling, talent tree, stat formulas, and engagement hooks
 import { gameState } from './state.js';
+import { showToast } from './toast.js';
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // TALENT TREE — meaningful choices that dramatically alter gameplay
@@ -276,6 +277,7 @@ export function addXP(amount) {
     if (newLevel >= 4 && newLevel % 2 === 0) {
       profile.talentPoints = (profile.talentPoints || 0) + 1;
       talentPointsGained++;
+      showToast('获得天赋点！', { type: 'talent', duration: 3500, sub: `共 ${profile.talentPoints} 点可用` });
     }
 
     if (UNLOCKS[newLevel]) {

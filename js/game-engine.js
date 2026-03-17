@@ -1,6 +1,7 @@
 // js/game-engine.js — Generates quest encounter sequences and manages quest state
 import { gameState } from './state.js';
 import { loadContent, pickQuestions, pickReadingPassage } from './content-loader.js';
+import { getDueReviews } from './spaced-repetition.js';
 
 // Encounter types: 'combat', 'puzzle', 'boss', 'treasure', 'rest'
 function generateEncounterSequence(chapterId, questIndex, playerHpPercent = 1) {
@@ -106,12 +107,42 @@ export async function startQuest(chapterId, questIndex) {
   // Session-level deduplication: accumulate all question IDs used this quest
   const sessionUsedIds = [];
 
+  // ── Spaced repetition: gather due review questions and inject into combat ──
+  const dueReviews = getDueReviews('vocab');
+  // Pull up to 2 review questions from the content pool, matched by ID
+  const reviewQuestions = [];
+  if (dueReviews.length > 0) {
+    const reviewIds = dueReviews.slice(0, 2).map(r => r.questionId);
+    for (const rid of reviewIds) {
+      const found = content.vocab.find(q => q.id === rid);
+      if (found) {
+        // Shuffle options for the review question (same logic as pickQuestions)
+        const correctText = found.options[found.correct];
+        const shuffled = [...found.options];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        reviewQuestions.push({ ...found, options: shuffled, correct: shuffled.indexOf(correctText), isReview: true });
+      }
+    }
+  }
+  let reviewInsertIndex = 0; // tracks which combat encounter gets review questions
+
   // Pre-assign content to encounters
   const diffTarget = getAdaptiveDifficulty(profile, 'vocab');
   for (const enc of encounters) {
     if (enc.type === 'combat') {
       enc.questions = pickQuestions(content.vocab, 5, profile.seenQuestions.vocab, diffTarget, sessionUsedIds);
       enc.questions.forEach(q => sessionUsedIds.push(q.id));
+      // Inject 1-2 review questions into the first combat encounter
+      if (reviewInsertIndex === 0 && reviewQuestions.length > 0) {
+        // Insert review questions near the start (after the first regular question)
+        const insertAt = Math.min(1, enc.questions.length);
+        enc.questions.splice(insertAt, 0, ...reviewQuestions);
+        reviewQuestions.forEach(q => sessionUsedIds.push(q.id));
+      }
+      reviewInsertIndex++;
     } else if (enc.type === 'puzzle') {
       const rdTarget = getAdaptiveDifficulty(profile, 'reading');
       enc.passage = pickReadingPassage(content.reading, profile.seenQuestions.reading, rdTarget);

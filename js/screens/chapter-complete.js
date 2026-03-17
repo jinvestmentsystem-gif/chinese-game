@@ -3,6 +3,7 @@ import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
 import { playStinger, playMusic, setMusicIntensity } from '../audio.js';
 import { showCompanionBubble, COMPANION, pick } from './companion.js';
+import { showToast } from '../toast.js';
 
 // ── Chapter completion data ────────────────────────────────────────────────────
 
@@ -160,6 +161,7 @@ function applyChapterRewards(profile, chapterId) {
     if (!profile.titles) profile.titles = ['新手文字侠'];
     if (!profile.titles.includes(data.titleUnlock)) {
       profile.titles.push(data.titleUnlock);
+      showToast(`新称号：${data.titleUnlock}`, { type: 'title', duration: 4000, sub: data.subtitle });
     }
   }
 

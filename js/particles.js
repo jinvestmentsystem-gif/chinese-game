@@ -31,18 +31,43 @@ class Particle {
     this.y = Math.random() * h;
     this.size = 1 + Math.random() * 3;
 
-    if (mode === 'combat') {
-      // Combat: fast upward sparks, red/orange
+    if (mode === 'combat' || mode === 'combat_gold' || mode === 'combat_red'
+        || mode === 'combat_jade' || mode === 'combat_purple') {
+      // Combat: fast upward sparks with era-specific colors
       this.vx = (Math.random() - 0.5) * 1.5;
       this.vy = -(0.5 + Math.random() * 2);
       this.size = 1.5 + Math.random() * 2.5;
       this.life = 0.5 + Math.random() * 0.5;
       this.maxLife = this.life;
-      this.r = 220 + Math.random() * 35;
-      this.g = 80 + Math.random() * 80;
-      this.b = 20 + Math.random() * 30;
-    } else if (mode === 'boss') {
-      // Boss: swirling dark particles, purple/red
+      if (mode === 'combat_gold') {
+        // Pre-Qin / Tang: bronze/gold sparks
+        this.r = 190 + Math.random() * 55;
+        this.g = 130 + Math.random() * 60;
+        this.b = 15 + Math.random() * 40;
+      } else if (mode === 'combat_red') {
+        // Han: imperial red sparks
+        this.r = 200 + Math.random() * 55;
+        this.g = 30 + Math.random() * 50;
+        this.b = 20 + Math.random() * 40;
+      } else if (mode === 'combat_jade') {
+        // Song: jade green sparks
+        this.r = 20 + Math.random() * 50;
+        this.g = 170 + Math.random() * 60;
+        this.b = 80 + Math.random() * 70;
+      } else if (mode === 'combat_purple') {
+        // Modern: purple void sparks
+        this.r = 120 + Math.random() * 60;
+        this.g = 30 + Math.random() * 50;
+        this.b = 150 + Math.random() * 80;
+      } else {
+        // Default combat: red/orange
+        this.r = 220 + Math.random() * 35;
+        this.g = 80 + Math.random() * 80;
+        this.b = 20 + Math.random() * 30;
+      }
+    } else if (mode === 'boss' || mode === 'boss_gold' || mode === 'boss_red'
+        || mode === 'boss_jade' || mode === 'boss_purple') {
+      // Boss: swirling dark particles with era-specific colors
       const angle = Math.random() * Math.PI * 2;
       const speed = 0.3 + Math.random() * 1;
       this.vx = Math.cos(angle) * speed;
@@ -50,9 +75,32 @@ class Particle {
       this.size = 2 + Math.random() * 4;
       this.life = 0.6 + Math.random() * 0.4;
       this.maxLife = this.life;
-      this.r = 140 + Math.random() * 80;
-      this.g = 20 + Math.random() * 40;
-      this.b = 60 + Math.random() * 80;
+      if (mode === 'boss_gold') {
+        // Pre-Qin / Tang: deep bronze/gold swirl
+        this.r = 160 + Math.random() * 70;
+        this.g = 100 + Math.random() * 60;
+        this.b = 10 + Math.random() * 30;
+      } else if (mode === 'boss_red') {
+        // Han: deep imperial red swirl
+        this.r = 160 + Math.random() * 80;
+        this.g = 10 + Math.random() * 30;
+        this.b = 15 + Math.random() * 30;
+      } else if (mode === 'boss_jade') {
+        // Song: deep jade green swirl
+        this.r = 10 + Math.random() * 40;
+        this.g = 140 + Math.random() * 70;
+        this.b = 60 + Math.random() * 60;
+      } else if (mode === 'boss_purple') {
+        // Modern: deep purple void swirl
+        this.r = 100 + Math.random() * 60;
+        this.g = 15 + Math.random() * 40;
+        this.b = 120 + Math.random() * 100;
+      } else {
+        // Default boss: purple/red
+        this.r = 140 + Math.random() * 80;
+        this.g = 20 + Math.random() * 40;
+        this.b = 60 + Math.random() * 80;
+      }
     } else if (mode === 'victory') {
       // Victory: golden sparkle burst
       const angle = Math.random() * Math.PI * 2;
@@ -98,9 +146,9 @@ class Particle {
     this.y += this.vy;
     this.life -= dt;
 
-    // Slight gravity for combat/boss
-    if (currentMode === 'combat') this.vy -= 0.02;
-    if (currentMode === 'boss') {
+    // Slight gravity for combat/boss (including era-specific variants)
+    if (currentMode.startsWith('combat')) this.vy -= 0.02;
+    if (currentMode.startsWith('boss')) {
       // Swirl effect
       this.vx += (Math.random() - 0.5) * 0.05;
       this.vy += (Math.random() - 0.5) * 0.05;
@@ -129,22 +177,45 @@ class Particle {
 
 const PARTICLE_COUNTS = {
   ambient: 35,
-  combat: 50,
-  boss: 60,
-  victory: 80,
+  combat: 50, combat_gold: 50, combat_red: 50, combat_jade: 50, combat_purple: 50,
+  boss: 50, boss_gold: 50, boss_red: 50, boss_jade: 50, boss_purple: 50,
+  victory: 50,
 };
 
+// Hard cap to prevent memory issues on mobile devices
+const MAX_PARTICLES = 50;
+
 let lastTime = 0;
+let frameCount = 0;
+let lastFpsCheck = 0;
+let avgFps = 60;
+let skipFrames = false; // Enable frame skipping when FPS drops below threshold
 
 function animate(time) {
   if (!ctx || !canvas) return;
   const dt = Math.min((time - lastTime) / 1000, 0.1);
   lastTime = time;
 
+  // FPS monitoring for adaptive frame skipping
+  frameCount++;
+  if (time - lastFpsCheck > 1000) {
+    avgFps = frameCount;
+    frameCount = 0;
+    lastFpsCheck = time;
+    // Enable frame skipping if FPS drops below 30 on low-end devices
+    skipFrames = avgFps < 30;
+  }
+
+  // Frame skipping on low-FPS devices: only render every other frame
+  if (skipFrames && frameCount % 2 !== 0) {
+    animFrameId = requestAnimationFrame(animate);
+    return;
+  }
+
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  // Spawn new particles to maintain count
-  const target = PARTICLE_COUNTS[currentMode] || 35;
+  // Spawn new particles to maintain count, respecting hard cap
+  const target = Math.min(PARTICLE_COUNTS[currentMode] || 35, MAX_PARTICLES);
   while (particles.length < target) {
     particles.push(new Particle(currentMode));
   }
@@ -155,6 +226,11 @@ function animate(time) {
     if (alive) p.draw();
     return alive;
   });
+
+  // Enforce hard cap — trim excess particles (e.g. from burst effects)
+  if (particles.length > MAX_PARTICLES) {
+    particles = particles.slice(-MAX_PARTICLES);
+  }
 
   animFrameId = requestAnimationFrame(animate);
 }
@@ -289,6 +365,16 @@ function hslToRgb(h, s, l) {
   }
   return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
 }
+
+// ─── Pause/resume when page visibility changes ─────────────────────────────
+// Prevents wasting CPU/battery when the tab is backgrounded
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    stopParticles();
+  } else {
+    startParticles(currentMode);
+  }
+});
 
 // Auto-start ambient particles
 startParticles('ambient');
