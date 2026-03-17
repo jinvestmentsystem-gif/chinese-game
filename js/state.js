@@ -96,7 +96,7 @@ class GameState {
     if (!('gold' in p))           p.gold = 0;
     if (!('consumables' in p))    p.consumables = {};
     if (!('achievements' in p))   p.achievements = [];
-    if (!('difficultyBase' in p)) p.difficultyBase = p.tier === 'grade7' ? 3 : 2;
+    if (!('difficultyBase' in p)) p.difficultyBase = ['grade7', 'grade8'].includes(p.tier) ? 3 : 2;
     if (!('stats' in p) || !p.stats) {
       p.stats = { totalCorrect: 0, totalWrong: 0, totalQuests: 0, totalBossKills: 0, maxCombo: 0, totalXP: 0, totalGoldEarned: 0, fastestAnswer: Infinity, perfectQuests: 0 };
     } else {

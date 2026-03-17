@@ -2131,10 +2131,30 @@ input[type="text"]:focus, input[type="number"]:focus {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   9. CINEMATIC TITLE SCREEN
+   9. CINEMATIC AAA TITLE SCREEN
    ═══════════════════════════════════════════════════════════════ */
 
-/* ── Ink-Wash Landscape Background ─────────────────────────────── */
+/* ── Root for the title screen ─────────────────────────────────── */
+.title-screen-root {
+  overflow: hidden !important;
+  background: #000;
+}
+
+/* ── Blackout cinematic overlay (fades away) ──────────────────── */
+.title-blackout {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  background: #000;
+  animation: title-blackout-fade 1.8s ease-out 0.6s forwards;
+  pointer-events: none;
+}
+@keyframes title-blackout-fade {
+  0%   { opacity: 1; }
+  100% { opacity: 0; pointer-events: none; }
+}
+
+/* ── Ink-Wash Parallax Landscape Background ───────────────────── */
 .title-ink-bg {
   position: absolute;
   inset: 0;
@@ -2143,226 +2163,661 @@ input[type="text"]:focus, input[type="number"]:focus {
   overflow: hidden;
 }
 
+/* ── Aurora / Northern Lights at the top ──────────────────────── */
+.title-aurora {
+  position: absolute;
+  top: -30%;
+  left: -20%;
+  right: -20%;
+  height: 65%;
+  background:
+    linear-gradient(180deg,
+      rgba(46, 204, 138, 0.08) 0%,
+      rgba(142, 68, 173, 0.06) 25%,
+      rgba(212, 160, 23, 0.04) 50%,
+      transparent 100%
+    );
+  filter: blur(40px);
+  animation: title-aurora-shift 12s ease-in-out infinite alternate;
+  will-change: transform, filter;
+}
+@keyframes title-aurora-shift {
+  0%   { transform: translateX(-8%) scaleY(1); filter: blur(40px) hue-rotate(0deg); opacity: 0.7; }
+  33%  { transform: translateX(4%) scaleY(1.15); filter: blur(50px) hue-rotate(15deg); opacity: 1; }
+  66%  { transform: translateX(-3%) scaleY(0.9); filter: blur(35px) hue-rotate(-10deg); opacity: 0.8; }
+  100% { transform: translateX(6%) scaleY(1.05); filter: blur(45px) hue-rotate(20deg); opacity: 0.9; }
+}
+
+/* ── Glowing Moon ──────────────────────────────────────────────── */
+.title-moon {
+  position: absolute;
+  top: 8%;
+  right: 15%;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%,
+    #ffecd2 0%,
+    #f8d4a0 30%,
+    rgba(212, 160, 23, 0.5) 70%,
+    transparent 100%
+  );
+  box-shadow:
+    0 0 40px rgba(255, 236, 210, 0.4),
+    0 0 80px rgba(212, 160, 23, 0.3),
+    0 0 160px rgba(212, 160, 23, 0.15);
+  animation: title-moon-glow 6s ease-in-out infinite alternate;
+  z-index: 1;
+}
+.title-moon-glow {
+  position: absolute;
+  inset: -60%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,236,210,0.1) 0%, transparent 70%);
+  animation: title-moon-halo 8s ease-in-out infinite alternate;
+}
+@keyframes title-moon-glow {
+  0%   { box-shadow: 0 0 40px rgba(255,236,210,0.4), 0 0 80px rgba(212,160,23,0.3); }
+  100% { box-shadow: 0 0 60px rgba(255,236,210,0.5), 0 0 120px rgba(212,160,23,0.4); }
+}
+@keyframes title-moon-halo {
+  0%   { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.15); opacity: 1; }
+}
+
+/* ── Parallax Mountains ───────────────────────────────────────── */
 .title-mountain {
   position: absolute;
   bottom: 0;
-  left: 0;
-  right: 0;
-  border-radius: 60% 50% 0 0 / 100% 100% 0 0;
-  opacity: 0.08;
-}
-.title-mountain-1 {
-  height: 45%;
-  background: linear-gradient(180deg, rgba(212,160,23,0.3), rgba(30,20,60,0.6));
-  transform: scaleX(1.3) translateX(-5%);
-  animation: title-mountain-drift 25s ease-in-out infinite alternate;
-}
-.title-mountain-2 {
-  height: 35%;
-  background: linear-gradient(180deg, rgba(46,204,138,0.2), rgba(20,15,50,0.5));
-  transform: scaleX(1.1) translateX(8%);
-  animation: title-mountain-drift 30s ease-in-out infinite alternate-reverse;
-}
-.title-mountain-3 {
-  height: 25%;
-  background: linear-gradient(180deg, rgba(142,68,173,0.15), rgba(15,10,40,0.4));
-  transform: scaleX(1.5);
-  animation: title-mountain-drift 20s ease-in-out infinite alternate;
-}
-
-@keyframes title-mountain-drift {
-  0%   { transform: scaleX(1.3) translateX(-5%); }
-  100% { transform: scaleX(1.3) translateX(3%); }
-}
-
-.title-mist {
-  position: absolute;
   left: -10%;
   right: -10%;
-  height: 80px;
-  background: linear-gradient(90deg, transparent, rgba(200,190,170,0.04), transparent);
-  animation: title-mist-drift linear infinite;
-  opacity: 0.5;
+  will-change: transform;
 }
-.title-mist-1 { bottom: 30%; animation-duration: 35s; }
-.title-mist-2 { bottom: 50%; animation-duration: 45s; animation-delay: -10s; }
+.title-mountain-far {
+  height: 50%;
+  background:
+    linear-gradient(135deg, rgba(15, 12, 35, 0.95), rgba(25, 20, 55, 0.8));
+  clip-path: polygon(0% 100%, 5% 55%, 12% 70%, 20% 40%, 30% 60%, 38% 30%, 48% 50%, 55% 25%, 65% 45%, 72% 20%, 80% 42%, 88% 35%, 95% 55%, 100% 45%, 100% 100%);
+  opacity: 0.4;
+  animation: title-mt-drift-far 35s ease-in-out infinite alternate;
+}
+.title-mountain-mid {
+  height: 40%;
+  background:
+    linear-gradient(135deg, rgba(20, 16, 45, 0.9), rgba(35, 25, 65, 0.7));
+  clip-path: polygon(0% 100%, 3% 65%, 10% 50%, 18% 70%, 25% 45%, 35% 60%, 42% 35%, 52% 55%, 60% 30%, 68% 50%, 78% 40%, 85% 55%, 92% 45%, 100% 60%, 100% 100%);
+  opacity: 0.5;
+  animation: title-mt-drift-mid 28s ease-in-out infinite alternate-reverse;
+}
+.title-mountain-near {
+  height: 30%;
+  background:
+    linear-gradient(180deg, rgba(25, 20, 50, 0.95), rgba(11, 12, 26, 1));
+  clip-path: polygon(0% 100%, 0% 60%, 8% 50%, 15% 65%, 22% 45%, 30% 55%, 40% 40%, 50% 55%, 58% 38%, 68% 50%, 75% 42%, 85% 55%, 95% 48%, 100% 55%, 100% 100%);
+  opacity: 0.7;
+  animation: title-mt-drift-near 22s ease-in-out infinite alternate;
+}
+@keyframes title-mt-drift-far {
+  0%   { transform: translateX(-2%); }
+  100% { transform: translateX(2%); }
+}
+@keyframes title-mt-drift-mid {
+  0%   { transform: translateX(2%); }
+  100% { transform: translateX(-3%); }
+}
+@keyframes title-mt-drift-near {
+  0%   { transform: translateX(-1.5%); }
+  100% { transform: translateX(1.5%); }
+}
+
+/* ── Mist Layers ──────────────────────────────────────────────── */
+.title-mist {
+  position: absolute;
+  left: -20%;
+  right: -20%;
+  height: 100px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(200, 190, 180, 0.04) 20%,
+    rgba(200, 190, 180, 0.07) 50%,
+    rgba(200, 190, 180, 0.04) 80%,
+    transparent 100%
+  );
+  animation: title-mist-drift linear infinite;
+  will-change: transform;
+}
+.title-mist-1 { bottom: 28%; animation-duration: 40s; height: 120px; opacity: 0.6; }
+.title-mist-2 { bottom: 48%; animation-duration: 55s; animation-delay: -15s; opacity: 0.4; }
+.title-mist-3 { bottom: 15%; animation-duration: 30s; animation-delay: -8s; opacity: 0.5; height: 80px; }
 
 @keyframes title-mist-drift {
-  0%   { transform: translateX(-20%); }
-  100% { transform: translateX(20%); }
+  0%   { transform: translateX(-25%); }
+  100% { transform: translateX(25%); }
 }
 
-/* Floating calligraphy characters */
+/* ── Fog Layers ───────────────────────────────────────────────── */
+.title-fog {
+  position: absolute;
+  left: -30%;
+  right: -30%;
+  height: 200px;
+  background: radial-gradient(ellipse at center,
+    rgba(180, 170, 160, 0.05) 0%,
+    transparent 70%
+  );
+  will-change: transform;
+}
+.title-fog-1 {
+  bottom: 10%;
+  animation: title-fog-move 50s linear infinite;
+}
+.title-fog-2 {
+  bottom: 35%;
+  animation: title-fog-move 65s linear infinite reverse;
+  opacity: 0.7;
+}
+@keyframes title-fog-move {
+  0%   { transform: translateX(-30%) scaleX(1.2); }
+  50%  { transform: translateX(15%) scaleX(0.9); }
+  100% { transform: translateX(-30%) scaleX(1.2); }
+}
+
+/* ── Floating Calligraphy Characters ──────────────────────────── */
 .title-float-char {
   position: absolute;
   font-family: 'Noto Serif SC', 'SimSun', serif;
-  color: rgba(212,160,23,0.8);
+  color: rgba(212, 160, 23, 0.8);
   pointer-events: none;
   animation: title-float-drift linear infinite;
   user-select: none;
+  will-change: transform;
 }
-
 @keyframes title-float-drift {
-  0%   { transform: translateY(0) rotate(0deg); }
-  50%  { transform: translateY(-30px) rotate(3deg); }
-  100% { transform: translateY(0) rotate(-2deg); }
+  0%   { transform: translateY(0) rotate(0deg) scale(1); }
+  25%  { transform: translateY(-20px) rotate(2deg) scale(1.02); }
+  50%  { transform: translateY(-35px) rotate(-1deg) scale(0.98); }
+  75%  { transform: translateY(-15px) rotate(3deg) scale(1.01); }
+  100% { transform: translateY(0) rotate(0deg) scale(1); }
 }
 
-/* ── Audio control buttons ─────────────────────────────────────── */
-.title-audio-btn {
+/* ── Cherry Blossom Petals ────────────────────────────────────── */
+.title-petal {
+  position: absolute;
+  top: -20px;
+  border-radius: 50% 0 50% 50%;
+  background: radial-gradient(ellipse at 30% 30%,
+    rgba(255, 183, 197, 0.7),
+    rgba(255, 140, 160, 0.4) 60%,
+    rgba(255, 105, 135, 0.1) 100%
+  );
+  animation: title-petal-fall linear infinite;
+  pointer-events: none;
+  will-change: transform;
+  filter: blur(0.5px);
+}
+@keyframes title-petal-fall {
+  0%   { transform: translateY(-20px) translateX(0) rotate(0deg); opacity: 0; }
+  5%   { opacity: 0.8; }
+  50%  { transform: translateY(50vh) translateX(var(--petal-sway, 50px)) rotate(180deg); opacity: 0.6; }
+  100% { transform: translateY(105vh) translateX(calc(var(--petal-sway, 50px) * -0.5)) rotate(360deg); opacity: 0; }
+}
+
+/* ── Fireflies ────────────────────────────────────────────────── */
+.title-firefly {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 240, 150, 0.9), rgba(212, 160, 23, 0.3), transparent);
+  box-shadow: 0 0 6px rgba(255, 240, 150, 0.6), 0 0 15px rgba(212, 160, 23, 0.3);
+  animation: title-firefly-float ease-in-out infinite;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+@keyframes title-firefly-float {
+  0%   { transform: translate(0, 0) scale(1); opacity: 0; }
+  15%  { opacity: 0.9; }
+  30%  { transform: translate(15px, -20px) scale(1.2); opacity: 0.6; }
+  50%  { transform: translate(-10px, -35px) scale(0.8); opacity: 1; }
+  70%  { transform: translate(20px, -15px) scale(1.1); opacity: 0.4; }
+  85%  { opacity: 0.8; }
+  100% { transform: translate(0, 0) scale(1); opacity: 0; }
+}
+
+/* ── Shooting Stars ───────────────────────────────────────────── */
+.title-shooting-star {
+  position: absolute;
+  top: 5%;
+  width: 3px;
+  height: 3px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #fff, 0 0 12px rgba(212,160,23,0.5);
+  opacity: 0;
+  animation: title-shooting-star 2s ease-in-out infinite;
+  pointer-events: none;
+}
+.title-shooting-star::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 100%;
+  width: 80px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), #fff);
+  border-radius: 1px;
+  transform-origin: right center;
+}
+@keyframes title-shooting-star {
+  0%   { transform: translateX(0) translateY(0) rotate(-35deg); opacity: 0; }
+  5%   { opacity: 1; }
+  30%  { opacity: 1; }
+  60%  { transform: translateX(300px) translateY(150px) rotate(-35deg); opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* ── Top-Right Controls ───────────────────────────────────────── */
+.title-controls {
   position: absolute;
   top: 16px;
-  z-index: 10;
-  background: transparent;
-  border: 1px solid var(--text-secondary);
+  right: 16px;
+  z-index: 20;
+  display: flex;
+  gap: 8px;
+}
+.title-ctrl-btn {
+  background: rgba(17, 18, 40, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 160, 23, 0.15);
   color: var(--text-secondary);
   font-size: 1.1rem;
-  width: 36px;
-  height: 36px;
-  border-radius: 6px;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  line-height: 1;
-  transition: border-color 0.2s, color 0.2s;
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: title-ctrl-fadein 0.5s ease 3s forwards;
 }
-.title-audio-btn:hover {
+.title-ctrl-btn:hover {
   border-color: var(--gold);
   color: var(--gold);
+  background: rgba(212, 160, 23, 0.08);
+  box-shadow: 0 0 15px rgba(212, 160, 23, 0.15);
+  transform: scale(1.08);
 }
-.title-audio-icon { font-size: 1rem; }
+@keyframes title-ctrl-fadein {
+  to { opacity: 1; }
+}
 
-/* ── Logo: brush-stroke reveal ─────────────────────────────────── */
+/* ── Ink Drop + Splash Sequence ───────────────────────────────── */
+.title-ink-drop-area {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 45;
+  pointer-events: none;
+}
+.title-ink-drop {
+  width: 8px;
+  height: 8px;
+  border-radius: 50% 50% 50% 0;
+  background: var(--gold);
+  transform: rotate(45deg) translateY(-200px) scale(0);
+  opacity: 0;
+  animation: title-ink-drop-fall 0.8s cubic-bezier(0.55, 0, 1, 0.45) 0.3s forwards;
+}
+@keyframes title-ink-drop-fall {
+  0%   { transform: rotate(45deg) translateY(-200px) scale(1); opacity: 0.9; }
+  80%  { transform: rotate(45deg) translateY(0) scale(1); opacity: 0.9; }
+  100% { transform: rotate(45deg) translateY(0) scale(0); opacity: 0; }
+}
+
+.title-ink-splash {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  margin: -60px 0 0 -60px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(212, 160, 23, 0.5) 0%,
+    rgba(212, 160, 23, 0.2) 40%,
+    transparent 70%
+  );
+  transform: scale(0);
+  opacity: 0;
+  animation: title-ink-splash-burst 0.6s ease-out 1s forwards;
+}
+.title-ink-splash-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  margin: -100px 0 0 -100px;
+  border-radius: 50%;
+  border: 2px solid rgba(212, 160, 23, 0.3);
+  transform: scale(0);
+  opacity: 0;
+  animation: title-ink-splash-ring-grow 0.8s ease-out 1s forwards;
+}
+@keyframes title-ink-splash-burst {
+  0%   { transform: scale(0); opacity: 0.8; }
+  60%  { transform: scale(1.5); opacity: 0.4; }
+  100% { transform: scale(2); opacity: 0; }
+}
+@keyframes title-ink-splash-ring-grow {
+  0%   { transform: scale(0); opacity: 0.6; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* ── Logo Area ────────────────────────────────────────────────── */
 .title-logo-wrap {
   position: relative;
-  z-index: 2;
-  margin-top: -2rem;
+  z-index: 5;
+  margin-top: -4rem;
 }
 
 .title-logo {
   display: flex;
   gap: 0.15em;
   justify-content: center;
+  position: relative;
 }
 
-@keyframes brush-reveal {
-  0%   { clip-path: inset(0 100% 0 0); opacity: 0; filter: blur(6px); transform: scaleY(0.7) translateY(10px); }
-  40%  { clip-path: inset(0 20% 0 0); opacity: 0.7; filter: blur(2px); transform: scaleY(1.05) translateY(-2px); }
-  70%  { clip-path: inset(0 0 0 0); opacity: 0.9; filter: blur(0.5px); transform: scaleY(1) translateY(0); }
+/* ── Orbiting Characters Ring ─────────────────────────────────── */
+.title-orbit-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  z-index: -1;
+}
+.title-orbit-char {
+  position: absolute;
+  font-family: 'Noto Serif SC', 'SimSun', serif;
+  font-size: 1rem;
+  color: rgba(212, 160, 23, 0.12);
+  text-shadow: 0 0 8px rgba(212, 160, 23, 0.1);
+  animation: title-orbit-spin linear infinite;
+  pointer-events: none;
+  user-select: none;
+}
+@keyframes title-orbit-spin {
+  0%   { transform: rotate(var(--orbit-angle, 0deg)) translateX(var(--orbit-radius, 160px)) rotate(calc(-1 * var(--orbit-angle, 0deg))); }
+  100% { transform: rotate(calc(var(--orbit-angle, 0deg) + 360deg)) translateX(var(--orbit-radius, 160px)) rotate(calc(-1 * (var(--orbit-angle, 0deg) + 360deg))); }
+}
+
+/* ── Brush-Stroke Title Reveal (HUGE gold characters) ─────────── */
+@keyframes title-brush-reveal {
+  0%   { clip-path: inset(0 100% 0 0); opacity: 0; filter: blur(8px); transform: scaleY(0.6) translateY(15px); }
+  30%  { clip-path: inset(0 40% 0 0); opacity: 0.5; filter: blur(4px); transform: scaleY(1.08) translateY(-5px); }
+  60%  { clip-path: inset(0 5% 0 0); opacity: 0.85; filter: blur(1px); transform: scaleY(1.02) translateY(0); }
+  80%  { clip-path: inset(0 0 0 0); opacity: 0.95; filter: blur(0); transform: scaleY(1) translateY(0); }
   100% { clip-path: inset(0 0 0 0); opacity: 1; filter: blur(0); transform: scaleY(1) translateY(0); }
 }
 
 .title-char {
   display: inline-block;
-  font-size: clamp(3.5rem, 12vw, 5.5rem);
+  font-family: 'Noto Serif SC', 'SimSun', serif;
+  font-size: clamp(5rem, 15vw, 10rem);
   font-weight: 900;
-  color: var(--gold);
-  text-shadow:
-    0 0 12px rgba(212,160,23,0.9),
-    0 0 40px rgba(212,160,23,0.5),
-    0 0 80px rgba(212,160,23,0.2),
-    3px 3px 0 rgba(0,0,0,0.9);
+  background: linear-gradient(180deg,
+    #ffd700 0%,
+    #f0c040 25%,
+    #d4a017 50%,
+    #b8860b 75%,
+    #f0c040 100%
+  );
+  background-size: 100% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 20px rgba(212,160,23,0.8))
+          drop-shadow(0 0 50px rgba(212,160,23,0.4))
+          drop-shadow(0 0 100px rgba(212,160,23,0.2))
+          drop-shadow(4px 4px 0 rgba(0,0,0,0.9));
   opacity: 0;
-  animation: brush-reveal 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation:
+    title-brush-reveal 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards,
+    title-char-shimmer 4s ease-in-out infinite 3s;
+  will-change: transform, opacity, filter;
 }
 
-.title-char-1 { animation-delay: 0.2s; }
-.title-char-2 { animation-delay: 0.65s; }
-.title-char-3 { animation-delay: 1.1s; }
+/* Continuous shimmer/sparkle on title characters */
+@keyframes title-char-shimmer {
+  0%   { background-position: 0% 0%; filter: drop-shadow(0 0 20px rgba(212,160,23,0.8)) drop-shadow(0 0 50px rgba(212,160,23,0.4)) brightness(1); }
+  50%  { background-position: 0% 100%; filter: drop-shadow(0 0 30px rgba(255,215,0,1)) drop-shadow(0 0 70px rgba(212,160,23,0.6)) brightness(1.15); }
+  100% { background-position: 0% 0%; filter: drop-shadow(0 0 20px rgba(212,160,23,0.8)) drop-shadow(0 0 50px rgba(212,160,23,0.4)) brightness(1); }
+}
 
-/* Ink splatter accents */
+.title-char-1 { animation-delay: 1.4s, 3s; }
+.title-char-2 { animation-delay: 1.8s, 3.4s; }
+.title-char-3 { animation-delay: 2.2s, 3.8s; }
+
+/* ── Ink Splatter Accents ─────────────────────────────────────── */
 .title-ink-splatter {
   position: absolute;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(212,160,23,0.25) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(212,160,23,0.3) 0%, transparent 70%);
   pointer-events: none;
   opacity: 0;
-  animation: ink-splat 0.5s ease-out forwards;
+  animation: title-ink-splat 0.6s ease-out forwards;
 }
 .title-splat-1 {
-  width: 60px; height: 60px;
-  top: -15px; left: 5%;
-  animation-delay: 0.4s;
+  width: 80px; height: 80px;
+  top: -25px; left: 0%;
+  animation-delay: 1.6s;
 }
 .title-splat-2 {
-  width: 45px; height: 45px;
-  top: 10px; right: 10%;
-  animation-delay: 0.85s;
+  width: 60px; height: 60px;
+  top: 10px; right: 5%;
+  animation-delay: 2.1s;
 }
 .title-splat-3 {
-  width: 80px; height: 80px;
-  bottom: -20px; left: 50%;
+  width: 100px; height: 100px;
+  bottom: -30px; left: 50%;
   transform: translateX(-50%);
-  animation-delay: 1.3s;
+  animation-delay: 2.5s;
 }
-
-@keyframes ink-splat {
+@keyframes title-ink-splat {
   0%   { transform: scale(0); opacity: 0; }
-  50%  { transform: scale(1.3); opacity: 0.6; }
-  100% { transform: scale(1); opacity: 0.35; }
+  40%  { transform: scale(1.4); opacity: 0.6; }
+  100% { transform: scale(1); opacity: 0.3; }
 }
 
-/* ── Subtitle letter-spacing fade-in ───────────────────────────── */
-.title-subtitle {
-  font-size: clamp(1rem, 3vw, 1.4rem);
-  color: var(--text-secondary);
-  letter-spacing: 0.8em;
+/* ── Red Seal Stamp (印章) ────────────────────────────────────── */
+.title-seal {
+  position: absolute;
+  top: -10px;
+  right: -50px;
+  width: 52px;
+  height: 52px;
+  border: 3px solid var(--red);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(12deg) scale(0);
   opacity: 0;
-  animation: title-subtitle-in 1s ease forwards;
-  animation-delay: 1.6s;
-  margin-top: 0.8rem;
-  margin-bottom: 2.5rem;
-  z-index: 2;
+  animation: title-seal-stamp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 2.8s forwards;
+  box-shadow:
+    0 0 15px rgba(214, 48, 49, 0.3),
+    inset 0 0 10px rgba(214, 48, 49, 0.1);
+}
+.title-seal-char {
+  font-family: 'Noto Serif SC', 'SimSun', serif;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--red);
+  text-shadow: 0 0 8px rgba(214, 48, 49, 0.4);
+}
+@keyframes title-seal-stamp {
+  0%   { transform: rotate(12deg) scale(2); opacity: 0; }
+  60%  { transform: rotate(12deg) scale(0.9); opacity: 1; }
+  80%  { transform: rotate(12deg) scale(1.05); }
+  100% { transform: rotate(12deg) scale(1); opacity: 0.85; }
+}
+
+/* ── Subtitle: WORD HERO letter-by-letter ─────────────────────── */
+.title-subtitle {
+  font-size: clamp(1.1rem, 3.5vw, 1.6rem);
+  color: var(--text-secondary);
+  letter-spacing: 0.5em;
+  margin-top: 1rem;
+  margin-bottom: 0.8rem;
+  z-index: 5;
   text-transform: uppercase;
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+}
+.title-letter {
+  display: inline-block;
+  opacity: 0;
+  animation: title-letter-pop 0.4s ease forwards;
+  will-change: transform, opacity;
+}
+@keyframes title-letter-pop {
+  0%   { opacity: 0; transform: translateY(12px) scale(0.5); filter: blur(4px); }
+  60%  { opacity: 0.8; transform: translateY(-3px) scale(1.05); filter: blur(0); }
+  100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+.title-letter-1 { animation-delay: 2.6s; }
+.title-letter-2 { animation-delay: 2.68s; }
+.title-letter-3 { animation-delay: 2.76s; }
+.title-letter-4 { animation-delay: 2.84s; }
+.title-letter-sp { animation-delay: 2.9s; }
+.title-letter-5 { animation-delay: 3.0s; }
+.title-letter-6 { animation-delay: 3.08s; }
+.title-letter-7 { animation-delay: 3.16s; }
+.title-letter-8 { animation-delay: 3.24s; }
+
+/* ── Tagline ──────────────────────────────────────────────────── */
+.title-tagline {
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  color: rgba(200, 190, 180, 0.6);
+  letter-spacing: 0.25em;
+  opacity: 0;
+  animation: title-tagline-in 1.2s ease 3.4s forwards;
+  margin-bottom: 2.5rem;
+  z-index: 5;
+  font-style: italic;
+}
+@keyframes title-tagline-in {
+  0%   { opacity: 0; transform: translateY(8px); filter: blur(3px); }
+  100% { opacity: 0.7; transform: translateY(0); filter: blur(0); }
 }
 
-@keyframes title-subtitle-in {
-  0%   { opacity: 0; letter-spacing: 1.5em; filter: blur(4px); }
-  100% { opacity: 1; letter-spacing: 0.35em; filter: blur(0); }
-}
-
-/* ── Menu buttons: slide-in from bottom + glow ─────────────────── */
+/* ── Menu Buttons ─────────────────────────────────────────────── */
 .title-menu {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  z-index: 2;
-  width: min(85vw, 280px);
+  gap: 16px;
+  z-index: 5;
+  width: min(85vw, 320px);
 }
 
 .title-menu-btn {
+  position: relative;
+  overflow: hidden;
   opacity: 0;
-  transform: translateY(30px);
-  animation: title-btn-slide-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  box-shadow: 0 0 0 0 rgba(212,160,23,0);
-  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  transform: translateY(40px);
+  animation: title-btn-slide-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 16px 28px;
+  background: rgba(17, 18, 40, 0.7) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 160, 23, 0.15) !important;
+  border-radius: 14px !important;
+  color: var(--gold-bright) !important;
+  text-shadow: 0 0 10px rgba(212, 160, 23, 0.3);
+  transition: all 0.35s ease;
+  cursor: pointer;
 }
 .title-menu-btn:hover {
-  box-shadow: 0 0 20px rgba(212,160,23,0.25), 0 0 40px rgba(212,160,23,0.1);
+  background: rgba(212, 160, 23, 0.08) !important;
+  border-color: rgba(212, 160, 23, 0.4) !important;
+  box-shadow:
+    0 0 25px rgba(212, 160, 23, 0.2),
+    0 0 50px rgba(212, 160, 23, 0.1),
+    inset 0 0 30px rgba(212, 160, 23, 0.03);
+  transform: translateY(-2px) scale(1.02);
+  text-shadow: 0 0 15px rgba(212, 160, 23, 0.5);
 }
-.title-menu-btn-1 { animation-delay: 1.9s; }
-.title-menu-btn-2 { animation-delay: 2.1s; }
-.title-menu-btn-3 { animation-delay: 2.3s; }
+
+/* Ink-wash motif border accent on buttons */
+.title-btn-motif {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(212, 160, 23, 0.3) 20%,
+    rgba(212, 160, 23, 0.6) 50%,
+    rgba(212, 160, 23, 0.3) 80%,
+    transparent 100%
+  );
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+.title-menu-btn:hover .title-btn-motif {
+  transform: scaleX(1);
+}
+
+/* Ripple effect */
+.title-btn-ripple {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  margin: -100px 0 0 -100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 160, 23, 0.15), transparent 70%);
+  pointer-events: none;
+  animation: title-btn-ripple-expand 0.7s ease-out forwards;
+}
+@keyframes title-btn-ripple-expand {
+  0%   { transform: scale(0); opacity: 0.6; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+.title-menu-btn-1 { animation-delay: 3.6s; }
+.title-menu-btn-2 { animation-delay: 3.8s; }
+.title-menu-btn-3 { animation-delay: 4.0s; }
 
 @keyframes title-btn-slide-in {
-  0%   { opacity: 0; transform: translateY(30px); }
+  0%   { opacity: 0; transform: translateY(40px); }
   100% { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Version badge ─────────────────────────────────────────────── */
-.title-version {
+/* ── Credits at bottom center ─────────────────────────────────── */
+.title-credits {
   position: absolute;
-  bottom: 16px;
-  left: 16px;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 0.7rem;
   color: var(--text-dim);
-  letter-spacing: 0.1em;
-  z-index: 2;
-  opacity: 0.6;
+  letter-spacing: 0.15em;
+  z-index: 5;
+  opacity: 0;
+  animation: title-credits-fade 0.8s ease 4.2s forwards;
+  white-space: nowrap;
+}
+@keyframes title-credits-fade {
+  to { opacity: 0.5; }
 }
 
-/* ── Daily login reward popup ──────────────────────────────────── */
+/* ── Daily Login Reward Popup ─────────────────────────────────── */
 .daily-login-popup {
   position: absolute;
   inset: 0;
@@ -2370,17 +2825,17 @@ input[type="text"]:focus, input[type="number"]:focus {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0,0,0,0.55);
-  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
 }
 
 .daily-login-content {
-  background: linear-gradient(135deg, var(--bg-card), rgba(212,160,23,0.08));
+  background: linear-gradient(135deg, var(--bg-card), rgba(212, 160, 23, 0.08));
   border: 2px solid var(--gold);
   border-radius: 20px;
   padding: 32px 40px;
   text-align: center;
-  box-shadow: 0 0 50px rgba(212,160,23,0.25), 0 16px 48px rgba(0,0,0,0.5);
+  box-shadow: 0 0 60px rgba(212, 160, 23, 0.25), 0 16px 48px rgba(0, 0, 0, 0.5);
   max-width: 340px;
 }
 
@@ -2389,7 +2844,7 @@ input[type="text"]:focus, input[type="number"]:focus {
   color: var(--gold-bright);
   font-weight: 900;
   margin-bottom: 10px;
-  text-shadow: 0 0 10px rgba(212,160,23,0.6);
+  text-shadow: 0 0 10px rgba(212, 160, 23, 0.6);
 }
 .daily-login-streak strong {
   font-size: 1.8rem;
@@ -2421,6 +2876,20 @@ input[type="text"]:focus, input[type="number"]:focus {
 @keyframes daily-popup-out {
   0%   { opacity: 1; transform: scale(1); }
   100% { opacity: 0; transform: scale(0.9); }
+}
+
+/* ── Responsive Title ─────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .title-char {
+    font-size: clamp(3.5rem, 14vw, 5rem);
+  }
+  .title-orbit-ring { display: none; }
+  .title-seal {
+    width: 38px; height: 38px;
+    right: -35px; top: -5px;
+  }
+  .title-seal-char { font-size: 1.1rem; }
+  .title-moon { width: 60px; height: 60px; top: 10%; right: 10%; }
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -2589,8 +3058,8 @@ input[type="text"]:focus, input[type="number"]:focus {
   .wm-stat-block {
     min-width: 80px;
   }
-  .title-logo .title-char {
-    font-size: 3rem;
+  .title-char {
+    font-size: clamp(3.5rem, 14vw, 5rem);
   }
 }
 
@@ -3526,6 +3995,46 @@ input[type="text"]:focus, input[type="number"]:focus {
     animation: none;
     display: none;
   }
+  .title-blackout {
+    animation: none;
+    opacity: 0;
+  }
+  .title-aurora,
+  .title-petal,
+  .title-firefly,
+  .title-shooting-star,
+  .title-fog,
+  .title-orbit-char,
+  .title-ink-drop,
+  .title-ink-splash,
+  .title-ink-splash-ring {
+    animation: none;
+    display: none;
+  }
+  .title-moon {
+    animation: none;
+  }
+  .title-seal {
+    animation: none;
+    opacity: 0.85;
+    transform: rotate(12deg) scale(1);
+  }
+  .title-letter {
+    animation: none;
+    opacity: 1;
+  }
+  .title-tagline {
+    animation: none;
+    opacity: 0.7;
+  }
+  .title-credits {
+    animation: none;
+    opacity: 0.5;
+  }
+  .title-ctrl-btn {
+    animation: none;
+    opacity: 1;
+  }
   .hp-bar::after,
   .timer-bar::after {
     animation: none;
@@ -3612,3 +4121,579 @@ input[type="text"]:focus, input[type="number"]:focus {
   }
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   GLOBAL VISUAL UTILITIES — Glass, Shimmer, Ink-Splash, Seals
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Glass-Morphism Card ──────────────────────────────────────── */
+.glass-card {
+  background: rgba(17, 18, 40, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 160, 23, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+.glass-card:hover {
+  border-color: rgba(212, 160, 23, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(212, 160, 23, 0.05);
+}
+
+/* ── Shimmer Text Effect ──────────────────────────────────────── */
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #d4a017 0%,
+    #f0c040 25%,
+    #fffbe6 50%,
+    #f0c040 75%,
+    #d4a017 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer-text-anim 3s linear infinite;
+}
+@keyframes shimmer-text-anim {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ── Ink Splash Screen Transition ─────────────────────────────── */
+.ink-splash-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  overflow: hidden;
+}
+.ink-splash-transition::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background: var(--bg-deep);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  animation: ink-splash-cover 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+.ink-splash-transition::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background: var(--bg-deep);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(300);
+  animation: ink-splash-uncover 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
+}
+@keyframes ink-splash-cover {
+  0%   { transform: translate(-50%, -50%) scale(0); }
+  100% { transform: translate(-50%, -50%) scale(300); }
+}
+@keyframes ink-splash-uncover {
+  0%   { transform: translate(-50%, -50%) scale(300); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(300); opacity: 0; }
+}
+
+/* ── Floating Seal Stamp Decoration ───────────────────────────── */
+.seal-stamp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 3px solid var(--red);
+  border-radius: 4px;
+  transform: rotate(-8deg);
+  color: var(--red);
+  font-family: 'Noto Serif SC', 'SimSun', serif;
+  font-size: 1.4rem;
+  font-weight: 900;
+  box-shadow:
+    0 0 12px rgba(214, 48, 49, 0.25),
+    inset 0 0 8px rgba(214, 48, 49, 0.08);
+  position: relative;
+  animation: seal-stamp-hover 4s ease-in-out infinite;
+}
+.seal-stamp::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border: 1px solid rgba(214, 48, 49, 0.3);
+  border-radius: 2px;
+}
+@keyframes seal-stamp-hover {
+  0%, 100% { transform: rotate(-8deg) translateY(0); }
+  50%      { transform: rotate(-8deg) translateY(-4px); }
+}
+
+/* ── Cherry Blossom Petal (reusable) ──────────────────────────── */
+.petal-float {
+  position: absolute;
+  border-radius: 50% 0 50% 50%;
+  background: radial-gradient(ellipse at 30% 30%,
+    rgba(255, 183, 197, 0.65),
+    rgba(255, 140, 160, 0.35) 60%,
+    rgba(255, 105, 135, 0.08) 100%
+  );
+  pointer-events: none;
+  filter: blur(0.5px);
+  animation: petal-drift linear infinite;
+  will-change: transform;
+}
+@keyframes petal-drift {
+  0%   { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+  5%   { opacity: 0.75; }
+  50%  { transform: translateY(50vh) translateX(40px) rotate(180deg); opacity: 0.5; }
+  100% { transform: translateY(100vh) translateX(-20px) rotate(360deg); opacity: 0; }
+}
+
+/* ── Firefly Floating (reusable) ──────────────────────────────── */
+.firefly-float {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(255, 240, 150, 0.85),
+    rgba(212, 160, 23, 0.25),
+    transparent
+  );
+  box-shadow:
+    0 0 6px rgba(255, 240, 150, 0.5),
+    0 0 14px rgba(212, 160, 23, 0.25);
+  pointer-events: none;
+  animation: firefly-wander ease-in-out infinite;
+  will-change: transform, opacity;
+}
+@keyframes firefly-wander {
+  0%   { transform: translate(0, 0) scale(1); opacity: 0.1; }
+  20%  { transform: translate(12px, -18px) scale(1.2); opacity: 0.85; }
+  40%  { transform: translate(-8px, -30px) scale(0.7); opacity: 0.4; }
+  60%  { transform: translate(18px, -12px) scale(1.1); opacity: 0.9; }
+  80%  { transform: translate(-5px, -25px) scale(0.85); opacity: 0.3; }
+  100% { transform: translate(0, 0) scale(1); opacity: 0.1; }
+}
+
+/* ── Mountain Parallax Layers (reusable) ──────────────────────── */
+.mountain-layer {
+  position: absolute;
+  bottom: 0;
+  left: -10%;
+  right: -10%;
+  pointer-events: none;
+  will-change: transform;
+}
+.mountain-layer-far {
+  height: 45%;
+  opacity: 0.25;
+  clip-path: polygon(0% 100%, 5% 60%, 15% 70%, 25% 40%, 35% 55%, 45% 30%, 55% 50%, 65% 25%, 75% 45%, 85% 35%, 95% 55%, 100% 40%, 100% 100%);
+  background: linear-gradient(180deg, rgba(20, 16, 45, 0.8), rgba(11, 12, 26, 0.6));
+  animation: mountain-parallax-far 40s ease-in-out infinite alternate;
+}
+.mountain-layer-mid {
+  height: 35%;
+  opacity: 0.35;
+  clip-path: polygon(0% 100%, 8% 55%, 18% 65%, 28% 40%, 38% 55%, 48% 30%, 58% 50%, 68% 35%, 78% 50%, 88% 40%, 100% 55%, 100% 100%);
+  background: linear-gradient(180deg, rgba(25, 20, 50, 0.85), rgba(15, 14, 35, 0.7));
+  animation: mountain-parallax-mid 30s ease-in-out infinite alternate-reverse;
+}
+.mountain-layer-near {
+  height: 25%;
+  opacity: 0.5;
+  clip-path: polygon(0% 100%, 0% 60%, 12% 50%, 22% 60%, 35% 42%, 48% 55%, 60% 40%, 72% 52%, 85% 45%, 100% 55%, 100% 100%);
+  background: linear-gradient(180deg, rgba(30, 24, 55, 0.9), rgba(11, 12, 26, 0.95));
+  animation: mountain-parallax-near 25s ease-in-out infinite alternate;
+}
+@keyframes mountain-parallax-far {
+  0%   { transform: translateX(-2%); }
+  100% { transform: translateX(2%); }
+}
+@keyframes mountain-parallax-mid {
+  0%   { transform: translateX(1.5%); }
+  100% { transform: translateX(-2%); }
+}
+@keyframes mountain-parallax-near {
+  0%   { transform: translateX(-1%); }
+  100% { transform: translateX(1%); }
+}
+
+/* ── Ink Drip Decoration ──────────────────────────────────────── */
+.ink-drip {
+  display: inline-block;
+  position: relative;
+}
+.ink-drip::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  width: 3px;
+  height: 0;
+  background: linear-gradient(180deg, var(--gold), transparent);
+  border-radius: 0 0 3px 3px;
+  transform: translateX(-50%);
+  animation: ink-drip-flow 4s ease-in-out infinite;
+}
+@keyframes ink-drip-flow {
+  0%, 100% { height: 0; opacity: 0; }
+  20%      { height: 12px; opacity: 0.6; }
+  50%      { height: 20px; opacity: 0.3; }
+  70%      { height: 8px; opacity: 0; }
+}
+
+/* ── Gold Gradient Text (for buttons, headings) ───────────────── */
+.gold-gradient-text {
+  background: linear-gradient(180deg, #ffd700, #f0c040, #d4a017);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Calligraphy Heading Style ────────────────────────────────── */
+.calligraphy-heading {
+  font-family: 'Noto Serif SC', 'SimSun', serif;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-shadow:
+    0 0 10px rgba(212, 160, 23, 0.5),
+    0 0 30px rgba(212, 160, 23, 0.2);
+}
+
+/* ── Reduced motion for global utilities ──────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .shimmer-text { animation: none; }
+  .seal-stamp { animation: none; transform: rotate(-8deg); }
+  .petal-float { display: none; }
+  .firefly-float { display: none; }
+  .mountain-layer { animation: none; }
+  .ink-drip::after { animation: none; display: none; }
+  .ink-splash-transition::before,
+  .ink-splash-transition::after { animation: none; }
+}
+
+/* =============================================================
+   HD-2D Visual System — Octopath Traveler + Three Kingdoms Aesthetic
+   ============================================================= */
+
+/* ── 1. Global Vignette + Bloom Layer ─────────────────────────── */
+/* HD-2D Vignette — dark edges, warm center glow */
+#game-root::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: radial-gradient(ellipse 70% 70% at 50% 45%,
+    transparent 30%,
+    rgba(0,0,0,0.15) 60%,
+    rgba(0,0,0,0.4) 85%,
+    rgba(0,0,0,0.65) 100%);
+  mix-blend-mode: multiply;
+}
+
+/* ── 2. Sprite Bloom Effect ───────────────────────────────────── */
+/* HD-2D Sprite Bloom — warm light glow around pixel sprites */
+.sprite-bloom {
+  filter: drop-shadow(0 0 8px rgba(212,160,23,0.4))
+          drop-shadow(0 0 16px rgba(212,160,23,0.2))
+          drop-shadow(0 0 24px rgba(212,160,23,0.1));
+}
+.sprite-bloom-enemy {
+  filter: drop-shadow(0 0 8px rgba(106,13,173,0.5))
+          drop-shadow(0 0 16px rgba(106,13,173,0.25));
+}
+.sprite-bloom-boss {
+  filter: drop-shadow(0 0 12px rgba(214,48,49,0.6))
+          drop-shadow(0 0 24px rgba(214,48,49,0.3))
+          drop-shadow(0 0 36px rgba(106,13,173,0.15));
+}
+
+/* ── 3. Depth-of-Field Background Blur ────────────────────────── */
+.bg-depth-far { filter: blur(3px) brightness(0.7); }
+.bg-depth-mid { filter: blur(1.5px) brightness(0.85); }
+.bg-depth-near { filter: blur(0px) brightness(1); }
+
+/* ── 4. Bokeh Particle System (CSS-only sparkling lights) ─────── */
+.bokeh-container {
+  position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 1;
+}
+.bokeh-dot {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(212,160,23,0.3) 40%, transparent 70%);
+  animation: bokeh-float var(--duration, 8s) var(--delay, 0s) ease-in-out infinite;
+}
+@keyframes bokeh-float {
+  0%, 100% { transform: translateY(0) scale(var(--scale, 1)); opacity: 0; }
+  10% { opacity: var(--max-opacity, 0.6); }
+  50% { transform: translateY(calc(var(--drift-y, -30px))) scale(calc(var(--scale, 1) * 1.2)); opacity: var(--max-opacity, 0.6); }
+  90% { opacity: var(--max-opacity, 0.6); }
+}
+
+/* ── 5. Volumetric Light Rays (for victory/boss scenes) ───────── */
+.light-rays {
+  position: absolute; inset: 0; pointer-events: none; z-index: 2;
+  background: repeating-conic-gradient(
+    from 0deg at 50% 0%,
+    rgba(212,160,23,0.03) 0deg,
+    transparent 3deg,
+    transparent 12deg,
+    rgba(212,160,23,0.03) 15deg
+  );
+  animation: light-rays-rotate 30s linear infinite;
+  mix-blend-mode: screen;
+}
+@keyframes light-rays-rotate {
+  to { transform: rotate(360deg); }
+}
+
+/* ── 6. Ink-Brush UI Elements (Three Kingdoms inspired) ───────── */
+/* Ink-brush border — looks like a painted frame */
+.ink-border {
+  position: relative;
+  border: none !important;
+}
+.ink-border::before {
+  content: '';
+  position: absolute; inset: -4px;
+  background:
+    /* Top stroke */ linear-gradient(90deg, transparent 2%, rgba(212,160,23,0.6) 5%, rgba(212,160,23,0.8) 30%, rgba(212,160,23,0.6) 70%, rgba(212,160,23,0.8) 95%, transparent 98%) top/100% 2px no-repeat,
+    /* Bottom stroke */ linear-gradient(90deg, transparent 3%, rgba(212,160,23,0.5) 8%, rgba(212,160,23,0.7) 40%, rgba(212,160,23,0.5) 60%, rgba(212,160,23,0.7) 92%, transparent 97%) bottom/100% 2px no-repeat,
+    /* Left stroke */ linear-gradient(180deg, transparent 2%, rgba(212,160,23,0.5) 10%, rgba(212,160,23,0.7) 50%, rgba(212,160,23,0.5) 90%, transparent 98%) left/2px 100% no-repeat,
+    /* Right stroke */ linear-gradient(180deg, transparent 3%, rgba(212,160,23,0.6) 8%, rgba(212,160,23,0.8) 45%, rgba(212,160,23,0.6) 88%, transparent 97%) right/2px 100% no-repeat;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Ink-wash heading — looks like brush calligraphy */
+.ink-heading {
+  font-family: 'Noto Sans SC', serif;
+  font-weight: 900;
+  color: #f0e0b0;
+  text-shadow:
+    0 0 20px rgba(212,160,23,0.6),
+    0 0 40px rgba(212,160,23,0.3),
+    2px 2px 0 rgba(0,0,0,0.8),
+    -1px -1px 0 rgba(0,0,0,0.5);
+  letter-spacing: 0.15em;
+}
+
+/* Brush-stroke divider */
+.brush-divider {
+  height: 3px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(212,160,23,0.3) 10%,
+    rgba(212,160,23,0.8) 30%,
+    rgba(212,160,23,0.9) 50%,
+    rgba(212,160,23,0.8) 70%,
+    rgba(212,160,23,0.3) 90%,
+    transparent 100%);
+  border: none;
+  margin: 16px 0;
+}
+
+/* ── 7. Chapter-Specific Seasonal Palettes (Three Kingdoms) ───── */
+/* Each chapter has a seasonal color temperature */
+.era-xianqin { --era-hue: 30; --era-sat: 60%; --era-warmth: sepia(0.15); }  /* Autumn bronze */
+.era-han { --era-hue: 0; --era-sat: 70%; --era-warmth: sepia(0.1) hue-rotate(-10deg); } /* Imperial red */
+.era-tang { --era-hue: 45; --era-sat: 80%; --era-warmth: sepia(0.2); } /* Golden warmth */
+.era-song { --era-hue: 150; --era-sat: 50%; --era-warmth: hue-rotate(10deg); } /* Jade cool */
+.era-modern { --era-hue: 270; --era-sat: 60%; --era-warmth: hue-rotate(-20deg) saturate(1.2); } /* Mystic purple */
+
+/* ── HD-2D Reduced Motion ─────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .bokeh-dot { animation: none; opacity: 0; }
+  .light-rays { animation: none; }
+  #game-root::after { mix-blend-mode: normal; }
+}
+
+/* =============================================================
+   Persona 5 Royal — Kinetic UI Transitions & Combat Animations
+   ============================================================= */
+
+/* ── 1. Diagonal Ink-Slash Screen Wipe (P5-style) ──────────────── */
+.screen-wipe {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: linear-gradient(135deg, #0b0c1a 0%, #0b0c1a 45%, transparent 45.5%);
+  animation: wipe-sweep 0.5s ease-in-out forwards;
+  pointer-events: none;
+}
+/* Secondary slash line for extra drama */
+.screen-wipe::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 42%, rgba(212,160,23,0.6) 44.5%, transparent 45%);
+  animation: wipe-sweep 0.5s ease-in-out forwards;
+}
+/* Trailing ink particles on the wipe edge */
+.screen-wipe::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 44%, rgba(212,160,23,0.15) 45%, transparent 46%);
+  filter: blur(8px);
+  animation: wipe-sweep 0.5s ease-in-out forwards;
+}
+
+@keyframes wipe-sweep {
+  0%   { transform: translateX(-150%); }
+  45%  { transform: translateX(0); }
+  55%  { transform: translateX(0); }
+  100% { transform: translateX(150%); }
+}
+
+/* ── 2. Persona 5 Combat Answer Selection ──────────────────────── */
+
+/* Selected option snaps forward with scale + rotation (P5 menu selection) */
+@keyframes p5-select-snap {
+  0%   { transform: scale(1) rotate(0deg); }
+  30%  { transform: scale(1.08) rotate(-1deg); filter: brightness(1.3); }
+  60%  { transform: scale(0.98) rotate(0.5deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+/* Non-selected options slide away diagonally */
+@keyframes p5-dismiss-left {
+  to { transform: translateX(-120%) rotate(-8deg); opacity: 0; }
+}
+@keyframes p5-dismiss-right {
+  to { transform: translateX(120%) rotate(8deg); opacity: 0; }
+}
+
+/* Correct/wrong result SLAMS in from the side — graphic-novel impact frame */
+@keyframes p5-result-slam {
+  0%   { transform: translateX(200%) rotate(5deg) scale(1.5); opacity: 0; }
+  60%  { transform: translateX(-5%) rotate(-1deg) scale(1.02); opacity: 1; }
+  80%  { transform: translateX(2%) rotate(0.5deg) scale(0.99); }
+  100% { transform: translateX(0) rotate(0deg) scale(1); opacity: 1; }
+}
+
+/* =============================================================
+   Okami / Gris — Ink-Wash & Watercolor Effects
+   ============================================================= */
+
+/* ── 3. Rice Paper Texture Overlay ─────────────────────────────── */
+/* NOTE: body::before already has atmosphere gradients — we enhance
+   it with an additional subtle noise texture via body::after merge.
+   We add rice-paper as a reusable card class instead. */
+
+.rice-paper {
+  background:
+    repeating-radial-gradient(circle at 47% 53%, transparent 0, transparent 3px, rgba(240,230,200,0.015) 3px, rgba(240,230,200,0.015) 4px),
+    linear-gradient(135deg, rgba(30,28,20,0.95), rgba(20,18,14,0.98));
+  border: 1px solid rgba(160,140,100,0.15);
+}
+
+/* ── 4. Ink Bleed Transition Effect (Gris-inspired) ────────────── */
+.ink-bleed-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 10001;
+  pointer-events: none;
+}
+.ink-bleed-transition::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at var(--ink-x, 50%) var(--ink-y, 50%),
+    #0b0c1a 0%, #0b0c1a var(--ink-spread, 0%),
+    transparent calc(var(--ink-spread, 0%) + 5%));
+  transition: --ink-spread 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── 5. Brush Stroke Button Borders (Okami-style) ──────────────── */
+.btn-ink {
+  position: relative;
+  background: transparent;
+  border: none;
+  color: #f0e0b0;
+  font-weight: 700;
+  padding: 14px 32px;
+  cursor: pointer;
+  font-family: var(--font-main);
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+.btn-ink::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  /* Irregular brush-stroke border using clip-path */
+  clip-path: polygon(
+    2% 15%, 0% 0%, 15% 2%, 50% 0%, 85% 3%, 100% 0%, 98% 20%,
+    100% 50%, 97% 85%, 100% 100%, 80% 97%, 50% 100%, 20% 98%,
+    0% 100%, 3% 80%, 0% 50%
+  );
+  background: rgba(212,160,23,0.15);
+  border: 2px solid rgba(212,160,23,0.4);
+  z-index: -1;
+  transition: all 0.25s ease;
+}
+.btn-ink:hover::before {
+  background: rgba(212,160,23,0.25);
+  border-color: rgba(212,160,23,0.7);
+}
+.btn-ink:hover {
+  color: var(--gold-bright);
+  text-shadow: 0 0 12px rgba(212,160,23,0.5);
+}
+
+/* ── 6. Sumi-e Ink Splash Effects (correct/wrong answers) ──────── */
+.ink-splash-correct {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 45% 55% 50% 50%;
+  background: radial-gradient(ellipse, rgba(46,204,138,0.4) 0%, rgba(46,204,138,0.1) 40%, transparent 70%);
+  animation: ink-splash-expand 0.6s ease-out forwards;
+  pointer-events: none;
+}
+.ink-splash-wrong {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50% 45% 55% 50%;
+  background: radial-gradient(ellipse, rgba(214,48,49,0.4) 0%, rgba(214,48,49,0.1) 40%, transparent 70%);
+  animation: ink-splash-expand 0.6s ease-out forwards;
+  pointer-events: none;
+}
+@keyframes ink-splash-expand {
+  0%   { transform: translate(-50%,-50%) scale(0); opacity: 1; }
+  60%  { transform: translate(-50%,-50%) scale(1.5); opacity: 0.7; }
+  100% { transform: translate(-50%,-50%) scale(2.5); opacity: 0; }
+}
+
+/* ── 7. Journey-Inspired Warm Light Wash ───────────────────────── */
+.warm-light-wash {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 80% 60% at 50% 30%,
+    rgba(212,160,23,0.08) 0%,
+    rgba(212,160,23,0.03) 40%,
+    transparent 70%);
+  animation: light-wash-breathe 4s ease-in-out infinite;
+}
+@keyframes light-wash-breathe {
+  0%, 100% { opacity: 0.6; }
+  50%      { opacity: 1; }
+}
+
+/* ── Reduced Motion: disable new P5/Okami animations ───────────── */
+@media (prefers-reduced-motion: reduce) {
+  .screen-wipe { animation: none; }
+  .screen-wipe::before,
+  .screen-wipe::after { animation: none; }
+  .ink-splash-correct,
+  .ink-splash-wrong { animation: none; opacity: 0; }
+  .warm-light-wash { animation: none; }
+}

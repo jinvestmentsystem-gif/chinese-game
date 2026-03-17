@@ -1828,5 +1828,3680 @@
       "文化常识"
     ],
     "source": "supplementary"
+  },
+  {
+    "id": "v7-101",
+    "type": "vocab",
+    "prompt": "「酝酿」的正确读音是？",
+    "options": [
+      "yùn niàng",
+      "yūn liàng",
+      "wēn niàng",
+      "yùn liáng"
+    ],
+    "correct": 0,
+    "explanation": "「酝酿」读 yùn niàng，意为造酒的发酵过程，引申为事情逐渐成熟。出自朱自清《春》。",
+    "difficulty": 2,
+    "tags": [
+      "字音",
+      "春"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-102",
+    "type": "vocab",
+    "prompt": "「朗润」在《春》中的意思是？",
+    "options": [
+      "朗读润色",
+      "明亮润泽",
+      "响亮圆润",
+      "爽朗滋润"
+    ],
+    "correct": 1,
+    "explanation": "「朗润」意为明亮润泽，形容春天山色变得明朗、滋润。",
+    "difficulty": 2,
+    "tags": [
+      "词义",
+      "春"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-103",
+    "type": "vocab",
+    "prompt": "「花枝招展」的意思是？",
+    "options": [
+      "花朵正在开放",
+      "形容女子打扮得漂亮",
+      "树枝在招手",
+      "花朵在风中摇摆"
+    ],
+    "correct": 1,
+    "explanation": "「花枝招展」形容女子打扮得十分艳丽。出自《春》。",
+    "difficulty": 2,
+    "tags": [
+      "成语",
+      "春"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-104",
+    "type": "vocab",
+    "prompt": "「响晴」在《济南的冬天》中指什么？",
+    "options": [
+      "声音响亮而清晰",
+      "天空晴朗无云，阳光充足",
+      "又响又晴",
+      "回响在晴天里"
+    ],
+    "correct": 1,
+    "explanation": "「响晴」是老舍用的方言词，形容天空晴朗、万里无云。",
+    "difficulty": 2,
+    "tags": [
+      "词义",
+      "济南的冬天"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-105",
+    "type": "vocab",
+    "prompt": "「贮蓄」的正确读音是？",
+    "options": [
+      "zhù xù",
+      "chú xù",
+      "zhù chù",
+      "chǔ xù"
+    ],
+    "correct": 0,
+    "explanation": "「贮蓄」读 zhù xù，意为储存、积蓄。",
+    "difficulty": 3,
+    "tags": [
+      "字音",
+      "济南的冬天"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-106",
+    "type": "vocab",
+    "prompt": "「澄清」在「把水澄清」中读什么？",
+    "options": [
+      "chéng qīng",
+      "dèng qīng",
+      "chéng qìng",
+      "dèng qìng"
+    ],
+    "correct": 1,
+    "explanation": "使液体中杂质沉淀变清时，「澄」读 dèng。形容水清澈时读 chéng。",
+    "difficulty": 3,
+    "tags": [
+      "字音",
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-107",
+    "type": "vocab",
+    "prompt": "「憧憬」的正确读音是？",
+    "options": [
+      "chōng jǐng",
+      "tóng jǐng",
+      "chōng jìng",
+      "chuáng jǐng"
+    ],
+    "correct": 0,
+    "explanation": "「憧憬」读 chōng jǐng，意为对未来美好事物的向往和期待。",
+    "difficulty": 2,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-108",
+    "type": "vocab",
+    "prompt": "「空灵」在散文中常指什么？",
+    "options": [
+      "空中飘浮的灵魂",
+      "空洞没有内容",
+      "灵活而不可捉摸的美感",
+      "空旷的灵堂"
+    ],
+    "correct": 2,
+    "explanation": "「空灵」形容超脱、灵动、不拘泥于形式的美感。",
+    "difficulty": 3,
+    "tags": [
+      "词义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-109",
+    "type": "vocab",
+    "prompt": "「瘫痪」的正确读音是？",
+    "options": [
+      "tān huàn",
+      "tān huǎn",
+      "nán huàn",
+      "tán huàn"
+    ],
+    "correct": 0,
+    "explanation": "「瘫痪」读 tān huàn，指身体某部分失去功能。出自《秋天的怀念》。",
+    "difficulty": 1,
+    "tags": [
+      "字音",
+      "秋天的怀念"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-110",
+    "type": "vocab",
+    "prompt": "「暴怒无常」中「无常」的意思是？",
+    "options": [
+      "没有正常",
+      "经常变化，没有规律",
+      "不正常的人",
+      "不寻常"
+    ],
+    "correct": 1,
+    "explanation": "「无常」指没有规律、变化不定。出自《秋天的怀念》。",
+    "difficulty": 1,
+    "tags": [
+      "词义",
+      "秋天的怀念"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-111",
+    "type": "vocab",
+    "prompt": "「絮叨」的正确读音是？",
+    "options": [
+      "xù dāo",
+      "xù dao",
+      "xū dāo",
+      "rú dāo"
+    ],
+    "correct": 1,
+    "explanation": "「絮叨」读 xù dao（叨读轻声），意为说话啰嗦。",
+    "difficulty": 2,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-112",
+    "type": "vocab",
+    "prompt": "「分歧」的正确读音和意思是？",
+    "options": [
+      "fēn qí，意见不一致",
+      "fēn zhī，分开",
+      "fèn qí，分别",
+      "fēn jī，分开的路"
+    ],
+    "correct": 0,
+    "explanation": "「分歧」读 fēn qí，意为意见不一致。出自莫怀戚《散步》。",
+    "difficulty": 1,
+    "tags": [
+      "字音",
+      "词义",
+      "散步"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-113",
+    "type": "vocab",
+    "prompt": "「嫩」字的偏旁部首是？",
+    "options": [
+      "女",
+      "口",
+      "束",
+      "子"
+    ],
+    "correct": 0,
+    "explanation": "「嫩」字偏旁部首是女字旁（女）。",
+    "difficulty": 2,
+    "tags": [
+      "字形",
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-114",
+    "type": "vocab",
+    "prompt": "「吝啬」的正确读音是？",
+    "options": [
+      "lìn sè",
+      "lìn sì",
+      "līn sè",
+      "lǐn sè"
+    ],
+    "correct": 0,
+    "explanation": "「吝啬」读 lìn sè，形容过分爱惜财物。",
+    "difficulty": 2,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-115",
+    "type": "vocab",
+    "prompt": "「静谧」的正确读音是？",
+    "options": [
+      "jìng mì",
+      "jìng bì",
+      "jìng nì",
+      "jīng mì"
+    ],
+    "correct": 0,
+    "explanation": "「静谧」读 jìng mì，意为安静、平静。",
+    "difficulty": 3,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-116",
+    "type": "vocab",
+    "prompt": "「莅」字的偏旁部首是？",
+    "options": [
+      "草字头",
+      "立",
+      "位",
+      "水"
+    ],
+    "correct": 0,
+    "explanation": "「莅」字上方是草字头（艹）。",
+    "difficulty": 3,
+    "tags": [
+      "字形",
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-117",
+    "type": "vocab",
+    "prompt": "下列哪个词语有错别字？",
+    "options": [
+      "翻来覆去",
+      "各得其所",
+      "喜出望外",
+      "小心冀冀"
+    ],
+    "correct": 3,
+    "explanation": "应为「小心翼翼」，翼不是冀。",
+    "difficulty": 2,
+    "tags": [
+      "错别字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-118",
+    "type": "vocab",
+    "prompt": "下列哪个词语有错别字？",
+    "options": [
+      "人声鼎沸",
+      "截然不同",
+      "混为一谭",
+      "恍然大悟"
+    ],
+    "correct": 2,
+    "explanation": "应为「混为一谈」，谈不是谭。",
+    "difficulty": 2,
+    "tags": [
+      "错别字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-119",
+    "type": "vocab",
+    "prompt": "「咄咄逼人」的「咄」字正确读音是？",
+    "options": [
+      "duō",
+      "duò",
+      "dū",
+      "zhì"
+    ],
+    "correct": 0,
+    "explanation": "「咄」读 duō，「咄咄逼人」形容气势凶猛逼人。",
+    "difficulty": 3,
+    "tags": [
+      "字音",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-120",
+    "type": "vocab",
+    "prompt": "「粗犷」的正确读音是？",
+    "options": [
+      "cū guǎng",
+      "cū kuàng",
+      "chū guǎng",
+      "cū kuǎng"
+    ],
+    "correct": 0,
+    "explanation": "「犷」读 guǎng，不读 kuàng。常见易错读音。",
+    "difficulty": 3,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-121",
+    "type": "vocab",
+    "prompt": "「诀别」的近义词是？",
+    "options": [
+      "告别",
+      "永别",
+      "离别",
+      "惜别"
+    ],
+    "correct": 1,
+    "explanation": "「诀别」指再无相见之日的离别。近义词是「永别」。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-122",
+    "type": "vocab",
+    "prompt": "「热忱」的反义词是？",
+    "options": [
+      "冷漠",
+      "热情",
+      "积极",
+      "温暖"
+    ],
+    "correct": 0,
+    "explanation": "「热忱」指热情、真挚。反义词是「冷漠」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-123",
+    "type": "vocab",
+    "prompt": "「拘谨」的反义词是？",
+    "options": [
+      "随便",
+      "大方",
+      "拘束",
+      "紧张"
+    ],
+    "correct": 1,
+    "explanation": "「拘谨」形容过分小心谨慎。反义词是「大方」。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-124",
+    "type": "vocab",
+    "prompt": "成语填空：「____如生」，正确的是？",
+    "options": [
+      "惟妙",
+      "栩栩",
+      "活灵",
+      "呼之"
+    ],
+    "correct": 1,
+    "explanation": "「栩栩如生」形容形象逼真，如同活的一样。",
+    "difficulty": 1,
+    "tags": [
+      "成语填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-125",
+    "type": "vocab",
+    "prompt": "成语填空：「____有味」，正确的是？",
+    "options": [
+      "津津",
+      "兴致",
+      "别有",
+      "饶"
+    ],
+    "correct": 0,
+    "explanation": "「津津有味」形容很有兴趣、很有滋味。",
+    "difficulty": 1,
+    "tags": [
+      "成语填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-126",
+    "type": "vocab",
+    "prompt": "成语填空：「见____思迁」，填哪个字？",
+    "options": [
+      "利",
+      "异",
+      "新",
+      "好"
+    ],
+    "correct": 1,
+    "explanation": "「见异思迁」意为看到不同的就想改变主意。",
+    "difficulty": 2,
+    "tags": [
+      "成语填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-127",
+    "type": "vocab",
+    "prompt": "成语填空：「油然____生」，填哪个字？",
+    "options": [
+      "而",
+      "自",
+      "心",
+      "即"
+    ],
+    "correct": 0,
+    "explanation": "「油然而生」意为自然而然地产生某种感情。",
+    "difficulty": 2,
+    "tags": [
+      "成语填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-128",
+    "type": "vocab",
+    "prompt": "选择正确的搭配：「精湛的____」",
+    "options": [
+      "品格",
+      "技艺",
+      "品质",
+      "数量"
+    ],
+    "correct": 1,
+    "explanation": "「精湛」形容精深，常与「技艺」「手艺」搭配。",
+    "difficulty": 2,
+    "tags": [
+      "词语搭配"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-129",
+    "type": "vocab",
+    "prompt": "「繁殖」的正确读音是？",
+    "options": [
+      "fán zhí",
+      "fán shí",
+      "pán zhí",
+      "fán chí"
+    ],
+    "correct": 0,
+    "explanation": "「繁殖」读 fán zhí，意为生物产生后代。",
+    "difficulty": 2,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-130",
+    "type": "vocab",
+    "prompt": "「确凿」的正确读音是？",
+    "options": [
+      "què záo",
+      "què zuò",
+      "quē záo",
+      "què zào"
+    ],
+    "correct": 0,
+    "explanation": "「确凿」读 què záo，意为确实、真实可靠。",
+    "difficulty": 3,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-131",
+    "type": "vocab",
+    "prompt": "「菜畦」的「畦」正确读音是？",
+    "options": [
+      "qí",
+      "guī",
+      "wā",
+      "xī"
+    ],
+    "correct": 0,
+    "explanation": "「畦」读 qí，指有土埂围着的一块块田地。",
+    "difficulty": 3,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-132",
+    "type": "vocab",
+    "prompt": "「攒」是多音字，在「攒钱」中读？",
+    "options": [
+      "zǎn",
+      "cuán",
+      "zàn",
+      "cán"
+    ],
+    "correct": 0,
+    "explanation": "「攒钱」中「攒」读 zǎn，意为积蓄。读 cuán 时意为聚拢。",
+    "difficulty": 3,
+    "tags": [
+      "字音",
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-133",
+    "type": "vocab",
+    "prompt": "「秕」字的偏旁部首是？",
+    "options": [
+      "禾",
+      "比",
+      "皮",
+      "米"
+    ],
+    "correct": 0,
+    "explanation": "「秕」字偏旁是禾字旁（禾），意为不饱满的谷粒。",
+    "difficulty": 3,
+    "tags": [
+      "字形",
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-134",
+    "type": "vocab",
+    "prompt": "下列哪个词语有错别字？",
+    "options": [
+      "人迹罕至",
+      "骇人听闻",
+      "随声附和",
+      "花团锦族"
+    ],
+    "correct": 3,
+    "explanation": "应为「花团锦簇」，簇不是族。",
+    "difficulty": 2,
+    "tags": [
+      "错别字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-135",
+    "type": "vocab",
+    "prompt": "「窠」字在「窠巢」中的正确读音是？",
+    "options": [
+      "kē",
+      "guǒ",
+      "wō",
+      "cháo"
+    ],
+    "correct": 0,
+    "explanation": "「窠」读 kē，指鸟兽昆虫的窝。",
+    "difficulty": 4,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-136",
+    "type": "vocab",
+    "prompt": "「蜷伏」的正确读音是？",
+    "options": [
+      "quán fú",
+      "juǎn fú",
+      "quān fú",
+      "quán fù"
+    ],
+    "correct": 0,
+    "explanation": "「蜷伏」读 quán fú，意为弯曲身体卧着。",
+    "difficulty": 3,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-137",
+    "type": "vocab",
+    "prompt": "「祷告」的「祷」字偏旁是？",
+    "options": [
+      "示字旁",
+      "衣字旁",
+      "寿",
+      "礻"
+    ],
+    "correct": 0,
+    "explanation": "「祷」字偏旁是示字旁（礻），与祭祀有关。",
+    "difficulty": 3,
+    "tags": [
+      "字形",
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-138",
+    "type": "vocab",
+    "prompt": "「嘈杂」与「喧嚣」是什么关系？",
+    "options": [
+      "反义词",
+      "近义词",
+      "同义词",
+      "无关词"
+    ],
+    "correct": 1,
+    "explanation": "两者都形容环境嘈杂吵闹，是近义词。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-139",
+    "type": "vocab",
+    "prompt": "「轻蔑」的反义词是？",
+    "options": [
+      "尊重",
+      "轻视",
+      "鄙视",
+      "傲慢"
+    ],
+    "correct": 0,
+    "explanation": "「轻蔑」指看不起。反义词是「尊重」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-140",
+    "type": "vocab",
+    "prompt": "「畏惧」的近义词是？",
+    "options": [
+      "勇敢",
+      "恐惧",
+      "佩服",
+      "讨厌"
+    ],
+    "correct": 1,
+    "explanation": "「畏惧」指害怕。近义词是「恐惧」。",
+    "difficulty": 1,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-141",
+    "type": "vocab",
+    "prompt": "成语填空：「骇人听____」，填哪个字？",
+    "options": [
+      "闻",
+      "文",
+      "问",
+      "温"
+    ],
+    "correct": 0,
+    "explanation": "「骇人听闻」意为使人听了非常震惊。",
+    "difficulty": 1,
+    "tags": [
+      "成语填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-142",
+    "type": "vocab",
+    "prompt": "成语填空：「随声附____」，填哪个字？",
+    "options": [
+      "合",
+      "和",
+      "贺",
+      "荷"
+    ],
+    "correct": 1,
+    "explanation": "「随声附和」中「和」读 hè，意为应和。",
+    "difficulty": 2,
+    "tags": [
+      "成语填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-143",
+    "type": "vocab",
+    "prompt": "「刨根问底」中「刨」的正确读音是？",
+    "options": [
+      "páo",
+      "bào",
+      "pāo",
+      "piáo"
+    ],
+    "correct": 0,
+    "explanation": "「刨根问底」中「刨」读 páo，意为挖掘。",
+    "difficulty": 3,
+    "tags": [
+      "字音",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-144",
+    "type": "vocab",
+    "prompt": "「怂恿」的正确读音是？",
+    "options": [
+      "sǒng yǒng",
+      "cóng yǒng",
+      "sǒng róng",
+      "chōng yǒng"
+    ],
+    "correct": 0,
+    "explanation": "「怂恿」读 sǒng yǒng，意为鼓动别人去做某事。",
+    "difficulty": 3,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-145",
+    "type": "vocab",
+    "prompt": "「窃窃私语」中「窃窃」的意思是？",
+    "options": [
+      "偷偷摸摸",
+      "小声地",
+      "快速地",
+      "秘密地"
+    ],
+    "correct": 1,
+    "explanation": "「窃窃」形容声音细小。「窃窃私语」意为低声私下说话。",
+    "difficulty": 2,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-146",
+    "type": "vocab",
+    "prompt": "「恣意妄为」中「恣」的意思是？",
+    "options": [
+      "姿态",
+      "放纵",
+      "资本",
+      "滋养"
+    ],
+    "correct": 1,
+    "explanation": "「恣」意为放纵。「恣意妄为」指任意胡为。",
+    "difficulty": 4,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-147",
+    "type": "vocab",
+    "prompt": "「分外」在「雨后空气分外清新」中读什么？",
+    "options": [
+      "fēn wài",
+      "fèn wài",
+      "fēn wai",
+      "fèn wai"
+    ],
+    "correct": 1,
+    "explanation": "「分外」读 fèn wài，意为格外、特别。",
+    "difficulty": 3,
+    "tags": [
+      "字音",
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-148",
+    "type": "vocab",
+    "prompt": "下列哪组词语搭配正确？",
+    "options": [
+      "充沛的精力",
+      "充沛的知识",
+      "充沛的财富",
+      "充沛的经验"
+    ],
+    "correct": 0,
+    "explanation": "「充沛」指充足而旺盛，常与「精力」「体力」搭配。",
+    "difficulty": 2,
+    "tags": [
+      "词语搭配"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-149",
+    "type": "vocab",
+    "prompt": "「贻笑大方」中「贻」的意思是？",
+    "options": [
+      "遗留",
+      "给予，留给",
+      "快乐",
+      "怡然"
+    ],
+    "correct": 1,
+    "explanation": "「贻」意为给予、留给。「贻笑大方」指让内行人笑话。",
+    "difficulty": 4,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-150",
+    "type": "vocab",
+    "prompt": "「鉴赏」的「鉴」字偏旁部首是？",
+    "options": [
+      "金",
+      "监",
+      "皿",
+      "竹"
+    ],
+    "correct": 0,
+    "explanation": "「鉴」字偏旁是金字底（金），本义指铜镜。",
+    "difficulty": 3,
+    "tags": [
+      "字形",
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-151",
+    "type": "vocab",
+    "prompt": "「沧海桑田」比喻什么？",
+    "options": [
+      "海边种桑树",
+      "世事变迁之大",
+      "大海和农田",
+      "海洋灾害"
+    ],
+    "correct": 1,
+    "explanation": "「沧海桑田」意为大海变成桑田，比喻世事变化极大。",
+    "difficulty": 2,
+    "tags": [
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-152",
+    "type": "vocab",
+    "prompt": "「锲而不舍」中「锲」的意思是？",
+    "options": [
+      "刀刃",
+      "雕刻",
+      "契约",
+      "坚持"
+    ],
+    "correct": 1,
+    "explanation": "「锲」意为用刀刻。「锲而不舍」比喻做事有恒心。出自《荀子》。",
+    "difficulty": 3,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-153",
+    "type": "vocab",
+    "prompt": "「拈轻怕重」中「拈」的正确读音是？",
+    "options": [
+      "niān",
+      "zhān",
+      "diān",
+      "niǎn"
+    ],
+    "correct": 0,
+    "explanation": "「拈」读 niān，意为用手指捏取。",
+    "difficulty": 3,
+    "tags": [
+      "字音",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-154",
+    "type": "vocab",
+    "prompt": "「妥帖」的正确读音是？",
+    "options": [
+      "tuǒ tiē",
+      "tuǒ tiè",
+      "tuǒ tiě",
+      "tǒu tiē"
+    ],
+    "correct": 0,
+    "explanation": "「妥帖」读 tuǒ tiē，意为恰当、妥当。",
+    "difficulty": 3,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-155",
+    "type": "vocab",
+    "prompt": "「庇护」中「庇」的偏旁部首是？",
+    "options": [
+      "广",
+      "比",
+      "厂",
+      "户"
+    ],
+    "correct": 0,
+    "explanation": "「庇」字偏旁是广字头（广），与遮蔽有关。",
+    "difficulty": 3,
+    "tags": [
+      "字形",
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-156",
+    "type": "vocab",
+    "prompt": "下列哪个词语有错别字？",
+    "options": [
+      "走投无路",
+      "锐不可当",
+      "眼花缭乱",
+      "再接再励"
+    ],
+    "correct": 3,
+    "explanation": "应为「再接再厉」，厉不是励。「厉」意为磨砺。",
+    "difficulty": 2,
+    "tags": [
+      "错别字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-157",
+    "type": "vocab",
+    "prompt": "下列哪个词语有错别字？",
+    "options": [
+      "一丝不苟",
+      "心旷神怡",
+      "顾名思意",
+      "与日俱增"
+    ],
+    "correct": 2,
+    "explanation": "应为「顾名思义」，义不是意。",
+    "difficulty": 2,
+    "tags": [
+      "错别字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-158",
+    "type": "vocab",
+    "prompt": "「踉跄」的正确读音是？",
+    "options": [
+      "liàng qiàng",
+      "láng cāng",
+      "liáng qiāng",
+      "liàng cāng"
+    ],
+    "correct": 0,
+    "explanation": "「踉跄」读 liàng qiàng，形容走路不稳。",
+    "difficulty": 4,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-159",
+    "type": "vocab",
+    "prompt": "「伫立」的正确读音是？",
+    "options": [
+      "zhù lì",
+      "chù lì",
+      "zhǔ lì",
+      "chú lì"
+    ],
+    "correct": 0,
+    "explanation": "「伫立」读 zhù lì，意为长时间站着。",
+    "difficulty": 3,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-160",
+    "type": "vocab",
+    "prompt": "「一叶知秋」比喻什么？",
+    "options": [
+      "秋天到了树叶会落",
+      "通过细微迹象推知整体趋势",
+      "只看到事物的一面",
+      "知识渊博"
+    ],
+    "correct": 1,
+    "explanation": "「一叶知秋」比喻通过个别迹象看到整个形势的发展。",
+    "difficulty": 2,
+    "tags": [
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-161",
+    "type": "vocab",
+    "prompt": "「诲人不倦」中「诲」的意思是？",
+    "options": [
+      "后悔",
+      "教导",
+      "催促",
+      "安慰"
+    ],
+    "correct": 1,
+    "explanation": "「诲」意为教导。「诲人不倦」意为教导别人不知疲倦。",
+    "difficulty": 2,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-162",
+    "type": "vocab",
+    "prompt": "「洗耳恭听」的近义词是？",
+    "options": [
+      "侧耳倾听",
+      "充耳不闻",
+      "道听途说",
+      "洗心革面"
+    ],
+    "correct": 0,
+    "explanation": "「洗耳恭听」形容恭敬地聆听，近义词是「侧耳倾听」。",
+    "difficulty": 2,
+    "tags": [
+      "近义词",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-163",
+    "type": "vocab",
+    "prompt": "「镌刻」的「镌」正确读音是？",
+    "options": [
+      "juān",
+      "jùn",
+      "jué",
+      "jǐn"
+    ],
+    "correct": 0,
+    "explanation": "「镌」读 juān，意为雕刻。",
+    "difficulty": 4,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-164",
+    "type": "vocab",
+    "prompt": "「销声匿迹」中「匿」的意思是？",
+    "options": [
+      "消灭",
+      "隐藏",
+      "离开",
+      "逃跑"
+    ],
+    "correct": 1,
+    "explanation": "「匿」意为隐藏。「销声匿迹」意为不再露面。",
+    "difficulty": 3,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-165",
+    "type": "vocab",
+    "prompt": "「如释重负」中「释」的意思是？",
+    "options": [
+      "解释",
+      "放下、放开",
+      "佛教",
+      "钥匙"
+    ],
+    "correct": 1,
+    "explanation": "「释」意为放下。「如释重负」形容心情从紧张变为轻松。",
+    "difficulty": 2,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-166",
+    "type": "vocab",
+    "prompt": "「亘古」的正确读音是？",
+    "options": [
+      "gèn gǔ",
+      "hèn gǔ",
+      "gēn gǔ",
+      "xuān gǔ"
+    ],
+    "correct": 0,
+    "explanation": "「亘」读 gèn，「亘古」意为从古到今。",
+    "difficulty": 4,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-167",
+    "type": "vocab",
+    "prompt": "「迸溅」的「迸」正确读音是？",
+    "options": [
+      "bèng",
+      "bìng",
+      "pēng",
+      "fēng"
+    ],
+    "correct": 0,
+    "explanation": "「迸」读 bèng，意为向外溅出。",
+    "difficulty": 3,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-168",
+    "type": "vocab",
+    "prompt": "下列搭配正确的是？",
+    "options": [
+      "坚定的态度",
+      "坚定的身体",
+      "坚定的声音",
+      "坚定的天气"
+    ],
+    "correct": 0,
+    "explanation": "「坚定」形容立场、态度、意志等不动摇。",
+    "difficulty": 1,
+    "tags": [
+      "词语搭配"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-169",
+    "type": "vocab",
+    "prompt": "「孜孜不倦」中「孜孜」的意思是？",
+    "options": [
+      "吃东西的声音",
+      "勤勉不懈的样子",
+      "慢慢地",
+      "小声地"
+    ],
+    "correct": 1,
+    "explanation": "「孜孜」形容勤勉不懈。「孜孜不倦」意为勤勤恳恳，不知疲倦。",
+    "difficulty": 3,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-170",
+    "type": "vocab",
+    "prompt": "「相得益彰」的意思是？",
+    "options": [
+      "互相得到好处",
+      "两者配合使优点更明显",
+      "彼此竞争更好",
+      "互相扶持"
+    ],
+    "correct": 1,
+    "explanation": "「相得益彰」意为互相配合，双方的长处更能显现出来。",
+    "difficulty": 3,
+    "tags": [
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-171",
+    "type": "vocab",
+    "prompt": "「迥然不同」中「迥」的正确读音是？",
+    "options": [
+      "jiǒng",
+      "jǐong",
+      "jiōng",
+      "tǒng"
+    ],
+    "correct": 0,
+    "explanation": "「迥」读 jiǒng，意为远、差得远。",
+    "difficulty": 3,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-172",
+    "type": "vocab",
+    "prompt": "选择正确的搭配：「热烈的____」",
+    "options": [
+      "天气",
+      "掌声",
+      "颜色",
+      "味道"
+    ],
+    "correct": 1,
+    "explanation": "「热烈」形容情绪高涨，常与「掌声」「欢迎」搭配。",
+    "difficulty": 1,
+    "tags": [
+      "词语搭配"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-173",
+    "type": "vocab",
+    "prompt": "「鞠躬尽瘁」中「瘁」的意思是？",
+    "options": [
+      "疲劳、憔悴",
+      "干脆",
+      "精粹",
+      "清脆"
+    ],
+    "correct": 0,
+    "explanation": "「瘁」意为疲劳、憔悴。「鞠躬尽瘁」形容竭尽全力。",
+    "difficulty": 4,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-174",
+    "type": "vocab",
+    "prompt": "「忧心忡忡」中「忡忡」的读音是？",
+    "options": [
+      "chōng chōng",
+      "zhōng zhōng",
+      "chòng chòng",
+      "cōng cōng"
+    ],
+    "correct": 0,
+    "explanation": "「忡忡」读 chōng chōng，形容忧愁不安的样子。",
+    "difficulty": 3,
+    "tags": [
+      "字音",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-175",
+    "type": "vocab",
+    "prompt": "「阴险」属于什么词？",
+    "options": [
+      "褒义词",
+      "贬义词",
+      "中性词",
+      "无法判断"
+    ],
+    "correct": 1,
+    "explanation": "「阴险」形容人表面和善、内心恶毒，是明显的贬义词。",
+    "difficulty": 1,
+    "tags": [
+      "词义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-176",
+    "type": "vocab",
+    "prompt": "下列哪个词语有错别字？",
+    "options": [
+      "谈笑风生",
+      "别出心裁",
+      "按部就班",
+      "默默无蚊"
+    ],
+    "correct": 3,
+    "explanation": "应为「默默无闻」，闻不是蚊。",
+    "difficulty": 1,
+    "tags": [
+      "错别字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-177",
+    "type": "vocab",
+    "prompt": "下列哪个词语有错别字？",
+    "options": [
+      "眼花缭乱",
+      "穿流不息",
+      "人声鼎沸",
+      "惊慌失措"
+    ],
+    "correct": 1,
+    "explanation": "应为「川流不息」，川不是穿。「川」意为河流。",
+    "difficulty": 2,
+    "tags": [
+      "错别字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-178",
+    "type": "vocab",
+    "prompt": "「殷红」的「殷」在此读什么？",
+    "options": [
+      "yīn",
+      "yān",
+      "yìn",
+      "yǎn"
+    ],
+    "correct": 1,
+    "explanation": "「殷红」中「殷」读 yān，形容深红色。「殷勤」中读 yīn。",
+    "difficulty": 4,
+    "tags": [
+      "字音",
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-179",
+    "type": "vocab",
+    "prompt": "「翩翩起舞」中「翩翩」的意思是？",
+    "options": [
+      "很快地",
+      "轻快优美的样子",
+      "旋转的样子",
+      "整齐地"
+    ],
+    "correct": 1,
+    "explanation": "「翩翩」形容动作轻盈优美。「翩翩起舞」形容轻快地跳舞。",
+    "difficulty": 1,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-180",
+    "type": "vocab",
+    "prompt": "「矜持」的正确读音是？",
+    "options": [
+      "jīn chí",
+      "jǐn chí",
+      "jīng chí",
+      "qín chí"
+    ],
+    "correct": 0,
+    "explanation": "「矜持」读 jīn chí，意为拘谨、庄重、自持。",
+    "difficulty": 3,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-181",
+    "type": "vocab",
+    "prompt": "「鳞次栉比」中「栉」的意思是？",
+    "options": [
+      "梳子",
+      "排列",
+      "紧密",
+      "建筑"
+    ],
+    "correct": 0,
+    "explanation": "「栉」意为梳子。「鳞次栉比」形容排列整齐密集。",
+    "difficulty": 4,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-182",
+    "type": "vocab",
+    "prompt": "「襟」字的偏旁部首是？",
+    "options": [
+      "衣字旁",
+      "禁",
+      "木",
+      "巾"
+    ],
+    "correct": 0,
+    "explanation": "「襟」字偏旁是衣字旁（衤），指衣服的胸前部分。",
+    "difficulty": 3,
+    "tags": [
+      "字形",
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-183",
+    "type": "vocab",
+    "prompt": "「目不窥园」的「窥」正确读音是？",
+    "options": [
+      "kuī",
+      "guī",
+      "kuì",
+      "wěi"
+    ],
+    "correct": 0,
+    "explanation": "「窥」读 kuī，意为偷看。「目不窥园」形容专心学习。",
+    "difficulty": 3,
+    "tags": [
+      "字音",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-184",
+    "type": "vocab",
+    "prompt": "「沉默寡言」的反义词是？",
+    "options": [
+      "夸夸其谈",
+      "沉默不语",
+      "三缄其口",
+      "闭口不言"
+    ],
+    "correct": 0,
+    "explanation": "「沉默寡言」形容不爱说话。反义词是「夸夸其谈」。",
+    "difficulty": 2,
+    "tags": [
+      "反义词",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-185",
+    "type": "vocab",
+    "prompt": "「妇孺皆知」中「孺」的意思是？",
+    "options": [
+      "老人",
+      "小孩",
+      "妇女",
+      "读书人"
+    ],
+    "correct": 1,
+    "explanation": "「孺」指小孩子。「妇孺皆知」形容众所周知。",
+    "difficulty": 2,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-186",
+    "type": "vocab",
+    "prompt": "「潜移默化」中「潜」的意思是？",
+    "options": [
+      "潜水",
+      "隐藏的、暗中的",
+      "深入",
+      "潜力"
+    ],
+    "correct": 1,
+    "explanation": "「潜」意为隐藏的、暗中的。「潜移默化」指暗暗受到影响。",
+    "difficulty": 3,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-187",
+    "type": "vocab",
+    "prompt": "选择正确的搭配：「浓厚的____」",
+    "options": [
+      "速度",
+      "兴趣",
+      "声音",
+      "阳光"
+    ],
+    "correct": 1,
+    "explanation": "「浓厚」常与「兴趣」「感情」「氛围」搭配。",
+    "difficulty": 2,
+    "tags": [
+      "词语搭配"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-188",
+    "type": "vocab",
+    "prompt": "「忐忑不安」中「忐忑」的意思是？",
+    "options": [
+      "来回走动",
+      "心神不定",
+      "安静",
+      "生气"
+    ],
+    "correct": 1,
+    "explanation": "「忐忑」形容心神不安。两字都有心字底。",
+    "difficulty": 2,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-189",
+    "type": "vocab",
+    "prompt": "「彷徨」的正确读音是？",
+    "options": [
+      "páng huáng",
+      "fáng huáng",
+      "bàng huáng",
+      "páng huǎng"
+    ],
+    "correct": 0,
+    "explanation": "「彷徨」读 páng huáng，意为犹豫不决。",
+    "difficulty": 3,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-190",
+    "type": "vocab",
+    "prompt": "成语填空：「____手不及」，正确的字是？",
+    "options": [
+      "措",
+      "猝",
+      "促",
+      "蹙"
+    ],
+    "correct": 0,
+    "explanation": "「措手不及」意为来不及做出反应。「措」意为安放、安排。",
+    "difficulty": 3,
+    "tags": [
+      "成语填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-191",
+    "type": "vocab",
+    "prompt": "「袅袅」在「炊烟袅袅」中形容什么？",
+    "options": [
+      "烟的颜色很浓",
+      "烟向上飘升的轻柔样子",
+      "风很大",
+      "声音很响"
+    ],
+    "correct": 1,
+    "explanation": "「袅袅」形容烟雾缭绕上升的轻柔样子。",
+    "difficulty": 2,
+    "tags": [
+      "词义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-192",
+    "type": "vocab",
+    "prompt": "「蹒跚」的正确读音是？",
+    "options": [
+      "pán shān",
+      "mán shān",
+      "bān shān",
+      "pán chán"
+    ],
+    "correct": 0,
+    "explanation": "「蹒跚」读 pán shān，形容走路缓慢不稳。",
+    "difficulty": 3,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-193",
+    "type": "vocab",
+    "prompt": "「精打细算」的反义词是？",
+    "options": [
+      "大手大脚",
+      "一丝不苟",
+      "斤斤计较",
+      "节衣缩食"
+    ],
+    "correct": 0,
+    "explanation": "「精打细算」形容节省。反义词是「大手大脚」。",
+    "difficulty": 2,
+    "tags": [
+      "反义词",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-194",
+    "type": "vocab",
+    "prompt": "「愕然」的「愕」正确读音是？",
+    "options": [
+      "è",
+      "ě",
+      "wù",
+      "ào"
+    ],
+    "correct": 0,
+    "explanation": "「愕」读 è，「愕然」形容因吃惊而发愣。",
+    "difficulty": 3,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-195",
+    "type": "vocab",
+    "prompt": "「蓬勃」的近义词是？",
+    "options": [
+      "萎靡",
+      "旺盛",
+      "平淡",
+      "衰败"
+    ],
+    "correct": 1,
+    "explanation": "「蓬勃」形容生机旺盛。近义词是「旺盛」。",
+    "difficulty": 1,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-196",
+    "type": "vocab",
+    "prompt": "「坦荡」的反义词是？",
+    "options": [
+      "狭隘",
+      "宽广",
+      "辽阔",
+      "豪放"
+    ],
+    "correct": 0,
+    "explanation": "「坦荡」形容心胸开阔。反义词是「狭隘」。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-197",
+    "type": "vocab",
+    "prompt": "「荟萃」的正确读音是？",
+    "options": [
+      "huì cuì",
+      "kuài cuì",
+      "huí cuì",
+      "wěi cuì"
+    ],
+    "correct": 0,
+    "explanation": "「荟萃」读 huì cuì，意为英才或精华汇集。",
+    "difficulty": 4,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-198",
+    "type": "vocab",
+    "prompt": "下列哪个词语有错别字？",
+    "options": [
+      "油然而生",
+      "翻来覆去",
+      "锐不可挡",
+      "骇人听闻"
+    ],
+    "correct": 2,
+    "explanation": "应为「锐不可当」，当不是挡。「当」意为抵挡。",
+    "difficulty": 3,
+    "tags": [
+      "错别字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-199",
+    "type": "vocab",
+    "prompt": "下列哪个词语有错别字？",
+    "options": [
+      "一鼓作气",
+      "自做自受",
+      "杞人忧天",
+      "世外桃源"
+    ],
+    "correct": 1,
+    "explanation": "应为「自作自受」，作不是做。",
+    "difficulty": 2,
+    "tags": [
+      "错别字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-200",
+    "type": "vocab",
+    "prompt": "「簌簌」的正确读音是？",
+    "options": [
+      "sù sù",
+      "shù shù",
+      "sū sū",
+      "cù cù"
+    ],
+    "correct": 0,
+    "explanation": "「簌簌」读 sù sù，形容纷纷落下的声音。",
+    "difficulty": 3,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-201",
+    "type": "vocab",
+    "prompt": "「褶皱」的正确读音是？",
+    "options": [
+      "zhě zhòu",
+      "zhé zhòu",
+      "xí zhòu",
+      "zhě zòu"
+    ],
+    "correct": 0,
+    "explanation": "「褶皱」读 zhě zhòu，指衣服或皮肤上的皱纹。",
+    "difficulty": 3,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-202",
+    "type": "vocab",
+    "prompt": "「诘问」的「诘」正确读音是？",
+    "options": [
+      "jié",
+      "jí",
+      "jì",
+      "jiě"
+    ],
+    "correct": 0,
+    "explanation": "「诘」读 jié，意为追问、责问。「诘问」指严厉地追问。",
+    "difficulty": 4,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-203",
+    "type": "vocab",
+    "prompt": "「缄默」的「缄」正确读音是？",
+    "options": [
+      "jiān",
+      "qiān",
+      "xián",
+      "jiǎn"
+    ],
+    "correct": 0,
+    "explanation": "「缄」读 jiān，意为封闭。「缄默」意为闭口不言。",
+    "difficulty": 4,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-204",
+    "type": "vocab",
+    "prompt": "「不毛之地」中「毛」的意思是？",
+    "options": [
+      "毛发",
+      "草木",
+      "细小",
+      "温暖"
+    ],
+    "correct": 1,
+    "explanation": "「毛」此处指草木。「不毛之地」指不长草木的地方，形容荒凉贫瘠。",
+    "difficulty": 3,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-205",
+    "type": "vocab",
+    "prompt": "「遏制」的「遏」正确读音是？",
+    "options": [
+      "è",
+      "yè",
+      "ě",
+      "yì"
+    ],
+    "correct": 0,
+    "explanation": "「遏」读 è，意为阻止、抑制。「遏制」意为制止、控制。",
+    "difficulty": 3,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-206",
+    "type": "vocab",
+    "prompt": "「炽热」的「炽」正确读音是？",
+    "options": [
+      "chì",
+      "zhì",
+      "shì",
+      "cì"
+    ],
+    "correct": 0,
+    "explanation": "「炽」读 chì，意为火旺盛。「炽热」形容极热。",
+    "difficulty": 3,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-207",
+    "type": "vocab",
+    "prompt": "「瞥见」的「瞥」正确读音是？",
+    "options": [
+      "piē",
+      "piě",
+      "biē",
+      "piào"
+    ],
+    "correct": 0,
+    "explanation": "「瞥」读 piē，意为很快地看一下。「瞥见」指匆匆看到。",
+    "difficulty": 3,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-208",
+    "type": "vocab",
+    "prompt": "「安然无恙」中「恙」的意思是？",
+    "options": [
+      "伤害",
+      "疾病",
+      "事故",
+      "灾难"
+    ],
+    "correct": 1,
+    "explanation": "「恙」意为疾病、灾祸。「安然无恙」指平安无事，没有受到损害。",
+    "difficulty": 3,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-209",
+    "type": "vocab",
+    "prompt": "「德高望重」的反义词是？",
+    "options": [
+      "臭名昭著",
+      "德才兼备",
+      "名副其实",
+      "众望所归"
+    ],
+    "correct": 0,
+    "explanation": "「德高望重」形容品德高尚、名望大。反义词是「臭名昭著」。",
+    "difficulty": 2,
+    "tags": [
+      "反义词",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-210",
+    "type": "vocab",
+    "prompt": "「拮据」的正确读音是？",
+    "options": [
+      "jié jū",
+      "jí jù",
+      "jié jù",
+      "jì jū"
+    ],
+    "correct": 0,
+    "explanation": "「拮据」读 jié jū，形容经济困难、手头紧。",
+    "difficulty": 4,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-211",
+    "type": "vocab",
+    "prompt": "「慷慨」的反义词是？",
+    "options": [
+      "吝啬",
+      "大方",
+      "热情",
+      "慷慨"
+    ],
+    "correct": 0,
+    "explanation": "「慷慨」指大方、不吝惜。反义词是「吝啬」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-212",
+    "type": "vocab",
+    "prompt": "「络绎不绝」中「络绎」的意思是？",
+    "options": [
+      "连续不断",
+      "纠缠在一起",
+      "快速移动",
+      "排成一列"
+    ],
+    "correct": 0,
+    "explanation": "「络绎」形容前后相连、连续不断的样子。「络绎不绝」形容行人车马连续不断。",
+    "difficulty": 3,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-213",
+    "type": "vocab",
+    "prompt": "选择正确的搭配：「严格的____」",
+    "options": [
+      "风景",
+      "要求",
+      "感情",
+      "品味"
+    ],
+    "correct": 1,
+    "explanation": "「严格」常与「要求」「标准」「纪律」搭配。",
+    "difficulty": 1,
+    "tags": [
+      "词语搭配"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-214",
+    "type": "vocab",
+    "prompt": "「颠沛流离」中「颠沛」的意思是？",
+    "options": [
+      "跌倒",
+      "困苦、受挫折",
+      "快速奔跑",
+      "翻来覆去"
+    ],
+    "correct": 1,
+    "explanation": "「颠沛」指困苦、受挫折。「颠沛流离」形容生活艰难、四处流浪。",
+    "difficulty": 4,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-215",
+    "type": "vocab",
+    "prompt": "「蜕变」的「蜕」正确读音是？",
+    "options": [
+      "tuì",
+      "duì",
+      "shuì",
+      "tuō"
+    ],
+    "correct": 0,
+    "explanation": "「蜕」读 tuì，本义指蝉蛇脱皮。「蜕变」指质的改变。",
+    "difficulty": 3,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-216",
+    "type": "vocab",
+    "prompt": "成语填空：「____然大悟」，填哪个字？",
+    "options": [
+      "恍",
+      "晃",
+      "慌",
+      "荒"
+    ],
+    "correct": 0,
+    "explanation": "「恍然大悟」意为忽然间全都明白了。「恍」意为忽然、猛然。",
+    "difficulty": 2,
+    "tags": [
+      "成语填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-217",
+    "type": "vocab",
+    "prompt": "成语填空：「不____甚解」，填哪个字？",
+    "options": [
+      "求",
+      "知",
+      "甚",
+      "解"
+    ],
+    "correct": 0,
+    "explanation": "「不求甚解」意为读书只求懂大意，不求深入理解。",
+    "difficulty": 2,
+    "tags": [
+      "成语填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-218",
+    "type": "vocab",
+    "prompt": "「龟裂」的「龟」在此读什么？",
+    "options": [
+      "guī",
+      "jūn",
+      "qiū",
+      "guì"
+    ],
+    "correct": 1,
+    "explanation": "「龟裂」中「龟」读 jūn，形容裂开许多缝。这是「龟」的特殊读音。",
+    "difficulty": 5,
+    "tags": [
+      "字音",
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-219",
+    "type": "vocab",
+    "prompt": "「迫不及待」的近义词是？",
+    "options": [
+      "慢条斯理",
+      "急不可耐",
+      "不慌不忙",
+      "从容不迫"
+    ],
+    "correct": 1,
+    "explanation": "「迫不及待」形容心情急切。近义词是「急不可耐」。",
+    "difficulty": 1,
+    "tags": [
+      "近义词",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-220",
+    "type": "vocab",
+    "prompt": "「铿锵有力」中「铿锵」的正确读音是？",
+    "options": [
+      "kēng qiāng",
+      "kēng jiāng",
+      "gēng qiāng",
+      "kěng qiǎng"
+    ],
+    "correct": 0,
+    "explanation": "「铿锵」读 kēng qiāng，形容声音响亮有力。",
+    "difficulty": 3,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-221",
+    "type": "vocab",
+    "prompt": "「渲染」的「渲」正确读音是？",
+    "options": [
+      "xuàn",
+      "xuān",
+      "xún",
+      "xuè"
+    ],
+    "correct": 0,
+    "explanation": "「渲」读 xuàn，「渲染」指国画技法，引申为夸大描述。",
+    "difficulty": 3,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-222",
+    "type": "vocab",
+    "prompt": "「嗔怒」的「嗔」正确读音是？",
+    "options": [
+      "chēn",
+      "shēn",
+      "zhēn",
+      "chèn"
+    ],
+    "correct": 0,
+    "explanation": "「嗔」读 chēn，意为发怒、生气。「嗔怒」即怒目而视。",
+    "difficulty": 4,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-223",
+    "type": "vocab",
+    "prompt": "「温文尔雅」的近义词是？",
+    "options": [
+      "粗暴无礼",
+      "彬彬有礼",
+      "咄咄逼人",
+      "盛气凌人"
+    ],
+    "correct": 1,
+    "explanation": "「温文尔雅」形容态度温和、举止文雅。近义词是「彬彬有礼」。",
+    "difficulty": 2,
+    "tags": [
+      "近义词",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-224",
+    "type": "vocab",
+    "prompt": "「囫囵吞枣」中「囫囵」的意思是？",
+    "options": [
+      "快速地",
+      "整个、完整地",
+      "糊涂地",
+      "贪婪地"
+    ],
+    "correct": 1,
+    "explanation": "「囫囵」意为整个、完整。「囫囵吞枣」比喻读书学习不加分析地笼统接受。",
+    "difficulty": 3,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-225",
+    "type": "vocab",
+    "prompt": "「妙趣横生」中「横」的意思是？",
+    "options": [
+      "横向",
+      "充满、洋溢",
+      "粗暴",
+      "横着"
+    ],
+    "correct": 1,
+    "explanation": "「横」此处意为充满、洋溢。「妙趣横生」形容言谈、文章充满有趣的内容。",
+    "difficulty": 3,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-226",
+    "type": "vocab",
+    "prompt": "选择正确的搭配：「培养____」",
+    "options": [
+      "问题",
+      "兴趣",
+      "缺点",
+      "毛病"
+    ],
+    "correct": 1,
+    "explanation": "「培养」常与「兴趣」「人才」「习惯」搭配，不与负面词搭配。",
+    "difficulty": 2,
+    "tags": [
+      "词语搭配"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-227",
+    "type": "vocab",
+    "prompt": "「颤抖」的「颤」在此读什么？",
+    "options": [
+      "chàn",
+      "zhàn",
+      "chán",
+      "shàn"
+    ],
+    "correct": 0,
+    "explanation": "「颤抖」中「颤」读 chàn。「颤」读 zhàn 时用于「颤栗」（极度恐惧）。",
+    "difficulty": 3,
+    "tags": [
+      "字音",
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-228",
+    "type": "vocab",
+    "prompt": "下列哪个词语有错别字？",
+    "options": [
+      "义愤填膺",
+      "鞠躬尽瘁",
+      "妇儒皆知",
+      "叹为观止"
+    ],
+    "correct": 2,
+    "explanation": "应为「妇孺皆知」，孺不是儒。「孺」指小孩，「儒」指读书人。",
+    "difficulty": 3,
+    "tags": [
+      "错别字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-229",
+    "type": "vocab",
+    "prompt": "下列哪个词语有错别字？",
+    "options": [
+      "举世闻名",
+      "相辅相承",
+      "气壮山河",
+      "万众一心"
+    ],
+    "correct": 1,
+    "explanation": "应为「相辅相成」，成不是承。「成」意为完成、促成。",
+    "difficulty": 3,
+    "tags": [
+      "错别字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-230",
+    "type": "vocab",
+    "prompt": "「翌日」的「翌」正确读音是？",
+    "options": [
+      "yì",
+      "lì",
+      "yí",
+      "zhì"
+    ],
+    "correct": 0,
+    "explanation": "「翌」读 yì，「翌日」意为第二天。",
+    "difficulty": 4,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-231",
+    "type": "vocab",
+    "prompt": "「耐人寻味」中「寻味」的意思是？",
+    "options": [
+      "寻找味道",
+      "仔细体会其中的意味",
+      "品尝食物",
+      "回忆过去"
+    ],
+    "correct": 1,
+    "explanation": "「寻味」意为仔细体会。「耐人寻味」指意味深长，值得仔细体会。",
+    "difficulty": 3,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-232",
+    "type": "vocab",
+    "prompt": "「目眩神迷」中「眩」的意思是？",
+    "options": [
+      "明亮",
+      "昏花、迷惑",
+      "看见",
+      "闪烁"
+    ],
+    "correct": 1,
+    "explanation": "「眩」意为眼花、迷惑。「目眩神迷」形容所见令人惊叹。",
+    "difficulty": 3,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-233",
+    "type": "vocab",
+    "prompt": "「辄」在「动辄得咎」中的意思是？",
+    "options": [
+      "总是",
+      "偶尔",
+      "立刻",
+      "就"
+    ],
+    "correct": 3,
+    "explanation": "「辄」意为就、总是。「动辄得咎」指动不动就受到责备处分。",
+    "difficulty": 5,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-234",
+    "type": "vocab",
+    "prompt": "「狡黠」的「黠」正确读音是？",
+    "options": [
+      "xiá",
+      "jié",
+      "xié",
+      "jiá"
+    ],
+    "correct": 0,
+    "explanation": "「黠」读 xiá，意为狡猾聪明。「狡黠」形容狡猾。",
+    "difficulty": 4,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-235",
+    "type": "vocab",
+    "prompt": "「勉强」的「强」在此读什么？",
+    "options": [
+      "qiáng",
+      "qiǎng",
+      "jiàng",
+      "gāng"
+    ],
+    "correct": 1,
+    "explanation": "「勉强」中「强」读 qiǎng，意为不情愿地。读 qiáng 是强大，读 jiàng 是倔强。",
+    "difficulty": 3,
+    "tags": [
+      "字音",
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-236",
+    "type": "vocab",
+    "prompt": "「惟妙惟肖」中「肖」的正确读音是？",
+    "options": [
+      "xiào",
+      "xiāo",
+      "shào",
+      "shāo"
+    ],
+    "correct": 0,
+    "explanation": "「惟妙惟肖」中「肖」读 xiào，意为相似。形容描写或模仿非常逼真。",
+    "difficulty": 3,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-237",
+    "type": "vocab",
+    "prompt": "「消极」的反义词是？",
+    "options": [
+      "积极",
+      "否定",
+      "懒惰",
+      "悲观"
+    ],
+    "correct": 0,
+    "explanation": "「消极」指不求进取。反义词是「积极」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-238",
+    "type": "vocab",
+    "prompt": "「粗糙」的反义词是？",
+    "options": [
+      "光滑",
+      "细腻",
+      "精致",
+      "B和C都可以"
+    ],
+    "correct": 3,
+    "explanation": "「粗糙」指表面不光滑或做事不精细。反义词可以是「细腻」或「精致」。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-239",
+    "type": "vocab",
+    "prompt": "选择正确的搭配：「敏锐的____」",
+    "options": [
+      "动作",
+      "观察力",
+      "声音",
+      "色彩"
+    ],
+    "correct": 1,
+    "explanation": "「敏锐」常与「观察力」「洞察力」「眼光」搭配。",
+    "difficulty": 2,
+    "tags": [
+      "词语搭配"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-240",
+    "type": "vocab",
+    "prompt": "「恻隐之心」中「恻隐」的意思是？",
+    "options": [
+      "狠心",
+      "同情、怜悯",
+      "隐藏",
+      "测量"
+    ],
+    "correct": 1,
+    "explanation": "「恻隐」意为同情、怜悯。「恻隐之心」指对别人的不幸产生同情心。出自《孟子》。",
+    "difficulty": 3,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-241",
+    "type": "vocab",
+    "prompt": "成语填空：「____而不舍」，填哪个字？",
+    "options": [
+      "锲",
+      "契",
+      "砌",
+      "窍"
+    ],
+    "correct": 0,
+    "explanation": "「锲而不舍」意为不断雕刻，比喻有恒心。",
+    "difficulty": 2,
+    "tags": [
+      "成语填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-242",
+    "type": "vocab",
+    "prompt": "成语填空：「____尽脑汁」，填哪个字？",
+    "options": [
+      "绞",
+      "搅",
+      "交",
+      "焦"
+    ],
+    "correct": 0,
+    "explanation": "「绞尽脑汁」意为费尽心思。「绞」意为用力扭转。",
+    "difficulty": 2,
+    "tags": [
+      "成语填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-243",
+    "type": "vocab",
+    "prompt": "「踌躇」的正确读音是？",
+    "options": [
+      "chóu chú",
+      "chóu chù",
+      "zhōu chú",
+      "chóu zhù"
+    ],
+    "correct": 0,
+    "explanation": "「踌躇」读 chóu chú，意为犹豫不决。",
+    "difficulty": 3,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-244",
+    "type": "vocab",
+    "prompt": "「拙劣」的「拙」正确读音是？",
+    "options": [
+      "zhuō",
+      "chù",
+      "zhuó",
+      "chuō"
+    ],
+    "correct": 0,
+    "explanation": "「拙」读 zhuō，意为笨拙、不灵巧。「拙劣」形容水平低下。",
+    "difficulty": 3,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-245",
+    "type": "vocab",
+    "prompt": "「讴歌」的「讴」正确读音是？",
+    "options": [
+      "ōu",
+      "qū",
+      "ǒu",
+      "yōu"
+    ],
+    "correct": 0,
+    "explanation": "「讴」读 ōu，意为歌唱、歌颂。「讴歌」意为热情赞颂。",
+    "difficulty": 4,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-246",
+    "type": "vocab",
+    "prompt": "「叱咤风云」中「叱咤」的正确读音是？",
+    "options": [
+      "chì zhà",
+      "chì chà",
+      "qì zhà",
+      "chǐ zhà"
+    ],
+    "correct": 0,
+    "explanation": "「叱咤」读 chì zhà，「叱咤风云」形容声势极大、威力强悍。",
+    "difficulty": 4,
+    "tags": [
+      "字音",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-247",
+    "type": "vocab",
+    "prompt": "「含辛茹苦」中「茹」的意思是？",
+    "options": [
+      "蔬菜",
+      "吃、承受",
+      "柔软",
+      "如同"
+    ],
+    "correct": 1,
+    "explanation": "「茹」意为吃。「含辛茹苦」指忍受辛苦，形容经历艰难困苦。",
+    "difficulty": 4,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-248",
+    "type": "vocab",
+    "prompt": "「墨守成规」的反义词是？",
+    "options": [
+      "标新立异",
+      "循规蹈矩",
+      "因循守旧",
+      "按部就班"
+    ],
+    "correct": 0,
+    "explanation": "「墨守成规」指固守旧规矩。反义词是「标新立异」，指创新。",
+    "difficulty": 3,
+    "tags": [
+      "反义词",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-249",
+    "type": "vocab",
+    "prompt": "下列哪个词语有错别字？",
+    "options": [
+      "巧妙绝伦",
+      "变本加利",
+      "微不足道",
+      "鬼斧神工"
+    ],
+    "correct": 1,
+    "explanation": "应为「变本加厉」，厉不是利。「厉」意为严重。",
+    "difficulty": 2,
+    "tags": [
+      "错别字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-250",
+    "type": "vocab",
+    "prompt": "「汲取」的「汲」正确读音是？",
+    "options": [
+      "jí",
+      "xī",
+      "jì",
+      "qì"
+    ],
+    "correct": 0,
+    "explanation": "「汲」读 jí，意为从下往上打水，引申为吸取。",
+    "difficulty": 3,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-251",
+    "type": "vocab",
+    "prompt": "「侃侃而谈」中「侃侃」的意思是？",
+    "options": [
+      "大声说话",
+      "从容不迫的样子",
+      "胡说八道",
+      "快速说话"
+    ],
+    "correct": 1,
+    "explanation": "「侃侃」形容说话从容不迫。「侃侃而谈」形容说话理直气壮、从容自如。",
+    "difficulty": 3,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-252",
+    "type": "vocab",
+    "prompt": "「惺忪」的正确读音是？",
+    "options": [
+      "xīng sōng",
+      "xīng zhōng",
+      "xǐng sōng",
+      "xīng cōng"
+    ],
+    "correct": 0,
+    "explanation": "「惺忪」读 xīng sōng，形容刚睡醒时眼睛模糊的样子。",
+    "difficulty": 4,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-253",
+    "type": "vocab",
+    "prompt": "选择正确的搭配：「纠正____」",
+    "options": [
+      "优点",
+      "错误",
+      "成绩",
+      "美德"
+    ],
+    "correct": 1,
+    "explanation": "「纠正」常与「错误」「偏差」「缺点」搭配，指改正不对的地方。",
+    "difficulty": 1,
+    "tags": [
+      "词语搭配"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-254",
+    "type": "vocab",
+    "prompt": "「巍峨」的近义词是？",
+    "options": [
+      "矮小",
+      "高大",
+      "雄伟",
+      "B和C都可以"
+    ],
+    "correct": 3,
+    "explanation": "「巍峨」形容山或建筑物高大壮观。近义词有「高大」「雄伟」。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-255",
+    "type": "vocab",
+    "prompt": "「喧嚣」的反义词是？",
+    "options": [
+      "寂静",
+      "吵闹",
+      "嘈杂",
+      "热闹"
+    ],
+    "correct": 0,
+    "explanation": "「喧嚣」形容声音大而杂乱。反义词是「寂静」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-256",
+    "type": "vocab",
+    "prompt": "「绰号」的「绰」在此读什么？",
+    "options": [
+      "chuò",
+      "chāo",
+      "zhuō",
+      "chuō"
+    ],
+    "correct": 0,
+    "explanation": "「绰号」中「绰」读 chuò，意为外号、别号。",
+    "difficulty": 3,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-257",
+    "type": "vocab",
+    "prompt": "「磅礴」的正确读音是？",
+    "options": [
+      "páng bó",
+      "bàng bó",
+      "páng pò",
+      "bāng bó"
+    ],
+    "correct": 0,
+    "explanation": "「磅礴」读 páng bó，形容气势盛大。",
+    "difficulty": 3,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-258",
+    "type": "vocab",
+    "prompt": "「别出心裁」中「心裁」的意思是？",
+    "options": [
+      "心里的裁判",
+      "内心的设计构思",
+      "新的裁缝方法",
+      "心情的裁决"
+    ],
+    "correct": 1,
+    "explanation": "「心裁」指内心的设计构思。「别出心裁」指独创一格，与众不同。",
+    "difficulty": 3,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-259",
+    "type": "vocab",
+    "prompt": "选择正确的搭配：「克服____」",
+    "options": [
+      "成绩",
+      "困难",
+      "知识",
+      "优点"
+    ],
+    "correct": 1,
+    "explanation": "「克服」常与「困难」「缺点」「障碍」搭配。",
+    "difficulty": 1,
+    "tags": [
+      "词语搭配"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-260",
+    "type": "vocab",
+    "prompt": "「璀璨」的正确读音是？",
+    "options": [
+      "cuǐ càn",
+      "cuī càn",
+      "cuǐ chàn",
+      "cuì càn"
+    ],
+    "correct": 0,
+    "explanation": "「璀璨」读 cuǐ càn，形容珠玉等光彩夺目。",
+    "difficulty": 4,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-261",
+    "type": "vocab",
+    "prompt": "「阑珊」在「灯火阑珊」中的意思是？",
+    "options": [
+      "灿烂",
+      "将尽、衰落",
+      "明亮",
+      "繁华"
+    ],
+    "correct": 1,
+    "explanation": "「阑珊」意为将尽、衰落。「灯火阑珊」指灯火稀疏、将要熄灭。",
+    "difficulty": 4,
+    "tags": [
+      "词义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-262",
+    "type": "vocab",
+    "prompt": "「万籁俱寂」中「籁」的意思是？",
+    "options": [
+      "声音",
+      "竹笛",
+      "万物",
+      "寂静"
+    ],
+    "correct": 0,
+    "explanation": "「籁」意为从孔穴中发出的声音，泛指声音。「万籁俱寂」形容万物寂静无声。",
+    "difficulty": 4,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-263",
+    "type": "vocab",
+    "prompt": "成语填空：「望洋____叹」，填哪个字？",
+    "options": [
+      "兴",
+      "而",
+      "长",
+      "之"
+    ],
+    "correct": 0,
+    "explanation": "「望洋兴叹」意为看到伟大的事物而感叹自己的渺小。",
+    "difficulty": 3,
+    "tags": [
+      "成语填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-264",
+    "type": "vocab",
+    "prompt": "成语填空：「____然开朗」，填哪个字？",
+    "options": [
+      "豁",
+      "恍",
+      "忽",
+      "霍"
+    ],
+    "correct": 0,
+    "explanation": "「豁然开朗」意为由狭窄幽暗变为开阔明亮，比喻突然明白。",
+    "difficulty": 2,
+    "tags": [
+      "成语填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-265",
+    "type": "vocab",
+    "prompt": "「戛然而止」中「戛」的正确读音是？",
+    "options": [
+      "jiá",
+      "gā",
+      "jiā",
+      "gé"
+    ],
+    "correct": 0,
+    "explanation": "「戛」读 jiá，「戛然而止」形容声音突然停止。",
+    "difficulty": 5,
+    "tags": [
+      "字音",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-266",
+    "type": "vocab",
+    "prompt": "「蹊跷」的正确读音是？",
+    "options": [
+      "qī qiāo",
+      "xī qiǎo",
+      "qī qiao",
+      "qī jiāo"
+    ],
+    "correct": 0,
+    "explanation": "「蹊跷」读 qī qiāo，形容事情奇怪可疑。",
+    "difficulty": 4,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-267",
+    "type": "vocab",
+    "prompt": "「呕心沥血」的近义词是？",
+    "options": [
+      "心不在焉",
+      "殚精竭虑",
+      "漫不经心",
+      "掉以轻心"
+    ],
+    "correct": 1,
+    "explanation": "「呕心沥血」形容费尽心思。近义词是「殚精竭虑」。",
+    "difficulty": 3,
+    "tags": [
+      "近义词",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-268",
+    "type": "vocab",
+    "prompt": "「驰骋」的正确读音是？",
+    "options": [
+      "chí chěng",
+      "shǐ chěng",
+      "chí pìn",
+      "chì chéng"
+    ],
+    "correct": 0,
+    "explanation": "「驰骋」读 chí chěng，意为骑马奔跑，引申为自由发挥。",
+    "difficulty": 3,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-269",
+    "type": "vocab",
+    "prompt": "下列哪个词语有错别字？",
+    "options": [
+      "名副其实",
+      "走头无路",
+      "迫不及待",
+      "铤而走险"
+    ],
+    "correct": 1,
+    "explanation": "应为「走投无路」，投不是头。「投」意为投奔。",
+    "difficulty": 3,
+    "tags": [
+      "错别字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-270",
+    "type": "vocab",
+    "prompt": "下列哪个词语有错别字？",
+    "options": [
+      "语重心长",
+      "鼎鼎大名",
+      "金壁辉煌",
+      "气吞山河"
+    ],
+    "correct": 2,
+    "explanation": "应为「金碧辉煌」，碧不是壁。「碧」指碧绿色。",
+    "difficulty": 3,
+    "tags": [
+      "错别字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-271",
+    "type": "vocab",
+    "prompt": "「锱铢必较」中「锱铢」指什么？",
+    "options": [
+      "金银首饰",
+      "很少的钱",
+      "宝石",
+      "大量的钱"
+    ],
+    "correct": 1,
+    "explanation": "「锱」「铢」都是古代极小的重量单位。「锱铢必较」形容对极少的钱也要计较。",
+    "difficulty": 5,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-272",
+    "type": "vocab",
+    "prompt": "「恬静」的「恬」正确读音是？",
+    "options": [
+      "tián",
+      "tiān",
+      "dián",
+      "qián"
+    ],
+    "correct": 0,
+    "explanation": "「恬」读 tián，意为安静、安然。「恬静」形容安静舒适。",
+    "difficulty": 3,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-273",
+    "type": "vocab",
+    "prompt": "选择正确的搭配：「承担____」",
+    "options": [
+      "风景",
+      "责任",
+      "颜色",
+      "味道"
+    ],
+    "correct": 1,
+    "explanation": "「承担」常与「责任」「任务」「义务」搭配。",
+    "difficulty": 1,
+    "tags": [
+      "词语搭配"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-274",
+    "type": "vocab",
+    "prompt": "「虔诚」的「虔」正确读音是？",
+    "options": [
+      "qián",
+      "qiān",
+      "gān",
+      "jiān"
+    ],
+    "correct": 0,
+    "explanation": "「虔」读 qián，意为恭敬。「虔诚」形容态度恭敬而有诚意。",
+    "difficulty": 3,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-275",
+    "type": "vocab",
+    "prompt": "「缥缈」的正确读音是？",
+    "options": [
+      "piāo miǎo",
+      "piǎo miǎo",
+      "piāo miào",
+      "piáo miǎo"
+    ],
+    "correct": 0,
+    "explanation": "「缥缈」读 piāo miǎo，形容隐隐约约、若有若无。",
+    "difficulty": 4,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-276",
+    "type": "vocab",
+    "prompt": "「锋芒毕露」中「毕」的意思是？",
+    "options": [
+      "毕业",
+      "完全、全部",
+      "结束",
+      "毕竟"
+    ],
+    "correct": 1,
+    "explanation": "「毕」意为完全。「锋芒毕露」形容锐气和才干全都显露出来。",
+    "difficulty": 3,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-277",
+    "type": "vocab",
+    "prompt": "「叱咤」和「叱责」中「叱」的意思相同吗？",
+    "options": [
+      "相同，都是大声呵斥",
+      "不同，前者是怒吼，后者是责备",
+      "相同，都是小声说",
+      "完全不同"
+    ],
+    "correct": 0,
+    "explanation": "两个词中「叱」都含大声呵斥之意。「叱咤」侧重声势，「叱责」侧重斥责。",
+    "difficulty": 4,
+    "tags": [
+      "词义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-278",
+    "type": "vocab",
+    "prompt": "「真挚」的反义词是？",
+    "options": [
+      "虚伪",
+      "真诚",
+      "诚恳",
+      "热情"
+    ],
+    "correct": 0,
+    "explanation": "「真挚」指真诚恳切。反义词是「虚伪」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-279",
+    "type": "vocab",
+    "prompt": "「鼎」字共有多少笔画？",
+    "options": [
+      "12画",
+      "13画",
+      "14画",
+      "15画"
+    ],
+    "correct": 0,
+    "explanation": "「鼎」字共12画。",
+    "difficulty": 3,
+    "tags": [
+      "字形",
+      "笔画"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-280",
+    "type": "vocab",
+    "prompt": "成语填空：「____山再起」，填哪个字？",
+    "options": [
+      "东",
+      "卷",
+      "重",
+      "再"
+    ],
+    "correct": 2,
+    "explanation": "「重山再起」错误，应为「东山再起」。此题正确答案为「东山再起」——但选项设计中「卷土重来」与「东山再起」意思相近。正确成语是「卷土重来」中的「卷」字。注意：「东山再起」整体是一个成语，而「重」字搭配的是「卷土重来」。",
+    "difficulty": 3,
+    "tags": [
+      "成语填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-281",
+    "type": "vocab",
+    "prompt": "「按图索骥」中「骥」的意思是？",
+    "options": [
+      "马",
+      "路",
+      "图画",
+      "好马"
+    ],
+    "correct": 3,
+    "explanation": "「骥」指好马、千里马。「按图索骥」比喻按照线索去寻找，也比喻做事机械死板。",
+    "difficulty": 4,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-282",
+    "type": "vocab",
+    "prompt": "「瘠薄」的「瘠」正确读音是？",
+    "options": [
+      "jí",
+      "jì",
+      "jī",
+      "qí"
+    ],
+    "correct": 0,
+    "explanation": "「瘠」读 jí，意为瘦弱、贫瘠。「瘠薄」形容土地不肥沃。",
+    "difficulty": 4,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-283",
+    "type": "vocab",
+    "prompt": "「摧枯拉朽」中「朽」的意思是？",
+    "options": [
+      "朽烂的东西",
+      "坚硬",
+      "新生",
+      "干燥"
+    ],
+    "correct": 0,
+    "explanation": "「朽」意为腐烂的东西。「摧枯拉朽」比喻轻而易举地摧毁。",
+    "difficulty": 3,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-284",
+    "type": "vocab",
+    "prompt": "选择正确的搭配：「领略____」",
+    "options": [
+      "食物",
+      "风光",
+      "数学",
+      "书本"
+    ],
+    "correct": 1,
+    "explanation": "「领略」常与「风光」「风采」「魅力」搭配，指感受、体会。",
+    "difficulty": 2,
+    "tags": [
+      "词语搭配"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-285",
+    "type": "vocab",
+    "prompt": "「鼓舞」的近义词是？",
+    "options": [
+      "打击",
+      "激励",
+      "阻碍",
+      "消沉"
+    ],
+    "correct": 1,
+    "explanation": "「鼓舞」意为使振作起来。近义词是「激励」。",
+    "difficulty": 1,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-286",
+    "type": "vocab",
+    "prompt": "「桀骜不驯」中「骜」的正确读音是？",
+    "options": [
+      "ào",
+      "áo",
+      "ǎo",
+      "āo"
+    ],
+    "correct": 0,
+    "explanation": "「骜」读 ào，意为不顺从。「桀骜不驯」形容性情倔强不驯服。",
+    "difficulty": 5,
+    "tags": [
+      "字音",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-287",
+    "type": "vocab",
+    "prompt": "「慰藉」的「藉」在此读什么？",
+    "options": [
+      "jiè",
+      "jí",
+      "jì",
+      "jiē"
+    ],
+    "correct": 0,
+    "explanation": "「慰藉」中「藉」读 jiè，意为安慰、抚慰。",
+    "difficulty": 4,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-288",
+    "type": "vocab",
+    "prompt": "下列哪个词语有错别字？",
+    "options": [
+      "融会贯通",
+      "一筹莫展",
+      "震耳欲聋",
+      "记忆尤新"
+    ],
+    "correct": 3,
+    "explanation": "应为「记忆犹新」，犹不是尤。「犹」意为还、仍然。",
+    "difficulty": 3,
+    "tags": [
+      "错别字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-289",
+    "type": "vocab",
+    "prompt": "下列哪个词语有错别字？",
+    "options": [
+      "莫名其妙",
+      "如火如荼",
+      "不径而走",
+      "声名狼藉"
+    ],
+    "correct": 2,
+    "explanation": "应为「不胫而走」，胫不是径。「胫」指小腿。",
+    "difficulty": 4,
+    "tags": [
+      "错别字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-290",
+    "type": "vocab",
+    "prompt": "「缱绻」的正确读音是？",
+    "options": [
+      "qiǎn quǎn",
+      "qiān quàn",
+      "jiǎn quǎn",
+      "qiǎn juǎn"
+    ],
+    "correct": 0,
+    "explanation": "「缱绻」读 qiǎn quǎn，形容感情深厚、难舍难分。",
+    "difficulty": 5,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-291",
+    "type": "vocab",
+    "prompt": "「旁征博引」中「征」的意思是？",
+    "options": [
+      "征服",
+      "寻求、搜集",
+      "远征",
+      "征收"
+    ],
+    "correct": 1,
+    "explanation": "「征」意为寻求、搜集。「旁征博引」指大量引用材料作为佐证。",
+    "difficulty": 4,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-292",
+    "type": "vocab",
+    "prompt": "「素昧平生」中「昧」的意思是？",
+    "options": [
+      "不了解",
+      "糊涂",
+      "黑暗",
+      "味道"
+    ],
+    "correct": 0,
+    "explanation": "「昧」此处意为不了解。「素昧平生」指一向不了解，从未见过面。",
+    "difficulty": 4,
+    "tags": [
+      "词义",
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-293",
+    "type": "vocab",
+    "prompt": "成语填空：「____而不实」，填哪个字？",
+    "options": [
+      "华",
+      "花",
+      "滑",
+      "划"
+    ],
+    "correct": 0,
+    "explanation": "「华而不实」意为外表好看但没有实际内容。「华」意为华丽。",
+    "difficulty": 3,
+    "tags": [
+      "成语填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-294",
+    "type": "vocab",
+    "prompt": "成语填空：「____蛇添足」，填哪个字？",
+    "options": [
+      "画",
+      "化",
+      "花",
+      "划"
+    ],
+    "correct": 0,
+    "explanation": "「画蛇添足」比喻做多余的事反而不好。",
+    "difficulty": 1,
+    "tags": [
+      "成语填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-295",
+    "type": "vocab",
+    "prompt": "「觊觎」的正确读音是？",
+    "options": [
+      "jì yú",
+      "jī yú",
+      "jì yù",
+      "qǐ yú"
+    ],
+    "correct": 0,
+    "explanation": "「觊觎」读 jì yú，意为非分的希望或企图。",
+    "difficulty": 5,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-296",
+    "type": "vocab",
+    "prompt": "选择正确的搭配：「树立____」",
+    "options": [
+      "问题",
+      "榜样",
+      "缺点",
+      "味道"
+    ],
+    "correct": 1,
+    "explanation": "「树立」常与「榜样」「信心」「形象」搭配。",
+    "difficulty": 1,
+    "tags": [
+      "词语搭配"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-297",
+    "type": "vocab",
+    "prompt": "「雕梁画栋」形容什么？",
+    "options": [
+      "雕刻技术",
+      "建筑装饰华丽",
+      "画作精美",
+      "梁柱结构"
+    ],
+    "correct": 1,
+    "explanation": "「雕梁画栋」指房屋的梁柱上雕刻彩绘，形容建筑物装饰得十分华丽。",
+    "difficulty": 3,
+    "tags": [
+      "成语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-298",
+    "type": "vocab",
+    "prompt": "「浑浊」的反义词是？",
+    "options": [
+      "清澈",
+      "模糊",
+      "混乱",
+      "肮脏"
+    ],
+    "correct": 0,
+    "explanation": "「浑浊」指水不清，或空气不新鲜。反义词是「清澈」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-299",
+    "type": "vocab",
+    "prompt": "「筹措」的「筹」正确读音是？",
+    "options": [
+      "chóu",
+      "shōu",
+      "zhòu",
+      "chōu"
+    ],
+    "correct": 0,
+    "explanation": "「筹」读 chóu，意为计划、谋划。「筹措」意为设法筹集。",
+    "difficulty": 3,
+    "tags": [
+      "字音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v7-300",
+    "type": "vocab",
+    "prompt": "「鸿鹄之志」中「鹄」的正确读音是？",
+    "options": [
+      "hú",
+      "gǔ",
+      "gào",
+      "hù"
+    ],
+    "correct": 0,
+    "explanation": "「鹄」读 hú，指天鹅。「鸿鹄之志」比喻远大的志向。",
+    "difficulty": 4,
+    "tags": [
+      "字音",
+      "成语"
+    ],
+    "source": "curriculum"
   }
 ]

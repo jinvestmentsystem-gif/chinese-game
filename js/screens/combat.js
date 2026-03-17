@@ -848,6 +848,100 @@ function renderCombat() {
           100% { transform:scale(0) rotate(45deg); opacity:0; }
         }
 
+        /* ── Combat entrance zoom ── */
+        @keyframes combat-entrance-zoom {
+          0%   { transform: scale(1.15); filter: brightness(0.3) blur(4px); }
+          60%  { transform: scale(1.02); filter: brightness(0.9) blur(0); }
+          100% { transform: scale(1);    filter: brightness(1) blur(0); }
+        }
+        .combat-screen-inner.entrance-anim {
+          animation: combat-entrance-zoom 0.8s cubic-bezier(0.25,0.46,0.45,0.94) forwards;
+        }
+
+        /* ── Timer urgency: red screen-edge pulse when < 5s ── */
+        @keyframes urgency-pulse {
+          0%   { box-shadow: inset 0 0 40px 8px rgba(231,76,60,0); }
+          50%  { box-shadow: inset 0 0 40px 8px rgba(231,76,60,0.35); }
+          100% { box-shadow: inset 0 0 40px 8px rgba(231,76,60,0); }
+        }
+        .combat-urgency-overlay {
+          position: absolute; inset: 0; pointer-events: none; z-index: 999;
+          animation: urgency-pulse 1s ease-in-out infinite;
+        }
+
+        /* ── Correct answer confetti burst ── */
+        @keyframes confetti-particle {
+          0%   { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(1); }
+          100% { opacity: 0; transform: translate(var(--tx), var(--ty)) rotate(var(--rot)) scale(0.3); }
+        }
+        @keyframes screen-brighten {
+          0%   { background: rgba(255,255,255,0); }
+          30%  { background: rgba(255,255,255,0.12); }
+          100% { background: rgba(255,255,255,0); }
+        }
+        .correct-flash-overlay {
+          position: absolute; inset: 0; pointer-events: none; z-index: 998;
+          animation: screen-brighten 0.5s ease-out forwards;
+        }
+
+        /* ── Combo milestone full-screen text flash ── */
+        @keyframes milestone-flash {
+          0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.3) rotate(-5deg); }
+          20%  { opacity: 1; transform: translate(-50%, -50%) scale(1.2) rotate(2deg); }
+          50%  { opacity: 1; transform: translate(-50%, -50%) scale(1.0) rotate(0deg); }
+          100% { opacity: 0; transform: translate(-50%, -50%) scale(1.5) rotate(-3deg); }
+        }
+        .combo-milestone {
+          position: absolute; top: 40%; left: 50%;
+          transform: translate(-50%, -50%) scale(0);
+          font-size: 3rem; font-weight: 900;
+          pointer-events: none; z-index: 1010;
+          text-transform: uppercase;
+          letter-spacing: 6px;
+          animation: milestone-flash 1.2s cubic-bezier(0.34,1.56,0.64,1) forwards;
+        }
+        .milestone-unstoppable {
+          color: #ff6b00;
+          text-shadow: 0 0 30px #ff6b00, 0 0 60px #ff4500, 0 0 90px #ff0000, 3px 3px 0 #000;
+        }
+        .milestone-legendary {
+          color: #ffd700;
+          text-shadow: 0 0 30px #ffd700, 0 0 60px #ffaa00, 0 0 90px #ff6b00, 0 0 120px #ff0000, 3px 3px 0 #000;
+        }
+
+        /* ── Enemy death shatter ── */
+        @keyframes shatter-particle {
+          0%   { opacity: 1; transform: translate(0, 0) scale(1); }
+          100% { opacity: 0; transform: translate(var(--sx), var(--sy)) scale(0); }
+        }
+        @keyframes golden-light-expand {
+          0%   { opacity: 0.8; transform: translate(-50%, -50%) scale(0); }
+          50%  { opacity: 0.6; transform: translate(-50%, -50%) scale(1.5); }
+          100% { opacity: 0;   transform: translate(-50%, -50%) scale(3); }
+        }
+        .golden-light-burst {
+          position: absolute;
+          width: 120px; height: 120px;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(212,160,23,0.6) 0%, rgba(255,215,0,0.3) 40%, transparent 70%);
+          pointer-events: none; z-index: 1001;
+          animation: golden-light-expand 0.8s ease-out forwards;
+        }
+
+        /* ── Low HP heartbeat ── */
+        @keyframes heartbeat-edge {
+          0%   { box-shadow: inset 0 0 30px 5px rgba(192,57,43,0); }
+          15%  { box-shadow: inset 0 0 50px 12px rgba(192,57,43,0.3); }
+          30%  { box-shadow: inset 0 0 30px 5px rgba(192,57,43,0.05); }
+          45%  { box-shadow: inset 0 0 50px 12px rgba(192,57,43,0.25); }
+          60%  { box-shadow: inset 0 0 30px 5px rgba(192,57,43,0); }
+          100% { box-shadow: inset 0 0 30px 5px rgba(192,57,43,0); }
+        }
+        .heartbeat-overlay {
+          position: absolute; inset: 0; pointer-events: none; z-index: 997;
+          animation: heartbeat-edge 1.5s ease-in-out infinite;
+        }
+
         /* ── Dodge animation ── */
         @keyframes enemy-dodge {
           0%   { transform:translateX(0); opacity:1; }
@@ -889,9 +983,12 @@ function renderCombat() {
 
         <!-- Battle arena: player sprite | energy | enemy sprite -->
         <div class="battle-arena" id="arena">
+          <!-- HD-2D Bokeh particles behind combat arena -->
+          <div class="bokeh-container" id="combat-bokeh"></div>
+
           <div class="sprite-wrap" id="player-sprite-wrap">
             <div class="sprite-label">${profile.name}</div>
-            <div id="player-sprite" class="sprite-container"></div>
+            <div id="player-sprite" class="sprite-container sprite-bloom"></div>
           </div>
 
           <div class="arena-center">
@@ -900,7 +997,7 @@ function renderCombat() {
 
           <div class="sprite-wrap" id="enemy-sprite-wrap">
             <div class="sprite-label" style="color:var(--accent-red);">${enemyName}${shieldActive ? ' 🛡' : ''}</div>
-            <div id="enemy-sprite" class="sprite-container"></div>
+            <div id="enemy-sprite" class="sprite-container sprite-bloom-enemy"></div>
             ${enemyType.ability ? `<div class="enemy-ability-banner" id="ability-banner">${enemyType.desc}</div>` : ''}
             ${enrageTriggered ? '<div class="enemy-enrage-aura" id="enrage-aura"></div>' : ''}
           </div>
@@ -943,6 +1040,48 @@ function renderCombat() {
 
       </div>
     `;
+
+    // ── Combat entrance zoom animation ──
+    {
+      const inner = div.querySelector('.combat-screen-inner');
+      if (inner) {
+        inner.classList.add('entrance-anim');
+        inner.addEventListener('animationend', () => inner.classList.remove('entrance-anim'), { once: true });
+      }
+    }
+
+    // ── HD-2D: Generate bokeh particles behind combat arena ──
+    {
+      const bokehContainer = div.querySelector('#combat-bokeh');
+      if (bokehContainer) {
+        for (let i = 0; i < 18; i++) {
+          const dot = document.createElement('div');
+          dot.className = 'bokeh-dot';
+          const size = 4 + Math.random() * 12;
+          dot.style.cssText = `
+            width:${size}px; height:${size}px;
+            left:${Math.random() * 100}%; top:${Math.random() * 100}%;
+            --duration:${6 + Math.random() * 8}s;
+            --delay:${-Math.random() * 8}s;
+            --scale:${0.6 + Math.random() * 0.8};
+            --drift-y:${-20 - Math.random() * 40}px;
+            --max-opacity:${0.3 + Math.random() * 0.4};
+          `;
+          bokehContainer.appendChild(dot);
+        }
+      }
+    }
+
+    // ── HD-2D: Apply era class and depth layering to combat background ──
+    {
+      const eraClassMap = {1:'era-xianqin',2:'era-han',3:'era-tang',4:'era-song',5:'era-modern'};
+      const eraClass = eraClassMap[chapterId] || 'era-xianqin';
+      div.classList.add(eraClass);
+      // Background gets depth-far blur so foreground sprites pop
+      div.classList.add('bg-depth-far');
+      const arena = div.querySelector('#arena');
+      if (arena) arena.classList.add('bg-depth-near');
+    }
 
     // ── Inject pixel art sprites into empty containers ──
     {
@@ -992,6 +1131,20 @@ function renderCombat() {
     stopPlayerBreath = startBreathingAnimation(playerSpriteEl);
     stopEnemyBreath = startBreathingAnimation(enemySpriteEl);
 
+    // ── Low HP heartbeat warning (player HP < 25%) ──
+    {
+      const existingHeartbeat = div.querySelector('.heartbeat-overlay');
+      if (playerHp < effectiveMaxHp * 0.25 && playerHp > 0) {
+        if (!existingHeartbeat) {
+          const hbOverlay = document.createElement('div');
+          hbOverlay.className = 'heartbeat-overlay';
+          div.appendChild(hbOverlay);
+        }
+      } else if (existingHeartbeat) {
+        existingHeartbeat.remove();
+      }
+    }
+
     // ── Question text blur-in from top ──
     const questionEl = div.querySelector('.combat-question');
     if (questionEl) {
@@ -1029,8 +1182,16 @@ function renderCombat() {
       if (timerBar) {
         if (timeLeft < 5 && timeLeft > 0) {
           timerBar.classList.add('timer-urgent');
+          // Add red screen-edge pulse overlay if not already present
+          if (!div.querySelector('.combat-urgency-overlay')) {
+            const urgOverlay = document.createElement('div');
+            urgOverlay.className = 'combat-urgency-overlay';
+            div.appendChild(urgOverlay);
+          }
         } else {
           timerBar.classList.remove('timer-urgent');
+          const urgEl = div.querySelector('.combat-urgency-overlay');
+          if (urgEl) urgEl.remove();
         }
       }
 
@@ -1163,21 +1324,71 @@ function renderCombat() {
 
   function handleAnswer(idx, q, isTimeout = false) {
     stopBreaths();
+    // Remove urgency overlay on answer
+    const urgEl = div.querySelector('.combat-urgency-overlay');
+    if (urgEl) urgEl.remove();
     const correct = idx === q.correct;
     const buttons = div.querySelectorAll('.combat-option');
+
+    // ── Persona 5-style answer selection animations ──
+    let dismissIdx = 0;
     buttons.forEach(btn => {
       btn.style.pointerEvents = 'none';
       const bIdx = parseInt(btn.dataset.idx);
-      if (bIdx === q.correct) {
+      if (bIdx === idx) {
+        // Selected option: P5 snap-forward with scale + rotation
+        btn.style.animation = 'p5-select-snap 0.35s ease-out';
+        btn.style.zIndex = '10';
+      } else if (bIdx === q.correct && !correct) {
+        // Correct answer (when player chose wrong): highlight it
         btn.classList.add('correct');
-      } else if (bIdx === idx) {
-        btn.classList.add('wrong');
       } else {
-        // Fade out non-selected, non-correct options to focus attention
-        btn.style.opacity = '0.3';
-        btn.style.transition = 'opacity 0.2s ease-out';
+        // Non-selected, non-correct options: P5 diagonal dismiss
+        const direction = dismissIdx % 2 === 0 ? 'p5-dismiss-left' : 'p5-dismiss-right';
+        btn.style.animation = `${direction} 0.3s ease-in forwards`;
+        btn.style.animationDelay = `${dismissIdx * 0.05}s`;
+        dismissIdx++;
       }
     });
+
+    // After snap animation, apply correct/wrong class to selected button
+    setTimeout(() => {
+      buttons.forEach(btn => {
+        const bIdx = parseInt(btn.dataset.idx);
+        if (bIdx === q.correct) {
+          btn.classList.add('correct');
+        } else if (bIdx === idx) {
+          btn.classList.add('wrong');
+        }
+      });
+    }, 200);
+
+    // ── Ink splash effect at clicked option position (Okami/Gris style) ──
+    if (idx >= 0) {
+      const clickedBtn = [...buttons].find(b => parseInt(b.dataset.idx) === idx);
+      if (clickedBtn) {
+        const btnRect = clickedBtn.getBoundingClientRect();
+        const divRect = div.getBoundingClientRect();
+        const splash = document.createElement('div');
+        splash.className = correct ? 'ink-splash-correct' : 'ink-splash-wrong';
+        splash.style.left = (btnRect.left - divRect.left + btnRect.width / 2) + 'px';
+        splash.style.top = (btnRect.top - divRect.top + btnRect.height / 2) + 'px';
+        splash.style.zIndex = '1010';
+        div.appendChild(splash);
+        setTimeout(() => splash.remove(), 700);
+      }
+    }
+
+    // ── P5-style result slam (graphic-novel impact frame) ──
+    const feedbackEl = div.querySelector('#feedback');
+    if (feedbackEl) {
+      feedbackEl.style.animation = 'p5-result-slam 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+      feedbackEl.style.animationDelay = '0.25s';
+      feedbackEl.style.animationFillMode = 'both';
+      feedbackEl.addEventListener('animationend', () => {
+        feedbackEl.style.animation = '';
+      }, { once: true });
+    }
 
     recordAnswer('vocab', correct, q.id);
 
@@ -1495,6 +1706,55 @@ function renderCombat() {
       // Green flash on options panel
       if (optionsPanel) greenFlash(optionsPanel);
 
+      // ── Correct answer confetti burst + screen brighten ──
+      {
+        // Screen brighten flash
+        const flashOverlay = document.createElement('div');
+        flashOverlay.className = 'correct-flash-overlay';
+        div.appendChild(flashOverlay);
+        setTimeout(() => flashOverlay.remove(), 550);
+
+        // Confetti-like particle burst
+        const confettiColors = ['#d4a017', '#f39c12', '#27ae60', '#2ecc71', '#e74c3c', '#3498db', '#9b59b6'];
+        for (let i = 0; i < 20; i++) {
+          const cp = document.createElement('div');
+          const angle = Math.random() * Math.PI * 2;
+          const dist = 80 + Math.random() * 120;
+          const tx = Math.cos(angle) * dist;
+          const ty = Math.sin(angle) * dist - 40; // bias upward
+          const rot = (Math.random() - 0.5) * 720;
+          const size = 4 + Math.random() * 8;
+          const color = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+          const shape = Math.random() > 0.5 ? '50%' : '2px';
+          cp.style.cssText = `
+            position:absolute; left:50%; top:45%;
+            width:${size}px; height:${size}px;
+            background:${color}; border-radius:${shape};
+            pointer-events:none; z-index:1008;
+            --tx:${tx}px; --ty:${ty}px; --rot:${rot}deg;
+            animation: confetti-particle ${0.6 + Math.random() * 0.4}s ease-out forwards;
+            animation-delay: ${Math.random() * 0.1}s;
+          `;
+          div.appendChild(cp);
+          setTimeout(() => cp.remove(), 1200);
+        }
+      }
+
+      // ── Combo milestone text flashes ──
+      if (combo === 5) {
+        const ms = document.createElement('div');
+        ms.className = 'combo-milestone milestone-unstoppable';
+        ms.textContent = 'UNSTOPPABLE!';
+        div.appendChild(ms);
+        setTimeout(() => ms.remove(), 1300);
+      } else if (combo === 10) {
+        const ms = document.createElement('div');
+        ms.className = 'combo-milestone milestone-legendary';
+        ms.textContent = 'LEGENDARY!';
+        div.appendChild(ms);
+        setTimeout(() => ms.remove(), 1300);
+      }
+
       // Particle sparkle burst on correct answer
       burstParticles(15, 'victory');
 
@@ -1724,6 +1984,18 @@ function renderCombat() {
         else playerHpBar.classList.remove('hp-critical');
       }
 
+      // ── Low HP heartbeat overlay on damage ──
+      {
+        const existingHb = div.querySelector('.heartbeat-overlay');
+        if (playerHp < effectiveMaxHp * 0.25 && playerHp > 0) {
+          if (!existingHb) {
+            const hbOverlay = document.createElement('div');
+            hbOverlay.className = 'heartbeat-overlay';
+            div.appendChild(hbOverlay);
+          }
+        }
+      }
+
       // Companion encouragement on wrong answer; warn if HP drops low
       if (playerHp < effectiveMaxHp * 0.3) {
         showCompanionBubble(div, pick(COMPANION.lowHP));
@@ -1901,18 +2173,59 @@ function renderCombat() {
     // Companion celebration on victory
     showCompanionBubble(div, pick(COMPANION.victory), 4000);
 
-    // Victory: enemy fades out + particle explosion
+    // Play enemy death SFX
+    try { playSound('enemy_death'); } catch (_) {}
+
+    // Victory: enemy shatters into particles + golden light expands
     const enemyWrap = div.querySelector('#enemy-sprite-wrap');
     const enemySprite = div.querySelector('#enemy-sprite');
     if (enemySprite) {
-      enemySprite.style.transition = 'opacity 0.6s ease-out';
+      enemySprite.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
       enemySprite.style.opacity = '0';
+      enemySprite.style.transform = 'scale(1.3)';
       if (enemyWrap) {
         const ewRect = enemyWrap.getBoundingClientRect();
         const divRect = div.getBoundingClientRect();
         const cx = ewRect.left - divRect.left + ewRect.width / 2;
         const cy = ewRect.top - divRect.top + ewRect.height / 2;
-        setTimeout(() => particleExplosion(div, cx, cy, 14), 200);
+
+        // Shatter particles — enemy sprite breaks apart
+        setTimeout(() => {
+          const shatterColors = ['#d4a017', '#f39c12', '#e74c3c', '#c0392b', '#555', '#888'];
+          for (let i = 0; i < 24; i++) {
+            const sp = document.createElement('div');
+            const angle = (i / 24) * Math.PI * 2 + (Math.random() - 0.5) * 0.5;
+            const dist = 50 + Math.random() * 100;
+            const sx = Math.cos(angle) * dist;
+            const sy = Math.sin(angle) * dist;
+            const size = 5 + Math.random() * 10;
+            const color = shatterColors[Math.floor(Math.random() * shatterColors.length)];
+            sp.style.cssText = `
+              position:absolute;
+              left:${cx - size / 2}px; top:${cy - size / 2}px;
+              width:${size}px; height:${size}px;
+              background:${color};
+              border-radius:${Math.random() > 0.4 ? '2px' : '50%'};
+              pointer-events:none; z-index:1002;
+              --sx:${sx}px; --sy:${sy}px;
+              animation: shatter-particle ${0.5 + Math.random() * 0.5}s ease-out forwards;
+            `;
+            div.appendChild(sp);
+            setTimeout(() => sp.remove(), 1100);
+          }
+
+          // Golden light burst expanding from enemy center
+          const glow = document.createElement('div');
+          glow.className = 'golden-light-burst';
+          glow.style.left = cx + 'px';
+          glow.style.top = cy + 'px';
+          glow.style.transform = 'translate(-50%, -50%) scale(0)';
+          div.appendChild(glow);
+          setTimeout(() => glow.remove(), 900);
+        }, 150);
+
+        // Original particle explosion on top
+        setTimeout(() => particleExplosion(div, cx, cy, 14), 350);
       }
     }
 

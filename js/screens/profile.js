@@ -8,18 +8,24 @@ import { SHOP_ITEMS } from './shop.js';
 
 // Grade range options: label shown to user → internal tier + difficultyBase
 const GRADE_OPTIONS = [
-  { label: '1-2年级', tier: 'grade3', difficultyBase: 1 },
-  { label: '3-4年级', tier: 'grade3', difficultyBase: 2 },
-  { label: '5-6年级', tier: 'grade7', difficultyBase: 2 },
-  { label: '初一/初二', tier: 'grade7', difficultyBase: 3 },
-  { label: '初三+',    tier: 'grade7', difficultyBase: 4 },
+  { label: '一年级', tier: 'grade1', difficultyBase: 1 },
+  { label: '二年级', tier: 'grade1', difficultyBase: 2 },
+  { label: '三年级', tier: 'grade3', difficultyBase: 2 },
+  { label: '四年级', tier: 'grade4', difficultyBase: 2 },
+  { label: '五年级', tier: 'grade5', difficultyBase: 3 },
+  { label: '六年级', tier: 'grade5', difficultyBase: 3 },
+  { label: '初一(七年级)', tier: 'grade7', difficultyBase: 3 },
+  { label: '初二(八年级)', tier: 'grade8', difficultyBase: 3 },
+  { label: '初三(九年级)', tier: 'grade8', difficultyBase: 4 },
 ];
 
 function gradeLabel(profile) {
   const opt = GRADE_OPTIONS.find(
     o => o.tier === profile.tier && o.difficultyBase === (profile.difficultyBase ?? 3)
   );
-  return opt ? opt.label : (profile.tier === 'grade7' ? '初一/初二' : '3-4年级');
+  if (opt) return opt.label;
+  const tierMap = { grade1: '一二年级', grade3: '三年级', grade4: '四年级', grade5: '五六年级', grade7: '七年级', grade8: '八九年级' };
+  return tierMap[profile.tier] || profile.tier;
 }
 
 // ─── Character card overlay (RPG "character select" feel) ──────────────────
@@ -171,11 +177,7 @@ function renderProfileSelect(params = {}) {
         font-family:var(--font-main); margin-bottom:12px; display:block; width:240px; margin-left:auto; margin-right:auto;">
       <p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:8px;">选择年级</p>
       <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin-bottom:12px;">
-        <button class="btn tier-btn" data-grade-idx="0">1-2年级</button>
-        <button class="btn tier-btn" data-grade-idx="1">3-4年级</button>
-        <button class="btn tier-btn" data-grade-idx="2">5-6年级</button>
-        <button class="btn tier-btn" data-grade-idx="3">初一/初二</button>
-        <button class="btn tier-btn" data-grade-idx="4">初三+</button>
+        ${GRADE_OPTIONS.map((opt, i) => `<button class="btn tier-btn" data-grade-idx="${i}">${opt.label}</button>`).join('\n        ')}
       </div>
       <button class="btn btn-primary" id="confirm-create" disabled>创建</button>
     </div>

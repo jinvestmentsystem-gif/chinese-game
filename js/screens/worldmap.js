@@ -7,6 +7,11 @@ import { getXPProgress, getEffectiveMaxHp, checkDailyLogin } from '../progressio
 import { showTutorial } from '../tutorial.js';
 import { getReviewStats } from '../spaced-repetition.js';
 
+function getGradeLabel(tier) {
+  const map = { grade1: '一二年级', grade3: '三年级', grade4: '四年级', grade5: '五六年级', grade7: '七年级', grade8: '八九年级' };
+  return map[tier] || tier;
+}
+
 // ── Chapter / Era Data ────────────────────────────────────────────────────────
 const CHAPTERS = [
   {
@@ -360,7 +365,7 @@ function renderWorldMap() {
               <span class="wm-active-title">${activeTitle}</span>
             </div>
             <div style="font-size:0.75rem;color:var(--text-secondary);">
-              ${profile.tier === 'grade7' ? '七年级' : '三年级'}
+              ${getGradeLabel(profile.tier)}
             </div>
           </div>
           <div class="level">Lv.${profile.level}</div>

@@ -42,20 +42,29 @@ function ensureAudio() {
 document.addEventListener('click', ensureAudio, { once: true });
 document.addEventListener('keydown', ensureAudio, { once: true });
 
-// ── Cinematic Title Screen ────────────────────────────────────────────────────
+// ── Cinematic AAA Title Screen ────────────────────────────────────────────────
 registerScreen('title', () => {
   const div = document.createElement('div');
-  div.className = 'screen';
+  div.className = 'screen title-screen-root';
 
-  // Floating calligraphy characters for the ink-wash background
-  const floatingChars = '永和九年岁在癸丑暮春之初会于会稽山阴之兰亭修禊事也群贤毕至少长咸集'.split('');
-  const floatingHTML = floatingChars.map((ch, i) => {
+  // --- Floating ancient calligraphy characters (from various dynasties) ---
+  const dynastyChars = [
+    // 兰亭集序 (Wang Xizhi, Jin)
+    ...'永和九年岁在癸丑暮春之初'.split(''),
+    // 千字文 (Zhou Xingsi, Liang)
+    ...'天地玄黄宇宙洪荒日月盈昃辰宿列张'.split(''),
+    // 道德经 (Laozi)
+    ...'道可道非常道名可名非常名'.split(''),
+    // 论语 (Confucius)
+    ...'学而时习之不亦说乎'.split(''),
+  ];
+  const floatingHTML = dynastyChars.map((ch) => {
     const left = Math.random() * 100;
     const top = Math.random() * 100;
-    const size = 0.8 + Math.random() * 1.8;
-    const dur = 12 + Math.random() * 18;
-    const delay = Math.random() * -20;
-    const opacity = 0.03 + Math.random() * 0.06;
+    const size = 0.8 + Math.random() * 2.2;
+    const dur = 15 + Math.random() * 25;
+    const delay = Math.random() * -30;
+    const opacity = 0.025 + Math.random() * 0.055;
     return `<span class="title-float-char" style="
       left:${left}%;top:${top}%;font-size:${size}rem;
       animation-duration:${dur}s;animation-delay:${delay}s;
@@ -63,57 +72,168 @@ registerScreen('title', () => {
     ">${ch}</span>`;
   }).join('');
 
+  // --- Orbiting characters around title ---
+  const orbitChars = '诗书礼乐易春秋剑气侠义仁智信'.split('');
+  const orbitHTML = orbitChars.map((ch, i) => {
+    const angle = (360 / orbitChars.length) * i;
+    const radius = 160 + Math.random() * 30;
+    const dur = 30 + Math.random() * 15;
+    const dly = -(dur / orbitChars.length) * i;
+    return `<span class="title-orbit-char" style="
+      --orbit-angle:${angle}deg;--orbit-radius:${radius}px;
+      animation-duration:${dur}s;animation-delay:${dly}s;
+    ">${ch}</span>`;
+  }).join('');
+
+  // --- Cherry blossom petals ---
+  let petalsHTML = '';
+  for (let i = 0; i < 25; i++) {
+    const left = Math.random() * 110 - 5;
+    const dur = 8 + Math.random() * 12;
+    const delay = -(Math.random() * 20);
+    const size = 8 + Math.random() * 12;
+    const sway = 40 + Math.random() * 80;
+    petalsHTML += `<div class="title-petal" style="
+      left:${left}%;animation-duration:${dur}s;animation-delay:${delay}s;
+      width:${size}px;height:${size}px;--petal-sway:${sway}px;
+    "></div>`;
+  }
+
+  // --- Fireflies ---
+  let firefliesHTML = '';
+  for (let i = 0; i < 18; i++) {
+    const left = Math.random() * 100;
+    const top = Math.random() * 100;
+    const dur = 4 + Math.random() * 6;
+    const delay = -(Math.random() * 10);
+    const size = 2 + Math.random() * 4;
+    firefliesHTML += `<div class="title-firefly" style="
+      left:${left}%;top:${top}%;animation-duration:${dur}s;
+      animation-delay:${delay}s;width:${size}px;height:${size}px;
+    "></div>`;
+  }
+
+  // --- Shooting stars ---
+  let shootingStarsHTML = '';
+  for (let i = 0; i < 4; i++) {
+    const left = 10 + Math.random() * 80;
+    const delay = 3 + Math.random() * 12;
+    shootingStarsHTML += `<div class="title-shooting-star" style="
+      left:${left}%;animation-delay:${delay}s;
+    "></div>`;
+  }
+
   div.innerHTML = `
-    <!-- Ink-wash landscape background (CSS only) -->
+    <!-- ===== BLACKOUT CINEMATIC OVERLAY ===== -->
+    <div class="title-blackout" aria-hidden="true"></div>
+
+    <!-- ===== PARALLAX LANDSCAPE BACKGROUND ===== -->
     <div class="title-ink-bg" aria-hidden="true">
-      <div class="title-mountain title-mountain-1"></div>
-      <div class="title-mountain title-mountain-2"></div>
-      <div class="title-mountain title-mountain-3"></div>
+      <!-- Aurora / northern lights at top -->
+      <div class="title-aurora"></div>
+
+      <!-- Glowing moon -->
+      <div class="title-moon">
+        <div class="title-moon-glow"></div>
+      </div>
+
+      <!-- Parallax mountains -->
+      <div class="title-mountain title-mountain-far"></div>
+      <div class="title-mountain title-mountain-mid"></div>
+      <div class="title-mountain title-mountain-near"></div>
+
+      <!-- Horizontal mist layers -->
       <div class="title-mist title-mist-1"></div>
       <div class="title-mist title-mist-2"></div>
+      <div class="title-mist title-mist-3"></div>
+
+      <!-- Floating ancient characters -->
       ${floatingHTML}
+
+      <!-- Cherry blossom petals -->
+      ${petalsHTML}
+
+      <!-- Fireflies -->
+      ${firefliesHTML}
+
+      <!-- Shooting stars -->
+      ${shootingStarsHTML}
+
+      <!-- Fog layer -->
+      <div class="title-fog title-fog-1"></div>
+      <div class="title-fog title-fog-2"></div>
     </div>
 
-    <!-- Settings gear (top-left) -->
-    <button id="btn-title-settings" class="title-audio-btn" title="设置" style="left:16px;right:auto;">
-      <span class="title-audio-icon">&#x2699;</span>
-    </button>
+    <!-- ===== TOP-RIGHT CONTROLS ===== -->
+    <div class="title-controls">
+      <button id="btn-title-settings" class="title-ctrl-btn" title="设置">
+        <span>&#x2699;</span>
+      </button>
+      <button id="btn-audio-music" class="title-ctrl-btn" title="音乐">
+        <span>&#x266B;</span>
+      </button>
+      <button id="btn-audio-sfx" class="title-ctrl-btn" title="音效">
+        <span>&#x1F50A;</span>
+      </button>
+    </div>
 
-    <!-- Audio controls -->
-    <button id="btn-audio-music" class="title-audio-btn" title="音乐" style="right:60px;">
-      <span class="title-audio-icon">&#x266B;</span>
-    </button>
-    <button id="btn-audio-sfx" class="title-audio-btn" title="音效" style="right:16px;">
-      <span class="title-audio-icon">&#x1F50A;</span>
-    </button>
+    <!-- ===== INK DROP + SPLASH SEQUENCE ===== -->
+    <div class="title-ink-drop-area" aria-hidden="true">
+      <div class="title-ink-drop"></div>
+      <div class="title-ink-splash"></div>
+      <div class="title-ink-splash-ring"></div>
+    </div>
 
-    <!-- Logo: brush-stroke reveal -->
+    <!-- ===== LOGO AREA ===== -->
     <div class="title-logo-wrap">
+      <!-- Orbiting characters -->
+      <div class="title-orbit-ring">
+        ${orbitHTML}
+      </div>
+
+      <!-- Main title -->
       <div class="title-logo">
         <span class="title-char title-char-1">文</span>
         <span class="title-char title-char-2">字</span>
         <span class="title-char title-char-3">侠</span>
       </div>
+
       <!-- Ink splatter accents -->
       <div class="title-ink-splatter title-splat-1" aria-hidden="true"></div>
       <div class="title-ink-splatter title-splat-2" aria-hidden="true"></div>
       <div class="title-ink-splatter title-splat-3" aria-hidden="true"></div>
+
+      <!-- Red seal stamp 印章 -->
+      <div class="title-seal" aria-hidden="true">
+        <span class="title-seal-char">印</span>
+      </div>
     </div>
 
-    <!-- Subtitle with letter-spacing animation -->
-    <p class="title-subtitle">Word Hero</p>
+    <!-- ===== SUBTITLE: WORD HERO letter-by-letter ===== -->
+    <p class="title-subtitle">
+      <span class="title-letter title-letter-1">W</span><span class="title-letter title-letter-2">O</span><span class="title-letter title-letter-3">R</span><span class="title-letter title-letter-4">D</span><span class="title-letter title-letter-sp">&nbsp;</span><span class="title-letter title-letter-5">H</span><span class="title-letter title-letter-6">E</span><span class="title-letter title-letter-7">R</span><span class="title-letter title-letter-8">O</span>
+    </p>
 
-    <!-- Menu buttons: staggered slide-in from bottom -->
+    <!-- ===== TAGLINE ===== -->
+    <p class="title-tagline">以文字之力，守护千年文明</p>
+
+    <!-- ===== MENU BUTTONS ===== -->
     <div class="title-menu">
-      <button class="btn btn-primary title-menu-btn title-menu-btn-1" id="btn-solo">单人模式</button>
-      <button class="btn title-menu-btn title-menu-btn-2" id="btn-arena">双人对战</button>
-      <button class="btn title-menu-btn title-menu-btn-3" id="btn-daily">每日挑战</button>
+      <button class="btn btn-primary title-menu-btn title-menu-btn-1 glass-card" id="btn-solo">
+        <span class="title-btn-motif"></span>单人模式
+      </button>
+      <button class="btn title-menu-btn title-menu-btn-2 glass-card" id="btn-arena">
+        <span class="title-btn-motif"></span>双人对战
+      </button>
+      <button class="btn title-menu-btn title-menu-btn-3 glass-card" id="btn-daily">
+        <span class="title-btn-motif"></span>每日挑战
+      </button>
     </div>
 
-    <!-- Version badge -->
-    <div class="title-version">v1.0</div>
+    <!-- ===== BOTTOM CREDITS ===== -->
+    <div class="title-credits">v1.0 &nbsp;|&nbsp; 用文字守护世界</div>
 
-    <!-- Daily login reward popup (injected dynamically) -->
+    <!-- ===== DAILY LOGIN POPUP ===== -->
     <div id="daily-login-popup" class="daily-login-popup" style="display:none;" aria-live="polite"></div>
   `;
 
@@ -151,6 +271,19 @@ registerScreen('title', () => {
     div.querySelector('#btn-title-settings')?.addEventListener('click', (e) => {
       e.stopPropagation();
       showScreen('settings', { returnTo: 'title' });
+    });
+
+    // --- Ripple effect on menu buttons ---
+    div.querySelectorAll('.title-menu-btn').forEach(btn => {
+      btn.addEventListener('mouseenter', (e) => {
+        const ripple = document.createElement('span');
+        ripple.className = 'title-btn-ripple';
+        const rect = btn.getBoundingClientRect();
+        ripple.style.left = (e.clientX - rect.left) + 'px';
+        ripple.style.top = (e.clientY - rect.top) + 'px';
+        btn.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 700);
+      });
     });
 
     // --- Menu navigation ---

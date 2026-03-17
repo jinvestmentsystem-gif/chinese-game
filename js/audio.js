@@ -39,6 +39,23 @@ const A2 = 110.00, C3 = 130.81, D3 = 146.83, E3 = 164.81, G3 = 196.00;
 const A3 = 220.00, C4 = 261.63, D4 = 293.66, E4 = 329.63, G4 = 392.00;
 const A4 = 440.00, C5 = 523.25, D5 = 587.33, E5 = 659.26, G5 = 783.99;
 
+// ─── Chinese pentatonic scale (宫商角徵羽 — C D E G A) ──────────────────────────
+// Octave 3
+const PENT_C3 = 130.81, PENT_D3 = 146.83, PENT_E3 = 164.81, PENT_G3 = 196.00, PENT_A3 = 220.00;
+// Octave 4
+const PENT_C4 = 261.63, PENT_D4 = 293.66, PENT_E4 = 329.63, PENT_G4 = 392.00, PENT_A4 = 440.00;
+// Octave 5
+const PENT_C5 = 523.25, PENT_D5 = 587.33, PENT_E5 = 659.26, PENT_G5 = 783.99, PENT_A5 = 880.00;
+// Octave 2 (bass)
+const PENT_C2 = 65.41, PENT_D2 = 73.42, PENT_E2 = 82.41, PENT_G2 = 98.00, PENT_A2 = 110.00;
+
+// Scale arrays for easy random access
+const PENTATONIC_LOW  = [PENT_C3, PENT_D3, PENT_E3, PENT_G3, PENT_A3];
+const PENTATONIC_MID  = [PENT_C4, PENT_D4, PENT_E4, PENT_G4, PENT_A4];
+const PENTATONIC_HIGH = [PENT_C5, PENT_D5, PENT_E5, PENT_G5, PENT_A5];
+const PENTATONIC_BASS = [PENT_C2, PENT_D2, PENT_E2, PENT_G2, PENT_A2];
+const PENTATONIC_ALL  = [...PENTATONIC_LOW, ...PENTATONIC_MID, ...PENTATONIC_HIGH];
+
 // ─── Battle melody — 64 steps, A minor pentatonic ─────────────────────────────
 // Each entry: {freq, dur} where dur is in sixteenth notes; null = rest.
 // Composed as a catchy 4-bar RPG battle theme.
@@ -148,12 +165,14 @@ const BASS_NOTES = [
 ];
 
 // ─── Ambient chord progression (intensity 0) ──────────────────────────────────
-// Am → C → G/B → Em — arpeggiated slowly, 75 BPM feel
+// Chinese pentatonic arpeggiated chords — contemplative, traditional feel
+// 宫 (C) → 商 (D) → 角 (E) → 徵 (G) → 羽 (A) grouped into chord clusters
 const AMBIENT_CHORDS = [
-  [220.00, 261.63, 329.63, 440.00],   // Am: A3 C4 E4 A4
-  [261.63, 329.63, 392.00, 523.25],   // C:  C4 E4 G4 C5
-  [246.94, 293.66, 392.00, 493.88],   // G/B: B3 D4 G4 B4
-  [164.81, 196.00, 246.94, 329.63],   // Em: E3 G3 B3 E4
+  [PENT_C4, PENT_E4, PENT_G4, PENT_C5],   // 宫: C4 E4 G4 C5 — open fifth feel
+  [PENT_D4, PENT_G4, PENT_A4, PENT_D5],   // 商: D4 G4 A4 D5 — longing, spacious
+  [PENT_E4, PENT_A4, PENT_C5, PENT_E5],   // 角: E4 A4 C5 E5 — bright, ascending
+  [PENT_G3, PENT_C4, PENT_E4, PENT_G4],   // 徵: G3 C4 E4 G4 — resolved, warm
+  [PENT_A3, PENT_D4, PENT_G4, PENT_A4],   // 羽: A3 D4 G4 A4 — melancholy, floating
 ];
 let ambientChordIdx = 0;
 let ambientNoteIdx  = 0;
@@ -174,6 +193,36 @@ function createDelayNode(ctx, delayTime = 0.5, feedback = 0.3, wetGain = 0.25) {
   delay.connect(wetNode);
 
   return { input: delay, output: wetNode };
+}
+
+// ─── Convolver-based reverb (impulse response) ──────────────────────────────
+let sharedReverb = null; // reusable convolver node
+
+function createReverb(ctx, duration = 2) {
+  const rate = ctx.sampleRate;
+  const length = rate * duration;
+  const impulse = ctx.createBuffer(2, length, rate);
+  for (let ch = 0; ch < 2; ch++) {
+    const data = impulse.getChannelData(ch);
+    for (let i = 0; i < length; i++) {
+      data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / length, 2);
+    }
+  }
+  const convolver = ctx.createConvolver();
+  convolver.buffer = impulse;
+  return convolver;
+}
+
+function getSharedReverb() {
+  if (!audioCtx) return null;
+  if (!sharedReverb) {
+    sharedReverb = createReverb(audioCtx, 2.5);
+    const reverbGain = audioCtx.createGain();
+    reverbGain.gain.value = 0.25;
+    sharedReverb.connect(reverbGain);
+    reverbGain.connect(audioCtx.destination);
+  }
+  return sharedReverb;
 }
 
 // ─── Play a single note with attack/decay envelope (for ambient) ──────────────
@@ -631,6 +680,9 @@ function startAmbientLoop() {
   ambientChordIdx = 0;
   ambientNoteIdx  = 0;
 
+  // Connect reverb for ambient — rich, spacious feel
+  const reverb = getSharedReverb();
+
   function scheduleAmbientNote() {
     if (!musicEnabled || !audioCtx || currentIntensity !== 0) return;
 
@@ -639,18 +691,25 @@ function startAmbientLoop() {
 
     // Slight humanisation on gain, but timing is steady (not random)
     const gainJitter = 0.85 + Math.random() * 0.3;
-    const attackTime = 0.18;
-    const decayTime  = 2.0;
+    const attackTime = 0.25;  // slower attack — more contemplative
+    const decayTime  = 2.8;   // longer decay — notes hang in the air
 
-    playNote(freq, 'triangle', 0.08 * gainJitter, attackTime, decayTime, dest);
-    playNote(freq, 'triangle', 0.08 * 0.28,       attackTime, decayTime, delayFx.input);
+    // Main voice: triangle wave for guzheng/guqin-like tone
+    playNote(freq, 'triangle', 0.07 * gainJitter, attackTime, decayTime, dest);
+    // Delay echo for spatial depth
+    playNote(freq, 'triangle', 0.07 * 0.28,       attackTime, decayTime, delayFx.input);
+    // Send to convolver reverb for lush tail
+    if (reverb) playNote(freq, 'sine', 0.04 * gainJitter, attackTime, decayTime * 0.6, reverb);
 
-    // Octave-up sine voice for shimmer (25% of main volume)
-    playNote(freq * 2, 'sine', 0.08 * gainJitter * 0.25, attackTime, decayTime * 0.85, dest);
+    // Octave-up sine voice for shimmer — guqin harmonic overtone
+    playNote(freq * 2, 'sine', 0.07 * gainJitter * 0.22, attackTime, decayTime * 0.85, dest);
+    // Perfect fifth harmonic (very soft) — adds traditional color
+    playNote(freq * 1.5, 'sine', 0.07 * gainJitter * 0.10, attackTime + 0.1, decayTime * 0.7, dest);
 
-    // Add soft low root note on the first note of each chord
+    // Add soft low root note on the first note of each chord — like a guzheng bass string
     if (ambientNoteIdx === 0) {
-      playNote(freq * 0.5, 'sine', 0.08 * 0.4, attackTime + 0.05, decayTime * 1.3, dest);
+      playNote(freq * 0.5, 'sine', 0.07 * 0.4, attackTime + 0.05, decayTime * 1.5, dest);
+      if (reverb) playNote(freq * 0.5, 'sine', 0.03, attackTime + 0.1, decayTime * 1.0, reverb);
     }
 
     ambientNoteIdx++;
@@ -659,8 +718,8 @@ function startAmbientLoop() {
       ambientChordIdx = (ambientChordIdx + 1) % AMBIENT_CHORDS.length;
     }
 
-    // Steady 800ms per note — 75 BPM quarter-note arpeggio
-    musicLoopHandle = setTimeout(scheduleAmbientNote, 800);
+    // Slower tempo — 900ms per note (~67 BPM) for more contemplative feel
+    musicLoopHandle = setTimeout(scheduleAmbientNote, 900);
   }
 
   musicLoopHandle = setTimeout(scheduleAmbientNote, 300);
@@ -821,38 +880,95 @@ export function playStinger(type) {
     }
 
     case 'victory': {
-      // Classic RPG fanfare: ascending arpeggio C–E–G–C then held major chord (4s total)
-      const arpNotes = [261.63, 329.63, 392.00, 523.25];
-      arpNotes.forEach((freq, i) => {
+      // ── Triumphant ascending pentatonic fanfare with cymbal crash + reverb tail ──
+      const stDest = masterSfxGain || audioCtx.destination;
+      const stReverb = getSharedReverb();
+
+      // Phase 1: Rapid ascending pentatonic run (C4→D4→E4→G4→A4→C5→E5→G5)
+      const fanfareNotes = [PENT_C4, PENT_D4, PENT_E4, PENT_G4, PENT_A4, PENT_C5, PENT_E5, PENT_G5];
+      fanfareNotes.forEach((freq, i) => {
+        const t = now + i * 0.08;
+        // Sawtooth for brass-like fanfare tone
         const osc = audioCtx.createOscillator();
         const g = audioCtx.createGain();
-        osc.type = 'triangle';
+        osc.type = 'sawtooth';
         osc.frequency.value = freq;
-        const t = now + i * 0.13;
+        const vol = 0.16 + i * 0.01;
         g.gain.setValueAtTime(0, t);
-        g.gain.linearRampToValueAtTime(0.22, t + 0.02);
-        g.gain.exponentialRampToValueAtTime(0.0001, t + (i === 3 ? 2.4 : 0.22));
-        osc.connect(g);
-        g.connect(masterSfxGain || audioCtx.destination);
-        osc.start(t);
-        osc.stop(t + (i === 3 ? 2.5 : 0.26));
+        g.gain.linearRampToValueAtTime(vol, t + 0.012);
+        g.gain.exponentialRampToValueAtTime(0.0001, t + (i === fanfareNotes.length - 1 ? 1.2 : 0.18));
+        osc.connect(g); g.connect(stDest);
+        osc.start(t); osc.stop(t + (i === fanfareNotes.length - 1 ? 1.3 : 0.22));
+        // Send to reverb for tail
+        if (stReverb && i >= 5) {
+          const rg = audioCtx.createGain();
+          rg.gain.value = 0.08;
+          const rosc = audioCtx.createOscillator();
+          rosc.type = 'triangle';
+          rosc.frequency.value = freq;
+          rosc.connect(rg); rg.connect(stReverb);
+          rosc.start(t); rosc.stop(t + 0.25);
+        }
       });
-      // Final major chord swell at t+0.6
-      const chordStart = now + 0.60;
-      [261.63, 329.63, 392.00, 523.25].forEach((freq) => {
-        const osc = audioCtx.createOscillator();
-        const g = audioCtx.createGain();
-        osc.type = 'triangle';
-        osc.frequency.value = freq;
-        g.gain.setValueAtTime(0, chordStart);
-        g.gain.linearRampToValueAtTime(0.15, chordStart + 0.1);
-        g.gain.setValueAtTime(0.15, chordStart + 2.8);
-        g.gain.exponentialRampToValueAtTime(0.0001, chordStart + 3.5);
-        osc.connect(g);
-        g.connect(masterSfxGain || audioCtx.destination);
-        osc.start(chordStart);
-        osc.stop(chordStart + 3.6);
+
+      // Phase 2: Cymbal crash at the peak
+      const crashTime = now + fanfareNotes.length * 0.08;
+      const crashBuf = makeNoiseBuffer(0.6);
+      const crashSrc = audioCtx.createBufferSource();
+      crashSrc.buffer = crashBuf;
+      const crashHpf = audioCtx.createBiquadFilter();
+      crashHpf.type = 'highpass';
+      crashHpf.frequency.value = 7000;
+      const crashGain = audioCtx.createGain();
+      crashGain.gain.setValueAtTime(0.35, crashTime);
+      crashGain.gain.exponentialRampToValueAtTime(0.0001, crashTime + 0.55);
+      crashSrc.connect(crashHpf); crashHpf.connect(crashGain);
+      crashGain.connect(stDest);
+      if (stReverb) { const crg = audioCtx.createGain(); crg.gain.value = 0.15; crashGain.connect(crg); crg.connect(stReverb); }
+      crashSrc.start(crashTime); crashSrc.stop(crashTime + 0.6);
+
+      // Phase 3: Triumphant held chord swell (pentatonic: C4+E4+G4+C5+G5)
+      const chordStart = now + 0.80;
+      [PENT_C4, PENT_E4, PENT_G4, PENT_C5, PENT_G5].forEach((freq, i) => {
+        // Main voice
+        const osc1 = audioCtx.createOscillator();
+        const g1 = audioCtx.createGain();
+        osc1.type = 'triangle';
+        osc1.frequency.value = freq;
+        g1.gain.setValueAtTime(0, chordStart);
+        g1.gain.linearRampToValueAtTime(0.12, chordStart + 0.15);
+        g1.gain.setValueAtTime(0.12, chordStart + 2.5);
+        g1.gain.exponentialRampToValueAtTime(0.0001, chordStart + 3.5);
+        osc1.connect(g1); g1.connect(stDest);
+        osc1.start(chordStart); osc1.stop(chordStart + 3.6);
+        // Chorus copy for width
+        const osc2 = audioCtx.createOscillator();
+        const g2 = audioCtx.createGain();
+        osc2.type = 'triangle';
+        osc2.frequency.value = freq;
+        osc2.detune.value = (i % 2 === 0) ? 6 : -6;
+        g2.gain.setValueAtTime(0, chordStart);
+        g2.gain.linearRampToValueAtTime(0.06, chordStart + 0.18);
+        g2.gain.setValueAtTime(0.06, chordStart + 2.5);
+        g2.gain.exponentialRampToValueAtTime(0.0001, chordStart + 3.5);
+        osc2.connect(g2); g2.connect(stDest);
+        osc2.start(chordStart); osc2.stop(chordStart + 3.6);
+        // Reverb tail
+        if (stReverb) {
+          const rosc = audioCtx.createOscillator();
+          const rg = audioCtx.createGain();
+          rosc.type = 'sine'; rosc.frequency.value = freq;
+          rg.gain.setValueAtTime(0, chordStart);
+          rg.gain.linearRampToValueAtTime(0.06, chordStart + 0.2);
+          rg.gain.setValueAtTime(0.06, chordStart + 2.0);
+          rg.gain.exponentialRampToValueAtTime(0.0001, chordStart + 3.0);
+          rosc.connect(rg); rg.connect(stReverb);
+          rosc.start(chordStart); rosc.stop(chordStart + 3.1);
+        }
       });
+
+      // Kick impact at start of chord swell
+      playKick(55, 0.50, stDest);
       break;
     }
 
@@ -896,6 +1012,97 @@ export function playStinger(type) {
         playSnare(0.7, 0.55, audioCtx.destination);
         playHihat(true, 0.45, audioCtx.destination);
       }, 1800);
+      break;
+    }
+
+    case 'boss_death': {
+      // ── Deep impact + ascending golden pentatonic notes + choir-like pad ──
+      const bdDest = masterSfxGain || audioCtx.destination;
+      const bdReverb = getSharedReverb();
+
+      // Phase 1: Deep sub-bass impact (30Hz → 20Hz)
+      const impactOsc = audioCtx.createOscillator();
+      const impactGain = audioCtx.createGain();
+      impactOsc.type = 'sine';
+      impactOsc.frequency.setValueAtTime(30, now);
+      impactOsc.frequency.exponentialRampToValueAtTime(20, now + 0.4);
+      impactGain.gain.setValueAtTime(0.65, now);
+      impactGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.5);
+      impactOsc.connect(impactGain); impactGain.connect(bdDest);
+      impactOsc.start(now); impactOsc.stop(now + 0.55);
+
+      // Noise burst impact layer
+      const impNoise = audioCtx.createBufferSource();
+      impNoise.buffer = makeNoiseBuffer(0.15);
+      const impLpf = audioCtx.createBiquadFilter();
+      impLpf.type = 'lowpass'; impLpf.frequency.value = 400;
+      const impNG = audioCtx.createGain();
+      impNG.gain.setValueAtTime(0.45, now);
+      impNG.gain.exponentialRampToValueAtTime(0.0001, now + 0.15);
+      impNoise.connect(impLpf); impLpf.connect(impNG); impNG.connect(bdDest);
+      impNoise.start(now); impNoise.stop(now + 0.16);
+
+      // Phase 2: Ascending golden pentatonic notes (0.3s – 1.5s)
+      const goldenNotes = [PENT_C4, PENT_E4, PENT_G4, PENT_A4, PENT_C5, PENT_D5, PENT_E5, PENT_G5, PENT_A5];
+      goldenNotes.forEach((freq, i) => {
+        const t = now + 0.3 + i * 0.12;
+        // FM notes for golden shimmer
+        playFMNote(freq, freq * 2.01, 0.6 + i * 0.1, 0.18 + i * 0.01, 0.008, 0.35, 'sine', bdDest, t);
+        // Send higher notes to reverb
+        if (bdReverb && i >= 4) {
+          const rOsc = audioCtx.createOscillator();
+          const rG = audioCtx.createGain();
+          rOsc.type = 'sine'; rOsc.frequency.value = freq;
+          rG.gain.setValueAtTime(0, t);
+          rG.gain.linearRampToValueAtTime(0.06, t + 0.02);
+          rG.gain.exponentialRampToValueAtTime(0.0001, t + 0.5);
+          rOsc.connect(rG); rG.connect(bdReverb);
+          rOsc.start(t); rOsc.stop(t + 0.55);
+        }
+      });
+
+      // Phase 3: Choir-like pad (sustained pentatonic chord C4+E4+G4+C5 with slow attack)
+      const choirStart = now + 1.2;
+      [PENT_C4, PENT_E4, PENT_G4, PENT_C5].forEach((freq, i) => {
+        // Three detuned voices per note for choir effect
+        [-7, 0, 7].forEach(detune => {
+          const osc = audioCtx.createOscillator();
+          const g = audioCtx.createGain();
+          osc.type = 'sine';
+          osc.frequency.value = freq;
+          osc.detune.value = detune;
+          g.gain.setValueAtTime(0, choirStart);
+          g.gain.linearRampToValueAtTime(0.08, choirStart + 0.5);
+          g.gain.setValueAtTime(0.08, choirStart + 2.5);
+          g.gain.exponentialRampToValueAtTime(0.0001, choirStart + 3.5);
+          osc.connect(g); g.connect(bdDest);
+          osc.start(choirStart); osc.stop(choirStart + 3.6);
+        });
+        // Reverb tail for choir
+        if (bdReverb) {
+          const rOsc = audioCtx.createOscillator();
+          const rG = audioCtx.createGain();
+          rOsc.type = 'sine'; rOsc.frequency.value = freq;
+          rG.gain.setValueAtTime(0, choirStart);
+          rG.gain.linearRampToValueAtTime(0.05, choirStart + 0.6);
+          rG.gain.setValueAtTime(0.05, choirStart + 2.0);
+          rG.gain.exponentialRampToValueAtTime(0.0001, choirStart + 3.0);
+          rOsc.connect(rG); rG.connect(bdReverb);
+          rOsc.start(choirStart); rOsc.stop(choirStart + 3.1);
+        }
+      });
+
+      // Final cymbal shimmer
+      const bdCrashTime = now + 1.5;
+      const bdCrashSrc = audioCtx.createBufferSource();
+      bdCrashSrc.buffer = makeNoiseBuffer(0.8);
+      const bdCrashHpf = audioCtx.createBiquadFilter();
+      bdCrashHpf.type = 'highpass'; bdCrashHpf.frequency.value = 8000;
+      const bdCrashG = audioCtx.createGain();
+      bdCrashG.gain.setValueAtTime(0.20, bdCrashTime);
+      bdCrashG.gain.exponentialRampToValueAtTime(0.0001, bdCrashTime + 0.7);
+      bdCrashSrc.connect(bdCrashHpf); bdCrashHpf.connect(bdCrashG); bdCrashG.connect(bdDest);
+      bdCrashSrc.start(bdCrashTime); bdCrashSrc.stop(bdCrashTime + 0.75);
       break;
     }
 
@@ -999,27 +1206,50 @@ export function playSound(type) {
   switch (type) {
 
     case 'correct': {
-      // Bright ascending arpeggio C5→E5→G5 with FM metallic shimmer + reverb tail
-      const arpFreqs = [C5, E5, G5]; // 523.25, 659.26, 783.99
+      // Bright ascending pentatonic arpeggio C5→E5→G5→A5 with FM shimmer + harmonic overtones + reverb
+      const arpFreqs = [PENT_C5, PENT_E5, PENT_G5, PENT_A5];
+      const cReverb = getSharedReverb();
       arpFreqs.forEach((freq, i) => {
-        const t = now + i * 0.09;
-        // FM note: modIndex increases slightly for each step (brighter shimmer)
-        playFMNote(freq, freq * 2.01, 0.5 + i * 0.15, 0.22, 0.008, 0.28, 'sine', dest, t);
+        const t = now + i * 0.075;  // slightly faster for punchier feel
+        // FM note: increasing modIndex for brighter shimmer as notes ascend
+        playFMNote(freq, freq * 2.01, 0.5 + i * 0.18, 0.24, 0.006, 0.30, 'sine', dest, t);
+        // Harmonic overtone: octave + fifth (3x freq) — very soft, adds brilliance
+        const ovtOsc = audioCtx.createOscillator();
+        const ovtG = audioCtx.createGain();
+        ovtOsc.type = 'sine';
+        ovtOsc.frequency.value = freq * 3;  // 3rd harmonic — adds bell-like shimmer
+        ovtG.gain.setValueAtTime(0, t);
+        ovtG.gain.linearRampToValueAtTime(0.04 + i * 0.01, t + 0.008);
+        ovtG.gain.exponentialRampToValueAtTime(0.0001, t + 0.20);
+        ovtOsc.connect(ovtG); ovtG.connect(dest);
+        ovtOsc.start(t); ovtOsc.stop(t + 0.22);
       });
-      // Reverb tail — quiet delayed echo of the last note
+      // Convolver reverb tail on the peak note for satisfying ring-out
+      if (cReverb) {
+        const tailOsc = audioCtx.createOscillator();
+        const tailG = audioCtx.createGain();
+        tailOsc.type = 'sine';
+        tailOsc.frequency.value = PENT_A5;
+        tailG.gain.setValueAtTime(0, now + 0.22);
+        tailG.gain.linearRampToValueAtTime(0.08, now + 0.26);
+        tailG.gain.exponentialRampToValueAtTime(0.0001, now + 0.65);
+        tailOsc.connect(tailG); tailG.connect(cReverb);
+        tailOsc.start(now + 0.22); tailOsc.stop(now + 0.68);
+      }
+      // Delay-based tail echo for spatial depth
       const tailDelay = audioCtx.createDelay(0.5);
-      tailDelay.delayTime.value = 0.18;
+      tailDelay.delayTime.value = 0.15;
       const tailGain = audioCtx.createGain();
-      tailGain.gain.setValueAtTime(0, now + 0.27);
-      tailGain.gain.linearRampToValueAtTime(0.06, now + 0.32);
-      tailGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.75);
-      const tailOsc = audioCtx.createOscillator();
-      tailOsc.type = 'sine';
-      tailOsc.frequency.value = G5;
-      tailOsc.connect(tailGain);
+      tailGain.gain.setValueAtTime(0, now + 0.30);
+      tailGain.gain.linearRampToValueAtTime(0.05, now + 0.34);
+      tailGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.70);
+      const tailOsc2 = audioCtx.createOscillator();
+      tailOsc2.type = 'sine';
+      tailOsc2.frequency.value = PENT_G5;
+      tailOsc2.connect(tailGain);
       tailGain.connect(dest);
-      tailOsc.start(now + 0.27);
-      tailOsc.stop(now + 0.78);
+      tailOsc2.start(now + 0.30);
+      tailOsc2.stop(now + 0.73);
       break;
     }
 
@@ -1356,6 +1586,48 @@ export function playSound(type) {
         osc.start(t);
         osc.stop(t + 0.12);
       });
+      break;
+    }
+
+    case 'enemy_death': {
+      // Quick descending glissando + low impact thud — enemy defeated
+      const edDest = dest;
+      // Descending glissando: rapid pentatonic run down G5→E5→D5→C5→A4→G4→E4→C4
+      const glissFreqs = [PENT_G5, PENT_E5, PENT_D5, PENT_C5, PENT_A4, PENT_G4, PENT_E4, PENT_C4];
+      glissFreqs.forEach((freq, i) => {
+        const t = now + i * 0.04;  // very fast — 40ms per note
+        const osc = audioCtx.createOscillator();
+        const g = audioCtx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.value = freq;
+        const vol = 0.18 - i * 0.015;
+        g.gain.setValueAtTime(0, t);
+        g.gain.linearRampToValueAtTime(Math.max(0.04, vol), t + 0.005);
+        g.gain.exponentialRampToValueAtTime(0.0001, t + 0.08);
+        osc.connect(g); g.connect(edDest);
+        osc.start(t); osc.stop(t + 0.10);
+      });
+      // Low impact thud at the bottom of the glissando
+      const impactTime = now + glissFreqs.length * 0.04;
+      const impOsc = audioCtx.createOscillator();
+      const impG = audioCtx.createGain();
+      impOsc.type = 'sine';
+      impOsc.frequency.setValueAtTime(80, impactTime);
+      impOsc.frequency.exponentialRampToValueAtTime(30, impactTime + 0.12);
+      impG.gain.setValueAtTime(0.50, impactTime);
+      impG.gain.exponentialRampToValueAtTime(0.0001, impactTime + 0.20);
+      impOsc.connect(impG); impG.connect(edDest);
+      impOsc.start(impactTime); impOsc.stop(impactTime + 0.22);
+      // Noise burst on impact
+      const edNoise = audioCtx.createBufferSource();
+      edNoise.buffer = makeNoiseBuffer(0.10);
+      const edLpf = audioCtx.createBiquadFilter();
+      edLpf.type = 'lowpass'; edLpf.frequency.value = 1500;
+      const edNG = audioCtx.createGain();
+      edNG.gain.setValueAtTime(0.35, impactTime);
+      edNG.gain.exponentialRampToValueAtTime(0.0001, impactTime + 0.10);
+      edNoise.connect(edLpf); edLpf.connect(edNG); edNG.connect(edDest);
+      edNoise.start(impactTime); edNoise.stop(impactTime + 0.12);
       break;
     }
 

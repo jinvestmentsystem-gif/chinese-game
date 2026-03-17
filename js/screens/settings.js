@@ -6,6 +6,11 @@ import {
   setMusicVolume, setSfxVolume, getMusicVolume, getSfxVolume
 } from '../audio.js';
 
+function getGradeLabel(tier) {
+  const map = { grade1: '一二年级', grade3: '三年级', grade4: '四年级', grade5: '五六年级', grade7: '七年级', grade8: '八九年级' };
+  return map[tier] || tier;
+}
+
 const SETTINGS_KEY = 'wenzi-xia-settings';
 
 function loadSettings() {
@@ -123,7 +128,7 @@ function renderSettings(params) {
             <div class="settings-row-label">难度等级</div>
             <div class="settings-row-controls">
               <span class="settings-readonly-badge">
-                ${profile ? (profile.tier === 'grade7' ? '七年级' : '三年级') : '—'}
+                ${profile ? getGradeLabel(profile.tier) : '—'}
                 · 难度 ${profile ? profile.difficultyBase : '—'}
               </span>
             </div>

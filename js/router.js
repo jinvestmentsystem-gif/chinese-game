@@ -31,17 +31,33 @@ export function showScreen(name, params = {}) {
     return;
   }
 
-  // Crossfade: fade-out current, then fade-in new
+  // Persona 5-style diagonal ink-slash wipe transition
   transitioning = true;
   root.classList.add('screen-transitioning');
-  currentChild.style.transition = 'opacity 0.3s ease';
-  currentChild.style.opacity = '0';
 
+  // Create the diagonal wipe overlay
+  const wipe = document.createElement('div');
+  wipe.className = 'screen-wipe';
+  document.body.appendChild(wipe);
+
+  // At ~45% of 500ms (≈225ms), the wipe fully covers the screen — swap content
   setTimeout(() => {
     _swapScreen(name, params);
+  }, 225);
+
+  // When the wipe animation ends, clean up
+  wipe.addEventListener('animationend', () => {
+    wipe.remove();
     root.classList.remove('screen-transitioning');
     transitioning = false;
-  }, 300);
+  }, { once: true });
+
+  // Safety fallback in case animationend doesn't fire
+  setTimeout(() => {
+    if (wipe.parentNode) wipe.remove();
+    root.classList.remove('screen-transitioning');
+    transitioning = false;
+  }, 600);
 }
 
 function _swapScreen(name, params) {
@@ -52,10 +68,16 @@ function _swapScreen(name, params) {
 function _mountScreen(name, params) {
   if (!screens[name]) return;
   const el = screens[name](params);
-  el.style.opacity = '0';
-  el.style.transition = 'opacity 0.3s ease';
-  root.appendChild(el);
-  // Force reflow so the transition triggers
-  void el.offsetHeight;
-  el.style.opacity = '1';
+  // When wipe is active, the overlay hides the swap — no opacity fade needed
+  if (transitioning) {
+    el.style.opacity = '1';
+    root.appendChild(el);
+  } else {
+    el.style.opacity = '0';
+    el.style.transition = 'opacity 0.3s ease';
+    root.appendChild(el);
+    // Force reflow so the transition triggers
+    void el.offsetHeight;
+    el.style.opacity = '1';
+  }
 }

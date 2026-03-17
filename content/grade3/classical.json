@@ -1,952 +1,202 @@
 [
-  {
-    "id": "c3-001",
-    "type": "classical",
-    "prompt": "「鹅、鹅、鹅，曲项向天歌」中「曲」的意思是？",
-    "options": [
-      "歌曲",
-      "弯曲",
-      "曲折",
-      "音乐"
-    ],
-    "correct": 1,
-    "explanation": "「曲项」是弯着脖子的意思。出自骆宾王《咏鹅》。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "字词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-002",
-    "type": "classical",
-    "prompt": "「床前明月光」的下一句是？",
-    "options": [
-      "低头思故乡",
-      "疑是地上霜",
-      "举头望明月",
-      "春风吹又生"
-    ],
-    "correct": 1,
-    "explanation": "「床前明月光，疑是地上霜」出自李白《静夜思》。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "名句"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-003",
-    "type": "classical",
-    "prompt": "「离离原上草」中「离离」的意思是？",
-    "options": [
-      "离开",
-      "草木茂盛的样子",
-      "分离",
-      "稀疏的样子"
-    ],
-    "correct": 1,
-    "explanation": "「离离」形容草长得茂盛繁密。出自白居易《赋得古原草送别》。",
-    "difficulty": 2,
-    "tags": [
-      "唐诗",
-      "字词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-004",
-    "type": "classical",
-    "prompt": "「春眠不觉晓」的作者是谁？",
-    "options": [
-      "李白",
-      "杜甫",
-      "孟浩然",
-      "王维"
-    ],
-    "correct": 2,
-    "explanation": "《春晓》是唐代诗人孟浩然的作品。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "文学常识"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-005",
-    "type": "classical",
-    "prompt": "「锄禾日当午」告诉我们什么道理？",
-    "options": [
-      "要早起锻炼",
-      "要珍惜粮食",
-      "要勤劳种田",
-      "要多读书"
-    ],
-    "correct": 1,
-    "explanation": "《悯农》通过描写农民辛苦劳作，告诉我们要珍惜粮食。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "理解"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-006",
-    "type": "classical",
-    "prompt": "「举头望明月」的下一句是什么？",
-    "options": [
-      "疑是地上霜",
-      "床前明月光",
-      "低头思故乡",
-      "月落乌啼霜满天"
-    ],
-    "correct": 2,
-    "explanation": "「举头望明月，低头思故乡」出自李白《静夜思》，表达思念家乡之情。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "名句"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-007",
-    "type": "classical",
-    "prompt": "《静夜思》的作者是谁？",
-    "options": [
-      "杜甫",
-      "白居易",
-      "李白",
-      "王之涣"
-    ],
-    "correct": 2,
-    "explanation": "《静夜思》是唐代大诗人李白所作，表达了诗人在寂静夜晚思念故乡的感情。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "文学常识"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-008",
-    "type": "classical",
-    "prompt": "「春眠不觉晓，处处闻啼鸟」中的「啼」是什么意思？",
-    "options": [
-      "跳跃",
-      "鸣叫",
-      "飞翔",
-      "睡觉"
-    ],
-    "correct": 1,
-    "explanation": "「啼」是鸟鸣叫的意思，「闻啼鸟」就是听到鸟儿鸣叫。出自孟浩然《春晓》。",
-    "difficulty": 2,
-    "tags": [
-      "唐诗",
-      "字词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-009",
-    "type": "classical",
-    "prompt": "《春晓》这首诗描写的是什么季节的早晨？",
-    "options": [
-      "夏天",
-      "秋天",
-      "冬天",
-      "春天"
-    ],
-    "correct": 3,
-    "explanation": "《春晓》描写的是春天的早晨，诗题「春晓」就是春天的清晨的意思。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "理解"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-010",
-    "type": "classical",
-    "prompt": "「白毛浮绿水」的下一句是？",
-    "options": [
-      "曲项向天歌",
-      "红掌拨清波",
-      "鹅鹅鹅",
-      "绿水映白鹅"
-    ],
-    "correct": 1,
-    "explanation": "「白毛浮绿水，红掌拨清波」出自骆宾王《咏鹅》，描写鹅游水时的优美姿态。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "名句"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-011",
-    "type": "classical",
-    "prompt": "《咏鹅》的作者是谁？",
-    "options": [
-      "李白",
-      "骆宾王",
-      "孟浩然",
-      "杜甫"
-    ],
-    "correct": 1,
-    "explanation": "《咏鹅》是唐代诗人骆宾王七岁时所作，是一首描写鹅的古诗。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "文学常识"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-012",
-    "type": "classical",
-    "prompt": "「欲穷千里目，更上一层楼」出自哪首诗？",
-    "options": [
-      "《静夜思》",
-      "《春晓》",
-      "《登鹳雀楼》",
-      "《望庐山瀑布》"
-    ],
-    "correct": 2,
-    "explanation": "这两句出自王之涣的《登鹳雀楼》，意思是要看到更远的地方，就要站得更高。",
-    "difficulty": 2,
-    "tags": [
-      "唐诗",
-      "名句"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-013",
-    "type": "classical",
-    "prompt": "《登鹳雀楼》的作者是谁？",
-    "options": [
-      "王昌龄",
-      "王维",
-      "王之涣",
-      "王勃"
-    ],
-    "correct": 2,
-    "explanation": "《登鹳雀楼》是唐代诗人王之涣的名作，表达了积极向上、努力进取的精神。",
-    "difficulty": 2,
-    "tags": [
-      "唐诗",
-      "文学常识"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-014",
-    "type": "classical",
-    "prompt": "「白日依山尽」中「依」的意思是？",
-    "options": [
-      "靠近、依傍",
-      "依靠别人",
-      "因为",
-      "一样"
-    ],
-    "correct": 0,
-    "explanation": "「白日依山尽」意思是太阳依傍着山慢慢落下，「依」是靠着、沿着的意思。",
-    "difficulty": 2,
-    "tags": [
-      "唐诗",
-      "字词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-015",
-    "type": "classical",
-    "prompt": "「飞流直下三千尺，疑是银河落九天」出自哪首诗？",
-    "options": [
-      "《登鹳雀楼》",
-      "《望庐山瀑布》",
-      "《早发白帝城》",
-      "《静夜思》"
-    ],
-    "correct": 1,
-    "explanation": "这两句出自李白的《望庐山瀑布》，描写了庐山瀑布雄伟壮观的景象。",
-    "difficulty": 2,
-    "tags": [
-      "唐诗",
-      "名句"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-016",
-    "type": "classical",
-    "prompt": "「两岸猿声啼不住」的下一句是？",
-    "options": [
-      "孤帆远影碧空尽",
-      "轻舟已过万重山",
-      "朝辞白帝彩云间",
-      "千里江陵一日还"
-    ],
-    "correct": 1,
-    "explanation": "「两岸猿声啼不住，轻舟已过万重山」出自李白《早发白帝城》，描写船行之快。",
-    "difficulty": 2,
-    "tags": [
-      "唐诗",
-      "名句"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-017",
-    "type": "classical",
-    "prompt": "《早发白帝城》中诗人乘船从白帝城出发，要去哪里？",
-    "options": [
-      "长安",
-      "成都",
-      "江陵",
-      "洛阳"
-    ],
-    "correct": 2,
-    "explanation": "诗句「朝辞白帝彩云间，千里江陵一日还」，诗人从白帝城出发，目的地是江陵。",
-    "difficulty": 3,
-    "tags": [
-      "唐诗",
-      "理解"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-018",
-    "type": "classical",
-    "prompt": "「迟日江山丽，春风花草香」出自哪位诗人？",
-    "options": [
-      "李白",
-      "白居易",
-      "杜甫",
-      "王维"
-    ],
-    "correct": 2,
-    "explanation": "这两句出自杜甫的《绝句》（迟日江山丽），描写春天美好的景色。",
-    "difficulty": 3,
-    "tags": [
-      "唐诗",
-      "文学常识"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-019",
-    "type": "classical",
-    "prompt": "「小荷才露尖尖角，早有蜻蜓立上头」出自哪首诗？",
-    "options": [
-      "《小池》",
-      "《村居》",
-      "《所见》",
-      "《春晓》"
-    ],
-    "correct": 0,
-    "explanation": "这两句出自宋代诗人杨万里的《小池》，描写初夏小荷和蜻蜓的可爱画面。",
-    "difficulty": 2,
-    "tags": [
-      "宋诗",
-      "名句"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-020",
-    "type": "classical",
-    "prompt": "「儿童散学归来早，忙趁东风放纸鸢」出自哪首诗？",
-    "options": [
-      "《所见》",
-      "《村居》",
-      "《小池》",
-      "《清明》"
-    ],
-    "correct": 1,
-    "explanation": "这两句出自清代诗人高鼎的《村居》，描写孩子们放学后放风筝的快乐情景。",
-    "difficulty": 2,
-    "tags": [
-      "古诗",
-      "名句"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-021",
-    "type": "classical",
-    "prompt": "「纸鸢」是什么东西？",
-    "options": [
-      "纸船",
-      "风筝",
-      "纸飞机",
-      "风车"
-    ],
-    "correct": 1,
-    "explanation": "「纸鸢」就是风筝，「鸢」是一种鸟，古人把风筝做成老鹰的形状，所以叫「纸鸢」。",
-    "difficulty": 2,
-    "tags": [
-      "古诗",
-      "字词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-022",
-    "type": "classical",
-    "prompt": "「清明时节雨纷纷，路上行人欲断魂」中的「断魂」是什么意思？",
-    "options": [
-      "魂魄离开了",
-      "形容非常悲伤",
-      "走路走累了",
-      "迷路了"
-    ],
-    "correct": 1,
-    "explanation": "「断魂」形容人因为思念故去的亲人而非常悲伤，神情惆怅。出自杜牧《清明》。",
-    "difficulty": 3,
-    "tags": [
-      "唐诗",
-      "字词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-023",
-    "type": "classical",
-    "prompt": "《清明》的作者是谁？",
-    "options": [
-      "杜甫",
-      "杜牧",
-      "李白",
-      "白居易"
-    ],
-    "correct": 1,
-    "explanation": "《清明》是唐代诗人杜牧的作品，描写清明时节行人思念亲人的情景。",
-    "difficulty": 2,
-    "tags": [
-      "唐诗",
-      "文学常识"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-024",
-    "type": "classical",
-    "prompt": "「爆竹声中一岁除，春风送暖入屠苏」出自哪首诗？",
-    "options": [
-      "《清明》",
-      "《元日》",
-      "《村居》",
-      "《春晓》"
-    ],
-    "correct": 1,
-    "explanation": "这两句出自宋代诗人王安石的《元日》，描写春节放鞭炮、喝屠苏酒的热闹场面。",
-    "difficulty": 2,
-    "tags": [
-      "宋诗",
-      "名句"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-025",
-    "type": "classical",
-    "prompt": "「千门万户曈曈日，总把新桃换旧符」中的「换桃符」是指什么习俗？",
-    "options": [
-      "贴窗花",
-      "换新衣服",
-      "换桃木做的符咒（贴春联）",
-      "放鞭炮"
-    ],
-    "correct": 2,
-    "explanation": "「桃符」是古代春节时挂在门上的桃木板，后来演变成春联，「换桃符」就是贴春联。",
-    "difficulty": 3,
-    "tags": [
-      "宋诗",
-      "字词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-026",
-    "type": "classical",
-    "prompt": "「牧童骑黄牛，歌声振林樾」出自哪首诗？",
-    "options": [
-      "《村居》",
-      "《小池》",
-      "《所见》",
-      "《元日》"
-    ],
-    "correct": 2,
-    "explanation": "这两句出自清代诗人袁枚的《所见》，描写牧童骑牛唱歌的活泼情景。",
-    "difficulty": 2,
-    "tags": [
-      "古诗",
-      "名句"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-027",
-    "type": "classical",
-    "prompt": "《所见》中牧童忽然停止歌声，是因为什么？",
-    "options": [
-      "他累了",
-      "他看见了蝉，想去捕捉",
-      "天要下雨了",
-      "他回家吃饭了"
-    ],
-    "correct": 1,
-    "explanation": "诗中写「意欲捕鸣蝉，忽然闭口立」，牧童想捉蝉，所以停止了歌声，悄悄等待。",
-    "difficulty": 2,
-    "tags": [
-      "古诗",
-      "理解"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-028",
-    "type": "classical",
-    "prompt": "「停车坐爱枫林晚，霜叶红于二月花」出自哪首诗？",
-    "options": [
-      "《望庐山瀑布》",
-      "《山行》",
-      "《早发白帝城》",
-      "《登鹳雀楼》"
-    ],
-    "correct": 1,
-    "explanation": "这两句出自唐代杜牧的《山行》，描写秋天枫叶比春花还要红艳的景色。",
-    "difficulty": 2,
-    "tags": [
-      "唐诗",
-      "名句"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-029",
-    "type": "classical",
-    "prompt": "「霜叶红于二月花」中「于」的意思是？",
-    "options": [
-      "在",
-      "比",
-      "和",
-      "从"
-    ],
-    "correct": 1,
-    "explanation": "「红于二月花」意思是比二月的花还要红，「于」在这里是「比」的意思，是比较。",
-    "difficulty": 3,
-    "tags": [
-      "唐诗",
-      "字词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-030",
-    "type": "classical",
-    "prompt": "「宿新市徐公店」中「宿」的意思是？",
-    "options": [
-      "早上",
-      "住宿、过夜",
-      "到达",
-      "离开"
-    ],
-    "correct": 1,
-    "explanation": "「宿」是住宿、过夜的意思，「宿新市徐公店」就是在新市徐公的店里住宿过夜。",
-    "difficulty": 3,
-    "tags": [
-      "宋诗",
-      "字词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-031",
-    "type": "classical",
-    "prompt": "「儿童急走追黄蝶，飞入菜花无处寻」出自哪首诗？",
-    "options": [
-      "《所见》",
-      "《村居》",
-      "《宿新市徐公店》",
-      "《小池》"
-    ],
-    "correct": 2,
-    "explanation": "这两句出自宋代诗人杨万里的《宿新市徐公店》，描写孩子追蝴蝶的可爱场景。",
-    "difficulty": 2,
-    "tags": [
-      "宋诗",
-      "名句"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-032",
-    "type": "classical",
-    "prompt": "《悯农》（锄禾日当午）的作者是谁？",
-    "options": [
-      "白居易",
-      "杜甫",
-      "李绅",
-      "孟浩然"
-    ],
-    "correct": 2,
-    "explanation": "《悯农》是唐代诗人李绅的作品，全诗只有二十个字，却深刻表达了对农民辛苦的同情。",
-    "difficulty": 2,
-    "tags": [
-      "唐诗",
-      "文学常识"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-033",
-    "type": "classical",
-    "prompt": "「粒粒皆辛苦」中「皆」的意思是？",
-    "options": [
-      "也",
-      "都",
-      "很",
-      "才"
-    ],
-    "correct": 1,
-    "explanation": "「皆」的意思是「都」，「粒粒皆辛苦」就是每一粒粮食都凝聚着辛苦的汗水。",
-    "difficulty": 2,
-    "tags": [
-      "唐诗",
-      "字词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-034",
-    "type": "classical",
-    "prompt": "「野火烧不尽，春风吹又生」出自哪首诗？",
-    "options": [
-      "《春晓》",
-      "《赋得古原草送别》",
-      "《村居》",
-      "《小池》"
-    ],
-    "correct": 1,
-    "explanation": "这两句出自白居易的《赋得古原草送别》，赞美小草顽强的生命力。",
-    "difficulty": 2,
-    "tags": [
-      "唐诗",
-      "名句"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-035",
-    "type": "classical",
-    "prompt": "「野火烧不尽，春风吹又生」表达了什么精神？",
-    "options": [
-      "对火灾的描述",
-      "顽强的生命力和不屈的精神",
-      "春天来了很高兴",
-      "草原的美景"
-    ],
-    "correct": 1,
-    "explanation": "这两句诗用野草在烈火中烧尽又在春风中复生，比喻顽强的生命力和不屈不挠的精神。",
-    "difficulty": 2,
-    "tags": [
-      "唐诗",
-      "理解"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-036",
-    "type": "classical",
-    "prompt": "「朝辞白帝彩云间」中「朝」的意思是？",
-    "options": [
-      "朝代",
-      "朝向",
-      "早晨",
-      "国王"
-    ],
-    "correct": 2,
-    "explanation": "「朝」在这里读 zhāo，意思是早晨。「朝辞白帝」就是早晨告别白帝城。",
-    "difficulty": 3,
-    "tags": [
-      "唐诗",
-      "字词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-037",
-    "type": "classical",
-    "prompt": "「两个黄鹂鸣翠柳，一行白鹭上青天」出自哪位诗人？",
-    "options": [
-      "李白",
-      "王维",
-      "杜甫",
-      "孟浩然"
-    ],
-    "correct": 2,
-    "explanation": "这两句出自杜甫的《绝句》（两个黄鹂鸣翠柳），描写了春天充满生机的美景。",
-    "difficulty": 2,
-    "tags": [
-      "唐诗",
-      "文学常识"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-038",
-    "type": "classical",
-    "prompt": "「欲穷千里目，更上一层楼」告诉我们什么道理？",
-    "options": [
-      "要爬楼梯锻炼身体",
-      "要想看得更远，就要站得更高、不断进取",
-      "站在高处很危险",
-      "楼很高很漂亮"
-    ],
-    "correct": 1,
-    "explanation": "这两句诗告诉我们：要想取得更大的进步和成就，就需要不断学习、不断努力，站得更高。",
-    "difficulty": 3,
-    "tags": [
-      "唐诗",
-      "理解"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-039",
-    "type": "classical",
-    "prompt": "《望庐山瀑布》中「疑是银河落九天」中「疑」的意思是？",
-    "options": [
-      "怀疑有问题",
-      "好像、仿佛",
-      "相信",
-      "知道"
-    ],
-    "correct": 1,
-    "explanation": "「疑」在这里是「好像、仿佛」的意思，整句是说瀑布看起来好像是银河从天上落下来一样。",
-    "difficulty": 3,
-    "tags": [
-      "唐诗",
-      "字词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-040",
-    "type": "classical",
-    "prompt": "「独在异乡为异客，每逢佳节倍思亲」出自哪首诗？",
-    "options": [
-      "《静夜思》",
-      "《九月九日忆山东兄弟》",
-      "《清明》",
-      "《元日》"
-    ],
-    "correct": 1,
-    "explanation": "这两句出自王维的《九月九日忆山东兄弟》，表达了在外地思念家人的感情。",
-    "difficulty": 3,
-    "tags": [
-      "唐诗",
-      "名句"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-041",
-    "type": "classical",
-    "prompt": "「每逢佳节倍思亲」中「倍」的意思是？",
-    "options": [
-      "两倍",
-      "更加、格外",
-      "一倍",
-      "不再"
-    ],
-    "correct": 1,
-    "explanation": "「倍」在这里是「更加、格外」的意思，每到节日就更加思念家人和亲人。",
-    "difficulty": 3,
-    "tags": [
-      "唐诗",
-      "字词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-042",
-    "type": "classical",
-    "prompt": "《九月九日忆山东兄弟》的作者是谁？",
-    "options": [
-      "李白",
-      "杜甫",
-      "王维",
-      "孟浩然"
-    ],
-    "correct": 2,
-    "explanation": "《九月九日忆山东兄弟》是唐代诗人王维十七岁时写的，表达了思乡怀亲的感情。",
-    "difficulty": 2,
-    "tags": [
-      "唐诗",
-      "文学常识"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-043",
-    "type": "classical",
-    "prompt": "「接天莲叶无穷碧，映日荷花别样红」描写的是什么季节？",
-    "options": [
-      "春天",
-      "夏天",
-      "秋天",
-      "冬天"
-    ],
-    "correct": 1,
-    "explanation": "这两句出自杨万里《晓出净慈寺送林子方》，描写夏天西湖荷花盛开、荷叶碧绿的壮观景色。",
-    "difficulty": 3,
-    "tags": [
-      "宋诗",
-      "理解"
-    ],
-    "source": "supplementary"
-  },
-  {
-    "id": "c3-044",
-    "type": "classical",
-    "prompt": "「不知细叶谁裁出，二月春风似剪刀」出自哪位诗人？",
-    "options": [
-      "杜甫",
-      "贺知章",
-      "孟浩然",
-      "李白"
-    ],
-    "correct": 1,
-    "explanation": "这两句出自贺知章的《咏柳》，用剪刀比喻春风，赞美了柳叶的纤细精巧。",
-    "difficulty": 3,
-    "tags": [
-      "唐诗",
-      "文学常识"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-045",
-    "type": "classical",
-    "prompt": "「碧玉妆成一树高，万条垂下绿丝绦」中「妆」的意思是？",
-    "options": [
-      "化妆",
-      "装扮、打扮",
-      "衣服",
-      "颜色"
-    ],
-    "correct": 1,
-    "explanation": "「妆」是装扮、打扮的意思，「碧玉妆成」是说柳树被打扮得像碧绿的玉石一样美丽。",
-    "difficulty": 3,
-    "tags": [
-      "唐诗",
-      "字词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-046",
-    "type": "classical",
-    "prompt": "「锄禾日当午」中「锄禾」是什么意思？",
-    "options": [
-      "用锄头挖地",
-      "用锄头给庄稼除草松土",
-      "收割庄稼",
-      "浇水"
-    ],
-    "correct": 1,
-    "explanation": "「锄禾」就是用锄头给庄稼除草、松土，是农民耕作时的一种劳动。",
-    "difficulty": 2,
-    "tags": [
-      "唐诗",
-      "字词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-047",
-    "type": "classical",
-    "prompt": "「日照香炉生紫烟」中的「香炉」指的是什么？",
-    "options": [
-      "烧香的炉子",
-      "庐山上的香炉峰",
-      "做饭的炉子",
-      "一种植物"
-    ],
-    "correct": 1,
-    "explanation": "「香炉」是指庐山上的香炉峰，因其形状像香炉而得名，出自李白《望庐山瀑布》。",
-    "difficulty": 4,
-    "tags": [
-      "唐诗",
-      "字词"
-    ],
-    "source": "supplementary"
-  },
-  {
-    "id": "c3-048",
-    "type": "classical",
-    "prompt": "下列哪首诗描写了重阳节的习俗？",
-    "options": [
-      "《元日》",
-      "《清明》",
-      "《九月九日忆山东兄弟》",
-      "《春晓》"
-    ],
-    "correct": 2,
-    "explanation": "《九月九日忆山东兄弟》写于重阳节（农历九月九日），重阳节有登高、插茱萸的习俗。",
-    "difficulty": 4,
-    "tags": [
-      "唐诗",
-      "文学常识"
-    ],
-    "source": "supplementary"
-  },
-  {
-    "id": "c3-049",
-    "type": "classical",
-    "prompt": "古诗中「汗滴禾下土」描述了什么画面？",
-    "options": [
-      "下雨了，雨滴落在田里",
-      "农民辛苦劳作，汗水滴落在庄稼下的泥土里",
-      "浇地灌溉",
-      "泥土湿润"
-    ],
-    "correct": 1,
-    "explanation": "「汗滴禾下土」生动描写了农民在烈日下挥汗如雨、辛苦劳作的情景，让人感受到粮食来之不易。",
-    "difficulty": 2,
-    "tags": [
-      "唐诗",
-      "理解"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c3-050",
-    "type": "classical",
-    "prompt": "下列哪首诗描写了春节放鞭炮的习俗？",
-    "options": [
-      "《清明》",
-      "《元日》",
-      "《村居》",
-      "《九月九日忆山东兄弟》"
-    ],
-    "correct": 1,
-    "explanation": "《元日》中「爆竹声中一岁除」描写了春节（元日）放鞭炮辞旧迎新的习俗，作者是王安石。",
-    "difficulty": 2,
-    "tags": [
-      "宋诗",
-      "文学常识"
-    ],
-    "source": "curriculum"
-  }
+  {"id":"c3-001","type":"classical","prompt":"「鹅、鹅、鹅，曲项向天歌」中「曲」的意思是？","options":["歌曲","弯曲","曲折","音乐"],"correct":1,"explanation":"「曲项」是弯着脖子的意思。出自骆宾王《咏鹅》。","difficulty":1,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-002","type":"classical","prompt":"「床前明月光」的下一句是？","options":["低头思故乡","疑是地上霜","举头望明月","春风吹又生"],"correct":1,"explanation":"「床前明月光，疑是地上霜」出自李白《静夜思》。","difficulty":1,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-003","type":"classical","prompt":"「离离原上草」中「离离」的意思是？","options":["离开","草木茂盛的样子","分离","稀疏的样子"],"correct":1,"explanation":"「离离」形容草长得茂盛繁密。出自白居易《赋得古原草送别》。","difficulty":2,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-004","type":"classical","prompt":"「春眠不觉晓」的作者是谁？","options":["李白","杜甫","孟浩然","王维"],"correct":2,"explanation":"《春晓》是唐代诗人孟浩然的作品。","difficulty":1,"tags":["唐诗","文学常识"],"source":"curriculum"},
+  {"id":"c3-005","type":"classical","prompt":"「锄禾日当午」告诉我们什么道理？","options":["要早起锻炼","要珍惜粮食","要勤劳种田","要多读书"],"correct":1,"explanation":"《悯农》通过描写农民辛苦劳作，告诉我们要珍惜粮食。","difficulty":1,"tags":["唐诗","理解"],"source":"curriculum"},
+  {"id":"c3-006","type":"classical","prompt":"「举头望明月」的下一句是什么？","options":["疑是地上霜","床前明月光","低头思故乡","月落乌啼霜满天"],"correct":2,"explanation":"「举头望明月，低头思故乡」出自李白《静夜思》，表达思念家乡之情。","difficulty":1,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-007","type":"classical","prompt":"《静夜思》的作者是谁？","options":["杜甫","白居易","李白","王之涣"],"correct":2,"explanation":"《静夜思》是唐代大诗人李白所作，表达了诗人在寂静夜晚思念故乡的感情。","difficulty":1,"tags":["唐诗","文学常识"],"source":"curriculum"},
+  {"id":"c3-008","type":"classical","prompt":"「春眠不觉晓，处处闻啼鸟」中的「啼」是什么意思？","options":["跳跃","鸣叫","飞翔","睡觉"],"correct":1,"explanation":"「啼」是鸟鸣叫的意思，「闻啼鸟」就是听到鸟儿鸣叫。出自孟浩然《春晓》。","difficulty":2,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-009","type":"classical","prompt":"《春晓》这首诗描写的是什么季节的早晨？","options":["夏天","秋天","冬天","春天"],"correct":3,"explanation":"《春晓》描写的是春天的早晨，诗题「春晓」就是春天的清晨的意思。","difficulty":1,"tags":["唐诗","理解"],"source":"curriculum"},
+  {"id":"c3-010","type":"classical","prompt":"「白毛浮绿水」的下一句是？","options":["曲项向天歌","红掌拨清波","鹅鹅鹅","绿水映白鹅"],"correct":1,"explanation":"「白毛浮绿水，红掌拨清波」出自骆宾王《咏鹅》，描写鹅游水时的优美姿态。","difficulty":1,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-011","type":"classical","prompt":"《咏鹅》的作者是谁？","options":["李白","骆宾王","孟浩然","杜甫"],"correct":1,"explanation":"《咏鹅》是唐代诗人骆宾王七岁时所作，是一首描写鹅的古诗。","difficulty":1,"tags":["唐诗","文学常识"],"source":"curriculum"},
+  {"id":"c3-012","type":"classical","prompt":"「欲穷千里目，更上一层楼」出自哪首诗？","options":["《静夜思》","《春晓》","《登鹳雀楼》","《望庐山瀑布》"],"correct":2,"explanation":"这两句出自王之涣的《登鹳雀楼》，意思是要看到更远的地方，就要站得更高。","difficulty":2,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-013","type":"classical","prompt":"《登鹳雀楼》的作者是谁？","options":["王昌龄","王维","王之涣","王勃"],"correct":2,"explanation":"《登鹳雀楼》是唐代诗人王之涣的名作，表达了积极向上、努力进取的精神。","difficulty":2,"tags":["唐诗","文学常识"],"source":"curriculum"},
+  {"id":"c3-014","type":"classical","prompt":"「白日依山尽」中「依」的意思是？","options":["靠近、依傍","依靠别人","因为","一样"],"correct":0,"explanation":"「白日依山尽」意思是太阳依傍着山慢慢落下，「依」是靠着、沿着的意思。","difficulty":2,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-015","type":"classical","prompt":"「飞流直下三千尺，疑是银河落九天」出自哪首诗？","options":["《登鹳雀楼》","《望庐山瀑布》","《早发白帝城》","《静夜思》"],"correct":1,"explanation":"这两句出自李白的《望庐山瀑布》，描写了庐山瀑布雄伟壮观的景象。","difficulty":2,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-016","type":"classical","prompt":"「两岸猿声啼不住」的下一句是？","options":["孤帆远影碧空尽","轻舟已过万重山","朝辞白帝彩云间","千里江陵一日还"],"correct":1,"explanation":"「两岸猿声啼不住，轻舟已过万重山」出自李白《早发白帝城》，描写船行之快。","difficulty":2,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-017","type":"classical","prompt":"《早发白帝城》中诗人乘船从白帝城出发，要去哪里？","options":["长安","成都","江陵","洛阳"],"correct":2,"explanation":"诗句「朝辞白帝彩云间，千里江陵一日还」，诗人从白帝城出发，目的地是江陵。","difficulty":3,"tags":["唐诗","理解"],"source":"curriculum"},
+  {"id":"c3-018","type":"classical","prompt":"「迟日江山丽，春风花草香」出自哪位诗人？","options":["李白","白居易","杜甫","王维"],"correct":2,"explanation":"这两句出自杜甫的《绝句》（迟日江山丽），描写春天美好的景色。","difficulty":3,"tags":["唐诗","文学常识"],"source":"curriculum"},
+  {"id":"c3-019","type":"classical","prompt":"「小荷才露尖尖角，早有蜻蜓立上头」出自哪首诗？","options":["《小池》","《村居》","《所见》","《春晓》"],"correct":0,"explanation":"这两句出自宋代诗人杨万里的《小池》，描写初夏小荷和蜻蜓的可爱画面。","difficulty":2,"tags":["宋诗","名句"],"source":"curriculum"},
+  {"id":"c3-020","type":"classical","prompt":"「儿童散学归来早，忙趁东风放纸鸢」出自哪首诗？","options":["《所见》","《村居》","《小池》","《清明》"],"correct":1,"explanation":"这两句出自清代诗人高鼎的《村居》，描写孩子们放学后放风筝的快乐情景。","difficulty":2,"tags":["古诗","名句"],"source":"curriculum"},
+  {"id":"c3-021","type":"classical","prompt":"「纸鸢」是什么东西？","options":["纸船","风筝","纸飞机","风车"],"correct":1,"explanation":"「纸鸢」就是风筝，「鸢」是一种鸟，古人把风筝做成老鹰的形状，所以叫「纸鸢」。","difficulty":2,"tags":["古诗","字词"],"source":"curriculum"},
+  {"id":"c3-022","type":"classical","prompt":"「清明时节雨纷纷，路上行人欲断魂」中的「断魂」是什么意思？","options":["魂魄离开了","形容非常悲伤","走路走累了","迷路了"],"correct":1,"explanation":"「断魂」形容人因为思念故去的亲人而非常悲伤，神情惆怅。出自杜牧《清明》。","difficulty":3,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-023","type":"classical","prompt":"《清明》的作者是谁？","options":["杜甫","杜牧","李白","白居易"],"correct":1,"explanation":"《清明》是唐代诗人杜牧的作品，描写清明时节行人思念亲人的情景。","difficulty":2,"tags":["唐诗","文学常识"],"source":"curriculum"},
+  {"id":"c3-024","type":"classical","prompt":"「爆竹声中一岁除，春风送暖入屠苏」出自哪首诗？","options":["《清明》","《元日》","《村居》","《春晓》"],"correct":1,"explanation":"这两句出自宋代诗人王安石的《元日》，描写春节放鞭炮、喝屠苏酒的热闹场面。","difficulty":2,"tags":["宋诗","名句"],"source":"curriculum"},
+  {"id":"c3-025","type":"classical","prompt":"「千门万户曈曈日，总把新桃换旧符」中的「换桃符」是指什么习俗？","options":["贴窗花","换新衣服","换桃木做的符咒（贴春联）","放鞭炮"],"correct":2,"explanation":"「桃符」是古代春节时挂在门上的桃木板，后来演变成春联，「换桃符」就是贴春联。","difficulty":3,"tags":["宋诗","字词"],"source":"curriculum"},
+  {"id":"c3-026","type":"classical","prompt":"「牧童骑黄牛，歌声振林樾」出自哪首诗？","options":["《村居》","《小池》","《所见》","《元日》"],"correct":2,"explanation":"这两句出自清代诗人袁枚的《所见》，描写牧童骑牛唱歌的活泼情景。","difficulty":2,"tags":["古诗","名句"],"source":"curriculum"},
+  {"id":"c3-027","type":"classical","prompt":"《所见》中牧童忽然停止歌声，是因为什么？","options":["他累了","他看见了蝉，想去捕捉","天要下雨了","他回家吃饭了"],"correct":1,"explanation":"诗中写「意欲捕鸣蝉，忽然闭口立」，牧童想捉蝉，所以停止了歌声，悄悄等待。","difficulty":2,"tags":["古诗","理解"],"source":"curriculum"},
+  {"id":"c3-028","type":"classical","prompt":"「停车坐爱枫林晚，霜叶红于二月花」出自哪首诗？","options":["《望庐山瀑布》","《山行》","《早发白帝城》","《登鹳雀楼》"],"correct":1,"explanation":"这两句出自唐代杜牧的《山行》，描写秋天枫叶比春花还要红艳的景色。","difficulty":2,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-029","type":"classical","prompt":"「霜叶红于二月花」中「于」的意思是？","options":["在","比","和","从"],"correct":1,"explanation":"「红于二月花」意思是比二月的花还要红，「于」在这里是「比」的意思，是比较。","difficulty":3,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-030","type":"classical","prompt":"「宿新市徐公店」中「宿」的意思是？","options":["早上","住宿、过夜","到达","离开"],"correct":1,"explanation":"「宿」是住宿、过夜的意思，「宿新市徐公店」就是在新市徐公的店里住宿过夜。","difficulty":3,"tags":["宋诗","字词"],"source":"curriculum"},
+  {"id":"c3-031","type":"classical","prompt":"「儿童急走追黄蝶，飞入菜花无处寻」出自哪首诗？","options":["《所见》","《村居》","《宿新市徐公店》","《小池》"],"correct":2,"explanation":"这两句出自宋代诗人杨万里的《宿新市徐公店》，描写孩子追蝴蝶的可爱场景。","difficulty":2,"tags":["宋诗","名句"],"source":"curriculum"},
+  {"id":"c3-032","type":"classical","prompt":"《悯农》（锄禾日当午）的作者是谁？","options":["白居易","杜甫","李绅","孟浩然"],"correct":2,"explanation":"《悯农》是唐代诗人李绅的作品，全诗只有二十个字，却深刻表达了对农民辛苦的同情。","difficulty":2,"tags":["唐诗","文学常识"],"source":"curriculum"},
+  {"id":"c3-033","type":"classical","prompt":"「粒粒皆辛苦」中「皆」的意思是？","options":["也","都","很","才"],"correct":1,"explanation":"「皆」的意思是「都」，「粒粒皆辛苦」就是每一粒粮食都凝聚着辛苦的汗水。","difficulty":2,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-034","type":"classical","prompt":"「野火烧不尽，春风吹又生」出自哪首诗？","options":["《春晓》","《赋得古原草送别》","《村居》","《小池》"],"correct":1,"explanation":"这两句出自白居易的《赋得古原草送别》，赞美小草顽强的生命力。","difficulty":2,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-035","type":"classical","prompt":"「野火烧不尽，春风吹又生」表达了什么精神？","options":["对火灾的描述","顽强的生命力和不屈的精神","春天来了很高兴","草原的美景"],"correct":1,"explanation":"这两句诗用野草在烈火中烧尽又在春风中复生，比喻顽强的生命力和不屈不挠的精神。","difficulty":2,"tags":["唐诗","理解"],"source":"curriculum"},
+  {"id":"c3-036","type":"classical","prompt":"「朝辞白帝彩云间」中「朝」的意思是？","options":["朝代","朝向","早晨","国王"],"correct":2,"explanation":"「朝」在这里读 zhāo，意思是早晨。「朝辞白帝」就是早晨告别白帝城。","difficulty":3,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-037","type":"classical","prompt":"「两个黄鹂鸣翠柳，一行白鹭上青天」出自哪位诗人？","options":["李白","王维","杜甫","孟浩然"],"correct":2,"explanation":"这两句出自杜甫的《绝句》（两个黄鹂鸣翠柳），描写了春天充满生机的美景。","difficulty":2,"tags":["唐诗","文学常识"],"source":"curriculum"},
+  {"id":"c3-038","type":"classical","prompt":"「欲穷千里目，更上一层楼」告诉我们什么道理？","options":["要爬楼梯锻炼身体","要想看得更远，就要站得更高、不断进取","站在高处很危险","楼很高很漂亮"],"correct":1,"explanation":"这两句诗告诉我们：要想取得更大的进步和成就，就需要不断学习、不断努力，站得更高。","difficulty":3,"tags":["唐诗","理解"],"source":"curriculum"},
+  {"id":"c3-039","type":"classical","prompt":"《望庐山瀑布》中「疑是银河落九天」中「疑」的意思是？","options":["怀疑有问题","好像、仿佛","相信","知道"],"correct":1,"explanation":"「疑」在这里是「好像、仿佛」的意思，整句是说瀑布看起来好像是银河从天上落下来一样。","difficulty":3,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-040","type":"classical","prompt":"「独在异乡为异客，每逢佳节倍思亲」出自哪首诗？","options":["《静夜思》","《九月九日忆山东兄弟》","《清明》","《元日》"],"correct":1,"explanation":"这两句出自王维的《九月九日忆山东兄弟》，表达了在外地思念家人的感情。","difficulty":3,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-041","type":"classical","prompt":"「每逢佳节倍思亲」中「倍」的意思是？","options":["两倍","更加、格外","一倍","不再"],"correct":1,"explanation":"「倍」在这里是「更加、格外」的意思，每到节日就更加思念家人和亲人。","difficulty":3,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-042","type":"classical","prompt":"《九月九日忆山东兄弟》的作者是谁？","options":["李白","杜甫","王维","孟浩然"],"correct":2,"explanation":"《九月九日忆山东兄弟》是唐代诗人王维十七岁时写的，表达了思乡怀亲的感情。","difficulty":2,"tags":["唐诗","文学常识"],"source":"curriculum"},
+  {"id":"c3-043","type":"classical","prompt":"「接天莲叶无穷碧，映日荷花别样红」描写的是什么季节？","options":["春天","夏天","秋天","冬天"],"correct":1,"explanation":"这两句出自杨万里《晓出净慈寺送林子方》，描写夏天西湖荷花盛开、荷叶碧绿的壮观景色。","difficulty":3,"tags":["宋诗","理解"],"source":"curriculum"},
+  {"id":"c3-044","type":"classical","prompt":"「不知细叶谁裁出，二月春风似剪刀」出自哪位诗人？","options":["杜甫","贺知章","孟浩然","李白"],"correct":1,"explanation":"这两句出自贺知章的《咏柳》，用剪刀比喻春风，赞美了柳叶的纤细精巧。","difficulty":3,"tags":["唐诗","文学常识"],"source":"curriculum"},
+  {"id":"c3-045","type":"classical","prompt":"「碧玉妆成一树高，万条垂下绿丝绦」中「妆」的意思是？","options":["化妆","装扮、打扮","衣服","颜色"],"correct":1,"explanation":"「妆」是装扮、打扮的意思，「碧玉妆成」是说柳树被打扮得像碧绿的玉石一样美丽。","difficulty":3,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-046","type":"classical","prompt":"「锄禾日当午」中「锄禾」是什么意思？","options":["用锄头挖地","用锄头给庄稼除草松土","收割庄稼","浇水"],"correct":1,"explanation":"「锄禾」就是用锄头给庄稼除草、松土，是农民耕作时的一种劳动。","difficulty":2,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-047","type":"classical","prompt":"「日照香炉生紫烟」中的「香炉」指的是什么？","options":["烧香的炉子","庐山上的香炉峰","做饭的炉子","一种植物"],"correct":1,"explanation":"「香炉」是指庐山上的香炉峰，因其形状像香炉而得名，出自李白《望庐山瀑布》。","difficulty":3,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-048","type":"classical","prompt":"下列哪首诗描写了重阳节的习俗？","options":["《元日》","《清明》","《九月九日忆山东兄弟》","《春晓》"],"correct":2,"explanation":"《九月九日忆山东兄弟》写于重阳节（农历九月九日），重阳节有登高、插茱萸的习俗。","difficulty":3,"tags":["唐诗","文学常识"],"source":"curriculum"},
+  {"id":"c3-049","type":"classical","prompt":"古诗中「汗滴禾下土」描述了什么画面？","options":["下雨了，雨滴落在田里","农民辛苦劳作，汗水滴落在庄稼下的泥土里","浇地灌溉","泥土湿润"],"correct":1,"explanation":"「汗滴禾下土」生动描写了农民在烈日下挥汗如雨、辛苦劳作的情景，让人感受到粮食来之不易。","difficulty":2,"tags":["唐诗","理解"],"source":"curriculum"},
+  {"id":"c3-050","type":"classical","prompt":"下列哪首诗描写了春节放鞭炮的习俗？","options":["《清明》","《元日》","《村居》","《九月九日忆山东兄弟》"],"correct":1,"explanation":"《元日》中「爆竹声中一岁除」描写了春节（元日）放鞭炮辞旧迎新的习俗，作者是王安石。","difficulty":2,"tags":["宋诗","文学常识"],"source":"curriculum"},
+  {"id":"c3-051","type":"classical","prompt":"「远上寒山石径斜」出自哪首诗？","options":["《望庐山瀑布》","《山行》","《登鹳雀楼》","《早发白帝城》"],"correct":1,"explanation":"「远上寒山石径斜」是杜牧《山行》的第一句，描写深秋时节山间小路弯弯曲曲。","difficulty":2,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-052","type":"classical","prompt":"《山行》描写的是什么季节的景色？","options":["春天","夏天","秋天","冬天"],"correct":2,"explanation":"《山行》描写秋天的景色，诗中写到「霜叶红于二月花」，枫叶变红正是深秋。","difficulty":1,"tags":["唐诗","理解"],"source":"curriculum"},
+  {"id":"c3-053","type":"classical","prompt":"「停车坐爱枫林晚」中「坐」的意思是？","options":["坐下来","因为","座位","坐车"],"correct":1,"explanation":"「坐」在这里是「因为」的意思，整句意思是因为喜爱傍晚的枫林美景而停下车来。","difficulty":3,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-054","type":"classical","prompt":"「远上寒山石径斜」中「径」的意思是？","options":["直接","小路","方向","距离"],"correct":1,"explanation":"「径」是小路的意思，「石径」就是石头铺成的小路。","difficulty":2,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-055","type":"classical","prompt":"「白云生处有人家」中「生」的意思是？","options":["出生","产生、升起","生活","学生"],"correct":1,"explanation":"「白云生处」指白云升起的地方，意思是在那高高的山上、白云缭绕之处有人家。","difficulty":3,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-056","type":"classical","prompt":"「荷尽已无擎雨盖，菊残犹有傲霜枝」出自哪首诗？","options":["《山行》","《赠刘景文》","《望洞庭》","《饮湖上初晴后雨》"],"correct":1,"explanation":"这两句出自苏轼的《赠刘景文》，描写深秋荷花凋零、菊花残败但仍有傲骨。","difficulty":3,"tags":["宋诗","名句"],"source":"curriculum"},
+  {"id":"c3-057","type":"classical","prompt":"《赠刘景文》的作者是谁？","options":["杜甫","王安石","苏轼","杨万里"],"correct":2,"explanation":"《赠刘景文》是宋代大文豪苏轼写给好友刘景文的诗。","difficulty":2,"tags":["宋诗","文学常识"],"source":"curriculum"},
+  {"id":"c3-058","type":"classical","prompt":"「一年好景君须记，最是橙黄橘绿时」描写的是什么季节？","options":["春天","夏天","秋天","冬天"],"correct":2,"explanation":"「橙黄橘绿」是秋天果实成熟的颜色，苏轼告诉刘景文秋天也很美好。","difficulty":2,"tags":["宋诗","理解"],"source":"curriculum"},
+  {"id":"c3-059","type":"classical","prompt":"「擎雨盖」中「擎」的意思是？","options":["轻轻的","举着、撑着","放下","打开"],"correct":1,"explanation":"「擎」是向上举着、撑着的意思，「擎雨盖」形容荷叶像撑起的雨伞。","difficulty":3,"tags":["宋诗","字词"],"source":"curriculum"},
+  {"id":"c3-060","type":"classical","prompt":"「萧萧梧叶送寒声，江上秋风动客情」出自哪首诗？","options":["《山行》","《夜书所见》","《赠刘景文》","《清明》"],"correct":1,"explanation":"这两句出自叶绍翁的《夜书所见》，描写秋夜梧桐叶落、秋风吹过的萧瑟景象。","difficulty":2,"tags":["宋诗","名句"],"source":"curriculum"},
+  {"id":"c3-061","type":"classical","prompt":"《夜书所见》的作者是谁？","options":["苏轼","杨万里","叶绍翁","王安石"],"correct":2,"explanation":"《夜书所见》是宋代诗人叶绍翁的作品。","difficulty":2,"tags":["宋诗","文学常识"],"source":"curriculum"},
+  {"id":"c3-062","type":"classical","prompt":"「知有儿童挑促织，夜深篱落一灯明」中「促织」是什么？","options":["蝴蝶","蟋蟀","蜻蜓","蚂蚱"],"correct":1,"explanation":"「促织」就是蟋蟀，诗中写深夜孩子们还在篱笆旁提着灯捉蟋蟀玩。","difficulty":3,"tags":["宋诗","字词"],"source":"curriculum"},
+  {"id":"c3-063","type":"classical","prompt":"《夜书所见》表达了诗人什么样的感情？","options":["很高兴","思念家乡和亲人的孤独之情","很生气","很害怕"],"correct":1,"explanation":"诗人身在异乡，看到秋风落叶和远处孩子的灯火，勾起了思乡之情。","difficulty":2,"tags":["宋诗","理解"],"source":"curriculum"},
+  {"id":"c3-064","type":"classical","prompt":"「天门中断楚江开」出自哪首诗？","options":["《望庐山瀑布》","《望天门山》","《早发白帝城》","《登鹳雀楼》"],"correct":1,"explanation":"「天门中断楚江开」出自李白的《望天门山》，描写天门山被长江从中劈开的壮观景象。","difficulty":2,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-065","type":"classical","prompt":"《望天门山》的作者是谁？","options":["杜甫","王维","李白","杜牧"],"correct":2,"explanation":"《望天门山》是唐代大诗人李白的作品，描写了天门山和长江的壮丽景色。","difficulty":1,"tags":["唐诗","文学常识"],"source":"curriculum"},
+  {"id":"c3-066","type":"classical","prompt":"「碧水东流至此回」中「回」的意思是？","options":["回来","回转、回旋","回答","回家"],"correct":1,"explanation":"「回」是回转、回旋的意思，描写碧绿的江水流到天门山时形成回旋。","difficulty":3,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-067","type":"classical","prompt":"「两岸青山相对出，孤帆一片日边来」描写了什么景象？","options":["下雨的河","两岸青山对峙，一叶帆船从太阳那边驶来","夜晚的山","雪中的船"],"correct":1,"explanation":"这两句描写了两岸青山夹江对峙、一只帆船从天边日出方向驶来的壮美景象。","difficulty":2,"tags":["唐诗","理解"],"source":"curriculum"},
+  {"id":"c3-068","type":"classical","prompt":"「水光潋滟晴方好，山色空蒙雨亦奇」出自哪首诗？","options":["《望天门山》","《饮湖上初晴后雨》","《望洞庭》","《望庐山瀑布》"],"correct":1,"explanation":"这两句出自苏轼的《饮湖上初晴后雨》，描写西湖晴天和雨天都很美的景色。","difficulty":2,"tags":["宋诗","名句"],"source":"curriculum"},
+  {"id":"c3-069","type":"classical","prompt":"《饮湖上初晴后雨》的作者是谁？","options":["杨万里","苏轼","王安石","叶绍翁"],"correct":1,"explanation":"《饮湖上初晴后雨》是宋代大诗人苏轼的名作，赞美了西湖的美景。","difficulty":2,"tags":["宋诗","文学常识"],"source":"curriculum"},
+  {"id":"c3-070","type":"classical","prompt":"「欲把西湖比西子，淡妆浓抹总相宜」中「西子」是指谁？","options":["诗人的女儿","西施","月亮","仙女"],"correct":1,"explanation":"「西子」是指古代四大美女之一的西施，苏轼把西湖比作西施，说西湖怎样都美。","difficulty":3,"tags":["宋诗","字词"],"source":"curriculum"},
+  {"id":"c3-071","type":"classical","prompt":"「潋滟」的意思是？","options":["波涛汹涌","水面波光闪动的样子","水很深","水很冷"],"correct":1,"explanation":"「潋滟」形容水面波光闪动、粼粼发光的美丽样子。","difficulty":3,"tags":["宋诗","字词"],"source":"curriculum"},
+  {"id":"c3-072","type":"classical","prompt":"「湖光秋月两相和，潭面无风镜未磨」出自哪首诗？","options":["《饮湖上初晴后雨》","《望洞庭》","《望天门山》","《忆江南》"],"correct":1,"explanation":"这两句出自刘禹锡的《望洞庭》，描写洞庭湖秋夜平静如镜的景色。","difficulty":2,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-073","type":"classical","prompt":"《望洞庭》的作者是谁？","options":["李白","苏轼","刘禹锡","白居易"],"correct":2,"explanation":"《望洞庭》是唐代诗人刘禹锡的作品，描写洞庭湖宁静美丽的秋夜景色。","difficulty":2,"tags":["唐诗","文学常识"],"source":"curriculum"},
+  {"id":"c3-074","type":"classical","prompt":"「潭面无风镜未磨」把洞庭湖比作什么？","options":["一块玉","一面没有磨过的铜镜","一张纸","一幅画"],"correct":1,"explanation":"诗人把平静无风的洞庭湖面比作一面还没有打磨过的铜镜，形容湖面朦胧柔美。","difficulty":3,"tags":["唐诗","理解"],"source":"curriculum"},
+  {"id":"c3-075","type":"classical","prompt":"「遥望洞庭山水翠，白银盘里一青螺」中「青螺」指什么？","options":["一种螺","洞庭湖中的君山","一种食物","一种鸟"],"correct":1,"explanation":"「青螺」比喻洞庭湖中的君山，远远望去像白银盘（湖面）里放着一个小青螺。","difficulty":3,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-076","type":"classical","prompt":"「江南好，风景旧曾谙」出自哪首词？","options":["《望洞庭》","《忆江南》","《饮湖上初晴后雨》","《元日》"],"correct":1,"explanation":"这句出自白居易的《忆江南》，表达了诗人对江南美景的怀念。","difficulty":2,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-077","type":"classical","prompt":"《忆江南》的作者是谁？","options":["李白","杜甫","白居易","苏轼"],"correct":2,"explanation":"《忆江南》是唐代大诗人白居易的词作，回忆江南美好的风景。","difficulty":1,"tags":["唐诗","文学常识"],"source":"curriculum"},
+  {"id":"c3-078","type":"classical","prompt":"「日出江花红胜火，春来江水绿如蓝」描写了什么？","options":["秋天的景色","江南春天明艳动人的景色","冬天的景色","夜晚的景色"],"correct":1,"explanation":"这两句描写了江南春天的美丽：太阳出来时江边的花比火还红，春天江水碧绿如蓝。","difficulty":2,"tags":["唐诗","理解"],"source":"curriculum"},
+  {"id":"c3-079","type":"classical","prompt":"「风景旧曾谙」中「谙」的意思是？","options":["看见","熟悉","忘记","害怕"],"correct":1,"explanation":"「谙」是熟悉、了解的意思，「旧曾谙」就是以前很熟悉。","difficulty":3,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-080","type":"classical","prompt":"「能不忆江南？」是什么意思？","options":["不想回忆江南","怎能不想念江南呢","忘记了江南","不喜欢江南"],"correct":1,"explanation":"「能不忆江南？」是反问句，意思是怎么能不想念江南呢？表达了强烈的怀念之情。","difficulty":2,"tags":["唐诗","理解"],"source":"curriculum"},
+  {"id":"c3-081","type":"classical","prompt":"「窗含西岭千秋雪」的下一句是？","options":["两个黄鹂鸣翠柳","一行白鹭上青天","门泊东吴万里船","泥融飞燕子"],"correct":2,"explanation":"「窗含西岭千秋雪，门泊东吴万里船」出自杜甫《绝句》。","difficulty":2,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-082","type":"classical","prompt":"「泥融飞燕子，沙暖睡鸳鸯」出自哪位诗人的《绝句》？","options":["李白","杜甫","王维","白居易"],"correct":1,"explanation":"这两句出自杜甫的《绝句》（迟日江山丽），描写春天泥土融化、燕子飞舞的生机。","difficulty":2,"tags":["唐诗","文学常识"],"source":"curriculum"},
+  {"id":"c3-083","type":"classical","prompt":"杜甫《绝句》「两个黄鹂鸣翠柳」中「鸣」的意思是？","options":["飞","鸣叫、啼叫","落下","站"],"correct":1,"explanation":"「鸣」是鸟鸣叫的意思，两个黄鹂在翠绿的柳枝上鸣叫。","difficulty":1,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-084","type":"classical","prompt":"「一行白鹭上青天」描写了什么画面？","options":["白鹭在水中游","一行白鹭飞向蓝天","白鹭在树上","白鹭在吃鱼"],"correct":1,"explanation":"「一行白鹭上青天」描写一行白鹭排成队飞向碧蓝的天空，画面开阔。","difficulty":1,"tags":["唐诗","理解"],"source":"curriculum"},
+  {"id":"c3-085","type":"classical","prompt":"「借问酒家何处有，牧童遥指杏花村」出自哪首诗？","options":["《山行》","《清明》","《元日》","《村居》"],"correct":1,"explanation":"这两句出自杜牧的《清明》，描写行人在清明时节询问酒家在哪里的情景。","difficulty":2,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-086","type":"classical","prompt":"「借问」的意思是？","options":["借东西","请问","借钱","回答"],"correct":1,"explanation":"「借问」是古代用语，就是「请问」的意思，表示客气地询问。","difficulty":2,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-087","type":"classical","prompt":"《清明》这首诗与哪个传统节日有关？","options":["春节","端午节","清明节","中秋节"],"correct":2,"explanation":"《清明》描写清明节的情景，清明节是人们祭祀祖先、扫墓的传统节日。","difficulty":1,"tags":["唐诗","文学常识"],"source":"curriculum"},
+  {"id":"c3-088","type":"classical","prompt":"「遥知兄弟登高处，遍插茱萸少一人」中「遥」的意思是？","options":["摇动","远远地","很快","慢慢地"],"correct":1,"explanation":"「遥」是远远地的意思，诗人远远地想象着家乡的兄弟们在登高。","difficulty":2,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-089","type":"classical","prompt":"「遍插茱萸少一人」中少的那一个人是谁？","options":["诗人的父亲","诗人王维自己","诗人的朋友","诗人的老师"],"correct":1,"explanation":"少的那个人就是诗人王维自己，因为他独自一人在异乡，不能和兄弟们一起登高。","difficulty":2,"tags":["唐诗","理解"],"source":"curriculum"},
+  {"id":"c3-090","type":"classical","prompt":"「茱萸」是什么？","options":["一种食物","一种有香味的植物","一种动物","一种乐器"],"correct":1,"explanation":"茱萸是一种有浓烈香味的植物，古人重阳节有佩戴茱萸辟邪的习俗。","difficulty":3,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-091","type":"classical","prompt":"补全诗句：「远上寒山____，白云生处有人家。」","options":["石径斜","花满天","水潺潺","鸟飞绝"],"correct":0,"explanation":"「远上寒山石径斜」是杜牧《山行》的第一句。","difficulty":1,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-092","type":"classical","prompt":"补全诗句：「水光潋滟晴方好，____空蒙雨亦奇。」","options":["湖色","山色","天色","云色"],"correct":1,"explanation":"「水光潋滟晴方好，山色空蒙雨亦奇」出自苏轼《饮湖上初晴后雨》。","difficulty":2,"tags":["宋诗","名句"],"source":"curriculum"},
+  {"id":"c3-093","type":"classical","prompt":"补全诗句：「天门中断楚江开，____东流至此回。」","options":["碧水","绿水","江水","清水"],"correct":0,"explanation":"「天门中断楚江开，碧水东流至此回」出自李白《望天门山》。","difficulty":2,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-094","type":"classical","prompt":"补全诗句：「湖光秋月两相和，潭面无风____。」","options":["水如镜","镜未磨","月光明","波不起"],"correct":1,"explanation":"「潭面无风镜未磨」出自刘禹锡《望洞庭》。","difficulty":2,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-095","type":"classical","prompt":"补全诗句：「日出江花红胜火，春来江水____。」","options":["清如玉","碧如天","绿如蓝","白如雪"],"correct":2,"explanation":"「春来江水绿如蓝」出自白居易《忆江南》。","difficulty":2,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-096","type":"classical","prompt":"补全诗句：「荷尽已无擎雨盖，____犹有傲霜枝。」","options":["梅残","菊残","柳残","松残"],"correct":1,"explanation":"「菊残犹有傲霜枝」出自苏轼《赠刘景文》。","difficulty":2,"tags":["宋诗","名句"],"source":"curriculum"},
+  {"id":"c3-097","type":"classical","prompt":"补全诗句：「萧萧梧叶送寒声，江上秋风动____。」","options":["客情","乡情","诗情","秋情"],"correct":0,"explanation":"「江上秋风动客情」出自叶绍翁《夜书所见》。","difficulty":2,"tags":["宋诗","名句"],"source":"curriculum"},
+  {"id":"c3-098","type":"classical","prompt":"补全诗句：「牧童骑黄牛，歌声振____。」","options":["山谷","树林","林樾","天空"],"correct":2,"explanation":"「歌声振林樾」出自袁枚《所见》。「林樾」是林中树荫。","difficulty":2,"tags":["古诗","名句"],"source":"curriculum"},
+  {"id":"c3-099","type":"classical","prompt":"补全诗句：「意欲捕鸣蝉，忽然____。」","options":["跑过去","闭口立","大声叫","飞上天"],"correct":1,"explanation":"「忽然闭口立」出自袁枚《所见》，牧童想捉蝉，忽然停止唱歌站住了。","difficulty":1,"tags":["古诗","名句"],"source":"curriculum"},
+  {"id":"c3-100","type":"classical","prompt":"「歌声振林樾」中「振」的意思是？","options":["停止","振动、回荡","安静","消失"],"correct":1,"explanation":"「振」是振荡、回荡的意思，歌声在树林中回荡。","difficulty":2,"tags":["古诗","字词"],"source":"curriculum"},
+  {"id":"c3-101","type":"classical","prompt":"《山行》的作者是谁？","options":["李白","杜甫","杜牧","白居易"],"correct":2,"explanation":"《山行》是唐代诗人杜牧的作品，描写深秋山林的美景。","difficulty":1,"tags":["唐诗","文学常识"],"source":"curriculum"},
+  {"id":"c3-102","type":"classical","prompt":"「独怜幽草涧边生，上有黄鹂深树鸣」出自哪首诗？","options":["《滁州西涧》","《小池》","《村居》","《所见》"],"correct":0,"explanation":"这两句出自韦应物的《滁州西涧》，描写涧边幽草和深树中的黄鹂。","difficulty":3,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-103","type":"classical","prompt":"《滁州西涧》的作者是谁？","options":["王维","韦应物","孟浩然","刘禹锡"],"correct":1,"explanation":"《滁州西涧》是唐代诗人韦应物的作品。","difficulty":3,"tags":["唐诗","文学常识"],"source":"curriculum"},
+  {"id":"c3-104","type":"classical","prompt":"「春潮带雨晚来急，野渡无人舟自横」描写了什么景象？","options":["繁忙的渡口","傍晚春雨中无人的渡口和横着的小船","晴天的河流","冬天的雪景"],"correct":1,"explanation":"这两句描写傍晚春雨急下、无人渡口小船横在水面的幽静景象。","difficulty":3,"tags":["唐诗","理解"],"source":"curriculum"},
+  {"id":"c3-105","type":"classical","prompt":"「独怜幽草涧边生」中「怜」的意思是？","options":["可怜","喜爱","讨厌","害怕"],"correct":1,"explanation":"「怜」在这里是「喜爱」的意思，诗人特别喜爱涧边生长的幽草。","difficulty":3,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-106","type":"classical","prompt":"「人间四月芳菲尽，山寺桃花始盛开」出自哪首诗？","options":["《咏柳》","《大林寺桃花》","《春晓》","《村居》"],"correct":1,"explanation":"这两句出自白居易的《大林寺桃花》，描写山上桃花比山下开得晚。","difficulty":2,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-107","type":"classical","prompt":"《大林寺桃花》的作者是谁？","options":["李白","杜甫","白居易","王维"],"correct":2,"explanation":"《大林寺桃花》是唐代诗人白居易的作品。","difficulty":2,"tags":["唐诗","文学常识"],"source":"curriculum"},
+  {"id":"c3-108","type":"classical","prompt":"「芳菲尽」的意思是？","options":["花刚开","花开得正好","花已经凋谢了","花还没开"],"correct":2,"explanation":"「芳菲尽」意思是花草已经凋谢完了，人间四月花已落尽。","difficulty":2,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-109","type":"classical","prompt":"「长恨春归无觅处，不知转入此中来」表达了什么心情？","options":["很伤心","惊喜——以为春天走了，没想到在山寺找到了","很生气","很害怕"],"correct":1,"explanation":"诗人原本遗憾春天过去了，没想到在山寺看到盛开的桃花，感到惊喜。","difficulty":3,"tags":["唐诗","理解"],"source":"curriculum"},
+  {"id":"c3-110","type":"classical","prompt":"补全诗句：「人间四月芳菲尽，山寺桃花____。」","options":["刚落下","始盛开","已凋零","未曾开"],"correct":1,"explanation":"「山寺桃花始盛开」出自白居易《大林寺桃花》。","difficulty":1,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-111","type":"classical","prompt":"补全诗句：「独怜幽草涧边生，上有黄鹂____。」","options":["高处飞","深树鸣","枝上立","空中唱"],"correct":1,"explanation":"「上有黄鹂深树鸣」出自韦应物《滁州西涧》。","difficulty":2,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-112","type":"classical","prompt":"补全诗句：「春潮带雨晚来急，野渡无人____。」","options":["船已走","水自流","舟自横","鸟独飞"],"correct":2,"explanation":"「野渡无人舟自横」出自韦应物《滁州西涧》。","difficulty":2,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-113","type":"classical","prompt":"补全诗句：「朝辞白帝彩云间，千里江陵____。」","options":["一日还","万里船","两岸山","半日还"],"correct":0,"explanation":"「千里江陵一日还」出自李白《早发白帝城》。","difficulty":1,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-114","type":"classical","prompt":"补全诗句：「飞流直下三千尺，疑是银河____。」","options":["挂前川","落山间","落九天","入大海"],"correct":2,"explanation":"「疑是银河落九天」出自李白《望庐山瀑布》。","difficulty":1,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-115","type":"classical","prompt":"补全诗句：「碧玉妆成一树高，万条垂下____。」","options":["绿叶片","绿丝绦","翠柳枝","碧丝线"],"correct":1,"explanation":"「万条垂下绿丝绦」出自贺知章《咏柳》。","difficulty":2,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-116","type":"classical","prompt":"「千里江陵一日还」中「还」的意思是？","options":["还要","归来、到达","偿还","还是"],"correct":1,"explanation":"「还」是归来、返回到达的意思，一天就到达了千里之外的江陵。","difficulty":2,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-117","type":"classical","prompt":"「轻舟已过万重山」中「万重山」形容什么？","options":["山很高","山非常多，一座连一座","只有一万座山","山很小"],"correct":1,"explanation":"「万重山」是夸张说法，形容两岸的山一座连一座、非常多，轻舟飞快驶过。","difficulty":2,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-118","type":"classical","prompt":"《早发白帝城》表达了诗人什么心情？","options":["悲伤","轻松愉快、兴奋","愤怒","害怕"],"correct":1,"explanation":"李白被赦免后乘船东下，心情轻松愉快，所以觉得船走得特别快。","difficulty":3,"tags":["唐诗","理解"],"source":"curriculum"},
+  {"id":"c3-119","type":"classical","prompt":"「迟日江山丽」中「迟日」的意思是？","options":["太阳升得晚","春天日照渐长的太阳","太阳很慢","黄昏的太阳"],"correct":1,"explanation":"「迟日」指春天白天变长，太阳照耀的时间更久，这里形容春日的暖阳。","difficulty":3,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-120","type":"classical","prompt":"杜甫写「两个黄鹂鸣翠柳」的《绝句》描写了什么季节？","options":["春天","夏天","秋天","冬天"],"correct":0,"explanation":"诗中有黄鹂、翠柳、白鹭飞天、融雪后的泥土，都是春天的景象。","difficulty":1,"tags":["唐诗","理解"],"source":"curriculum"},
+  {"id":"c3-121","type":"classical","prompt":"《元日》描写的是哪个传统节日？","options":["中秋节","端午节","重阳节","春节"],"correct":3,"explanation":"「元日」就是农历正月初一，也就是春节。诗中写了放鞭炮、喝屠苏酒、换桃符。","difficulty":1,"tags":["宋诗","文学常识"],"source":"curriculum"},
+  {"id":"c3-122","type":"classical","prompt":"《元日》的作者是谁？","options":["苏轼","王安石","杨万里","叶绍翁"],"correct":1,"explanation":"《元日》是宋代政治家、文学家王安石的作品。","difficulty":1,"tags":["宋诗","文学常识"],"source":"curriculum"},
+  {"id":"c3-123","type":"classical","prompt":"「屠苏」是什么？","options":["一种花","一种酒","一种食物","一种衣服"],"correct":1,"explanation":"「屠苏」是一种用药材泡制的酒，古人在春节时饮用，有驱邪防病的含义。","difficulty":3,"tags":["宋诗","字词"],"source":"curriculum"},
+  {"id":"c3-124","type":"classical","prompt":"「曈曈日」中「曈曈」形容什么？","options":["太阳很热","太阳刚升起，光辉明亮","太阳落下","阴天"],"correct":1,"explanation":"「曈曈」形容太阳刚升起时光辉明亮的样子，新年的阳光照耀千家万户。","difficulty":3,"tags":["宋诗","字词"],"source":"curriculum"},
+  {"id":"c3-125","type":"classical","prompt":"「夜来风雨声，花落知多少」出自哪首诗？","options":["《咏柳》","《春晓》","《村居》","《清明》"],"correct":1,"explanation":"这两句出自孟浩然的《春晓》，表达了诗人对风雨中花朵凋落的惋惜。","difficulty":1,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-126","type":"classical","prompt":"「花落知多少」表达了什么感情？","options":["很高兴","对花朵凋落的怜惜","讨厌花","不喜欢春天"],"correct":1,"explanation":"诗人听了一夜风雨，醒来后惋惜不知有多少花被吹落，表达了爱惜春花的感情。","difficulty":2,"tags":["唐诗","理解"],"source":"curriculum"},
+  {"id":"c3-127","type":"classical","prompt":"「草长莺飞二月天，拂堤杨柳醉春烟」出自哪首诗？","options":["《春晓》","《咏柳》","《村居》","《小池》"],"correct":2,"explanation":"这两句出自高鼎的《村居》，描写早春二月生机勃勃的景象。","difficulty":2,"tags":["古诗","名句"],"source":"curriculum"},
+  {"id":"c3-128","type":"classical","prompt":"「拂堤杨柳醉春烟」中「拂」的意思是？","options":["打","轻轻擦过、吹拂","抓住","拉"],"correct":1,"explanation":"「拂」是轻轻地擦过、吹拂的意思，杨柳枝条轻轻拂过堤岸。","difficulty":2,"tags":["古诗","字词"],"source":"curriculum"},
+  {"id":"c3-129","type":"classical","prompt":"下列哪首诗描写了孩子追蝴蝶的情景？","options":["《所见》","《村居》","《宿新市徐公店》","《小池》"],"correct":2,"explanation":"《宿新市徐公店》中「儿童急走追黄蝶，飞入菜花无处寻」描写了孩子追蝴蝶。","difficulty":1,"tags":["宋诗","理解"],"source":"curriculum"},
+  {"id":"c3-130","type":"classical","prompt":"下列哪首诗描写了孩子放风筝的情景？","options":["《所见》","《村居》","《小池》","《清明》"],"correct":1,"explanation":"《村居》中「忙趁东风放纸鸢」描写了孩子们放风筝的快乐情景。","difficulty":1,"tags":["古诗","理解"],"source":"curriculum"},
+  {"id":"c3-131","type":"classical","prompt":"下列哪首诗描写了牧童骑牛唱歌的情景？","options":["《村居》","《所见》","《小池》","《清明》"],"correct":1,"explanation":"《所见》中「牧童骑黄牛，歌声振林樾」描写了牧童骑牛唱歌。","difficulty":1,"tags":["古诗","理解"],"source":"curriculum"},
+  {"id":"c3-132","type":"classical","prompt":"「泉眼无声惜细流」出自哪首诗？","options":["《望洞庭》","《小池》","《村居》","《忆江南》"],"correct":1,"explanation":"这句出自杨万里的《小池》，描写泉眼悄悄流出细细的水流。","difficulty":2,"tags":["宋诗","名句"],"source":"curriculum"},
+  {"id":"c3-133","type":"classical","prompt":"「泉眼无声惜细流」中「惜」的意思是？","options":["可惜","爱惜、舍不得","惋惜","讨厌"],"correct":1,"explanation":"「惜」是爱惜、舍不得的意思，拟人化地写泉眼舍不得水流走，所以流得很细。","difficulty":3,"tags":["宋诗","字词"],"source":"curriculum"},
+  {"id":"c3-134","type":"classical","prompt":"「树阴照水爱晴柔」中「晴柔」的意思是？","options":["晴天很热","阴天很冷","晴天里柔和的风光","下雨天"],"correct":2,"explanation":"「晴柔」形容晴天里柔和美好的景色，树阴映在水面上，显得温柔美好。","difficulty":3,"tags":["宋诗","字词"],"source":"curriculum"},
+  {"id":"c3-135","type":"classical","prompt":"「儿童急走追黄蝶」中「急走」的意思是？","options":["慢慢走","急忙奔跑","害怕地跑","倒退着走"],"correct":1,"explanation":"古代的「走」是跑的意思，「急走」就是急忙奔跑。","difficulty":3,"tags":["宋诗","字词"],"source":"curriculum"},
+  {"id":"c3-136","type":"classical","prompt":"「飞入菜花无处寻」说明了什么？","options":["蝴蝶飞走了","黄蝶和黄色菜花颜色一样，分不清了","孩子不想找了","菜花太多了"],"correct":1,"explanation":"黄蝶飞入黄色的菜花中，因为颜色一样，所以找不到了，非常生动有趣。","difficulty":2,"tags":["宋诗","理解"],"source":"curriculum"},
+  {"id":"c3-137","type":"classical","prompt":"「横看成岭侧成峰，远近高低各不同」出自哪位诗人？","options":["李白","杜甫","苏轼","王安石"],"correct":2,"explanation":"这两句出自苏轼的《题西林壁》，描写庐山从不同角度看形态各不相同。","difficulty":2,"tags":["宋诗","文学常识"],"source":"curriculum"},
+  {"id":"c3-138","type":"classical","prompt":"「不识庐山真面目，只缘身在此山中」告诉我们什么道理？","options":["庐山太大了","看问题要从不同角度全面看，不能片面","庐山不好看","不要爬山"],"correct":1,"explanation":"这两句告诉我们：身处其中往往看不到全貌，要从不同角度看问题才能全面了解。","difficulty":3,"tags":["宋诗","理解"],"source":"curriculum"},
+  {"id":"c3-139","type":"classical","prompt":"「只缘身在此山中」中「缘」的意思是？","options":["缘分","因为","边缘","缘故"],"correct":1,"explanation":"「缘」在这里是「因为」的意思，只因为自己身处在这座山中。","difficulty":3,"tags":["宋诗","字词"],"source":"curriculum"},
+  {"id":"c3-140","type":"classical","prompt":"补全诗句：「不识庐山真面目，只缘____。」","options":["山太高","身在此山中","云雾多","看不清"],"correct":1,"explanation":"「只缘身在此山中」出自苏轼《题西林壁》。","difficulty":1,"tags":["宋诗","名句"],"source":"curriculum"},
+  {"id":"c3-141","type":"classical","prompt":"补全诗句：「独在异乡为异客，每逢佳节____。」","options":["想回家","倍思亲","很伤心","忆故乡"],"correct":1,"explanation":"「每逢佳节倍思亲」出自王维《九月九日忆山东兄弟》。","difficulty":1,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-142","type":"classical","prompt":"补全诗句：「欲把西湖比西子，____总相宜。」","options":["春夏秋冬","风和日丽","淡妆浓抹","花开花落"],"correct":2,"explanation":"「淡妆浓抹总相宜」出自苏轼《饮湖上初晴后雨》。","difficulty":2,"tags":["宋诗","名句"],"source":"curriculum"},
+  {"id":"c3-143","type":"classical","prompt":"补全诗句：「两岸青山相对出，____日边来。」","options":["小船一只","孤帆一片","白云几朵","大雁一行"],"correct":1,"explanation":"「孤帆一片日边来」出自李白《望天门山》。","difficulty":2,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-144","type":"classical","prompt":"补全诗句：「一年好景君须记，____橙黄橘绿时。」","options":["正是","就是","最是","可是"],"correct":2,"explanation":"「最是橙黄橘绿时」出自苏轼《赠刘景文》。","difficulty":2,"tags":["宋诗","名句"],"source":"curriculum"},
+  {"id":"c3-145","type":"classical","prompt":"补全诗句：「遥望洞庭山水翠，白银盘里____。」","options":["一明珠","一青螺","一块玉","一颗星"],"correct":1,"explanation":"「白银盘里一青螺」出自刘禹锡《望洞庭》。","difficulty":2,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-146","type":"classical","prompt":"「篱落疏疏一径深」出自哪首诗？","options":["《村居》","《宿新市徐公店》","《所见》","《小池》"],"correct":1,"explanation":"「篱落疏疏一径深」是杨万里《宿新市徐公店》的第一句。","difficulty":2,"tags":["宋诗","名句"],"source":"curriculum"},
+  {"id":"c3-147","type":"classical","prompt":"「篱落疏疏」的意思是？","options":["篱笆很密","篱笆稀稀疏疏","篱笆很高","篱笆坏了"],"correct":1,"explanation":"「篱落疏疏」形容篱笆稀稀疏疏的样子，「篱落」就是篱笆。","difficulty":2,"tags":["宋诗","字词"],"source":"curriculum"},
+  {"id":"c3-148","type":"classical","prompt":"「树头新绿未成阴」描写了什么时节的树？","options":["深秋的树","早春刚发芽的树","盛夏的树","冬天的树"],"correct":1,"explanation":"「新绿未成阴」形容树上刚长出新绿的叶子，还没有形成浓密的树阴，是早春时节。","difficulty":2,"tags":["宋诗","理解"],"source":"curriculum"},
+  {"id":"c3-149","type":"classical","prompt":"《咏柳》描写的是什么植物？","options":["桃树","梅花","柳树","松树"],"correct":2,"explanation":"《咏柳》是贺知章赞美柳树的诗，「碧玉妆成一树高」描写高大翠绿的柳树。","difficulty":1,"tags":["唐诗","理解"],"source":"curriculum"},
+  {"id":"c3-150","type":"classical","prompt":"「二月春风似剪刀」用了什么修辞手法？","options":["拟人","夸张","比喻","排比"],"correct":2,"explanation":"把春风比作剪刀，用了比喻的修辞手法，赞美春风裁出了细细的柳叶。","difficulty":2,"tags":["唐诗","理解"],"source":"curriculum"},
+  {"id":"c3-151","type":"classical","prompt":"「绿丝绦」在《咏柳》中比喻什么？","options":["柳叶","柳枝","柳根","柳花"],"correct":1,"explanation":"「绿丝绦」是绿色的丝带，比喻柳树垂下的千万条柳枝。","difficulty":2,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-152","type":"classical","prompt":"补全诗句：「不知细叶谁裁出，二月春风____。」","options":["吹花开","似剪刀","如流水","送温暖"],"correct":1,"explanation":"「二月春风似剪刀」出自贺知章《咏柳》。","difficulty":1,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-153","type":"classical","prompt":"补全诗句：「爆竹声中一岁除，春风送暖____。」","options":["入我家","到人间","入屠苏","迎新年"],"correct":2,"explanation":"「春风送暖入屠苏」出自王安石《元日》。","difficulty":2,"tags":["宋诗","名句"],"source":"curriculum"},
+  {"id":"c3-154","type":"classical","prompt":"补全诗句：「清明时节雨纷纷，路上行人____。」","options":["急匆匆","欲断魂","很伤心","望远方"],"correct":1,"explanation":"「路上行人欲断魂」出自杜牧《清明》。","difficulty":1,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-155","type":"classical","prompt":"补全诗句：「借问酒家何处有，牧童遥指____。」","options":["山那边","杏花村","村口处","大路旁"],"correct":1,"explanation":"「牧童遥指杏花村」出自杜牧《清明》。","difficulty":1,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-156","type":"classical","prompt":"《望庐山瀑布》描写了什么自然景观？","options":["河流","大海","瀑布","湖泊"],"correct":2,"explanation":"《望庐山瀑布》描写了庐山瀑布飞流直下的壮观景象。","difficulty":1,"tags":["唐诗","理解"],"source":"curriculum"},
+  {"id":"c3-157","type":"classical","prompt":"「三千尺」和「落九天」在诗中用了什么修辞手法？","options":["比喻","夸张","拟人","排比"],"correct":1,"explanation":"「三千尺」和「落九天」都是夸张的写法，极力形容瀑布的高大壮观。","difficulty":2,"tags":["唐诗","理解"],"source":"curriculum"},
+  {"id":"c3-158","type":"classical","prompt":"「遥看瀑布挂前川」中「挂」字好在哪里？","options":["瀑布真的挂着","用「挂」字生动写出瀑布像一条白练悬挂在山前","瀑布很重","瀑布被绳子挂住"],"correct":1,"explanation":"一个「挂」字化动为静，将飞流的瀑布写成像一条白练悬挂在山前，非常生动。","difficulty":3,"tags":["唐诗","理解"],"source":"curriculum"},
+  {"id":"c3-159","type":"classical","prompt":"「黄河入海流」的上一句是？","options":["欲穷千里目","白日依山尽","更上一层楼","黄河远上白云间"],"correct":1,"explanation":"「白日依山尽，黄河入海流」出自王之涣《登鹳雀楼》。","difficulty":1,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-160","type":"classical","prompt":"「谁知盘中餐」的下一句是？","options":["汗滴禾下土","粒粒皆辛苦","锄禾日当午","来之不容易"],"correct":1,"explanation":"「谁知盘中餐，粒粒皆辛苦」出自李绅《悯农》。","difficulty":1,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-161","type":"classical","prompt":"「鹅鹅鹅」的下一句是？","options":["白毛浮绿水","红掌拨清波","曲项向天歌","向天歌一曲"],"correct":2,"explanation":"「鹅鹅鹅，曲项向天歌」出自骆宾王《咏鹅》。","difficulty":1,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-162","type":"classical","prompt":"「一岁一枯荣」中「枯」和「荣」分别是什么意思？","options":["老和新","枯萎和茂盛","多和少","大和小"],"correct":1,"explanation":"「枯」是枯萎、干枯，「荣」是茂盛、繁荣。草一年中经历枯萎和茂盛的变化。","difficulty":2,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-163","type":"classical","prompt":"「处处闻啼鸟」中「闻」的意思是？","options":["闻到气味","听到","看到","问别人"],"correct":1,"explanation":"「闻」在古诗中常作「听到」的意思，「闻啼鸟」就是听到鸟鸣叫。","difficulty":2,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-164","type":"classical","prompt":"下列哪首诗主要表达了思乡之情？","options":["《咏鹅》","《静夜思》","《咏柳》","《小池》"],"correct":1,"explanation":"《静夜思》「举头望明月，低头思故乡」表达了诗人深深的思乡之情。","difficulty":1,"tags":["唐诗","理解"],"source":"curriculum"},
+  {"id":"c3-165","type":"classical","prompt":"下列哪首诗歌颂了小草顽强的生命力？","options":["《咏柳》","《赋得古原草送别》","《春晓》","《小池》"],"correct":1,"explanation":"「野火烧不尽，春风吹又生」歌颂了小草顽强的生命力。","difficulty":1,"tags":["唐诗","理解"],"source":"curriculum"},
+  {"id":"c3-166","type":"classical","prompt":"下列哪位诗人被称为「诗仙」？","options":["杜甫","白居易","李白","王维"],"correct":2,"explanation":"李白因诗歌才华出众、想象力丰富，被后人称为「诗仙」。","difficulty":2,"tags":["文学常识"],"source":"curriculum"},
+  {"id":"c3-167","type":"classical","prompt":"下列哪位诗人被称为「诗圣」？","options":["李白","杜甫","白居易","苏轼"],"correct":1,"explanation":"杜甫因其诗歌忧国忧民、反映社会现实，被后人尊称为「诗圣」。","difficulty":2,"tags":["文学常识"],"source":"curriculum"},
+  {"id":"c3-168","type":"classical","prompt":"李白是哪个朝代的诗人？","options":["宋代","汉代","唐代","明代"],"correct":2,"explanation":"李白是唐代最伟大的浪漫主义诗人之一。","difficulty":1,"tags":["文学常识"],"source":"curriculum"},
+  {"id":"c3-169","type":"classical","prompt":"苏轼是哪个朝代的人？","options":["唐代","宋代","明代","清代"],"correct":1,"explanation":"苏轼是宋代著名的文学家，号东坡居士。","difficulty":1,"tags":["文学常识"],"source":"curriculum"},
+  {"id":"c3-170","type":"classical","prompt":"王安石是哪个朝代的人？","options":["唐代","宋代","明代","清代"],"correct":1,"explanation":"王安石是宋代著名的政治家和文学家。","difficulty":1,"tags":["文学常识"],"source":"curriculum"},
+  {"id":"c3-171","type":"classical","prompt":"「春风又绿江南岸」中「绿」字好在哪里？","options":["颜色好看","把「绿」用作动词，生动写出春风吹绿大地的过程","绿色很普通","没什么好"],"correct":1,"explanation":"「绿」字用作动词，一个字写出春风吹过、大地变绿的动态过程，非常精妙。","difficulty":3,"tags":["宋诗","理解"],"source":"curriculum"},
+  {"id":"c3-172","type":"classical","prompt":"「春风又绿江南岸，明月何时照我还」出自哪首诗？","options":["《元日》","《泊船瓜洲》","《忆江南》","《春晓》"],"correct":1,"explanation":"这两句出自王安石的《泊船瓜洲》，表达了诗人思念家乡的感情。","difficulty":3,"tags":["宋诗","名句"],"source":"curriculum"},
+  {"id":"c3-173","type":"classical","prompt":"「明月何时照我还」中「还」的意思是？","options":["还要","归来、回家","偿还","还是"],"correct":1,"explanation":"「还」是回去、归来的意思，诗人想念家乡，想知道什么时候能回家。","difficulty":2,"tags":["宋诗","字词"],"source":"curriculum"},
+  {"id":"c3-174","type":"classical","prompt":"「路人借问遥招手，怕得鱼惊不应人」出自哪首诗？","options":["《所见》","《村居》","《小儿垂钓》","《小池》"],"correct":2,"explanation":"这两句出自胡令能的《小儿垂钓》，描写小孩钓鱼怕鱼跑了不敢回答路人的可爱场景。","difficulty":2,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-175","type":"classical","prompt":"「蓬头稚子学垂纶」中「垂纶」的意思是？","options":["放风筝","钓鱼","游泳","爬树"],"correct":1,"explanation":"「垂纶」就是钓鱼的意思，「纶」是钓鱼的丝线。","difficulty":3,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-176","type":"classical","prompt":"《小儿垂钓》表现了小孩什么特点？","options":["调皮捣蛋","天真专注、可爱","胆小害怕","聪明好学"],"correct":1,"explanation":"诗中小孩认真钓鱼，怕鱼被惊走不敢回答路人，表现了孩子天真可爱、专注的特点。","difficulty":2,"tags":["唐诗","理解"],"source":"curriculum"},
+  {"id":"c3-177","type":"classical","prompt":"名句「读书破万卷，下笔如有神」出自哪位诗人？","options":["李白","杜甫","白居易","韩愈"],"correct":1,"explanation":"这两句出自杜甫的诗，意思是读很多书后写文章就会像有神灵帮助一样好。","difficulty":2,"tags":["名言","文学常识"],"source":"curriculum"},
+  {"id":"c3-178","type":"classical","prompt":"「读书破万卷」中「破」的意思是？","options":["打破","读透、读完","破坏","打碎"],"correct":1,"explanation":"「破」在这里是读透、读完的意思，形容读了很多很多书。","difficulty":3,"tags":["名言","字词"],"source":"curriculum"},
+  {"id":"c3-179","type":"classical","prompt":"「纸上得来终觉浅，绝知此事要躬行」告诉我们什么？","options":["不要读书","书本知识不够，还要亲身实践","纸很薄","读书太简单"],"correct":1,"explanation":"这是陆游的名句，意思是从书本上得来的知识终究不够深刻，要真正了解还需亲身实践。","difficulty":3,"tags":["名言","理解"],"source":"curriculum"},
+  {"id":"c3-180","type":"classical","prompt":"「问渠那得清如许，为有源头活水来」告诉我们什么道理？","options":["水要很清","要不断学习新知识，才能保持思想活跃","要多喝水","水很重要"],"correct":1,"explanation":"这是朱熹的名句，比喻要不断学习更新知识，思想才能像活水一样清澈。","difficulty":3,"tags":["名言","理解"],"source":"curriculum"},
+  {"id":"c3-181","type":"classical","prompt":"补全诗句：「草长莺飞二月天，拂堤杨柳____。」","options":["绿如烟","醉春烟","随风飘","映水面"],"correct":1,"explanation":"「拂堤杨柳醉春烟」出自高鼎《村居》。","difficulty":2,"tags":["古诗","名句"],"source":"curriculum"},
+  {"id":"c3-182","type":"classical","prompt":"补全诗句：「白日依山尽，____入海流。」","options":["长江","大河","黄河","碧水"],"correct":2,"explanation":"「黄河入海流」出自王之涣《登鹳雀楼》。","difficulty":1,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-183","type":"classical","prompt":"补全诗句：「横看成岭侧成峰，____高低各不同。」","options":["东西","前后","上下","远近"],"correct":3,"explanation":"「远近高低各不同」出自苏轼《题西林壁》。","difficulty":2,"tags":["宋诗","名句"],"source":"curriculum"},
+  {"id":"c3-184","type":"classical","prompt":"补全诗句：「知有儿童挑促织，夜深篱落____。」","options":["月光明","一灯明","星光亮","火光红"],"correct":1,"explanation":"「夜深篱落一灯明」出自叶绍翁《夜书所见》。","difficulty":2,"tags":["宋诗","名句"],"source":"curriculum"},
+  {"id":"c3-185","type":"classical","prompt":"「遥知不是雪，为有暗香来」写的是什么？","options":["雪花","柳树","梅花","桃花"],"correct":2,"explanation":"这两句出自王安石《梅花》，远远知道不是雪，因为有暗暗的清香飘来，写的是梅花。","difficulty":2,"tags":["宋诗","理解"],"source":"curriculum"},
+  {"id":"c3-186","type":"classical","prompt":"「墙角数枝梅，凌寒独自开」描写了梅花什么品质？","options":["漂亮","不怕寒冷、坚强","香气浓","颜色红"],"correct":1,"explanation":"梅花在寒冬中独自盛开，表现了不怕寒冷、坚强不屈的品质。","difficulty":2,"tags":["宋诗","理解"],"source":"curriculum"},
+  {"id":"c3-187","type":"classical","prompt":"《梅花》的作者是谁？","options":["苏轼","王安石","杨万里","白居易"],"correct":1,"explanation":"《梅花》是宋代诗人王安石的作品。","difficulty":2,"tags":["宋诗","文学常识"],"source":"curriculum"},
+  {"id":"c3-188","type":"classical","prompt":"补全诗句：「遥知不是雪，为有____来。」","options":["花香","暗香","清风","冷气"],"correct":1,"explanation":"「为有暗香来」出自王安石《梅花》。","difficulty":2,"tags":["宋诗","名句"],"source":"curriculum"},
+  {"id":"c3-189","type":"classical","prompt":"「春蚕到死丝方尽」中「丝」谐音什么字？","options":["思","四","似","寺"],"correct":0,"explanation":"「丝」谐音「思」，春蚕到死才停止吐丝，暗含思念不尽之意。","difficulty":3,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-190","type":"classical","prompt":"下列哪首诗用了比喻的修辞？","options":["《静夜思》","《咏柳》","《悯农》","《所见》"],"correct":1,"explanation":"《咏柳》「二月春风似剪刀」把春风比作剪刀，用了比喻的修辞手法。","difficulty":2,"tags":["唐诗","理解"],"source":"curriculum"},
+  {"id":"c3-191","type":"classical","prompt":"下列哪首诗用了夸张的修辞？","options":["《春晓》","《咏鹅》","《望庐山瀑布》","《村居》"],"correct":2,"explanation":"《望庐山瀑布》「飞流直下三千尺」用了夸张的修辞来形容瀑布。","difficulty":2,"tags":["唐诗","理解"],"source":"curriculum"},
+  {"id":"c3-192","type":"classical","prompt":"「曲项向天歌」中「项」的意思是？","options":["项目","脖子","方向","头"],"correct":1,"explanation":"「项」是脖子的意思，「曲项向天歌」就是弯着脖子朝天唱歌。","difficulty":2,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-193","type":"classical","prompt":"「红掌拨清波」中「拨」的意思是？","options":["打电话","划动","泼水","拔出"],"correct":1,"explanation":"「拨」是划动的意思，鹅用红色的脚掌划动清澈的水波。","difficulty":2,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-194","type":"classical","prompt":"下列哪首诗与清明节有关？","options":["《元日》","《清明》","《九月九日忆山东兄弟》","《村居》"],"correct":1,"explanation":"杜牧的《清明》描写了清明节的情景。","difficulty":1,"tags":["唐诗","文学常识"],"source":"curriculum"},
+  {"id":"c3-195","type":"classical","prompt":"下列哪首诗与端午节有关？","options":["《元日》","《清明》","《九月九日忆山东兄弟》","以上都不是"],"correct":3,"explanation":"这几首诗分别与春节、清明节、重阳节有关，三年级课本中没有直接写端午节的古诗。","difficulty":2,"tags":["文学常识"],"source":"curriculum"},
+  {"id":"c3-196","type":"classical","prompt":"「谁言寸草心，报得三春晖」表达了什么感情？","options":["喜欢春天","对母亲的感恩之情","小草很可怜","阳光很温暖"],"correct":1,"explanation":"这是孟郊《游子吟》中的名句，用小草报答阳光比喻儿女难以报答母亲的养育之恩。","difficulty":2,"tags":["唐诗","理解"],"source":"curriculum"},
+  {"id":"c3-197","type":"classical","prompt":"「三春晖」比喻什么？","options":["春天的花","母亲的恩情和爱","三月的天气","春天的小草"],"correct":1,"explanation":"「三春晖」是春天的阳光，比喻母亲温暖博大的恩情和爱。","difficulty":3,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-198","type":"classical","prompt":"「寸草心」比喻什么？","options":["很小的草","小草的根","子女微薄的报答之心","很小的心"],"correct":2,"explanation":"「寸草心」比喻子女微薄的心意，像小草一样渺小，难以报答母亲如春晖般的大恩。","difficulty":3,"tags":["唐诗","字词"],"source":"curriculum"},
+  {"id":"c3-199","type":"classical","prompt":"补全诗句：「遥知兄弟登高处，遍插茱萸____。」","options":["想念我","少一人","多一人","望远方"],"correct":1,"explanation":"「遍插茱萸少一人」出自王维《九月九日忆山东兄弟》。","difficulty":1,"tags":["唐诗","名句"],"source":"curriculum"},
+  {"id":"c3-200","type":"classical","prompt":"补全诗句：「谁言寸草心，____三春晖。」","options":["感恩","报得","感谢","回报"],"correct":1,"explanation":"「报得三春晖」出自孟郊《游子吟》。","difficulty":2,"tags":["唐诗","名句"],"source":"curriculum"}
 ]

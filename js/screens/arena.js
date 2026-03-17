@@ -151,7 +151,7 @@ async function renderArena() {
     playMusic('tang');
     try { playStinger('battle_start'); } catch (_) {}
 
-    const tierLabel = (tier) => tier === 'grade7' ? '七年级' : '三年级';
+    const tierLabel = (tier) => { const map = { grade1: '一二年级', grade3: '三年级', grade4: '四年级', grade5: '五六年级', grade7: '七年级', grade8: '八九年级' }; return map[tier] || tier; };
 
     div.innerHTML = `
       <div style="position:relative;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;">
@@ -255,7 +255,7 @@ async function renderArena() {
   function renderInterstitial() {
     const name = currentPlayer === 1 ? p1.name : p2.name;
     const tier = currentPlayer === 1 ? p1.tier : p2.tier;
-    const tierLabel = tier === 'grade7' ? '七年级' : '三年级';
+    const tierLabel = (() => { const map = { grade1: '一二年级', grade3: '三年级', grade4: '四年级', grade5: '五六年级', grade7: '七年级', grade8: '八九年级' }; return map[tier] || tier; })();
     const pColor = currentPlayer === 1 ? '#d4a017' : '#3498db';
 
     div.innerHTML = `
@@ -282,7 +282,8 @@ async function renderArena() {
     const q = questions[qIdx];
     if (!q) { endArena(); return; }
 
-    const tierMultiplier = (currentPlayer === 1 ? p1.tier : p2.tier) === 'grade7' ? 1.5 : 1.0;
+    const _arTier = currentPlayer === 1 ? p1.tier : p2.tier;
+    const tierMultiplier = ['grade7', 'grade8'].includes(_arTier) ? 1.5 : ['grade5'].includes(_arTier) ? 1.25 : 1.0;
     let timerInterval;
     let timeLeft = baseTimer;
     let answered = false;

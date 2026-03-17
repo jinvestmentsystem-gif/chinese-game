@@ -129,11 +129,15 @@ export async function startQuest(chapterId, questIndex) {
   }
   let reviewInsertIndex = 0; // tracks which combat encounter gets review questions
 
+  // Determine grade-level bias for difficulty calibration
+  // Lower tiers (grade1-grade5) weight toward easier questions; upper tiers (grade7-grade8) use full adaptive range
+  const gradeBias = profile.tier; // e.g. 'grade1', 'grade3', 'grade4', 'grade5', 'grade7', 'grade8'
+
   // Pre-assign content to encounters
   const diffTarget = getAdaptiveDifficulty(profile, 'vocab');
   for (const enc of encounters) {
     if (enc.type === 'combat') {
-      enc.questions = pickQuestions(content.vocab, 5, profile.seenQuestions.vocab, diffTarget, sessionUsedIds);
+      enc.questions = pickQuestions(content.vocab, 5, profile.seenQuestions.vocab, diffTarget, sessionUsedIds, gradeBias);
       enc.questions.forEach(q => sessionUsedIds.push(q.id));
       // Inject 1-2 review questions into the first combat encounter
       if (reviewInsertIndex === 0 && reviewQuestions.length > 0) {
@@ -149,7 +153,7 @@ export async function startQuest(chapterId, questIndex) {
       if (enc.passage?.id) sessionUsedIds.push(enc.passage.id);
     } else if (enc.type === 'boss') {
       const clTarget = getAdaptiveDifficulty(profile, 'classical');
-      enc.questions = pickQuestions(content.classical, 10, profile.seenQuestions.classical, clTarget, sessionUsedIds);
+      enc.questions = pickQuestions(content.classical, 10, profile.seenQuestions.classical, clTarget, sessionUsedIds, gradeBias);
       enc.questions.forEach(q => sessionUsedIds.push(q.id));
     }
     // 'treasure' and 'rest' encounters have no questions — their data is set at generation time

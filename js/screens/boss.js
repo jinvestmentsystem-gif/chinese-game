@@ -528,8 +528,12 @@ function renderBoss() {
         <div style="font-weight:700;color:#e8a0a0;">${bossAbility.name}: ${bossAbility.desc}</div>
       </div>
 
-      <div class="boss-sprite-container">
-        <div class="boss-svg-wrap" id="boss-sprite-wrap">
+      <div class="boss-sprite-container" style="position:relative;">
+        <!-- HD-2D: Volumetric light rays behind boss -->
+        <div class="light-rays" id="boss-light-rays"${isFirstRender ? '' : ' style="opacity:0.5;"'}></div>
+        <!-- HD-2D: Intense bokeh particles for boss arena -->
+        <div class="bokeh-container" id="boss-bokeh"></div>
+        <div class="boss-svg-wrap sprite-bloom-boss" id="boss-sprite-wrap">
           <div id="boss-sprite" style="width:120px;height:200px;display:flex;align-items:center;justify-content:center;${isFirstRender ? 'transform:scale(2.5);opacity:0;' : `filter:${getDamageFilter()};`}">
           </div>
         </div>
@@ -566,6 +570,46 @@ function renderBoss() {
         bossContainer.innerHTML = '';
         bossContainer.appendChild(createSpriteImg(sprites.boss_cangjie, 200));
       }
+    }
+
+    // ── HD-2D: Generate intense bokeh particles for boss arena ──
+    {
+      const bokehContainer = div.querySelector('#boss-bokeh');
+      if (bokehContainer) {
+        // More particles than combat, brighter and larger for boss intensity
+        const bokehCount = bossHp <= 33 ? 25 : bossHp <= 66 ? 20 : 15;
+        for (let i = 0; i < bokehCount; i++) {
+          const dot = document.createElement('div');
+          dot.className = 'bokeh-dot';
+          const size = 5 + Math.random() * 16;
+          dot.style.cssText = `
+            width:${size}px; height:${size}px;
+            left:${Math.random() * 100}%; top:${Math.random() * 100}%;
+            --duration:${4 + Math.random() * 6}s;
+            --delay:${-Math.random() * 6}s;
+            --scale:${0.7 + Math.random() * 1.0};
+            --drift-y:${-25 - Math.random() * 50}px;
+            --max-opacity:${0.4 + Math.random() * 0.5};
+          `;
+          // Boss phase coloring: redder as boss HP drops
+          if (bossHp <= 33) {
+            dot.style.background = 'radial-gradient(circle, rgba(255,100,100,0.9) 0%, rgba(214,48,49,0.4) 40%, transparent 70%)';
+          } else if (bossHp <= 66) {
+            dot.style.background = 'radial-gradient(circle, rgba(255,200,150,0.8) 0%, rgba(212,160,23,0.4) 40%, transparent 70%)';
+          }
+          bokehContainer.appendChild(dot);
+        }
+      }
+    }
+
+    // ── HD-2D: Apply era class and depth layering to boss screen ──
+    {
+      const eraClassMap = {1:'era-xianqin',2:'era-han',3:'era-tang',4:'era-song',5:'era-modern'};
+      const eraClass = eraClassMap[quest.chapterId] || 'era-xianqin';
+      div.classList.add(eraClass);
+      div.classList.add('bg-depth-far');
+      const spriteWrap = div.querySelector('#boss-sprite-wrap');
+      if (spriteWrap) spriteWrap.classList.add('bg-depth-near');
     }
 
     // ── Boss entrance animation (first render only) ──
@@ -615,6 +659,18 @@ function renderBoss() {
         setTimeout(() => shakeContainer(div, 8, 400), 1100);
       }
 
+      // HD-2D: Light rays blaze at full during entrance, then settle
+      const lightRays = div.querySelector('#boss-light-rays');
+      if (lightRays) {
+        lightRays.style.opacity = '1';
+        lightRays.style.transition = 'opacity 2s ease-out 1.5s';
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            lightRays.style.opacity = '0.5';
+          });
+        });
+      }
+
     } else if (phaseTransition) {
       // Phase transition: flash, hue-rotate, phase label animation + companion/boss dialogue
       bossFlash(div, '#c0392b');
@@ -634,6 +690,16 @@ function renderBoss() {
         setTimeout(() => {
           phaseLabelEl.style.transform = 'scale(1)';
         }, 350);
+      }
+      // HD-2D: Flare light rays on phase transition, then settle
+      const lightRays = div.querySelector('#boss-light-rays');
+      if (lightRays) {
+        lightRays.style.transition = 'opacity 0.2s ease-out';
+        lightRays.style.opacity = '1';
+        setTimeout(() => {
+          lightRays.style.transition = 'opacity 1.5s ease-out';
+          lightRays.style.opacity = bossHp <= 33 ? '0.8' : '0.5';
+        }, 500);
       }
     }
 

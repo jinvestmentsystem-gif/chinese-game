@@ -1,0 +1,1902 @@
+[
+  {
+    "id": "c1-001",
+    "type": "classical",
+    "prompt": "《静夜思》的作者是谁？",
+    "options": [
+      "杜甫",
+      "李白",
+      "孟浩然",
+      "王维"
+    ],
+    "correct": 1,
+    "explanation": "《静夜思》是唐代诗人李白的作品。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-002",
+    "type": "classical",
+    "prompt": "「床前明月光」的下一句是？",
+    "options": [
+      "举头望明月",
+      "疑是地上霜",
+      "低头思故乡",
+      "春风吹又生"
+    ],
+    "correct": 1,
+    "explanation": "「床前明月光，疑是地上霜」出自李白《静夜思》。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "名句"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-003",
+    "type": "classical",
+    "prompt": "「举头望明月」的下一句是？",
+    "options": [
+      "疑是地上霜",
+      "低头思故乡",
+      "床前明月光",
+      "春眠不觉晓"
+    ],
+    "correct": 1,
+    "explanation": "「举头望明月，低头思故乡」出自李白《静夜思》。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "名句"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-004",
+    "type": "classical",
+    "prompt": "《静夜思》中诗人思念的是什么？",
+    "options": [
+      "朋友",
+      "故乡",
+      "月亮",
+      "春天"
+    ],
+    "correct": 1,
+    "explanation": "「低头思故乡」表明诗人在思念自己的故乡。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-005",
+    "type": "classical",
+    "prompt": "《咏鹅》的作者是谁？",
+    "options": [
+      "李白",
+      "骆宾王",
+      "杜甫",
+      "白居易"
+    ],
+    "correct": 1,
+    "explanation": "《咏鹅》是唐代诗人骆宾王七岁时写的。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-006",
+    "type": "classical",
+    "prompt": "《咏鹅》描写的是什么动物？",
+    "options": [
+      "鸡",
+      "鸭",
+      "鹅",
+      "鸟"
+    ],
+    "correct": 2,
+    "explanation": "《咏鹅》描写的是鹅，「鹅、鹅、鹅，曲项向天歌」。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-007",
+    "type": "classical",
+    "prompt": "「鹅、鹅、鹅」的下一句是？",
+    "options": [
+      "白毛浮绿水",
+      "曲项向天歌",
+      "红掌拨清波",
+      "床前明月光"
+    ],
+    "correct": 1,
+    "explanation": "「鹅、鹅、鹅，曲项向天歌」出自骆宾王《咏鹅》。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "名句"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-008",
+    "type": "classical",
+    "prompt": "「白毛浮绿水」的下一句是？",
+    "options": [
+      "曲项向天歌",
+      "红掌拨清波",
+      "疑是地上霜",
+      "低头思故乡"
+    ],
+    "correct": 1,
+    "explanation": "「白毛浮绿水，红掌拨清波」出自骆宾王《咏鹅》。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "名句"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-009",
+    "type": "classical",
+    "prompt": "《咏鹅》中「曲项」是什么意思？",
+    "options": [
+      "直直的脖子",
+      "弯弯的脖子",
+      "长长的翅膀",
+      "红红的脚掌"
+    ],
+    "correct": 1,
+    "explanation": "「曲项」是弯着脖子的意思。鹅弯着脖子朝天唱歌。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "字词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-010",
+    "type": "classical",
+    "prompt": "《春晓》的作者是谁？",
+    "options": [
+      "李白",
+      "杜甫",
+      "孟浩然",
+      "王维"
+    ],
+    "correct": 2,
+    "explanation": "《春晓》是唐代诗人孟浩然的作品。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-011",
+    "type": "classical",
+    "prompt": "「春眠不觉晓」的下一句是？",
+    "options": [
+      "花落知多少",
+      "处处闻啼鸟",
+      "夜来风雨声",
+      "疑是地上霜"
+    ],
+    "correct": 1,
+    "explanation": "「春眠不觉晓，处处闻啼鸟」出自孟浩然《春晓》。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "名句"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-012",
+    "type": "classical",
+    "prompt": "《春晓》写的是什么季节？",
+    "options": [
+      "夏天",
+      "秋天",
+      "冬天",
+      "春天"
+    ],
+    "correct": 3,
+    "explanation": "《春晓》写的是春天的早晨，「春眠不觉晓」。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-013",
+    "type": "classical",
+    "prompt": "「夜来风雨声」的下一句是？",
+    "options": [
+      "处处闻啼鸟",
+      "花落知多少",
+      "春眠不觉晓",
+      "低头思故乡"
+    ],
+    "correct": 1,
+    "explanation": "「夜来风雨声，花落知多少」出自孟浩然《春晓》。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "名句"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-014",
+    "type": "classical",
+    "prompt": "《春晓》中「晓」是什么意思？",
+    "options": [
+      "晚上",
+      "中午",
+      "早晨",
+      "下午"
+    ],
+    "correct": 2,
+    "explanation": "「晓」是早晨、天亮的意思。「春眠不觉晓」就是春天睡觉不知不觉天就亮了。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "字词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-015",
+    "type": "classical",
+    "prompt": "《画》的作者是谁？",
+    "options": [
+      "李白",
+      "王维",
+      "杜甫",
+      "白居易"
+    ],
+    "correct": 1,
+    "explanation": "《画》是唐代诗人王维的作品。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-016",
+    "type": "classical",
+    "prompt": "「远看山有色」的下一句是？",
+    "options": [
+      "春去花还在",
+      "近听水无声",
+      "人来鸟不惊",
+      "花落知多少"
+    ],
+    "correct": 1,
+    "explanation": "「远看山有色，近听水无声」出自王维《画》。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "名句"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-017",
+    "type": "classical",
+    "prompt": "「春去花还在」的下一句是？",
+    "options": [
+      "近听水无声",
+      "人来鸟不惊",
+      "远看山有色",
+      "疑是地上霜"
+    ],
+    "correct": 1,
+    "explanation": "「春去花还在，人来鸟不惊」出自王维《画》。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "名句"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-018",
+    "type": "classical",
+    "prompt": "《画》这首诗描写的是什么？",
+    "options": [
+      "真的山水",
+      "一幅画",
+      "春天的花",
+      "天上的鸟"
+    ],
+    "correct": 1,
+    "explanation": "《画》描写的是一幅画，画上有山有水有花有鸟，但都是画出来的。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-019",
+    "type": "classical",
+    "prompt": "《悯农》（其一）的作者是谁？",
+    "options": [
+      "李白",
+      "杜甫",
+      "李绅",
+      "王维"
+    ],
+    "correct": 2,
+    "explanation": "《悯农》是唐代诗人李绅的作品。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-020",
+    "type": "classical",
+    "prompt": "「锄禾日当午」的下一句是？",
+    "options": [
+      "谁知盘中餐",
+      "汗滴禾下土",
+      "粒粒皆辛苦",
+      "春种一粒粟"
+    ],
+    "correct": 1,
+    "explanation": "「锄禾日当午，汗滴禾下土」出自李绅《悯农》（其一）。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "名句"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-021",
+    "type": "classical",
+    "prompt": "「谁知盘中餐」的下一句是？",
+    "options": [
+      "汗滴禾下土",
+      "粒粒皆辛苦",
+      "锄禾日当午",
+      "春种一粒粟"
+    ],
+    "correct": 1,
+    "explanation": "「谁知盘中餐，粒粒皆辛苦」出自李绅《悯农》（其一）。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "名句"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-022",
+    "type": "classical",
+    "prompt": "「锄禾日当午」中「禾」指什么？",
+    "options": [
+      "花朵",
+      "庄稼",
+      "树木",
+      "小草"
+    ],
+    "correct": 1,
+    "explanation": "「禾」指庄稼、禾苗，就是在田里种的粮食作物。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "字词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-023",
+    "type": "classical",
+    "prompt": "《悯农》（其一）告诉我们什么道理？",
+    "options": [
+      "要多睡觉",
+      "要爱护花草",
+      "要珍惜粮食",
+      "要好好学习"
+    ],
+    "correct": 2,
+    "explanation": "《悯农》告诉我们粮食来之不易，每一粒都是农民辛苦种出来的，要珍惜粮食。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-024",
+    "type": "classical",
+    "prompt": "「春种一粒粟」的下一句是？",
+    "options": [
+      "汗滴禾下土",
+      "秋收万颗子",
+      "粒粒皆辛苦",
+      "锄禾日当午"
+    ],
+    "correct": 1,
+    "explanation": "「春种一粒粟，秋收万颗子」出自李绅《悯农》（其二）。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "名句"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-025",
+    "type": "classical",
+    "prompt": "「四海无闲田」的下一句是？",
+    "options": [
+      "秋收万颗子",
+      "农夫犹饿死",
+      "粒粒皆辛苦",
+      "春种一粒粟"
+    ],
+    "correct": 1,
+    "explanation": "「四海无闲田，农夫犹饿死」出自李绅《悯农》（其二）。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "名句"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-026",
+    "type": "classical",
+    "prompt": "《登鹳雀楼》的作者是谁？",
+    "options": [
+      "李白",
+      "杜甫",
+      "王之涣",
+      "白居易"
+    ],
+    "correct": 2,
+    "explanation": "《登鹳雀楼》是唐代诗人王之涣的作品。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-027",
+    "type": "classical",
+    "prompt": "「白日依山尽」的下一句是？",
+    "options": [
+      "更上一层楼",
+      "黄河入海流",
+      "欲穷千里目",
+      "疑是地上霜"
+    ],
+    "correct": 1,
+    "explanation": "「白日依山尽，黄河入海流」出自王之涣《登鹳雀楼》。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "名句"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-028",
+    "type": "classical",
+    "prompt": "「欲穷千里目」的下一句是？",
+    "options": [
+      "黄河入海流",
+      "更上一层楼",
+      "白日依山尽",
+      "低头思故乡"
+    ],
+    "correct": 1,
+    "explanation": "「欲穷千里目，更上一层楼」出自王之涣《登鹳雀楼》。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "名句"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-029",
+    "type": "classical",
+    "prompt": "「欲穷千里目，更上一层楼」告诉我们什么道理？",
+    "options": [
+      "要多睡觉",
+      "要站得高才能看得远",
+      "要多吃饭",
+      "要多喝水"
+    ],
+    "correct": 1,
+    "explanation": "这句诗告诉我们要站得更高才能看得更远，比喻要不断努力进步。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-030",
+    "type": "classical",
+    "prompt": "《小池》的作者是谁？",
+    "options": [
+      "杨万里",
+      "李白",
+      "杜甫",
+      "白居易"
+    ],
+    "correct": 0,
+    "explanation": "《小池》是宋代诗人杨万里的作品。",
+    "difficulty": 1,
+    "tags": [
+      "宋诗",
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-031",
+    "type": "classical",
+    "prompt": "「泉眼无声惜细流」的下一句是？",
+    "options": [
+      "小荷才露尖尖角",
+      "树阴照水爱晴柔",
+      "早有蜻蜓立上头",
+      "映日荷花别样红"
+    ],
+    "correct": 1,
+    "explanation": "「泉眼无声惜细流，树阴照水爱晴柔」出自杨万里《小池》。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "名句"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-032",
+    "type": "classical",
+    "prompt": "「小荷才露尖尖角」的下一句是？",
+    "options": [
+      "树阴照水爱晴柔",
+      "早有蜻蜓立上头",
+      "泉眼无声惜细流",
+      "映日荷花别样红"
+    ],
+    "correct": 1,
+    "explanation": "「小荷才露尖尖角，早有蜻蜓立上头」出自杨万里《小池》。",
+    "difficulty": 1,
+    "tags": [
+      "宋诗",
+      "名句"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-033",
+    "type": "classical",
+    "prompt": "《小池》写的是什么季节？",
+    "options": [
+      "春天",
+      "夏天",
+      "秋天",
+      "冬天"
+    ],
+    "correct": 1,
+    "explanation": "《小池》写的是夏天，诗中有荷花和蜻蜓，是夏天的景象。",
+    "difficulty": 1,
+    "tags": [
+      "宋诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-034",
+    "type": "classical",
+    "prompt": "《小池》中「小荷」指什么？",
+    "options": [
+      "小河",
+      "小花",
+      "刚长出来的荷叶",
+      "小鱼"
+    ],
+    "correct": 2,
+    "explanation": "「小荷」指刚刚长出来的嫩荷叶，才露出小小的尖角。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "字词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-035",
+    "type": "classical",
+    "prompt": "《江南》属于什么类型的诗？",
+    "options": [
+      "唐诗",
+      "宋词",
+      "汉乐府",
+      "元曲"
+    ],
+    "correct": 2,
+    "explanation": "《江南》是一首汉乐府民歌。",
+    "difficulty": 2,
+    "tags": [
+      "汉乐府",
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-036",
+    "type": "classical",
+    "prompt": "《江南》中「江南可采莲」的下一句是？",
+    "options": [
+      "鱼戏莲叶间",
+      "莲叶何田田",
+      "莲叶何其多",
+      "鱼戏莲叶东"
+    ],
+    "correct": 1,
+    "explanation": "「江南可采莲，莲叶何田田」出自汉乐府《江南》。",
+    "difficulty": 1,
+    "tags": [
+      "汉乐府",
+      "名句"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-037",
+    "type": "classical",
+    "prompt": "《江南》描写了什么景象？",
+    "options": [
+      "爬山",
+      "采莲",
+      "钓鱼",
+      "放牛"
+    ],
+    "correct": 1,
+    "explanation": "《江南》描写了江南水乡采莲的美丽景象。",
+    "difficulty": 1,
+    "tags": [
+      "汉乐府",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-038",
+    "type": "classical",
+    "prompt": "《风》的作者是谁？",
+    "options": [
+      "李白",
+      "李峤",
+      "杜甫",
+      "王维"
+    ],
+    "correct": 1,
+    "explanation": "《风》是唐代诗人李峤的作品。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-039",
+    "type": "classical",
+    "prompt": "「解落三秋叶」的下一句是？",
+    "options": [
+      "过江千尺浪",
+      "能开二月花",
+      "入竹万竿斜",
+      "疑是地上霜"
+    ],
+    "correct": 1,
+    "explanation": "「解落三秋叶，能开二月花」出自李峤《风》。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "名句"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-040",
+    "type": "classical",
+    "prompt": "「过江千尺浪」的下一句是？",
+    "options": [
+      "能开二月花",
+      "入竹万竿斜",
+      "解落三秋叶",
+      "春风吹又生"
+    ],
+    "correct": 1,
+    "explanation": "「过江千尺浪，入竹万竿斜」出自李峤《风》。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "名句"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-041",
+    "type": "classical",
+    "prompt": "《风》这首诗写的是什么？",
+    "options": [
+      "雨",
+      "雪",
+      "风",
+      "雷"
+    ],
+    "correct": 2,
+    "explanation": "《风》这首诗全篇写风，描写了风能吹落树叶、吹开花朵、吹起大浪、吹斜竹子。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-042",
+    "type": "classical",
+    "prompt": "《赋得古原草送别》的作者是谁？",
+    "options": [
+      "李白",
+      "杜甫",
+      "白居易",
+      "王维"
+    ],
+    "correct": 2,
+    "explanation": "《赋得古原草送别》是唐代诗人白居易的作品。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-043",
+    "type": "classical",
+    "prompt": "「离离原上草」的下一句是？",
+    "options": [
+      "春风吹又生",
+      "一岁一枯荣",
+      "野火烧不尽",
+      "萋萋满别情"
+    ],
+    "correct": 1,
+    "explanation": "「离离原上草，一岁一枯荣」出自白居易《赋得古原草送别》。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "名句"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-044",
+    "type": "classical",
+    "prompt": "「野火烧不尽」的下一句是？",
+    "options": [
+      "一岁一枯荣",
+      "春风吹又生",
+      "离离原上草",
+      "萋萋满别情"
+    ],
+    "correct": 1,
+    "explanation": "「野火烧不尽，春风吹又生」出自白居易《赋得古原草送别》。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "名句"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-045",
+    "type": "classical",
+    "prompt": "「野火烧不尽，春风吹又生」描写的是什么？",
+    "options": [
+      "花的生命力",
+      "草的生命力",
+      "树的生命力",
+      "水的力量"
+    ],
+    "correct": 1,
+    "explanation": "这句诗描写草的生命力很顽强，野火也烧不完，春风一吹又长出来了。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-046",
+    "type": "classical",
+    "prompt": "《池上》的作者是谁？",
+    "options": [
+      "李白",
+      "白居易",
+      "杜甫",
+      "杨万里"
+    ],
+    "correct": 1,
+    "explanation": "《池上》是唐代诗人白居易的作品。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-047",
+    "type": "classical",
+    "prompt": "「小娃撑小艇」的下一句是？",
+    "options": [
+      "不解藏踪迹",
+      "偷采白莲回",
+      "浮萍一道开",
+      "白毛浮绿水"
+    ],
+    "correct": 1,
+    "explanation": "「小娃撑小艇，偷采白莲回」出自白居易《池上》。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "名句"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-048",
+    "type": "classical",
+    "prompt": "「不解藏踪迹」的下一句是？",
+    "options": [
+      "偷采白莲回",
+      "浮萍一道开",
+      "小娃撑小艇",
+      "红掌拨清波"
+    ],
+    "correct": 1,
+    "explanation": "「不解藏踪迹，浮萍一道开」出自白居易《池上》。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "名句"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-049",
+    "type": "classical",
+    "prompt": "《池上》中小娃娃在做什么？",
+    "options": [
+      "钓鱼",
+      "游泳",
+      "偷采白莲",
+      "放鸭子"
+    ],
+    "correct": 2,
+    "explanation": "《池上》写的是一个小娃娃撑着小船偷偷去采白莲。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-050",
+    "type": "classical",
+    "prompt": "《小儿垂钓》的作者是谁？",
+    "options": [
+      "李白",
+      "白居易",
+      "胡令能",
+      "杜甫"
+    ],
+    "correct": 2,
+    "explanation": "《小儿垂钓》是唐代诗人胡令能的作品。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-051",
+    "type": "classical",
+    "prompt": "「蓬头稚子学垂纶」的下一句是？",
+    "options": [
+      "路人借问遥招手",
+      "侧坐莓苔草映身",
+      "怕得鱼惊不应人",
+      "小娃撑小艇"
+    ],
+    "correct": 1,
+    "explanation": "「蓬头稚子学垂纶，侧坐莓苔草映身」出自胡令能《小儿垂钓》。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "名句"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-052",
+    "type": "classical",
+    "prompt": "「路人借问遥招手」的下一句是？",
+    "options": [
+      "侧坐莓苔草映身",
+      "怕得鱼惊不应人",
+      "蓬头稚子学垂纶",
+      "浮萍一道开"
+    ],
+    "correct": 1,
+    "explanation": "「路人借问遥招手，怕得鱼惊不应人」出自胡令能《小儿垂钓》。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "名句"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-053",
+    "type": "classical",
+    "prompt": "《小儿垂钓》中小孩在做什么？",
+    "options": [
+      "采莲",
+      "放牛",
+      "钓鱼",
+      "爬山"
+    ],
+    "correct": 2,
+    "explanation": "「小儿垂钓」就是小孩子在钓鱼。「垂纶」就是垂钓的意思。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-054",
+    "type": "classical",
+    "prompt": "《小儿垂钓》中小孩为什么不回答路人？",
+    "options": [
+      "听不见",
+      "不礼貌",
+      "怕鱼被吓跑",
+      "不认识路人"
+    ],
+    "correct": 2,
+    "explanation": "「怕得鱼惊不应人」，小孩怕说话把鱼吓跑了，所以不回答。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-055",
+    "type": "classical",
+    "prompt": "《梅花》的作者是谁？",
+    "options": [
+      "李白",
+      "杜甫",
+      "白居易",
+      "王安石"
+    ],
+    "correct": 3,
+    "explanation": "《梅花》是宋代诗人王安石的作品。",
+    "difficulty": 1,
+    "tags": [
+      "宋诗",
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-056",
+    "type": "classical",
+    "prompt": "「墙角数枝梅」的下一句是？",
+    "options": [
+      "为有暗香来",
+      "凌寒独自开",
+      "遥知不是雪",
+      "春风吹又生"
+    ],
+    "correct": 1,
+    "explanation": "「墙角数枝梅，凌寒独自开」出自王安石《梅花》。",
+    "difficulty": 1,
+    "tags": [
+      "宋诗",
+      "名句"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-057",
+    "type": "classical",
+    "prompt": "「遥知不是雪」的下一句是？",
+    "options": [
+      "凌寒独自开",
+      "为有暗香来",
+      "墙角数枝梅",
+      "处处闻啼鸟"
+    ],
+    "correct": 1,
+    "explanation": "「遥知不是雪，为有暗香来」出自王安石《梅花》。",
+    "difficulty": 1,
+    "tags": [
+      "宋诗",
+      "名句"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-058",
+    "type": "classical",
+    "prompt": "《梅花》写的是什么季节？",
+    "options": [
+      "春天",
+      "夏天",
+      "秋天",
+      "冬天"
+    ],
+    "correct": 3,
+    "explanation": "《梅花》写的是冬天，梅花在寒冷的冬天开放，「凌寒独自开」。",
+    "difficulty": 1,
+    "tags": [
+      "宋诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-059",
+    "type": "classical",
+    "prompt": "《梅花》中「凌寒」是什么意思？",
+    "options": [
+      "温暖的",
+      "冒着严寒",
+      "凉爽的",
+      "下雨的"
+    ],
+    "correct": 1,
+    "explanation": "「凌寒」是冒着严寒的意思。梅花不怕冷，在寒冬中独自开放。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "字词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-060",
+    "type": "classical",
+    "prompt": "《村居》的作者是谁？",
+    "options": [
+      "白居易",
+      "高鼎",
+      "杨万里",
+      "李白"
+    ],
+    "correct": 1,
+    "explanation": "《村居》是清代诗人高鼎的作品。",
+    "difficulty": 1,
+    "tags": [
+      "清诗",
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-061",
+    "type": "classical",
+    "prompt": "「草长莺飞二月天」的下一句是？",
+    "options": [
+      "忙趁东风放纸鸢",
+      "拂堤杨柳醉春烟",
+      "儿童散学归来早",
+      "春眠不觉晓"
+    ],
+    "correct": 1,
+    "explanation": "「草长莺飞二月天，拂堤杨柳醉春烟」出自高鼎《村居》。",
+    "difficulty": 1,
+    "tags": [
+      "清诗",
+      "名句"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-062",
+    "type": "classical",
+    "prompt": "「儿童散学归来早」的下一句是？",
+    "options": [
+      "拂堤杨柳醉春烟",
+      "忙趁东风放纸鸢",
+      "草长莺飞二月天",
+      "花落知多少"
+    ],
+    "correct": 1,
+    "explanation": "「儿童散学归来早，忙趁东风放纸鸢」出自高鼎《村居》。",
+    "difficulty": 1,
+    "tags": [
+      "清诗",
+      "名句"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-063",
+    "type": "classical",
+    "prompt": "《村居》中「纸鸢」是什么？",
+    "options": [
+      "纸船",
+      "风筝",
+      "纸飞机",
+      "纸花"
+    ],
+    "correct": 1,
+    "explanation": "「纸鸢」就是风筝。孩子们放学后趁着东风去放风筝。",
+    "difficulty": 1,
+    "tags": [
+      "清诗",
+      "字词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-064",
+    "type": "classical",
+    "prompt": "《村居》写的是什么季节？",
+    "options": [
+      "春天",
+      "夏天",
+      "秋天",
+      "冬天"
+    ],
+    "correct": 0,
+    "explanation": "《村居》写的是春天，「草长莺飞二月天」描写的是早春二月的景象。",
+    "difficulty": 1,
+    "tags": [
+      "清诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-065",
+    "type": "classical",
+    "prompt": "《所见》的作者是谁？",
+    "options": [
+      "高鼎",
+      "袁枚",
+      "李白",
+      "杜甫"
+    ],
+    "correct": 1,
+    "explanation": "《所见》是清代诗人袁枚的作品。",
+    "difficulty": 1,
+    "tags": [
+      "清诗",
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-066",
+    "type": "classical",
+    "prompt": "「牧童骑黄牛」的下一句是？",
+    "options": [
+      "意欲捕鸣蝉",
+      "歌声振林樾",
+      "忽然闭口立",
+      "儿童散学归来早"
+    ],
+    "correct": 1,
+    "explanation": "「牧童骑黄牛，歌声振林樾」出自袁枚《所见》。",
+    "difficulty": 1,
+    "tags": [
+      "清诗",
+      "名句"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-067",
+    "type": "classical",
+    "prompt": "「意欲捕鸣蝉」的下一句是？",
+    "options": [
+      "歌声振林樾",
+      "忽然闭口立",
+      "牧童骑黄牛",
+      "草长莺飞二月天"
+    ],
+    "correct": 1,
+    "explanation": "「意欲捕鸣蝉，忽然闭口立」出自袁枚《所见》。",
+    "difficulty": 1,
+    "tags": [
+      "清诗",
+      "名句"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-068",
+    "type": "classical",
+    "prompt": "《所见》中牧童为什么忽然不唱歌了？",
+    "options": [
+      "累了",
+      "忘了歌词",
+      "想捉蝉",
+      "看见了老师"
+    ],
+    "correct": 2,
+    "explanation": "牧童想要捉树上叫的蝉，怕蝉被吓跑，所以忽然闭口不唱了。",
+    "difficulty": 1,
+    "tags": [
+      "清诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-069",
+    "type": "classical",
+    "prompt": "《所见》中「牧童」是做什么的？",
+    "options": [
+      "读书的孩子",
+      "放牛的孩子",
+      "钓鱼的孩子",
+      "种田的孩子"
+    ],
+    "correct": 1,
+    "explanation": "「牧童」是放牛的孩子。「牧童骑黄牛」就是放牛的孩子骑在黄牛上。",
+    "difficulty": 1,
+    "tags": [
+      "清诗",
+      "字词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-070",
+    "type": "classical",
+    "prompt": "《咏鹅》中鹅的毛是什么颜色？",
+    "options": [
+      "黑色",
+      "黄色",
+      "白色",
+      "灰色"
+    ],
+    "correct": 2,
+    "explanation": "「白毛浮绿水」说明鹅的毛是白色的。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-071",
+    "type": "classical",
+    "prompt": "《咏鹅》中鹅的脚掌是什么颜色？",
+    "options": [
+      "白色",
+      "黄色",
+      "红色",
+      "黑色"
+    ],
+    "correct": 2,
+    "explanation": "「红掌拨清波」说明鹅的脚掌是红色的。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-072",
+    "type": "classical",
+    "prompt": "《静夜思》中诗人看到的是什么？",
+    "options": [
+      "太阳",
+      "星星",
+      "月亮",
+      "彩虹"
+    ],
+    "correct": 2,
+    "explanation": "「床前明月光」和「举头望明月」都说明诗人看到的是月亮。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-073",
+    "type": "classical",
+    "prompt": "《登鹳雀楼》中提到了哪条河？",
+    "options": [
+      "长江",
+      "黄河",
+      "珠江",
+      "淮河"
+    ],
+    "correct": 1,
+    "explanation": "「黄河入海流」提到了黄河。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-074",
+    "type": "classical",
+    "prompt": "「锄禾日当午」中「日当午」是什么意思？",
+    "options": [
+      "早上",
+      "中午",
+      "傍晚",
+      "夜里"
+    ],
+    "correct": 1,
+    "explanation": "「日当午」是太阳正当头的中午时分。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "字词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-075",
+    "type": "classical",
+    "prompt": "《梅花》中梅花为什么远看像雪？",
+    "options": [
+      "梅花是红色的",
+      "梅花是白色的",
+      "梅花是黄色的",
+      "梅花是蓝色的"
+    ],
+    "correct": 1,
+    "explanation": "「遥知不是雪」说明梅花是白色的，远看像雪一样白。",
+    "difficulty": 1,
+    "tags": [
+      "宋诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-076",
+    "type": "classical",
+    "prompt": "《村居》中孩子们放学后做什么？",
+    "options": [
+      "写作业",
+      "放风筝",
+      "钓鱼",
+      "打球"
+    ],
+    "correct": 1,
+    "explanation": "「儿童散学归来早，忙趁东风放纸鸢」，孩子们放学后去放风筝。",
+    "difficulty": 1,
+    "tags": [
+      "清诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-077",
+    "type": "classical",
+    "prompt": "《春晓》中诗人听到了什么声音？",
+    "options": [
+      "风声",
+      "雨声",
+      "鸟叫声",
+      "虫叫声"
+    ],
+    "correct": 2,
+    "explanation": "「处处闻啼鸟」说明诗人听到了到处是鸟叫的声音。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-078",
+    "type": "classical",
+    "prompt": "下面哪首诗是李白写的？",
+    "options": [
+      "《咏鹅》",
+      "《春晓》",
+      "《静夜思》",
+      "《悯农》"
+    ],
+    "correct": 2,
+    "explanation": "《静夜思》是唐代诗人李白写的。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-079",
+    "type": "classical",
+    "prompt": "下面哪首诗是白居易写的？",
+    "options": [
+      "《静夜思》",
+      "《咏鹅》",
+      "《池上》",
+      "《悯农》"
+    ],
+    "correct": 2,
+    "explanation": "《池上》是唐代诗人白居易写的。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-080",
+    "type": "classical",
+    "prompt": "《画》中「人来鸟不惊」是什么意思？",
+    "options": [
+      "鸟很勇敢",
+      "人走了鸟才来",
+      "人来了鸟也不害怕飞走",
+      "鸟是假的不会飞"
+    ],
+    "correct": 2,
+    "explanation": "因为是画里的鸟，所以人来了也不会受到惊吓飞走。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-081",
+    "type": "classical",
+    "prompt": "《画》中「近听水无声」说明了什么？",
+    "options": [
+      "水很安静",
+      "水是画出来的",
+      "水很远",
+      "水干了"
+    ],
+    "correct": 1,
+    "explanation": "走近了听水却没有声音，说明水是画出来的，不是真的。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-082",
+    "type": "classical",
+    "prompt": "《风》中「解落三秋叶」是什么意思？",
+    "options": [
+      "风能吹落秋天的树叶",
+      "树叶在春天落下",
+      "有三片叶子落了",
+      "人把叶子摘下来"
+    ],
+    "correct": 0,
+    "explanation": "「解落三秋叶」是说风能吹落秋天的树叶。「三秋」指秋天。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "字词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-083",
+    "type": "classical",
+    "prompt": "《风》中「能开二月花」是什么意思？",
+    "options": [
+      "二月开了两朵花",
+      "春风能吹开二月的花朵",
+      "用手打开花朵",
+      "花在冬天开放"
+    ],
+    "correct": 1,
+    "explanation": "「能开二月花」是说春风能催开二月（春天）的花朵。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "字词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-084",
+    "type": "classical",
+    "prompt": "《江南》中「莲叶何田田」中「田田」形容什么？",
+    "options": [
+      "田地很多",
+      "莲叶茂盛的样子",
+      "莲叶方方的",
+      "田里种了莲"
+    ],
+    "correct": 1,
+    "explanation": "「田田」形容莲叶长得茂盛、相连的样子。",
+    "difficulty": 2,
+    "tags": [
+      "汉乐府",
+      "字词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-085",
+    "type": "classical",
+    "prompt": "《赋得古原草送别》中「一岁一枯荣」是什么意思？",
+    "options": [
+      "草一年比一年多",
+      "草每年都会枯萎和繁茂",
+      "草只能活一年",
+      "草永远不会枯萎"
+    ],
+    "correct": 1,
+    "explanation": "「一岁一枯荣」是说草每年都经历一次枯萎和一次繁茂，年年如此。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "字词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-086",
+    "type": "classical",
+    "prompt": "《悯农》（其二）中「春种一粒粟」的「粟」指什么？",
+    "options": [
+      "花种",
+      "树种",
+      "粮食种子",
+      "草种"
+    ],
+    "correct": 2,
+    "explanation": "「粟」指小米，这里泛指粮食的种子。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "字词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-087",
+    "type": "classical",
+    "prompt": "《池上》中小娃娃为什么被发现了？",
+    "options": [
+      "别人看见他了",
+      "他大声叫了",
+      "浮萍被船分开暴露了踪迹",
+      "他自己说的"
+    ],
+    "correct": 2,
+    "explanation": "「不解藏踪迹，浮萍一道开」，小船划过时浮萍被分开了，暴露了踪迹。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-088",
+    "type": "classical",
+    "prompt": "「粒粒皆辛苦」中「皆」是什么意思？",
+    "options": [
+      "不是",
+      "可能",
+      "都是",
+      "有的"
+    ],
+    "correct": 2,
+    "explanation": "「皆」是「都」的意思。「粒粒皆辛苦」就是每一粒粮食都来之不易。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "字词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-089",
+    "type": "classical",
+    "prompt": "《所见》写的是什么季节？",
+    "options": [
+      "春天",
+      "夏天",
+      "秋天",
+      "冬天"
+    ],
+    "correct": 1,
+    "explanation": "《所见》写的是夏天，诗中有「鸣蝉」（叫的蝉），蝉在夏天叫。",
+    "difficulty": 2,
+    "tags": [
+      "清诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-090",
+    "type": "classical",
+    "prompt": "下面哪首诗写的是冬天？",
+    "options": [
+      "《春晓》",
+      "《小池》",
+      "《梅花》",
+      "《村居》"
+    ],
+    "correct": 2,
+    "explanation": "《梅花》写的是冬天，梅花在寒冬中独自开放。",
+    "difficulty": 1,
+    "tags": [
+      "综合",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-091",
+    "type": "classical",
+    "prompt": "下面哪首诗写的是春天？",
+    "options": [
+      "《梅花》",
+      "《小池》",
+      "《春晓》",
+      "《所见》"
+    ],
+    "correct": 2,
+    "explanation": "《春晓》写的是春天的早晨，「春眠不觉晓」。",
+    "difficulty": 1,
+    "tags": [
+      "综合",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-092",
+    "type": "classical",
+    "prompt": "下面哪首诗和小孩子有关？",
+    "options": [
+      "《静夜思》",
+      "《悯农》",
+      "《小儿垂钓》",
+      "《梅花》"
+    ],
+    "correct": 2,
+    "explanation": "《小儿垂钓》写的是小孩子学钓鱼的有趣场景。",
+    "difficulty": 1,
+    "tags": [
+      "综合",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-093",
+    "type": "classical",
+    "prompt": "下面哪首诗写的是动物？",
+    "options": [
+      "《画》",
+      "《咏鹅》",
+      "《梅花》",
+      "《风》"
+    ],
+    "correct": 1,
+    "explanation": "《咏鹅》写的是鹅这种动物。",
+    "difficulty": 1,
+    "tags": [
+      "综合",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-094",
+    "type": "classical",
+    "prompt": "《梅花》中「暗香」指什么？",
+    "options": [
+      "黑暗中的光",
+      "淡淡的香味",
+      "很浓的香味",
+      "没有香味"
+    ],
+    "correct": 1,
+    "explanation": "「暗香」指淡淡的幽香。梅花的香味很清淡，远远就能闻到。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "字词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-095",
+    "type": "classical",
+    "prompt": "《村居》中「拂堤杨柳醉春烟」描写了什么景象？",
+    "options": [
+      "冬天下雪",
+      "春天柳树在水边",
+      "秋天落叶",
+      "夏天荷花"
+    ],
+    "correct": 1,
+    "explanation": "这句描写了春天堤岸边杨柳在春烟中飘拂的美丽景象。",
+    "difficulty": 2,
+    "tags": [
+      "清诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-096",
+    "type": "classical",
+    "prompt": "「春眠不觉晓」中「不觉」是什么意思？",
+    "options": [
+      "觉得",
+      "不知不觉",
+      "不想",
+      "不能"
+    ],
+    "correct": 1,
+    "explanation": "「不觉」是不知不觉的意思。春天睡觉很舒服，不知不觉天就亮了。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "字词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-097",
+    "type": "classical",
+    "prompt": "下面哪首诗是骆宾王写的？",
+    "options": [
+      "《春晓》",
+      "《静夜思》",
+      "《咏鹅》",
+      "《画》"
+    ],
+    "correct": 2,
+    "explanation": "《咏鹅》是唐代诗人骆宾王写的，据说他七岁就写了这首诗。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-098",
+    "type": "classical",
+    "prompt": "下面哪首诗是王之涣写的？",
+    "options": [
+      "《静夜思》",
+      "《登鹳雀楼》",
+      "《咏鹅》",
+      "《梅花》"
+    ],
+    "correct": 1,
+    "explanation": "《登鹳雀楼》是唐代诗人王之涣写的。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-099",
+    "type": "classical",
+    "prompt": "下面哪首诗是王安石写的？",
+    "options": [
+      "《池上》",
+      "《小池》",
+      "《梅花》",
+      "《风》"
+    ],
+    "correct": 2,
+    "explanation": "《梅花》是宋代诗人王安石写的。",
+    "difficulty": 1,
+    "tags": [
+      "宋诗",
+      "文学常识"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-100",
+    "type": "classical",
+    "prompt": "下面哪首诗和放风筝有关？",
+    "options": [
+      "《所见》",
+      "《村居》",
+      "《池上》",
+      "《小池》"
+    ],
+    "correct": 1,
+    "explanation": "《村居》中「忙趁东风放纸鸢」，纸鸢就是风筝。",
+    "difficulty": 1,
+    "tags": [
+      "综合",
+      "理解"
+    ],
+    "source": "curriculum"
+  }
+]
