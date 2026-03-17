@@ -40,7 +40,7 @@ const ERA_THEME = {
     label:  '先秦',
     glow:   'rgba(200,134,26,0.6)',
     bossGlow: 'rgba(220,80,20,0.8)',
-    starColor: 'rgba(255,200,120,',
+    starColor: '255,200,120',
   },
   han: {
     bg:     'linear-gradient(180deg, #1a0000 0%, #2d0808 25%, #400a0a 50%, #2d0505 75%, #1a0000 100%)',
@@ -53,7 +53,7 @@ const ERA_THEME = {
     label:  '汉',
     glow:   'rgba(220,60,60,0.6)',
     bossGlow: 'rgba(220,30,30,0.85)',
-    starColor: 'rgba(255,160,160,',
+    starColor: '255,160,160',
   },
   tang: {
     bg:     'linear-gradient(180deg, #0d0a00 0%, #1e1600 25%, #2e2000 50%, #1e1600 75%, #0d0a00 100%)',
@@ -66,7 +66,7 @@ const ERA_THEME = {
     label:  '唐',
     glow:   'rgba(212,160,23,0.6)',
     bossGlow: 'rgba(212,100,20,0.85)',
-    starColor: 'rgba(255,220,100,',
+    starColor: '255,220,100',
   },
   song: {
     bg:     'linear-gradient(180deg, #001a10 0%, #002818 25%, #00381e 50%, #002818 75%, #001a10 100%)',
@@ -79,7 +79,7 @@ const ERA_THEME = {
     label:  '宋',
     glow:   'rgba(46,204,138,0.6)',
     bossGlow: 'rgba(46,180,100,0.85)',
-    starColor: 'rgba(100,255,180,',
+    starColor: '100,255,180',
   },
   modern: {
     bg:     'linear-gradient(180deg, #0a0018 0%, #120028 25%, #1a0038 50%, #120028 75%, #0a0018 100%)',
@@ -92,7 +92,7 @@ const ERA_THEME = {
     label:  '现代',
     glow:   'rgba(140,80,255,0.6)',
     bossGlow: 'rgba(140,60,255,0.9)',
-    starColor: 'rgba(180,120,255,',
+    starColor: '180,120,255',
   },
 };
 
@@ -190,7 +190,7 @@ function buildBackground(container, theme, svgW, svgH) {
   starSvg.setAttribute('width', '100%');
   starSvg.setAttribute('height', '55%');
   starSvg.style.cssText = `position:absolute; top:0; left:0; pointer-events:none; z-index:0; overflow:visible;`;
-  const starBase = theme.starColor || 'rgba(255,220,180,';
+  const starBase = theme.starColor || '255,220,180';
   for (let s = 0; s < 28; s++) {
     const cx = 5 + Math.random() * 90;   // percent
     const cy = 3 + Math.random() * 85;   // percent
@@ -201,7 +201,7 @@ function buildBackground(container, theme, svgW, svgH) {
     star.setAttribute('cx', `${cx}%`);
     star.setAttribute('cy', `${cy}%`);
     star.setAttribute('r', r);
-    star.setAttribute('fill', `${starBase}0.85)`);
+    star.setAttribute('fill', `rgba(${starBase},0.85)`);
     // Twinkle via animate
     const anim = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
     anim.setAttribute('attributeName', 'opacity');
@@ -425,16 +425,113 @@ function renderQuest(params) {
   btnBack.addEventListener('click', () => showScreen('worldmap'));
   content.appendChild(btnBack);
 
-  // ── Loading state — actual quest is built asynchronously ──
-  const loadingEl = document.createElement('div');
-  loadingEl.style.cssText = `
-    position:absolute; top:50%; left:50%;
-    transform:translate(-50%,-50%);
-    color:rgba(255,255,255,0.4); font-size:0.9rem;
-    z-index:10;
+  // ── Loading overlay — ink-brush animation while quest data loads ──
+  const loadingOverlay = document.createElement('div');
+  loadingOverlay.id = 'quest-loading-overlay';
+  loadingOverlay.style.cssText = `
+    position:absolute; inset:0; z-index:100;
+    background:radial-gradient(ellipse at center, #1a1208 0%, #0d0a04 60%, #000 100%);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:24px; opacity:1;
+    transition: opacity 0.4s ease-out;
   `;
-  loadingEl.textContent = '加载中…';
-  content.appendChild(loadingEl);
+
+  // Ink brush stroke SVG (self-drawing calligraphy stroke)
+  const brushSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  brushSvg.setAttribute('width', '120');
+  brushSvg.setAttribute('height', '120');
+  brushSvg.setAttribute('viewBox', '0 0 120 120');
+  brushSvg.style.cssText = 'filter: drop-shadow(0 0 12px rgba(212,160,23,0.4));';
+  // Calligraphy brush stroke path (stylized "文" radical)
+  const strokePath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  strokePath.setAttribute('d', 'M30 25 Q60 20 90 25 M60 25 L60 75 M35 50 Q60 70 85 50 M40 95 Q60 75 80 95');
+  strokePath.setAttribute('fill', 'none');
+  strokePath.setAttribute('stroke', '#d4a017');
+  strokePath.setAttribute('stroke-width', '3.5');
+  strokePath.setAttribute('stroke-linecap', 'round');
+  strokePath.setAttribute('stroke-linejoin', 'round');
+  // Calculate total length for dash animation
+  const totalLen = 400; // approximate total path length
+  strokePath.style.cssText = `
+    stroke-dasharray: ${totalLen};
+    stroke-dashoffset: ${totalLen};
+    animation: ink-brush-draw 2s ease-in-out infinite;
+  `;
+  brushSvg.appendChild(strokePath);
+
+  // Ink drop circle that pulses behind the brush
+  const inkCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  inkCircle.setAttribute('cx', '60');
+  inkCircle.setAttribute('cy', '60');
+  inkCircle.setAttribute('r', '48');
+  inkCircle.setAttribute('fill', 'none');
+  inkCircle.setAttribute('stroke', 'rgba(212,160,23,0.15)');
+  inkCircle.setAttribute('stroke-width', '1.5');
+  inkCircle.style.cssText = 'animation: ink-circle-pulse 2s ease-in-out infinite;';
+  brushSvg.insertBefore(inkCircle, strokePath);
+
+  loadingOverlay.appendChild(brushSvg);
+
+  // "加载中..." text with animated dots
+  const loadingTextEl = document.createElement('div');
+  loadingTextEl.style.cssText = `
+    color:rgba(212,160,23,0.85); font-size:1.1rem; font-weight:600;
+    letter-spacing:0.15em; text-shadow: 0 0 8px rgba(212,160,23,0.3);
+  `;
+  loadingTextEl.innerHTML = '加载中<span class="loading-dots"></span>';
+  loadingOverlay.appendChild(loadingTextEl);
+
+  // Random loading tip
+  const LOADING_TIPS = [
+    '你知道吗？"成语"一词最早出现在《庄子》中。',
+    '汉字是世界上使用时间最长的文字系统。',
+    '中国第一部字典是东汉许慎的《说文解字》。',
+    '甲骨文是中国已知最早的成熟文字。',
+    '唐诗三百首中收录了77位诗人的作品。',
+    '《诗经》是中国最早的诗歌总集。',
+    '仓颉是传说中汉字的创造者。',
+    '中文里有超过5万个汉字，但常用的只有约3500个。',
+  ];
+  const tipEl = document.createElement('div');
+  tipEl.style.cssText = `
+    color:rgba(255,255,255,0.35); font-size:0.78rem; max-width:260px;
+    text-align:center; line-height:1.5; margin-top:8px;
+    font-style:italic;
+  `;
+  tipEl.textContent = LOADING_TIPS[Math.floor(Math.random() * LOADING_TIPS.length)];
+  loadingOverlay.appendChild(tipEl);
+
+  // Inject keyframe animations (once)
+  if (!document.getElementById('quest-loading-keyframes')) {
+    const style = document.createElement('style');
+    style.id = 'quest-loading-keyframes';
+    style.textContent = `
+      @keyframes ink-brush-draw {
+        0%   { stroke-dashoffset: ${totalLen}; opacity: 0.6; }
+        50%  { stroke-dashoffset: 0; opacity: 1; }
+        70%  { stroke-dashoffset: 0; opacity: 1; }
+        100% { stroke-dashoffset: -${totalLen}; opacity: 0.6; }
+      }
+      @keyframes ink-circle-pulse {
+        0%, 100% { r: 44; stroke-opacity: 0.1; }
+        50%      { r: 52; stroke-opacity: 0.3; }
+      }
+      .loading-dots::after {
+        content: '';
+        animation: loading-dot-anim 1.4s steps(4, end) infinite;
+      }
+      @keyframes loading-dot-anim {
+        0%   { content: ''; }
+        25%  { content: '.'; }
+        50%  { content: '..'; }
+        75%  { content: '...'; }
+        100% { content: ''; }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  content.appendChild(loadingOverlay);
 
   // ─── Async: build the map once quest data is ready ───────────────────────
   setTimeout(async () => {
@@ -445,7 +542,9 @@ function renderQuest(params) {
     if (!quest || quest.chapterId !== chapterId || quest.questIndex !== questIndex) {
       quest = await startQuest(chapterId, questIndex);
     }
-    loadingEl.remove();
+    // Fade out and remove the loading overlay
+    loadingOverlay.style.opacity = '0';
+    setTimeout(() => loadingOverlay.remove(), 400);
 
     const encounters = quest.encounters;   // [{type, index, completed}, …]
     const N = encounters.length;           // typically 5
@@ -879,7 +978,7 @@ function renderQuest(params) {
 
       const nextIdx = justCompletedIdx + 1;  // the new current node (may be out of range if quest done)
 
-      // 1) Play travel animation: player avatar walks up to completed node
+      // (1) Play travel animation: player avatar walks up to completed node
       if (justCompletedIdx >= 0 && playerAvatarGroup) {
         // Player was visually at the PREVIOUS current (justCompletedIdx before completion)
         // In the new state, the node is already marked completed, but we animate anyway.
@@ -912,7 +1011,7 @@ function renderQuest(params) {
         animX.setAttribute('keySplines', '0.25 0.1 0.25 1');
         playerAvatarGroup.appendChild(animX);
 
-        // 2) After walk completes: mark node gold, update path, show companion bubble
+        // (2) After walk completes: mark node gold, update path, show companion bubble
         setTimeout(() => {
           // Flash "又前进了一步！"
           const flash = document.createElement('div');

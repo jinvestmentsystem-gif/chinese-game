@@ -55,6 +55,10 @@ const DEFAULT_PROFILE = {
   critMultiplier: 1.5,
   // Tutorial onboarding — tracks which tooltip hints have been shown
   tutorialSeen: {},
+  // Daily challenge best stats + history
+  dailyBestScore: 0,
+  dailyBestAccuracy: 0,
+  dailyHistory: [],
 };
 
 class GameState {
@@ -116,6 +120,11 @@ class GameState {
     if (!('currentCombo' in p))   p.currentCombo = 0;
     if (!p.upgrades)              p.upgrades = {};
     if (!p.tutorialSeen)          p.tutorialSeen = {};
+    // Daily challenge best stats + history
+    if (!('dailyBestScore' in p))    p.dailyBestScore = 0;
+    if (!('dailyBestAccuracy' in p)) p.dailyBestAccuracy = 0;
+    if (!p.dailyHistory)             p.dailyHistory = [];
+    if (!p.chaptersRewarded)         p.chaptersRewarded = [];
     // Migrate old profiles with 0 attack/defense to new base values
     if (p.attack === 0 && p.level === 1 && !p.equipment.weapon) p.attack = 5;
     if (p.defense === 0 && p.level === 1 && !p.equipment.armor) p.defense = 5;

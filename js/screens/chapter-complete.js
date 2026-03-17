@@ -18,6 +18,8 @@ const CHAPTER_COMPLETION = {
     nextHint: '司马迁的历史正在被篡改……你能阻止吗？',
     stats: '先秦时代的文字已被守护',
     era: 'han',
+    eraIcon: '漢',
+    titleUnlock: '先秦守护者',
   },
   2: {
     title: '第二章完成！',
@@ -30,6 +32,8 @@ const CHAPTER_COMPLETION = {
     nextHint: '长安城的诗歌正在碎裂，诗魔即将降临……',
     stats: '汉代史籍已得到守护',
     era: 'tang',
+    eraIcon: '唐',
+    titleUnlock: '汉代卫士',
   },
   3: {
     title: '第三章完成！',
@@ -42,6 +46,8 @@ const CHAPTER_COMPLETION = {
     nextHint: '词中蕴含的千年情感，正被词煞一一吞噬……',
     stats: '盛唐诗篇已重焕光芒',
     era: 'song',
+    eraIcon: '宋',
+    titleUnlock: '唐代诗人',
   },
   4: {
     title: '第四章完成！',
@@ -54,6 +60,8 @@ const CHAPTER_COMPLETION = {
     nextHint: '一切的终结，或者新的开始——墨暗之主在等待……',
     stats: '宋词情感已被守护',
     era: 'modern',
+    eraIcon: '暗',
+    titleUnlock: '宋代词人',
   },
   5: {
     title: '恭喜通关！',
@@ -66,9 +74,14 @@ const CHAPTER_COMPLETION = {
     nextHint: null,
     stats: '五千年文字文明已被守护',
     era: 'menu',
+    eraIcon: '侠',
+    titleUnlock: '文字之王',
     isEnding: true,
   },
 };
+
+// ── Chengyu counts per chapter (for collection progress display) ────────────
+const CHENGYU_PER_CHAPTER = { 1: 10, 2: 5, 3: 1, 4: 4, 5: 0 };
 
 // ── Gold particle burst ───────────────────────────────────────────────────────
 
@@ -127,6 +140,35 @@ function typewriterText(el, text, charsPerMs = 30, onDone) {
   return interval;
 }
 
+// ── Apply chapter rewards (once per chapter) ────────────────────────────────
+
+function applyChapterRewards(profile, chapterId) {
+  // Track which chapters have been rewarded
+  if (!profile.chaptersRewarded) profile.chaptersRewarded = [];
+  if (profile.chaptersRewarded.includes(chapterId)) return false; // Already rewarded
+
+  // +100 gold
+  profile.gold = (profile.gold || 0) + 100;
+  profile.stats.totalGoldEarned = (profile.stats.totalGoldEarned || 0) + 100;
+
+  // +1 talent point
+  profile.talentPoints = (profile.talentPoints || 0) + 1;
+
+  // Unlock chapter title
+  const data = CHAPTER_COMPLETION[chapterId];
+  if (data && data.titleUnlock) {
+    if (!profile.titles) profile.titles = ['新手文字侠'];
+    if (!profile.titles.includes(data.titleUnlock)) {
+      profile.titles.push(data.titleUnlock);
+    }
+  }
+
+  // Mark as rewarded
+  profile.chaptersRewarded.push(chapterId);
+  gameState.save();
+  return true;
+}
+
 // ── Main render ───────────────────────────────────────────────────────────────
 
 function renderChapterComplete() {
@@ -135,6 +177,9 @@ function renderChapterComplete() {
   const chapterId = quest?.chapterId || 1;
   const data = CHAPTER_COMPLETION[chapterId] || CHAPTER_COMPLETION[1];
   const isEnding = !!data.isEnding;
+
+  // Apply chapter rewards (gold + talent point + title)
+  const rewardsApplied = applyChapterRewards(profile, chapterId);
 
   // Inject keyframe styles once
   if (!document.getElementById('chcompl-styles')) {
@@ -177,6 +222,40 @@ function renderChapterComplete() {
         60%  { transform: rotate(380deg) scale(1.2); opacity:1; }
         100% { transform: rotate(360deg) scale(1); opacity:1; }
       }
+      @keyframes chcompl-reward-pop {
+        0%   { transform: scale(0); opacity: 0; }
+        60%  { transform: scale(1.15); opacity: 1; }
+        80%  { transform: scale(0.95); }
+        100% { transform: scale(1); opacity: 1; }
+      }
+      @keyframes chcompl-seal-crack {
+        0%   { clip-path: inset(50% 50% 50% 50%); opacity: 0.3; }
+        30%  { clip-path: inset(35% 35% 35% 35%); opacity: 0.6; }
+        60%  { clip-path: inset(15% 15% 15% 15%); opacity: 0.85; }
+        100% { clip-path: inset(0% 0% 0% 0%); opacity: 1; }
+      }
+      @keyframes chcompl-seal-glow {
+        0%   { box-shadow: 0 0 0 0 rgba(212,160,23,0); filter: brightness(0.5); }
+        50%  { box-shadow: 0 0 30px 10px rgba(212,160,23,0.6); filter: brightness(1.3); }
+        100% { box-shadow: 0 0 15px 5px rgba(212,160,23,0.2); filter: brightness(1); }
+      }
+      @keyframes chcompl-crack-expand {
+        0%   { transform: scaleX(0); opacity: 1; }
+        60%  { transform: scaleX(1.1); opacity: 1; }
+        100% { transform: scaleX(1); opacity: 0.7; }
+      }
+      @keyframes chcompl-era-emerge {
+        0%   { transform: scale(0.3) translateY(10px); opacity: 0; }
+        50%  { transform: scale(1.2) translateY(-2px); opacity: 1; }
+        100% { transform: scale(1) translateY(0); opacity: 1; }
+      }
+      @keyframes chcompl-share-copied {
+        0%   { transform: translateY(0); opacity: 1; }
+        100% { transform: translateY(-20px); opacity: 0; }
+      }
+      @keyframes chcompl-progress-fill {
+        from { width: 0%; }
+      }
     `;
     document.head.appendChild(s);
   }
@@ -208,6 +287,7 @@ function renderChapterComplete() {
     width: 100%; max-width: 640px;
     padding: 48px 24px 120px;
     display: flex; flex-direction: column; align-items: center; gap: 0;
+    overflow-y: auto; max-height: 100%;
   `;
   div.appendChild(content);
 
@@ -305,7 +385,109 @@ function renderChapterComplete() {
   statsWrap.appendChild(buildStatRow('🔥', '最高连击', `${results.maxCombo}`, '#e67e22'));
   statsWrap.appendChild(buildStatRow('✨', '获得经验', `+${results.xpEarned || 0} XP`, '#a29bfe'));
 
-  // ── NEXT CHAPTER PREVIEW (fades in at 5000ms) ──────────────────────────────
+  // ── REWARDS SUMMARY (pops in at 3500ms) ───────────────────────────────────
+
+  const rewardsWrap = document.createElement('div');
+  rewardsWrap.style.cssText = `
+    width: 100%;
+    margin-bottom: 28px;
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+  `;
+  content.appendChild(rewardsWrap);
+
+  const rewardsTitle = document.createElement('div');
+  rewardsTitle.style.cssText = `
+    font-size: 0.78rem; color: rgba(212,160,23,0.6);
+    letter-spacing: 0.18em; text-align: center;
+    margin-bottom: 12px;
+  `;
+  rewardsTitle.textContent = '章节奖励';
+  rewardsWrap.appendChild(rewardsTitle);
+
+  const rewardsGrid = document.createElement('div');
+  rewardsGrid.style.cssText = `
+    display: flex; flex-direction: column; gap: 8px;
+  `;
+  rewardsWrap.appendChild(rewardsGrid);
+
+  // Build reward items (they will animate in sequence)
+  const rewardItems = [
+    { icon: '💰', text: '章节奖励: +100 金币', color: '#d4a017' },
+    { icon: '🌟', text: '+1 天赋点', color: '#a855f7' },
+  ];
+  if (data.titleUnlock) {
+    rewardItems.push({ icon: '🏅', text: `新称号解锁: ${data.titleUnlock}`, color: '#2ecc8a' });
+  }
+
+  rewardItems.forEach((item, i) => {
+    const el = document.createElement('div');
+    el.style.cssText = `
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(212,160,23,0.15);
+      border-radius: 8px; padding: 10px 16px;
+      transform: scale(0); opacity: 0;
+    `;
+    el.innerHTML = `
+      <span style="font-size:1.2rem;">${item.icon}</span>
+      <span style="font-size:0.95rem;font-weight:600;color:${item.color};">${item.text}</span>
+    `;
+    el.dataset.rewardIndex = i;
+    rewardsGrid.appendChild(el);
+  });
+
+  // ── CHENGYU COLLECTION PROGRESS (fades in at 4200ms) ─────────────────────
+
+  const chengyuWrap = document.createElement('div');
+  chengyuWrap.style.cssText = `
+    width: 100%;
+    margin-bottom: 28px;
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+  `;
+  content.appendChild(chengyuWrap);
+
+  // Count chengyu collected for this chapter
+  const chapterChengyuTotal = CHENGYU_PER_CHAPTER[chapterId] || 0;
+  const profileChengyu = profile.chengyu || [];
+  // We count by matching chengyu that were earned -- since chengyu.json has a 'chapter' field,
+  // we simply count how many chengyu the player has that would belong to chapters <= current
+  const collectedCount = profileChengyu.length;
+  const totalAvailable = Object.values(CHENGYU_PER_CHAPTER).reduce((a, b) => a + b, 0);
+
+  if (chapterChengyuTotal > 0 || collectedCount > 0) {
+    const chengyuTitle = document.createElement('div');
+    chengyuTitle.style.cssText = `
+      font-size: 0.78rem; color: rgba(212,160,23,0.6);
+      letter-spacing: 0.18em; text-align: center;
+      margin-bottom: 10px;
+    `;
+    chengyuTitle.textContent = '成语收集进度';
+    chengyuWrap.appendChild(chengyuTitle);
+
+    const chengyuBox = document.createElement('div');
+    chengyuBox.style.cssText = `
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(212,160,23,0.12);
+      border-radius: 10px; padding: 14px 18px;
+    `;
+
+    const pct = totalAvailable > 0 ? Math.round((collectedCount / totalAvailable) * 100) : 0;
+    chengyuBox.innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+        <span style="font-size:0.9rem;color:rgba(255,255,255,0.6);">已收集成语</span>
+        <span style="font-size:1rem;font-weight:700;color:#d4a017;">${collectedCount} / ${totalAvailable}</span>
+      </div>
+      <div style="width:100%;height:8px;background:rgba(255,255,255,0.08);border-radius:4px;overflow:hidden;">
+        <div id="chengyu-bar" style="height:100%;background:linear-gradient(90deg, #d4a017, #f5c842);border-radius:4px;width:0%;transition:width 1s ease-out;"></div>
+      </div>
+      <div style="text-align:right;margin-top:4px;font-size:0.78rem;color:rgba(255,255,255,0.3);">${pct}%</div>
+    `;
+    chengyuWrap.appendChild(chengyuBox);
+  }
+
+  // ── NEXT CHAPTER PREVIEW with seal-breaking animation (fades in at 5000ms) ─
 
   const nextWrap = document.createElement('div');
   nextWrap.style.cssText = `
@@ -351,6 +533,77 @@ function renderChapterComplete() {
       position: relative;
       overflow: hidden;
     `;
+
+    // Seal container (will play the breaking animation)
+    const sealContainer = document.createElement('div');
+    sealContainer.style.cssText = `
+      position: relative;
+      margin-bottom: 14px;
+    `;
+
+    // Seal crack line (golden crack expanding across)
+    const crackLine = document.createElement('div');
+    crackLine.style.cssText = `
+      position: absolute;
+      top: 50%; left: 5%; right: 5%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #d4a017 20%, #f5c842 50%, #d4a017 80%, transparent);
+      transform-origin: center;
+      transform: scaleX(0);
+      opacity: 0;
+      z-index: 5;
+    `;
+    crackLine.id = 'seal-crack';
+    sealContainer.appendChild(crackLine);
+
+    // Vertical crack for cross effect
+    const crackLineV = document.createElement('div');
+    crackLineV.style.cssText = `
+      position: absolute;
+      left: 50%; top: 5%; bottom: 5%;
+      width: 3px;
+      background: linear-gradient(180deg, transparent, #d4a017 20%, #f5c842 50%, #d4a017 80%, transparent);
+      transform-origin: center;
+      transform: scaleY(0);
+      opacity: 0;
+      z-index: 5;
+    `;
+    crackLineV.id = 'seal-crack-v';
+    sealContainer.appendChild(crackLineV);
+
+    // Sealed overlay
+    const sealOverlay = document.createElement('div');
+    sealOverlay.id = 'seal-overlay';
+    sealOverlay.style.cssText = `
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,0.7);
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 6px;
+      z-index: 3;
+      transition: opacity 0.8s ease-out;
+    `;
+    sealOverlay.innerHTML = `<span style="font-size:1.4rem;color:rgba(212,160,23,0.4);letter-spacing:0.2em;font-weight:900;">封 印</span>`;
+    sealContainer.appendChild(sealOverlay);
+
+    // Era icon emerging from behind the seal
+    const eraEmerge = document.createElement('div');
+    eraEmerge.id = 'era-emerge';
+    eraEmerge.style.cssText = `
+      text-align: center;
+      padding: 16px;
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: ${data.color};
+      text-shadow: 0 0 20px ${data.color}60;
+      opacity: 0;
+      position: relative;
+      z-index: 2;
+    `;
+    eraEmerge.textContent = data.eraIcon;
+    sealContainer.appendChild(eraEmerge);
+
+    nextBox.appendChild(sealContainer);
+
     const previewLabel = document.createElement('div');
     previewLabel.style.cssText = `
       font-size: 0.72rem; color: rgba(212,160,23,0.6);
@@ -390,7 +643,7 @@ function renderChapterComplete() {
     nextWrap.appendChild(nextBox);
   }
 
-  // ── BUTTONS (fade in at 6000ms) ────────────────────────────────────────────
+  // ── BUTTONS (fade in at 7000ms) ──────────────────────────────────────────
 
   const btnRow = document.createElement('div');
   btnRow.style.cssText = `
@@ -413,8 +666,15 @@ function renderChapterComplete() {
   btnAchiev.style.cssText = `font-size: 1rem; padding: 12px 20px;`;
   btnAchiev.textContent = '查看成就';
 
+  // Share button
+  const btnShare = document.createElement('button');
+  btnShare.className = 'btn';
+  btnShare.style.cssText = `font-size: 1rem; padding: 12px 20px; position:relative;`;
+  btnShare.textContent = '分享成就';
+
   btnRow.appendChild(btnContinue);
   btnRow.appendChild(btnAchiev);
+  btnRow.appendChild(btnShare);
 
   // ── Timed sequence ─────────────────────────────────────────────────────────
 
@@ -444,14 +704,82 @@ function renderChapterComplete() {
     statsWrap.style.transform = 'translateX(0)';
   }, 3000);
 
+  // 3500ms: rewards pop in with scale-bounce, one by one
+  setTimeout(() => {
+    rewardsWrap.style.opacity = '1';
+    const rewardEls = rewardsGrid.querySelectorAll('[data-reward-index]');
+    rewardEls.forEach((el, i) => {
+      setTimeout(() => {
+        el.style.animation = `chcompl-reward-pop 0.5s cubic-bezier(0.34,1.56,0.64,1) forwards`;
+      }, i * 300);
+    });
+  }, 3500);
+
   // 4000ms: companion celebration bubble
   setTimeout(() => {
     showCompanionBubble(div, data.companion, isEnding ? 8000 : 5000);
   }, 4000);
 
-  // 5000ms: next chapter preview fades in
+  // 4200ms: chengyu collection progress
+  setTimeout(() => {
+    chengyuWrap.style.opacity = '1';
+    // Animate the progress bar fill
+    const chengyuBar = div.querySelector('#chengyu-bar');
+    if (chengyuBar && totalAvailable > 0) {
+      setTimeout(() => {
+        chengyuBar.style.width = Math.round((collectedCount / totalAvailable) * 100) + '%';
+      }, 100);
+    }
+  }, 4200);
+
+  // 5000ms: next chapter preview fades in, then seal-breaking animation
   setTimeout(() => {
     nextWrap.style.opacity = '1';
+
+    // Seal-breaking animation sequence (for non-ending chapters)
+    if (!isEnding && data.nextChapter) {
+      // Play the victory stinger for the seal break
+      try { playStinger('victory'); } catch (_) {}
+
+      // (1) Cracks appear (0.5s after fade-in)
+      setTimeout(() => {
+        const crack = div.querySelector('#seal-crack');
+        const crackV = div.querySelector('#seal-crack-v');
+        if (crack) {
+          crack.style.animation = 'chcompl-crack-expand 0.8s ease-out forwards';
+        }
+        if (crackV) {
+          crackV.style.animation = 'chcompl-crack-expand 0.8s ease-out 0.2s forwards';
+          crackV.style.transformOrigin = 'center';
+          // Override the scaleX to scaleY for vertical crack
+          crackV.style.transform = 'scaleY(0)';
+          // Create a vertical version of the animation
+          crackV.animate([
+            { transform: 'scaleY(0)', opacity: 1 },
+            { transform: 'scaleY(1.1)', opacity: 1, offset: 0.6 },
+            { transform: 'scaleY(1)', opacity: 0.7 },
+          ], { duration: 800, delay: 200, fill: 'forwards', easing: 'ease-out' });
+        }
+      }, 500);
+
+      // (2) Seal shatters (1.2s after)
+      setTimeout(() => {
+        const overlay = div.querySelector('#seal-overlay');
+        if (overlay) {
+          overlay.style.opacity = '0';
+        }
+      }, 1300);
+
+      // (3) Era icon emerges (1.6s after)
+      setTimeout(() => {
+        const eraEl = div.querySelector('#era-emerge');
+        if (eraEl) {
+          eraEl.style.animation = 'chcompl-era-emerge 0.7s cubic-bezier(0.34,1.56,0.64,1) forwards';
+          eraEl.style.opacity = '1';
+        }
+      }, 1600);
+    }
+
     // Switch music to next era's ambient
     try {
       playMusic(data.era);
@@ -459,13 +787,14 @@ function renderChapterComplete() {
     } catch (_) {}
   }, 5000);
 
-  // 6000ms: buttons appear with pulse
+  // 7000ms: buttons appear with pulse
   setTimeout(() => {
     btnRow.style.opacity = '1';
     btnContinue.style.animation = 'chcompl-btn-pulse 1.8s ease-in-out infinite';
-  }, 6000);
+  }, 7000);
 
-  // Button handlers
+  // ── Button handlers ────────────────────────────────────────────────────────
+
   btnContinue.addEventListener('click', () => {
     if (isEnding) {
       showScreen('title');
@@ -474,6 +803,48 @@ function renderChapterComplete() {
     }
   });
   btnAchiev.addEventListener('click', () => showScreen('chengyu'));
+
+  // Share button — copies achievement text to clipboard
+  btnShare.addEventListener('click', () => {
+    const shareText = `文字侠 | 第${chapterId}章完成！正确率${accuracy}% 连击x${results.maxCombo} 🏆`;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(shareText).then(() => {
+        showCopiedFeedback(btnShare);
+      }).catch(() => {
+        fallbackCopy(shareText, btnShare);
+      });
+    } else {
+      fallbackCopy(shareText, btnShare);
+    }
+  });
+
+  function fallbackCopy(text, anchor) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.cssText = 'position:fixed;left:-9999px;';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (_) {}
+    document.body.removeChild(ta);
+    showCopiedFeedback(anchor);
+  }
+
+  function showCopiedFeedback(anchor) {
+    const tip = document.createElement('div');
+    tip.style.cssText = `
+      position:absolute; bottom:110%; left:50%;
+      transform:translateX(-50%);
+      background:#2ecc8a; color:#000;
+      font-size:0.75rem; font-weight:700;
+      padding:4px 10px; border-radius:4px;
+      white-space:nowrap; pointer-events:none;
+      animation: chcompl-share-copied 1.2s ease-out forwards;
+    `;
+    tip.textContent = '已复制到剪贴板！';
+    anchor.style.position = 'relative';
+    anchor.appendChild(tip);
+    setTimeout(() => tip.remove(), 1300);
+  }
 
   return div;
 }

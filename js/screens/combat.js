@@ -3,14 +3,70 @@ import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
 import { getCurrentEncounter, advanceEncounter, recordAnswer } from '../game-engine.js';
 import { hasAbility, calcDamage, calcDamageTaken, getTimerDuration, rollCrit, getEffectiveMaxHp, getTalentEffects } from '../progression.js';
-import { SPRITES, ENEMY_SPRITES } from '../sprites.js';
 import { playSound, playMusic, setMusicIntensity, playStinger } from '../audio.js';
 import { showCompanionBubble, showEnemyTaunt, COMPANION, ENEMY_TAUNTS, pick } from './companion.js';
 import { setParticleMode, burstParticles } from '../particles.js';
 import { getPixelSprites, createSpriteImg } from '../pixel-sprites.js';
 import { showTutorial } from '../tutorial.js';
+import { shakeElement, lungeElement, slashEffect, screenFlash, floatingText } from '../effects.js';
 
-const ENEMY_NAMES = ['墨灵', '暗字兵', '墨影卫', '乱笔妖', '黑墨士'];
+// ─── Enemy type system ──────────────────────────────────────────────────────
+const ENEMY_TYPES = [
+  {
+    name: '墨灵', sprite: 'enemy_moling',
+    hp: 60, attack: 12, defense: 0,
+    ability: null,
+    desc: '基础墨暗生物',
+    tier: 1,
+  },
+  {
+    name: '暗字兵', sprite: 'enemy_guard',
+    hp: 80, attack: 15, defense: 5,
+    ability: 'shield',
+    desc: '持盾的墨暗士兵，能挡住一次攻击',
+    tier: 1,
+  },
+  {
+    name: '墨影卫', sprite: 'enemy_shadow',
+    hp: 50, attack: 20, defense: 0,
+    ability: 'dodge',
+    desc: '速度极快，有概率闪避攻击',
+    tier: 2,
+  },
+  {
+    name: '乱笔妖', sprite: 'enemy_moling',
+    hp: 70, attack: 18, defense: 3,
+    ability: 'scramble',
+    desc: '5秒后会打乱选项顺序',
+    tier: 2,
+  },
+  {
+    name: '黑墨士', sprite: 'enemy_guard',
+    hp: 100, attack: 22, defense: 8,
+    ability: 'enrage',
+    desc: 'HP低于50%时攻击力暴增',
+    tier: 3,
+  },
+];
+
+function selectEnemyType(chapterId, questIndex) {
+  // Higher chapters unlock higher tier enemies
+  let maxTier = 1;
+  if (chapterId >= 3) maxTier = 2;
+  if (chapterId >= 4) maxTier = 3;
+  // Later quests within a chapter can also bump tier
+  if (questIndex >= 2 && maxTier < 2) maxTier = 2;
+  if (questIndex >= 4 && maxTier < 3) maxTier = 3;
+
+  const eligible = ENEMY_TYPES.filter(e => e.tier <= maxTier);
+  // Weight higher-tier enemies more as chapters progress
+  const weighted = [];
+  for (const e of eligible) {
+    const weight = e.tier >= maxTier ? 3 : 1;
+    for (let i = 0; i < weight; i++) weighted.push(e);
+  }
+  return weighted[Math.floor(Math.random() * weighted.length)];
+}
 
 const COMBAT_NARRATIVES = [
   "墨灵释放出混乱的文字——用你的知识反击！",
@@ -20,92 +76,8 @@ const COMBAT_NARRATIVES = [
   "墨影卫试图混淆你的记忆——展示你真正的文字力量！",
 ];
 
-// ─── Animation helpers ────────────────────────────────────────────────────────
-
-function shakeElement(el, intensity = 6, duration = 400) {
-  if (!el) return;
-  let start = null;
-  const period = 50;
-  function step(ts) {
-    if (!start) start = ts;
-    const elapsed = ts - start;
-    if (elapsed >= duration) { el.style.transform = ''; return; }
-    const dir = (Math.floor(elapsed / period) % 2 === 0) ? intensity : -intensity;
-    el.style.transform = `translateX(${dir}px)`;
-    requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
-}
-
-function lungeElement(el, dx, duration = 200, onDone) {
-  if (!el) return;
-  el.style.transition = `transform ${duration}ms ease-out`;
-  el.style.transform = `translateX(${dx}px)`;
-  setTimeout(() => {
-    el.style.transition = `transform ${duration}ms ease-in`;
-    el.style.transform = '';
-    if (onDone) setTimeout(onDone, duration);
-  }, duration);
-}
-
-function floatingNumber(container, text, x, y, color = '#fff') {
-  const num = document.createElement('div');
-  num.textContent = text;
-  num.style.cssText = `
-    position:absolute; left:${x}px; top:${y}px;
-    color:${color}; font-size:1.8rem; font-weight:900;
-    text-shadow: 0 0 8px ${color}, 2px 2px 0 #000;
-    pointer-events:none; z-index:999;
-    transform:translateY(0); opacity:1;
-    transition: transform 0.9s ease-out, opacity 0.9s ease-out;
-  `;
-  container.appendChild(num);
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      num.style.transform = 'translateY(-70px)';
-      num.style.opacity = '0';
-    });
-  });
-  setTimeout(() => num.remove(), 1000);
-}
-
-function slashEffect(container, x1, y1, x2, y2, color = '#fff') {
-  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-  svg.style.cssText = `
-    position:absolute; inset:0; width:100%; height:100%;
-    pointer-events:none; z-index:998;
-  `;
-  const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-  line.setAttribute('x1', x1); line.setAttribute('y1', y1);
-  line.setAttribute('x2', x2); line.setAttribute('y2', y2);
-  line.setAttribute('stroke', color);
-  line.setAttribute('stroke-width', '4');
-  line.setAttribute('stroke-linecap', 'round');
-  line.style.opacity = '1';
-  svg.appendChild(line);
-  container.appendChild(svg);
-  // Fade out
-  setTimeout(() => { svg.style.transition = 'opacity 0.15s'; svg.style.opacity = '0'; }, 100);
-  setTimeout(() => svg.remove(), 300);
-}
-
-function redFlashOverlay(container) {
-  const overlay = document.createElement('div');
-  overlay.style.cssText = `
-    position:absolute; inset:0; background:#c0392b;
-    opacity:0; pointer-events:none; z-index:997;
-    transition: opacity 0.1s ease-in;
-  `;
-  container.appendChild(overlay);
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => { overlay.style.opacity = '0.35'; });
-  });
-  setTimeout(() => {
-    overlay.style.transition = 'opacity 0.3s ease-out';
-    overlay.style.opacity = '0';
-  }, 120);
-  setTimeout(() => overlay.remove(), 500);
-}
+// ─── Animation helpers (shared effects imported from ../effects.js) ──────────
+// Local helpers that are specific to combat.js:
 
 function greenFlash(el) {
   if (!el) return;
@@ -333,7 +305,23 @@ function renderCombat() {
   let qIndex = 0;
   const effectiveMaxHp = getEffectiveMaxHp(profile);
   let playerHp = profile.hp;
-  let enemyHp = 100;
+
+  // Start battle music — explicitly set era and intensity
+  const chapterId = gameState.currentQuest?.chapterId || 1;
+  const eraMap = {1:'xianqin',2:'han',3:'tang',4:'song',5:'modern'};
+  playMusic(eraMap[chapterId] || 'xianqin');
+  playStinger('battle_start');
+  setTimeout(() => setMusicIntensity(1), 300);
+
+  // Select enemy type based on chapter/quest progress
+  const questIndex = gameState.currentQuest?.questIndex || 0;
+  const enemyType = selectEnemyType(chapterId, questIndex);
+  const enemyName = enemyType.name;
+  const baseTimer = getTimerDuration(profile);
+
+  // Real enemy HP from enemy type
+  let enemyMaxHp = enemyType.hp;
+  let enemyHp = enemyMaxHp;
   let combo = 0;
   let timerInterval = null;
   let timerPulseInterval = null;
@@ -344,19 +332,14 @@ function renderCombat() {
   let multiplier = 1.0;
   let totalScore = 0;
 
-  // Start battle music — explicitly set era and intensity
-  const chapterId = gameState.currentQuest?.chapterId || 1;
-  const eraMap = {1:'xianqin',2:'han',3:'tang',4:'song',5:'modern'};
-  playMusic(eraMap[chapterId] || 'xianqin');
-  playStinger('battle_start');
-  setTimeout(() => setMusicIntensity(1), 300);
-  const enemyName = ENEMY_NAMES[Math.floor(Math.random() * ENEMY_NAMES.length)];
-  const baseTimer = getTimerDuration(profile);
-  const enemySvg = ENEMY_SPRITES[Math.floor(Math.random() * ENEMY_SPRITES.length)];
-
   // Cancel breathing animations cleanup refs
   let stopPlayerBreath = null;
   let stopEnemyBreath = null;
+
+  // ── Enemy ability state ──
+  let shieldActive = enemyType.ability === 'shield'; // shield blocks first wrong answer
+  let enrageTriggered = false; // enrage fires once when HP < 50%
+  let scrambleTimer = null; // scramble timer reference
 
   // PixiJS overlay handle
   let pixiApp = null;
@@ -458,8 +441,9 @@ function renderCombat() {
     else if (combo >= 4) comboColor = '#e67e22';
 
     // ── Enemy intent: damage on wrong answer / timeout ──
-    const wrongDmgInfo = calcDamageTaken(profile, 15);
-    const timeoutDmgInfo = calcDamageTaken(profile, 20);
+    const enemyAtk = enrageTriggered ? Math.round(enemyType.attack * 1.5) : enemyType.attack;
+    const wrongDmgInfo = calcDamageTaken(profile, enemyAtk);
+    const timeoutDmgInfo = calcDamageTaken(profile, Math.round(enemyAtk * 1.3));
     const wrongDamage = wrongDmgInfo.damage;
     const timeoutDamage = timeoutDmgInfo.damage;
 
@@ -728,6 +712,76 @@ function renderCombat() {
           50%  { transform:scale(1.6); text-shadow:0 0 12px #d4a017; }
           100% { transform:scale(1); }
         }
+
+        /* ── Enemy ability banner ── */
+        .enemy-ability-banner {
+          font-size: 0.65rem;
+          color: #e8a0a0;
+          background: rgba(192,57,43,0.2);
+          border: 1px solid rgba(192,57,43,0.3);
+          border-radius: 4px;
+          padding: 2px 8px;
+          margin-top: 4px;
+          text-align: center;
+          max-width: 140px;
+          line-height: 1.3;
+          animation: ability-banner-in 0.4s ease-out;
+        }
+        @keyframes ability-banner-in {
+          0% { opacity:0; transform:translateY(5px); }
+          100% { opacity:1; transform:translateY(0); }
+        }
+
+        /* ── Enrage aura ── */
+        .enemy-enrage-aura {
+          position: absolute;
+          inset: -8px;
+          border-radius: 50%;
+          background: radial-gradient(ellipse at center, rgba(192,57,43,0.3) 0%, transparent 70%);
+          animation: enrage-pulse 0.8s ease-in-out infinite alternate;
+          pointer-events: none;
+          z-index: -1;
+        }
+        @keyframes enrage-pulse {
+          0%   { opacity:0.4; transform:scale(0.95); }
+          100% { opacity:0.8; transform:scale(1.1); }
+        }
+
+        /* ── Shield icon ── */
+        .shield-icon {
+          position: absolute;
+          top: -5px; right: -5px;
+          font-size: 1.5rem;
+          filter: drop-shadow(0 0 4px rgba(52,152,219,0.6));
+          animation: shield-bob 1.5s ease-in-out infinite;
+          z-index: 5;
+        }
+        @keyframes shield-bob {
+          0%,100% { transform:translateY(0); }
+          50% { transform:translateY(-4px); }
+        }
+        @keyframes shield-break {
+          0%   { transform:scale(1); opacity:1; }
+          50%  { transform:scale(1.3) rotate(15deg); opacity:0.7; }
+          100% { transform:scale(0) rotate(45deg); opacity:0; }
+        }
+
+        /* ── Dodge animation ── */
+        @keyframes enemy-dodge {
+          0%   { transform:translateX(0); opacity:1; }
+          30%  { transform:translateX(50px); opacity:0.4; }
+          60%  { transform:translateX(50px); opacity:0.4; }
+          100% { transform:translateX(0); opacity:1; }
+        }
+
+        /* ── Scramble animation ── */
+        @keyframes option-scramble {
+          0%   { transform:translateX(0); opacity:1; }
+          25%  { transform:translateX(-10px); opacity:0.5; }
+          50%  { transform:translateX(10px); opacity:0.3; }
+          75%  { transform:translateX(-5px); opacity:0.5; }
+          100% { transform:translateX(0); opacity:1; }
+        }
       </style>
 
       <div class="combat-screen-inner">
@@ -744,11 +798,11 @@ function renderCombat() {
           <div class="hud-combo" id="combo" style="color:${comboColor};">${combo > 1 ? combo + ' 连击！' : ''}</div>
           <div class="hud-hp-wrap">
             <div class="hud-hp-bar-bg">
-              <div class="hud-hp-bar hp-enemy" id="enemy-hp" style="width:${enemyHp}%"></div>
+              <div class="hud-hp-bar hp-enemy" id="enemy-hp" style="width:${(enemyHp / enemyMaxHp) * 100}%"></div>
             </div>
-            <div class="hud-hp-text" style="text-align:right;">HP: ${enemyHp}%</div>
+            <div class="hud-hp-text" style="text-align:right;">HP: ${enemyHp}/${enemyMaxHp}</div>
           </div>
-          <div class="hud-enemy-name">${enemyName}</div>
+          <div class="hud-enemy-name">${enemyName}${shieldActive ? ' 🛡' : ''}</div>
         </div>
 
         <!-- Battle arena: player sprite | energy | enemy sprite -->
@@ -763,8 +817,10 @@ function renderCombat() {
           </div>
 
           <div class="sprite-wrap" id="enemy-sprite-wrap">
-            <div class="sprite-label" style="color:var(--accent-red);">${enemyName}</div>
+            <div class="sprite-label" style="color:var(--accent-red);">${enemyName}${shieldActive ? ' 🛡' : ''}</div>
             <div id="enemy-sprite" class="sprite-container"></div>
+            ${enemyType.ability ? `<div class="enemy-ability-banner" id="ability-banner">${enemyType.desc}</div>` : ''}
+            ${enrageTriggered ? '<div class="enemy-enrage-aura" id="enrage-aura"></div>' : ''}
           </div>
         </div>
 
@@ -817,10 +873,34 @@ function renderCombat() {
       const enemyContainer = div.querySelector('#enemy-sprite');
       if (enemyContainer) {
         enemyContainer.innerHTML = '';
-        const enemySprites = [sprites.enemy_ink, sprites.enemy_soldier];
-        // Use same random enemy type that was chosen for this combat session
-        const enemyImg = createSpriteImg(enemySprites[Math.floor(Math.random() * enemySprites.length)], 160);
+        // Map enemy type sprite to available pixel sprites
+        const spriteMap = {
+          'enemy_moling': sprites.enemy_ink,
+          'enemy_guard': sprites.enemy_soldier,
+          'enemy_shadow': sprites.enemy_ink, // shadow uses ink sprite with different coloring
+        };
+        const enemyPixelSprite = spriteMap[enemyType.sprite] || sprites.enemy_ink;
+        const enemyImg = createSpriteImg(enemyPixelSprite, 160);
         enemyContainer.appendChild(enemyImg);
+
+        // Add shield icon overlay if shield is active
+        if (shieldActive) {
+          const shieldIcon = document.createElement('div');
+          shieldIcon.className = 'shield-icon';
+          shieldIcon.id = 'shield-icon';
+          shieldIcon.textContent = '🛡';
+          enemyContainer.style.position = 'relative';
+          enemyContainer.appendChild(shieldIcon);
+        }
+
+        // Add enrage aura if triggered
+        if (enrageTriggered) {
+          const aura = document.createElement('div');
+          aura.className = 'enemy-enrage-aura';
+          aura.id = 'enrage-aura';
+          enemyContainer.style.position = 'relative';
+          enemyContainer.appendChild(aura);
+        }
       }
     }
 
@@ -892,9 +972,49 @@ function renderCombat() {
       if (timeLeft <= 0) {
         clearInterval(timerInterval);
         clearInterval(timerPulseInterval);
+        if (scrambleTimer) { clearTimeout(scrambleTimer); scrambleTimer = null; }
         handleAnswer(-1, q, true);
       }
     }, 100);
+
+    // ── Scramble ability: shuffle options after 5 seconds ──
+    if (scrambleTimer) { clearTimeout(scrambleTimer); scrambleTimer = null; }
+    if (enemyType.ability === 'scramble') {
+      scrambleTimer = setTimeout(() => {
+        const optionsEl = div.querySelector('#options');
+        if (!optionsEl) return;
+        const btns = [...optionsEl.querySelectorAll('.combat-option')];
+        if (btns.length < 2) return;
+        // Animate out
+        btns.forEach(b => { b.style.animation = 'option-scramble 0.5s ease-out'; });
+        setTimeout(() => {
+          // Fisher-Yates shuffle of DOM elements
+          for (let i = btns.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            optionsEl.appendChild(btns[j]);
+          }
+          // Clear animation
+          btns.forEach(b => { b.style.animation = ''; });
+          // Show scramble notification
+          const scrambleNote = document.createElement('div');
+          scrambleNote.textContent = '选项已打乱！';
+          scrambleNote.style.cssText = `
+            position:absolute; top:40%; left:50%;
+            transform:translate(-50%,-50%) scale(0);
+            color:#e67e22; font-size:1.3rem; font-weight:900;
+            text-shadow: 0 0 12px #e67e22, 2px 2px 0 #000;
+            pointer-events:none; z-index:1003;
+            transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), opacity 0.4s ease-out;
+          `;
+          div.appendChild(scrambleNote);
+          requestAnimationFrame(() => requestAnimationFrame(() => {
+            scrambleNote.style.transform = 'translate(-50%,-50%) scale(1)';
+          }));
+          setTimeout(() => { scrambleNote.style.opacity = '0'; }, 600);
+          setTimeout(() => scrambleNote.remove(), 1000);
+        }, 300);
+      }, 5000);
+    }
 
     // ── Ability buttons ──
     const abilitiesEl = div.querySelector('#abilities');
@@ -924,6 +1044,7 @@ function renderCombat() {
       profile.wenli -= 2;
       clearInterval(timerInterval);
       clearInterval(timerPulseInterval);
+      if (scrambleTimer) { clearTimeout(scrambleTimer); scrambleTimer = null; }
       qIndex++;
       if (qIndex >= questions.length) { endCombat(true); return; }
       render();
@@ -943,6 +1064,7 @@ function renderCombat() {
       btn.addEventListener('click', () => {
         clearInterval(timerInterval);
         clearInterval(timerPulseInterval);
+        if (scrambleTimer) { clearTimeout(scrambleTimer); scrambleTimer = null; }
         const idx = parseInt(btn.dataset.idx);
         handleAnswer(idx, q);
       });
@@ -996,6 +1118,52 @@ function renderCombat() {
       if (combo >= 5) setMusicIntensity(3);
       else if (combo >= 3) setMusicIntensity(2);
 
+      // ── Dodge ability: 20% chance enemy dodges ──
+      if (enemyType.ability === 'dodge' && Math.random() < 0.2) {
+        // Enemy dodges — no damage dealt
+        const enemySpriteDodge = div.querySelector('#enemy-sprite');
+        if (enemySpriteDodge) {
+          enemySpriteDodge.style.animation = 'enemy-dodge 0.6s ease-out';
+          enemySpriteDodge.addEventListener('animationend', () => {
+            enemySpriteDodge.style.animation = '';
+          }, { once: true });
+        }
+        // Show dodge text
+        const dodgeText = document.createElement('div');
+        dodgeText.textContent = '闪避！';
+        dodgeText.style.cssText = `
+          position:absolute; top:30%; left:65%;
+          transform:translate(-50%,-50%) scale(0);
+          color:#9b59b6; font-size:1.8rem; font-weight:900;
+          text-shadow: 0 0 16px #9b59b6, 2px 2px 0 #000;
+          pointer-events:none; z-index:1005;
+          transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), opacity 0.4s ease-out;
+        `;
+        div.appendChild(dodgeText);
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          dodgeText.style.transform = 'translate(-50%,-50%) scale(1)';
+        }));
+        setTimeout(() => { dodgeText.style.opacity = '0'; }, 600);
+        setTimeout(() => dodgeText.remove(), 1000);
+
+        div.querySelector('#feedback').textContent = `✓ 正确！但${enemyName}闪避了攻击！ ${q.explanation}`;
+
+        // Still update score even on dodge
+        const speedBonus = Math.round(baseTimer * 0.3);
+        chips += 10 + speedBonus;
+        multiplier = parseFloat((multiplier + 0.5).toFixed(1));
+        updateScorePanel(false);
+
+        const quest = gameState.currentQuest;
+        quest.results.combo = combo;
+        setTimeout(() => {
+          qIndex++;
+          if (qIndex >= questions.length) { endCombat(true); return; }
+          render();
+        }, 1800);
+        return;
+      }
+
       // ── New stat-based damage calculation ──
       const isCrit = rollCrit(profile);
       const timerBar = div.querySelector('#timer-bar');
@@ -1004,13 +1172,52 @@ function renderCombat() {
       if (doubleActive) dmg *= 2;
       doubleActive = false;
 
+      // Apply enemy defense reduction
+      const defReduction = Math.max(0, dmg - enemyType.defense);
+      dmg = Math.max(1, defReduction); // always deal at least 1
+
       // Executioner talent: enemy HP < 30% = +40% damage
       const talents = getTalentEffects(profile);
-      if (talents.executePct && enemyHp < 30) {
+      if (talents.executePct && enemyHp < (enemyMaxHp * 0.3)) {
         dmg = Math.round(dmg * (1 + talents.executePct / 100));
       }
 
       enemyHp = Math.max(0, enemyHp - dmg);
+
+      // ── Enrage ability: trigger when enemy HP drops below 50% ──
+      if (enemyType.ability === 'enrage' && !enrageTriggered && enemyHp > 0 && enemyHp < enemyMaxHp * 0.5) {
+        enrageTriggered = true;
+        // Show enrage banner
+        const enrageText = document.createElement('div');
+        enrageText.textContent = '暴怒！';
+        enrageText.style.cssText = `
+          position:absolute; top:25%; left:65%;
+          transform:translate(-50%,-50%) scale(0);
+          color:#e74c3c; font-size:2rem; font-weight:900;
+          text-shadow: 0 0 20px #e74c3c, 0 0 40px #c0392b, 2px 2px 0 #000;
+          pointer-events:none; z-index:1005;
+          transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), opacity 0.4s ease-out;
+        `;
+        div.appendChild(enrageText);
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          enrageText.style.transform = 'translate(-50%,-50%) scale(1)';
+        }));
+        setTimeout(() => { enrageText.style.opacity = '0'; }, 800);
+        setTimeout(() => enrageText.remove(), 1200);
+
+        // Add red aura to enemy sprite
+        const enemyContainerEnrage = div.querySelector('#enemy-sprite');
+        if (enemyContainerEnrage) {
+          const aura = document.createElement('div');
+          aura.className = 'enemy-enrage-aura';
+          aura.id = 'enrage-aura';
+          enemyContainerEnrage.style.position = 'relative';
+          enemyContainerEnrage.appendChild(aura);
+        }
+        // Red flash
+        screenFlash('#c0392b', 500, div);
+        shakeElement(div, 6, 300);
+      }
 
       // ── CSS animation on selected correct button ──
       const selectedBtn = idx >= 0 ? [...buttons].find(b => parseInt(b.dataset.idx) === idx) : null;
@@ -1036,7 +1243,7 @@ function renderCombat() {
         const divRect = div.getBoundingClientRect();
         const numX = spRect.left - divRect.left + spRect.width / 2 - 20;
         const numY = spRect.top - divRect.top - 5;
-        floatingNumber(div, `+${chips} ×${multiplier.toFixed(1)}`, numX - 30, numY, '#d4a017');
+        floatingText(div, `+${chips} ×${multiplier.toFixed(1)}`, numX - 30, numY, { color: '#d4a017' });
       }
 
       // ── Player sprite attack via CSS keyframe ──
@@ -1075,7 +1282,7 @@ function renderCombat() {
         const divRect = div.getBoundingClientRect();
         const numX = ewRect.left - divRect.left + ewRect.width / 2 - 20;
         const numY = ewRect.top - divRect.top - 10;
-        floatingNumber(div, `-${dmg}`, numX, numY, isCrit ? '#ffd700' : '#e74c3c');
+        floatingText(div, `-${dmg}`, numX, numY, { color: isCrit ? '#ffd700' : '#e74c3c' });
       }
 
       // ── CRITICAL HIT banner + screen shake ──
@@ -1192,19 +1399,23 @@ function renderCombat() {
         }, { once: true });
       }
 
-      div.querySelector('#feedback').textContent = `✓ 正确！${isCrit ? '暴击！' : ''}造成 ${dmg} 点伤害！${combo > 1 ? `(${combo}连击)` : ''} ${q.explanation}`;
+      div.querySelector('#feedback').textContent = `✓ 正确！${isCrit ? '暴击！' : ''}造成 ${dmg} 点伤害！${enemyType.defense > 0 ? `(防御减免${enemyType.defense})` : ''}${combo > 1 ? `(${combo}连击)` : ''} ${q.explanation}`;
 
-      // Update enemy HP bar with damage flash
+      // Update enemy HP bar with damage flash (use percentage of real HP)
+      const enemyHpPct = (enemyHp / enemyMaxHp) * 100;
       const enemyHpBar = div.querySelector('#enemy-hp');
       if (enemyHpBar) {
         enemyHpBar.style.animation = 'hp-damage-flash 0.35s ease-out';
         enemyHpBar.addEventListener('animationend', () => {
-          enemyHpBar.style.animation = enemyHp < 30 ? 'hp-critical-pulse 0.8s ease-in-out infinite' : '';
+          enemyHpBar.style.animation = enemyHpPct < 30 ? 'hp-critical-pulse 0.8s ease-in-out infinite' : '';
         }, { once: true });
-        enemyHpBar.style.width = enemyHp + '%';
-        if (enemyHp < 30) enemyHpBar.classList.add('hp-critical');
+        enemyHpBar.style.width = enemyHpPct + '%';
+        if (enemyHpPct < 30) enemyHpBar.classList.add('hp-critical');
         else enemyHpBar.classList.remove('hp-critical');
       }
+      // Update enemy HP text
+      const enemyHpText = div.querySelector('.hud-hp-wrap:last-of-type .hud-hp-text');
+      if (enemyHpText) enemyHpText.textContent = `HP: ${enemyHp}/${enemyMaxHp}`;
 
       // Companion combo reactions — only on notable milestones
       if (combo === 2) showCompanionBubble(div, pick(COMPANION.correctStreak2));
@@ -1213,7 +1424,59 @@ function renderCombat() {
     } else {
       combo = 0;
       setMusicIntensity(1); // Drop back to base battle intensity
-      const dmgResult = calcDamageTaken(profile, isTimeout ? 20 : 15);
+
+      // ── Shield ability: first wrong answer deals 0 damage ──
+      if (shieldActive) {
+        shieldActive = false;
+        // Show "挡住了！" text
+        const shieldBlockText = document.createElement('div');
+        shieldBlockText.textContent = '挡住了！';
+        shieldBlockText.style.cssText = `
+          position:absolute; top:30%; left:35%;
+          transform:translate(-50%,-50%) scale(0);
+          color:#3498db; font-size:1.8rem; font-weight:900;
+          text-shadow: 0 0 16px #3498db, 2px 2px 0 #000;
+          pointer-events:none; z-index:1005;
+          transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), opacity 0.4s ease-out;
+        `;
+        div.appendChild(shieldBlockText);
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          shieldBlockText.style.transform = 'translate(-50%,-50%) scale(1)';
+        }));
+        setTimeout(() => { shieldBlockText.style.opacity = '0'; }, 600);
+        setTimeout(() => shieldBlockText.remove(), 1000);
+
+        // Shield break animation on the icon
+        const shieldIconEl = div.querySelector('#shield-icon');
+        if (shieldIconEl) {
+          shieldIconEl.style.animation = 'shield-break 0.5s ease-out forwards';
+          setTimeout(() => shieldIconEl.remove(), 600);
+        }
+
+        // Update enemy name to remove shield icon
+        const enemyNameHud = div.querySelector('.hud-enemy-name');
+        if (enemyNameHud) enemyNameHud.textContent = enemyName;
+        const spriteLabelEl = div.querySelector('#enemy-sprite-wrap .sprite-label');
+        if (spriteLabelEl) spriteLabelEl.textContent = enemyName;
+
+        div.querySelector('#feedback').textContent = `✗ 错误！但${enemyName}的盾挡住了伤害！盾已碎裂！ ${q.explanation}`;
+
+        // Still break combo + multiplier
+        multiplier = 1.0;
+        updateScorePanel(true);
+
+        const quest = gameState.currentQuest;
+        quest.results.combo = combo;
+        setTimeout(() => {
+          qIndex++;
+          if (qIndex >= questions.length) { endCombat(true); return; }
+          render();
+        }, 1800);
+        return;
+      }
+
+      const enemyAtkDmg = enrageTriggered ? Math.round(enemyType.attack * 1.5) : enemyType.attack;
+      const dmgResult = calcDamageTaken(profile, isTimeout ? Math.round(enemyAtkDmg * 1.3) : enemyAtkDmg);
       const hpLoss = dmgResult.damage;
       const thornsReturn = dmgResult.thornsReturn;
       playerHp = Math.max(0, playerHp - hpLoss);
@@ -1228,11 +1491,11 @@ function renderCombat() {
             const divRect = div.getBoundingClientRect();
             const numX = ewRect.left - divRect.left + ewRect.width / 2 - 20;
             const numY = ewRect.top - divRect.top - 10;
-            floatingNumber(div, `荆棘 -${thornsReturn}`, numX, numY, '#27ae60');
+            floatingText(div, `荆棘 -${thornsReturn}`, numX, numY, { color: '#27ae60' });
           }
           // Update enemy HP bar for thorns
           const enemyHpBar = div.querySelector('#enemy-hp');
-          if (enemyHpBar) enemyHpBar.style.width = enemyHp + '%';
+          if (enemyHpBar) enemyHpBar.style.width = (enemyHp / enemyMaxHp) * 100 + '%';
         }, 600);
       }
 
@@ -1270,7 +1533,7 @@ function renderCombat() {
       }, 200);
 
       // Red screen flash
-      redFlashOverlay(div);
+      screenFlash('#c0392b', 500, div);
 
       // PixiJS red particle burst on player hit
       const playerRectPx = div.querySelector('#player-sprite')?.getBoundingClientRect();
@@ -1287,7 +1550,7 @@ function renderCombat() {
         const divRect = div.getBoundingClientRect();
         const numX = pwRect.left - divRect.left + pwRect.width / 2 - 15;
         const numY = pwRect.top - divRect.top - 10;
-        floatingNumber(div, `-${hpLoss}HP`, numX, numY, '#e74c3c');
+        floatingText(div, `-${hpLoss}HP`, numX, numY, { color: '#e74c3c' });
       }
 
       // Show "×1.0 BREAK!" float over score panel
@@ -1297,7 +1560,7 @@ function renderCombat() {
         const divRect = div.getBoundingClientRect();
         const numX = spRect.left - divRect.left + spRect.width / 2 - 30;
         const numY = spRect.top - divRect.top - 5;
-        floatingNumber(div, '×1.0 BREAK!', numX - 20, numY, '#e74c3c');
+        floatingText(div, '×1.0 BREAK!', numX - 20, numY, { color: '#e74c3c' });
       }
 
       // Reset combo display — CSS combo-break shatter animation
@@ -1312,7 +1575,7 @@ function renderCombat() {
         comboEl.textContent = '';
       }
 
-      div.querySelector('#feedback').textContent = `✗ 错误！失去 ${hpLoss} HP。${thornsReturn > 0 ? `荆棘反弹 ${thornsReturn} 伤害！` : ''}${q.explanation}`;
+      div.querySelector('#feedback').textContent = `✗ 错误！失去 ${hpLoss} HP。${enrageTriggered ? '(暴怒加成！)' : ''}${thornsReturn > 0 ? `荆棘反弹 ${thornsReturn} 伤害！` : ''}${q.explanation}`;
 
       // Update player HP bar with damage flash and critical pulse
       const playerHpBar = div.querySelector('#player-hp');
@@ -1338,9 +1601,10 @@ function renderCombat() {
     const quest = gameState.currentQuest;
     quest.results.combo = combo;
 
-    // ── Hit pause on killing blow ──────────────────────────────────────────────
-    if (enemyHp <= 0 && correct) {
+    // ── Hit pause on killing blow (correct answer or thorns kill) ──────────────
+    if (enemyHp <= 0) {
       clearInterval(timerInterval);
+      if (scrambleTimer) { clearTimeout(scrambleTimer); scrambleTimer = null; }
       document.body.style.pointerEvents = 'none';
       setTimeout(() => {
         document.body.style.pointerEvents = '';
@@ -1370,6 +1634,7 @@ function renderCombat() {
 
     clearInterval(timerInterval);
     clearInterval(timerPulseInterval);
+    if (scrambleTimer) { clearTimeout(scrambleTimer); scrambleTimer = null; }
     setMusicIntensity(0); // Back to ambient
     if (won) playStinger('victory');
     encounter.completed = won;
@@ -1380,7 +1645,7 @@ function renderCombat() {
       // ── Enhanced defeat screen ──────────────────────────────────────────
       const quest = gameState.currentQuest;
       const results = quest ? quest.results : { correct: 0, total: 0, maxCombo: 0 };
-      const damageDealt = 100 - enemyHp;
+      const damageDealt = enemyMaxHp - enemyHp;
       const motivationalTexts = [
         "文字之路没有捷径，但每次失败都让你更强！",
         "墨暗之力只是暂时的胜利——你的知识终将战胜一切！",

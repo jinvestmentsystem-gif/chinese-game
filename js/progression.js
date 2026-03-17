@@ -228,15 +228,18 @@ const UNLOCKS = {
 };
 
 export function xpForLevel(level) {
-  return Math.round(100 * Math.pow(level, 1.5));
+  if (level <= 3) return 80 + level * 30; // 110, 140, 170 — fast early levels
+  if (level <= 7) return Math.round(120 * Math.pow(level, 1.3)); // moderate middle
+  return Math.round(100 * Math.pow(level, 1.5)); // standard late game
 }
 
-export function calculateGoldReward(results) {
+export function calculateGoldReward(results, isChapterBoss = false) {
   const baseGold = results.correct * 8;
   const comboBonus = results.maxCombo * 5;
   const accuracyBonus = results.total > 0 && (results.correct / results.total) > 0.8 ? 30 : 0;
   const perfectBonus = results.total > 0 && results.correct === results.total ? 50 : 0;
-  return baseGold + comboBonus + accuracyBonus + perfectBonus;
+  const chapterBonus = isChapterBoss ? 100 : 0;
+  return baseGold + comboBonus + accuracyBonus + perfectBonus + chapterBonus;
 }
 
 export function addXP(amount) {
@@ -265,6 +268,10 @@ export function addXP(amount) {
     newLevel++;
     leveledUp = true;
 
+    // Stat points per level: 2 (early), 3 (mid), 4 (late)
+    const statPointsEarned = newLevel <= 5 ? 2 : newLevel <= 10 ? 3 : 4;
+    profile.statPoints = (profile.statPoints || 0) + statPointsEarned;
+
     // Grant talent point every 2 levels starting at level 4
     if (newLevel >= 4 && newLevel % 2 === 0) {
       profile.talentPoints = (profile.talentPoints || 0) + 1;
@@ -286,6 +293,27 @@ export function addXP(amount) {
   gameState.save();
 
   return leveledUp ? { newLevel, unlock, showLevelUpScreen: true, talentPointsGained, goldEarned, boostedAmount } : null;
+}
+
+/** Grant bonus talent point for completing all quests in a chapter */
+export function grantChapterCompletionBonus(profile, chapterId) {
+  const chapQuests = { 1: 4, 2: 4, 3: 4, 4: 4, 5: 5 };
+  const cp = profile.chapterProgress || {};
+  const chapter = cp[chapterId];
+  if (!chapter) return null;
+
+  // Check if all quests in this chapter are completed
+  if (chapter.questsCompleted >= chapQuests[chapterId]) {
+    // Only grant once — track which chapters already gave the bonus
+    if (!profile.chapterBonusClaimed) profile.chapterBonusClaimed = {};
+    if (profile.chapterBonusClaimed[chapterId]) return null;
+
+    profile.chapterBonusClaimed[chapterId] = true;
+    profile.talentPoints = (profile.talentPoints || 0) + 1;
+    gameState.save();
+    return { talentPoint: 1, chapterId };
+  }
+  return null;
 }
 
 export function getXPProgress(profile) {

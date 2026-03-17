@@ -194,5 +194,101 @@ export function burstParticles(count = 30, mode = 'victory') {
   }
 }
 
+// ─── Color presets for burstAtPoint ──────────────────────────────────────────
+
+const BURST_PRESETS = {
+  gold:    { r: [210, 255], g: [160, 210], b: [10,  50]  },  // correct answers, gold pickup
+  red:     { r: [200, 255], g: [30,  80],  b: [20,  60]  },  // wrong answers, enemy attacks
+  purple:  { r: [120, 180], g: [20,  60],  b: [160, 220] },  // boss phase changes
+  jade:    { r: [30,  80],  g: [180, 230], b: [80, 140]  },  // healing, level-up
+  rainbow: null,  // special: random hue per particle
+};
+
+function randomInRange(min, max) {
+  return min + Math.random() * (max - min);
+}
+
+/**
+ * Burst particles at a specific screen coordinate.
+ * Used for: crit effects, combo effects, level-up, gold pickup, etc.
+ *
+ * @param {number} x - Screen X coordinate (relative to canvas)
+ * @param {number} y - Screen Y coordinate (relative to canvas)
+ * @param {number} count - Number of particles to spawn
+ * @param {string} color - Preset name: 'gold', 'red', 'purple', 'jade', 'rainbow'
+ * @param {string} mode - Movement style: 'explode' (outward burst), 'fountain' (upward), 'swirl'
+ */
+export function burstAtPoint(x, y, count = 20, color = 'gold', mode = 'explode') {
+  const preset = BURST_PRESETS[color];
+
+  for (let i = 0; i < count; i++) {
+    const p = new Particle(currentMode);
+
+    // Override position to the specified point
+    p.x = x + (Math.random() - 0.5) * 20;
+    p.y = y + (Math.random() - 0.5) * 20;
+
+    // Set color from preset
+    if (color === 'rainbow') {
+      // HSL-based rainbow: distribute hue evenly across particles
+      const hue = (i / count) * 360 + Math.random() * 30;
+      const [r, g, b] = hslToRgb(hue / 360, 0.8, 0.6);
+      p.r = r; p.g = g; p.b = b;
+    } else if (preset) {
+      p.r = randomInRange(preset.r[0], preset.r[1]);
+      p.g = randomInRange(preset.g[0], preset.g[1]);
+      p.b = randomInRange(preset.b[0], preset.b[1]);
+    }
+
+    // Movement based on mode
+    if (mode === 'explode') {
+      const angle = Math.random() * Math.PI * 2;
+      const speed = 2 + Math.random() * 4;
+      p.vx = Math.cos(angle) * speed;
+      p.vy = Math.sin(angle) * speed;
+    } else if (mode === 'fountain') {
+      p.vx = (Math.random() - 0.5) * 3;
+      p.vy = -(2 + Math.random() * 5);
+    } else if (mode === 'swirl') {
+      const angle = (i / count) * Math.PI * 2;
+      const speed = 1.5 + Math.random() * 2;
+      p.vx = Math.cos(angle) * speed;
+      p.vy = Math.sin(angle) * speed;
+    }
+
+    // Burst particles are larger and shorter-lived
+    p.size = 2 + Math.random() * 4;
+    p.life = 0.4 + Math.random() * 0.6;
+    p.maxLife = p.life;
+
+    particles.push(p);
+  }
+}
+
+/**
+ * Convert HSL (0-1 range) to RGB (0-255 range).
+ */
+function hslToRgb(h, s, l) {
+  let r, g, b;
+  if (s === 0) {
+    r = g = b = l;
+  } else {
+    const hue2rgb = (p, q, t) => {
+      if (t < 0) t += 1;
+      if (t > 1) t -= 1;
+      if (t < 1/6) return p + (q - p) * 6 * t;
+      if (t < 1/2) return q;
+      if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+      return p;
+    };
+    const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+    const p = 2 * l - q;
+    r = hue2rgb(p, q, h + 1/3);
+    g = hue2rgb(p, q, h);
+    b = hue2rgb(p, q, h - 1/3);
+  }
+  return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
+}
+
 // Auto-start ambient particles
 startParticles('ambient');

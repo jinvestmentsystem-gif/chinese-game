@@ -10,6 +10,7 @@ import { showCompanionBubble, showEnemyTaunt, COMPANION, ENEMY_TAUNTS, pick } fr
 import { setParticleMode, burstParticles } from '../particles.js';
 import { getPixelSprites, createSpriteImg } from '../pixel-sprites.js';
 import { showTutorial } from '../tutorial.js';
+import { shakeElement, shakeContainer, lungeElement, floatingText } from '../effects.js';
 
 const BOSS_NARRATIVES = {
   phase1: [
@@ -81,70 +82,8 @@ function abilityActive(ability, effectName) {
   return ability.effect === effectName || ability.effect === 'all_abilities';
 }
 
-// ─── Animation helpers ────────────────────────────────────────────────────────
-
-function shakeElement(el, intensity = 8, duration = 450) {
-  if (!el) return;
-  let start = null;
-  const period = 50;
-  function step(ts) {
-    if (!start) start = ts;
-    const elapsed = ts - start;
-    if (elapsed >= duration) { el.style.transform = ''; return; }
-    const dir = (Math.floor(elapsed / period) % 2 === 0) ? intensity : -intensity;
-    el.style.transform = `translateX(${dir}px)`;
-    requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
-}
-
-function shakeScreen(container, intensity = 6, duration = 400) {
-  if (!container) return;
-  let start = null;
-  const period = 40;
-  function step(ts) {
-    if (!start) start = ts;
-    const elapsed = ts - start;
-    if (elapsed >= duration) { container.style.transform = ''; return; }
-    const dx = (Math.floor(elapsed / period) % 2 === 0) ? intensity : -intensity;
-    const dy = (Math.floor(elapsed / period) % 3 === 0) ? intensity / 2 : -intensity / 2;
-    container.style.transform = `translate(${dx}px, ${dy}px)`;
-    requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
-}
-
-function lungeElement(el, dx, duration = 250, onDone) {
-  if (!el) return;
-  el.style.transition = `transform ${duration}ms ease-out`;
-  el.style.transform = `translateX(${dx}px)`;
-  setTimeout(() => {
-    el.style.transition = `transform ${duration}ms ease-in`;
-    el.style.transform = '';
-    if (onDone) setTimeout(onDone, duration);
-  }, duration);
-}
-
-function floatingNumber(container, text, x, y, color = '#d4a017', fontSize = '2rem', durationMs = 900) {
-  const num = document.createElement('div');
-  num.textContent = text;
-  num.style.cssText = `
-    position:absolute; left:${x}px; top:${y}px;
-    color:${color}; font-size:${fontSize}; font-weight:900;
-    text-shadow: 0 0 10px ${color}, 2px 2px 0 #000;
-    pointer-events:none; z-index:999;
-    transform:translateY(0) scale(1); opacity:1;
-    transition: transform ${durationMs}ms ease-out, opacity ${durationMs}ms ease-out;
-  `;
-  container.appendChild(num);
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      num.style.transform = `translateY(-${Math.round(durationMs * 0.09)}px) scale(1.2)`;
-      num.style.opacity = '0';
-    });
-  });
-  setTimeout(() => num.remove(), durationMs + 100);
-}
+// ─── Animation helpers (shared effects imported from ../effects.js) ──────────
+// Local helpers that are specific to boss.js:
 
 function goldenSlash(container, cx, cy) {
   const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -226,7 +165,7 @@ function redBorderFlash(container) {
   setTimeout(() => overlay.remove(), 600);
 }
 
-function screenFlash(container, color = '#fff') {
+function bossFlash(container, color = '#fff') {
   const flash = document.createElement('div');
   flash.style.cssText = `
     position:absolute; inset:0; background:${color};
@@ -624,12 +563,12 @@ function renderBoss() {
           });
         });
         // Screen shake on boss landing
-        setTimeout(() => shakeScreen(div, 8, 400), 1100);
+        setTimeout(() => shakeContainer(div, 8, 400), 1100);
       }
 
     } else if (phaseTransition) {
       // Phase transition: flash, hue-rotate, phase label animation + companion/boss dialogue
-      screenFlash(div, '#c0392b');
+      bossFlash(div, '#c0392b');
       showCompanionBubble(div, pick(COMPANION.bossPhaseChange));
       showEnemyTaunt(div, pick(bossTaunts), 2500);
       if (bossSprite) {
@@ -816,7 +755,7 @@ function renderBoss() {
               const divRect = div.getBoundingClientRect();
               const numX = bwRect.left - divRect.left + bwRect.width / 2 - 35;
               const numY = bwRect.top - divRect.top - 20;
-              floatingNumber(div, `${isCrit ? '暴击！' : ''}-${dmg}`, numX, numY, isCrit ? '#ffd700' : '#d4a017', '4rem', 1800);
+              floatingText(div, `${isCrit ? '暴击！' : ''}-${dmg}`, numX, numY, { color: isCrit ? '#ffd700' : '#d4a017', fontSize: '4rem', duration: 1800 });
             }
             // White screen flash: opacity 0 → 0.8 → 0 over 400ms
             epicWhiteFlash(div);
@@ -833,7 +772,7 @@ function renderBoss() {
             const divRect = div.getBoundingClientRect();
             const numX = bwRect.left - divRect.left + bwRect.width / 2 - 25;
             const numY = bwRect.top - divRect.top - 15;
-            floatingNumber(div, `-${dmg}`, numX, numY, isCrit ? '#ffd700' : '#d4a017');
+            floatingText(div, `-${dmg}`, numX, numY, { color: isCrit ? '#ffd700' : '#d4a017' });
           }
 
           // ── CRITICAL HIT banner + screen shake for boss combat ──
@@ -858,7 +797,7 @@ function renderBoss() {
               critBanner.style.transform = 'translate(-50%,-50%) scale(1.3)';
             }, 700);
             setTimeout(() => critBanner.remove(), 1100);
-            shakeScreen(div, 10, 500);
+            shakeContainer(div, 10, 500);
           }
 
           div.querySelector('#feedback').textContent = `✓ 正确！${isCrit ? '暴击！' : ''}对${bossInfo.name}造成 ${dmg} 点伤害！${q.explanation}`;
@@ -882,7 +821,7 @@ function renderBoss() {
                 const divRect = div.getBoundingClientRect();
                 const numX = bwRect.left - divRect.left + bwRect.width / 2 - 30;
                 const numY = bwRect.top - divRect.top - 15;
-                floatingNumber(div, `荆棘 -${thornsReturn}`, numX, numY, '#27ae60');
+                floatingText(div, `荆棘 -${thornsReturn}`, numX, numY, { color: '#27ae60' });
               }
             }, 500);
           }
@@ -912,7 +851,7 @@ function renderBoss() {
             const divRect = div.getBoundingClientRect();
             const numX = phRect.left - divRect.left + phRect.width / 2 - 20;
             const numY = phRect.top - divRect.top - 10;
-            floatingNumber(div, `-${hpLoss}HP`, numX, numY, '#e74c3c');
+            floatingText(div, `-${hpLoss}HP`, numX, numY, { color: '#e74c3c' });
           }
 
           div.querySelector('#feedback').textContent = `✗ 错误！${bossInfo.name}反击，失去 ${hpLoss} HP。${thornsReturn > 0 ? `荆棘反刺 ${thornsReturn}！` : ''}${q.explanation}`;
@@ -1060,7 +999,7 @@ function renderBoss() {
 
       // Screen flash on death blow (already fired via epicWhiteFlash above,
       // this adds the gold cinematic flash after the white)
-      setTimeout(() => screenFlash(div, '#d4a017'), 180);
+      setTimeout(() => bossFlash(div, '#d4a017'), 180);
 
       // Boss sprite breaks into particles
       setTimeout(() => {

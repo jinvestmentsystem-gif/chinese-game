@@ -2,8 +2,8 @@
 import { gameState } from './state.js';
 import { loadContent, pickQuestions, pickReadingPassage } from './content-loader.js';
 
-// Encounter types: 'combat', 'puzzle', 'boss'
-function generateEncounterSequence(chapterId, questIndex) {
+// Encounter types: 'combat', 'puzzle', 'boss', 'treasure', 'rest'
+function generateEncounterSequence(chapterId, questIndex, playerHpPercent = 1) {
   const patterns = [
     ['combat', 'puzzle', 'combat', 'puzzle', 'boss'],
     ['combat', 'combat', 'puzzle', 'combat', 'boss'],
@@ -17,13 +17,76 @@ function generateEncounterSequence(chapterId, questIndex) {
   // different chapters feel distinct even at the same quest index.
   const chapterHash = String(chapterId).split('').reduce((acc, ch) => acc + ch.charCodeAt(0), 0);
   const patternIndex = (chapterHash + questIndex) % patterns.length;
-  const pattern = patterns[patternIndex];
+  const pattern = [...patterns[patternIndex]];
 
+  // ── Difficulty scaling: later chapters add extra encounters ──────────
+  const chapterNum = typeof chapterId === 'number' ? chapterId : parseInt(chapterId, 10) || 1;
+  if (chapterNum === 1 && (chapterHash + questIndex) % 3 === 0) {
+    // Chapter 1: ~33% chance of a shorter (4-encounter) quest for gentler intro
+    pattern.splice(pattern.length - 2, 1); // remove one pre-boss encounter
+  } else if (chapterNum >= 4) {
+    // Chapters 4-5: insert an extra combat before the boss
+    pattern.splice(pattern.length - 1, 0, 'combat');
+  }
+
+  // ── Treasure encounter: 20% chance to replace one combat with treasure ──
+  const combatIndices = [];
+  pattern.forEach((type, i) => {
+    if (type === 'combat') combatIndices.push(i);
+  });
+  if (combatIndices.length > 1 && Math.random() < 0.2) {
+    // Replace a random non-first combat encounter with a treasure chest
+    const eligible = combatIndices.filter(i => i > 0);
+    if (eligible.length > 0) {
+      const replaceIdx = eligible[Math.floor(Math.random() * eligible.length)];
+      pattern[replaceIdx] = 'treasure';
+    }
+  }
+
+  // ── Build encounter list ────────────────────────────────────────────
   const encounters = [];
   pattern.forEach((type, i) => {
-    encounters.push({ type, index: i, completed: false });
+    const enc = { type, index: i, completed: false };
+
+    if (type === 'treasure') {
+      // Treasure gives random gold (30-80) + 20% chance for a consumable
+      enc.goldReward = 30 + Math.floor(Math.random() * 51);
+      enc.itemDrop = Math.random() < 0.2 ? 'hp-potion' : null;
+    }
+
+    encounters.push(enc);
   });
+
+  // ── Rest encounter: appears after a combat if player HP < 50% ───────
+  if (playerHpPercent < 0.5) {
+    // Find the first combat encounter and insert a rest after it
+    const firstCombatIdx = encounters.findIndex(e => e.type === 'combat');
+    if (firstCombatIdx >= 0 && firstCombatIdx < encounters.length - 1) {
+      encounters.splice(firstCombatIdx + 1, 0, {
+        type: 'rest',
+        index: firstCombatIdx + 1,
+        completed: false,
+        hpRestorePercent: 0.3, // restores 30% of max HP
+        narrative: getRestNarrative(chapterNum),
+      });
+      // Re-index after splice
+      encounters.forEach((enc, idx) => { enc.index = idx; });
+    }
+  }
+
   return encounters;
+}
+
+/** Narrative flavor text for rest encounters, themed by chapter */
+function getRestNarrative(chapterNum) {
+  const narratives = {
+    1: '你在古老的竹林中找到一处清泉，稍作休息，恢复了精力。',
+    2: '你在驿站中歇脚，店家端来一碗热汤，疲惫渐渐消散。',
+    3: '你在长安城的茶楼品茗休憩，窗外传来悠扬的琵琶声。',
+    4: '你在清幽的书院中小憩，墨香袅袅，心神渐宁。',
+    5: '你在山间古寺中打坐冥想，晨钟暮鼓间元气渐复。',
+  };
+  return narratives[chapterNum] || narratives[1];
 }
 
 export async function startQuest(chapterId, questIndex) {
@@ -36,7 +99,9 @@ export async function startQuest(chapterId, questIndex) {
 
   const content = await loadContent(profile.tier);
 
-  const encounters = generateEncounterSequence(chapterId, questIndex);
+  // Pass current HP ratio so the generator can insert rest encounters if needed
+  const hpPercent = profile.maxHp > 0 ? profile.hp / profile.maxHp : 1;
+  const encounters = generateEncounterSequence(chapterId, questIndex, hpPercent);
 
   // Session-level deduplication: accumulate all question IDs used this quest
   const sessionUsedIds = [];
@@ -56,6 +121,7 @@ export async function startQuest(chapterId, questIndex) {
       enc.questions = pickQuestions(content.classical, 10, profile.seenQuestions.classical, clTarget, sessionUsedIds);
       enc.questions.forEach(q => sessionUsedIds.push(q.id));
     }
+    // 'treasure' and 'rest' encounters have no questions — their data is set at generation time
   }
 
   gameState.currentQuest = {
