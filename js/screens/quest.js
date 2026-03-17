@@ -571,9 +571,11 @@ function renderQuest(params) {
     if (!quest || quest.chapterId !== chapterId || quest.questIndex !== questIndex) {
       quest = await startQuest(chapterId, questIndex);
     }
-    // Fade out and remove the loading overlay
-    loadingOverlay.style.opacity = '0';
-    setTimeout(() => loadingOverlay.remove(), 400);
+    // Fade out and remove the loading overlay (defensive: may be gone if screen was swapped)
+    if (loadingOverlay?.parentNode) {
+      loadingOverlay.style.opacity = '0';
+      setTimeout(() => { try { loadingOverlay.remove(); } catch(_) {} }, 400);
+    }
 
     const encounters = quest.encounters;   // [{type, index, completed}, …]
     const N = encounters.length;           // typically 5

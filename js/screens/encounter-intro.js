@@ -383,12 +383,14 @@ function renderEncounterIntro({ type, onComplete } = {}) {
     proceeded = true;
     try { playSound('click'); } catch (_) {}
 
-    // Fade out then call onComplete
-    div.style.transition = 'opacity 0.35s ease-out';
-    div.style.opacity = '0';
+    // Fade out then call onComplete (defensive: div may already be removed by router)
+    if (div && div.parentNode) {
+      div.style.transition = 'opacity 0.35s ease-out';
+      div.style.opacity = '0';
+    }
     setTimeout(() => {
-      div.remove();
-      styleEl.remove();
+      try { if (div?.parentNode) div.remove(); } catch (_) {}
+      try { if (styleEl?.parentNode) styleEl.remove(); } catch (_) {}
       if (onComplete) onComplete();
     }, 360);
   }
