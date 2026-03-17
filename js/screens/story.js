@@ -162,6 +162,18 @@ function typewriterEffect(el, text, msPerChar = 50) {
       90%  { opacity: 0.6; }
       100% { transform: translateY(-100vh) translateX(var(--px-drift)); opacity: 0; }
     }
+    @keyframes speaker-icon-glow {
+      0%   { box-shadow: 0 0 12px rgba(212,160,23,0.3), 0 0 24px rgba(212,160,23,0.1); }
+      100% { box-shadow: 0 0 20px rgba(212,160,23,0.6), 0 0 40px rgba(212,160,23,0.25); }
+    }
+    @keyframes speaker-name-glow {
+      0%   { text-shadow: 0 0 10px rgba(212,160,23,0.5), 0 0 20px rgba(212,160,23,0.2); }
+      100% { text-shadow: 0 0 16px rgba(212,160,23,0.8), 0 0 32px rgba(212,160,23,0.4); }
+    }
+    @keyframes story-btn-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(200,169,110,0.5), 0 0 12px rgba(200,169,110,0.15); }
+      50%      { box-shadow: 0 0 0 8px rgba(200,169,110,0), 0 0 24px rgba(200,169,110,0.3); }
+    }
   `;
   document.head.appendChild(s);
 })();
@@ -230,24 +242,29 @@ function renderStory({ storyKey, onComplete } = {}) {
       <div id="story-speaker-row" style="
         display: flex;
         align-items: center;
-        gap: 10px;
-        min-height: 2rem;
+        gap: 12px;
+        min-height: 2.2rem;
         opacity: 0;
         transition: opacity 0.4s;
       ">
         <div id="story-speaker-icon" style="
-          width: 32px; height: 32px; border-radius: 50%;
-          background: rgba(212,160,23,0.25);
-          border: 1px solid rgba(212,160,23,0.5);
+          width: 36px; height: 36px; border-radius: 50%;
+          background: rgba(212,160,23,0.3);
+          border: 2px solid rgba(212,160,23,0.6);
           display: flex; align-items: center; justify-content: center;
-          font-size: 1rem; color: #d4a017; font-weight: 700;
+          font-size: 1.1rem; color: #d4a017; font-weight: 700;
           flex-shrink: 0;
+          box-shadow: 0 0 16px rgba(212,160,23,0.4), 0 0 32px rgba(212,160,23,0.15);
+          animation: speaker-icon-glow 2s ease-in-out infinite alternate;
         "></div>
         <div id="story-speaker" style="
-          font-size: 1rem;
-          color: #c8a96e;
-          letter-spacing: 0.15em;
+          font-size: 1.15rem;
+          font-weight: 700;
+          color: #d4b872;
+          letter-spacing: 0.18em;
           text-align: center;
+          text-shadow: 0 0 12px rgba(212,160,23,0.7), 0 0 24px rgba(212,160,23,0.3);
+          animation: speaker-name-glow 2s ease-in-out infinite alternate;
         "></div>
       </div>
 
@@ -255,40 +272,56 @@ function renderStory({ storyKey, onComplete } = {}) {
         background: rgba(15,20,40,0.7);
         border: 1px solid rgba(212,160,23,0.3);
         border-radius: 12px;
-        padding: 32px 40px;
-        max-width: 600px;
+        padding: 36px 44px;
+        max-width: 620px;
         width: 100%;
         box-sizing: border-box;
-        backdrop-filter: blur(5px);
-        box-shadow: 0 0 30px rgba(212,160,23,0.1);
+        backdrop-filter: blur(8px);
+        box-shadow:
+          0 0 40px rgba(212,160,23,0.12),
+          inset 0 0 80px rgba(0,0,0,0.4),
+          inset 0 0 120px rgba(15,20,40,0.6);
+        position: relative;
+        overflow: hidden;
       ">
+        <!-- Vignette overlay around text area -->
+        <div style="
+          position:absolute; inset:0; pointer-events:none; border-radius:12px;
+          background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.55) 100%);
+          z-index:1;
+        "></div>
         <div id="story-text" style="
-          font-size: 1.4rem;
-          line-height: 2.2rem;
+          font-size: 1.55rem;
+          line-height: 2.5rem;
           color: #f0e8d0;
           text-align: center;
-          text-shadow: 0 0 12px rgba(200,169,110,0.6), 0 0 24px rgba(200,169,110,0.2);
-          letter-spacing: 0.08em;
-          min-height: 4rem;
+          text-shadow: 0 0 14px rgba(200,169,110,0.7), 0 0 28px rgba(200,169,110,0.25);
+          letter-spacing: 0.1em;
+          min-height: 4.5rem;
+          position: relative;
+          z-index: 2;
         "></div>
       </div>
 
       <button id="btn-continue" style="
-        margin-top: 0.5rem;
-        padding: 0.6rem 2rem;
-        background: transparent;
-        border: 1px solid #c8a96e;
-        color: #c8a96e;
-        font-size: 1.1rem;
-        letter-spacing: 0.2em;
+        margin-top: 0.8rem;
+        padding: 0.85rem 2.8rem;
+        background: rgba(200,169,110,0.08);
+        border: 2px solid #c8a96e;
+        color: #d4b872;
+        font-size: 1.25rem;
+        font-weight: 600;
+        letter-spacing: 0.25em;
         cursor: pointer;
-        border-radius: 4px;
+        border-radius: 8px;
         opacity: 0;
-        transition: opacity 0.4s, background 0.2s;
+        transition: opacity 0.5s, background 0.2s, transform 0.2s;
         pointer-events: none;
         position: relative;
         z-index: 2;
-      ">继续</button>
+        text-shadow: 0 0 8px rgba(212,160,23,0.5);
+        animation: story-btn-pulse 2s ease-in-out infinite;
+      ">继续 ▸</button>
 
       <div id="story-progress" style="
         display: flex;

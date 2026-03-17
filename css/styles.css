@@ -1133,6 +1133,30 @@ input[type="text"]:focus, input[type="number"]:focus {
   height: 100vh;
   scrollbar-width: thin;
   scrollbar-color: rgba(212,160,23,0.3) transparent;
+  position: relative;
+}
+
+/* Gradient fade overlays at top and bottom of scrollable area */
+.worldmap-container::before,
+.worldmap-container::after {
+  content: '';
+  position: sticky;
+  left: 0;
+  right: 0;
+  height: 48px;
+  display: block;
+  pointer-events: none;
+  z-index: 5;
+}
+.worldmap-container::before {
+  top: 0;
+  background: linear-gradient(180deg, rgba(11,12,26,0.95) 0%, transparent 100%);
+  margin-bottom: -48px;
+}
+.worldmap-container::after {
+  bottom: 0;
+  background: linear-gradient(0deg, rgba(11,12,26,0.95) 0%, transparent 100%);
+  margin-top: -48px;
 }
 
 .worldmap-container::-webkit-scrollbar {
@@ -1219,11 +1243,21 @@ input[type="text"]:focus, input[type="number"]:focus {
 
 .era-node.node-active:hover,
 .era-node.node-completed:hover {
-  transform: translateX(6px);
+  transform: translateX(6px) scale(1.015);
   box-shadow:
     0 0 0 1px rgba(255,255,255,0.1),
     0 12px 36px rgba(0,0,0,0.55),
-    0 0 20px color-mix(in srgb, var(--node-color, var(--gold)) 30%, transparent);
+    0 0 28px color-mix(in srgb, var(--node-color, var(--gold)) 45%, transparent),
+    0 0 60px color-mix(in srgb, var(--node-color, var(--gold)) 15%, transparent);
+  border-left-width: 5px;
+}
+
+/* Hover glow pulse on clickable chapter nodes */
+.era-node.clickable:hover .era-icon {
+  box-shadow:
+    0 0 20px color-mix(in srgb, var(--node-color, var(--gold)) 40%, transparent),
+    0 0 40px color-mix(in srgb, var(--node-color, var(--gold)) 20%, transparent);
+  transition: box-shadow 0.3s ease;
 }
 
 .era-icon {
@@ -1283,6 +1317,31 @@ input[type="text"]:focus, input[type="number"]:focus {
   border-radius: 3px;
   transition: width 0.6s ease;
   box-shadow: 0 0 6px var(--node-color, var(--gold));
+  position: relative;
+  overflow: hidden;
+}
+
+.era-progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,255,255,0.35) 40%,
+    rgba(255,255,255,0.5) 50%,
+    rgba(255,255,255,0.35) 60%,
+    transparent 100%
+  );
+  animation: progressShimmer 2.5s ease-in-out infinite;
+}
+
+@keyframes progressShimmer {
+  0%   { left: -100%; }
+  100% { left: 200%; }
 }
 
 .era-progress-text {

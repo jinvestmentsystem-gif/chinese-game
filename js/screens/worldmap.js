@@ -349,14 +349,18 @@ function renderWorldMap() {
   // Review stats for spaced repetition indicator
   const reviewStats = getReviewStats();
 
+  // Determine current era accent color for the top bar
+  const currentChapterData = CHAPTERS.find(ch => ch.id === currentChapter) || CHAPTERS[0];
+  const eraAccent = currentChapterData.color;
+
   div.innerHTML = `
     ${buildLandscapeBg()}
 
     <div class="worldmap-container screen-enter" id="worldmap-scroll-container">
       <!-- ── Top bar ── -->
-      <div class="top-bar">
+      <div class="top-bar" style="border-bottom-color:${eraAccent}44;">
         <div class="player-badge">
-          <div style="width:32px;height:32px;border-radius:50%;overflow:hidden;border:2px solid rgba(212,160,23,0.5);flex-shrink:0;">
+          <div style="width:32px;height:32px;border-radius:50%;overflow:hidden;border:2px solid ${eraAccent}88;flex-shrink:0;">
             ${playerAvatarSvg}
           </div>
           <div>
@@ -364,8 +368,8 @@ function renderWorldMap() {
               ${profile.name}
               <span class="wm-active-title">${activeTitle}</span>
             </div>
-            <div style="font-size:0.92rem;color:var(--text-secondary);">
-              ${getGradeLabel(profile.tier)}
+            <div style="font-size:0.92rem;color:${eraAccent}cc;">
+              ${getGradeLabel(profile.tier)} · ${currentChapterData.era}
             </div>
           </div>
           <div class="level">Lv.${profile.level}</div>
@@ -376,8 +380,8 @@ function renderWorldMap() {
         </div>
 
         <div style="text-align:center;">
-          <div style="font-size:0.92rem;color:var(--text-dim);letter-spacing:0.1em;text-transform:uppercase;">征途</div>
-          <div style="font-size:1rem;font-weight:700;color:var(--gold);text-shadow:var(--shadow-gold);">文字侠</div>
+          <div style="font-size:0.92rem;color:${eraAccent}99;letter-spacing:0.1em;text-transform:uppercase;">征途</div>
+          <div style="font-size:1rem;font-weight:700;color:${eraAccent};text-shadow:0 0 12px ${eraAccent}55;">文字侠</div>
         </div>
 
         <div class="nav-buttons">
@@ -458,17 +462,25 @@ function renderWorldMap() {
       <div style="
         margin:12px 20px 0;
         background:rgba(0,0,0,0.3);
-        border:1px solid rgba(212,160,23,0.2);
+        border:1px solid ${eraAccent}33;
         border-radius:10px;
         padding:10px 16px;
-        display:flex; flex-direction:column; gap:4px;
+        display:flex; flex-direction:column; gap:6px;
       ">
         <div style="display:flex;align-items:center;justify-content:space-between;">
           <span style="font-size:0.95rem;color:var(--text-secondary);letter-spacing:0.06em;">征途进度</span>
-          <span style="font-size:0.95rem;font-weight:700;color:var(--accent-gold);">${overallPercent}%</span>
+          <span style="font-size:1.05rem;font-weight:700;color:${eraAccent};text-shadow:0 0 8px ${eraAccent}44;">${overallPercent}%</span>
         </div>
-        <div style="display:flex;align-items:center;gap:2px;letter-spacing:1px;">
-          ${progressBlocks}
+        <div style="
+          width:100%;height:8px;border-radius:4px;
+          background:rgba(255,255,255,0.08);
+          overflow:hidden;position:relative;
+        ">
+          <div class="era-progress-fill" style="
+            width:${overallPercent}%;height:100%;border-radius:4px;
+            background:linear-gradient(90deg, ${eraAccent}, ${eraAccent}cc);
+            box-shadow: 0 0 10px ${eraAccent}66;
+          "></div>
         </div>
         <div style="font-size:0.92rem;color:var(--text-secondary);">已完成 ${completedQuests} / ${totalQuests} 关卡</div>
       </div>
