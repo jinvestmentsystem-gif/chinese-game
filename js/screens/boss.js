@@ -539,7 +539,14 @@ function renderBoss() {
         </div>
       </div>
 
-      <div class="boss-hud">
+      <div class="boss-hud" style="position:relative;">
+        <button class="pause-btn" id="btn-boss-pause" title="暂停" style="
+          position:absolute; top:-2px; right:8px; z-index:20;
+          background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.2);
+          color:var(--text-primary); font-size:1.1rem; width:36px; height:36px;
+          border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center;
+          padding:0; line-height:1;
+        ">&#x23F8;</button>
         <div>
           <div style="font-weight:800;font-size:0.95rem;">${profile.name} HP</div>
           <div class="boss-hp-bg"><div class="player-hp" id="player-hp-bar" style="width:${(playerHp / effectiveMaxHp) * 100}%"></div></div>
@@ -550,6 +557,16 @@ function renderBoss() {
           <div class="boss-hp-bg"><div class="boss-hp" id="boss-hp-bar" style="width:${bossHp}%"></div></div>
           <div style="font-size:0.85rem;color:var(--text-secondary);">${bossHp}%</div>
         </div>
+      </div>
+
+      <!-- Pause overlay (hidden by default) -->
+      <div id="boss-pause-overlay" style="
+        display:none; position:absolute; inset:0; z-index:100;
+        background:rgba(0,0,0,0.85); flex-direction:column;
+        align-items:center; justify-content:center; gap:20px;
+      ">
+        <div style="font-size:2rem; font-weight:900; color:var(--text-primary); text-shadow:var(--shadow-gold);">游戏暂停</div>
+        <button id="btn-boss-resume" class="btn" style="font-size:1.1rem; padding:12px 36px;">继续</button>
       </div>
 
       ${bossIntentHTML}
@@ -568,7 +585,7 @@ function renderBoss() {
       const bossContainer = div.querySelector('#boss-sprite');
       if (bossContainer) {
         bossContainer.innerHTML = '';
-        bossContainer.appendChild(createSpriteImg(sprites.boss_cangjie, 200));
+        bossContainer.appendChild(createSpriteImg(sprites.boss_cangjie, 220));
       }
     }
 
@@ -787,6 +804,56 @@ function renderBoss() {
       doubleBtn.disabled = true;
       doubleBtn.textContent = '双倍 ✓';
     });
+
+    // ── Pause / Resume ──
+    const bossPauseBtn = div.querySelector('#btn-boss-pause');
+    const bossPauseOverlay = div.querySelector('#boss-pause-overlay');
+    const bossResumeBtn = div.querySelector('#btn-boss-resume');
+    if (bossPauseBtn && bossPauseOverlay && bossResumeBtn) {
+      bossPauseBtn.addEventListener('click', () => {
+        clearInterval(bossTimerInterval);
+        const questionEl = div.querySelector('.boss-question');
+        const optionsEl = div.querySelector('.boss-options');
+        if (questionEl) questionEl.style.visibility = 'hidden';
+        if (optionsEl) optionsEl.style.visibility = 'hidden';
+        bossPauseOverlay.style.display = 'flex';
+      });
+      bossResumeBtn.addEventListener('click', () => {
+        bossPauseOverlay.style.display = 'none';
+        const questionEl = div.querySelector('.boss-question');
+        const optionsEl = div.querySelector('.boss-options');
+        if (questionEl) questionEl.style.visibility = '';
+        if (optionsEl) optionsEl.style.visibility = '';
+        const bossTimerBar = div.querySelector('#boss-timer-bar');
+        bossTimerInterval = setInterval(() => {
+          bossTimeLeft -= 0.1;
+          if (bossTimerBar) bossTimerBar.style.width = Math.max(0, (bossTimeLeft / bossBaseTimer) * 100) + '%';
+          if (bossTimeLeft <= 0) {
+            clearInterval(bossTimerInterval);
+            const timeoutDmg = calcDamageTaken(profile, 25);
+            const hpLoss = timeoutDmg.damage;
+            const thornsReturn = timeoutDmg.thornsReturn;
+            playerHp = Math.max(0, playerHp - hpLoss);
+            if (thornsReturn > 0) {
+              bossHp = Math.max(1, bossHp - thornsReturn);
+              const bossHpBar = div.querySelector('#boss-hp-bar');
+              if (bossHpBar) bossHpBar.style.width = bossHp + '%';
+            }
+            redBorderFlash(div);
+            const playerHpBar = div.querySelector('#player-hp-bar');
+            if (playerHpBar) playerHpBar.style.width = (playerHp / effectiveMaxHp) * 100 + '%';
+            const feedbackEl = div.querySelector('#feedback');
+            if (feedbackEl) feedbackEl.textContent = `\u23F1 \u8D85\u65F6\uFF01${bossInfo.name}\u4E58\u865A\u800C\u5165\uFF0C\u5931\u53BB ${hpLoss} HP\u3002${thornsReturn > 0 ? ` \u8346\u68D8\u53CD\u523A ${thornsReturn} \u4F24\u5BB3\uFF01` : ''}`;
+            div.querySelectorAll('.boss-option').forEach(b => { b.style.pointerEvents = 'none'; });
+            setTimeout(() => {
+              if (playerHp <= 0) { endBoss(false); return; }
+              qIndex++;
+              render();
+            }, 1600);
+          }
+        }, 100);
+      });
+    }
 
     div.querySelectorAll('.boss-option').forEach(btn => {
       btn.classList.add('spotlight-card');

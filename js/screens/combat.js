@@ -422,16 +422,14 @@ function renderCombat() {
     if (stopEnemyBreath) { stopEnemyBreath(); stopEnemyBreath = null; }
   }
 
-  // ── Score panel updater ──
+  // ── Damage panel updater ──
   function updateScorePanel(animateMultReset = false) {
     const panel = div.querySelector('#score-panel');
     if (!panel) return;
-    const roundedMult = multiplier.toFixed(1);
     const score = Math.round(chips * multiplier);
     totalScore = score;
 
     if (animateMultReset) {
-      // Multiplier BREAK: red flash, number visibly drops
       panel.style.transition = 'background 0.05s';
       panel.style.background = 'rgba(192,57,43,0.35)';
       setTimeout(() => {
@@ -441,22 +439,20 @@ function renderCombat() {
     }
 
     panel.innerHTML = `
-      <span id="score-chips" style="color:#e8e8e8;">得分: <strong>${chips}</strong></span>
-      <span style="color:var(--accent-gold); margin:0 6px;">×</span>
-      <span id="score-mult" style="color:${multiplier >= 3.0 ? '#e74c3c' : multiplier >= 2.0 ? '#e67e22' : 'var(--accent-gold)'};font-weight:900;transition:transform 0.2s,color 0.2s;">${roundedMult}×</span>
-      <span style="color:var(--text-secondary); margin:0 6px;">=</span>
+      <span style="color:var(--accent-gold);">伤害</span>
       <span id="score-total" style="color:var(--accent-jade);font-weight:700;">${score}</span>
     `;
   }
 
   function animateMultiplierPulse() {
-    const multEl = div.querySelector('#score-mult');
-    if (!multEl) return;
-    multEl.style.transform = 'scale(1.6)';
-    multEl.style.textShadow = '0 0 12px #d4a017';
+    const totalEl = div.querySelector('#score-total');
+    if (!totalEl) return;
+    totalEl.style.transform = 'scale(1.4)';
+    totalEl.style.textShadow = '0 0 12px #d4a017';
+    totalEl.style.transition = 'transform 0.2s, text-shadow 0.2s';
     setTimeout(() => {
-      multEl.style.transform = 'scale(1)';
-      multEl.style.textShadow = '';
+      totalEl.style.transform = 'scale(1)';
+      totalEl.style.textShadow = '';
     }, 250);
   }
 
@@ -594,7 +590,7 @@ function renderCombat() {
           margin-bottom: 4px;
         }
         .sprite-container {
-          height: 180px;
+          height: 200px;
           display: flex;
           align-items: flex-end;
           justify-content: center;
@@ -618,7 +614,7 @@ function renderCombat() {
           100% { opacity: 1;   transform: scale(1.05); }
         }
 
-        /* ── Intent + score strip ── */
+        /* ── Intent + damage strip ── */
         .intent-score-row {
           display: flex;
           align-items: center;
@@ -629,7 +625,7 @@ function renderCombat() {
         }
         .enemy-intent-bar {
           display: flex;
-          gap: 12px;
+          gap: 10px;
           font-size: 0.78rem;
           opacity: 0.9;
           padding: 4px 12px;
@@ -637,17 +633,19 @@ function renderCombat() {
           background: rgba(0,0,0,0.35);
           border: 1px solid rgba(192,57,43,0.25);
           flex-shrink: 0;
+          white-space: nowrap;
         }
-        .score-panel {
+        .damage-panel {
           display: flex;
           align-items: center;
           gap: 4px;
-          font-size: 0.82rem;
-          padding: 4px 12px;
+          font-size: 0.88rem;
+          padding: 4px 14px;
           background: rgba(0,0,0,0.5);
           border: 1px solid rgba(212,160,23,0.3);
           border-radius: 6px;
           flex-shrink: 0;
+          font-weight: 700;
         }
 
         /* ── Narrative strip ── */
@@ -968,7 +966,14 @@ function renderCombat() {
       <div class="combat-screen-inner">
 
         <!-- HUD row: player name + HP bar + divider + combo + divider + enemy HP bar + enemy name -->
-        <div class="combat-hud shimmer">
+        <div class="combat-hud shimmer" style="position:relative;">
+          <button class="pause-btn" id="btn-pause" title="暂停" style="
+            position:absolute; top:6px; right:8px; z-index:20;
+            background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.2);
+            color:var(--text-primary); font-size:1.1rem; width:36px; height:36px;
+            border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center;
+            padding:0; line-height:1;
+          ">&#x23F8;</button>
           <div class="hud-player-name">${profile.name}</div>
           <div class="hud-hp-wrap">
             <div class="hud-hp-bar-bg">
@@ -984,6 +989,16 @@ function renderCombat() {
             <div class="hud-hp-text" style="text-align:right;">HP: ${enemyHp}/${enemyMaxHp}</div>
           </div>
           <div class="hud-enemy-name">${enemyName}${shieldActive ? ' 🛡' : ''}</div>
+        </div>
+
+        <!-- Pause overlay (hidden by default) -->
+        <div id="pause-overlay" style="
+          display:none; position:absolute; inset:0; z-index:100;
+          background:rgba(0,0,0,0.85); flex-direction:column;
+          align-items:center; justify-content:center; gap:20px;
+        ">
+          <div style="font-size:2rem; font-weight:900; color:var(--text-primary); text-shadow:var(--shadow-gold);">游戏暂停</div>
+          <button id="btn-resume" class="btn" style="font-size:1.1rem; padding:12px 36px;">继续</button>
         </div>
 
         <!-- Battle arena: player sprite | energy | enemy sprite -->
@@ -1008,19 +1023,18 @@ function renderCombat() {
           </div>
         </div>
 
-        <!-- Intent + score strip -->
+        <!-- Intent + damage strip -->
         <div class="intent-score-row">
           <div class="enemy-intent-bar">
-            <span style="color:var(--accent-red);">⚠ 答错: -${wrongDamage} HP</span>
-            <span style="color:#f39c12;">⏱ 超时: -${timeoutDamage} HP</span>
+            <span style="color:var(--accent-red);">⚠ 答错 -${wrongDamage}</span>
+            <span style="color:rgba(255,255,255,0.2);">|</span>
+            <span style="color:#f39c12;">⏱ 超时 -${timeoutDamage}</span>
           </div>
-          <div class="score-panel pulse-glow" id="score-panel">
-            <span style="color:#e8e8e8;">得分: <strong>${chips}</strong></span>
-            <span style="color:var(--accent-gold); margin:0 4px;">×</span>
-            <span id="score-mult" style="color:var(--accent-gold);font-weight:900;">${multiplier.toFixed(1)}×</span>
-            <span style="color:var(--text-secondary); margin:0 4px;">=</span>
-            <span id="score-total" style="color:var(--accent-jade);font-weight:700;">${Math.round(chips * multiplier)}</span>
+          <div class="damage-panel" id="score-panel">
+            <span style="color:var(--accent-gold);">伤害</span>
+            <span id="score-total" style="color:var(--accent-jade);">${Math.round(chips * multiplier)}</span>
           </div>
+          <div style="font-size:0.75rem; color:var(--text-secondary); opacity:0.7; white-space:nowrap;">答对: +XP +金币 +连击</div>
         </div>
 
         <!-- Narrative -->
@@ -1094,7 +1108,7 @@ function renderCombat() {
       const playerContainer = div.querySelector('#player-sprite');
       if (playerContainer) {
         playerContainer.innerHTML = '';
-        playerContainer.appendChild(createSpriteImg(sprites.player, 160));
+        playerContainer.appendChild(createSpriteImg(sprites.player, 180));
       }
       const enemyContainer = div.querySelector('#enemy-sprite');
       if (enemyContainer) {
@@ -1106,7 +1120,7 @@ function renderCombat() {
           'enemy_shadow': sprites.enemy_ink, // shadow uses ink sprite with different coloring
         };
         const enemyPixelSprite = spriteMap[enemyType.sprite] || sprites.enemy_ink;
-        const enemyImg = createSpriteImg(enemyPixelSprite, 160);
+        const enemyImg = createSpriteImg(enemyPixelSprite, 180);
         enemyContainer.appendChild(enemyImg);
 
         // Add shield icon overlay if shield is active
@@ -1325,6 +1339,53 @@ function renderCombat() {
         handleAnswer(idx, q);
       });
     });
+
+    // ── Pause / Resume ──
+    const pauseBtn = div.querySelector('#btn-pause');
+    const pauseOverlay = div.querySelector('#pause-overlay');
+    const resumeBtn = div.querySelector('#btn-resume');
+    if (pauseBtn && pauseOverlay && resumeBtn) {
+      pauseBtn.addEventListener('click', () => {
+        // Stop timer
+        clearInterval(timerInterval);
+        clearInterval(timerPulseInterval);
+        // Hide question and options (visibility:hidden preserves layout)
+        const questionEl = div.querySelector('.combat-question');
+        const optionsEl = div.querySelector('#options');
+        if (questionEl) questionEl.style.visibility = 'hidden';
+        if (optionsEl) optionsEl.style.visibility = 'hidden';
+        // Show overlay
+        pauseOverlay.style.display = 'flex';
+      });
+      resumeBtn.addEventListener('click', () => {
+        // Hide overlay
+        pauseOverlay.style.display = 'none';
+        // Show question and options
+        const questionEl = div.querySelector('.combat-question');
+        const optionsEl = div.querySelector('#options');
+        if (questionEl) questionEl.style.visibility = '';
+        if (optionsEl) optionsEl.style.visibility = '';
+        // Restart timer
+        const timerBar = div.querySelector('#timer-bar');
+        timerInterval = setInterval(() => {
+          timeLeft -= 0.1;
+          if (timerBar) timerBar.style.width = Math.max(0, (timeLeft / baseTimer) * 100) + '%';
+          if (timerBar) {
+            if (timeLeft < 5 && timeLeft > 0) {
+              timerBar.classList.add('timer-urgent');
+            } else {
+              timerBar.classList.remove('timer-urgent');
+            }
+          }
+          if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            clearInterval(timerPulseInterval);
+            if (scrambleTimer) { clearTimeout(scrambleTimer); scrambleTimer = null; }
+            handleAnswer(-1, q, true);
+          }
+        }, 100);
+      });
+    }
   }
 
   function handleAnswer(idx, q, isTimeout = false) {

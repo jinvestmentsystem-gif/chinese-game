@@ -371,7 +371,7 @@ function renderPuzzle() {
       const playerEl = inner.querySelector('#player-sprite');
       if (playerEl) {
         playerEl.innerHTML = '';
-        playerEl.appendChild(createSpriteImg(sprites.player, 120));
+        playerEl.appendChild(createSpriteImg(sprites.player, 140));
       }
     }
 

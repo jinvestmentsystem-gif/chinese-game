@@ -381,40 +381,51 @@ function renderWorldMap() {
         </div>
 
         <div class="nav-buttons">
-          <button class="btn btn-sm" id="btn-daily-reward" title="每日奖励">${dailyClaimed ? '已领' : '每日奖励'}</button>
           <button class="btn btn-sm" id="btn-inventory" title="打开背包">背包</button>
           <button class="btn btn-sm" id="btn-shop" title="前往商店">商店</button>
-          <button class="btn btn-sm" id="btn-chengyu" title="查看成语">成语</button>
-          <button class="btn btn-sm" id="btn-stats" title="学习统计">统计</button>
-          <button class="btn btn-sm" id="btn-settings" title="设置" style="font-size:1.05rem;padding:4px 10px;">&#x2699;</button>
+          <button class="btn btn-sm" id="btn-more" title="更多选项" style="font-size:0.95rem;">&#x22EF; 更多</button>
           <button class="btn btn-sm" id="btn-back" title="返回主菜单">返回</button>
+        </div>
+
+        <!-- More menu popup -->
+        <div id="wm-more-popup" style="
+          display:none; position:absolute; top:60px; right:16px; z-index:200;
+          background:rgba(20,12,40,0.96); border:1px solid rgba(212,160,23,0.35);
+          border-radius:10px; padding:8px 6px; min-width:140px;
+          box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+          backdrop-filter:blur(12px);
+        ">
+          <button class="btn btn-sm" id="btn-daily-reward" style="width:100%;margin-bottom:4px;" title="每日奖励">${dailyClaimed ? '已领' : '🎁 每日奖励'}</button>
+          <button class="btn btn-sm" id="btn-chengyu" style="width:100%;margin-bottom:4px;" title="查看成语">📜 成语</button>
+          <button class="btn btn-sm" id="btn-stats" style="width:100%;margin-bottom:4px;" title="学习统计">📊 统计</button>
+          <button class="btn btn-sm" id="btn-settings" style="width:100%;" title="设置">⚙ 设置</button>
         </div>
       </div>
 
       <!-- ── Player Stats Bar ── -->
-      <div class="wm-stats-bar">
+      <div class="wm-stats-bar" style="gap:14px;padding:8px 16px;">
         <!-- Level badge -->
         <div class="wm-stat-level">
           <span class="wm-level-num">Lv.${profile.level}</span>
         </div>
         <!-- HP bar -->
-        <div class="wm-stat-block">
+        <div class="wm-stat-block" style="padding:0 8px;">
           <div class="wm-stat-label">HP</div>
-          <div class="wm-bar-track">
+          <div class="wm-bar-track" style="min-width:80px;">
             <div class="wm-bar-fill wm-bar-hp" style="width:${hpPct}%;background:linear-gradient(90deg, ${hpColor}, ${hpColor}dd);"></div>
           </div>
           <div class="wm-stat-val">${profile.hp}/${effectiveMaxHp}</div>
         </div>
         <!-- XP bar -->
-        <div class="wm-stat-block">
+        <div class="wm-stat-block" style="padding:0 8px; cursor:help;" title="经验值用于升级，升级后可分配属性点和天赋点">
           <div class="wm-stat-label">XP</div>
-          <div class="wm-bar-track">
+          <div class="wm-bar-track" style="min-width:80px;">
             <div class="wm-bar-fill wm-bar-xp" style="width:${xpProgress.percent}%;"></div>
           </div>
           <div class="wm-stat-val">${xpProgress.current}/${xpProgress.needed}</div>
         </div>
         <!-- Gold count -->
-        <div class="wm-stat-gold">
+        <div class="wm-stat-gold" style="padding:0 8px; cursor:help;" title="金币可在商店购买装备和消耗品，强化你的角色">
           <span class="wm-gold-icon">&#x2726;</span>
           <span class="wm-gold-num">${profile.gold || 0}</span>
         </div>
@@ -537,6 +548,23 @@ function renderWorldMap() {
     div.querySelector('#btn-chengyu')?.addEventListener('click', () => showScreen('chengyu'));
     div.querySelector('#btn-stats')?.addEventListener('click', () => showScreen('stats', { returnTo: 'worldmap' }));
     div.querySelector('#btn-settings')?.addEventListener('click', () => showScreen('settings', { returnTo: 'worldmap' }));
+
+    // "More" popup toggle
+    const btnMore = div.querySelector('#btn-more');
+    const morePopup = div.querySelector('#wm-more-popup');
+    if (btnMore && morePopup) {
+      btnMore.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = morePopup.style.display === 'block';
+        morePopup.style.display = isOpen ? 'none' : 'block';
+      });
+      // Close popup when clicking outside
+      div.addEventListener('click', (e) => {
+        if (!morePopup.contains(e.target) && e.target !== btnMore) {
+          morePopup.style.display = 'none';
+        }
+      });
+    }
 
     // --- Daily reward button ---
     const btnDaily = div.querySelector('#btn-daily-reward');

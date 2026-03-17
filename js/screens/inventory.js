@@ -124,7 +124,7 @@ function renderInventory() {
     if (talentBonus > 0) parts.push(`<span style="color:#a855f7;">+${talentBonus}${suffix}</span>`);
     if (chengyuBonus > 0) parts.push(`<span style="color:#d4a017;">+${chengyuBonus}${suffix}</span>`);
     if (parts.length > 0) {
-      breakdownHTML = `<div style="font-size:0.68rem;margin-top:2px;">${rawBase}${suffix} ${parts.join(' ')}</div>`;
+      breakdownHTML = `<div style="font-size:0.8rem;margin-top:3px;">${rawBase}${suffix} ${parts.join(' ')}</div>`;
     }
 
     return `
@@ -284,28 +284,35 @@ function renderInventory() {
         ${statsCardsHTML}
       </div>
 
+      <div class="brush-divider" style="margin:20px 0;"></div>
+
       <!-- Set Bonuses -->
-      <div class="info-section">
+      <div class="info-section" style="margin-bottom:18px;">
         <h4>套装效果</h4>
         ${setBonusHTML}
       </div>
 
       <!-- Talent Effects -->
-      <div class="info-section">
+      <div class="info-section" style="margin-bottom:18px;">
         <h4>天赋效果 <span style="font-size:0.72rem;color:var(--text-dim);font-weight:400;">(天赋点: ${profile.talentPoints || 0})</span></h4>
         ${talentSummaryHTML}
       </div>
 
       <!-- Chengyu Collection -->
-      <div class="info-section">
+      <div class="info-section" style="margin-bottom:18px;">
         <h4>成语收集 <span style="font-size:0.72rem;color:var(--text-dim);font-weight:400;">(${chengyuCount} 个)</span></h4>
         ${chengyuBonusListHTML}
         ${chengyuNextHTML}
       </div>
 
-      <h3 style="margin-bottom:12px;">装备</h3>
+      <div class="brush-divider" style="margin:24px 0;"></div>
+
+      <h3 style="margin-bottom:14px;">装备</h3>
       <div class="inv-grid">${inventoryHTML}</div>
-      <h3 style="margin:20px 0 12px;padding-left:20px;">消耗品</h3>
+
+      <div class="brush-divider" style="margin:24px 0;"></div>
+
+      <h3 style="margin:0 0 14px;padding-left:20px;">消耗品</h3>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;padding:0 20px;">
         ${consumablesHTML}
       </div>

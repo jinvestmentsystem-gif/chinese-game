@@ -261,7 +261,7 @@ function makeNoiseBuffer(durationSecs) {
 // ─── Scheduled drum / bass / melody hit generators ────────────────────────────
 // All accept a `time` parameter (Web Audio clock time) for sample-accurate placement.
 
-function playKickAt(time, gainPeak = 0.70) {
+function playKickAt(time, gainPeak = 0.42) {
   if (!audioCtx) return;
   const dest = masterMusicGain || audioCtx.destination;
 
@@ -293,7 +293,7 @@ function playKickAt(time, gainPeak = 0.70) {
   noiseSrc.stop(time + 0.05);
 }
 
-function playSnareAt(time, gainPeak = 0.50) {
+function playSnareAt(time, gainPeak = 0.30) {
   if (!audioCtx) return;
   const dest = masterMusicGain || audioCtx.destination;
 
@@ -324,7 +324,7 @@ function playSnareAt(time, gainPeak = 0.50) {
   osc.stop(time + 0.12);
 }
 
-function playHihatAt(time, open = false, gainPeak = 0.18) {
+function playHihatAt(time, open = false, gainPeak = 0.11) {
   if (!audioCtx) return;
   const dest = masterMusicGain || audioCtx.destination;
 
@@ -411,7 +411,7 @@ function playCounterAt(freq, time, duration) {
   const gain = audioCtx.createGain();
   osc.type = 'square';
   osc.frequency.value = freq;
-  const vol = 0.08;
+  const vol = 0.05;
   gain.gain.setValueAtTime(0, time);
   gain.gain.linearRampToValueAtTime(vol, time + 0.01);
   gain.gain.setValueAtTime(vol, time + duration - 0.02);
@@ -543,9 +543,9 @@ function scheduleNote(time) {
   // ── Hi-hats (intensity 2+) ────────────────────────────────────────────────
   if (currentIntensity >= 2) {
     const hhPattern = currentIntensity >= 3 ? HIHAT_16TH : HIHAT_8TH;
-    if (hhPattern[step]) playHihatAt(time, false, 0.18);
+    if (hhPattern[step]) playHihatAt(time, false, 0.11);
     // Open hi-hat on the upbeat (steps 2 & 10) at intensity 2+
-    if (step === 2 || step === 10) playHihatAt(time, true, 0.10);
+    if (step === 2 || step === 10) playHihatAt(time, true, 0.06);
   }
 
   // ── Bass (intensity 1+) ───────────────────────────────────────────────────
@@ -751,7 +751,7 @@ export function initAudio() {
 
   // Master gain for all music — kept below SFX headroom
   masterMusicGain = audioCtx.createGain();
-  masterMusicGain.gain.value = 0.35; // Music volume — moderate, not overwhelming
+  masterMusicGain.gain.value = 0.22; // Music volume — reduced, less overwhelming
   masterMusicGain.connect(audioCtx.destination);
 
   // Feedback delay for reverb-like spatial depth
@@ -823,7 +823,7 @@ export function setMusicIntensity(level) {
       if (masterMusicGain) {
         const now = audioCtx.currentTime;
         masterMusicGain.gain.setValueAtTime(0.0, now);
-        masterMusicGain.gain.linearRampToValueAtTime(0.85, now + FADE);
+        masterMusicGain.gain.linearRampToValueAtTime(0.55, now + FADE);
       }
       startAmbientLoop();
     }, FADE * 500);
@@ -834,7 +834,7 @@ export function setMusicIntensity(level) {
       if (masterMusicGain) {
         const now = audioCtx.currentTime;
         masterMusicGain.gain.setValueAtTime(0.0, now);
-        masterMusicGain.gain.linearRampToValueAtTime(0.85, now + FADE);
+        masterMusicGain.gain.linearRampToValueAtTime(0.55, now + FADE);
       }
       startScheduler();
     } else {
@@ -842,8 +842,8 @@ export function setMusicIntensity(level) {
       if (masterMusicGain) {
         const now = audioCtx.currentTime;
         masterMusicGain.gain.setValueAtTime(masterMusicGain.gain.value, now);
-        masterMusicGain.gain.linearRampToValueAtTime(0.50, now + 0.05);
-        masterMusicGain.gain.linearRampToValueAtTime(0.85, now + 0.05 + FADE);
+        masterMusicGain.gain.linearRampToValueAtTime(0.35, now + 0.05);
+        masterMusicGain.gain.linearRampToValueAtTime(0.55, now + 0.05 + FADE);
       }
     }
   }

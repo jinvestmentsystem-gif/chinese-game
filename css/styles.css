@@ -4708,3 +4708,18 @@ input[type="text"]:focus, input[type="number"]:focus {
   .ink-splash-wrong { animation: none; opacity: 0; }
   .warm-light-wash { animation: none; }
 }
+
+/* ── Global minimum text sizes for readability ─────────────────── */
+.screen { font-size: max(0.85rem, 14px); }
+.screen button { font-size: max(0.85rem, 14px); }
+.screen .hud-hp-text, .screen .stat-label, .screen .stat-value { font-size: max(0.78rem, 13px); }
+
+/* Ensure notes/instructions are readable */
+.boss-narrative, .puzzle-narrative, .combat-narrative { font-size: max(1rem, 16px); line-height: 1.6; }
+.boss-ability-banner { font-size: max(0.85rem, 14px); }
+
+/* Feedback text must be large enough to read */
+#feedback, .puzzle-feedback, .boss-feedback { font-size: max(1.05rem, 16px); }
+
+/* Ensure explanation text in feedback is readable */
+.explanation-text { font-size: max(0.9rem, 14px); }
