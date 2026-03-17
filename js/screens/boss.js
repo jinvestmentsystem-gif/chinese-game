@@ -504,9 +504,9 @@ function renderBoss() {
         .boss-hp-bg { width:250px; height:18px; background:var(--bg-secondary); border-radius:9px; overflow:hidden; }
         .boss-hp { height:100%; background:var(--accent-red); border-radius:9px; transition:width 0.5s ease-out; }
         .player-hp { height:100%; background:var(--hp-green); border-radius:9px; transition:width 0.5s; }
-        .boss-narrative { font-style:italic; font-size:0.9rem; color:#e57373; text-align:center; padding:4px 32px 6px; opacity:0.9; text-shadow:0 0 8px rgba(192,57,43,0.5); }
-        .boss-question { font-size:1.2rem; margin:6px 32px 10px; text-align:center; background:var(--bg-card); padding:14px 20px; border-radius:8px; border-left:4px solid var(--accent-gold); }
-        .boss-options { display:flex; flex-direction:column; gap:8px; padding:0 32px; max-width:600px; margin:0 auto; width:100%; }
+        .boss-narrative { font-style:italic; font-size:1.05rem; color:#e57373; text-align:center; padding:6px 32px 8px; opacity:0.9; text-shadow:0 0 8px rgba(192,57,43,0.5); }
+        .boss-question { font-size:1.4rem; margin:8px 32px 12px; text-align:center; background:var(--bg-card); padding:16px 24px; border-radius:8px; border-left:4px solid var(--accent-gold); }
+        .boss-options { display:flex; flex-direction:column; gap:12px; padding:0 32px; max-width:600px; margin:0 auto; width:100%; }
         .phase-label-anim { display:inline-block; }
         .boss-ability-banner {
           background:rgba(192,57,43,0.15);
@@ -514,7 +514,7 @@ function renderBoss() {
           border-radius:8px; padding:6px 16px;
           text-align:center; margin:0 32px 8px;
         }
-        .boss-timer-bg { width:80%; max-width:500px; height:6px; background:var(--bg-secondary); border-radius:3px; overflow:hidden; margin:4px auto 0; }
+        .boss-timer-bg { width:80%; max-width:500px; height:8px; background:var(--bg-secondary); border-radius:4px; overflow:hidden; margin:4px auto 0; }
         .boss-timer-bar { height:100%; background:${abilityActive(bossAbility, 'half_timer') ? '#e74c3c' : 'var(--timer-yellow)'}; border-radius:3px; transition:width 0.1s linear; }
       </style>
 
@@ -541,14 +541,14 @@ function renderBoss() {
 
       <div class="boss-hud">
         <div>
-          <div style="font-weight:700;">${profile.name} HP</div>
+          <div style="font-weight:800;font-size:0.95rem;">${profile.name} HP</div>
           <div class="boss-hp-bg"><div class="player-hp" id="player-hp-bar" style="width:${(playerHp / effectiveMaxHp) * 100}%"></div></div>
-          <div style="font-size:0.8rem;color:var(--text-secondary);">${playerHp}/${effectiveMaxHp}</div>
+          <div style="font-size:0.85rem;color:var(--text-secondary);">${playerHp}/${effectiveMaxHp}</div>
         </div>
         <div style="text-align:right;">
-          <div style="font-weight:700; color:var(--accent-red);">BOSS HP</div>
+          <div style="font-weight:800;font-size:0.95rem; color:var(--accent-red);">BOSS HP</div>
           <div class="boss-hp-bg"><div class="boss-hp" id="boss-hp-bar" style="width:${bossHp}%"></div></div>
-          <div style="font-size:0.8rem;color:var(--text-secondary);">${bossHp}%</div>
+          <div style="font-size:0.85rem;color:var(--text-secondary);">${bossHp}%</div>
         </div>
       </div>
 

@@ -5,6 +5,7 @@ const cache = {};
 async function loadJSON(path) {
   if (cache[path]) return cache[path];
   const res = await fetch(path);
+  if (!res.ok) return [];          // 404 or other errors → empty array
   const data = await res.json();
   cache[path] = data;
   return data;
@@ -17,7 +18,18 @@ export async function loadContent(tier) {
     loadJSON(`${base}/reading.json`),
     loadJSON(`${base}/classical.json`),
   ]);
-  return { vocab, reading, classical };
+
+  // Try loading extra content files (optional — won't fail if missing)
+  const [vocabExtra, classicalExtra] = await Promise.all([
+    loadJSON(`${base}/vocab_extra.json`).catch(() => []),
+    loadJSON(`${base}/classical_extra.json`).catch(() => []),
+  ]);
+
+  return {
+    vocab: [...vocab, ...vocabExtra],
+    reading,
+    classical: [...classical, ...classicalExtra],
+  };
 }
 
 export async function loadChengyu() {

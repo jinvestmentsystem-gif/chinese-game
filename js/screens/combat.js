@@ -517,8 +517,8 @@ function renderCombat() {
           flex-shrink: 0;
         }
         .hud-player-name {
-          font-size: 0.8rem;
-          font-weight: 700;
+          font-size: 0.95rem;
+          font-weight: 800;
           color: #e8e6d8;
           white-space: nowrap;
           min-width: 50px;
@@ -543,7 +543,7 @@ function renderCombat() {
         .hp-player { background: linear-gradient(90deg, #27ae60, #2ecc71); }
         .hp-enemy  { background: linear-gradient(90deg, #c0392b, #e74c3c); }
         .hud-hp-text {
-          font-size: 0.65rem;
+          font-size: 0.75rem;
           color: var(--text-secondary);
           line-height: 1;
         }
@@ -554,8 +554,8 @@ function renderCombat() {
           padding: 0 4px;
         }
         .hud-enemy-name {
-          font-size: 0.8rem;
-          font-weight: 700;
+          font-size: 0.95rem;
+          font-weight: 800;
           color: #e74c3c;
           white-space: nowrap;
           min-width: 50px;
@@ -575,9 +575,11 @@ function renderCombat() {
           align-items: center;
           justify-content: space-between;
           padding: 0 20px;
+          padding-bottom: 10px;
           flex: 0 0 auto;
           min-height: 200px;
           position: relative;
+          margin-bottom: 6px;
         }
         .sprite-wrap {
           display: flex;
@@ -665,13 +667,16 @@ function renderCombat() {
 
         /* ── Question ── */
         .combat-question {
-          font-size: 1.2rem;
+          font-size: 1.4rem;
           font-weight: 700;
           text-align: center;
-          padding: 10px 16px 6px;
+          padding: 14px 20px 10px;
           color: #e8e6d8;
           flex-shrink: 0;
           line-height: 1.4;
+          background: rgba(0,0,0,0.25);
+          border-radius: 8px;
+          margin: 0 12px 4px;
         }
 
         /* ── Review badge ── */
@@ -714,17 +719,17 @@ function renderCombat() {
         .combat-options {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 8px;
+          gap: 12px;
           padding: 0 12px;
           flex: 1 1 auto;
           min-height: 0;
           align-content: stretch;
         }
         .combat-option {
-          padding: 12px 16px;
-          font-size: 1.05rem;
+          padding: 18px 24px;
+          font-size: 1.2rem;
           font-weight: 600;
-          min-height: 52px;
+          min-height: 56px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -756,10 +761,10 @@ function renderCombat() {
 
         /* ── Feedback text ── */
         .feedback-text {
-          font-size: 0.8rem;
+          font-size: 1.1rem;
           text-align: center;
-          padding: 2px 12px;
-          min-height: 1.2em;
+          padding: 6px 16px;
+          min-height: 1.4em;
           color: var(--text-secondary);
           flex-shrink: 0;
         }
@@ -775,7 +780,7 @@ function renderCombat() {
 
         /* ── Timer bar at very bottom ── */
         .timer-track {
-          height: 12px;
+          height: 14px;
           background: rgba(0,0,0,0.4);
           border-radius: 0;
           overflow: hidden;

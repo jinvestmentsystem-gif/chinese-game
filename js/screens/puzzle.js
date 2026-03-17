@@ -110,7 +110,7 @@ function renderPuzzle() {
       flex-shrink:0;
     }
     .puzzle-hp-section { text-align:center; }
-    .puzzle-hp-label { font-weight:700; font-size:0.95rem; margin-bottom:4px; }
+    .puzzle-hp-label { font-weight:800; font-size:0.95rem; margin-bottom:4px; }
     .puzzle-hp-bg {
       width:180px; height:14px; background:var(--bg-secondary);
       border-radius:7px; overflow:hidden; margin:0 auto;
@@ -209,15 +209,18 @@ function renderPuzzle() {
       flex-shrink:0;
     }
     .puzzle-question {
-      font-size:1.1rem; margin:0 24px 8px; text-align:center; font-weight:600;
+      font-size:1.4rem; margin:0 24px 8px; text-align:center; font-weight:600;
       flex-shrink:0;
+      padding:10px 16px;
+      background:rgba(0,0,0,0.25);
+      border-radius:8px;
     }
     .puzzle-options {
       display:grid; grid-template-columns:1fr 1fr;
-      gap:10px; margin:0 24px 8px; flex-shrink:0;
+      gap:12px; margin:0 24px 8px; flex-shrink:0;
     }
     .puzzle-options .puzzle-option {
-      padding:16px 20px; font-size:1.1rem;
+      padding:18px 24px; font-size:1.2rem;
       min-height:56px; border-radius:8px;
       background:rgba(40,30,10,0.85);
       border:2px solid rgba(212,160,23,0.3);
@@ -243,7 +246,7 @@ function renderPuzzle() {
     }
     .puzzle-feedback {
       margin:0 24px 4px; text-align:center;
-      font-size:0.88rem; min-height:28px;
+      font-size:1.1rem; min-height:32px;
       flex-shrink:0;
     }
     @keyframes sealCrack {
