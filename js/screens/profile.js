@@ -67,7 +67,7 @@ function showCharacterCard(profile, div, onContinue) {
   overlay.innerHTML = `
     <div class="char-card-box">
       <div class="char-card-sprite">
-        <img src="${sprites.player}" style="height:128px;width:auto;image-rendering:pixelated;image-rendering:crisp-edges;">
+        <img src="${Array.isArray(sprites.player) ? sprites.player[0] : sprites.player}" style="height:128px;width:auto;image-rendering:pixelated;image-rendering:crisp-edges;">
       </div>
       <div class="char-card-name">${profile.name}</div>
       <div class="char-card-title">${profile.activeTitle || '新手文字侠'}</div>
