@@ -751,7 +751,7 @@ export function initAudio() {
 
   // Master gain for all music — kept below SFX headroom
   masterMusicGain = audioCtx.createGain();
-  masterMusicGain.gain.value = 0.65; // Music volume
+  masterMusicGain.gain.value = 0.35; // Music volume — moderate, not overwhelming
   masterMusicGain.connect(audioCtx.destination);
 
   // Feedback delay for reverb-like spatial depth

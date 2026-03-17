@@ -1443,9 +1443,14 @@ function renderCombat() {
       combo++;
       // Combo SFX on 3+ combo
       if (combo >= 3) playSound('combo');
-      // Ramp music intensity with combo
-      if (combo >= 5) setMusicIntensity(3);
-      else if (combo >= 3) setMusicIntensity(2);
+      // Brief music intensity bump on combo (auto-decays after 4 seconds)
+      if (combo >= 5) {
+        setMusicIntensity(2);
+        setTimeout(() => setMusicIntensity(1), 4000);
+      } else if (combo >= 3) {
+        setMusicIntensity(2);
+        setTimeout(() => setMusicIntensity(1), 3000);
+      }
 
       // ── Dodge ability: 20% chance enemy dodges ──
       if (enemyType.ability === 'dodge' && Math.random() < 0.2) {

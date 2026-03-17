@@ -137,7 +137,10 @@ export async function startQuest(chapterId, questIndex) {
   const diffTarget = getAdaptiveDifficulty(profile, 'vocab');
   for (const enc of encounters) {
     if (enc.type === 'combat') {
-      enc.questions = pickQuestions(content.vocab, 5, profile.seenQuestions.vocab, diffTarget, sessionUsedIds, gradeBias);
+      // Load large question pool — combat draws from ALL available questions
+      // to avoid repetition even during long battles
+      const combatPoolSize = Math.min(content.vocab.length, 50);
+      enc.questions = pickQuestions(content.vocab, combatPoolSize, profile.seenQuestions.vocab, diffTarget, sessionUsedIds, gradeBias);
       enc.questions.forEach(q => sessionUsedIds.push(q.id));
       // Inject 1-2 review questions into the first combat encounter
       if (reviewInsertIndex === 0 && reviewQuestions.length > 0) {
@@ -153,7 +156,9 @@ export async function startQuest(chapterId, questIndex) {
       if (enc.passage?.id) sessionUsedIds.push(enc.passage.id);
     } else if (enc.type === 'boss') {
       const clTarget = getAdaptiveDifficulty(profile, 'classical');
-      enc.questions = pickQuestions(content.classical, 10, profile.seenQuestions.classical, clTarget, sessionUsedIds, gradeBias);
+      // Boss gets even larger pool to prevent repetition across 3 phases
+      const bossPoolSize = Math.min(content.classical.length, 60);
+      enc.questions = pickQuestions(content.classical, bossPoolSize, profile.seenQuestions.classical, clTarget, sessionUsedIds, gradeBias);
       enc.questions.forEach(q => sessionUsedIds.push(q.id));
     }
     // 'treasure' and 'rest' encounters have no questions — their data is set at generation time
