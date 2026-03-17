@@ -1,0 +1,2402 @@
+[
+  {
+    "id": "c5-001",
+    "type": "classical",
+    "prompt": "王安石《泊船瓜洲》中「春风又绿江南岸」的「绿」字妙在哪里？",
+    "options": [
+      "表示颜色好看",
+      "化静为动，形象写出春到江南的勃勃生机",
+      "说明春天草地很绿",
+      "表示诗人喜欢绿色"
+    ],
+    "correct": 1,
+    "explanation": "「绿」字形容词用作动词，化静为动，将春风吹过江南大地万物复苏的景象写得极富动感与生机。",
+    "difficulty": 3,
+    "tags": ["宋代", "写作手法", "诗词鉴赏"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-002",
+    "type": "classical",
+    "prompt": "《泊船瓜洲》中「明月何时照我还」表达了诗人怎样的感情？",
+    "options": [
+      "对明月的赞美",
+      "对故乡的思念之情",
+      "对瓜洲的喜爱",
+      "对旅途的厌倦"
+    ],
+    "correct": 1,
+    "explanation": "诗人借明月寄托思乡之情，表达了对故乡深切的眷恋与思念。",
+    "difficulty": 3,
+    "tags": ["宋代", "诗词鉴赏", "名句理解"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-003",
+    "type": "classical",
+    "prompt": "「京口瓜洲一水间，钟山只隔数重山」中「一水间」指的是什么？",
+    "options": [
+      "一条小溪",
+      "长江",
+      "黄河",
+      "运河"
+    ],
+    "correct": 1,
+    "explanation": "京口（今镇江）与瓜洲隔长江相望，「一水」即指长江。",
+    "difficulty": 3,
+    "tags": ["宋代", "名句理解"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-004",
+    "type": "classical",
+    "prompt": "《泊船瓜洲》的作者王安石是哪个朝代的人？",
+    "options": [
+      "唐代",
+      "宋代",
+      "明代",
+      "清代"
+    ],
+    "correct": 1,
+    "explanation": "王安石（1021—1086），北宋著名政治家、文学家，唐宋八大家之一。",
+    "difficulty": 3,
+    "tags": ["宋代", "文学常识"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-005",
+    "type": "classical",
+    "prompt": "叶绍翁《游园不值》中「春色满园关不住，一枝红杏出墙来」运用了什么修辞手法？",
+    "options": [
+      "夸张",
+      "拟人",
+      "比喻",
+      "对偶"
+    ],
+    "correct": 1,
+    "explanation": "「关不住」「出墙来」赋予春色和红杏以人的行为，是拟人手法，表现春天生机不可阻挡。",
+    "difficulty": 3,
+    "tags": ["宋代", "写作手法", "诗词鉴赏"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-006",
+    "type": "classical",
+    "prompt": "《游园不值》中「小扣柴扉久不开」的「扣」是什么意思？",
+    "options": [
+      "扣押",
+      "敲",
+      "关闭",
+      "打开"
+    ],
+    "correct": 1,
+    "explanation": "「扣」即「叩」，意为敲门。诗人轻轻敲门却久无人应。",
+    "difficulty": 3,
+    "tags": ["宋代", "实词", "名句理解"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-007",
+    "type": "classical",
+    "prompt": "「应怜屐齿印苍苔」中「怜」的意思是？",
+    "options": [
+      "可怜",
+      "爱惜",
+      "同情",
+      "怜悯"
+    ],
+    "correct": 1,
+    "explanation": "「怜」在此意为爱惜、珍惜。园主人大概是爱惜苍苔，怕木屐齿踩坏了。",
+    "difficulty": 3,
+    "tags": ["宋代", "实词"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-008",
+    "type": "classical",
+    "prompt": "《游园不值》中诗人最终有没有进入园中？",
+    "options": [
+      "进去了",
+      "没有进去",
+      "诗中没提",
+      "被园主人请进去了"
+    ],
+    "correct": 1,
+    "explanation": "诗人扣门不开，没有进园，但看到一枝红杏伸出墙外，由此感悟满园春色。",
+    "difficulty": 3,
+    "tags": ["宋代", "诗词鉴赏"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-009",
+    "type": "classical",
+    "prompt": "苏轼《浣溪沙》中「谁道人生无再少？门前流水尚能西」表达了怎样的人生态度？",
+    "options": [
+      "悲观消极",
+      "积极乐观，老当益壮",
+      "随遇而安",
+      "及时行乐"
+    ],
+    "correct": 1,
+    "explanation": "以溪水尚能西流比喻人生不必自老，表达了积极乐观、不服老的人生态度。",
+    "difficulty": 4,
+    "tags": ["宋代", "诗词鉴赏", "名句理解"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-010",
+    "type": "classical",
+    "prompt": "苏轼《浣溪沙》中「休将白发唱黄鸡」的「黄鸡」比喻什么？",
+    "options": [
+      "一种乐器",
+      "时光流逝",
+      "一道美食",
+      "报晓的公鸡"
+    ],
+    "correct": 1,
+    "explanation": "白居易曾有「黄鸡催晓」之句叹老。苏轼反用其意，劝人不要感叹时光流逝、年华老去。",
+    "difficulty": 4,
+    "tags": ["宋代", "名句理解", "诗词鉴赏"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-011",
+    "type": "classical",
+    "prompt": "苏轼号什么？",
+    "options": [
+      "青莲居士",
+      "东坡居士",
+      "易安居士",
+      "香山居士"
+    ],
+    "correct": 1,
+    "explanation": "苏轼号东坡居士，世称苏东坡，北宋文学家、书画家。",
+    "difficulty": 3,
+    "tags": ["宋代", "文学常识"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-012",
+    "type": "classical",
+    "prompt": "《浣溪沙》中「山下兰芽短浸溪」描写的是什么季节的景色？",
+    "options": [
+      "秋天",
+      "春天",
+      "夏天",
+      "冬天"
+    ],
+    "correct": 1,
+    "explanation": "兰芽短小刚从溪边冒出，是早春景象。全词写春日游清泉寺所见所感。",
+    "difficulty": 3,
+    "tags": ["宋代", "诗词鉴赏"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-013",
+    "type": "classical",
+    "prompt": "辛弃疾《西江月·夜行黄沙道中》中「明月别枝惊鹊」的「别枝」意思是？",
+    "options": [
+      "告别树枝",
+      "斜出的树枝",
+      "折断的树枝",
+      "另一根树枝"
+    ],
+    "correct": 1,
+    "explanation": "「别枝」即斜枝、旁枝。明月升起照亮斜枝，惊动了栖息的鹊鸟。",
+    "difficulty": 4,
+    "tags": ["宋代", "实词", "名句理解"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-014",
+    "type": "classical",
+    "prompt": "《西江月·夜行黄沙道中》描绘的是什么季节的夜景？",
+    "options": [
+      "春夜",
+      "夏夜",
+      "秋夜",
+      "冬夜"
+    ],
+    "correct": 1,
+    "explanation": "词中有「稻花香里说丰年，听取蛙声一片」，稻花飘香、蛙声阵阵，正是夏夜景象。",
+    "difficulty": 3,
+    "tags": ["宋代", "诗词鉴赏"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-015",
+    "type": "classical",
+    "prompt": "「稻花香里说丰年，听取蛙声一片」中「说丰年」的主语是谁？",
+    "options": [
+      "诗人自己",
+      "青蛙",
+      "农民",
+      "稻花"
+    ],
+    "correct": 1,
+    "explanation": "蛙声阵阵仿佛在诉说着丰收年景，「说丰年」的是蛙声，运用了拟人手法。",
+    "difficulty": 4,
+    "tags": ["宋代", "写作手法", "诗词鉴赏"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-016",
+    "type": "classical",
+    "prompt": "《西江月·夜行黄沙道中》中「七八个星天外，两三点雨山前」运用了什么手法？",
+    "options": [
+      "夸张",
+      "白描",
+      "比喻",
+      "排比"
+    ],
+    "correct": 1,
+    "explanation": "用简洁的数字和景物勾勒夜景，属于白描手法，寥寥数语便呈现出一幅生动的乡村夏夜图。",
+    "difficulty": 4,
+    "tags": ["宋代", "写作手法"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-017",
+    "type": "classical",
+    "prompt": "辛弃疾是哪个朝代的词人？",
+    "options": [
+      "北宋",
+      "南宋",
+      "唐代",
+      "元代"
+    ],
+    "correct": 1,
+    "explanation": "辛弃疾（1140—1207），南宋豪放派词人，与苏轼并称「苏辛」。",
+    "difficulty": 3,
+    "tags": ["宋代", "文学常识"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-018",
+    "type": "classical",
+    "prompt": "「旧时茅店社林边，路转溪桥忽见」中「见」的读音和意思是？",
+    "options": [
+      "读jiàn，看见",
+      "读xiàn，同「现」，出现",
+      "读jiàn，见面",
+      "读xiàn，表现"
+    ],
+    "correct": 1,
+    "explanation": "「见」读xiàn，通「现」，意为出现、显现。溪桥一转弯，旧日茅店忽然出现在眼前。",
+    "difficulty": 4,
+    "tags": ["宋代", "通假字"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-019",
+    "type": "classical",
+    "prompt": "于谦《石灰吟》中「粉骨碎身浑不怕，要留清白在人间」表达了什么志向？",
+    "options": [
+      "想成为石灰工匠",
+      "不怕牺牲、坚守高洁品格的志向",
+      "对石灰的喜爱",
+      "希望名留青史"
+    ],
+    "correct": 1,
+    "explanation": "以石灰自喻，表达了即使粉身碎骨也要保持高洁品格、清白做人的崇高志向。这是托物言志的写法。",
+    "difficulty": 3,
+    "tags": ["明代", "诗词鉴赏", "写作手法"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-020",
+    "type": "classical",
+    "prompt": "《石灰吟》采用了什么表现手法？",
+    "options": [
+      "借景抒情",
+      "托物言志",
+      "直抒胸臆",
+      "对比反衬"
+    ],
+    "correct": 1,
+    "explanation": "全诗以石灰为喻体，借石灰的开采、烧炼过程来表达自己不畏艰难、坚守清白的志向，是典型的托物言志。",
+    "difficulty": 3,
+    "tags": ["明代", "写作手法"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-021",
+    "type": "classical",
+    "prompt": "《石灰吟》中「千锤万凿出深山」的「千锤万凿」是什么意思？",
+    "options": [
+      "锤子和凿子各一千一万个",
+      "经过千万次锤打开凿，形容极其艰难",
+      "用很多工具",
+      "在山中锤打了很久"
+    ],
+    "correct": 1,
+    "explanation": "「千锤万凿」形容石灰石经过无数次锤打开凿才从深山中采出，比喻经历艰难磨练。",
+    "difficulty": 3,
+    "tags": ["明代", "名句理解"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-022",
+    "type": "classical",
+    "prompt": "「烈火焚烧若等闲」中「若等闲」是什么意思？",
+    "options": [
+      "好像很难",
+      "好像很平常的事",
+      "等着空闲的时候",
+      "好像在等待"
+    ],
+    "correct": 1,
+    "explanation": "「若等闲」意为好像很平常的事，表达石灰面对烈火焚烧毫不畏惧的从容态度。",
+    "difficulty": 3,
+    "tags": ["明代", "名句理解"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-023",
+    "type": "classical",
+    "prompt": "于谦写《石灰吟》时的身份是？",
+    "options": [
+      "唐代诗人",
+      "明代官员",
+      "宋代将领",
+      "清代文人"
+    ],
+    "correct": 1,
+    "explanation": "于谦（1398—1457），明代名臣，曾在北京保卫战中力挽狂澜，后遭冤杀。",
+    "difficulty": 3,
+    "tags": ["明代", "文学常识"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-024",
+    "type": "classical",
+    "prompt": "郑燮《竹石》中「咬定青山不放松」的「咬」字好在哪里？",
+    "options": [
+      "说明竹子有牙齿",
+      "生动写出竹子扎根岩石的坚韧",
+      "表示竹子在吃东西",
+      "形容竹子很饿"
+    ],
+    "correct": 1,
+    "explanation": "「咬」字将竹子拟人化，生动传神地写出竹子紧紧扎根于青山岩石之中的坚韧不拔。",
+    "difficulty": 3,
+    "tags": ["清代", "写作手法", "诗词鉴赏"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-025",
+    "type": "classical",
+    "prompt": "《竹石》中「千磨万击还坚劲，任尔东西南北风」表达了什么精神？",
+    "options": [
+      "竹子长得很结实",
+      "不怕任何打击、坚强不屈的精神",
+      "风吹不倒竹子",
+      "竹子不怕寒冷"
+    ],
+    "correct": 1,
+    "explanation": "无论遭受多少磨难打击，依然坚劲挺拔，任凭风从四面八方吹来也不动摇，表达了坚强不屈的精神。",
+    "difficulty": 3,
+    "tags": ["清代", "诗词鉴赏", "名句理解"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-026",
+    "type": "classical",
+    "prompt": "《竹石》与《石灰吟》在写法上有什么共同点？",
+    "options": [
+      "都是借景抒情",
+      "都是托物言志",
+      "都是直抒胸臆",
+      "都是叙事写人"
+    ],
+    "correct": 1,
+    "explanation": "两首诗都借助事物（竹石、石灰）来表达作者的志向和品格，是托物言志的手法。",
+    "difficulty": 4,
+    "tags": ["清代", "写作手法"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-027",
+    "type": "classical",
+    "prompt": "「任尔东西南北风」中「尔」是什么意思？",
+    "options": [
+      "耳朵",
+      "你",
+      "所以",
+      "如此"
+    ],
+    "correct": 1,
+    "explanation": "「尔」是第二人称代词，意为「你」。任凭你东西南北风吹打。",
+    "difficulty": 3,
+    "tags": ["清代", "虚词初步"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-028",
+    "type": "classical",
+    "prompt": "郑燮（郑板桥）最擅长画什么？",
+    "options": [
+      "山水画",
+      "兰竹",
+      "人物画",
+      "花鸟画"
+    ],
+    "correct": 1,
+    "explanation": "郑燮号板桥，清代书画家、文学家，「扬州八怪」之一，尤擅画兰、竹、石。",
+    "difficulty": 3,
+    "tags": ["清代", "文学常识"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-029",
+    "type": "classical",
+    "prompt": "「立根原在破岩中」中「原」的意思是？",
+    "options": [
+      "原来",
+      "本来",
+      "原始",
+      "平原"
+    ],
+    "correct": 1,
+    "explanation": "「原」在此意为「本来」，说明竹子的根本来就扎在破裂的岩石中。",
+    "difficulty": 3,
+    "tags": ["清代", "实词"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-030",
+    "type": "classical",
+    "prompt": "李贺《马诗》中「大漠沙如雪，燕山月似钩」运用了什么修辞？",
+    "options": [
+      "拟人",
+      "比喻",
+      "夸张",
+      "反复"
+    ],
+    "correct": 1,
+    "explanation": "将沙比作雪，将月比作钩（弯刀），连用两个比喻描绘出边塞雄浑壮阔的夜景。",
+    "difficulty": 3,
+    "tags": ["唐代", "写作手法", "诗词鉴赏"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-031",
+    "type": "classical",
+    "prompt": "《马诗》中「何当金络脑，快走踏清秋」表达了诗人怎样的心愿？",
+    "options": [
+      "想骑马游玩",
+      "渴望被赏识重用、建功立业",
+      "想买一匹好马",
+      "喜欢秋天的景色"
+    ],
+    "correct": 1,
+    "explanation": "以马自喻，渴望戴上金络头（得到重用），在秋日疆场驰骋（建功立业），表达了怀才不遇的感慨与渴望报国的壮志。",
+    "difficulty": 4,
+    "tags": ["唐代", "诗词鉴赏", "名句理解"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-032",
+    "type": "classical",
+    "prompt": "《马诗》中「金络脑」指的是什么？",
+    "options": [
+      "金色的头盔",
+      "用黄金装饰的马笼头",
+      "金色的大脑",
+      "金子做的帽子"
+    ],
+    "correct": 1,
+    "explanation": "「金络脑」即金饰的马笼头，是贵重的马具，象征受到重用。",
+    "difficulty": 3,
+    "tags": ["唐代", "实词", "名句理解"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-033",
+    "type": "classical",
+    "prompt": "李贺被称为什么？",
+    "options": [
+      "诗仙",
+      "诗鬼",
+      "诗圣",
+      "诗佛"
+    ],
+    "correct": 1,
+    "explanation": "李贺（790—816），唐代诗人，诗风奇崛瑰丽，世称「诗鬼」。",
+    "difficulty": 3,
+    "tags": ["唐代", "文学常识"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-034",
+    "type": "classical",
+    "prompt": "《马诗》中「燕山月似钩」的「钩」比喻什么形状的月亮？",
+    "options": [
+      "满月",
+      "弯月（弦月）",
+      "半月",
+      "新月"
+    ],
+    "correct": 1,
+    "explanation": "钩即弯钩，形如战场上的弯刀，比喻弯弯的月牙（弦月），增添了边塞豪迈的气氛。",
+    "difficulty": 3,
+    "tags": ["唐代", "名句理解"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-035",
+    "type": "classical",
+    "prompt": "毛泽东《七律·长征》中「红军不怕远征难，万水千山只等闲」表达了什么精神？",
+    "options": [
+      "红军喜欢旅游",
+      "红军大无畏的革命乐观主义精神",
+      "红军走了很远的路",
+      "长征很容易"
+    ],
+    "correct": 1,
+    "explanation": "面对万水千山的艰难险阻视若等闲，表达了红军大无畏的英雄气概和革命乐观主义精神。",
+    "difficulty": 3,
+    "tags": ["现代", "诗词鉴赏", "名句理解"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-036",
+    "type": "classical",
+    "prompt": "《七律·长征》中「五岭逶迤腾细浪，乌蒙磅礴走泥丸」运用了什么修辞？",
+    "options": [
+      "比喻",
+      "夸张和比喻",
+      "拟人",
+      "排比"
+    ],
+    "correct": 1,
+    "explanation": "将绵延的五岭比作细浪、将磅礴的乌蒙山比作泥丸，既是比喻也是夸张，极写红军藐视困难的豪迈气概。",
+    "difficulty": 4,
+    "tags": ["现代", "写作手法"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-037",
+    "type": "classical",
+    "prompt": "「金沙水拍云崖暖，大渡桥横铁索寒」中的「暖」和「寒」分别指什么？",
+    "options": [
+      "天气温暖和寒冷",
+      "巧渡金沙江的喜悦和飞夺泸定桥的惊险",
+      "南方暖北方冷",
+      "水温的差异"
+    ],
+    "correct": 1,
+    "explanation": "「暖」写巧渡金沙江时的欣喜，「寒」写飞夺泸定桥的惊险悲壮，一暖一寒对比鲜明。",
+    "difficulty": 4,
+    "tags": ["现代", "诗词鉴赏", "名句理解"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-038",
+    "type": "classical",
+    "prompt": "《七律·长征》中「更喜岷山千里雪，三军过后尽开颜」写的是什么？",
+    "options": [
+      "红军在雪山滑雪",
+      "红军翻越岷山后胜利的喜悦",
+      "三支军队在雪山打仗",
+      "红军喜欢雪景"
+    ],
+    "correct": 1,
+    "explanation": "红军翻越千里雪山岷山之后，三军将士都露出了胜利的笑容，表达了长征即将胜利的喜悦。",
+    "difficulty": 3,
+    "tags": ["现代", "诗词鉴赏"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-039",
+    "type": "classical",
+    "prompt": "《七律·长征》是什么体裁的诗？",
+    "options": [
+      "五言绝句",
+      "七言律诗",
+      "词",
+      "五言律诗"
+    ],
+    "correct": 1,
+    "explanation": "「七律」即七言律诗，每句七字，全诗八句，分为首联、颔联、颈联、尾联。",
+    "difficulty": 3,
+    "tags": ["现代", "文学常识"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-040",
+    "type": "classical",
+    "prompt": "「万水千山只等闲」中「等闲」的意思是？",
+    "options": [
+      "等待空闲",
+      "平常、不放在眼里",
+      "等着别人",
+      "非常困难"
+    ],
+    "correct": 1,
+    "explanation": "「等闲」意为平常、不算什么，表达了红军不把艰难险阻放在眼里的豪迈气概。",
+    "difficulty": 3,
+    "tags": ["现代", "名句理解"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-041",
+    "type": "classical",
+    "prompt": "《学弈》中「弈」的意思是？",
+    "options": [
+      "学习",
+      "下棋",
+      "射箭",
+      "游戏"
+    ],
+    "correct": 1,
+    "explanation": "「弈」即下围棋。《学弈》讲述了两个人跟弈秋学下棋的故事。",
+    "difficulty": 3,
+    "tags": ["先秦", "文言翻译", "实词"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-042",
+    "type": "classical",
+    "prompt": "《学弈》中弈秋是什么人？",
+    "options": [
+      "一个学生",
+      "全国最善于下棋的人",
+      "一个将军",
+      "一个老师"
+    ],
+    "correct": 1,
+    "explanation": "文中说「弈秋，通国之善弈者也」，意为弈秋是全国最擅长下棋的人。",
+    "difficulty": 3,
+    "tags": ["先秦", "名句理解"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-043",
+    "type": "classical",
+    "prompt": "《学弈》中两个学生的学习态度有什么不同？",
+    "options": [
+      "都很认真",
+      "一个专心致志，一个三心二意",
+      "都不认真",
+      "一个聪明，一个愚笨"
+    ],
+    "correct": 1,
+    "explanation": "一人专心致志听弈秋讲课，另一人虽在听却心想射天鹅，心不在焉，所以学得不好。",
+    "difficulty": 3,
+    "tags": ["先秦", "文言翻译"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-044",
+    "type": "classical",
+    "prompt": "「虽与之俱学，弗若之矣」中「弗若」的意思是？",
+    "options": [
+      "不如",
+      "不像",
+      "佛教",
+      "仿佛"
+    ],
+    "correct": 0,
+    "explanation": "「弗若」即不如、比不上。虽然一起学习，但成绩不如前一个人。",
+    "difficulty": 3,
+    "tags": ["先秦", "实词", "文言翻译"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-045",
+    "type": "classical",
+    "prompt": "《学弈》选自哪部经典？",
+    "options": [
+      "《论语》",
+      "《孟子·告子上》",
+      "《庄子》",
+      "《史记》"
+    ],
+    "correct": 1,
+    "explanation": "《学弈》选自《孟子·告子上》，孟子用这个故事说明学习必须专心致志的道理。",
+    "difficulty": 3,
+    "tags": ["先秦", "文学常识"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-046",
+    "type": "classical",
+    "prompt": "「为是其智弗若与？曰：非然也。」这句话的意思是？",
+    "options": [
+      "他的智力不如别人吗？说：不是这样的",
+      "他的学问不如别人？说：是的",
+      "是因为他笨吗？回答：可能是吧",
+      "他的智力比别人差吗？说：确实如此"
+    ],
+    "correct": 0,
+    "explanation": "意思是：难道是他的智力不如前一个人吗？回答说：不是这样的。说明学不好不是因为智力差，而是态度不专心。",
+    "difficulty": 4,
+    "tags": ["先秦", "文言翻译"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-047",
+    "type": "classical",
+    "prompt": "「一心以为有鸿鹄将至，思援弓缴而射之」中「鸿鹄」指什么？",
+    "options": [
+      "蝴蝶",
+      "天鹅",
+      "大雁",
+      "老鹰"
+    ],
+    "correct": 1,
+    "explanation": "「鸿鹄」即天鹅。学弈的人心里想着有天鹅要飞来，想拉弓射它。",
+    "difficulty": 3,
+    "tags": ["先秦", "实词"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-048",
+    "type": "classical",
+    "prompt": "《学弈》告诉我们什么道理？",
+    "options": [
+      "下棋很难学",
+      "学习必须专心致志，不能三心二意",
+      "要找好老师",
+      "天赋比努力重要"
+    ],
+    "correct": 1,
+    "explanation": "通过两个学生不同的学习态度和结果的对比，说明学习必须专心致志，否则即使有好老师也学不好。",
+    "difficulty": 3,
+    "tags": ["先秦", "文言翻译"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-049",
+    "type": "classical",
+    "prompt": "「通国之善弈者也」中「通国」的意思是？",
+    "options": [
+      "通过国家",
+      "全国",
+      "通往国都",
+      "了解国家"
+    ],
+    "correct": 1,
+    "explanation": "「通国」即全国。弈秋是全国最擅长下棋的人。",
+    "difficulty": 3,
+    "tags": ["先秦", "实词"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-050",
+    "type": "classical",
+    "prompt": "「使弈秋诲二人弈」中「诲」的意思是？",
+    "options": [
+      "后悔",
+      "教导",
+      "毁坏",
+      "给予"
+    ],
+    "correct": 1,
+    "explanation": "「诲」意为教导、教授。让弈秋教导两个人下棋。",
+    "difficulty": 3,
+    "tags": ["先秦", "实词"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-051",
+    "type": "classical",
+    "prompt": "《两小儿辩日》中两个小孩争论的是什么问题？",
+    "options": [
+      "太阳的颜色",
+      "太阳什么时候离人近",
+      "太阳会不会落山",
+      "太阳有多大"
+    ],
+    "correct": 1,
+    "explanation": "两个小孩争论太阳在早晨还是中午离人更近，各有各的理由。",
+    "difficulty": 3,
+    "tags": ["先秦", "文言翻译"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-052",
+    "type": "classical",
+    "prompt": "《两小儿辩日》中一儿认为太阳早上近的理由是什么？",
+    "options": [
+      "早上太阳热",
+      "早上太阳看起来大如车盖",
+      "早上太阳颜色红",
+      "早上能看到太阳"
+    ],
+    "correct": 1,
+    "explanation": "「日初出大如车盖，及日中则如盘盂」，一个孩子认为早上太阳像车盖一样大，说明离人近。",
+    "difficulty": 3,
+    "tags": ["先秦", "文言翻译", "名句理解"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-053",
+    "type": "classical",
+    "prompt": "另一儿认为太阳中午近的理由是什么？",
+    "options": [
+      "中午太阳大",
+      "中午太阳热得像把手伸进热水",
+      "中午太阳最亮",
+      "中午太阳在正上方"
+    ],
+    "correct": 1,
+    "explanation": "「日初出沧沧凉凉，及其日中如探汤」，中午时感觉热得像把手伸进热水中，所以认为中午太阳离人近。",
+    "difficulty": 3,
+    "tags": ["先秦", "文言翻译", "名句理解"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-054",
+    "type": "classical",
+    "prompt": "「孔子不能决也」说明了什么道理？",
+    "options": [
+      "孔子很笨",
+      "知识无穷，即使圣人也有不知道的事",
+      "这个问题不重要",
+      "孔子不想回答"
+    ],
+    "correct": 1,
+    "explanation": "连孔子都无法判断，说明宇宙间的知识是无穷尽的，即使博学如孔子也有不能解答的问题，体现了实事求是的态度。",
+    "difficulty": 4,
+    "tags": ["先秦", "文言翻译"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-055",
+    "type": "classical",
+    "prompt": "「及其日中如探汤」中「汤」的意思是？",
+    "options": [
+      "汤水（菜汤）",
+      "热水",
+      "温泉",
+      "糖水"
+    ],
+    "correct": 1,
+    "explanation": "古代「汤」指热水。「探汤」即把手伸进热水中，形容中午天气很热。",
+    "difficulty": 3,
+    "tags": ["先秦", "实词", "文言翻译"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-056",
+    "type": "classical",
+    "prompt": "《两小儿辩日》选自哪部书？",
+    "options": [
+      "《论语》",
+      "《列子·汤问》",
+      "《孟子》",
+      "《庄子》"
+    ],
+    "correct": 1,
+    "explanation": "《两小儿辩日》选自《列子·汤问》，是一篇著名的科学启蒙寓言故事。",
+    "difficulty": 3,
+    "tags": ["先秦", "文学常识"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-057",
+    "type": "classical",
+    "prompt": "「我以日始出时去人近」中「去」的意思是？",
+    "options": [
+      "去往",
+      "距离",
+      "离开",
+      "过去"
+    ],
+    "correct": 1,
+    "explanation": "「去」在古文中常意为距离。「去人近」即距离人近。",
+    "difficulty": 4,
+    "tags": ["先秦", "实词", "虚词初步"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-058",
+    "type": "classical",
+    "prompt": "「孰为汝多知乎」中「孰」的意思是？",
+    "options": [
+      "成熟",
+      "谁",
+      "什么",
+      "怎么"
+    ],
+    "correct": 1,
+    "explanation": "「孰」是疑问代词，意为谁。这句意为：谁说你知识多呢？是两小儿对孔子的反问。",
+    "difficulty": 4,
+    "tags": ["先秦", "虚词初步"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-059",
+    "type": "classical",
+    "prompt": "「日初出沧沧凉凉」中「沧沧凉凉」形容什么？",
+    "options": [
+      "水很凉",
+      "早晨天气清凉",
+      "风很大",
+      "太阳光弱"
+    ],
+    "correct": 1,
+    "explanation": "「沧沧凉凉」形容早晨天气清凉，用来论证太阳早上离人远。",
+    "difficulty": 3,
+    "tags": ["先秦", "名句理解"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-060",
+    "type": "classical",
+    "prompt": "《两小儿辩日》中两个小孩各用了什么方式来判断太阳远近？",
+    "options": [
+      "都用了触觉",
+      "一个用视觉（大小），一个用触觉（冷热）",
+      "都用了视觉",
+      "一个用听觉，一个用触觉"
+    ],
+    "correct": 1,
+    "explanation": "一个孩子从视觉角度（太阳看起来大小不同）判断，另一个从触觉角度（温度冷热不同）判断，角度不同结论不同。",
+    "difficulty": 4,
+    "tags": ["先秦", "文言翻译"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-061",
+    "type": "classical",
+    "prompt": "《伯牙鼓琴》中「鼓」的意思是？",
+    "options": [
+      "鼓掌",
+      "弹奏",
+      "一种乐器",
+      "击打"
+    ],
+    "correct": 1,
+    "explanation": "「鼓」在此为动词，意为弹奏。「伯牙鼓琴」即伯牙弹琴。",
+    "difficulty": 3,
+    "tags": ["先秦", "实词"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-062",
+    "type": "classical",
+    "prompt": "「伯牙鼓琴，志在高山」中「志」的意思是？",
+    "options": [
+      "志向",
+      "心意、意念",
+      "记住",
+      "标志"
+    ],
+    "correct": 1,
+    "explanation": "「志」在此意为心意、意念所向。伯牙弹琴时心里想着高山。",
+    "difficulty": 3,
+    "tags": ["先秦", "实词"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-063",
+    "type": "classical",
+    "prompt": "钟子期听伯牙弹琴时说了什么？",
+    "options": [
+      "弹得真好听",
+      "「善哉乎鼓琴！巍巍乎若泰山」",
+      "再弹一首吧",
+      "我听不懂"
+    ],
+    "correct": 1,
+    "explanation": "钟子期感叹：「善哉乎鼓琴！巍巍乎若泰山」「善哉乎鼓琴！洋洋乎若江河」，完全领会伯牙的琴意。",
+    "difficulty": 3,
+    "tags": ["先秦", "名句理解"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-064",
+    "type": "classical",
+    "prompt": "「善哉乎鼓琴！巍巍乎若泰山」中「善哉」的意思是？",
+    "options": [
+      "善良",
+      "好啊",
+      "再见",
+      "慈善"
+    ],
+    "correct": 1,
+    "explanation": "「善哉」是赞叹之词，意为「好啊」「妙啊」。钟子期赞叹伯牙琴艺高超。",
+    "difficulty": 3,
+    "tags": ["先秦", "实词"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-065",
+    "type": "classical",
+    "prompt": "伯牙为什么「破琴绝弦，终身不复鼓琴」？",
+    "options": [
+      "琴坏了",
+      "钟子期死后，再无知音",
+      "手受伤了",
+      "不想弹琴了"
+    ],
+    "correct": 1,
+    "explanation": "钟子期去世后，伯牙认为世上再无能理解他琴声的知音，因此摔琴断弦，终身不再弹琴。",
+    "difficulty": 3,
+    "tags": ["先秦", "名句理解"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-066",
+    "type": "classical",
+    "prompt": "「高山流水」这个成语源自《伯牙鼓琴》，现在比喻什么？",
+    "options": [
+      "山高水长",
+      "知音或知己",
+      "弹琴技术好",
+      "美丽的风景"
+    ],
+    "correct": 1,
+    "explanation": "「高山流水」源自伯牙与钟子期的故事，现用来比喻知音、知己，也比喻乐曲高妙。",
+    "difficulty": 3,
+    "tags": ["先秦", "文学常识"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-067",
+    "type": "classical",
+    "prompt": "「洋洋乎若江河」中「洋洋」的意思是？",
+    "options": [
+      "海洋",
+      "水势浩大的样子",
+      "得意洋洋",
+      "洋气"
+    ],
+    "correct": 1,
+    "explanation": "「洋洋」形容水势浩大、广阔的样子。形容琴声如江河般浩荡。",
+    "difficulty": 3,
+    "tags": ["先秦", "实词", "名句理解"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-068",
+    "type": "classical",
+    "prompt": "《伯牙鼓琴》选自哪部书？",
+    "options": [
+      "《论语》",
+      "《吕氏春秋》",
+      "《孟子》",
+      "《史记》"
+    ],
+    "correct": 1,
+    "explanation": "《伯牙鼓琴》选自《吕氏春秋·本味》，是记载伯牙与钟子期知音故事的经典篇章。",
+    "difficulty": 4,
+    "tags": ["先秦", "文学常识"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-069",
+    "type": "classical",
+    "prompt": "「巍巍乎若泰山」中「若」的意思是？",
+    "options": [
+      "如果",
+      "好像",
+      "你",
+      "若干"
+    ],
+    "correct": 1,
+    "explanation": "「若」在此意为好像、如同。琴声雄浑高昂，好像巍峨的泰山。",
+    "difficulty": 3,
+    "tags": ["先秦", "虚词初步"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-070",
+    "type": "classical",
+    "prompt": "「以为世无足复为鼓琴者」中两个「为」的意思分别是？",
+    "options": [
+      "都是「因为」",
+      "第一个是「认为」，第二个是「替、给」",
+      "都是「做」",
+      "第一个是「做」，第二个是「为了」"
+    ],
+    "correct": 1,
+    "explanation": "「以为」的「为」意为认为；「复为鼓琴」的「为」意为替、给。这是一词多义现象。",
+    "difficulty": 4,
+    "tags": ["先秦", "虚词初步"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-071",
+    "type": "classical",
+    "prompt": "翻译：「春风又绿江南岸，明月何时照我还。」",
+    "options": [
+      "春风把江南岸吹绿了，月亮什么时候出来。",
+      "春风又吹绿了江南大地，明月啊你何时才能照着我回到故乡。",
+      "春天的风是绿色的，月亮很亮。",
+      "春风吹到江南，明月照着我回家。"
+    ],
+    "correct": 1,
+    "explanation": "春风再一次吹绿了长江南岸，明月什么时候才能照着我回到家乡。表达了深切的思乡之情。",
+    "difficulty": 3,
+    "tags": ["宋代", "文言翻译"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-072",
+    "type": "classical",
+    "prompt": "翻译：「粉骨碎身浑不怕，要留清白在人间。」",
+    "options": [
+      "骨头碎了也不怕，要把白色留下来。",
+      "即使粉身碎骨也全不惧怕，只要能把清白的品格留在世间。",
+      "把身体磨成粉也不害怕，要留下清白。",
+      "骨头和身体都碎了，害怕清白没了。"
+    ],
+    "correct": 1,
+    "explanation": "「浑」意为全、毫，「清白」既指石灰的颜色也喻指高洁的品格。",
+    "difficulty": 3,
+    "tags": ["明代", "文言翻译"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-073",
+    "type": "classical",
+    "prompt": "翻译：「何当金络脑，快走踏清秋。」",
+    "options": [
+      "什么时候有金帽子，快点跑到秋天。",
+      "何时才能戴上金饰的笼头，在清爽的秋日里尽情奔驰。",
+      "当金子做了马笼头，就快点走。",
+      "黄金做的笼头很漂亮，秋天快来了。"
+    ],
+    "correct": 1,
+    "explanation": "「何当」意为何时才能。什么时候才能套上金笼头（得到重用），在秋日的原野上纵情奔驰（建功立业）。",
+    "difficulty": 4,
+    "tags": ["唐代", "文言翻译"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-074",
+    "type": "classical",
+    "prompt": "翻译：「弈秋，通国之善弈者也。」",
+    "options": [
+      "弈秋是一个下棋的人。",
+      "弈秋，是全国最擅长下棋的人。",
+      "弈秋在秋天下棋很好。",
+      "弈秋通过了全国的下棋比赛。"
+    ],
+    "correct": 1,
+    "explanation": "「通国」即全国，「善弈」即擅长下棋，「者也」表判断。弈秋是全国最善于下棋的人。",
+    "difficulty": 3,
+    "tags": ["先秦", "文言翻译"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-075",
+    "type": "classical",
+    "prompt": "翻译：「孔子不能决也。」",
+    "options": [
+      "孔子不能做决定。",
+      "孔子也无法判断（谁对谁错）。",
+      "孔子决定不了。",
+      "孔子不想决斗。"
+    ],
+    "correct": 1,
+    "explanation": "「决」意为判断、裁决。孔子也无法判定两个小孩谁说得对。",
+    "difficulty": 3,
+    "tags": ["先秦", "文言翻译"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-076",
+    "type": "classical",
+    "prompt": "翻译：「伯牙破琴绝弦，终身不复鼓琴。」",
+    "options": [
+      "伯牙把琴弄坏了，不会修了。",
+      "伯牙摔破琴身、剪断琴弦，终身不再弹琴。",
+      "伯牙的琴断了线，一辈子不打鼓了。",
+      "伯牙绝望地弹琴，弹了一辈子。"
+    ],
+    "correct": 1,
+    "explanation": "「破琴」即摔破琴，「绝弦」即剪断琴弦，「不复」即不再。伯牙因知音已逝，终身不再弹琴。",
+    "difficulty": 3,
+    "tags": ["先秦", "文言翻译"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-077",
+    "type": "classical",
+    "prompt": "「之」在古文中最常见的几个意思，下列哪项不是？",
+    "options": [
+      "的",
+      "美丽",
+      "他/她/它",
+      "去、到"
+    ],
+    "correct": 1,
+    "explanation": "「之」常见意思有：①的（助词）②他/她/它（代词）③去、到（动词）④用在主谓之间取消句子独立性。「美丽」不是「之」的含义。",
+    "difficulty": 4,
+    "tags": ["先秦", "虚词初步"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-078",
+    "type": "classical",
+    "prompt": "「通国之善弈者也」中「之」的用法是？",
+    "options": [
+      "代词",
+      "助词，「的」",
+      "动词，「去」",
+      "取消句子独立性"
+    ],
+    "correct": 1,
+    "explanation": "「通国之善弈者」中「之」是结构助词，相当于「的」，全国的善于下棋的人。",
+    "difficulty": 4,
+    "tags": ["先秦", "虚词初步"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-079",
+    "type": "classical",
+    "prompt": "「虽与之俱学」中「之」指代谁？",
+    "options": [
+      "弈秋",
+      "前一个专心学习的人",
+      "后一个走神的人",
+      "两个学生"
+    ],
+    "correct": 1,
+    "explanation": "「之」在此是代词，指代前一个专心致志学习的人。虽然和他一起学习（但成绩不如他）。",
+    "difficulty": 4,
+    "tags": ["先秦", "虚词初步"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-080",
+    "type": "classical",
+    "prompt": "「思援弓缴而射之」中「之」指代什么？",
+    "options": [
+      "弈秋",
+      "天鹅（鸿鹄）",
+      "弓箭",
+      "棋子"
+    ],
+    "correct": 1,
+    "explanation": "「之」在此指代前文提到的鸿鹄（天鹅）。心想着拉弓射天鹅。",
+    "difficulty": 3,
+    "tags": ["先秦", "虚词初步"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-081",
+    "type": "classical",
+    "prompt": "「以」在古文中的常见意思，下列哪个不正确？",
+    "options": [
+      "用",
+      "大象",
+      "认为",
+      "因为"
+    ],
+    "correct": 1,
+    "explanation": "「以」常见意思有：①用②认为③因为④来、以便⑤凭借。「大象」不是「以」的含义。",
+    "difficulty": 4,
+    "tags": ["先秦", "虚词初步"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-082",
+    "type": "classical",
+    "prompt": "「我以日始出时去人近」中「以」的意思是？",
+    "options": [
+      "用",
+      "认为",
+      "因为",
+      "凭借"
+    ],
+    "correct": 1,
+    "explanation": "「以」在此意为认为。我认为太阳刚出来时离人近。",
+    "difficulty": 4,
+    "tags": ["先秦", "虚词初步"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-083",
+    "type": "classical",
+    "prompt": "「而」在古文中常用作连词，下列哪种不是「而」的用法？",
+    "options": [
+      "表转折（但是）",
+      "表颜色",
+      "表顺承（然后）",
+      "表并列（又）"
+    ],
+    "correct": 1,
+    "explanation": "「而」作连词有：表转折（但是）、表顺承（然后、就）、表并列（又、和）、表修饰等用法。「表颜色」不是「而」的用法。",
+    "difficulty": 4,
+    "tags": ["先秦", "虚词初步"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-084",
+    "type": "classical",
+    "prompt": "「思援弓缴而射之」中「而」表示什么关系？",
+    "options": [
+      "转折",
+      "顺承",
+      "并列",
+      "递进"
+    ],
+    "correct": 1,
+    "explanation": "先拉弓然后射箭，「而」表示动作的先后顺承关系。",
+    "difficulty": 4,
+    "tags": ["先秦", "虚词初步"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-085",
+    "type": "classical",
+    "prompt": "下列哪首诗不是咏物言志诗？",
+    "options": [
+      "《石灰吟》",
+      "《泊船瓜洲》",
+      "《竹石》",
+      "《马诗》"
+    ],
+    "correct": 1,
+    "explanation": "《泊船瓜洲》是思乡诗，不是咏物言志诗。《石灰吟》《竹石》《马诗》都是托物言志之作。",
+    "difficulty": 3,
+    "tags": ["综合", "写作手法"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-086",
+    "type": "classical",
+    "prompt": "下列诗句中，哪一句表达了思乡之情？",
+    "options": [
+      "千磨万击还坚劲",
+      "明月何时照我还",
+      "粉骨碎身浑不怕",
+      "何当金络脑"
+    ],
+    "correct": 1,
+    "explanation": "「明月何时照我还」出自《泊船瓜洲》，借明月寄托思乡之情。其余诗句分别表达坚韧、清白、建功立业之志。",
+    "difficulty": 3,
+    "tags": ["综合", "名句理解"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-087",
+    "type": "classical",
+    "prompt": "下列诗人中，哪位不属于宋代？",
+    "options": [
+      "苏轼",
+      "李贺",
+      "王安石",
+      "辛弃疾"
+    ],
+    "correct": 1,
+    "explanation": "李贺是唐代诗人（790—816），苏轼、王安石、辛弃疾都是宋代人。",
+    "difficulty": 3,
+    "tags": ["综合", "文学常识"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-088",
+    "type": "classical",
+    "prompt": "「春色满园关不住」在全诗中起什么作用？",
+    "options": [
+      "开头点题",
+      "承上启下，由扣门不开转到发现红杏",
+      "总结全诗",
+      "与前文形成对比"
+    ],
+    "correct": 1,
+    "explanation": "承接前面「小扣柴扉久不开」的遗憾，引出「一枝红杏出墙来」的惊喜，起到承上启下的作用。",
+    "difficulty": 4,
+    "tags": ["宋代", "写作手法"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-089",
+    "type": "classical",
+    "prompt": "「一枝红杏出墙来」现在常用来比喻什么？",
+    "options": [
+      "花开了",
+      "新生事物无法被压制",
+      "红杏很漂亮",
+      "墙不够高"
+    ],
+    "correct": 1,
+    "explanation": "这句诗后来常被引用，比喻新生事物蓬勃发展，无法被压制和阻挡。",
+    "difficulty": 4,
+    "tags": ["宋代", "名句理解"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-090",
+    "type": "classical",
+    "prompt": "苏轼《浣溪沙》中「松间沙路净无泥」描写的环境特点是？",
+    "options": [
+      "脏乱",
+      "清幽洁净",
+      "荒凉",
+      "热闹"
+    ],
+    "correct": 1,
+    "explanation": "松树间的沙路干净无泥，描写了清泉寺周围清幽洁净、令人心旷神怡的环境。",
+    "difficulty": 3,
+    "tags": ["宋代", "诗词鉴赏"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-091",
+    "type": "classical",
+    "prompt": "「门前流水尚能西」中「尚」的意思是？",
+    "options": [
+      "高尚",
+      "尚且、还",
+      "崇尚",
+      "和尚"
+    ],
+    "correct": 1,
+    "explanation": "「尚」在此意为尚且、还。门前的溪水还能向西流（不必叹老）。",
+    "difficulty": 3,
+    "tags": ["宋代", "虚词初步"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-092",
+    "type": "classical",
+    "prompt": "辛弃疾词中「清风半夜鸣蝉」调动了哪种感官？",
+    "options": [
+      "视觉",
+      "听觉",
+      "嗅觉",
+      "触觉"
+    ],
+    "correct": 1,
+    "explanation": "「鸣蝉」即蝉鸣声，属于听觉描写。半夜清风中传来阵阵蝉鸣。",
+    "difficulty": 3,
+    "tags": ["宋代", "写作手法"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-093",
+    "type": "classical",
+    "prompt": "「稻花香里说丰年」调动了哪种感官？",
+    "options": [
+      "视觉",
+      "嗅觉",
+      "触觉",
+      "味觉"
+    ],
+    "correct": 1,
+    "explanation": "「稻花香」是嗅觉描写，闻到稻花的香气，感受到丰收的气息。",
+    "difficulty": 3,
+    "tags": ["宋代", "写作手法"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-094",
+    "type": "classical",
+    "prompt": "《西江月》这个词牌名中，「西江月」原来指什么？",
+    "options": [
+      "西边的江月",
+      "唐教坊曲名",
+      "一条河流",
+      "一首歌"
+    ],
+    "correct": 1,
+    "explanation": "「西江月」是唐教坊曲名，后用作词牌。辛弃疾这首词的完整题目是《西江月·夜行黄沙道中》。",
+    "difficulty": 4,
+    "tags": ["宋代", "文学常识"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-095",
+    "type": "classical",
+    "prompt": "《石灰吟》中「浑」的意思是？",
+    "options": [
+      "浑浊",
+      "全、毫",
+      "浑身",
+      "混合"
+    ],
+    "correct": 1,
+    "explanation": "「浑」在此意为全、毫、完全。「浑不怕」即完全不害怕。",
+    "difficulty": 3,
+    "tags": ["明代", "实词"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-096",
+    "type": "classical",
+    "prompt": "《竹石》中「千磨万击」的「千」「万」是确数还是虚数？",
+    "options": [
+      "确数，刚好一千一万次",
+      "虚数，形容次数极多",
+      "大约的数字",
+      "不确定"
+    ],
+    "correct": 1,
+    "explanation": "「千」「万」在这里是虚数，表示极多，形容竹石经受了无数次的磨难和打击。这是古诗中常见的用法。",
+    "difficulty": 3,
+    "tags": ["清代", "名句理解"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-097",
+    "type": "classical",
+    "prompt": "《马诗》共有多少首？课文选的是第几首？",
+    "options": [
+      "1首",
+      "23首，课文选第5首",
+      "10首，课文选第1首",
+      "5首，课文选第3首"
+    ],
+    "correct": 1,
+    "explanation": "李贺《马诗》共23首，课文选取的是其中第五首「大漠沙如雪，燕山月似钩」。",
+    "difficulty": 4,
+    "tags": ["唐代", "文学常识"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-098",
+    "type": "classical",
+    "prompt": "《七律·长征》写于哪一年？",
+    "options": [
+      "1949年",
+      "1935年",
+      "1921年",
+      "1945年"
+    ],
+    "correct": 1,
+    "explanation": "1935年10月，红军长征即将胜利，毛泽东翻越岷山后写下这首气壮山河的诗篇。",
+    "difficulty": 3,
+    "tags": ["现代", "文学常识"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-099",
+    "type": "classical",
+    "prompt": "「五岭逶迤腾细浪」中「逶迤」的意思是？",
+    "options": [
+      "很短",
+      "弯弯曲曲、绵延不断",
+      "很高",
+      "很陡"
+    ],
+    "correct": 1,
+    "explanation": "「逶迤」形容道路或山脉弯弯曲曲、绵延不断的样子。五岭山脉绵延起伏。",
+    "difficulty": 3,
+    "tags": ["现代", "实词"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-100",
+    "type": "classical",
+    "prompt": "「乌蒙磅礴走泥丸」中「磅礴」的意思是？",
+    "options": [
+      "很小",
+      "气势雄伟、广大无边",
+      "很轻",
+      "很平"
+    ],
+    "correct": 1,
+    "explanation": "「磅礴」形容气势雄伟盛大。乌蒙山虽然气势磅礴，但在红军眼中不过如泥丸滚动。",
+    "difficulty": 3,
+    "tags": ["现代", "实词"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-101",
+    "type": "classical",
+    "prompt": "翻译：「使弈秋诲二人弈，其一人专心致志，惟弈秋之为听。」",
+    "options": [
+      "让弈秋骂两个人下棋，一个人很害怕。",
+      "让弈秋教导两个人下棋，其中一人专心致志，只听弈秋的教导。",
+      "弈秋叫两个人下棋比赛，一个人赢了。",
+      "弈秋和两个人一起下棋，一个人很聪明。"
+    ],
+    "correct": 1,
+    "explanation": "「诲」意为教导，「惟」意为只有。让弈秋教两个人下棋，其中一个人专心致志，一心一意只听弈秋的教导。",
+    "difficulty": 3,
+    "tags": ["先秦", "文言翻译"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-102",
+    "type": "classical",
+    "prompt": "翻译：「一心以为有鸿鹄将至，思援弓缴而射之。」",
+    "options": [
+      "一直想着有只大鸟要来，想用箭射它。",
+      "心里一直想着有天鹅要飞来，想拉弓搭箭把它射下来。",
+      "以为有大鸟在天上，拿起弓箭。",
+      "想到有天鹅来了，赶紧拿出弓。"
+    ],
+    "correct": 1,
+    "explanation": "「鸿鹄」即天鹅，「援」意为拉、拿，「缴」是系在箭上的丝绳。心里一直想着有天鹅要飞来，想拉弓射它。",
+    "difficulty": 4,
+    "tags": ["先秦", "文言翻译"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-103",
+    "type": "classical",
+    "prompt": "翻译：「日初出大如车盖，及日中则如盘盂。」",
+    "options": [
+      "太阳出来很大，中午变小了。",
+      "太阳刚出来时大得像车的顶盖，到了中午就小得像盘子。",
+      "太阳早上像汽车，中午像盘子。",
+      "太阳初升时像盖子，日中则不见了。"
+    ],
+    "correct": 1,
+    "explanation": "「车盖」即古代车上的圆形伞盖，「盘盂」即盘子碗。太阳刚出来时像车盖那样大，到了中午只有盘盂那样小。",
+    "difficulty": 3,
+    "tags": ["先秦", "文言翻译"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-104",
+    "type": "classical",
+    "prompt": "翻译：「孰为汝多知乎？」",
+    "options": [
+      "谁叫你知道这么多？",
+      "谁说你知识多呢？",
+      "你什么都知道吗？",
+      "你怎么知道的？"
+    ],
+    "correct": 1,
+    "explanation": "「孰」意为谁，「汝」意为你，「知」通「智」。谁说你的知识多呢？这是两小儿对孔子的反问。",
+    "difficulty": 4,
+    "tags": ["先秦", "文言翻译"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-105",
+    "type": "classical",
+    "prompt": "翻译：「善哉乎鼓琴！洋洋乎若江河。」",
+    "options": [
+      "善良的人弹琴！像江河。",
+      "弹得好啊！琴声浩荡就像江河一样。",
+      "好人啊弹琴！水很大。",
+      "太好了弹琴！洋洋得意的像江河。"
+    ],
+    "correct": 1,
+    "explanation": "「善哉」为赞叹词（好啊），「洋洋」形容水势浩大。弹得多好啊！琴声浩荡就如同江河一般。",
+    "difficulty": 3,
+    "tags": ["先秦", "文言翻译"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-106",
+    "type": "classical",
+    "prompt": "「京口瓜洲一水间」中「间」的读音是？",
+    "options": [
+      "jiān（间隔的间）",
+      "jiàn（间隔的间，去声）",
+      "jiǎn",
+      "jián"
+    ],
+    "correct": 0,
+    "explanation": "「间」在此读jiān，表示中间、之间。京口和瓜洲之间只隔着一条江水。",
+    "difficulty": 3,
+    "tags": ["宋代", "实词"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-107",
+    "type": "classical",
+    "prompt": "「钟山只隔数重山」中的「钟山」在哪里？",
+    "options": [
+      "北京",
+      "南京",
+      "杭州",
+      "洛阳"
+    ],
+    "correct": 1,
+    "explanation": "钟山即紫金山，位于今南京市。王安石的故乡在此附近，所以他望钟山思故乡。",
+    "difficulty": 4,
+    "tags": ["宋代", "名句理解"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-108",
+    "type": "classical",
+    "prompt": "下列哪句诗运用了托物言志的手法？",
+    "options": [
+      "春风又绿江南岸",
+      "咬定青山不放松",
+      "稻花香里说丰年",
+      "明月别枝惊鹊"
+    ],
+    "correct": 1,
+    "explanation": "「咬定青山不放松」以竹石自喻，表达坚韧不拔的精神，是典型的托物言志。其他三句分别是写景和借景抒情。",
+    "difficulty": 4,
+    "tags": ["综合", "写作手法"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-109",
+    "type": "classical",
+    "prompt": "下列哪组诗人合称「苏辛」？",
+    "options": [
+      "苏轼和辛弃疾",
+      "苏轼和辛文房",
+      "苏洵和辛弃疾",
+      "苏辙和辛弃疾"
+    ],
+    "correct": 0,
+    "explanation": "苏轼和辛弃疾都是宋代豪放派词人的代表，二人并称「苏辛」。",
+    "difficulty": 3,
+    "tags": ["宋代", "文学常识"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-110",
+    "type": "classical",
+    "prompt": "「应怜屐齿印苍苔，小扣柴扉久不开」中「柴扉」的意思是？",
+    "options": [
+      "柴火堆",
+      "用柴木做的门",
+      "篱笆",
+      "围墙"
+    ],
+    "correct": 1,
+    "explanation": "「柴扉」即用柴木编成的简陋门扉，说明园主人生活简朴。",
+    "difficulty": 3,
+    "tags": ["宋代", "实词"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-111",
+    "type": "classical",
+    "prompt": "「大漠沙如雪」用的是什么感官来描写？",
+    "options": [
+      "听觉",
+      "视觉",
+      "触觉",
+      "嗅觉"
+    ],
+    "correct": 1,
+    "explanation": "将月光下的沙漠比作雪，是从视觉角度描写大漠在月光下银白一片的景象。",
+    "difficulty": 3,
+    "tags": ["唐代", "写作手法"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-112",
+    "type": "classical",
+    "prompt": "「快走踏清秋」中「走」的古义和今义分别是？",
+    "options": [
+      "都是「行走」",
+      "古义「奔跑」，今义「行走」",
+      "都是「奔跑」",
+      "古义「行走」，今义「跑」"
+    ],
+    "correct": 1,
+    "explanation": "「走」在古文中意为奔跑（如「走马观花」），现代汉语中意为行走。这是古今异义词。",
+    "difficulty": 4,
+    "tags": ["唐代", "实词"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-113",
+    "type": "classical",
+    "prompt": "《七律·长征》中哪两联是对仗（对偶）的？",
+    "options": [
+      "首联和尾联",
+      "颔联和颈联",
+      "首联和颔联",
+      "颈联和尾联"
+    ],
+    "correct": 1,
+    "explanation": "律诗要求颔联（第3-4句）和颈联（第5-6句）对仗。「五岭逶迤腾细浪，乌蒙磅礴走泥丸」和「金沙水拍云崖暖，大渡桥横铁索寒」分别构成对仗。",
+    "difficulty": 4,
+    "tags": ["现代", "写作手法"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-114",
+    "type": "classical",
+    "prompt": "《学弈》《两小儿辩日》《伯牙鼓琴》三篇文言文的共同特点是？",
+    "options": [
+      "都是议论文",
+      "都是通过小故事讲道理",
+      "都是抒情散文",
+      "都是历史记载"
+    ],
+    "correct": 1,
+    "explanation": "三篇都是短小精悍的文言寓言或故事，通过生动的小故事阐明深刻的道理：专心、求知、知音。",
+    "difficulty": 3,
+    "tags": ["先秦", "文学常识"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-115",
+    "type": "classical",
+    "prompt": "「援」在「思援弓缴而射之」中的意思是？",
+    "options": [
+      "援助",
+      "拉、拿起",
+      "支援",
+      "援引"
+    ],
+    "correct": 1,
+    "explanation": "「援」在此意为拉、拿起。想拉起弓搭上箭射天鹅。",
+    "difficulty": 3,
+    "tags": ["先秦", "实词"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-116",
+    "type": "classical",
+    "prompt": "「缴」在「思援弓缴而射之」中的意思和读音是？",
+    "options": [
+      "读jiǎo，缴纳",
+      "读zhuó，系在箭上的丝绳",
+      "读jiǎo，打结",
+      "读zhuó，缠绕"
+    ],
+    "correct": 1,
+    "explanation": "「缴」读zhuó，指系在箭上的丝绳，用来射鸟后把鸟拉回来。这是射猎工具。",
+    "difficulty": 4,
+    "tags": ["先秦", "实词"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-117",
+    "type": "classical",
+    "prompt": "「日初出沧沧凉凉」中「日初出」的意思是？",
+    "options": [
+      "太阳快落山时",
+      "太阳刚升起时",
+      "太阳正当头时",
+      "太阳还没出来时"
+    ],
+    "correct": 1,
+    "explanation": "「日初出」即太阳刚刚升起的时候，指早晨。",
+    "difficulty": 3,
+    "tags": ["先秦", "实词"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-118",
+    "type": "classical",
+    "prompt": "「及日中则如盘盂」中「及」的意思是？",
+    "options": [
+      "以及",
+      "等到",
+      "来不及",
+      "赶上"
+    ],
+    "correct": 1,
+    "explanation": "「及」在此意为等到、到了。等到了正午时分，太阳就只有盘盂那样大。",
+    "difficulty": 4,
+    "tags": ["先秦", "虚词初步"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-119",
+    "type": "classical",
+    "prompt": "「探汤」在古代是什么意思？",
+    "options": [
+      "喝汤",
+      "把手伸进热水中",
+      "探索温泉",
+      "找汤喝"
+    ],
+    "correct": 1,
+    "explanation": "「探」意为伸手探入，「汤」在古代指热水。「探汤」即把手伸进热水中，形容非常热。",
+    "difficulty": 3,
+    "tags": ["先秦", "实词", "文言翻译"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-120",
+    "type": "classical",
+    "prompt": "下列哪句话出自《两小儿辩日》中支持「早上太阳近」观点的小儿？",
+    "options": [
+      "日初出沧沧凉凉",
+      "日初出大如车盖",
+      "及其日中如探汤",
+      "孔子不能决也"
+    ],
+    "correct": 1,
+    "explanation": "认为早上太阳近的孩子的论据是：早上太阳大如车盖（视觉角度），大则近、小则远。",
+    "difficulty": 3,
+    "tags": ["先秦", "名句理解"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-121",
+    "type": "classical",
+    "prompt": "「足」在「以为世无足复为鼓琴者」中的意思是？",
+    "options": [
+      "脚",
+      "值得",
+      "足够",
+      "满足"
+    ],
+    "correct": 1,
+    "explanation": "「足」在此意为值得。认为世上再没有值得为他弹琴的人了。",
+    "difficulty": 4,
+    "tags": ["先秦", "实词"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-122",
+    "type": "classical",
+    "prompt": "「复」在「终身不复鼓琴」中的意思是？",
+    "options": [
+      "重复",
+      "再、又",
+      "恢复",
+      "回复"
+    ],
+    "correct": 1,
+    "explanation": "「复」在此意为再、又。终身不再弹琴。",
+    "difficulty": 3,
+    "tags": ["先秦", "虚词初步"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-123",
+    "type": "classical",
+    "prompt": "下列哪个词语最能概括伯牙和钟子期的关系？",
+    "options": [
+      "师生",
+      "知音",
+      "同学",
+      "对手"
+    ],
+    "correct": 1,
+    "explanation": "伯牙弹琴，钟子期能完全理解他的琴意，二人是「知音」的典范。",
+    "difficulty": 3,
+    "tags": ["先秦", "名句理解"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-124",
+    "type": "classical",
+    "prompt": "「春风又绿江南岸」中「又」字说明了什么？",
+    "options": [
+      "春风吹了一次",
+      "春天再次来临，暗示诗人离乡已久",
+      "春风很大",
+      "江南岸很绿"
+    ],
+    "correct": 1,
+    "explanation": "「又」字说明春天又一次到来，暗示诗人离开家乡已经不止一年，更增添思乡的惆怅。",
+    "difficulty": 4,
+    "tags": ["宋代", "诗词鉴赏"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-125",
+    "type": "classical",
+    "prompt": "王安石除了是诗人，还有什么身份？",
+    "options": [
+      "画家",
+      "政治家和改革家",
+      "将军",
+      "商人"
+    ],
+    "correct": 1,
+    "explanation": "王安石是北宋著名的政治家，主持了「王安石变法」（熙宁变法），是中国历史上著名的改革家。",
+    "difficulty": 3,
+    "tags": ["宋代", "文学常识"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-126",
+    "type": "classical",
+    "prompt": "《游园不值》的「不值」是什么意思？",
+    "options": [
+      "不值得",
+      "没有遇到（主人）",
+      "不划算",
+      "不好"
+    ],
+    "correct": 1,
+    "explanation": "「不值」即没有遇到。诗人去游园但没有遇到园主人，门久扣不开。",
+    "difficulty": 3,
+    "tags": ["宋代", "实词"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-127",
+    "type": "classical",
+    "prompt": "下列哪首是词而不是诗？",
+    "options": [
+      "《泊船瓜洲》",
+      "《西江月·夜行黄沙道中》",
+      "《石灰吟》",
+      "《竹石》"
+    ],
+    "correct": 1,
+    "explanation": "《西江月》是词牌名，说明这是一首词。其余三首都是格律诗（绝句）。词又称长短句，句式长短不一。",
+    "difficulty": 3,
+    "tags": ["综合", "文学常识"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-128",
+    "type": "classical",
+    "prompt": "词和诗的主要区别是什么？",
+    "options": [
+      "词更短",
+      "词的句子长短不一，又称长短句",
+      "诗更优美",
+      "词不押韵"
+    ],
+    "correct": 1,
+    "explanation": "诗的每句字数固定（五言或七言），而词的句式长短不一（因此又叫「长短句」），且必须按照词牌的格律填写。",
+    "difficulty": 4,
+    "tags": ["综合", "文学常识"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-129",
+    "type": "classical",
+    "prompt": "「也」在文言文中通常出现在句末，表示什么？",
+    "options": [
+      "疑问",
+      "判断或肯定语气",
+      "否定",
+      "感叹"
+    ],
+    "correct": 1,
+    "explanation": "「也」用在句末常表示判断或肯定语气，如「弈秋，通国之善弈者也」表判断。",
+    "difficulty": 4,
+    "tags": ["先秦", "虚词初步"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-130",
+    "type": "classical",
+    "prompt": "「矣」在文言文中表示什么？",
+    "options": [
+      "疑问",
+      "语气完成或感叹",
+      "否定",
+      "转折"
+    ],
+    "correct": 1,
+    "explanation": "「矣」用在句末表示事情已经完成、确认或感叹，如「弗若之矣」（比不上他了）。",
+    "difficulty": 4,
+    "tags": ["先秦", "虚词初步"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-131",
+    "type": "classical",
+    "prompt": "「乎」在文言文中最常见的用法是？",
+    "options": [
+      "表否定",
+      "表疑问或感叹",
+      "表转折",
+      "表因果"
+    ],
+    "correct": 1,
+    "explanation": "「乎」常用在句末表示疑问（如「非然也乎」）或感叹（如「巍巍乎若泰山」），是常见的语气词。",
+    "difficulty": 4,
+    "tags": ["先秦", "虚词初步"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-132",
+    "type": "classical",
+    "prompt": "「其一人专心致志」中「其」的意思是？",
+    "options": [
+      "他的",
+      "其中",
+      "其实",
+      "奇怪"
+    ],
+    "correct": 1,
+    "explanation": "「其」在此意为其中。其中一个人专心致志地学习。",
+    "difficulty": 3,
+    "tags": ["先秦", "虚词初步"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-133",
+    "type": "classical",
+    "prompt": "「惟弈秋之为听」中「惟」的意思是？",
+    "options": [
+      "维护",
+      "只",
+      "思维",
+      "唯有"
+    ],
+    "correct": 1,
+    "explanation": "「惟」意为只、只有。只听弈秋的教导（一心一意）。",
+    "difficulty": 3,
+    "tags": ["先秦", "虚词初步"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-134",
+    "type": "classical",
+    "prompt": "「与」在「虽与之俱学」中的意思是？",
+    "options": [
+      "给予",
+      "和、跟",
+      "参与",
+      "赞同"
+    ],
+    "correct": 1,
+    "explanation": "「与」在此为介词，意为和、跟。虽然跟他一起学习。",
+    "difficulty": 3,
+    "tags": ["先秦", "虚词初步"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-135",
+    "type": "classical",
+    "prompt": "「俱」在「虽与之俱学」中的意思是？",
+    "options": [
+      "害怕",
+      "一起",
+      "全部",
+      "都是"
+    ],
+    "correct": 1,
+    "explanation": "「俱」意为一起、一同。虽然和前一个人一同学习。",
+    "difficulty": 3,
+    "tags": ["先秦", "实词"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-136",
+    "type": "classical",
+    "prompt": "「非然也」中「然」的意思是？",
+    "options": [
+      "然而",
+      "这样",
+      "自然",
+      "忽然"
+    ],
+    "correct": 1,
+    "explanation": "「然」在此意为这样、如此。「非然也」即不是这样的。",
+    "difficulty": 3,
+    "tags": ["先秦", "虚词初步"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-137",
+    "type": "classical",
+    "prompt": "《石灰吟》和于谦本人的命运有什么关联？",
+    "options": [
+      "没有关联",
+      "于谦后来因坚守正义而遭冤杀，正如诗中「粉骨碎身浑不怕」",
+      "于谦后来当了石灰工",
+      "于谦因此诗出名"
+    ],
+    "correct": 1,
+    "explanation": "于谦在土木堡之变后挺身而出保卫北京，后遭奸人陷害被冤杀。他一生清白正直，正如诗中所言，粉骨碎身也要留清白。",
+    "difficulty": 4,
+    "tags": ["明代", "文学常识"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-138",
+    "type": "classical",
+    "prompt": "下列哪个字在古文中是通假字？",
+    "options": [
+      "「绿」通「律」",
+      "「见」通「现」",
+      "「走」通「足」",
+      "「鼓」通「古」"
+    ],
+    "correct": 1,
+    "explanation": "「旧时茅店社林边，路转溪桥忽见」中「见」通「现」，读xiàn，意为出现。",
+    "difficulty": 4,
+    "tags": ["综合", "通假字"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-139",
+    "type": "classical",
+    "prompt": "「知」在「孰为汝多知乎」中通哪个字？",
+    "options": [
+      "直",
+      "智",
+      "志",
+      "织"
+    ],
+    "correct": 1,
+    "explanation": "「知」通「智」，意为智慧、知识。谁说你的智慧（知识）多呢？",
+    "difficulty": 4,
+    "tags": ["先秦", "通假字"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-140",
+    "type": "classical",
+    "prompt": "下列哪首诗表现了边塞风光？",
+    "options": [
+      "《游园不值》",
+      "《马诗》",
+      "《竹石》",
+      "《浣溪沙》"
+    ],
+    "correct": 1,
+    "explanation": "《马诗》中「大漠沙如雪，燕山月似钩」描绘了壮阔的边塞风光。其他三首分别写春园、竹石和溪泉。",
+    "difficulty": 3,
+    "tags": ["综合", "诗词鉴赏"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-141",
+    "type": "classical",
+    "prompt": "「三军过后尽开颜」中「三军」指的是？",
+    "options": [
+      "三支不同的军队",
+      "红军一、二、四方面军（泛指全军）",
+      "陆海空三军",
+      "前中后三军"
+    ],
+    "correct": 1,
+    "explanation": "「三军」在此泛指整个红军部队，包括红一、红二、红四方面军。翻越岷山后全军将士都喜笑颜开。",
+    "difficulty": 4,
+    "tags": ["现代", "名句理解"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-142",
+    "type": "classical",
+    "prompt": "「汝」在古文中的意思是？",
+    "options": [
+      "女子",
+      "你",
+      "如此",
+      "所以"
+    ],
+    "correct": 1,
+    "explanation": "「汝」是古代第二人称代词，意为你。如「孰为汝多知乎」（谁说你知识多呢）。",
+    "difficulty": 3,
+    "tags": ["先秦", "虚词初步"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-143",
+    "type": "classical",
+    "prompt": "下列哪组诗都表达了作者的远大志向？",
+    "options": [
+      "《泊船瓜洲》和《浣溪沙》",
+      "《石灰吟》和《竹石》和《马诗》",
+      "《游园不值》和《西江月》",
+      "《学弈》和《两小儿辩日》"
+    ],
+    "correct": 1,
+    "explanation": "《石灰吟》以石灰喻清白，《竹石》以竹石喻坚韧，《马诗》以马喻建功立业，三首都以物喻志，表达远大志向。",
+    "difficulty": 4,
+    "tags": ["综合", "诗词鉴赏"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-144",
+    "type": "classical",
+    "prompt": "「焉」在文言文中可以表示什么？",
+    "options": [
+      "只能作语气词",
+      "既可作语气词也可作兼词（于之）",
+      "只能表示疑问",
+      "只能做代词"
+    ],
+    "correct": 1,
+    "explanation": "「焉」在文言文中用法灵活：①作语气词（表陈述或反问）②作兼词，相当于「于之」（在那里）③作代词。",
+    "difficulty": 4,
+    "tags": ["先秦", "虚词初步"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-145",
+    "type": "classical",
+    "prompt": "「者」在文言文中常用来表示什么？",
+    "options": [
+      "表否定",
+      "表示「……的人」或「……的事物」",
+      "表疑问",
+      "表时间"
+    ],
+    "correct": 1,
+    "explanation": "「者」常放在动词或形容词后，表示「……的人」或「……的事物」，如「善弈者」即善于下棋的人。",
+    "difficulty": 4,
+    "tags": ["先秦", "虚词初步"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-146",
+    "type": "classical",
+    "prompt": "下列哪个不是描写月亮的诗句？",
+    "options": [
+      "明月何时照我还",
+      "烈火焚烧若等闲",
+      "明月别枝惊鹊",
+      "燕山月似钩"
+    ],
+    "correct": 1,
+    "explanation": "「烈火焚烧若等闲」出自《石灰吟》，描写石灰被烈火焚烧的场景，与月亮无关。其余三句都含有「月」。",
+    "difficulty": 3,
+    "tags": ["综合", "诗词鉴赏"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-147",
+    "type": "classical",
+    "prompt": "翻译：「以为世无足复为鼓琴者。」",
+    "options": [
+      "以为世上没有足够的人弹琴。",
+      "认为世上再没有值得为他弹琴的人了。",
+      "觉得世界上没有脚可以弹琴的人。",
+      "以为世上弹琴的人都不行了。"
+    ],
+    "correct": 1,
+    "explanation": "「以为」意为认为，「足」意为值得，「复」意为再。认为世上再没有值得为其弹琴的知音了。",
+    "difficulty": 4,
+    "tags": ["先秦", "文言翻译"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-148",
+    "type": "classical",
+    "prompt": "下列「绝」字与「破琴绝弦」中「绝」意思相同的是？",
+    "options": [
+      "绝句",
+      "绝弦断琴（弄断）",
+      "绝对不行",
+      "绝无仅有"
+    ],
+    "correct": 1,
+    "explanation": "「绝弦」中「绝」意为弄断、扯断。「绝弦断琴」中的「绝」同样表示弄断。",
+    "difficulty": 4,
+    "tags": ["先秦", "实词"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-149",
+    "type": "classical",
+    "prompt": "下列哪句诗体现了「以小见大」的写作手法？",
+    "options": [
+      "红军不怕远征难",
+      "一枝红杏出墙来",
+      "大漠沙如雪",
+      "千锤万凿出深山"
+    ],
+    "correct": 1,
+    "explanation": "以一枝红杏即可感知满园春色，这是「以小见大」的写法——通过一个小细节展现全貌。",
+    "difficulty": 4,
+    "tags": ["宋代", "写作手法"],
+    "source": "curriculum"
+  },
+  {
+    "id": "c5-150",
+    "type": "classical",
+    "prompt": "《两小儿辩日》中两个孩子的精神值得学习的是什么？",
+    "options": [
+      "尊重老师",
+      "善于观察、独立思考、敢于质疑",
+      "听话懂事",
+      "不和别人争吵"
+    ],
+    "correct": 1,
+    "explanation": "两个孩子善于观察自然现象，独立思考得出自己的结论，敢于在圣人面前表达和辩论，体现了难得的质疑精神。",
+    "difficulty": 3,
+    "tags": ["先秦", "文言翻译"],
+    "source": "curriculum"
+  }
+]
