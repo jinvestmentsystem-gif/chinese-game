@@ -38,11 +38,11 @@ function showCharacterCard(profile, div, onContinue) {
     const pct = Math.min(100, Math.round((value / max) * 100));
     return `
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-        <span style="width:40px;font-size:0.8rem;color:var(--text-secondary);text-align:right;">${label}</span>
+        <span style="width:40px;font-size:0.95rem;color:var(--text-secondary);text-align:right;">${label}</span>
         <div style="flex:1;height:10px;background:var(--bg-secondary);border-radius:5px;overflow:hidden;min-width:80px;">
           <div style="width:${pct}%;height:100%;background:${color};border-radius:5px;transition:width 0.6s ease;"></div>
         </div>
-        <span style="width:28px;font-size:0.78rem;font-weight:700;color:${color};">${value}</span>
+        <span style="width:28px;font-size:0.92rem;font-weight:700;color:${color};">${value}</span>
       </div>`;
   }
 
@@ -57,7 +57,7 @@ function showCharacterCard(profile, div, onContinue) {
     return `
       <div style="display:flex;align-items:center;gap:8px;padding:6px 10px;background:var(--bg-secondary);border-radius:6px;">
         <span style="font-size:1.1rem;">${icon}</span>
-        <span style="font-size:0.82rem;">${displayName}</span>
+        <span style="font-size:0.95rem;">${displayName}</span>
       </div>`;
   }
 
@@ -102,10 +102,10 @@ function showCharacterCard(profile, div, onContinue) {
     @keyframes charCardSlideUp { from { transform:translateY(30px); opacity:0; } to { transform:translateY(0); opacity:1; } }
     .char-card-sprite { margin-bottom:12px; }
     .char-card-name { font-size:1.4rem; font-weight:800; color:var(--text-primary); margin-bottom:2px; }
-    .char-card-title { font-size:0.82rem; color:var(--accent-gold); margin-bottom:8px; letter-spacing:0.06em; }
+    .char-card-title { font-size:0.95rem; color:var(--accent-gold); margin-bottom:8px; letter-spacing:0.06em; }
     .char-card-level {
       display:inline-block; background:linear-gradient(135deg,var(--accent-gold),#e67e22);
-      color:#1a1035; font-weight:800; font-size:0.8rem; padding:3px 14px;
+      color:#1a1035; font-weight:800; font-size:0.95rem; padding:3px 14px;
       border-radius:12px; margin-bottom:14px;
     }
     .char-card-stats { text-align:left; margin-bottom:14px; }

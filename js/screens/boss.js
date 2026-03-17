@@ -275,7 +275,7 @@ function createMiniProgress(container) {
     display:flex; align-items:center; justify-content:center;
     gap:6px; padding:6px 16px;
     background:rgba(0,0,0,0.4); backdrop-filter:blur(4px);
-    font-size:0.75rem; color:var(--text-secondary);
+    font-size:0.92rem; color:var(--text-secondary);
   `;
 
   const dotsHTML = quest.encounters.map((enc, i) => {
@@ -479,7 +479,7 @@ function renderBoss() {
 
     const optionsHTML = q.options.map((opt, i) => {
       const confusingTag = (i === confusingIdx)
-        ? `<span style="font-size:0.7rem;color:#e67e22;margin-left:6px;opacity:0.8;">相似</span>`
+        ? `<span style="font-size:0.9rem;color:#e67e22;margin-left:6px;opacity:0.8;">相似</span>`
         : '';
       return `<button class="boss-option" data-idx="${i}">${opt}${confusingTag}</button>`;
     }).join('');
@@ -491,7 +491,7 @@ function renderBoss() {
       <div style="
         background:rgba(192,57,43,0.12);border:1px solid rgba(192,57,43,0.35);
         border-radius:6px;padding:5px 14px;text-align:center;margin:4px 32px 6px;
-        font-size:0.82rem;color:#e8a0a0;
+        font-size:0.95rem;color:#e8a0a0;
       ">
         ⚠ ${bossInfo.name}将攻击: -${wrongDamage} HP
         ${wrongDmgInfo.thornsReturn > 0 ? `<span style="margin-left:8px;color:#27ae60;">🌿 反刺 ${wrongDmgInfo.thornsReturn}</span>` : ''}
@@ -529,7 +529,7 @@ function renderBoss() {
       </div>
 
       <div class="boss-ability-banner pulse-glow">
-        <div style="font-size:0.75rem;color:var(--accent-red);margin-bottom:2px;">BOSS 特殊能力</div>
+        <div style="font-size:0.92rem;color:var(--accent-red);margin-bottom:2px;">BOSS 特殊能力</div>
         <div style="font-weight:700;color:#e8a0a0;">${bossAbility.name}: ${bossAbility.desc}</div>
       </div>
 
@@ -555,12 +555,12 @@ function renderBoss() {
         <div>
           <div style="font-weight:800;font-size:0.95rem;">${profile.name} HP</div>
           <div class="boss-hp-bg"><div class="player-hp" id="player-hp-bar" style="width:${(playerHp / effectiveMaxHp) * 100}%"></div></div>
-          <div style="font-size:0.85rem;color:var(--text-secondary);">${playerHp}/${effectiveMaxHp}</div>
+          <div style="font-size:0.95rem;color:var(--text-secondary);">${playerHp}/${effectiveMaxHp}</div>
         </div>
         <div style="text-align:right;">
           <div style="font-weight:800;font-size:0.95rem; color:var(--accent-red);">BOSS HP</div>
           <div class="boss-hp-bg"><div class="boss-hp" id="boss-hp-bar" style="width:${bossHp}%"></div></div>
-          <div style="font-size:0.85rem;color:var(--text-secondary);">${bossHp}%</div>
+          <div style="font-size:0.95rem;color:var(--text-secondary);">${bossHp}%</div>
         </div>
       </div>
 
@@ -773,11 +773,11 @@ function renderBoss() {
       const sealed = abilityActive(bossAbility, 'seal_abilities');
       let btns = '';
       if (!sealed) {
-        if (hasAbility(profile, 'hint'))   btns += `<button class="btn" id="btn-hint"   style="padding:6px 14px;font-size:0.85rem;" ${profile.wenli < 1 ? 'disabled' : ''}>提示 (1文力)</button>`;
-        if (hasAbility(profile, 'skip'))   btns += `<button class="btn" id="btn-skip"   style="padding:6px 14px;font-size:0.85rem;" ${profile.wenli < 2 ? 'disabled' : ''}>跳过 (2文力)</button>`;
-        if (hasAbility(profile, 'double')) btns += `<button class="btn" id="btn-double" style="padding:6px 14px;font-size:0.85rem;" ${profile.wenli < 2 ? 'disabled' : ''}>双倍 (2文力)</button>`;
+        if (hasAbility(profile, 'hint'))   btns += `<button class="btn" id="btn-hint"   style="padding:6px 14px;font-size:0.95rem;" ${profile.wenli < 1 ? 'disabled' : ''}>提示 (1文力)</button>`;
+        if (hasAbility(profile, 'skip'))   btns += `<button class="btn" id="btn-skip"   style="padding:6px 14px;font-size:0.95rem;" ${profile.wenli < 2 ? 'disabled' : ''}>跳过 (2文力)</button>`;
+        if (hasAbility(profile, 'double')) btns += `<button class="btn" id="btn-double" style="padding:6px 14px;font-size:0.95rem;" ${profile.wenli < 2 ? 'disabled' : ''}>双倍 (2文力)</button>`;
       } else {
-        btns = `<div style="font-size:0.8rem;color:var(--accent-red);opacity:0.8;">【墨封】技能已被封印</div>`;
+        btns = `<div style="font-size:0.95rem;color:var(--accent-red);opacity:0.8;">【墨封】技能已被封印</div>`;
       }
       abilitiesEl.innerHTML = btns;
     }

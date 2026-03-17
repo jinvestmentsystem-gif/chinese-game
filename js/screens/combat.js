@@ -254,7 +254,7 @@ function createMiniProgress(container) {
     display:flex; align-items:center; justify-content:center;
     gap:6px; padding:6px 16px;
     background:rgba(0,0,0,0.4); backdrop-filter:blur(4px);
-    font-size:0.75rem; color:var(--text-secondary);
+    font-size:0.92rem; color:var(--text-secondary);
   `;
 
   const dotsHTML = quest.encounters.map((enc, i) => {
@@ -1039,7 +1039,7 @@ function renderCombat() {
             <span style="color:var(--accent-gold);">伤害</span>
             <span id="score-total" style="color:var(--accent-jade);">${Math.round(chips * multiplier)}</span>
           </div>
-          <div style="font-size:0.75rem; color:var(--text-secondary); opacity:0.7; white-space:nowrap;">答对: +XP +金币 +连击</div>
+          <div style="font-size:0.92rem; color:var(--text-secondary); opacity:0.7; white-space:nowrap;">答对: +XP +金币 +连击</div>
         </div>
 
         <!-- Narrative -->
@@ -1281,9 +1281,9 @@ function renderCombat() {
     const abilitiesEl = div.querySelector('#abilities');
     if (abilitiesEl) {
       let btns = '';
-      if (hasAbility(profile, 'hint'))   btns += `<button class="btn" id="btn-hint"   style="padding:6px 14px;font-size:0.85rem;" ${profile.wenli < 1 ? 'disabled' : ''}>提示 (1文力)</button>`;
-      if (hasAbility(profile, 'skip'))   btns += `<button class="btn" id="btn-skip"   style="padding:6px 14px;font-size:0.85rem;" ${profile.wenli < 2 ? 'disabled' : ''}>跳过 (2文力)</button>`;
-      if (hasAbility(profile, 'double')) btns += `<button class="btn" id="btn-double" style="padding:6px 14px;font-size:0.85rem;" ${profile.wenli < 2 ? 'disabled' : ''}>双倍 (2文力)</button>`;
+      if (hasAbility(profile, 'hint'))   btns += `<button class="btn" id="btn-hint"   style="padding:6px 14px;font-size:0.95rem;" ${profile.wenli < 1 ? 'disabled' : ''}>提示 (1文力)</button>`;
+      if (hasAbility(profile, 'skip'))   btns += `<button class="btn" id="btn-skip"   style="padding:6px 14px;font-size:0.95rem;" ${profile.wenli < 2 ? 'disabled' : ''}>跳过 (2文力)</button>`;
+      if (hasAbility(profile, 'double')) btns += `<button class="btn" id="btn-double" style="padding:6px 14px;font-size:0.95rem;" ${profile.wenli < 2 ? 'disabled' : ''}>双倍 (2文力)</button>`;
       abilitiesEl.innerHTML = btns;
     }
 

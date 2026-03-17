@@ -168,7 +168,7 @@ function renderLevelUp(params) {
           确认分配
         </button>
         ${statPointsRemaining > 0
-          ? `<p style="font-size:0.78rem;color:var(--text-dim);margin-top:6px;">请先分配所有属性点</p>`
+          ? `<p style="font-size:0.92rem;color:var(--text-dim);margin-top:6px;">请先分配所有属性点</p>`
           : ''}
       </div>
     `;
@@ -205,12 +205,12 @@ function renderLevelUp(params) {
         </div>
 
         <!-- formula description -->
-        <div style="font-size:0.72rem;color:var(--text-dim);margin-bottom:3px;">${meta.unit}</div>
+        <div style="font-size:0.9rem;color:var(--text-dim);margin-bottom:3px;">${meta.unit}</div>
 
         <!-- preview (only when points allocated) -->
         ${showPreview ? `
           <div style="
-            font-size:0.75rem;
+            font-size:0.92rem;
             color:var(--accent-jade);
             background:rgba(46,204,138,0.08);
             border-radius:6px;
@@ -255,7 +255,7 @@ function renderLevelUp(params) {
           text-shadow:0 0 8px rgba(142,68,173,0.4);
         ">
           天赋树
-          <span style="font-size:0.8rem;color:var(--text-secondary);font-weight:400;margin-left:6px;">
+          <span style="font-size:0.95rem;color:var(--text-secondary);font-weight:400;margin-left:6px;">
             可用天赋点: ${talentPointsAvailable}
           </span>
         </h3>
@@ -281,7 +281,7 @@ function renderLevelUp(params) {
           border-radius:0 6px 6px 0;
         ">
           <span style="font-size:1.1rem;">${meta.icon}</span>
-          <span style="font-weight:600;font-size:0.85rem;color:${meta.color};">${meta.label}</span>
+          <span style="font-weight:600;font-size:0.95rem;color:${meta.color};">${meta.label}</span>
         </div>
         <!-- talent nodes -->
         <div style="display:flex;flex-wrap:wrap;gap:8px;padding-left:4px;">
@@ -334,7 +334,7 @@ function renderLevelUp(params) {
         const met = have >= minRank;
         return `<span style="color:${met ? 'var(--accent-jade)' : 'var(--accent-red)'};">${rt ? rt.name : rk} Lv.${minRank}</span>`;
       });
-      reqText = `<div style="font-size:0.65rem;margin-top:3px;">需要: ${reqs.join(', ')}</div>`;
+      reqText = `<div style="font-size:0.9rem;margin-top:3px;">需要: ${reqs.join(', ')}</div>`;
     }
 
     return `
@@ -358,9 +358,9 @@ function renderLevelUp(params) {
         <!-- icon + name + rank -->
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px;">
           <span style="font-size:1.15rem;margin-right:4px;">${talent.icon}</span>
-          <span style="font-weight:700;font-size:0.85rem;flex:1;">${talent.name}</span>
+          <span style="font-weight:700;font-size:0.95rem;flex:1;">${talent.name}</span>
           <span style="
-            font-size:0.75rem;
+            font-size:0.92rem;
             font-weight:600;
             padding:1px 6px;
             border-radius:4px;
@@ -370,11 +370,11 @@ function renderLevelUp(params) {
         </div>
 
         <!-- desc -->
-        <div style="font-size:0.72rem;color:var(--text-secondary);line-height:1.35;">${talent.desc}</div>
+        <div style="font-size:0.9rem;color:var(--text-secondary);line-height:1.35;">${talent.desc}</div>
 
         <!-- per-rank detail -->
         ${rank > 0 ? `
-          <div style="font-size:0.65rem;color:var(--accent-jade);margin-top:2px;">
+          <div style="font-size:0.9rem;color:var(--accent-jade);margin-top:2px;">
             当前: ${Object.entries(talent.perRank).map(([eff, val]) => `${eff} +${val * rank}`).join(', ')}
           </div>
         ` : ''}
@@ -388,7 +388,7 @@ function renderLevelUp(params) {
             position:absolute;top:-4px;right:-4px;
             background:var(--accent-jade);
             color:#111;
-            font-size:0.65rem;
+            font-size:0.9rem;
             font-weight:700;
             width:18px;height:18px;
             border-radius:50%;

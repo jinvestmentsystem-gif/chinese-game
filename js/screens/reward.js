@@ -45,7 +45,7 @@ function showAchievement(container, ach, goldAmount) {
     : '';
   popup.innerHTML = `
     <div style="font-size:2rem;margin-bottom:8px;">🏆</div>
-    <div style="font-size:0.75rem;letter-spacing:0.12em;color:var(--accent-gold);opacity:0.7;margin-bottom:4px;">成就解锁！</div>
+    <div style="font-size:0.92rem;letter-spacing:0.12em;color:var(--accent-gold);opacity:0.7;margin-bottom:4px;">成就解锁！</div>
     <div style="font-size:1.2rem;font-weight:700;color:var(--accent-gold);margin-bottom:4px;">${ach.title}</div>
     <div style="font-size:0.9rem;color:var(--text-secondary);">${ach.desc}</div>
     ${goldHTML}
@@ -261,7 +261,7 @@ function buildEngagementHook(profile, levelUpInfo, statsBefore, parent) {
       const el = document.createElement('span');
       el.style.cssText = `
         background:var(--bg-card);border:1px solid var(--bg-secondary);border-radius:6px;
-        padding:4px 10px;font-size:0.82rem;
+        padding:4px 10px;font-size:0.95rem;
       `;
       el.innerHTML = `${statLabels[k]}: ${before}${suffix} → <span style="color:var(--accent-jade);font-weight:700;">${after}${suffix}</span> <span style="color:var(--accent-jade);">(+${diff}${suffix})</span>`;
       compGrid.appendChild(el);
@@ -502,7 +502,7 @@ function renderReward() {
 
   // Gold row: show perfect bonus in the display if applicable
   const goldLabel = isPerfect
-    ? `+${goldEarned} 💰 <span style="font-size:0.78rem;color:#e67e22;font-weight:600;">(含满分奖励 +50)</span>`
+    ? `+${goldEarned} 💰 <span style="font-size:0.92rem;color:#e67e22;font-weight:600;">(含满分奖励 +50)</span>`
     : `+${goldEarned} 💰`;
   const goldRow = buildStat('获得金币', goldLabel, 'var(--accent-gold)', 4);
 

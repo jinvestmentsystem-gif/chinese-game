@@ -165,10 +165,10 @@ async function renderArena() {
           <div id="vs-p1" style="flex:1;text-align:center;opacity:0;animation:arena-slide-left 0.6s ease-out 0.3s forwards;">
             <div style="font-size:2rem;margin-bottom:8px;">⚔️</div>
             <div style="font-size:1.6rem;font-weight:900;color:#d4a017;text-shadow:0 0 12px rgba(212,160,23,0.5);margin-bottom:4px;">${p1.name}</div>
-            <div style="font-size:0.85rem;color:rgba(255,255,255,0.5);letter-spacing:0.1em;margin-bottom:12px;">${tierLabel(p1.tier)}</div>
+            <div style="font-size:0.95rem;color:rgba(255,255,255,0.5);letter-spacing:0.1em;margin-bottom:12px;">${tierLabel(p1.tier)}</div>
             <div style="display:flex;flex-direction:column;gap:4px;align-items:center;">
-              <span style="font-size:0.8rem;color:rgba(212,160,23,0.7);">Lv.${p1.level}</span>
-              <span style="font-size:0.78rem;color:rgba(255,255,255,0.4);">攻击 ${p1.attack} · 防御 ${p1.defense}</span>
+              <span style="font-size:0.95rem;color:rgba(212,160,23,0.7);">Lv.${p1.level}</span>
+              <span style="font-size:0.92rem;color:rgba(255,255,255,0.4);">攻击 ${p1.attack} · 防御 ${p1.defense}</span>
             </div>
           </div>
 
@@ -181,10 +181,10 @@ async function renderArena() {
           <div id="vs-p2" style="flex:1;text-align:center;opacity:0;animation:arena-slide-right 0.6s ease-out 0.3s forwards;">
             <div style="font-size:2rem;margin-bottom:8px;">🛡️</div>
             <div style="font-size:1.6rem;font-weight:900;color:#3498db;text-shadow:0 0 12px rgba(52,152,219,0.5);margin-bottom:4px;">${p2.name}</div>
-            <div style="font-size:0.85rem;color:rgba(255,255,255,0.5);letter-spacing:0.1em;margin-bottom:12px;">${tierLabel(p2.tier)}</div>
+            <div style="font-size:0.95rem;color:rgba(255,255,255,0.5);letter-spacing:0.1em;margin-bottom:12px;">${tierLabel(p2.tier)}</div>
             <div style="display:flex;flex-direction:column;gap:4px;align-items:center;">
-              <span style="font-size:0.8rem;color:rgba(52,152,219,0.7);">Lv.${p2.level}</span>
-              <span style="font-size:0.78rem;color:rgba(255,255,255,0.4);">攻击 ${p2.attack} · 防御 ${p2.defense}</span>
+              <span style="font-size:0.95rem;color:rgba(52,152,219,0.7);">Lv.${p2.level}</span>
+              <span style="font-size:0.92rem;color:rgba(255,255,255,0.4);">攻击 ${p2.attack} · 防御 ${p2.defense}</span>
             </div>
           </div>
 
@@ -235,15 +235,15 @@ async function renderArena() {
     return `
       <div style="display:flex;justify-content:space-between;align-items:center;width:100%;padding:10px 24px;gap:8px;">
         <div style="flex:1;text-align:center;padding:10px 12px;border-radius:10px;border:2px solid ${p1Active ? '#d4a017' : 'transparent'};background:${p1Active ? 'rgba(212,160,23,0.08)' : 'transparent'};${p1Active ? 'animation:arena-glow-p1 1.8s ease-in-out infinite;' : ''}transition:all 0.3s;">
-          <div style="font-size:0.85rem;font-weight:700;color:${p1Active ? '#d4a017' : 'rgba(255,255,255,0.5)'};">${p1.name}</div>
+          <div style="font-size:0.95rem;font-weight:700;color:${p1Active ? '#d4a017' : 'rgba(255,255,255,0.5)'};">${p1.name}</div>
           <div style="font-size:1.8rem;font-weight:900;color:#d4a017;">${p1Score}</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:center;gap:2px;">
-          <div style="font-size:0.75rem;color:rgba(255,255,255,0.4);letter-spacing:0.08em;">回合</div>
+          <div style="font-size:0.92rem;color:rgba(255,255,255,0.4);letter-spacing:0.08em;">回合</div>
           <div style="font-size:1.3rem;font-weight:700;color:var(--accent-gold);">${round + 1}/${totalRounds}</div>
         </div>
         <div style="flex:1;text-align:center;padding:10px 12px;border-radius:10px;border:2px solid ${p2Active ? '#3498db' : 'transparent'};background:${p2Active ? 'rgba(52,152,219,0.08)' : 'transparent'};${p2Active ? 'animation:arena-glow-p2 1.8s ease-in-out infinite;' : ''}transition:all 0.3s;">
-          <div style="font-size:0.85rem;font-weight:700;color:${p2Active ? '#3498db' : 'rgba(255,255,255,0.5)'};">${p2.name}</div>
+          <div style="font-size:0.95rem;font-weight:700;color:${p2Active ? '#3498db' : 'rgba(255,255,255,0.5)'};">${p2.name}</div>
           <div style="font-size:1.8rem;font-weight:900;color:#3498db;">${p2Score}</div>
         </div>
       </div>
@@ -262,7 +262,7 @@ async function renderArena() {
       <div style="display:flex;flex-direction:column;align-items:center;width:100%;">
         ${buildScoreboard(currentPlayer)}
         <div style="text-align:center;margin-top:40px;">
-          <div style="font-size:0.8rem;color:rgba(255,255,255,0.4);letter-spacing:0.15em;margin-bottom:8px;">第 ${round + 1} 回合</div>
+          <div style="font-size:0.95rem;color:rgba(255,255,255,0.4);letter-spacing:0.15em;margin-bottom:8px;">第 ${round + 1} 回合</div>
           <div style="font-size:2rem;font-weight:900;color:${pColor};text-shadow:0 0 15px ${pColor}40;margin-bottom:6px;">${name} 的回合</div>
           <div style="color:rgba(255,255,255,0.4);font-size:0.9rem;margin-bottom:32px;">${tierLabel}</div>
           <button class="btn btn-primary" id="btn-ready" style="font-size:1.1rem;padding:14px 36px;">准备好了！</button>
@@ -307,7 +307,7 @@ async function renderArena() {
       <div style="width:85%;max-width:520px;height:10px;background:var(--bg-secondary);border-radius:5px;overflow:hidden;margin:8px auto;position:relative;">
         <div id="timer-bar" style="height:100%;background:linear-gradient(90deg, #2ecc71, #27ae60);border-radius:5px;width:100%;transition:width 0.1s linear;"></div>
       </div>
-      <div id="timer-text" style="text-align:center;font-size:0.85rem;color:rgba(255,255,255,0.5);margin-bottom:8px;">${baseTimer}s</div>
+      <div id="timer-text" style="text-align:center;font-size:0.95rem;color:rgba(255,255,255,0.5);margin-bottom:8px;">${baseTimer}s</div>
       <!-- Question -->
       <div style="font-size:1.3rem;margin:12px 32px;text-align:center;line-height:1.6;">${q.prompt}</div>
       <!-- Options -->
@@ -479,7 +479,7 @@ async function renderArena() {
     div.innerHTML = `
       <div style="display:flex;flex-direction:column;align-items:center;width:100%;">
         <div style="width:100%;padding:10px 24px;text-align:center;">
-          <div style="font-size:0.8rem;letter-spacing:0.15em;color:#e74c3c;font-weight:700;margin-bottom:4px;">SUDDEN DEATH</div>
+          <div style="font-size:0.95rem;letter-spacing:0.15em;color:#e74c3c;font-weight:700;margin-bottom:4px;">SUDDEN DEATH</div>
           <div style="display:flex;justify-content:center;gap:32px;">
             <div><span style="font-weight:700;color:#d4a017;">${p1.name}</span>: ${p1Score}</div>
             <div style="color:#e74c3c;font-weight:700;">VS</div>
@@ -490,7 +490,7 @@ async function renderArena() {
         <div style="width:85%;max-width:520px;height:10px;background:var(--bg-secondary);border-radius:5px;overflow:hidden;margin:8px auto;">
           <div id="timer-bar" style="height:100%;background:linear-gradient(90deg, #e74c3c, #c0392b);border-radius:5px;width:100%;transition:width 0.1s linear;"></div>
         </div>
-        <div id="timer-text" style="text-align:center;font-size:0.85rem;color:#e74c3c;margin-bottom:8px;">${timeLeft}s</div>
+        <div id="timer-text" style="text-align:center;font-size:0.95rem;color:#e74c3c;margin-bottom:8px;">${timeLeft}s</div>
         <div style="font-size:0.9rem;color:rgba(255,255,255,0.5);margin-bottom:4px;">先答对者获胜！传递设备给对手抢答</div>
         <!-- Question -->
         <div style="font-size:1.3rem;margin:12px 32px;text-align:center;line-height:1.6;">${q.prompt}</div>
@@ -578,7 +578,7 @@ async function renderArena() {
       const resultIcon = r.correct ? '<span style="color:#2ecc71;">✓</span>' : '<span style="color:#e74c3c;">✗</span>';
       const timeStr = r.timeUsed !== null ? `${r.timeUsed}s` : '-';
       breakdownHTML += `
-        <div style="display:flex;align-items:center;gap:8px;padding:6px 10px;background:rgba(255,255,255,0.03);border-radius:6px;font-size:0.82rem;opacity:0;animation:arena-stat-reveal 0.3s ease-out ${r.round * 0.08}s forwards;">
+        <div style="display:flex;align-items:center;gap:8px;padding:6px 10px;background:rgba(255,255,255,0.03);border-radius:6px;font-size:0.95rem;opacity:0;animation:arena-stat-reveal 0.3s ease-out ${r.round * 0.08}s forwards;">
           <span style="color:rgba(255,255,255,0.3);width:28px;text-align:right;">R${r.round}</span>
           <span style="color:${pColor};font-weight:600;width:60px;">${r.playerName}</span>
           ${resultIcon}
@@ -616,15 +616,15 @@ async function renderArena() {
         <!-- Best moment -->
         ${bestMoment ? `
         <div style="background:rgba(212,160,23,0.08);border:1px solid rgba(212,160,23,0.2);border-radius:10px;padding:12px 20px;text-align:center;width:100%;max-width:400px;">
-          <div style="font-size:0.75rem;color:rgba(212,160,23,0.6);letter-spacing:0.15em;margin-bottom:4px;">最佳时刻 ⚡</div>
+          <div style="font-size:0.92rem;color:rgba(212,160,23,0.6);letter-spacing:0.15em;margin-bottom:4px;">最佳时刻 ⚡</div>
           <div style="font-size:0.95rem;color:#d4a017;font-weight:700;">${bestMoment.playerName}</div>
-          <div style="font-size:0.82rem;color:rgba(255,255,255,0.5);margin-top:2px;">${bestMoment.timeUsed}s 内答对 · +${bestMoment.points} 分</div>
+          <div style="font-size:0.95rem;color:rgba(255,255,255,0.5);margin-top:2px;">${bestMoment.timeUsed}s 内答对 · +${bestMoment.points} 分</div>
         </div>
         ` : ''}
 
         <!-- Round breakdown -->
         <div style="width:100%;max-width:420px;">
-          <div style="font-size:0.78rem;color:rgba(255,255,255,0.3);letter-spacing:0.12em;margin-bottom:8px;text-align:center;">回合详情</div>
+          <div style="font-size:0.92rem;color:rgba(255,255,255,0.3);letter-spacing:0.12em;margin-bottom:8px;text-align:center;">回合详情</div>
           <div style="display:flex;flex-direction:column;gap:4px;">${breakdownHTML}</div>
         </div>
 

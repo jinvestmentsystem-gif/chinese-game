@@ -202,14 +202,14 @@ function renderSettings(params) {
           <div class="settings-row">
             <div class="settings-row-label">导出存档</div>
             <div class="settings-row-controls">
-              <button class="btn btn-sm" id="btn-export-save" style="font-size:0.8rem;">导出存档</button>
+              <button class="btn btn-sm" id="btn-export-save" style="font-size:0.95rem;">导出存档</button>
             </div>
           </div>
 
           <div class="settings-row">
             <div class="settings-row-label">导入存档</div>
             <div class="settings-row-controls">
-              <button class="btn btn-sm" id="btn-import-save" style="font-size:0.8rem;">导入存档</button>
+              <button class="btn btn-sm" id="btn-import-save" style="font-size:0.95rem;">导入存档</button>
               <input type="file" id="input-import-save" accept=".json" style="display:none;" />
             </div>
           </div>
@@ -218,7 +218,7 @@ function renderSettings(params) {
           <div class="settings-row">
             <div class="settings-row-label">复制存档代码</div>
             <div class="settings-row-controls">
-              <button class="btn btn-sm" id="btn-copy-save" style="font-size:0.8rem;">复制存档代码</button>
+              <button class="btn btn-sm" id="btn-copy-save" style="font-size:0.95rem;">复制存档代码</button>
             </div>
           </div>
 
@@ -226,8 +226,8 @@ function renderSettings(params) {
             <div class="settings-row-label">粘贴存档代码</div>
             <div class="settings-row-controls" style="flex:1;min-width:200px;">
               <input type="text" id="input-paste-save" placeholder="粘贴存档代码……"
-                style="flex:1;background:rgba(0,0,0,0.4);border:1px solid rgba(212,160,23,0.2);border-radius:6px;padding:6px 10px;color:var(--text-primary);font-size:0.82rem;font-family:var(--font-main);outline:none;min-width:0;" />
-              <button class="btn btn-sm" id="btn-paste-save" style="font-size:0.8rem;white-space:nowrap;">应用</button>
+                style="flex:1;background:rgba(0,0,0,0.4);border:1px solid rgba(212,160,23,0.2);border-radius:6px;padding:6px 10px;color:var(--text-primary);font-size:0.95rem;font-family:var(--font-main);outline:none;min-width:0;" />
+              <button class="btn btn-sm" id="btn-paste-save" style="font-size:0.95rem;white-space:nowrap;">应用</button>
             </div>
           </div>
         </div>
@@ -244,7 +244,7 @@ function renderSettings(params) {
             <div class="settings-about-version">版本 v1.0</div>
             <div class="settings-about-credit">
               一款中文学习角色扮演游戏<br>
-              <span style="color:var(--text-dim);font-size:0.78rem;">Crafted with ink and code</span>
+              <span style="color:var(--text-dim);font-size:0.92rem;">Crafted with ink and code</span>
             </div>
           </div>
         </div>
@@ -859,7 +859,7 @@ function renderSettings(params) {
           importArea.innerHTML = `
             <div class="settings-confirm" style="border-color:rgba(212,160,23,0.3);background:rgba(212,160,23,0.06);">
               <p style="color:var(--gold);">导入存档将覆盖当前进度。确定继续吗？<br>
-                <span style="font-size:0.8rem;color:var(--text-dim);">文件包含 ${data.profiles.length} 个角色档案</span>
+                <span style="font-size:0.95rem;color:var(--text-dim);">文件包含 ${data.profiles.length} 个角色档案</span>
               </p>
               <div class="settings-confirm-actions">
                 <button class="btn-cancel" id="btn-import-cancel">取消</button>

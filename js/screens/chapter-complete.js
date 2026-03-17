@@ -484,7 +484,7 @@ function renderChapterComplete() {
       <div style="width:100%;height:8px;background:rgba(255,255,255,0.08);border-radius:4px;overflow:hidden;">
         <div id="chengyu-bar" style="height:100%;background:linear-gradient(90deg, #d4a017, #f5c842);border-radius:4px;width:0%;transition:width 1s ease-out;"></div>
       </div>
-      <div style="text-align:right;margin-top:4px;font-size:0.78rem;color:rgba(255,255,255,0.3);">${pct}%</div>
+      <div style="text-align:right;margin-top:4px;font-size:0.92rem;color:rgba(255,255,255,0.3);">${pct}%</div>
     `;
     chengyuWrap.appendChild(chengyuBox);
   }
@@ -837,7 +837,7 @@ function renderChapterComplete() {
       position:absolute; bottom:110%; left:50%;
       transform:translateX(-50%);
       background:#2ecc8a; color:#000;
-      font-size:0.75rem; font-weight:700;
+      font-size:0.92rem; font-weight:700;
       padding:4px 10px; border-radius:4px;
       white-space:nowrap; pointer-events:none;
       animation: chcompl-share-copied 1.2s ease-out forwards;

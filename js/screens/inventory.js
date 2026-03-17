@@ -124,7 +124,7 @@ function renderInventory() {
     if (talentBonus > 0) parts.push(`<span style="color:#a855f7;">+${talentBonus}${suffix}</span>`);
     if (chengyuBonus > 0) parts.push(`<span style="color:#d4a017;">+${chengyuBonus}${suffix}</span>`);
     if (parts.length > 0) {
-      breakdownHTML = `<div style="font-size:0.8rem;margin-top:3px;">${rawBase}${suffix} ${parts.join(' ')}</div>`;
+      breakdownHTML = `<div style="font-size:0.95rem;margin-top:3px;">${rawBase}${suffix} ${parts.join(' ')}</div>`;
     }
 
     return `
@@ -145,7 +145,7 @@ function renderInventory() {
       const equipped = (profile.equipment.weapon === itemId || profile.equipment.armor === itemId || profile.equipment.accessory === itemId);
       const upgradeLevel = upgrades[itemId] || 0;
       const upgradeStars = upgradeLevel > 0 ? ' ' + Array.from({length: upgradeLevel}, () => '★').join('') : '';
-      const upgradeBadge = upgradeLevel > 0 ? `<span style="color:var(--accent-gold);font-weight:800;font-size:0.78rem;"> +${upgradeLevel}</span>` : '';
+      const upgradeBadge = upgradeLevel > 0 ? `<span style="color:var(--accent-gold);font-weight:800;font-size:0.92rem;"> +${upgradeLevel}</span>` : '';
       const primary = getPrimaryStat(item);
       const statsText = Object.entries(item.stats).map(([k, v]) => {
         const labels = { attack: '攻击', defense: '防御', speed: '速度', wenli: '文力', hp: 'HP', critChance: '暴击率' };
@@ -158,12 +158,12 @@ function renderInventory() {
       return `
         <div class="inv-item ${equipped ? 'equipped' : ''}" data-id="${itemId}" data-type="${item.type}">
           <div style="display:flex;justify-content:space-between;align-items:center;">
-            <div style="font-weight:700;">${item.name}${upgradeBadge} <span style="color:var(--accent-gold);font-size:0.78rem;">${upgradeStars}</span> ${equipped ? '<span style="font-size:0.78rem;color:var(--accent-jade);">(装备中)</span>' : ''}</div>
-            <span style="font-size:0.68rem;color:var(--text-dim);background:var(--bg-secondary);padding:2px 6px;border-radius:4px;">${typeLabel}</span>
+            <div style="font-weight:700;">${item.name}${upgradeBadge} <span style="color:var(--accent-gold);font-size:0.92rem;">${upgradeStars}</span> ${equipped ? '<span style="font-size:0.92rem;color:var(--accent-jade);">(装备中)</span>' : ''}</div>
+            <span style="font-size:0.9rem;color:var(--text-dim);background:var(--bg-secondary);padding:2px 6px;border-radius:4px;">${typeLabel}</span>
           </div>
-          <div style="font-size:0.85rem;color:var(--text-secondary);">${item.desc || item.description || ''}</div>
-          <div style="font-size:0.85rem;">${statsText}</div>
-          <button class="btn equip-btn" style="padding:4px 12px;font-size:0.8rem;margin-top:4px;">${equipped ? '卸下' : '装备'}</button>
+          <div style="font-size:0.95rem;color:var(--text-secondary);">${item.desc || item.description || ''}</div>
+          <div style="font-size:0.95rem;">${statsText}</div>
+          <button class="btn equip-btn" style="padding:4px 12px;font-size:0.95rem;margin-top:4px;">${equipped ? '卸下' : '装备'}</button>
         </div>
       `;
     }).join('');
@@ -172,12 +172,12 @@ function renderInventory() {
   const consumables = profile.consumables || {};
   const consumableItems = SHOP_ITEMS.filter(i => i.type === 'consumable' && (consumables[i.id] || 0) > 0);
   const consumablesHTML = consumableItems.length === 0
-    ? '<p style="color:var(--text-secondary);font-size:0.85rem;">没有消耗品</p>'
+    ? '<p style="color:var(--text-secondary);font-size:0.95rem;">没有消耗品</p>'
     : consumableItems.map(item => `
         <div style="background:var(--bg-card);border:1px solid var(--bg-secondary);border-radius:8px;padding:10px;display:flex;justify-content:space-between;align-items:center;">
           <div>
             <div style="font-weight:700;">${item.name} <span style="color:var(--accent-jade);">×${consumables[item.id]}</span></div>
-            <div style="font-size:0.8rem;color:var(--text-secondary);">${item.desc}</div>
+            <div style="font-size:0.95rem;color:var(--text-secondary);">${item.desc}</div>
           </div>
         </div>`).join('');
 
@@ -187,11 +187,11 @@ function renderInventory() {
   const setBonusHTML = setProgressList.map(sp => {
     const barPct = Math.round((sp.ownedCount / sp.pieces) * 100);
     return `
-      <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.82rem;margin-bottom:6px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.95rem;margin-bottom:6px;">
         <span style="color:${sp.complete ? 'var(--accent-gold)' : 'var(--text-secondary)'};">
           ${sp.complete ? '✅ ' : ''}${sp.label}
         </span>
-        <span style="color:var(--text-dim);font-size:0.72rem;">${sp.ownedCount}/${sp.pieces}</span>
+        <span style="color:var(--text-dim);font-size:0.9rem;">${sp.ownedCount}/${sp.pieces}</span>
       </div>
       <div style="width:100%;height:5px;background:var(--bg-secondary);border-radius:3px;overflow:hidden;margin-bottom:10px;">
         <div style="width:${barPct}%;height:100%;background:${sp.complete ? 'var(--accent-gold)' : 'var(--accent-jade)'};border-radius:3px;"></div>
@@ -210,12 +210,12 @@ function renderInventory() {
     xpPct: '经验加成', dropPct: '掉落率',
   };
   const talentSummaryHTML = talentEntries.length === 0
-    ? '<div style="font-size:0.82rem;color:var(--text-dim);">尚未学习天赋</div>'
+    ? '<div style="font-size:0.95rem;color:var(--text-dim);">尚未学习天赋</div>'
     : talentEntries.map(([k, v]) => {
       const suffix = k.endsWith('Pct') || k === 'critChance' || k === 'doubleStrike' ? '%' : '';
       const prefix = k === 'timerBonus' || k === 'freezeFirst' ? '+' : k === 'lastStand' ? '' : '+';
       const display = k === 'lastStand' ? '激活' : `${prefix}${v}${suffix}`;
-      return `<span style="display:inline-block;background:rgba(168,85,247,0.12);color:#a855f7;font-size:0.75rem;padding:2px 8px;border-radius:4px;margin:2px;">${talentLabels[k] || k} ${display}</span>`;
+      return `<span style="display:inline-block;background:rgba(168,85,247,0.12);color:#a855f7;font-size:0.92rem;padding:2px 8px;border-radius:4px;margin:2px;">${talentLabels[k] || k} ${display}</span>`;
     }).join('');
 
   // ─── Chengyu collection progress ───────────────────────────────────────────
@@ -225,18 +225,18 @@ function renderInventory() {
   const nextBonusLabel = nextThreshold ? CHENGYU_BONUS_LABELS[nextThreshold] : null;
 
   const chengyuBonusListHTML = activeChengyuBonuses.length === 0
-    ? '<div style="font-size:0.82rem;color:var(--text-dim);">还未收集足够成语</div>'
+    ? '<div style="font-size:0.95rem;color:var(--text-dim);">还未收集足够成语</div>'
     : activeChengyuBonuses.map(b =>
-      `<span style="display:inline-block;background:rgba(212,160,23,0.12);color:#d4a017;font-size:0.75rem;padding:2px 8px;border-radius:4px;margin:2px;">${b.label}</span>`
+      `<span style="display:inline-block;background:rgba(212,160,23,0.12);color:#d4a017;font-size:0.92rem;padding:2px 8px;border-radius:4px;margin:2px;">${b.label}</span>`
     ).join('');
 
   const chengyuNextHTML = nextThreshold
-    ? `<div style="font-size:0.8rem;color:var(--text-secondary);margin-top:6px;">下一奖励: 收集 ${nextThreshold} 个成语 → <span style="color:var(--accent-gold);">${nextBonusLabel}</span> (${chengyuCount}/${nextThreshold})</div>`
-    : `<div style="font-size:0.8rem;color:var(--accent-gold);margin-top:6px;">所有成语奖励已解锁！</div>`;
+    ? `<div style="font-size:0.95rem;color:var(--text-secondary);margin-top:6px;">下一奖励: 收集 ${nextThreshold} 个成语 → <span style="color:var(--accent-gold);">${nextBonusLabel}</span> (${chengyuCount}/${nextThreshold})</div>`
+    : `<div style="font-size:0.95rem;color:var(--accent-gold);margin-top:6px;">所有成语奖励已解锁！</div>`;
 
   // ─── Stat legend ────────────────────────────────────────────────────────────
   const legendHTML = `
-    <div style="display:flex;gap:12px;flex-wrap:wrap;font-size:0.7rem;margin-bottom:12px;">
+    <div style="display:flex;gap:12px;flex-wrap:wrap;font-size:0.9rem;margin-bottom:12px;">
       <span style="color:#fff;">■ 基础</span>
       <span style="color:#5bc8af;">■ 装备</span>
       <span style="color:#e67e22;">■ 强化</span>
@@ -249,7 +249,7 @@ function renderInventory() {
       .stats-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:20px; max-width:500px; }
       .stat-card { background:var(--bg-card); border-radius:8px; padding:12px; text-align:center; }
       .stat-value { font-size:1.5rem; font-weight:700; color:var(--accent-gold); }
-      .stat-label { font-size:0.8rem; color:var(--text-secondary); }
+      .stat-label { font-size:0.95rem; color:var(--text-secondary); }
       .xp-bar-bg { width:100%; max-width:500px; height:12px; background:var(--bg-secondary); border-radius:6px; overflow:hidden; margin:8px 0 20px; }
       .xp-bar { height:100%; background:var(--accent-blue); border-radius:6px; }
       .inv-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:12px; padding:0 20px; width:100%; }
@@ -294,13 +294,13 @@ function renderInventory() {
 
       <!-- Talent Effects -->
       <div class="info-section" style="margin-bottom:18px;">
-        <h4>天赋效果 <span style="font-size:0.72rem;color:var(--text-dim);font-weight:400;">(天赋点: ${profile.talentPoints || 0})</span></h4>
+        <h4>天赋效果 <span style="font-size:0.9rem;color:var(--text-dim);font-weight:400;">(天赋点: ${profile.talentPoints || 0})</span></h4>
         ${talentSummaryHTML}
       </div>
 
       <!-- Chengyu Collection -->
       <div class="info-section" style="margin-bottom:18px;">
-        <h4>成语收集 <span style="font-size:0.72rem;color:var(--text-dim);font-weight:400;">(${chengyuCount} 个)</span></h4>
+        <h4>成语收集 <span style="font-size:0.9rem;color:var(--text-dim);font-weight:400;">(${chengyuCount} 个)</span></h4>
         ${chengyuBonusListHTML}
         ${chengyuNextHTML}
       </div>

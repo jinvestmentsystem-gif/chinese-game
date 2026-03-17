@@ -168,10 +168,10 @@ export function showCompanionBubble(container, text, duration = 3000) {
   bubble.style.cssText = `
     background:rgba(108,92,231,0.15); border:1px solid rgba(108,92,231,0.4);
     border-radius:12px 12px 12px 2px; padding:8px 14px;
-    max-width:280px; font-size:0.85rem; color:#d0c8f0;
+    max-width:280px; font-size:0.95rem; color:#d0c8f0;
     backdrop-filter:blur(4px);
   `;
-  bubble.innerHTML = `<strong style="color:#a29bfe;font-size:0.75rem;">${COMPANION_NAME}</strong><br>${text}`;
+  bubble.innerHTML = `<strong style="color:#a29bfe;font-size:0.92rem;">${COMPANION_NAME}</strong><br>${text}`;
 
   wrap.appendChild(avatar);
   wrap.appendChild(bubble);
@@ -219,7 +219,7 @@ export function showEnemyTaunt(container, text, duration = 2500) {
   bubble.style.cssText = `
     background:rgba(192,57,43,0.15); border:1px solid rgba(192,57,43,0.4);
     border-radius:12px 12px 2px 12px; padding:8px 14px;
-    font-size:0.85rem; color:#e8a0a0; font-style:italic;
+    font-size:0.95rem; color:#e8a0a0; font-style:italic;
   `;
   bubble.textContent = `"${text}"`;
 

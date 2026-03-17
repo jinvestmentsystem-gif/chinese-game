@@ -4709,20 +4709,98 @@ input[type="text"]:focus, input[type="number"]:focus {
   .warm-light-wash { animation: none; }
 }
 
-/* ── Global minimum text sizes for readability ─────────────────── */
-.screen { font-size: max(0.85rem, 14px); }
-.screen button { font-size: max(0.85rem, 14px); }
-.screen .hud-hp-text, .screen .stat-label, .screen .stat-value { font-size: max(0.78rem, 13px); }
+/* ═══════════════════════════════════════════════════════════════════
+   GLOBAL TEXT SIZE ENFORCEMENT — !important overrides inline styles
+   This is the NUCLEAR OPTION to ensure nothing is unreadably small.
+   ═══════════════════════════════════════════════════════════════════ */
 
-/* Ensure notes/instructions are readable */
-.boss-narrative, .puzzle-narrative, .combat-narrative { font-size: max(1rem, 16px); line-height: 1.6; }
-.boss-ability-banner { font-size: max(0.85rem, 14px); }
+/* Base: EVERYTHING in a screen gets at least 15px */
+.screen, .screen * {
+  font-size: max(var(--fs, inherit), 15px);
+}
 
-/* Feedback text must be large enough to read */
-#feedback, .puzzle-feedback, .boss-feedback { font-size: max(1.05rem, 16px); }
+/* All buttons must be at least 15px */
+.screen button, .screen .btn, .screen [role="button"] {
+  font-size: 15px !important;
+  min-font-size: 15px;
+}
+.screen .btn-primary { font-size: 16px !important; }
+.screen .btn-sm { font-size: 14px !important; }
 
-/* Ensure explanation text in feedback is readable */
-.explanation-text { font-size: max(0.9rem, 14px); }
+/* Headings must be bold and large */
+.screen h2 { font-size: 1.6rem !important; font-weight: 800 !important; }
+.screen h3 { font-size: 1.2rem !important; font-weight: 700 !important; }
+.screen h4 { font-size: 1.05rem !important; font-weight: 700 !important; }
+
+/* ALL narrative/instruction text — large and readable */
+.boss-narrative, .puzzle-narrative, .combat-narrative,
+[class*="narrative"], [class*="description"] {
+  font-size: 1.1rem !important;
+  line-height: 1.7 !important;
+}
+
+/* Boss/combat ability banners */
+.boss-ability-banner, [class*="ability-banner"], [class*="intent"] {
+  font-size: 0.95rem !important;
+}
+
+/* ALL feedback text */
+#feedback, .puzzle-feedback, .boss-feedback, [class*="feedback"] {
+  font-size: 1.1rem !important;
+  line-height: 1.6 !important;
+}
+
+/* Stat labels and values */
+.stat-label { font-size: 0.9rem !important; }
+.stat-value { font-size: 1.4rem !important; }
+
+/* Combat/boss option buttons — LARGE touch targets */
+.combat-option, .boss-option, .puzzle-option,
+.daily-option-enhanced, .arena-option {
+  font-size: 1.15rem !important;
+  padding: 16px 22px !important;
+  min-height: 52px !important;
+  line-height: 1.5 !important;
+}
+
+/* Question prompts — the MOST important text */
+.combat-question, .boss-question, .puzzle-question,
+[class*="question"] {
+  font-size: 1.35rem !important;
+  line-height: 1.6 !important;
+  font-weight: 600 !important;
+}
+
+/* HP/stat HUD text */
+[class*="hud"] *, [class*="hp-text"], [class*="hp-label"] {
+  font-size: 0.9rem !important;
+}
+
+/* Info/tip text — still readable */
+[class*="info"], [class*="tip"], [class*="hint"] {
+  font-size: 0.9rem !important;
+}
+
+/* Companion bubbles */
+.companion-bubble-wrap, [class*="companion"] {
+  font-size: 0.92rem !important;
+}
+
+/* Override the most common tiny inline sizes globally */
+.screen [style*="font-size:0.6"],
+.screen [style*="font-size:0.65"],
+.screen [style*="font-size:0.68"],
+.screen [style*="font-size:0.7r"],
+.screen [style*="font-size:0.72"],
+.screen [style*="font-size:0.75"] {
+  font-size: 0.88rem !important;
+}
+
+/* Anything marked as secondary/dim text should still be readable */
+.screen [style*="color:var(--text-secondary)"],
+.screen [style*="color:var(--text-dim)"] {
+  font-size: max(0.88rem, 14px) !important;
+}
 
 /* ── SVG Sprite Idle Animations — breathing, floating, glow ── */
 @keyframes sprite-idle-breathe {

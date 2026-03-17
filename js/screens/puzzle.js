@@ -27,7 +27,7 @@ function createMiniProgress(container) {
     display:flex; align-items:center; justify-content:center;
     gap:6px; padding:6px 16px;
     background:rgba(0,0,0,0.4); backdrop-filter:blur(4px);
-    font-size:0.75rem; color:var(--text-secondary);
+    font-size:0.92rem; color:var(--text-secondary);
   `;
 
   const dotsHTML = quest.encounters.map((enc, i) => {
@@ -150,7 +150,7 @@ function renderPuzzle() {
       line-height:1;
     }
     .puzzle-seal-icon .seal-label {
-      font-size:0.7rem; color:#c084fc; margin-top:6px; letter-spacing:2px;
+      font-size:0.9rem; color:#c084fc; margin-top:6px; letter-spacing:2px;
     }
     .puzzle-seal-icon::before {
       content:'';
@@ -199,11 +199,11 @@ function renderPuzzle() {
       background:linear-gradient(90deg, transparent, #d4a017, transparent);
     }
     .puzzle-scroll-title {
-      font-size:0.85rem; font-weight:700; color:#d4a017;
+      font-size:0.95rem; font-weight:700; color:#d4a017;
       margin-bottom:8px; letter-spacing:2px;
     }
     .puzzle-progress {
-      font-size:0.85rem; color:var(--text-secondary);
+      font-size:0.95rem; color:var(--text-secondary);
       text-align:center; margin-bottom:4px;
       flex-shrink:0;
     }
@@ -330,9 +330,9 @@ function renderPuzzle() {
         <div class="puzzle-hp-bg">
           <div class="puzzle-hp-bar puzzle-hp-player" id="player-hp-bar" style="width:${playerPct}%"></div>
         </div>
-        <div style="font-size:0.75rem; color:var(--text-secondary); margin-top:2px;">HP: ${playerHp}/${effectiveMaxHp}</div>
+        <div style="font-size:0.92rem; color:var(--text-secondary); margin-top:2px;">HP: ${playerHp}/${effectiveMaxHp}</div>
       </div>
-      <div style="font-size:0.8rem; color:var(--text-secondary); text-align:center; align-self:center;">
+      <div style="font-size:0.95rem; color:var(--text-secondary); text-align:center; align-self:center;">
         问题 ${qIndex + 1} / ${totalQuestions}
       </div>
       <div class="puzzle-hp-section">
@@ -340,7 +340,7 @@ function renderPuzzle() {
         <div class="puzzle-hp-bg">
           <div class="puzzle-hp-bar puzzle-hp-seal" id="seal-hp-bar" style="width:${sealPct}%"></div>
         </div>
-        <div style="font-size:0.75rem; color:#c084fc; margin-top:2px;">${sealHp}%</div>
+        <div style="font-size:0.92rem; color:#c084fc; margin-top:2px;">${sealHp}%</div>
       </div>
     `;
     inner.appendChild(hudDiv);
@@ -351,7 +351,7 @@ function renderPuzzle() {
     arenaDiv.innerHTML = `
       <div class="puzzle-player-sprite" id="player-sprite-wrap">
         <div id="player-sprite" style="width:70px;height:120px;display:flex;align-items:flex-end;justify-content:center;"></div>
-        <div style="font-size:0.75rem;color:var(--text-secondary);margin-top:2px;">${profile.name}</div>
+        <div style="font-size:0.92rem;color:var(--text-secondary);margin-top:2px;">${profile.name}</div>
       </div>
       <div class="puzzle-vs">⚡</div>
       <div style="display:flex;flex-direction:column;align-items:center;">
@@ -359,7 +359,7 @@ function renderPuzzle() {
           <div class="seal-char">封</div>
           <div class="seal-label">封　印</div>
         </div>
-        <div style="font-size:0.75rem;color:#c084fc;margin-top:6px;">文字封印</div>
+        <div style="font-size:0.92rem;color:#c084fc;margin-top:6px;">文字封印</div>
       </div>
     `;
     inner.appendChild(arenaDiv);
@@ -384,7 +384,7 @@ function renderPuzzle() {
       margin:2px 24px 4px; padding:5px 14px;
       background:rgba(124,58,237,0.12);
       border:1px solid rgba(168,85,247,0.3);
-      border-radius:6px; font-size:0.82rem;
+      border-radius:6px; font-size:0.95rem;
       flex-shrink:0;
     `;
     intentDiv.innerHTML = `<span style="color:#e74c3c;">⚠ 答错: 封印反噬 -${sealWrongDmg} HP</span>${sealThorns > 0 ? `<span style="color:#27ae60;margin-left:8px;">🌿 反刺 ${sealThorns}</span>` : ''}`;

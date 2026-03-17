@@ -336,9 +336,9 @@ async function renderChengyu() {
       const bonusDiv = document.createElement('div');
       bonusDiv.style.cssText = 'background:var(--bg-card);border-radius:8px;padding:12px 16px;margin-bottom:12px;width:100%;';
       bonusDiv.innerHTML = `
-        <div style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:6px;">收集加成 (${collected.length}个成语)</div>
+        <div style="font-size:0.95rem;color:var(--text-secondary);margin-bottom:6px;">收集加成 (${collected.length}个成语)</div>
         <div style="display:flex;gap:8px;flex-wrap:wrap;">
-          ${bonuses.map(b => `<span style="font-size:0.82rem;padding:2px 8px;background:rgba(39,174,96,0.1);border:1px solid rgba(39,174,96,0.2);border-radius:4px;color:var(--accent-jade);">${b.label}</span>`).join('')}
+          ${bonuses.map(b => `<span style="font-size:0.95rem;padding:2px 8px;background:rgba(39,174,96,0.1);border:1px solid rgba(39,174,96,0.2);border-radius:4px;color:var(--accent-jade);">${b.label}</span>`).join('')}
         </div>
       `;
       panel.appendChild(bonusDiv);
@@ -441,7 +441,7 @@ async function renderChengyu() {
         infoDiv.appendChild(progressBar);
 
         const progressLabel = document.createElement('div');
-        progressLabel.style.cssText = 'font-size:0.75rem;color:var(--text-secondary);margin-top:2px;';
+        progressLabel.style.cssText = 'font-size:0.92rem;color:var(--text-secondary);margin-top:2px;';
         progressLabel.textContent = `${progress.current} / ${progress.target}`;
         infoDiv.appendChild(progressLabel);
       }
@@ -472,9 +472,9 @@ async function renderChengyu() {
     const summary = document.createElement('div');
     summary.style.cssText = 'background:var(--bg-card);border-radius:8px;padding:12px 16px;margin-bottom:12px;width:100%;text-align:center;';
     summary.innerHTML = `
-      <div style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:4px;">当前称号</div>
+      <div style="font-size:0.95rem;color:var(--text-secondary);margin-bottom:4px;">当前称号</div>
       <div style="font-size:1.2rem;font-weight:700;color:var(--accent-gold);">${currentActive}</div>
-      <div style="font-size:0.82rem;color:var(--text-secondary);margin-top:4px;">
+      <div style="font-size:0.95rem;color:var(--text-secondary);margin-top:4px;">
         ${earnedTitles.length} / ${Object.keys(TITLES).length} 称号已解锁
       </div>
     `;

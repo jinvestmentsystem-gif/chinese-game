@@ -261,9 +261,9 @@ function renderWorldMap() {
       </div>` : '';
 
     const bossStr = ch.isUnlocked
-      ? `<span style="color:rgba(255,255,255,0.5);font-size:0.72rem;">Boss: </span>
-         <span style="color:rgba(255,100,100,0.85);font-size:0.78rem;font-weight:700;">${ch.boss}</span>`
-      : `<span style="color:rgba(255,255,255,0.25);font-size:0.75rem;">??? Boss ???</span>`;
+      ? `<span style="color:rgba(255,255,255,0.5);font-size:0.9rem;">Boss: </span>
+         <span style="color:rgba(255,100,100,0.85);font-size:0.92rem;font-weight:700;">${ch.boss}</span>`
+      : `<span style="color:rgba(255,255,255,0.25);font-size:0.92rem;">??? Boss ???</span>`;
 
     return `
       <div
@@ -364,19 +364,19 @@ function renderWorldMap() {
               ${profile.name}
               <span class="wm-active-title">${activeTitle}</span>
             </div>
-            <div style="font-size:0.75rem;color:var(--text-secondary);">
+            <div style="font-size:0.92rem;color:var(--text-secondary);">
               ${getGradeLabel(profile.tier)}
             </div>
           </div>
           <div class="level">Lv.${profile.level}</div>
           <div style="display:flex;align-items:center;gap:5px;margin-left:4px;">
             <div style="width:8px;height:8px;background:var(--jade);border-radius:50%;box-shadow:var(--shadow-jade);"></div>
-            <span style="font-size:0.8rem;color:var(--jade);">${profile.wenli}/${profile.maxWenli} 文力</span>
+            <span style="font-size:0.95rem;color:var(--jade);">${profile.wenli}/${profile.maxWenli} 文力</span>
           </div>
         </div>
 
         <div style="text-align:center;">
-          <div style="font-size:0.75rem;color:var(--text-dim);letter-spacing:0.1em;text-transform:uppercase;">征途</div>
+          <div style="font-size:0.92rem;color:var(--text-dim);letter-spacing:0.1em;text-transform:uppercase;">征途</div>
           <div style="font-size:1rem;font-weight:700;color:var(--gold);text-shadow:var(--shadow-gold);">文字侠</div>
         </div>
 
@@ -437,7 +437,7 @@ function renderWorldMap() {
           background:rgba(142,68,173,0.25);
           border:1px solid rgba(142,68,173,0.45);
           border-radius:6px;
-          font-size:0.78rem; font-weight:700;
+          font-size:0.92rem; font-weight:700;
           color:#c89bdf;
           animation: wm-review-pulse 1.5s ease-in-out infinite alternate;
           white-space:nowrap;
@@ -464,13 +464,13 @@ function renderWorldMap() {
         display:flex; flex-direction:column; gap:4px;
       ">
         <div style="display:flex;align-items:center;justify-content:space-between;">
-          <span style="font-size:0.8rem;color:var(--text-secondary);letter-spacing:0.06em;">征途进度</span>
-          <span style="font-size:0.8rem;font-weight:700;color:var(--accent-gold);">${overallPercent}%</span>
+          <span style="font-size:0.95rem;color:var(--text-secondary);letter-spacing:0.06em;">征途进度</span>
+          <span style="font-size:0.95rem;font-weight:700;color:var(--accent-gold);">${overallPercent}%</span>
         </div>
         <div style="display:flex;align-items:center;gap:2px;letter-spacing:1px;">
           ${progressBlocks}
         </div>
-        <div style="font-size:0.75rem;color:var(--text-secondary);">已完成 ${completedQuests} / ${totalQuests} 关卡</div>
+        <div style="font-size:0.92rem;color:var(--text-secondary);">已完成 ${completedQuests} / ${totalQuests} 关卡</div>
       </div>
 
       <!-- ── Map heading ── -->

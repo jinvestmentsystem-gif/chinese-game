@@ -142,7 +142,7 @@ function renderShop(params = {}) {
       const diff = newVal - currentVal;
       const diffColor = diff > 0 ? 'var(--accent-jade)' : diff < 0 ? '#e74c3c' : 'var(--text-dim)';
       const diffStr = diff > 0 ? `+${diff}` : `${diff}`;
-      return `<span style="font-size:0.75rem;color:var(--text-secondary);">装备后: ${STAT_LABELS[k] || k} ${currentVal} → <span style="color:${diffColor};font-weight:600;">${newVal}</span> <span style="color:${diffColor};">(${diffStr})</span></span>`;
+      return `<span style="font-size:0.92rem;color:var(--text-secondary);">装备后: ${STAT_LABELS[k] || k} ${currentVal} → <span style="color:${diffColor};font-weight:600;">${newVal}</span> <span style="color:${diffColor};">(${diffStr})</span></span>`;
     }).join('<br>');
 
     return `<div style="margin:4px 0;padding:6px 8px;background:rgba(255,255,255,0.03);border-radius:6px;border:1px dashed rgba(255,255,255,0.08);">${rows}</div>`;
@@ -175,22 +175,22 @@ function renderShop(params = {}) {
 
     if (item.type === 'consumable') {
       statusBadge = owned > 0
-        ? `<span style="background:var(--bg-secondary);color:var(--accent-jade);font-size:0.7rem;padding:2px 6px;border-radius:4px;">x${owned}</span>`
+        ? `<span style="background:var(--bg-secondary);color:var(--accent-jade);font-size:0.9rem;padding:2px 6px;border-radius:4px;">x${owned}</span>`
         : '';
       buyBtnHTML = `
         <button class="btn shop-buy-btn" data-id="${item.id}"
-          style="padding:4px 14px;font-size:0.8rem;${affordable ? '' : 'opacity:0.4;cursor:not-allowed;'}"
+          style="padding:4px 14px;font-size:0.95rem;${affordable ? '' : 'opacity:0.4;cursor:not-allowed;'}"
           ${affordable ? '' : 'disabled'}>
           购买
         </button>`;
     } else {
       if (owned) {
-        statusBadge = `<span style="background:var(--accent-gold);color:#1a1035;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:4px;">已拥有</span>`;
-        buyBtnHTML = `<button class="btn" style="padding:4px 14px;font-size:0.8rem;opacity:0.35;cursor:not-allowed;" disabled>已购买</button>`;
+        statusBadge = `<span style="background:var(--accent-gold);color:#1a1035;font-size:0.9rem;font-weight:700;padding:2px 8px;border-radius:4px;">已拥有</span>`;
+        buyBtnHTML = `<button class="btn" style="padding:4px 14px;font-size:0.95rem;opacity:0.35;cursor:not-allowed;" disabled>已购买</button>`;
       } else {
         buyBtnHTML = `
           <button class="btn shop-buy-btn" data-id="${item.id}"
-            style="padding:4px 14px;font-size:0.8rem;${affordable ? '' : 'opacity:0.4;cursor:not-allowed;'}"
+            style="padding:4px 14px;font-size:0.95rem;${affordable ? '' : 'opacity:0.4;cursor:not-allowed;'}"
             ${affordable ? '' : 'disabled'}>
             购买
           </button>`;
@@ -198,12 +198,12 @@ function renderShop(params = {}) {
     }
 
     const recommendedBadge = isRecommended
-      ? `<span style="background:linear-gradient(135deg,#e74c3c,#e67e22);color:#fff;font-size:0.65rem;font-weight:700;padding:2px 8px;border-radius:4px;margin-left:6px;letter-spacing:0.05em;">推荐</span>`
+      ? `<span style="background:linear-gradient(135deg,#e74c3c,#e67e22);color:#fff;font-size:0.9rem;font-weight:700;padding:2px 8px;border-radius:4px;margin-left:6px;letter-spacing:0.05em;">推荐</span>`
       : '';
 
-    const tierLabel = item.tier ? `<span style="font-size:0.68rem;color:var(--text-dim);margin-left:4px;">${TIER_LABEL[item.tier] || ''}</span>` : '';
-    const statsHTML = item.stats ? `<div style="margin:4px 0;font-size:0.78rem;">${formatStats(item.stats)}</div>` : '';
-    const effectHTML = item.effect ? `<div style="margin:4px 0;font-size:0.78rem;color:var(--accent-blue);">${item.effect}</div>` : '';
+    const tierLabel = item.tier ? `<span style="font-size:0.9rem;color:var(--text-dim);margin-left:4px;">${TIER_LABEL[item.tier] || ''}</span>` : '';
+    const statsHTML = item.stats ? `<div style="margin:4px 0;font-size:0.92rem;">${formatStats(item.stats)}</div>` : '';
+    const effectHTML = item.effect ? `<div style="margin:4px 0;font-size:0.92rem;color:var(--accent-blue);">${item.effect}</div>` : '';
     const previewHTML = (!owned && item.type !== 'consumable') ? buildStatPreview(item) : '';
 
     return `
@@ -227,7 +227,7 @@ function renderShop(params = {}) {
           </div>
           ${statusBadge}
         </div>
-        <div style="font-size:0.78rem;color:var(--text-secondary);">${item.desc}</div>
+        <div style="font-size:0.92rem;color:var(--text-secondary);">${item.desc}</div>
         ${statsHTML}${effectHTML}
         ${previewHTML}
         <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px;">
@@ -257,10 +257,10 @@ function renderShop(params = {}) {
         ${isComplete ? 'box-shadow:0 0 10px rgba(212,160,23,0.15);' : ''}
       ">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-          <span style="font-size:0.82rem;font-weight:700;color:${isComplete ? 'var(--accent-gold)' : 'var(--text-secondary)'};">
+          <span style="font-size:0.95rem;font-weight:700;color:${isComplete ? 'var(--accent-gold)' : 'var(--text-secondary)'};">
             ${isComplete ? '✅ ' : ''}${sp.label}
           </span>
-          <span style="font-size:0.72rem;color:var(--text-dim);">${sp.ownedCount}/${sp.pieces}</span>
+          <span style="font-size:0.9rem;color:var(--text-dim);">${sp.ownedCount}/${sp.pieces}</span>
         </div>
         <div style="width:100%;height:6px;background:var(--bg-secondary);border-radius:3px;overflow:hidden;">
           <div style="width:${barPct}%;height:100%;background:${isComplete ? 'var(--accent-gold)' : 'var(--accent-jade)'};border-radius:3px;transition:width 0.3s;"></div>
@@ -269,13 +269,13 @@ function renderShop(params = {}) {
   }).join('');
 
   const itemsHTML = [
-    `<div style="grid-column:1/-1;font-size:0.8rem;font-weight:700;color:var(--text-secondary);letter-spacing:0.08em;text-transform:uppercase;padding:4px 0 2px;">⚔️ 武器</div>`,
+    `<div style="grid-column:1/-1;font-size:0.95rem;font-weight:700;color:var(--text-secondary);letter-spacing:0.08em;text-transform:uppercase;padding:4px 0 2px;">⚔️ 武器</div>`,
     ...weapons.map(buildItemCard),
-    `<div style="grid-column:1/-1;font-size:0.8rem;font-weight:700;color:var(--text-secondary);letter-spacing:0.08em;text-transform:uppercase;padding:12px 0 2px;">🛡️ 防具</div>`,
+    `<div style="grid-column:1/-1;font-size:0.95rem;font-weight:700;color:var(--text-secondary);letter-spacing:0.08em;text-transform:uppercase;padding:12px 0 2px;">🛡️ 防具</div>`,
     ...armors.map(buildItemCard),
-    `<div style="grid-column:1/-1;font-size:0.8rem;font-weight:700;color:var(--text-secondary);letter-spacing:0.08em;text-transform:uppercase;padding:12px 0 2px;">💍 饰品</div>`,
+    `<div style="grid-column:1/-1;font-size:0.95rem;font-weight:700;color:var(--text-secondary);letter-spacing:0.08em;text-transform:uppercase;padding:12px 0 2px;">💍 饰品</div>`,
     ...accessories.map(buildItemCard),
-    `<div style="grid-column:1/-1;font-size:0.8rem;font-weight:700;color:var(--text-secondary);letter-spacing:0.08em;text-transform:uppercase;padding:12px 0 2px;">🧪 消耗品</div>`,
+    `<div style="grid-column:1/-1;font-size:0.95rem;font-weight:700;color:var(--text-secondary);letter-spacing:0.08em;text-transform:uppercase;padding:12px 0 2px;">🧪 消耗品</div>`,
     ...consumables.map(buildItemCard),
   ].join('');
 
@@ -305,7 +305,7 @@ function renderShop(params = {}) {
 
     // Upgrade badge
     const upgradeBadge = level > 0
-      ? `<span style="background:linear-gradient(135deg,#d4a017,#e67e22);color:#1a1035;font-size:0.7rem;font-weight:800;padding:2px 8px;border-radius:4px;">+${level}</span>`
+      ? `<span style="background:linear-gradient(135deg,#d4a017,#e67e22);color:#1a1035;font-size:0.9rem;font-weight:800;padding:2px 8px;border-radius:4px;">+${level}</span>`
       : '';
 
     // Stat breakdown
@@ -314,13 +314,13 @@ function renderShop(params = {}) {
       const bonus = isP ? bonusVal : 0;
       const totalVal = v + bonus;
       const bonusStr = bonus > 0 ? ` <span style="color:var(--accent-gold);font-weight:700;">(+${bonus})</span>` : '';
-      return `<span style="font-size:0.78rem;color:${isP ? 'var(--accent-jade)' : 'var(--text-secondary)'};">${FORGE_STAT_LABELS[k] || k}: ${totalVal}${bonusStr}</span>`;
+      return `<span style="font-size:0.92rem;color:${isP ? 'var(--accent-jade)' : 'var(--text-secondary)'};">${FORGE_STAT_LABELS[k] || k}: ${totalVal}${bonusStr}</span>`;
     }).join('<br>');
 
     // Upgrade preview
     const upgradePreview = !isMaxed
-      ? `<div style="font-size:0.72rem;color:var(--text-dim);margin-top:4px;">强化后: ${primaryLabel} ${baseVal + nextBonusVal} <span style="color:var(--accent-gold);">(+${nextBonusVal})</span></div>`
-      : `<div style="font-size:0.72rem;color:var(--accent-gold);margin-top:4px;">已满级 ✦</div>`;
+      ? `<div style="font-size:0.9rem;color:var(--text-dim);margin-top:4px;">强化后: ${primaryLabel} ${baseVal + nextBonusVal} <span style="color:var(--accent-gold);">(+${nextBonusVal})</span></div>`
+      : `<div style="font-size:0.9rem;color:var(--accent-gold);margin-top:4px;">已满级 ✦</div>`;
 
     return `
       <div class="forge-item-card" data-forge-id="${item.id}" style="
@@ -341,22 +341,22 @@ function renderShop(params = {}) {
             <span style="font-weight:700;font-size:0.95rem;">${item.name}</span>
             ${upgradeBadge}
           </div>
-          <div style="font-size:0.85rem;">${stars}</div>
+          <div style="font-size:0.95rem;">${stars}</div>
         </div>
         <div style="margin:4px 0;">${statLines}</div>
         ${upgradePreview}
         <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;gap:8px;">
           ${!isMaxed ? `
             <button class="btn forge-upgrade-btn" data-upgrade-id="${item.id}"
-              style="padding:4px 14px;font-size:0.8rem;flex:1;${canUpgrade ? '' : 'opacity:0.4;cursor:not-allowed;'}"
+              style="padding:4px 14px;font-size:0.95rem;flex:1;${canUpgrade ? '' : 'opacity:0.4;cursor:not-allowed;'}"
               ${canUpgrade ? '' : 'disabled'}>
               强化 <span style="color:var(--accent-gold);">💰${cost}</span>
             </button>
           ` : `
-            <span style="font-size:0.8rem;color:var(--accent-gold);flex:1;text-align:center;font-weight:700;">MAX</span>
+            <span style="font-size:0.95rem;color:var(--accent-gold);flex:1;text-align:center;font-weight:700;">MAX</span>
           `}
           <button class="btn forge-salvage-btn" data-salvage-id="${item.id}"
-            style="padding:4px 10px;font-size:0.75rem;border-color:var(--accent-red);color:var(--accent-red);">
+            style="padding:4px 10px;font-size:0.92rem;border-color:var(--accent-red);color:var(--accent-red);">
             分解 💰${salvageGold}
           </button>
         </div>
@@ -370,7 +370,7 @@ function renderShop(params = {}) {
   const forgeContentHTML = `
     <div style="padding:0 20px 8px;">
       <h3 style="margin:0 0 6px;font-size:0.95rem;color:var(--text-secondary);letter-spacing:0.06em;">装备强化</h3>
-      <p style="font-size:0.78rem;color:var(--text-dim);margin:0 0 14px;">强化装备增加属性，每级+2主属性 (最高+3)</p>
+      <p style="font-size:0.92rem;color:var(--text-dim);margin:0 0 14px;">强化装备增加属性，每级+2主属性 (最高+3)</p>
     </div>
     <div class="forge-grid" id="forge-grid">
       ${forgeItemsHTML}
@@ -438,7 +438,7 @@ function renderShop(params = {}) {
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px;">
         <div>
           <h2 style="margin:0 0 4px;">文字侠商店</h2>
-          <div style="font-size:0.85rem;color:var(--text-secondary);">购买装备，增强实力</div>
+          <div style="font-size:0.95rem;color:var(--text-secondary);">购买装备，增强实力</div>
         </div>
         <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
           <div style="

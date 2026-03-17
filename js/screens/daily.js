@@ -194,7 +194,7 @@ async function renderDaily() {
   const calendarHTML = calendarDays.map(d => {
     const cls = `daily-calendar-dot ${d.played ? 'played' : 'missed'} ${d.isToday ? 'today' : ''}`;
     return `<div class="${cls}">
-      <span style="font-size:0.65rem;opacity:0.7;">${d.label}</span>
+      <span style="font-size:0.9rem;opacity:0.7;">${d.label}</span>
       <span style="font-weight:700;">${d.played ? '✓' : d.date}</span>
     </div>`;
   }).join('');
@@ -207,17 +207,17 @@ async function renderDaily() {
     </div>
 
     <div style="margin-bottom:1.2rem;">
-      <div style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:8px;text-align:center;">近7天打卡记录</div>
+      <div style="font-size:0.95rem;color:var(--text-secondary);margin-bottom:8px;text-align:center;">近7天打卡记录</div>
       <div style="display:flex;gap:6px;justify-content:center;">${calendarHTML}</div>
     </div>
 
     <div style="background:var(--bg-card);border-radius:8px;padding:16px 24px;margin-bottom:1.2rem;width:100%;text-align:center;">
-      <div style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:6px;">今日奖励预览</div>
+      <div style="font-size:0.95rem;color:var(--text-secondary);margin-bottom:6px;">今日奖励预览</div>
       <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-        <div><span style="color:var(--accent-gold);font-weight:700;">+${rewardPreview.baseXP}</span> <span style="font-size:0.85rem;color:var(--text-secondary);">基础XP</span></div>
-        <div><span style="color:var(--accent-jade);font-weight:700;">+${rewardPreview.streakBonus}</span> <span style="font-size:0.85rem;color:var(--text-secondary);">打卡奖励</span></div>
+        <div><span style="color:var(--accent-gold);font-weight:700;">+${rewardPreview.baseXP}</span> <span style="font-size:0.95rem;color:var(--text-secondary);">基础XP</span></div>
+        <div><span style="color:var(--accent-jade);font-weight:700;">+${rewardPreview.streakBonus}</span> <span style="font-size:0.95rem;color:var(--text-secondary);">打卡奖励</span></div>
       </div>
-      ${profile.dailyStreak >= 3 ? `<div style="margin-top:6px;font-size:0.85rem;color:var(--accent-gold);">x${Math.min(Math.floor(profile.dailyStreak / 3) + 1, 5)} 连击倍率加成</div>` : ''}
+      ${profile.dailyStreak >= 3 ? `<div style="margin-top:6px;font-size:0.95rem;color:var(--accent-gold);">x${Math.min(Math.floor(profile.dailyStreak / 3) + 1, 5)} 连击倍率加成</div>` : ''}
     </div>
 
     <div style="position:relative;width:80px;height:80px;margin-bottom:1rem;" id="daily-countdown-container">
@@ -566,10 +566,10 @@ async function renderDaily() {
         const multRow = document.createElement('div');
         multRow.style.cssText = 'margin-bottom:10px;';
         multRow.innerHTML = `
-          <div style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:4px;">连击倍率</div>
+          <div style="font-size:0.95rem;color:var(--text-secondary);margin-bottom:4px;">连击倍率</div>
           <div style="display:flex;align-items:center;gap:8px;">
             ${Array(5).fill(0).map((_, i) => `
-              <div style="width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;
+              <div style="width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.92rem;font-weight:700;
                 background:${i < streakMultiplier ? 'var(--accent-gold)' : 'var(--bg-secondary)'};
                 color:${i < streakMultiplier ? '#1a1a2e' : 'var(--text-secondary)'};
                 transition:all 0.3s ${i * 0.15}s;">
@@ -587,7 +587,7 @@ async function renderDaily() {
       // XP breakdown
       const xpRow = document.createElement('div');
       xpRow.style.cssText = 'font-size:1.1rem;margin-bottom:10px;';
-      xpRow.innerHTML = `经验: <span style="color:var(--accent-gold);font-weight:700;">+${totalXP} XP</span> <span style="font-size:0.85rem;color:var(--text-secondary);">(基础 ${baseXP} + 打卡 ${streakBonus})</span>`;
+      xpRow.innerHTML = `经验: <span style="color:var(--accent-gold);font-weight:700;">+${totalXP} XP</span> <span style="font-size:0.95rem;color:var(--text-secondary);">(基础 ${baseXP} + 打卡 ${streakBonus})</span>`;
       card.appendChild(xpRow);
 
       // Level up
@@ -602,15 +602,15 @@ async function renderDaily() {
       const bestRow = document.createElement('div');
       bestRow.style.cssText = 'margin-top:12px;padding-top:12px;border-top:1px solid var(--bg-secondary);';
       bestRow.innerHTML = `
-        <div style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:4px;">个人最佳</div>
+        <div style="font-size:0.95rem;color:var(--text-secondary);margin-bottom:4px;">个人最佳</div>
         <div style="display:flex;gap:16px;flex-wrap:wrap;">
           <div>
             最高分: <span style="color:var(--accent-gold);font-weight:700;">${profile.dailyBestScore}</span>
-            ${isNewBestScore ? '<span style="color:var(--accent-jade);font-size:0.8rem;font-weight:700;"> NEW!</span>' : ''}
+            ${isNewBestScore ? '<span style="color:var(--accent-jade);font-size:0.95rem;font-weight:700;"> NEW!</span>' : ''}
           </div>
           <div>
             最佳正确率: <span style="color:var(--accent-jade);font-weight:700;">${profile.dailyBestAccuracy}%</span>
-            ${isNewBestAccuracy ? '<span style="color:var(--accent-jade);font-size:0.8rem;font-weight:700;"> NEW!</span>' : ''}
+            ${isNewBestAccuracy ? '<span style="color:var(--accent-jade);font-size:0.95rem;font-weight:700;"> NEW!</span>' : ''}
           </div>
         </div>
       `;
@@ -631,14 +631,14 @@ async function renderDaily() {
         navigator.clipboard.writeText(shareText).then(() => {
           const copied = document.createElement('div');
           copied.textContent = '已复制到剪贴板！';
-          copied.style.cssText = 'position:absolute;top:-30px;left:50%;transform:translateX(-50%);color:var(--accent-jade);font-size:0.85rem;white-space:nowrap;animation:daily-share-copied 1.5s forwards;';
+          copied.style.cssText = 'position:absolute;top:-30px;left:50%;transform:translateX(-50%);color:var(--accent-jade);font-size:0.95rem;white-space:nowrap;animation:daily-share-copied 1.5s forwards;';
           shareRow.appendChild(copied);
           setTimeout(() => copied.remove(), 1500);
         }).catch(() => {
           // Fallback: show text for manual copy
           const fallback = document.createElement('div');
           fallback.textContent = shareText;
-          fallback.style.cssText = 'font-size:0.8rem;color:var(--text-secondary);padding:8px;background:var(--bg-secondary);border-radius:4px;margin-top:8px;word-break:break-all;';
+          fallback.style.cssText = 'font-size:0.95rem;color:var(--text-secondary);padding:8px;background:var(--bg-secondary);border-radius:4px;margin-top:8px;word-break:break-all;';
           shareRow.appendChild(fallback);
         });
       });
