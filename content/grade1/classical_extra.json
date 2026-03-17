@@ -190,25 +190,6 @@
     "source": "curriculum"
   },
   {
-    "id": "c1-111",
-    "type": "classical",
-    "prompt": "《登鹳雀楼》的作者是谁？",
-    "options": [
-      "高鼎",
-      "杜甫",
-      "李绅",
-      "王之涣"
-    ],
-    "correct": 3,
-    "explanation": "《登鹳雀楼》是唐代诗人王之涣的作品。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "文学常识"
-    ],
-    "source": "curriculum"
-  },
-  {
     "id": "c1-112",
     "type": "classical",
     "prompt": "《悯农》的作者是谁？",
@@ -220,158 +201,6 @@
     ],
     "correct": 0,
     "explanation": "《悯农》是唐代诗人李绅的作品。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "文学常识"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c1-113",
-    "type": "classical",
-    "prompt": "《咏鹅》的作者是谁？",
-    "options": [
-      "孟浩然",
-      "王维",
-      "骆宾王",
-      "杨万里"
-    ],
-    "correct": 2,
-    "explanation": "《咏鹅》是唐代诗人骆宾王的作品。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "文学常识"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c1-114",
-    "type": "classical",
-    "prompt": "《春晓》的作者是谁？",
-    "options": [
-      "贺知章",
-      "王维",
-      "孟浩然",
-      "白居易"
-    ],
-    "correct": 2,
-    "explanation": "《春晓》是唐代诗人孟浩然的作品。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "文学常识"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c1-115",
-    "type": "classical",
-    "prompt": "《静夜思》的作者是谁？",
-    "options": [
-      "贺知章",
-      "李白",
-      "王之涣",
-      "王维"
-    ],
-    "correct": 1,
-    "explanation": "《静夜思》是唐代诗人李白的作品。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "文学常识"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c1-116",
-    "type": "classical",
-    "prompt": "《画》的作者是谁？",
-    "options": [
-      "王维",
-      "贺知章",
-      "杜甫",
-      "袁枚"
-    ],
-    "correct": 0,
-    "explanation": "《画》是唐代诗人王维的作品。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "文学常识"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c1-117",
-    "type": "classical",
-    "prompt": "《小池》的作者是谁？",
-    "options": [
-      "杨万里",
-      "贾岛",
-      "高鼎",
-      "李绅"
-    ],
-    "correct": 0,
-    "explanation": "《小池》是宋代诗人杨万里的作品。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "文学常识"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c1-118",
-    "type": "classical",
-    "prompt": "《村居》的作者是谁？",
-    "options": [
-      "贾岛",
-      "高鼎",
-      "白居易",
-      "王维"
-    ],
-    "correct": 1,
-    "explanation": "《村居》是清代诗人高鼎的作品。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "文学常识"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c1-119",
-    "type": "classical",
-    "prompt": "《所见》的作者是谁？",
-    "options": [
-      "王维",
-      "袁枚",
-      "贺知章",
-      "杜甫"
-    ],
-    "correct": 1,
-    "explanation": "《所见》是清代诗人袁枚的作品。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "文学常识"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c1-120",
-    "type": "classical",
-    "prompt": "《池上》的作者是谁？",
-    "options": [
-      "王之涣",
-      "王昌龄",
-      "白居易",
-      "高鼎"
-    ],
-    "correct": 2,
-    "explanation": "《池上》是唐代诗人白居易的作品。",
     "difficulty": 1,
     "tags": [
       "唐诗",
@@ -950,25 +779,6 @@
     "source": "curriculum"
   },
   {
-    "id": "c1-151",
-    "type": "classical",
-    "prompt": "「白日依山尽」的下一句是？",
-    "options": [
-      "孤舟蓑笠翁",
-      "两个黄鹂鸣翠柳",
-      "黄河入海流",
-      "松下问童子"
-    ],
-    "correct": 2,
-    "explanation": "「白日依山尽，黄河入海流」出自王之涣《登鹳雀楼》。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "名句"
-    ],
-    "source": "curriculum"
-  },
-  {
     "id": "c1-152",
     "type": "classical",
     "prompt": "「黄河入海流」的下一句是？",
@@ -988,44 +798,6 @@
     "source": "curriculum"
   },
   {
-    "id": "c1-153",
-    "type": "classical",
-    "prompt": "「欲穷千里目」的下一句是？",
-    "options": [
-      "千山鸟飞绝",
-      "千里黄云白日曛",
-      "红掌拨清波",
-      "更上一层楼"
-    ],
-    "correct": 3,
-    "explanation": "「欲穷千里目，更上一层楼」出自王之涣《登鹳雀楼》。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "名句"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c1-154",
-    "type": "classical",
-    "prompt": "「锄禾日当午」的下一句是？",
-    "options": [
-      "汗滴禾下土",
-      "意欲捕鸣蝉",
-      "秦时明月汉时关",
-      "飞在青云端"
-    ],
-    "correct": 0,
-    "explanation": "「锄禾日当午，汗滴禾下土」出自李绅《悯农》。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "名句"
-    ],
-    "source": "curriculum"
-  },
-  {
     "id": "c1-155",
     "type": "classical",
     "prompt": "「汗滴禾下土」的下一句是？",
@@ -1037,25 +809,6 @@
     ],
     "correct": 3,
     "explanation": "「汗滴禾下土，谁知盘中餐」出自李绅《悯农》。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "名句"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c1-156",
-    "type": "classical",
-    "prompt": "「谁知盘中餐」的下一句是？",
-    "options": [
-      "日照香炉生紫烟",
-      "但使龙城飞将在",
-      "又疑瑶台镜",
-      "粒粒皆辛苦"
-    ],
-    "correct": 3,
-    "explanation": "「谁知盘中餐，粒粒皆辛苦」出自李绅《悯农》。",
     "difficulty": 1,
     "tags": [
       "唐诗",
@@ -1102,44 +855,6 @@
     "source": "curriculum"
   },
   {
-    "id": "c1-159",
-    "type": "classical",
-    "prompt": "「白毛浮绿水」的下一句是？",
-    "options": [
-      "举头望明月",
-      "危楼高百尺",
-      "红掌拨清波",
-      "树阴照水爱晴柔"
-    ],
-    "correct": 2,
-    "explanation": "「白毛浮绿水，红掌拨清波」出自骆宾王《咏鹅》。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "名句"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c1-160",
-    "type": "classical",
-    "prompt": "「春眠不觉晓」的下一句是？",
-    "options": [
-      "处处闻啼鸟",
-      "近听水无声",
-      "云深不知处",
-      "遥看瀑布挂前川"
-    ],
-    "correct": 0,
-    "explanation": "「春眠不觉晓，处处闻啼鸟」出自孟浩然《春晓》。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "名句"
-    ],
-    "source": "curriculum"
-  },
-  {
     "id": "c1-161",
     "type": "classical",
     "prompt": "「处处闻啼鸟」的下一句是？",
@@ -1151,44 +866,6 @@
     ],
     "correct": 1,
     "explanation": "「处处闻啼鸟，夜来风雨声」出自孟浩然《春晓》。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "名句"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c1-162",
-    "type": "classical",
-    "prompt": "「夜来风雨声」的下一句是？",
-    "options": [
-      "歌声振林樾",
-      "莫愁前路无知己",
-      "花落知多少",
-      "牧童骑黄牛"
-    ],
-    "correct": 2,
-    "explanation": "「夜来风雨声，花落知多少」出自孟浩然《春晓》。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "名句"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c1-163",
-    "type": "classical",
-    "prompt": "「床前明月光」的下一句是？",
-    "options": [
-      "春眠不觉晓",
-      "黄河入海流",
-      "疑是地上霜",
-      "飞流直下三千尺"
-    ],
-    "correct": 2,
-    "explanation": "「床前明月光，疑是地上霜」出自李白《静夜思》。",
     "difficulty": 1,
     "tags": [
       "唐诗",
@@ -1216,44 +893,6 @@
     "source": "curriculum"
   },
   {
-    "id": "c1-165",
-    "type": "classical",
-    "prompt": "「举头望明月」的下一句是？",
-    "options": [
-      "牧童骑黄牛",
-      "秦时明月汉时关",
-      "白毛浮绿水",
-      "低头思故乡"
-    ],
-    "correct": 3,
-    "explanation": "「举头望明月，低头思故乡」出自李白《静夜思》。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "名句"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c1-166",
-    "type": "classical",
-    "prompt": "「远看山有色」的下一句是？",
-    "options": [
-      "笑问客从何处来",
-      "近听水无声",
-      "不及汪伦送我情",
-      "飞流直下三千尺"
-    ],
-    "correct": 1,
-    "explanation": "「远看山有色，近听水无声」出自王维《画》。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "名句"
-    ],
-    "source": "curriculum"
-  },
-  {
     "id": "c1-167",
     "type": "classical",
     "prompt": "「近听水无声」的下一句是？",
@@ -1265,44 +904,6 @@
     ],
     "correct": 3,
     "explanation": "「近听水无声，春去花还在」出自王维《画》。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "名句"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c1-168",
-    "type": "classical",
-    "prompt": "「春去花还在」的下一句是？",
-    "options": [
-      "人来鸟不惊",
-      "床前明月光",
-      "忙趁东风放纸鸢",
-      "处处闻啼鸟"
-    ],
-    "correct": 0,
-    "explanation": "「春去花还在，人来鸟不惊」出自王维《画》。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "名句"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c1-169",
-    "type": "classical",
-    "prompt": "「泉眼无声惜细流」的下一句是？",
-    "options": [
-      "言师采药去",
-      "树阴照水爱晴柔",
-      "春眠不觉晓",
-      "举头望明月"
-    ],
-    "correct": 1,
-    "explanation": "「泉眼无声惜细流，树阴照水爱晴柔」出自杨万里《小池》。",
     "difficulty": 1,
     "tags": [
       "唐诗",
@@ -1330,44 +931,6 @@
     "source": "curriculum"
   },
   {
-    "id": "c1-171",
-    "type": "classical",
-    "prompt": "「小荷才露尖尖角」的下一句是？",
-    "options": [
-      "早有蜻蜓立上头",
-      "松下问童子",
-      "千里黄云白日曛",
-      "白日依山尽"
-    ],
-    "correct": 0,
-    "explanation": "「小荷才露尖尖角，早有蜻蜓立上头」出自杨万里《小池》。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "名句"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c1-172",
-    "type": "classical",
-    "prompt": "「草长莺飞二月天」的下一句是？",
-    "options": [
-      "拂堤杨柳醉春烟",
-      "春眠不觉晓",
-      "恐惊天上人",
-      "早有蜻蜓立上头"
-    ],
-    "correct": 0,
-    "explanation": "「草长莺飞二月天，拂堤杨柳醉春烟」出自高鼎《村居》。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "名句"
-    ],
-    "source": "curriculum"
-  },
-  {
     "id": "c1-173",
     "type": "classical",
     "prompt": "「拂堤杨柳醉春烟」的下一句是？",
@@ -1379,44 +942,6 @@
     ],
     "correct": 2,
     "explanation": "「拂堤杨柳醉春烟，儿童散学归来早」出自高鼎《村居》。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "名句"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c1-174",
-    "type": "classical",
-    "prompt": "「儿童散学归来早」的下一句是？",
-    "options": [
-      "秦时明月汉时关",
-      "春去花还在",
-      "远看山有色",
-      "忙趁东风放纸鸢"
-    ],
-    "correct": 3,
-    "explanation": "「儿童散学归来早，忙趁东风放纸鸢」出自高鼎《村居》。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "名句"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c1-175",
-    "type": "classical",
-    "prompt": "「牧童骑黄牛」的下一句是？",
-    "options": [
-      "疑是银河落九天",
-      "疑是地上霜",
-      "万里长征人未还",
-      "歌声振林樾"
-    ],
-    "correct": 3,
-    "explanation": "「牧童骑黄牛，歌声振林樾」出自袁枚《所见》。",
     "difficulty": 1,
     "tags": [
       "唐诗",
@@ -1444,44 +969,6 @@
     "source": "curriculum"
   },
   {
-    "id": "c1-177",
-    "type": "classical",
-    "prompt": "「意欲捕鸣蝉」的下一句是？",
-    "options": [
-      "小荷才露尖尖角",
-      "飞在青云端",
-      "忽然闭口立",
-      "早有蜻蜓立上头"
-    ],
-    "correct": 2,
-    "explanation": "「意欲捕鸣蝉，忽然闭口立」出自袁枚《所见》。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "名句"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c1-178",
-    "type": "classical",
-    "prompt": "「小娃撑小艇」的下一句是？",
-    "options": [
-      "疑是银河落九天",
-      "儿童相见不相识",
-      "锄禾日当午",
-      "偷采白莲回"
-    ],
-    "correct": 3,
-    "explanation": "「小娃撑小艇，偷采白莲回」出自白居易《池上》。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "名句"
-    ],
-    "source": "curriculum"
-  },
-  {
     "id": "c1-179",
     "type": "classical",
     "prompt": "「偷采白莲回」的下一句是？",
@@ -1493,25 +980,6 @@
     ],
     "correct": 0,
     "explanation": "「偷采白莲回，不解藏踪迹」出自白居易《池上》。",
-    "difficulty": 1,
-    "tags": [
-      "唐诗",
-      "名句"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c1-180",
-    "type": "classical",
-    "prompt": "「不解藏踪迹」的下一句是？",
-    "options": [
-      "近听水无声",
-      "谁知盘中餐",
-      "儿童散学归来早",
-      "浮萍一道开"
-    ],
-    "correct": 3,
-    "explanation": "「不解藏踪迹，浮萍一道开」出自白居易《池上》。",
     "difficulty": 1,
     "tags": [
       "唐诗",
@@ -2937,25 +2405,6 @@
     ],
     "correct": 3,
     "explanation": "在《悯农》中，「当午」的意思是「正午」。",
-    "difficulty": 2,
-    "tags": [
-      "唐诗",
-      "字词理解"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c1-256",
-    "type": "classical",
-    "prompt": "《咏鹅》中「曲项」是什么意思？",
-    "options": [
-      "香炉峰",
-      "白色的冰晶",
-      "弯曲的脖子",
-      "小小的荷叶"
-    ],
-    "correct": 2,
-    "explanation": "在《咏鹅》中，「曲项」的意思是「弯曲的脖子」。",
     "difficulty": 2,
     "tags": [
       "唐诗",
@@ -4693,25 +4142,6 @@
     "source": "curriculum"
   },
   {
-    "id": "c1-348",
-    "type": "classical",
-    "prompt": "「欲穷千里目，更上一层楼」告诉我们什么道理？",
-    "options": [
-      "要早睡早起",
-      "要多吃蔬菜",
-      "要站得高才能看得远",
-      "要听话做作业"
-    ],
-    "correct": 2,
-    "explanation": "这道题考查对《登鹳雀楼》的理解，正确答案是「要站得高才能看得远」。",
-    "difficulty": 2,
-    "tags": [
-      "唐诗",
-      "诗意理解"
-    ],
-    "source": "curriculum"
-  },
-  {
     "id": "c1-349",
     "type": "classical",
     "prompt": "这首诗告诉我们什么道理？",
@@ -5263,44 +4693,6 @@
     "source": "curriculum"
   },
   {
-    "id": "c1-378",
-    "type": "classical",
-    "prompt": "《咏鹅》中鹅的毛是什么颜色？",
-    "options": [
-      "白色",
-      "黑色",
-      "黄色",
-      "灰色"
-    ],
-    "correct": 0,
-    "explanation": "正确答案是「白色」。",
-    "difficulty": 2,
-    "tags": [
-      "唐诗",
-      "诗意理解"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c1-379",
-    "type": "classical",
-    "prompt": "《咏鹅》中鹅的脚掌是什么颜色？",
-    "options": [
-      "红色",
-      "白色",
-      "黄色",
-      "黑色"
-    ],
-    "correct": 0,
-    "explanation": "正确答案是「红色」。",
-    "difficulty": 2,
-    "tags": [
-      "唐诗",
-      "诗意理解"
-    ],
-    "source": "curriculum"
-  },
-  {
     "id": "c1-380",
     "type": "classical",
     "prompt": "《春晓》写的是一天中的什么时候？",
@@ -5331,25 +4723,6 @@
     ],
     "correct": 3,
     "explanation": "正确答案是「霜」。",
-    "difficulty": 2,
-    "tags": [
-      "唐诗",
-      "诗意理解"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c1-382",
-    "type": "classical",
-    "prompt": "《画》这首诗描写的是什么？",
-    "options": [
-      "一幅画",
-      "真实的风景",
-      "一个梦",
-      "一个故事"
-    ],
-    "correct": 0,
-    "explanation": "正确答案是「一幅画」。",
     "difficulty": 2,
     "tags": [
       "唐诗",
@@ -5426,25 +4799,6 @@
     ],
     "correct": 2,
     "explanation": "正确答案是「白莲」。",
-    "difficulty": 2,
-    "tags": [
-      "唐诗",
-      "诗意理解"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "c1-387",
-    "type": "classical",
-    "prompt": "《登鹳雀楼》中提到了哪条河？",
-    "options": [
-      "长江",
-      "淮河",
-      "珠江",
-      "黄河"
-    ],
-    "correct": 3,
-    "explanation": "正确答案是「黄河」。",
     "difficulty": 2,
     "tags": [
       "唐诗",

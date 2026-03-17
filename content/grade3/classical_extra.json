@@ -1,152 +1,2643 @@
 [
-  {"id":"c3-201","type":"classical","prompt":"《山行》的作者是谁？","options":["李白","杜牧","杜甫","白居易"],"correct":1,"explanation":"《山行》是唐代诗人杜牧的作品，描写深秋山林的美丽景色。","difficulty":1,"tags":["唐诗","作者"],"source":"curriculum"},
-  {"id":"c3-202","type":"classical","prompt":"《赠刘景文》的作者是谁？","options":["王安石","杨万里","苏轼","叶绍翁"],"correct":2,"explanation":"《赠刘景文》是宋代文学家苏轼赠给好友刘景文的诗。","difficulty":1,"tags":["宋诗","作者"],"source":"curriculum"},
-  {"id":"c3-203","type":"classical","prompt":"《夜书所见》的作者是谁？","options":["叶绍翁","苏轼","杨万里","王安石"],"correct":0,"explanation":"《夜书所见》是宋代诗人叶绍翁的作品，描写秋夜思乡之情。","difficulty":1,"tags":["宋诗","作者"],"source":"curriculum"},
-  {"id":"c3-204","type":"classical","prompt":"《望天门山》的作者是谁？","options":["杜甫","杜牧","李白","王维"],"correct":2,"explanation":"《望天门山》是唐代大诗人李白的作品，描写天门山与长江的壮丽景色。","difficulty":1,"tags":["唐诗","作者"],"source":"curriculum"},
-  {"id":"c3-205","type":"classical","prompt":"《饮湖上初晴后雨》的作者是谁？","options":["白居易","苏轼","刘禹锡","杨万里"],"correct":1,"explanation":"《饮湖上初晴后雨》是宋代大诗人苏轼的名作，赞美西湖之美。","difficulty":1,"tags":["宋诗","作者"],"source":"curriculum"},
-  {"id":"c3-206","type":"classical","prompt":"《望洞庭》的作者是谁？","options":["白居易","李白","刘禹锡","杜甫"],"correct":2,"explanation":"《望洞庭》是唐代诗人刘禹锡的作品，描写洞庭湖秋夜的宁静之美。","difficulty":1,"tags":["唐诗","作者"],"source":"curriculum"},
-  {"id":"c3-207","type":"classical","prompt":"《忆江南》的作者是谁？","options":["苏轼","白居易","杜甫","李白"],"correct":1,"explanation":"《忆江南》是唐代诗人白居易所作的词，回忆江南美好的风景。","difficulty":1,"tags":["唐诗","作者"],"source":"curriculum"},
-  {"id":"c3-208","type":"classical","prompt":"《元日》的作者是谁？","options":["苏轼","王安石","叶绍翁","杜牧"],"correct":1,"explanation":"《元日》是宋代政治家、文学家王安石的作品，描写春节的热闹景象。","difficulty":1,"tags":["宋诗","作者"],"source":"curriculum"},
-  {"id":"c3-209","type":"classical","prompt":"《清明》的作者是谁？","options":["杜甫","李白","杜牧","王维"],"correct":2,"explanation":"《清明》是唐代诗人杜牧的作品，描写清明时节行人愁思的情景。","difficulty":1,"tags":["唐诗","作者"],"source":"curriculum"},
-  {"id":"c3-210","type":"classical","prompt":"《九月九日忆山东兄弟》的作者是谁？","options":["李白","杜甫","王维","孟浩然"],"correct":2,"explanation":"《九月九日忆山东兄弟》是唐代诗人王维十七岁时所写的思乡名作。","difficulty":1,"tags":["唐诗","作者"],"source":"curriculum"},
-  {"id":"c3-211","type":"classical","prompt":"《咏柳》的作者是谁？","options":["贺知章","李白","杜甫","白居易"],"correct":0,"explanation":"《咏柳》是唐代诗人贺知章的作品，用巧妙的比喻赞美柳树。","difficulty":1,"tags":["唐诗","作者"],"source":"curriculum"},
-  {"id":"c3-212","type":"classical","prompt":"《绝句》（两个黄鹂鸣翠柳）的作者是谁？","options":["李白","王维","杜甫","孟浩然"],"correct":2,"explanation":"这首《绝句》是唐代诗人杜甫的名作，描写春天生机勃勃的景色。","difficulty":1,"tags":["唐诗","作者"],"source":"curriculum"},
-  {"id":"c3-213","type":"classical","prompt":"《绝句》（迟日江山丽）的作者是谁？","options":["杜甫","白居易","王维","李白"],"correct":0,"explanation":"这首《绝句》也是杜甫的作品，描写春天美丽的景色。","difficulty":2,"tags":["唐诗","作者"],"source":"curriculum"},
-  {"id":"c3-214","type":"classical","prompt":"杜牧是哪个朝代的诗人？","options":["宋代","唐代","明代","清代"],"correct":1,"explanation":"杜牧是唐代著名诗人，与李商隐并称「小李杜」。","difficulty":1,"tags":["唐诗","作者"],"source":"curriculum"},
-  {"id":"c3-215","type":"classical","prompt":"苏轼是哪个朝代的诗人？","options":["唐代","宋代","明代","元代"],"correct":1,"explanation":"苏轼是宋代著名文学家，号东坡居士，诗词书画均有极高成就。","difficulty":1,"tags":["宋诗","作者"],"source":"curriculum"},
-  {"id":"c3-216","type":"classical","prompt":"叶绍翁是哪个朝代的诗人？","options":["唐代","宋代","明代","清代"],"correct":1,"explanation":"叶绍翁是南宋诗人，代表作有《夜书所见》《游园不值》等。","difficulty":2,"tags":["宋诗","作者"],"source":"curriculum"},
-  {"id":"c3-217","type":"classical","prompt":"刘禹锡是哪个朝代的诗人？","options":["宋代","唐代","汉代","明代"],"correct":1,"explanation":"刘禹锡是唐代著名诗人，有「诗豪」之称。","difficulty":2,"tags":["唐诗","作者"],"source":"curriculum"},
-  {"id":"c3-218","type":"classical","prompt":"贺知章是哪个朝代的诗人？","options":["宋代","唐代","明代","清代"],"correct":1,"explanation":"贺知章是唐代诗人，代表作有《咏柳》《回乡偶书》等。","difficulty":2,"tags":["唐诗","作者"],"source":"curriculum"},
-  {"id":"c3-219","type":"classical","prompt":"王安石是哪个朝代的文学家？","options":["唐代","宋代","明代","清代"],"correct":1,"explanation":"王安石是北宋著名的政治家、文学家，唐宋八大家之一。","difficulty":2,"tags":["宋诗","作者"],"source":"curriculum"},
-  {"id":"c3-220","type":"classical","prompt":"白居易是哪个朝代的诗人？","options":["宋代","唐代","汉代","清代"],"correct":1,"explanation":"白居易是唐代伟大诗人，号香山居士，代表作有《忆江南》《长恨歌》等。","difficulty":1,"tags":["唐诗","作者"],"source":"curriculum"},
-  {"id":"c3-221","type":"classical","prompt":"补全诗句：「远上寒山石径斜，____。」","options":["白云生处有人家","停车坐爱枫林晚","霜叶红于二月花","孤帆一片日边来"],"correct":0,"explanation":"「远上寒山石径斜，白云生处有人家」出自杜牧《山行》。","difficulty":1,"tags":["唐诗","填空"],"source":"curriculum"},
-  {"id":"c3-222","type":"classical","prompt":"补全诗句：「停车坐爱枫林晚，____。」","options":["白云生处有人家","远上寒山石径斜","霜叶红于二月花","碧水东流至此回"],"correct":2,"explanation":"「停车坐爱枫林晚，霜叶红于二月花」出自杜牧《山行》。","difficulty":1,"tags":["唐诗","填空"],"source":"curriculum"},
-  {"id":"c3-223","type":"classical","prompt":"补全诗句：「荷尽已无擎雨盖，____。」","options":["一年好景君须记","最是橙黄橘绿时","菊残犹有傲霜枝","萧萧梧叶送寒声"],"correct":2,"explanation":"「荷尽已无擎雨盖，菊残犹有傲霜枝」出自苏轼《赠刘景文》。","difficulty":2,"tags":["宋诗","填空"],"source":"curriculum"},
-  {"id":"c3-224","type":"classical","prompt":"补全诗句：「一年好景君须记，____。」","options":["菊残犹有傲霜枝","荷尽已无擎雨盖","最是橙黄橘绿时","霜叶红于二月花"],"correct":2,"explanation":"「一年好景君须记，最是橙黄橘绿时」出自苏轼《赠刘景文》。","difficulty":1,"tags":["宋诗","填空"],"source":"curriculum"},
-  {"id":"c3-225","type":"classical","prompt":"补全诗句：「萧萧梧叶送寒声，____。」","options":["江上秋风动客情","知有儿童挑促织","夜深篱落一灯明","菊残犹有傲霜枝"],"correct":0,"explanation":"「萧萧梧叶送寒声，江上秋风动客情」出自叶绍翁《夜书所见》。","difficulty":1,"tags":["宋诗","填空"],"source":"curriculum"},
-  {"id":"c3-226","type":"classical","prompt":"补全诗句：「知有儿童挑促织，____。」","options":["江上秋风动客情","萧萧梧叶送寒声","夜深篱落一灯明","两岸青山相对出"],"correct":2,"explanation":"「知有儿童挑促织，夜深篱落一灯明」出自叶绍翁《夜书所见》。","difficulty":1,"tags":["宋诗","填空"],"source":"curriculum"},
-  {"id":"c3-227","type":"classical","prompt":"补全诗句：「天门中断楚江开，____。」","options":["两岸青山相对出","孤帆一片日边来","碧水东流至此回","白云生处有人家"],"correct":2,"explanation":"「天门中断楚江开，碧水东流至此回」出自李白《望天门山》。","difficulty":1,"tags":["唐诗","填空"],"source":"curriculum"},
-  {"id":"c3-228","type":"classical","prompt":"补全诗句：「两岸青山相对出，____。」","options":["碧水东流至此回","天门中断楚江开","孤帆一片日边来","轻舟已过万重山"],"correct":2,"explanation":"「两岸青山相对出，孤帆一片日边来」出自李白《望天门山》。","difficulty":1,"tags":["唐诗","填空"],"source":"curriculum"},
-  {"id":"c3-229","type":"classical","prompt":"补全诗句：「水光潋滟晴方好，____。」","options":["欲把西湖比西子","淡妆浓抹总相宜","山色空蒙雨亦奇","湖光秋月两相和"],"correct":2,"explanation":"「水光潋滟晴方好，山色空蒙雨亦奇」出自苏轼《饮湖上初晴后雨》。","difficulty":1,"tags":["宋诗","填空"],"source":"curriculum"},
-  {"id":"c3-230","type":"classical","prompt":"补全诗句：「欲把西湖比西子，____。」","options":["水光潋滟晴方好","山色空蒙雨亦奇","淡妆浓抹总相宜","白银盘里一青螺"],"correct":2,"explanation":"「欲把西湖比西子，淡妆浓抹总相宜」出自苏轼《饮湖上初晴后雨》。","difficulty":1,"tags":["宋诗","填空"],"source":"curriculum"},
-  {"id":"c3-231","type":"classical","prompt":"补全诗句：「湖光秋月两相和，____。」","options":["潭面无风镜未磨","遥望洞庭山水翠","白银盘里一青螺","山色空蒙雨亦奇"],"correct":0,"explanation":"「湖光秋月两相和，潭面无风镜未磨」出自刘禹锡《望洞庭》。","difficulty":1,"tags":["唐诗","填空"],"source":"curriculum"},
-  {"id":"c3-232","type":"classical","prompt":"补全诗句：「遥望洞庭山水翠，____。」","options":["潭面无风镜未磨","湖光秋月两相和","白银盘里一青螺","淡妆浓抹总相宜"],"correct":2,"explanation":"「遥望洞庭山水翠，白银盘里一青螺」出自刘禹锡《望洞庭》。","difficulty":2,"tags":["唐诗","填空"],"source":"curriculum"},
-  {"id":"c3-233","type":"classical","prompt":"补全诗句：「日出江花红胜火，____。」","options":["春来江水绿如蓝","能不忆江南","风景旧曾谙","江南好"],"correct":0,"explanation":"「日出江花红胜火，春来江水绿如蓝」出自白居易《忆江南》。","difficulty":1,"tags":["唐诗","填空"],"source":"curriculum"},
-  {"id":"c3-234","type":"classical","prompt":"补全《忆江南》：「江南好，风景旧曾谙。____，春来江水绿如蓝。能不忆江南？」","options":["日出江花红胜火","水光潋滟晴方好","两岸青山相对出","遥望洞庭山水翠"],"correct":0,"explanation":"白居易《忆江南》：日出江花红胜火，春来江水绿如蓝。","difficulty":2,"tags":["唐诗","填空"],"source":"curriculum"},
-  {"id":"c3-235","type":"classical","prompt":"补全诗句：「爆竹声中一岁除，____。」","options":["千门万户曈曈日","总把新桃换旧符","春风送暖入屠苏","路上行人欲断魂"],"correct":2,"explanation":"「爆竹声中一岁除，春风送暖入屠苏」出自王安石《元日》。","difficulty":1,"tags":["宋诗","填空"],"source":"curriculum"},
-  {"id":"c3-236","type":"classical","prompt":"补全诗句：「千门万户曈曈日，____。」","options":["春风送暖入屠苏","爆竹声中一岁除","总把新桃换旧符","借问酒家何处有"],"correct":2,"explanation":"「千门万户曈曈日，总把新桃换旧符」出自王安石《元日》。","difficulty":1,"tags":["宋诗","填空"],"source":"curriculum"},
-  {"id":"c3-237","type":"classical","prompt":"补全诗句：「清明时节雨纷纷，____。」","options":["借问酒家何处有","牧童遥指杏花村","路上行人欲断魂","春风送暖入屠苏"],"correct":2,"explanation":"「清明时节雨纷纷，路上行人欲断魂」出自杜牧《清明》。","difficulty":1,"tags":["唐诗","填空"],"source":"curriculum"},
-  {"id":"c3-238","type":"classical","prompt":"补全诗句：「借问酒家何处有，____。」","options":["路上行人欲断魂","清明时节雨纷纷","牧童遥指杏花村","千门万户曈曈日"],"correct":2,"explanation":"「借问酒家何处有，牧童遥指杏花村」出自杜牧《清明》。","difficulty":1,"tags":["唐诗","填空"],"source":"curriculum"},
-  {"id":"c3-239","type":"classical","prompt":"补全诗句：「独在异乡为异客，____。」","options":["遍插茱萸少一人","每逢佳节倍思亲","低头思故乡","江上秋风动客情"],"correct":1,"explanation":"「独在异乡为异客，每逢佳节倍思亲」出自王维《九月九日忆山东兄弟》。","difficulty":1,"tags":["唐诗","填空"],"source":"curriculum"},
-  {"id":"c3-240","type":"classical","prompt":"补全诗句：「遥知兄弟登高处，____。」","options":["每逢佳节倍思亲","独在异乡为异客","遍插茱萸少一人","夜深篱落一灯明"],"correct":2,"explanation":"「遥知兄弟登高处，遍插茱萸少一人」出自王维《九月九日忆山东兄弟》。","difficulty":1,"tags":["唐诗","填空"],"source":"curriculum"},
-  {"id":"c3-241","type":"classical","prompt":"补全诗句：「碧玉妆成一树高，____。」","options":["二月春风似剪刀","不知细叶谁裁出","万条垂下绿丝绦","春来江水绿如蓝"],"correct":2,"explanation":"「碧玉妆成一树高，万条垂下绿丝绦」出自贺知章《咏柳》。","difficulty":1,"tags":["唐诗","填空"],"source":"curriculum"},
-  {"id":"c3-242","type":"classical","prompt":"补全诗句：「不知细叶谁裁出，____。」","options":["万条垂下绿丝绦","碧玉妆成一树高","二月春风似剪刀","春风送暖入屠苏"],"correct":2,"explanation":"「不知细叶谁裁出，二月春风似剪刀」出自贺知章《咏柳》。","difficulty":1,"tags":["唐诗","填空"],"source":"curriculum"},
-  {"id":"c3-243","type":"classical","prompt":"补全诗句：「两个黄鹂鸣翠柳，____。」","options":["窗含西岭千秋雪","门泊东吴万里船","一行白鹭上青天","迟日江山丽"],"correct":2,"explanation":"「两个黄鹂鸣翠柳，一行白鹭上青天」出自杜甫《绝句》。","difficulty":1,"tags":["唐诗","填空"],"source":"curriculum"},
-  {"id":"c3-244","type":"classical","prompt":"补全诗句：「窗含西岭千秋雪，____。」","options":["一行白鹭上青天","两个黄鹂鸣翠柳","门泊东吴万里船","春风花草香"],"correct":2,"explanation":"「窗含西岭千秋雪，门泊东吴万里船」出自杜甫《绝句》。","difficulty":2,"tags":["唐诗","填空"],"source":"curriculum"},
-  {"id":"c3-245","type":"classical","prompt":"补全诗句：「迟日江山丽，____。」","options":["泥融飞燕子","春风花草香","沙暖睡鸳鸯","一行白鹭上青天"],"correct":1,"explanation":"「迟日江山丽，春风花草香」出自杜甫《绝句》（迟日江山丽）。","difficulty":2,"tags":["唐诗","填空"],"source":"curriculum"},
-  {"id":"c3-246","type":"classical","prompt":"补全诗句：「泥融飞燕子，____。」","options":["春风花草香","迟日江山丽","沙暖睡鸳鸯","门泊东吴万里船"],"correct":2,"explanation":"「泥融飞燕子，沙暖睡鸳鸯」出自杜甫《绝句》（迟日江山丽）。","difficulty":2,"tags":["唐诗","填空"],"source":"curriculum"},
-  {"id":"c3-247","type":"classical","prompt":"补全《忆江南》最后一句：「春来江水绿如蓝。____？」","options":["江南好","风景旧曾谙","能不忆江南","日出江花红胜火"],"correct":2,"explanation":"白居易《忆江南》最后一句「能不忆江南」，用反问句表达了对江南的深深思念。","difficulty":2,"tags":["唐诗","填空"],"source":"curriculum"},
-  {"id":"c3-248","type":"classical","prompt":"补全诗句：「____，白云生处有人家。」","options":["远上寒山石径斜","停车坐爱枫林晚","天门中断楚江开","碧水东流至此回"],"correct":0,"explanation":"「远上寒山石径斜，白云生处有人家」出自杜牧《山行》。","difficulty":2,"tags":["唐诗","填空"],"source":"curriculum"},
-  {"id":"c3-249","type":"classical","prompt":"补全诗句：「____，霜叶红于二月花。」","options":["远上寒山石径斜","白云生处有人家","停车坐爱枫林晚","两岸青山相对出"],"correct":2,"explanation":"「停车坐爱枫林晚，霜叶红于二月花」出自杜牧《山行》。","difficulty":2,"tags":["唐诗","填空"],"source":"curriculum"},
-  {"id":"c3-250","type":"classical","prompt":"补全诗句：「____，菊残犹有傲霜枝。」","options":["一年好景君须记","荷尽已无擎雨盖","最是橙黄橘绿时","萧萧梧叶送寒声"],"correct":1,"explanation":"「荷尽已无擎雨盖，菊残犹有傲霜枝」出自苏轼《赠刘景文》。","difficulty":2,"tags":["宋诗","填空"],"source":"curriculum"},
-  {"id":"c3-251","type":"classical","prompt":"「远上寒山石径斜」中「寒山」的意思是？","options":["一座叫寒山的山","深秋时节的山","很冷的山","下雪的山"],"correct":1,"explanation":"「寒山」指深秋时节寒冷萧瑟的山，不是山名，而是形容秋天的山。","difficulty":2,"tags":["唐诗","字义"],"source":"curriculum"},
-  {"id":"c3-252","type":"classical","prompt":"「霜叶红于二月花」中「于」是什么意思？","options":["在","到","和","比"],"correct":3,"explanation":"「于」在这里是「比」的意思，整句说经霜的枫叶比二月的鲜花还要红艳。","difficulty":2,"tags":["唐诗","字义"],"source":"curriculum"},
-  {"id":"c3-253","type":"classical","prompt":"「荷尽已无擎雨盖」中「盖」的意思是？","options":["盖子","遮盖","伞盖，这里指荷叶","锅盖"],"correct":2,"explanation":"「擎雨盖」就是能遮雨的伞盖，这里用来比喻荷叶像撑开的雨伞。","difficulty":2,"tags":["宋诗","字义"],"source":"curriculum"},
-  {"id":"c3-254","type":"classical","prompt":"「菊残犹有傲霜枝」中「犹」的意思是？","options":["好像","仍然、还","已经","不再"],"correct":1,"explanation":"「犹」是仍然、还的意思，菊花虽然凋残了，枝干仍然傲然挺立在风霜中。","difficulty":2,"tags":["宋诗","字义"],"source":"curriculum"},
-  {"id":"c3-255","type":"classical","prompt":"「菊残犹有傲霜枝」中「傲」的意思是？","options":["骄傲自满","不畏惧、不屈服","生气","自大"],"correct":1,"explanation":"「傲霜」是不畏惧霜寒的意思，形容菊枝在寒霜中不屈不挠的精神。","difficulty":2,"tags":["宋诗","字义"],"source":"curriculum"},
-  {"id":"c3-256","type":"classical","prompt":"「一年好景君须记」中「君」的意思是？","options":["国王","你","我","他"],"correct":1,"explanation":"「君」在这里是对朋友的尊称，相当于「你」，苏轼对刘景文说。","difficulty":1,"tags":["宋诗","字义"],"source":"curriculum"},
-  {"id":"c3-257","type":"classical","prompt":"「萧萧梧叶送寒声」中「萧萧」的意思是？","options":["高兴的样子","风吹落叶的声音","安静的样子","热闹的样子"],"correct":1,"explanation":"「萧萧」是象声词，形容风吹梧桐落叶发出的沙沙声响。","difficulty":2,"tags":["宋诗","字义"],"source":"curriculum"},
-  {"id":"c3-258","type":"classical","prompt":"「江上秋风动客情」中「客」的意思是？","options":["客人","旅居在外的人","路人","外国人"],"correct":1,"explanation":"「客」指旅居在外、漂泊他乡的人，诗人自比为「客」，表达了思乡之情。","difficulty":2,"tags":["宋诗","字义"],"source":"curriculum"},
-  {"id":"c3-259","type":"classical","prompt":"「知有儿童挑促织」中「挑」的意思是？","options":["挑选","挑拨","用细枝拨弄、逗引","挑担子"],"correct":2,"explanation":"「挑」在这里读 tiǎo，是用细枝拨弄、逗引蟋蟀的意思。","difficulty":3,"tags":["宋诗","字义"],"source":"curriculum"},
-  {"id":"c3-260","type":"classical","prompt":"「夜深篱落一灯明」中「篱落」的意思是？","options":["篱笆","落叶","院子","屋顶"],"correct":0,"explanation":"「篱落」就是篱笆，夜深了篱笆旁还有一盏灯亮着。","difficulty":2,"tags":["宋诗","字义"],"source":"curriculum"},
-  {"id":"c3-261","type":"classical","prompt":"「天门中断楚江开」中「中断」的意思是？","options":["停止","从中间断开","半途而废","中间休息"],"correct":1,"explanation":"「中断」是从中间断开的意思，形容天门山被长江从中间劈开。","difficulty":2,"tags":["唐诗","字义"],"source":"curriculum"},
-  {"id":"c3-262","type":"classical","prompt":"「碧水东流至此回」中「至此」的意思是？","options":["至今","到这里","从此","到那里"],"correct":1,"explanation":"「至此」是到了这里的意思，碧绿的江水流到天门山这里形成回旋。","difficulty":2,"tags":["唐诗","字义"],"source":"curriculum"},
-  {"id":"c3-263","type":"classical","prompt":"「孤帆一片日边来」中「孤帆」的意思是？","options":["一只孤单的帆船","破旧的帆船","很大的帆船","没有帆的船"],"correct":0,"explanation":"「孤帆」是一只孤单的帆船，远远地从太阳升起的方向驶来。","difficulty":1,"tags":["唐诗","字义"],"source":"curriculum"},
-  {"id":"c3-264","type":"classical","prompt":"「水光潋滟晴方好」中「方」的意思是？","options":["方向","方法","正、才","四方"],"correct":2,"explanation":"「方」在这里是「正」的意思，晴天的水面波光闪动正是美好的时候。","difficulty":3,"tags":["宋诗","字义"],"source":"curriculum"},
-  {"id":"c3-265","type":"classical","prompt":"「山色空蒙雨亦奇」中「空蒙」的意思是？","options":["空旷","迷茫缥缈的样子","空荡荡的","黑暗"],"correct":1,"explanation":"「空蒙」形容雨中山色迷茫缥缈、若隐若现的朦胧之美。","difficulty":3,"tags":["宋诗","字义"],"source":"curriculum"},
-  {"id":"c3-266","type":"classical","prompt":"「山色空蒙雨亦奇」中「亦」的意思是？","options":["不","也","才","很"],"correct":1,"explanation":"「亦」是「也」的意思，晴天好，雨天也很奇妙。","difficulty":2,"tags":["宋诗","字义"],"source":"curriculum"},
-  {"id":"c3-267","type":"classical","prompt":"「淡妆浓抹总相宜」中「相宜」的意思是？","options":["相互","合适、适宜","好看","一样"],"correct":1,"explanation":"「相宜」是合适的意思，不管淡妆还是浓妆，西湖都很美。","difficulty":2,"tags":["宋诗","字义"],"source":"curriculum"},
-  {"id":"c3-268","type":"classical","prompt":"「湖光秋月两相和」中「和」的意思是？","options":["和平","和谐、交融","温和","总和"],"correct":1,"explanation":"「和」是和谐交融的意思，湖面的光芒和秋天的月色融为一体。","difficulty":2,"tags":["唐诗","字义"],"source":"curriculum"},
-  {"id":"c3-269","type":"classical","prompt":"「千门万户曈曈日」中「曈曈」的意思是？","options":["很暗的样子","太阳初升、光亮的样子","很热的样子","下雨的样子"],"correct":1,"explanation":"「曈曈」形容太阳初升时光亮温暖的样子，描写新年第一天的阳光。","difficulty":3,"tags":["宋诗","字义"],"source":"curriculum"},
-  {"id":"c3-270","type":"classical","prompt":"「春风送暖入屠苏」中「屠苏」是什么？","options":["一种房子","一种过年喝的药酒","一种食物","一个人名"],"correct":1,"explanation":"「屠苏」是屠苏酒，古人在春节时饮用，据说能驱除瘟疫。","difficulty":3,"tags":["宋诗","字义"],"source":"curriculum"},
-  {"id":"c3-271","type":"classical","prompt":"「路上行人欲断魂」中「欲」的意思是？","options":["想要","快要、将要","欲望","需要"],"correct":1,"explanation":"「欲断魂」中的「欲」是快要、将要的意思，形容悲伤到了极点。","difficulty":2,"tags":["唐诗","字义"],"source":"curriculum"},
-  {"id":"c3-272","type":"classical","prompt":"「借问酒家何处有」中「借问」的意思是？","options":["借东西","请问","问路","借钱"],"correct":1,"explanation":"「借问」是敬辞，相当于「请问」，行人向路人打听酒家在哪里。","difficulty":2,"tags":["唐诗","字义"],"source":"curriculum"},
-  {"id":"c3-273","type":"classical","prompt":"「牧童遥指杏花村」中「遥指」的意思是？","options":["远远地用手指着","摇头","近处指着","随便指"],"correct":0,"explanation":"「遥指」是远远地用手指着的意思，牧童远远地指向杏花村的方向。","difficulty":1,"tags":["唐诗","字义"],"source":"curriculum"},
-  {"id":"c3-274","type":"classical","prompt":"「独在异乡为异客」中「异乡」的意思是？","options":["美丽的地方","奇怪的地方","他乡、外地","故乡"],"correct":2,"explanation":"「异乡」是他乡、外地的意思，指不是自己家乡的地方。","difficulty":1,"tags":["唐诗","字义"],"source":"curriculum"},
-  {"id":"c3-275","type":"classical","prompt":"「遍插茱萸少一人」中「遍」的意思是？","options":["一边","到处、全都","偏僻","一半"],"correct":1,"explanation":"「遍插」是到处都插、人人都插的意思，兄弟们都插上了茱萸。","difficulty":2,"tags":["唐诗","字义"],"source":"curriculum"},
-  {"id":"c3-276","type":"classical","prompt":"「碧玉妆成一树高」中「碧玉」比喻什么？","options":["真正的玉石","翠绿的颜色，比喻柳树","一种花","蓝天"],"correct":1,"explanation":"「碧玉」这里比喻柳树碧绿如玉，同时也暗用了「小家碧玉」的典故。","difficulty":2,"tags":["唐诗","字义"],"source":"curriculum"},
-  {"id":"c3-277","type":"classical","prompt":"「万条垂下绿丝绦」中「绿丝绦」比喻什么？","options":["绿色的丝带","绿色的绳子","柳条","丝绸"],"correct":2,"explanation":"「绿丝绦」本义是绿色的丝带，这里比喻细长柔软的柳条。","difficulty":2,"tags":["唐诗","字义"],"source":"curriculum"},
-  {"id":"c3-278","type":"classical","prompt":"「窗含西岭千秋雪」中「含」的意思是？","options":["包含","嘴含","窗户像画框一样包纳着","吞下"],"correct":2,"explanation":"「含」是包纳的意思，窗户像画框一样把西岭的雪山美景框在其中。","difficulty":3,"tags":["唐诗","字义"],"source":"curriculum"},
-  {"id":"c3-279","type":"classical","prompt":"「门泊东吴万里船」中「泊」的意思是？","options":["出发","停泊、停靠","漂泊","经过"],"correct":1,"explanation":"「泊」是停泊、停靠的意思，门前停靠着从东吴万里而来的船只。","difficulty":2,"tags":["唐诗","字义"],"source":"curriculum"},
-  {"id":"c3-280","type":"classical","prompt":"「春来江水绿如蓝」中「蓝」是什么意思？","options":["蓝色","一种可以提取蓝色染料的草","天蓝色","宝蓝色"],"correct":1,"explanation":"「蓝」指蓝草，一种可以提取蓝色染料的植物。江水碧绿得像蓝草染过一样。","difficulty":3,"tags":["唐诗","字义"],"source":"curriculum"},
-  {"id":"c3-281","type":"classical","prompt":"《山行》描写的是什么季节的景色？","options":["春天","夏天","秋天","冬天"],"correct":2,"explanation":"《山行》描写深秋景色，「霜叶红于二月花」写的是秋天的红叶。","difficulty":1,"tags":["唐诗","季节"],"source":"curriculum"},
-  {"id":"c3-282","type":"classical","prompt":"《赠刘景文》描写的是什么季节的景色？","options":["春天","夏天","秋天","冬天"],"correct":2,"explanation":"「荷尽」「菊残」「橙黄橘绿」都是秋末冬初的景象，主要描写深秋。","difficulty":1,"tags":["宋诗","季节"],"source":"curriculum"},
-  {"id":"c3-283","type":"classical","prompt":"《夜书所见》描写的是什么季节？","options":["春天","夏天","秋天","冬天"],"correct":2,"explanation":"「萧萧梧叶」「秋风」「促织（蟋蟀）」都是秋天的特征。","difficulty":1,"tags":["宋诗","季节"],"source":"curriculum"},
-  {"id":"c3-284","type":"classical","prompt":"《忆江南》中「日出江花红胜火，春来江水绿如蓝」描写的是什么季节？","options":["春天","夏天","秋天","冬天"],"correct":0,"explanation":"「春来江水绿如蓝」点明了这是春天的景色。","difficulty":1,"tags":["唐诗","季节"],"source":"curriculum"},
-  {"id":"c3-285","type":"classical","prompt":"《元日》描写的是什么节日的场景？","options":["中秋节","端午节","春节","元宵节"],"correct":2,"explanation":"「元日」就是农历正月初一，即春节。诗中描写了放鞭炮、饮屠苏酒、换桃符等春节习俗。","difficulty":1,"tags":["宋诗","季节"],"source":"curriculum"},
-  {"id":"c3-286","type":"classical","prompt":"《清明》描写的是什么节气？","options":["立春","清明","谷雨","霜降"],"correct":1,"explanation":"诗题就是「清明」，描写清明时节细雨纷纷、行人愁思的情景。","difficulty":1,"tags":["唐诗","季节"],"source":"curriculum"},
-  {"id":"c3-287","type":"classical","prompt":"《九月九日忆山东兄弟》写的是什么节日？","options":["端午节","重阳节","中秋节","春节"],"correct":1,"explanation":"九月九日是重阳节，有登高和佩插茱萸的习俗。","difficulty":1,"tags":["唐诗","季节"],"source":"curriculum"},
-  {"id":"c3-288","type":"classical","prompt":"《咏柳》描写的是什么季节？","options":["春天","夏天","秋天","冬天"],"correct":0,"explanation":"「碧玉妆成」「绿丝绦」「二月春风」都表明这是早春时节柳树发芽的景色。","difficulty":1,"tags":["唐诗","季节"],"source":"curriculum"},
-  {"id":"c3-289","type":"classical","prompt":"《绝句》（两个黄鹂鸣翠柳）描写的是什么季节？","options":["春天","夏天","秋天","冬天"],"correct":0,"explanation":"「翠柳」「白鹭」以及万物生机勃勃的景象，描写的是春天。","difficulty":1,"tags":["唐诗","季节"],"source":"curriculum"},
-  {"id":"c3-290","type":"classical","prompt":"《望洞庭》描写的是什么季节的夜景？","options":["春夜","夏夜","秋夜","冬夜"],"correct":2,"explanation":"「湖光秋月两相和」明确写到「秋月」，描写的是秋天的夜景。","difficulty":1,"tags":["唐诗","季节"],"source":"curriculum"},
-  {"id":"c3-291","type":"classical","prompt":"《饮湖上初晴后雨》写了哪两种天气下的西湖？","options":["风天和雪天","晴天和雨天","晴天和阴天","雾天和晴天"],"correct":1,"explanation":"诗题「初晴后雨」点明了先晴后雨，诗中「晴方好」「雨亦奇」写了两种天气下的西湖。","difficulty":1,"tags":["宋诗","季节"],"source":"curriculum"},
-  {"id":"c3-292","type":"classical","prompt":"《绝句》（迟日江山丽）描写的是什么季节？","options":["春天","夏天","秋天","冬天"],"correct":0,"explanation":"「迟日」是春天日子渐长的意思，「春风花草香」「飞燕子」都是春天的意象。","difficulty":2,"tags":["唐诗","季节"],"source":"curriculum"},
-  {"id":"c3-293","type":"classical","prompt":"「停车坐爱枫林晚」中的枫叶变红是在什么季节？","options":["春天","夏天","深秋","冬天"],"correct":2,"explanation":"枫叶在深秋经霜之后变为红色，「霜叶红于二月花」描写的正是深秋时节。","difficulty":1,"tags":["唐诗","季节"],"source":"curriculum"},
-  {"id":"c3-294","type":"classical","prompt":"「橙黄橘绿」描写的是哪个季节果实成熟的颜色？","options":["春天","夏天","秋天","冬天"],"correct":2,"explanation":"橙子变黄、橘子转绿是秋末冬初果实成熟的景象，是秋天最美好的时候。","difficulty":2,"tags":["宋诗","季节"],"source":"curriculum"},
-  {"id":"c3-295","type":"classical","prompt":"「清明时节雨纷纷」一般在什么季节？","options":["初春","暮春","初夏","深秋"],"correct":1,"explanation":"清明节在公历四月初，正值暮春时节，常常春雨绵绵。","difficulty":2,"tags":["唐诗","季节"],"source":"curriculum"},
-  {"id":"c3-296","type":"classical","prompt":"《山行》表达了诗人什么样的感情？","options":["对秋天的悲伤","对深秋山林景色的喜爱和赞美","对离别的感伤","对故乡的思念"],"correct":1,"explanation":"诗人因为喜爱枫林美景而停车观赏，赞美霜叶比二月花还红，表达了对秋景的热爱。","difficulty":2,"tags":["唐诗","情感"],"source":"curriculum"},
-  {"id":"c3-297","type":"classical","prompt":"《赠刘景文》表达了苏轼什么样的感情？","options":["对秋天的厌恶","对朋友的鼓励和对秋天的赞美","对夏天的思念","对分别的悲伤"],"correct":1,"explanation":"苏轼告诉朋友一年中最好的景致是橙黄橘绿的秋天，鼓励朋友乐观向上。","difficulty":2,"tags":["宋诗","情感"],"source":"curriculum"},
-  {"id":"c3-298","type":"classical","prompt":"《夜书所见》表达了诗人什么样的主要感情？","options":["欢乐","思乡念亲的孤独之情","愤怒","害怕"],"correct":1,"explanation":"诗人在异乡秋夜，听到梧叶声和秋风，看到远处儿童的灯火，勾起了对家乡的思念。","difficulty":2,"tags":["宋诗","情感"],"source":"curriculum"},
-  {"id":"c3-299","type":"classical","prompt":"《望天门山》表达了诗人什么样的感情？","options":["对山水壮丽景色的赞叹和豪迈之情","悲伤","思念家乡","孤独"],"correct":0,"explanation":"李白用磅礴的笔触描写天门山和长江，表达了对祖国壮丽山河的热爱和豪迈之情。","difficulty":2,"tags":["唐诗","情感"],"source":"curriculum"},
-  {"id":"c3-300","type":"classical","prompt":"《饮湖上初晴后雨》表达了苏轼什么样的感情？","options":["对西湖的厌倦","对西湖美景的赞美和热爱","对雨天的讨厌","对古人的思念"],"correct":1,"explanation":"苏轼把西湖比作西施，不论晴雨都美，表达了对西湖的高度赞美和热爱。","difficulty":2,"tags":["宋诗","情感"],"source":"curriculum"},
-  {"id":"c3-301","type":"classical","prompt":"《望洞庭》表达了诗人什么样的感情？","options":["对洞庭湖宁静柔美的喜爱","悲伤","愤怒","对离别的不舍"],"correct":0,"explanation":"刘禹锡用温柔的笔触描写洞庭湖的秋夜，表达了对洞庭湖宁静之美的欣赏和喜爱。","difficulty":2,"tags":["唐诗","情感"],"source":"curriculum"},
-  {"id":"c3-302","type":"classical","prompt":"《忆江南》表达了白居易什么样的感情？","options":["对江南的厌恶","对江南美景的怀念和赞美","对北方的思念","对冬天的害怕"],"correct":1,"explanation":"「能不忆江南？」用反问句表达了诗人对江南深深的怀念和赞美之情。","difficulty":1,"tags":["唐诗","情感"],"source":"curriculum"},
-  {"id":"c3-303","type":"classical","prompt":"《元日》表达了什么样的感情？","options":["对新年新气象的欢喜和对未来的期盼","悲伤","孤独","害怕"],"correct":0,"explanation":"《元日》描写春节的热闹喜庆，表达了辞旧迎新的欢乐和对新生活的期盼。","difficulty":1,"tags":["宋诗","情感"],"source":"curriculum"},
-  {"id":"c3-304","type":"classical","prompt":"《清明》表达了行人什么样的感情？","options":["欢乐","对逝去亲人的怀念和哀愁","愤怒","对自然的赞美"],"correct":1,"explanation":"清明节是祭祀先人的节日，「欲断魂」表达了行人对逝去亲人深深的怀念和哀思。","difficulty":2,"tags":["唐诗","情感"],"source":"curriculum"},
-  {"id":"c3-305","type":"classical","prompt":"《九月九日忆山东兄弟》表达了王维什么样的感情？","options":["欢乐","对兄弟和家乡的思念","愤怒","对风景的赞美"],"correct":1,"explanation":"「每逢佳节倍思亲」直接表达了诗人在异乡每到佳节格外思念家人的感情。","difficulty":1,"tags":["唐诗","情感"],"source":"curriculum"},
-  {"id":"c3-306","type":"classical","prompt":"《咏柳》表达了诗人什么样的感情？","options":["对柳树的厌恶","对春天和柳树的赞美与喜爱","对秋天的思念","悲伤"],"correct":1,"explanation":"贺知章用精妙的比喻赞美柳树的美丽，表达了对春天的喜爱之情。","difficulty":2,"tags":["唐诗","情感"],"source":"curriculum"},
-  {"id":"c3-307","type":"classical","prompt":"「每逢佳节倍思亲」这句诗为什么能引起很多人的共鸣？","options":["因为它描写了很美的风景","因为它说出了每个离家之人的心声","因为它很长","因为它很难懂"],"correct":1,"explanation":"这句诗道出了远离家乡的人逢年过节时格外思念亲人的普遍感受，所以千古传诵。","difficulty":2,"tags":["唐诗","情感"],"source":"curriculum"},
-  {"id":"c3-308","type":"classical","prompt":"「能不忆江南？」这个句式有什么特点？","options":["陈述句","疑问句","反问句，表达一定忆江南","感叹句"],"correct":2,"explanation":"「能不忆江南」是反问句，意思是怎么能不怀念江南呢？强调了一定会怀念。","difficulty":2,"tags":["唐诗","情感"],"source":"curriculum"},
-  {"id":"c3-309","type":"classical","prompt":"「菊残犹有傲霜枝」中的菊花形象，苏轼用来鼓励朋友什么？","options":["多种花","像菊花一样，在困境中保持坚强","不要赏菊","多穿衣服"],"correct":1,"explanation":"苏轼用菊枝在霜寒中不屈服的形象，勉励朋友在逆境中也要保持坚韧不拔的精神。","difficulty":3,"tags":["宋诗","情感"],"source":"curriculum"},
-  {"id":"c3-310","type":"classical","prompt":"《绝句》（两个黄鹂鸣翠柳）表达了诗人什么样的感情？","options":["悲伤","对春天美景的喜悦和对安定生活的满足","愤怒","孤独"],"correct":1,"explanation":"杜甫描写了明丽的春景，表达了在成都草堂安定生活时对美好春天的喜悦之情。","difficulty":2,"tags":["唐诗","情感"],"source":"curriculum"},
-  {"id":"c3-311","type":"classical","prompt":"「不知细叶谁裁出，二月春风似剪刀」用了什么修辞手法？","options":["拟人","夸张","比喻","对偶"],"correct":2,"explanation":"诗人把春风比作剪刀，形象地写出了春风裁剪出柳叶的精巧，这是比喻手法。","difficulty":2,"tags":["唐诗","修辞"],"source":"curriculum"},
-  {"id":"c3-312","type":"classical","prompt":"「碧玉妆成一树高」用了什么修辞手法？","options":["夸张","比喻","排比","反问"],"correct":1,"explanation":"把柳树比作碧玉装扮而成，是比喻手法，形象地写出了柳树的翠绿之美。","difficulty":2,"tags":["唐诗","修辞"],"source":"curriculum"},
-  {"id":"c3-313","type":"classical","prompt":"「欲把西湖比西子，淡妆浓抹总相宜」用了什么修辞手法？","options":["夸张","拟人","比喻","对比"],"correct":2,"explanation":"把西湖比作古代美女西施，是比喻手法，生动地赞美了西湖的美丽。","difficulty":2,"tags":["宋诗","修辞"],"source":"curriculum"},
-  {"id":"c3-314","type":"classical","prompt":"「飞流直下三千尺」用了什么修辞手法？","options":["比喻","拟人","夸张","反问"],"correct":2,"explanation":"瀑布不可能真有三千尺，用夸张手法突出了庐山瀑布的雄伟壮观。","difficulty":1,"tags":["唐诗","修辞"],"source":"curriculum"},
-  {"id":"c3-315","type":"classical","prompt":"「潭面无风镜未磨」用了什么修辞手法？","options":["拟人","比喻","夸张","排比"],"correct":1,"explanation":"把平静的洞庭湖面比作没有磨过的铜镜，是比喻手法。","difficulty":2,"tags":["唐诗","修辞"],"source":"curriculum"},
-  {"id":"c3-316","type":"classical","prompt":"「遥望洞庭山水翠，白银盘里一青螺」用了什么修辞手法？","options":["拟人","夸张","比喻","反复"],"correct":2,"explanation":"把洞庭湖比作白银盘，把君山比作青螺，是比喻手法，形象而新颖。","difficulty":2,"tags":["唐诗","修辞"],"source":"curriculum"},
-  {"id":"c3-317","type":"classical","prompt":"「霜叶红于二月花」用了什么修辞手法？","options":["比喻","对比","夸张","拟人"],"correct":1,"explanation":"把经霜的枫叶和二月的鲜花做比较，用对比手法突出枫叶的红艳之美。","difficulty":2,"tags":["唐诗","修辞"],"source":"curriculum"},
-  {"id":"c3-318","type":"classical","prompt":"「日出江花红胜火，春来江水绿如蓝」用了什么修辞手法？","options":["拟人","对偶和比喻","夸张","反问"],"correct":1,"explanation":"上下句对偶工整，同时用「红胜火」「绿如蓝」比喻江花和江水的颜色。","difficulty":3,"tags":["唐诗","修辞"],"source":"curriculum"},
-  {"id":"c3-319","type":"classical","prompt":"「两个黄鹂鸣翠柳，一行白鹭上青天」用了什么修辞手法？","options":["夸张","对偶","反问","排比"],"correct":1,"explanation":"上下句字数相同、词性对应（两个对一行，黄鹂对白鹭，翠柳对青天），是对偶手法。","difficulty":2,"tags":["唐诗","修辞"],"source":"curriculum"},
-  {"id":"c3-320","type":"classical","prompt":"「能不忆江南？」用了什么修辞手法？","options":["比喻","夸张","反问","对偶"],"correct":2,"explanation":"用反问句式「能不……？」加强了语气，强调一定会怀念江南，是反问修辞。","difficulty":2,"tags":["唐诗","修辞"],"source":"curriculum"},
-  {"id":"c3-321","type":"classical","prompt":"「天门中断楚江开」用了什么修辞手法？","options":["比喻","夸张","拟人","反问"],"correct":2,"explanation":"「楚江开」把长江写成主动劈开天门山的力量，赋予了江水人的行为，是夸张兼拟人手法。","difficulty":3,"tags":["唐诗","修辞"],"source":"curriculum"},
-  {"id":"c3-322","type":"classical","prompt":"「窗含西岭千秋雪，门泊东吴万里船」用了什么修辞手法？","options":["比喻","对偶","反问","排比"],"correct":1,"explanation":"「窗含」对「门泊」，「西岭」对「东吴」，「千秋雪」对「万里船」，对仗工整，是对偶。","difficulty":3,"tags":["唐诗","修辞"],"source":"curriculum"},
-  {"id":"c3-323","type":"classical","prompt":"「水光潋滟晴方好，山色空蒙雨亦奇」用了什么修辞手法？","options":["比喻","对偶","夸张","排比"],"correct":1,"explanation":"「水光」对「山色」，「潋滟」对「空蒙」，「晴方好」对「雨亦奇」，是对偶手法。","difficulty":3,"tags":["宋诗","修辞"],"source":"curriculum"},
-  {"id":"c3-324","type":"classical","prompt":"「荷尽已无擎雨盖，菊残犹有傲霜枝」中「荷尽」和「菊残」形成什么关系？","options":["因果","对比","递进","总分"],"correct":1,"explanation":"荷花凋尽和菊花虽残但仍有傲骨形成对比，突出了菊花坚强不屈的品质。","difficulty":3,"tags":["宋诗","修辞"],"source":"curriculum"},
-  {"id":"c3-325","type":"classical","prompt":"「独在异乡为异客」连用两个「异」字有什么作用？","options":["没有特殊作用","强调了诗人身处他乡的孤独和陌生感","为了押韵","写错了"],"correct":1,"explanation":"两个「异」字重叠使用，加倍强调了诗人远离家乡、身处异地的孤独和陌生之感。","difficulty":3,"tags":["唐诗","修辞"],"source":"curriculum"},
-  {"id":"c3-326","type":"classical","prompt":"《山行》中诗人为什么「停车」？","options":["车坏了","路太陡了","因为喜爱枫林傍晚的美景","因为天黑了"],"correct":2,"explanation":"「停车坐爱枫林晚」，「坐」是因为的意思，诗人因为喜爱枫林晚景而停下马车观赏。","difficulty":1,"tags":["唐诗","理解"],"source":"curriculum"},
-  {"id":"c3-327","type":"classical","prompt":"「一年好景君须记，最是橙黄橘绿时」苏轼想告诉刘景文什么道理？","options":["秋天水果好吃","人生不应只看到凋零，秋天也有美好的一面","冬天不好","要多吃水果"],"correct":1,"explanation":"苏轼劝朋友不要只看到荷尽菊残的萧条，秋天橙黄橘绿正是最美好的时节，鼓励乐观。","difficulty":2,"tags":["宋诗","理解"],"source":"curriculum"},
-  {"id":"c3-328","type":"classical","prompt":"《夜书所见》中「知有儿童挑促织」是诗人亲眼看到的吗？","options":["是的，就在眼前","是他猜测想象的","是白天看到的","是别人告诉他的"],"correct":1,"explanation":"诗人只看到远处篱笆旁一盏灯火，「知有」表明是他推测想象有孩子在捉蟋蟀。","difficulty":3,"tags":["宋诗","理解"],"source":"curriculum"},
-  {"id":"c3-329","type":"classical","prompt":"《望天门山》中「天门中断楚江开」给人什么感觉？","options":["安静柔美","气势磅礴，江水力量巨大","悲伤凄凉","轻松愉快"],"correct":1,"explanation":"「中断」「开」写出了长江劈开天门山的巨大力量，给人气势磅礴的感觉。","difficulty":2,"tags":["唐诗","情感"],"source":"curriculum"},
-  {"id":"c3-330","type":"classical","prompt":"苏轼为什么把西湖比作西施？","options":["西湖的形状像人","西湖不论晴雨都美，像西施不论淡妆浓抹都好看","西施住在西湖边","随便比的"],"correct":1,"explanation":"西施无论淡妆还是浓妆都好看，西湖无论晴天还是雨天都美丽，两者有相似之处。","difficulty":2,"tags":["宋诗","理解"],"source":"curriculum"},
-  {"id":"c3-331","type":"classical","prompt":"《望洞庭》中为什么把湖面比作「镜未磨」而不是「镜已磨」？","options":["诗人记错了","因为有微波，不像磨亮的镜子那样清晰，而是朦胧柔美","因为镜子太贵了","没有原因"],"correct":1,"explanation":"没有打磨的铜镜是朦胧模糊的，比喻秋夜湖面在月光下并非一览无余而是柔和朦胧之美。","difficulty":3,"tags":["唐诗","理解"],"source":"curriculum"},
-  {"id":"c3-332","type":"classical","prompt":"《忆江南》是诗还是词？","options":["五言绝句","七言律诗","词","散文"],"correct":2,"explanation":"《忆江南》是词牌名，这是一首词，格式与普通五言或七言诗不同。","difficulty":2,"tags":["唐诗","理解"],"source":"curriculum"},
-  {"id":"c3-333","type":"classical","prompt":"《元日》中描写了哪些春节习俗？","options":["赏月、吃月饼","放爆竹、喝屠苏酒、换桃符","赛龙舟、吃粽子","登高、插茱萸"],"correct":1,"explanation":"诗中提到了放鞭炮（爆竹）、喝屠苏酒、换桃符（贴春联）三种春节习俗。","difficulty":1,"tags":["宋诗","理解"],"source":"curriculum"},
-  {"id":"c3-334","type":"classical","prompt":"《清明》中行人为什么「欲断魂」？","options":["迷路了","因为清明祭祖，思念逝去的亲人而悲伤","走累了","害怕下雨"],"correct":1,"explanation":"清明节是祭奠先人的日子，行人思念故去的亲人，加上细雨纷纷，心情十分悲伤。","difficulty":2,"tags":["唐诗","情感"],"source":"curriculum"},
-  {"id":"c3-335","type":"classical","prompt":"《九月九日忆山东兄弟》中的「山东」是现在的山东省吗？","options":["是的","不是，指华山以东，即诗人的家乡蒲州","指山的东边","指东海"],"correct":1,"explanation":"这里的「山东」指华山以东，王维的家乡蒲州（今山西永济），不是现在的山东省。","difficulty":3,"tags":["唐诗","理解"],"source":"curriculum"},
-  {"id":"c3-336","type":"classical","prompt":"《咏柳》中为什么把春风比作剪刀？","options":["春天要剪枝","春风把柳叶「裁剪」得那么精巧细致","古人用剪刀","诗人是裁缝"],"correct":1,"explanation":"柳叶形状精巧纤细，像是被人精心剪裁出来的，诗人把春风比作能手巧匠的剪刀。","difficulty":2,"tags":["唐诗","理解"],"source":"curriculum"},
-  {"id":"c3-337","type":"classical","prompt":"杜甫《绝句》（两个黄鹂）中描写了哪些色彩？","options":["只有绿色","黄、翠绿、白、青四种","只有黄色和白色","红、橙、黄、绿"],"correct":1,"explanation":"黄鹂（黄）、翠柳（翠绿）、白鹭（白）、青天（青蓝），四种颜色描绘出明丽的春景。","difficulty":2,"tags":["唐诗","理解"],"source":"curriculum"},
-  {"id":"c3-338","type":"classical","prompt":"「窗含西岭千秋雪」中「千秋」是什么意思？","options":["一千年","很多年、久远","秋天","一千个秋天"],"correct":1,"explanation":"「千秋」是很多年、久远的意思，「千秋雪」指终年不化的积雪。","difficulty":2,"tags":["唐诗","理解"],"source":"curriculum"},
-  {"id":"c3-339","type":"classical","prompt":"「迟日江山丽」中「迟日」是什么意思？","options":["迟到的日子","春天白天渐长","很晚的日落","阴天"],"correct":1,"explanation":"「迟日」出自《诗经》，指春天太阳落得晚、白天变长，是春天的典型特征。","difficulty":3,"tags":["唐诗","理解"],"source":"curriculum"},
-  {"id":"c3-340","type":"classical","prompt":"「泥融飞燕子，沙暖睡鸳鸯」中为什么燕子在飞、鸳鸯在睡？","options":["没有原因","春天泥土融化燕子忙筑巢，沙滩暖和鸳鸯安睡","燕子怕冷","鸳鸯生病了"],"correct":1,"explanation":"春天冰雪融化泥土变软，燕子衔泥筑巢所以忙碌地飞；沙滩被春日晒暖，鸳鸯舒适地睡觉。","difficulty":2,"tags":["唐诗","理解"],"source":"curriculum"},
-  {"id":"c3-341","type":"classical","prompt":"下列哪首诗描写了节日习俗？","options":["《山行》","《望天门山》","《元日》","《望洞庭》"],"correct":2,"explanation":"《元日》描写了春节放爆竹、喝屠苏酒、换桃符（春联）等节日习俗。","difficulty":1,"tags":["宋诗","理解"],"source":"curriculum"},
-  {"id":"c3-342","type":"classical","prompt":"下列哪首诗描写了洞庭湖的景色？","options":["《饮湖上初晴后雨》","《望天门山》","《望洞庭》","《忆江南》"],"correct":2,"explanation":"《望洞庭》是刘禹锡描写洞庭湖秋夜美景的作品。","difficulty":1,"tags":["唐诗","理解"],"source":"curriculum"},
-  {"id":"c3-343","type":"classical","prompt":"下列哪首诗描写了西湖的景色？","options":["《望洞庭》","《望天门山》","《饮湖上初晴后雨》","《忆江南》"],"correct":2,"explanation":"苏轼的《饮湖上初晴后雨》专门描写西湖在晴天和雨天的美丽景色。","difficulty":1,"tags":["宋诗","理解"],"source":"curriculum"},
-  {"id":"c3-344","type":"classical","prompt":"下列哪首诗描写了长江和天门山？","options":["《望洞庭》","《饮湖上初晴后雨》","《望天门山》","《忆江南》"],"correct":2,"explanation":"李白的《望天门山》描写了长江水劈开天门山的壮丽景色。","difficulty":1,"tags":["唐诗","理解"],"source":"curriculum"},
-  {"id":"c3-345","type":"classical","prompt":"下列哪两首诗都是苏轼的作品？","options":["《山行》和《清明》","《赠刘景文》和《饮湖上初晴后雨》","《元日》和《忆江南》","《望洞庭》和《咏柳》"],"correct":1,"explanation":"《赠刘景文》和《饮湖上初晴后雨》都是苏轼的作品。","difficulty":2,"tags":["宋诗","理解"],"source":"curriculum"},
-  {"id":"c3-346","type":"classical","prompt":"「借问酒家何处有」中行人为什么要找酒家？","options":["他很饿","想借酒消愁、避雨歇脚","要买东西","要找人"],"correct":1,"explanation":"清明时节细雨纷纷，行人悲愁交加，想找个酒家喝酒消愁，也好避雨歇脚。","difficulty":2,"tags":["唐诗","理解"],"source":"curriculum"},
-  {"id":"c3-347","type":"classical","prompt":"「遥知兄弟登高处」中「登高」是什么节日的习俗？","options":["春节","清明节","重阳节","中秋节"],"correct":2,"explanation":"登高是重阳节（九月九日）的传统习俗，人们认为登高可以避灾祈福。","difficulty":2,"tags":["唐诗","理解"],"source":"curriculum"},
-  {"id":"c3-348","type":"classical","prompt":"「白银盘里一青螺」这个比喻好在哪里？","options":["颜色鲜艳","把广阔的洞庭湖和君山缩小为盘和螺，小巧精致，富有情趣","写得很长","描写很详细"],"correct":1,"explanation":"诗人从远处望去，把浩大的洞庭湖比作小小的银盘，君山比作一枚青螺，以小写大，妙趣横生。","difficulty":3,"tags":["唐诗","理解"],"source":"curriculum"},
-  {"id":"c3-349","type":"classical","prompt":"杜甫《绝句》（两个黄鹂）中「上」字用得好在哪里？","options":["没什么特别","写出了白鹭飞向蓝天的动态和向上的气势","字简单","很常见"],"correct":1,"explanation":"一个「上」字写出了白鹭轻快地飞向蓝天的动感和向上的姿态，充满生机和活力。","difficulty":3,"tags":["唐诗","理解"],"source":"curriculum"},
-  {"id":"c3-350","type":"classical","prompt":"《咏柳》全诗用了什么方法来赞美柳树？","options":["直接说柳树好看","先描写柳树的外形，再用比喻探究是谁裁出了柳叶","列举很多树做对比","写了一个故事"],"correct":1,"explanation":"诗人先用碧玉和绿丝绦比喻柳树的形态，再用设问和比喻（春风似剪刀）揭示造化之功。","difficulty":3,"tags":["唐诗","理解"],"source":"curriculum"}
+  {
+    "id": "c3-211",
+    "type": "classical",
+    "prompt": "《咏柳》的作者是谁？",
+    "options": [
+      "贺知章",
+      "李白",
+      "杜甫",
+      "白居易"
+    ],
+    "correct": 0,
+    "explanation": "《咏柳》是唐代诗人贺知章的作品，用巧妙的比喻赞美柳树。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "作者"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-212",
+    "type": "classical",
+    "prompt": "《绝句》（两个黄鹂鸣翠柳）的作者是谁？",
+    "options": [
+      "李白",
+      "王维",
+      "杜甫",
+      "孟浩然"
+    ],
+    "correct": 2,
+    "explanation": "这首《绝句》是唐代诗人杜甫的名作，描写春天生机勃勃的景色。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "作者"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-213",
+    "type": "classical",
+    "prompt": "《绝句》（迟日江山丽）的作者是谁？",
+    "options": [
+      "杜甫",
+      "白居易",
+      "王维",
+      "李白"
+    ],
+    "correct": 0,
+    "explanation": "这首《绝句》也是杜甫的作品，描写春天美丽的景色。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "作者"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-214",
+    "type": "classical",
+    "prompt": "杜牧是哪个朝代的诗人？",
+    "options": [
+      "宋代",
+      "唐代",
+      "明代",
+      "清代"
+    ],
+    "correct": 1,
+    "explanation": "杜牧是唐代著名诗人，与李商隐并称「小李杜」。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "作者"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-215",
+    "type": "classical",
+    "prompt": "苏轼是哪个朝代的诗人？",
+    "options": [
+      "唐代",
+      "宋代",
+      "明代",
+      "元代"
+    ],
+    "correct": 1,
+    "explanation": "苏轼是宋代著名文学家，号东坡居士，诗词书画均有极高成就。",
+    "difficulty": 1,
+    "tags": [
+      "宋诗",
+      "作者"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-216",
+    "type": "classical",
+    "prompt": "叶绍翁是哪个朝代的诗人？",
+    "options": [
+      "唐代",
+      "宋代",
+      "明代",
+      "清代"
+    ],
+    "correct": 1,
+    "explanation": "叶绍翁是南宋诗人，代表作有《夜书所见》《游园不值》等。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "作者"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-217",
+    "type": "classical",
+    "prompt": "刘禹锡是哪个朝代的诗人？",
+    "options": [
+      "宋代",
+      "唐代",
+      "汉代",
+      "明代"
+    ],
+    "correct": 1,
+    "explanation": "刘禹锡是唐代著名诗人，有「诗豪」之称。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "作者"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-218",
+    "type": "classical",
+    "prompt": "贺知章是哪个朝代的诗人？",
+    "options": [
+      "宋代",
+      "唐代",
+      "明代",
+      "清代"
+    ],
+    "correct": 1,
+    "explanation": "贺知章是唐代诗人，代表作有《咏柳》《回乡偶书》等。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "作者"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-219",
+    "type": "classical",
+    "prompt": "王安石是哪个朝代的文学家？",
+    "options": [
+      "唐代",
+      "宋代",
+      "明代",
+      "清代"
+    ],
+    "correct": 1,
+    "explanation": "王安石是北宋著名的政治家、文学家，唐宋八大家之一。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "作者"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-220",
+    "type": "classical",
+    "prompt": "白居易是哪个朝代的诗人？",
+    "options": [
+      "宋代",
+      "唐代",
+      "汉代",
+      "清代"
+    ],
+    "correct": 1,
+    "explanation": "白居易是唐代伟大诗人，号香山居士，代表作有《忆江南》《长恨歌》等。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "作者"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-221",
+    "type": "classical",
+    "prompt": "补全诗句：「远上寒山石径斜，____。」",
+    "options": [
+      "白云生处有人家",
+      "停车坐爱枫林晚",
+      "霜叶红于二月花",
+      "孤帆一片日边来"
+    ],
+    "correct": 0,
+    "explanation": "「远上寒山石径斜，白云生处有人家」出自杜牧《山行》。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-222",
+    "type": "classical",
+    "prompt": "补全诗句：「停车坐爱枫林晚，____。」",
+    "options": [
+      "白云生处有人家",
+      "远上寒山石径斜",
+      "霜叶红于二月花",
+      "碧水东流至此回"
+    ],
+    "correct": 2,
+    "explanation": "「停车坐爱枫林晚，霜叶红于二月花」出自杜牧《山行》。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-223",
+    "type": "classical",
+    "prompt": "补全诗句：「荷尽已无擎雨盖，____。」",
+    "options": [
+      "一年好景君须记",
+      "最是橙黄橘绿时",
+      "菊残犹有傲霜枝",
+      "萧萧梧叶送寒声"
+    ],
+    "correct": 2,
+    "explanation": "「荷尽已无擎雨盖，菊残犹有傲霜枝」出自苏轼《赠刘景文》。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-224",
+    "type": "classical",
+    "prompt": "补全诗句：「一年好景君须记，____。」",
+    "options": [
+      "菊残犹有傲霜枝",
+      "荷尽已无擎雨盖",
+      "最是橙黄橘绿时",
+      "霜叶红于二月花"
+    ],
+    "correct": 2,
+    "explanation": "「一年好景君须记，最是橙黄橘绿时」出自苏轼《赠刘景文》。",
+    "difficulty": 1,
+    "tags": [
+      "宋诗",
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-225",
+    "type": "classical",
+    "prompt": "补全诗句：「萧萧梧叶送寒声，____。」",
+    "options": [
+      "江上秋风动客情",
+      "知有儿童挑促织",
+      "夜深篱落一灯明",
+      "菊残犹有傲霜枝"
+    ],
+    "correct": 0,
+    "explanation": "「萧萧梧叶送寒声，江上秋风动客情」出自叶绍翁《夜书所见》。",
+    "difficulty": 1,
+    "tags": [
+      "宋诗",
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-226",
+    "type": "classical",
+    "prompt": "补全诗句：「知有儿童挑促织，____。」",
+    "options": [
+      "江上秋风动客情",
+      "萧萧梧叶送寒声",
+      "夜深篱落一灯明",
+      "两岸青山相对出"
+    ],
+    "correct": 2,
+    "explanation": "「知有儿童挑促织，夜深篱落一灯明」出自叶绍翁《夜书所见》。",
+    "difficulty": 1,
+    "tags": [
+      "宋诗",
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-227",
+    "type": "classical",
+    "prompt": "补全诗句：「天门中断楚江开，____。」",
+    "options": [
+      "两岸青山相对出",
+      "孤帆一片日边来",
+      "碧水东流至此回",
+      "白云生处有人家"
+    ],
+    "correct": 2,
+    "explanation": "「天门中断楚江开，碧水东流至此回」出自李白《望天门山》。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-228",
+    "type": "classical",
+    "prompt": "补全诗句：「两岸青山相对出，____。」",
+    "options": [
+      "碧水东流至此回",
+      "天门中断楚江开",
+      "孤帆一片日边来",
+      "轻舟已过万重山"
+    ],
+    "correct": 2,
+    "explanation": "「两岸青山相对出，孤帆一片日边来」出自李白《望天门山》。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-229",
+    "type": "classical",
+    "prompt": "补全诗句：「水光潋滟晴方好，____。」",
+    "options": [
+      "欲把西湖比西子",
+      "淡妆浓抹总相宜",
+      "山色空蒙雨亦奇",
+      "湖光秋月两相和"
+    ],
+    "correct": 2,
+    "explanation": "「水光潋滟晴方好，山色空蒙雨亦奇」出自苏轼《饮湖上初晴后雨》。",
+    "difficulty": 1,
+    "tags": [
+      "宋诗",
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-230",
+    "type": "classical",
+    "prompt": "补全诗句：「欲把西湖比西子，____。」",
+    "options": [
+      "水光潋滟晴方好",
+      "山色空蒙雨亦奇",
+      "淡妆浓抹总相宜",
+      "白银盘里一青螺"
+    ],
+    "correct": 2,
+    "explanation": "「欲把西湖比西子，淡妆浓抹总相宜」出自苏轼《饮湖上初晴后雨》。",
+    "difficulty": 1,
+    "tags": [
+      "宋诗",
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-231",
+    "type": "classical",
+    "prompt": "补全诗句：「湖光秋月两相和，____。」",
+    "options": [
+      "潭面无风镜未磨",
+      "遥望洞庭山水翠",
+      "白银盘里一青螺",
+      "山色空蒙雨亦奇"
+    ],
+    "correct": 0,
+    "explanation": "「湖光秋月两相和，潭面无风镜未磨」出自刘禹锡《望洞庭》。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-232",
+    "type": "classical",
+    "prompt": "补全诗句：「遥望洞庭山水翠，____。」",
+    "options": [
+      "潭面无风镜未磨",
+      "湖光秋月两相和",
+      "白银盘里一青螺",
+      "淡妆浓抹总相宜"
+    ],
+    "correct": 2,
+    "explanation": "「遥望洞庭山水翠，白银盘里一青螺」出自刘禹锡《望洞庭》。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-233",
+    "type": "classical",
+    "prompt": "补全诗句：「日出江花红胜火，____。」",
+    "options": [
+      "春来江水绿如蓝",
+      "能不忆江南",
+      "风景旧曾谙",
+      "江南好"
+    ],
+    "correct": 0,
+    "explanation": "「日出江花红胜火，春来江水绿如蓝」出自白居易《忆江南》。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-234",
+    "type": "classical",
+    "prompt": "补全《忆江南》：「江南好，风景旧曾谙。____，春来江水绿如蓝。能不忆江南？」",
+    "options": [
+      "日出江花红胜火",
+      "水光潋滟晴方好",
+      "两岸青山相对出",
+      "遥望洞庭山水翠"
+    ],
+    "correct": 0,
+    "explanation": "白居易《忆江南》：日出江花红胜火，春来江水绿如蓝。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-235",
+    "type": "classical",
+    "prompt": "补全诗句：「爆竹声中一岁除，____。」",
+    "options": [
+      "千门万户曈曈日",
+      "总把新桃换旧符",
+      "春风送暖入屠苏",
+      "路上行人欲断魂"
+    ],
+    "correct": 2,
+    "explanation": "「爆竹声中一岁除，春风送暖入屠苏」出自王安石《元日》。",
+    "difficulty": 1,
+    "tags": [
+      "宋诗",
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-236",
+    "type": "classical",
+    "prompt": "补全诗句：「千门万户曈曈日，____。」",
+    "options": [
+      "春风送暖入屠苏",
+      "爆竹声中一岁除",
+      "总把新桃换旧符",
+      "借问酒家何处有"
+    ],
+    "correct": 2,
+    "explanation": "「千门万户曈曈日，总把新桃换旧符」出自王安石《元日》。",
+    "difficulty": 1,
+    "tags": [
+      "宋诗",
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-237",
+    "type": "classical",
+    "prompt": "补全诗句：「清明时节雨纷纷，____。」",
+    "options": [
+      "借问酒家何处有",
+      "牧童遥指杏花村",
+      "路上行人欲断魂",
+      "春风送暖入屠苏"
+    ],
+    "correct": 2,
+    "explanation": "「清明时节雨纷纷，路上行人欲断魂」出自杜牧《清明》。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-238",
+    "type": "classical",
+    "prompt": "补全诗句：「借问酒家何处有，____。」",
+    "options": [
+      "路上行人欲断魂",
+      "清明时节雨纷纷",
+      "牧童遥指杏花村",
+      "千门万户曈曈日"
+    ],
+    "correct": 2,
+    "explanation": "「借问酒家何处有，牧童遥指杏花村」出自杜牧《清明》。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-239",
+    "type": "classical",
+    "prompt": "补全诗句：「独在异乡为异客，____。」",
+    "options": [
+      "遍插茱萸少一人",
+      "每逢佳节倍思亲",
+      "低头思故乡",
+      "江上秋风动客情"
+    ],
+    "correct": 1,
+    "explanation": "「独在异乡为异客，每逢佳节倍思亲」出自王维《九月九日忆山东兄弟》。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-240",
+    "type": "classical",
+    "prompt": "补全诗句：「遥知兄弟登高处，____。」",
+    "options": [
+      "每逢佳节倍思亲",
+      "独在异乡为异客",
+      "遍插茱萸少一人",
+      "夜深篱落一灯明"
+    ],
+    "correct": 2,
+    "explanation": "「遥知兄弟登高处，遍插茱萸少一人」出自王维《九月九日忆山东兄弟》。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-241",
+    "type": "classical",
+    "prompt": "补全诗句：「碧玉妆成一树高，____。」",
+    "options": [
+      "二月春风似剪刀",
+      "不知细叶谁裁出",
+      "万条垂下绿丝绦",
+      "春来江水绿如蓝"
+    ],
+    "correct": 2,
+    "explanation": "「碧玉妆成一树高，万条垂下绿丝绦」出自贺知章《咏柳》。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-242",
+    "type": "classical",
+    "prompt": "补全诗句：「不知细叶谁裁出，____。」",
+    "options": [
+      "万条垂下绿丝绦",
+      "碧玉妆成一树高",
+      "二月春风似剪刀",
+      "春风送暖入屠苏"
+    ],
+    "correct": 2,
+    "explanation": "「不知细叶谁裁出，二月春风似剪刀」出自贺知章《咏柳》。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-243",
+    "type": "classical",
+    "prompt": "补全诗句：「两个黄鹂鸣翠柳，____。」",
+    "options": [
+      "窗含西岭千秋雪",
+      "门泊东吴万里船",
+      "一行白鹭上青天",
+      "迟日江山丽"
+    ],
+    "correct": 2,
+    "explanation": "「两个黄鹂鸣翠柳，一行白鹭上青天」出自杜甫《绝句》。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-244",
+    "type": "classical",
+    "prompt": "补全诗句：「窗含西岭千秋雪，____。」",
+    "options": [
+      "一行白鹭上青天",
+      "两个黄鹂鸣翠柳",
+      "门泊东吴万里船",
+      "春风花草香"
+    ],
+    "correct": 2,
+    "explanation": "「窗含西岭千秋雪，门泊东吴万里船」出自杜甫《绝句》。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-245",
+    "type": "classical",
+    "prompt": "补全诗句：「迟日江山丽，____。」",
+    "options": [
+      "泥融飞燕子",
+      "春风花草香",
+      "沙暖睡鸳鸯",
+      "一行白鹭上青天"
+    ],
+    "correct": 1,
+    "explanation": "「迟日江山丽，春风花草香」出自杜甫《绝句》（迟日江山丽）。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-246",
+    "type": "classical",
+    "prompt": "补全诗句：「泥融飞燕子，____。」",
+    "options": [
+      "春风花草香",
+      "迟日江山丽",
+      "沙暖睡鸳鸯",
+      "门泊东吴万里船"
+    ],
+    "correct": 2,
+    "explanation": "「泥融飞燕子，沙暖睡鸳鸯」出自杜甫《绝句》（迟日江山丽）。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-247",
+    "type": "classical",
+    "prompt": "补全《忆江南》最后一句：「春来江水绿如蓝。____？」",
+    "options": [
+      "江南好",
+      "风景旧曾谙",
+      "能不忆江南",
+      "日出江花红胜火"
+    ],
+    "correct": 2,
+    "explanation": "白居易《忆江南》最后一句「能不忆江南」，用反问句表达了对江南的深深思念。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-248",
+    "type": "classical",
+    "prompt": "补全诗句：「____，白云生处有人家。」",
+    "options": [
+      "远上寒山石径斜",
+      "停车坐爱枫林晚",
+      "天门中断楚江开",
+      "碧水东流至此回"
+    ],
+    "correct": 0,
+    "explanation": "「远上寒山石径斜，白云生处有人家」出自杜牧《山行》。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-249",
+    "type": "classical",
+    "prompt": "补全诗句：「____，霜叶红于二月花。」",
+    "options": [
+      "远上寒山石径斜",
+      "白云生处有人家",
+      "停车坐爱枫林晚",
+      "两岸青山相对出"
+    ],
+    "correct": 2,
+    "explanation": "「停车坐爱枫林晚，霜叶红于二月花」出自杜牧《山行》。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-250",
+    "type": "classical",
+    "prompt": "补全诗句：「____，菊残犹有傲霜枝。」",
+    "options": [
+      "一年好景君须记",
+      "荷尽已无擎雨盖",
+      "最是橙黄橘绿时",
+      "萧萧梧叶送寒声"
+    ],
+    "correct": 1,
+    "explanation": "「荷尽已无擎雨盖，菊残犹有傲霜枝」出自苏轼《赠刘景文》。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-251",
+    "type": "classical",
+    "prompt": "「远上寒山石径斜」中「寒山」的意思是？",
+    "options": [
+      "一座叫寒山的山",
+      "深秋时节的山",
+      "很冷的山",
+      "下雪的山"
+    ],
+    "correct": 1,
+    "explanation": "「寒山」指深秋时节寒冷萧瑟的山，不是山名，而是形容秋天的山。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "字义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-252",
+    "type": "classical",
+    "prompt": "「霜叶红于二月花」中「于」是什么意思？",
+    "options": [
+      "在",
+      "到",
+      "和",
+      "比"
+    ],
+    "correct": 3,
+    "explanation": "「于」在这里是「比」的意思，整句说经霜的枫叶比二月的鲜花还要红艳。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "字义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-253",
+    "type": "classical",
+    "prompt": "「荷尽已无擎雨盖」中「盖」的意思是？",
+    "options": [
+      "盖子",
+      "遮盖",
+      "伞盖，这里指荷叶",
+      "锅盖"
+    ],
+    "correct": 2,
+    "explanation": "「擎雨盖」就是能遮雨的伞盖，这里用来比喻荷叶像撑开的雨伞。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "字义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-254",
+    "type": "classical",
+    "prompt": "「菊残犹有傲霜枝」中「犹」的意思是？",
+    "options": [
+      "好像",
+      "仍然、还",
+      "已经",
+      "不再"
+    ],
+    "correct": 1,
+    "explanation": "「犹」是仍然、还的意思，菊花虽然凋残了，枝干仍然傲然挺立在风霜中。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "字义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-255",
+    "type": "classical",
+    "prompt": "「菊残犹有傲霜枝」中「傲」的意思是？",
+    "options": [
+      "骄傲自满",
+      "不畏惧、不屈服",
+      "生气",
+      "自大"
+    ],
+    "correct": 1,
+    "explanation": "「傲霜」是不畏惧霜寒的意思，形容菊枝在寒霜中不屈不挠的精神。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "字义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-256",
+    "type": "classical",
+    "prompt": "「一年好景君须记」中「君」的意思是？",
+    "options": [
+      "国王",
+      "你",
+      "我",
+      "他"
+    ],
+    "correct": 1,
+    "explanation": "「君」在这里是对朋友的尊称，相当于「你」，苏轼对刘景文说。",
+    "difficulty": 1,
+    "tags": [
+      "宋诗",
+      "字义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-257",
+    "type": "classical",
+    "prompt": "「萧萧梧叶送寒声」中「萧萧」的意思是？",
+    "options": [
+      "高兴的样子",
+      "风吹落叶的声音",
+      "安静的样子",
+      "热闹的样子"
+    ],
+    "correct": 1,
+    "explanation": "「萧萧」是象声词，形容风吹梧桐落叶发出的沙沙声响。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "字义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-258",
+    "type": "classical",
+    "prompt": "「江上秋风动客情」中「客」的意思是？",
+    "options": [
+      "客人",
+      "旅居在外的人",
+      "路人",
+      "外国人"
+    ],
+    "correct": 1,
+    "explanation": "「客」指旅居在外、漂泊他乡的人，诗人自比为「客」，表达了思乡之情。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "字义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-259",
+    "type": "classical",
+    "prompt": "「知有儿童挑促织」中「挑」的意思是？",
+    "options": [
+      "挑选",
+      "挑拨",
+      "用细枝拨弄、逗引",
+      "挑担子"
+    ],
+    "correct": 2,
+    "explanation": "「挑」在这里读 tiǎo，是用细枝拨弄、逗引蟋蟀的意思。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "字义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-260",
+    "type": "classical",
+    "prompt": "「夜深篱落一灯明」中「篱落」的意思是？",
+    "options": [
+      "篱笆",
+      "落叶",
+      "院子",
+      "屋顶"
+    ],
+    "correct": 0,
+    "explanation": "「篱落」就是篱笆，夜深了篱笆旁还有一盏灯亮着。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "字义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-261",
+    "type": "classical",
+    "prompt": "「天门中断楚江开」中「中断」的意思是？",
+    "options": [
+      "停止",
+      "从中间断开",
+      "半途而废",
+      "中间休息"
+    ],
+    "correct": 1,
+    "explanation": "「中断」是从中间断开的意思，形容天门山被长江从中间劈开。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "字义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-262",
+    "type": "classical",
+    "prompt": "「碧水东流至此回」中「至此」的意思是？",
+    "options": [
+      "至今",
+      "到这里",
+      "从此",
+      "到那里"
+    ],
+    "correct": 1,
+    "explanation": "「至此」是到了这里的意思，碧绿的江水流到天门山这里形成回旋。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "字义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-263",
+    "type": "classical",
+    "prompt": "「孤帆一片日边来」中「孤帆」的意思是？",
+    "options": [
+      "一只孤单的帆船",
+      "破旧的帆船",
+      "很大的帆船",
+      "没有帆的船"
+    ],
+    "correct": 0,
+    "explanation": "「孤帆」是一只孤单的帆船，远远地从太阳升起的方向驶来。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "字义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-264",
+    "type": "classical",
+    "prompt": "「水光潋滟晴方好」中「方」的意思是？",
+    "options": [
+      "方向",
+      "方法",
+      "正、才",
+      "四方"
+    ],
+    "correct": 2,
+    "explanation": "「方」在这里是「正」的意思，晴天的水面波光闪动正是美好的时候。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "字义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-265",
+    "type": "classical",
+    "prompt": "「山色空蒙雨亦奇」中「空蒙」的意思是？",
+    "options": [
+      "空旷",
+      "迷茫缥缈的样子",
+      "空荡荡的",
+      "黑暗"
+    ],
+    "correct": 1,
+    "explanation": "「空蒙」形容雨中山色迷茫缥缈、若隐若现的朦胧之美。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "字义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-266",
+    "type": "classical",
+    "prompt": "「山色空蒙雨亦奇」中「亦」的意思是？",
+    "options": [
+      "不",
+      "也",
+      "才",
+      "很"
+    ],
+    "correct": 1,
+    "explanation": "「亦」是「也」的意思，晴天好，雨天也很奇妙。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "字义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-267",
+    "type": "classical",
+    "prompt": "「淡妆浓抹总相宜」中「相宜」的意思是？",
+    "options": [
+      "相互",
+      "合适、适宜",
+      "好看",
+      "一样"
+    ],
+    "correct": 1,
+    "explanation": "「相宜」是合适的意思，不管淡妆还是浓妆，西湖都很美。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "字义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-268",
+    "type": "classical",
+    "prompt": "「湖光秋月两相和」中「和」的意思是？",
+    "options": [
+      "和平",
+      "和谐、交融",
+      "温和",
+      "总和"
+    ],
+    "correct": 1,
+    "explanation": "「和」是和谐交融的意思，湖面的光芒和秋天的月色融为一体。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "字义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-269",
+    "type": "classical",
+    "prompt": "「千门万户曈曈日」中「曈曈」的意思是？",
+    "options": [
+      "很暗的样子",
+      "太阳初升、光亮的样子",
+      "很热的样子",
+      "下雨的样子"
+    ],
+    "correct": 1,
+    "explanation": "「曈曈」形容太阳初升时光亮温暖的样子，描写新年第一天的阳光。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "字义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-270",
+    "type": "classical",
+    "prompt": "「春风送暖入屠苏」中「屠苏」是什么？",
+    "options": [
+      "一种房子",
+      "一种过年喝的药酒",
+      "一种食物",
+      "一个人名"
+    ],
+    "correct": 1,
+    "explanation": "「屠苏」是屠苏酒，古人在春节时饮用，据说能驱除瘟疫。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "字义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-271",
+    "type": "classical",
+    "prompt": "「路上行人欲断魂」中「欲」的意思是？",
+    "options": [
+      "想要",
+      "快要、将要",
+      "欲望",
+      "需要"
+    ],
+    "correct": 1,
+    "explanation": "「欲断魂」中的「欲」是快要、将要的意思，形容悲伤到了极点。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "字义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-272",
+    "type": "classical",
+    "prompt": "「借问酒家何处有」中「借问」的意思是？",
+    "options": [
+      "借东西",
+      "请问",
+      "问路",
+      "借钱"
+    ],
+    "correct": 1,
+    "explanation": "「借问」是敬辞，相当于「请问」，行人向路人打听酒家在哪里。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "字义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-273",
+    "type": "classical",
+    "prompt": "「牧童遥指杏花村」中「遥指」的意思是？",
+    "options": [
+      "远远地用手指着",
+      "摇头",
+      "近处指着",
+      "随便指"
+    ],
+    "correct": 0,
+    "explanation": "「遥指」是远远地用手指着的意思，牧童远远地指向杏花村的方向。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "字义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-274",
+    "type": "classical",
+    "prompt": "「独在异乡为异客」中「异乡」的意思是？",
+    "options": [
+      "美丽的地方",
+      "奇怪的地方",
+      "他乡、外地",
+      "故乡"
+    ],
+    "correct": 2,
+    "explanation": "「异乡」是他乡、外地的意思，指不是自己家乡的地方。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "字义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-275",
+    "type": "classical",
+    "prompt": "「遍插茱萸少一人」中「遍」的意思是？",
+    "options": [
+      "一边",
+      "到处、全都",
+      "偏僻",
+      "一半"
+    ],
+    "correct": 1,
+    "explanation": "「遍插」是到处都插、人人都插的意思，兄弟们都插上了茱萸。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "字义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-276",
+    "type": "classical",
+    "prompt": "「碧玉妆成一树高」中「碧玉」比喻什么？",
+    "options": [
+      "真正的玉石",
+      "翠绿的颜色，比喻柳树",
+      "一种花",
+      "蓝天"
+    ],
+    "correct": 1,
+    "explanation": "「碧玉」这里比喻柳树碧绿如玉，同时也暗用了「小家碧玉」的典故。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "字义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-277",
+    "type": "classical",
+    "prompt": "「万条垂下绿丝绦」中「绿丝绦」比喻什么？",
+    "options": [
+      "绿色的丝带",
+      "绿色的绳子",
+      "柳条",
+      "丝绸"
+    ],
+    "correct": 2,
+    "explanation": "「绿丝绦」本义是绿色的丝带，这里比喻细长柔软的柳条。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "字义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-278",
+    "type": "classical",
+    "prompt": "「窗含西岭千秋雪」中「含」的意思是？",
+    "options": [
+      "包含",
+      "嘴含",
+      "窗户像画框一样包纳着",
+      "吞下"
+    ],
+    "correct": 2,
+    "explanation": "「含」是包纳的意思，窗户像画框一样把西岭的雪山美景框在其中。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "字义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-279",
+    "type": "classical",
+    "prompt": "「门泊东吴万里船」中「泊」的意思是？",
+    "options": [
+      "出发",
+      "停泊、停靠",
+      "漂泊",
+      "经过"
+    ],
+    "correct": 1,
+    "explanation": "「泊」是停泊、停靠的意思，门前停靠着从东吴万里而来的船只。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "字义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-280",
+    "type": "classical",
+    "prompt": "「春来江水绿如蓝」中「蓝」是什么意思？",
+    "options": [
+      "蓝色",
+      "一种可以提取蓝色染料的草",
+      "天蓝色",
+      "宝蓝色"
+    ],
+    "correct": 1,
+    "explanation": "「蓝」指蓝草，一种可以提取蓝色染料的植物。江水碧绿得像蓝草染过一样。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "字义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-282",
+    "type": "classical",
+    "prompt": "《赠刘景文》描写的是什么季节的景色？",
+    "options": [
+      "春天",
+      "夏天",
+      "秋天",
+      "冬天"
+    ],
+    "correct": 2,
+    "explanation": "「荷尽」「菊残」「橙黄橘绿」都是秋末冬初的景象，主要描写深秋。",
+    "difficulty": 1,
+    "tags": [
+      "宋诗",
+      "季节"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-283",
+    "type": "classical",
+    "prompt": "《夜书所见》描写的是什么季节？",
+    "options": [
+      "春天",
+      "夏天",
+      "秋天",
+      "冬天"
+    ],
+    "correct": 2,
+    "explanation": "「萧萧梧叶」「秋风」「促织（蟋蟀）」都是秋天的特征。",
+    "difficulty": 1,
+    "tags": [
+      "宋诗",
+      "季节"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-284",
+    "type": "classical",
+    "prompt": "《忆江南》中「日出江花红胜火，春来江水绿如蓝」描写的是什么季节？",
+    "options": [
+      "春天",
+      "夏天",
+      "秋天",
+      "冬天"
+    ],
+    "correct": 0,
+    "explanation": "「春来江水绿如蓝」点明了这是春天的景色。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "季节"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-285",
+    "type": "classical",
+    "prompt": "《元日》描写的是什么节日的场景？",
+    "options": [
+      "中秋节",
+      "端午节",
+      "春节",
+      "元宵节"
+    ],
+    "correct": 2,
+    "explanation": "「元日」就是农历正月初一，即春节。诗中描写了放鞭炮、饮屠苏酒、换桃符等春节习俗。",
+    "difficulty": 1,
+    "tags": [
+      "宋诗",
+      "季节"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-286",
+    "type": "classical",
+    "prompt": "《清明》描写的是什么节气？",
+    "options": [
+      "立春",
+      "清明",
+      "谷雨",
+      "霜降"
+    ],
+    "correct": 1,
+    "explanation": "诗题就是「清明」，描写清明时节细雨纷纷、行人愁思的情景。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "季节"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-287",
+    "type": "classical",
+    "prompt": "《九月九日忆山东兄弟》写的是什么节日？",
+    "options": [
+      "端午节",
+      "重阳节",
+      "中秋节",
+      "春节"
+    ],
+    "correct": 1,
+    "explanation": "九月九日是重阳节，有登高和佩插茱萸的习俗。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "季节"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-288",
+    "type": "classical",
+    "prompt": "《咏柳》描写的是什么季节？",
+    "options": [
+      "春天",
+      "夏天",
+      "秋天",
+      "冬天"
+    ],
+    "correct": 0,
+    "explanation": "「碧玉妆成」「绿丝绦」「二月春风」都表明这是早春时节柳树发芽的景色。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "季节"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-289",
+    "type": "classical",
+    "prompt": "《绝句》（两个黄鹂鸣翠柳）描写的是什么季节？",
+    "options": [
+      "春天",
+      "夏天",
+      "秋天",
+      "冬天"
+    ],
+    "correct": 0,
+    "explanation": "「翠柳」「白鹭」以及万物生机勃勃的景象，描写的是春天。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "季节"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-290",
+    "type": "classical",
+    "prompt": "《望洞庭》描写的是什么季节的夜景？",
+    "options": [
+      "春夜",
+      "夏夜",
+      "秋夜",
+      "冬夜"
+    ],
+    "correct": 2,
+    "explanation": "「湖光秋月两相和」明确写到「秋月」，描写的是秋天的夜景。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "季节"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-291",
+    "type": "classical",
+    "prompt": "《饮湖上初晴后雨》写了哪两种天气下的西湖？",
+    "options": [
+      "风天和雪天",
+      "晴天和雨天",
+      "晴天和阴天",
+      "雾天和晴天"
+    ],
+    "correct": 1,
+    "explanation": "诗题「初晴后雨」点明了先晴后雨，诗中「晴方好」「雨亦奇」写了两种天气下的西湖。",
+    "difficulty": 1,
+    "tags": [
+      "宋诗",
+      "季节"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-292",
+    "type": "classical",
+    "prompt": "《绝句》（迟日江山丽）描写的是什么季节？",
+    "options": [
+      "春天",
+      "夏天",
+      "秋天",
+      "冬天"
+    ],
+    "correct": 0,
+    "explanation": "「迟日」是春天日子渐长的意思，「春风花草香」「飞燕子」都是春天的意象。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "季节"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-293",
+    "type": "classical",
+    "prompt": "「停车坐爱枫林晚」中的枫叶变红是在什么季节？",
+    "options": [
+      "春天",
+      "夏天",
+      "深秋",
+      "冬天"
+    ],
+    "correct": 2,
+    "explanation": "枫叶在深秋经霜之后变为红色，「霜叶红于二月花」描写的正是深秋时节。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "季节"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-294",
+    "type": "classical",
+    "prompt": "「橙黄橘绿」描写的是哪个季节果实成熟的颜色？",
+    "options": [
+      "春天",
+      "夏天",
+      "秋天",
+      "冬天"
+    ],
+    "correct": 2,
+    "explanation": "橙子变黄、橘子转绿是秋末冬初果实成熟的景象，是秋天最美好的时候。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "季节"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-295",
+    "type": "classical",
+    "prompt": "「清明时节雨纷纷」一般在什么季节？",
+    "options": [
+      "初春",
+      "暮春",
+      "初夏",
+      "深秋"
+    ],
+    "correct": 1,
+    "explanation": "清明节在公历四月初，正值暮春时节，常常春雨绵绵。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "季节"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-296",
+    "type": "classical",
+    "prompt": "《山行》表达了诗人什么样的感情？",
+    "options": [
+      "对秋天的悲伤",
+      "对深秋山林景色的喜爱和赞美",
+      "对离别的感伤",
+      "对故乡的思念"
+    ],
+    "correct": 1,
+    "explanation": "诗人因为喜爱枫林美景而停车观赏，赞美霜叶比二月花还红，表达了对秋景的热爱。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "情感"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-297",
+    "type": "classical",
+    "prompt": "《赠刘景文》表达了苏轼什么样的感情？",
+    "options": [
+      "对秋天的厌恶",
+      "对朋友的鼓励和对秋天的赞美",
+      "对夏天的思念",
+      "对分别的悲伤"
+    ],
+    "correct": 1,
+    "explanation": "苏轼告诉朋友一年中最好的景致是橙黄橘绿的秋天，鼓励朋友乐观向上。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "情感"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-298",
+    "type": "classical",
+    "prompt": "《夜书所见》表达了诗人什么样的主要感情？",
+    "options": [
+      "欢乐",
+      "思乡念亲的孤独之情",
+      "愤怒",
+      "害怕"
+    ],
+    "correct": 1,
+    "explanation": "诗人在异乡秋夜，听到梧叶声和秋风，看到远处儿童的灯火，勾起了对家乡的思念。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "情感"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-299",
+    "type": "classical",
+    "prompt": "《望天门山》表达了诗人什么样的感情？",
+    "options": [
+      "对山水壮丽景色的赞叹和豪迈之情",
+      "悲伤",
+      "思念家乡",
+      "孤独"
+    ],
+    "correct": 0,
+    "explanation": "李白用磅礴的笔触描写天门山和长江，表达了对祖国壮丽山河的热爱和豪迈之情。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "情感"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-300",
+    "type": "classical",
+    "prompt": "《饮湖上初晴后雨》表达了苏轼什么样的感情？",
+    "options": [
+      "对西湖的厌倦",
+      "对西湖美景的赞美和热爱",
+      "对雨天的讨厌",
+      "对古人的思念"
+    ],
+    "correct": 1,
+    "explanation": "苏轼把西湖比作西施，不论晴雨都美，表达了对西湖的高度赞美和热爱。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "情感"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-301",
+    "type": "classical",
+    "prompt": "《望洞庭》表达了诗人什么样的感情？",
+    "options": [
+      "对洞庭湖宁静柔美的喜爱",
+      "悲伤",
+      "愤怒",
+      "对离别的不舍"
+    ],
+    "correct": 0,
+    "explanation": "刘禹锡用温柔的笔触描写洞庭湖的秋夜，表达了对洞庭湖宁静之美的欣赏和喜爱。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "情感"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-302",
+    "type": "classical",
+    "prompt": "《忆江南》表达了白居易什么样的感情？",
+    "options": [
+      "对江南的厌恶",
+      "对江南美景的怀念和赞美",
+      "对北方的思念",
+      "对冬天的害怕"
+    ],
+    "correct": 1,
+    "explanation": "「能不忆江南？」用反问句表达了诗人对江南深深的怀念和赞美之情。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "情感"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-303",
+    "type": "classical",
+    "prompt": "《元日》表达了什么样的感情？",
+    "options": [
+      "对新年新气象的欢喜和对未来的期盼",
+      "悲伤",
+      "孤独",
+      "害怕"
+    ],
+    "correct": 0,
+    "explanation": "《元日》描写春节的热闹喜庆，表达了辞旧迎新的欢乐和对新生活的期盼。",
+    "difficulty": 1,
+    "tags": [
+      "宋诗",
+      "情感"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-304",
+    "type": "classical",
+    "prompt": "《清明》表达了行人什么样的感情？",
+    "options": [
+      "欢乐",
+      "对逝去亲人的怀念和哀愁",
+      "愤怒",
+      "对自然的赞美"
+    ],
+    "correct": 1,
+    "explanation": "清明节是祭祀先人的节日，「欲断魂」表达了行人对逝去亲人深深的怀念和哀思。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "情感"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-305",
+    "type": "classical",
+    "prompt": "《九月九日忆山东兄弟》表达了王维什么样的感情？",
+    "options": [
+      "欢乐",
+      "对兄弟和家乡的思念",
+      "愤怒",
+      "对风景的赞美"
+    ],
+    "correct": 1,
+    "explanation": "「每逢佳节倍思亲」直接表达了诗人在异乡每到佳节格外思念家人的感情。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "情感"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-306",
+    "type": "classical",
+    "prompt": "《咏柳》表达了诗人什么样的感情？",
+    "options": [
+      "对柳树的厌恶",
+      "对春天和柳树的赞美与喜爱",
+      "对秋天的思念",
+      "悲伤"
+    ],
+    "correct": 1,
+    "explanation": "贺知章用精妙的比喻赞美柳树的美丽，表达了对春天的喜爱之情。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "情感"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-307",
+    "type": "classical",
+    "prompt": "「每逢佳节倍思亲」这句诗为什么能引起很多人的共鸣？",
+    "options": [
+      "因为它描写了很美的风景",
+      "因为它说出了每个离家之人的心声",
+      "因为它很长",
+      "因为它很难懂"
+    ],
+    "correct": 1,
+    "explanation": "这句诗道出了远离家乡的人逢年过节时格外思念亲人的普遍感受，所以千古传诵。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "情感"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-308",
+    "type": "classical",
+    "prompt": "「能不忆江南？」这个句式有什么特点？",
+    "options": [
+      "陈述句",
+      "疑问句",
+      "反问句，表达一定忆江南",
+      "感叹句"
+    ],
+    "correct": 2,
+    "explanation": "「能不忆江南」是反问句，意思是怎么能不怀念江南呢？强调了一定会怀念。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "情感"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-309",
+    "type": "classical",
+    "prompt": "「菊残犹有傲霜枝」中的菊花形象，苏轼用来鼓励朋友什么？",
+    "options": [
+      "多种花",
+      "像菊花一样，在困境中保持坚强",
+      "不要赏菊",
+      "多穿衣服"
+    ],
+    "correct": 1,
+    "explanation": "苏轼用菊枝在霜寒中不屈服的形象，勉励朋友在逆境中也要保持坚韧不拔的精神。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "情感"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-310",
+    "type": "classical",
+    "prompt": "《绝句》（两个黄鹂鸣翠柳）表达了诗人什么样的感情？",
+    "options": [
+      "悲伤",
+      "对春天美景的喜悦和对安定生活的满足",
+      "愤怒",
+      "孤独"
+    ],
+    "correct": 1,
+    "explanation": "杜甫描写了明丽的春景，表达了在成都草堂安定生活时对美好春天的喜悦之情。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "情感"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-311",
+    "type": "classical",
+    "prompt": "「不知细叶谁裁出，二月春风似剪刀」用了什么修辞手法？",
+    "options": [
+      "拟人",
+      "夸张",
+      "比喻",
+      "对偶"
+    ],
+    "correct": 2,
+    "explanation": "诗人把春风比作剪刀，形象地写出了春风裁剪出柳叶的精巧，这是比喻手法。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "修辞"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-312",
+    "type": "classical",
+    "prompt": "「碧玉妆成一树高」用了什么修辞手法？",
+    "options": [
+      "夸张",
+      "比喻",
+      "排比",
+      "反问"
+    ],
+    "correct": 1,
+    "explanation": "把柳树比作碧玉装扮而成，是比喻手法，形象地写出了柳树的翠绿之美。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "修辞"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-313",
+    "type": "classical",
+    "prompt": "「欲把西湖比西子，淡妆浓抹总相宜」用了什么修辞手法？",
+    "options": [
+      "夸张",
+      "拟人",
+      "比喻",
+      "对比"
+    ],
+    "correct": 2,
+    "explanation": "把西湖比作古代美女西施，是比喻手法，生动地赞美了西湖的美丽。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "修辞"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-314",
+    "type": "classical",
+    "prompt": "「飞流直下三千尺」用了什么修辞手法？",
+    "options": [
+      "比喻",
+      "拟人",
+      "夸张",
+      "反问"
+    ],
+    "correct": 2,
+    "explanation": "瀑布不可能真有三千尺，用夸张手法突出了庐山瀑布的雄伟壮观。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "修辞"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-315",
+    "type": "classical",
+    "prompt": "「潭面无风镜未磨」用了什么修辞手法？",
+    "options": [
+      "拟人",
+      "比喻",
+      "夸张",
+      "排比"
+    ],
+    "correct": 1,
+    "explanation": "把平静的洞庭湖面比作没有磨过的铜镜，是比喻手法。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "修辞"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-316",
+    "type": "classical",
+    "prompt": "「遥望洞庭山水翠，白银盘里一青螺」用了什么修辞手法？",
+    "options": [
+      "拟人",
+      "夸张",
+      "比喻",
+      "反复"
+    ],
+    "correct": 2,
+    "explanation": "把洞庭湖比作白银盘，把君山比作青螺，是比喻手法，形象而新颖。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "修辞"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-317",
+    "type": "classical",
+    "prompt": "「霜叶红于二月花」用了什么修辞手法？",
+    "options": [
+      "比喻",
+      "对比",
+      "夸张",
+      "拟人"
+    ],
+    "correct": 1,
+    "explanation": "把经霜的枫叶和二月的鲜花做比较，用对比手法突出枫叶的红艳之美。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "修辞"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-318",
+    "type": "classical",
+    "prompt": "「日出江花红胜火，春来江水绿如蓝」用了什么修辞手法？",
+    "options": [
+      "拟人",
+      "对偶和比喻",
+      "夸张",
+      "反问"
+    ],
+    "correct": 1,
+    "explanation": "上下句对偶工整，同时用「红胜火」「绿如蓝」比喻江花和江水的颜色。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "修辞"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-319",
+    "type": "classical",
+    "prompt": "「两个黄鹂鸣翠柳，一行白鹭上青天」用了什么修辞手法？",
+    "options": [
+      "夸张",
+      "对偶",
+      "反问",
+      "排比"
+    ],
+    "correct": 1,
+    "explanation": "上下句字数相同、词性对应（两个对一行，黄鹂对白鹭，翠柳对青天），是对偶手法。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "修辞"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-320",
+    "type": "classical",
+    "prompt": "「能不忆江南？」用了什么修辞手法？",
+    "options": [
+      "比喻",
+      "夸张",
+      "反问",
+      "对偶"
+    ],
+    "correct": 2,
+    "explanation": "用反问句式「能不……？」加强了语气，强调一定会怀念江南，是反问修辞。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "修辞"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-321",
+    "type": "classical",
+    "prompt": "「天门中断楚江开」用了什么修辞手法？",
+    "options": [
+      "比喻",
+      "夸张",
+      "拟人",
+      "反问"
+    ],
+    "correct": 2,
+    "explanation": "「楚江开」把长江写成主动劈开天门山的力量，赋予了江水人的行为，是夸张兼拟人手法。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "修辞"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-322",
+    "type": "classical",
+    "prompt": "「窗含西岭千秋雪，门泊东吴万里船」用了什么修辞手法？",
+    "options": [
+      "比喻",
+      "对偶",
+      "反问",
+      "排比"
+    ],
+    "correct": 1,
+    "explanation": "「窗含」对「门泊」，「西岭」对「东吴」，「千秋雪」对「万里船」，对仗工整，是对偶。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "修辞"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-323",
+    "type": "classical",
+    "prompt": "「水光潋滟晴方好，山色空蒙雨亦奇」用了什么修辞手法？",
+    "options": [
+      "比喻",
+      "对偶",
+      "夸张",
+      "排比"
+    ],
+    "correct": 1,
+    "explanation": "「水光」对「山色」，「潋滟」对「空蒙」，「晴方好」对「雨亦奇」，是对偶手法。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "修辞"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-324",
+    "type": "classical",
+    "prompt": "「荷尽已无擎雨盖，菊残犹有傲霜枝」中「荷尽」和「菊残」形成什么关系？",
+    "options": [
+      "因果",
+      "对比",
+      "递进",
+      "总分"
+    ],
+    "correct": 1,
+    "explanation": "荷花凋尽和菊花虽残但仍有傲骨形成对比，突出了菊花坚强不屈的品质。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "修辞"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-325",
+    "type": "classical",
+    "prompt": "「独在异乡为异客」连用两个「异」字有什么作用？",
+    "options": [
+      "没有特殊作用",
+      "强调了诗人身处他乡的孤独和陌生感",
+      "为了押韵",
+      "写错了"
+    ],
+    "correct": 1,
+    "explanation": "两个「异」字重叠使用，加倍强调了诗人远离家乡、身处异地的孤独和陌生之感。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "修辞"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-326",
+    "type": "classical",
+    "prompt": "《山行》中诗人为什么「停车」？",
+    "options": [
+      "车坏了",
+      "路太陡了",
+      "因为喜爱枫林傍晚的美景",
+      "因为天黑了"
+    ],
+    "correct": 2,
+    "explanation": "「停车坐爱枫林晚」，「坐」是因为的意思，诗人因为喜爱枫林晚景而停下马车观赏。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-327",
+    "type": "classical",
+    "prompt": "「一年好景君须记，最是橙黄橘绿时」苏轼想告诉刘景文什么道理？",
+    "options": [
+      "秋天水果好吃",
+      "人生不应只看到凋零，秋天也有美好的一面",
+      "冬天不好",
+      "要多吃水果"
+    ],
+    "correct": 1,
+    "explanation": "苏轼劝朋友不要只看到荷尽菊残的萧条，秋天橙黄橘绿正是最美好的时节，鼓励乐观。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-328",
+    "type": "classical",
+    "prompt": "《夜书所见》中「知有儿童挑促织」是诗人亲眼看到的吗？",
+    "options": [
+      "是的，就在眼前",
+      "是他猜测想象的",
+      "是白天看到的",
+      "是别人告诉他的"
+    ],
+    "correct": 1,
+    "explanation": "诗人只看到远处篱笆旁一盏灯火，「知有」表明是他推测想象有孩子在捉蟋蟀。",
+    "difficulty": 3,
+    "tags": [
+      "宋诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-329",
+    "type": "classical",
+    "prompt": "《望天门山》中「天门中断楚江开」给人什么感觉？",
+    "options": [
+      "安静柔美",
+      "气势磅礴，江水力量巨大",
+      "悲伤凄凉",
+      "轻松愉快"
+    ],
+    "correct": 1,
+    "explanation": "「中断」「开」写出了长江劈开天门山的巨大力量，给人气势磅礴的感觉。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "情感"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-330",
+    "type": "classical",
+    "prompt": "苏轼为什么把西湖比作西施？",
+    "options": [
+      "西湖的形状像人",
+      "西湖不论晴雨都美，像西施不论淡妆浓抹都好看",
+      "西施住在西湖边",
+      "随便比的"
+    ],
+    "correct": 1,
+    "explanation": "西施无论淡妆还是浓妆都好看，西湖无论晴天还是雨天都美丽，两者有相似之处。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-331",
+    "type": "classical",
+    "prompt": "《望洞庭》中为什么把湖面比作「镜未磨」而不是「镜已磨」？",
+    "options": [
+      "诗人记错了",
+      "因为有微波，不像磨亮的镜子那样清晰，而是朦胧柔美",
+      "因为镜子太贵了",
+      "没有原因"
+    ],
+    "correct": 1,
+    "explanation": "没有打磨的铜镜是朦胧模糊的，比喻秋夜湖面在月光下并非一览无余而是柔和朦胧之美。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-332",
+    "type": "classical",
+    "prompt": "《忆江南》是诗还是词？",
+    "options": [
+      "五言绝句",
+      "七言律诗",
+      "词",
+      "散文"
+    ],
+    "correct": 2,
+    "explanation": "《忆江南》是词牌名，这是一首词，格式与普通五言或七言诗不同。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-333",
+    "type": "classical",
+    "prompt": "《元日》中描写了哪些春节习俗？",
+    "options": [
+      "赏月、吃月饼",
+      "放爆竹、喝屠苏酒、换桃符",
+      "赛龙舟、吃粽子",
+      "登高、插茱萸"
+    ],
+    "correct": 1,
+    "explanation": "诗中提到了放鞭炮（爆竹）、喝屠苏酒、换桃符（贴春联）三种春节习俗。",
+    "difficulty": 1,
+    "tags": [
+      "宋诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-334",
+    "type": "classical",
+    "prompt": "《清明》中行人为什么「欲断魂」？",
+    "options": [
+      "迷路了",
+      "因为清明祭祖，思念逝去的亲人而悲伤",
+      "走累了",
+      "害怕下雨"
+    ],
+    "correct": 1,
+    "explanation": "清明节是祭奠先人的日子，行人思念故去的亲人，加上细雨纷纷，心情十分悲伤。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "情感"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-335",
+    "type": "classical",
+    "prompt": "《九月九日忆山东兄弟》中的「山东」是现在的山东省吗？",
+    "options": [
+      "是的",
+      "不是，指华山以东，即诗人的家乡蒲州",
+      "指山的东边",
+      "指东海"
+    ],
+    "correct": 1,
+    "explanation": "这里的「山东」指华山以东，王维的家乡蒲州（今山西永济），不是现在的山东省。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-336",
+    "type": "classical",
+    "prompt": "《咏柳》中为什么把春风比作剪刀？",
+    "options": [
+      "春天要剪枝",
+      "春风把柳叶「裁剪」得那么精巧细致",
+      "古人用剪刀",
+      "诗人是裁缝"
+    ],
+    "correct": 1,
+    "explanation": "柳叶形状精巧纤细，像是被人精心剪裁出来的，诗人把春风比作能手巧匠的剪刀。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-337",
+    "type": "classical",
+    "prompt": "杜甫《绝句》（两个黄鹂）中描写了哪些色彩？",
+    "options": [
+      "只有绿色",
+      "黄、翠绿、白、青四种",
+      "只有黄色和白色",
+      "红、橙、黄、绿"
+    ],
+    "correct": 1,
+    "explanation": "黄鹂（黄）、翠柳（翠绿）、白鹭（白）、青天（青蓝），四种颜色描绘出明丽的春景。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-338",
+    "type": "classical",
+    "prompt": "「窗含西岭千秋雪」中「千秋」是什么意思？",
+    "options": [
+      "一千年",
+      "很多年、久远",
+      "秋天",
+      "一千个秋天"
+    ],
+    "correct": 1,
+    "explanation": "「千秋」是很多年、久远的意思，「千秋雪」指终年不化的积雪。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-339",
+    "type": "classical",
+    "prompt": "「迟日江山丽」中「迟日」是什么意思？",
+    "options": [
+      "迟到的日子",
+      "春天白天渐长",
+      "很晚的日落",
+      "阴天"
+    ],
+    "correct": 1,
+    "explanation": "「迟日」出自《诗经》，指春天太阳落得晚、白天变长，是春天的典型特征。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-340",
+    "type": "classical",
+    "prompt": "「泥融飞燕子，沙暖睡鸳鸯」中为什么燕子在飞、鸳鸯在睡？",
+    "options": [
+      "没有原因",
+      "春天泥土融化燕子忙筑巢，沙滩暖和鸳鸯安睡",
+      "燕子怕冷",
+      "鸳鸯生病了"
+    ],
+    "correct": 1,
+    "explanation": "春天冰雪融化泥土变软，燕子衔泥筑巢所以忙碌地飞；沙滩被春日晒暖，鸳鸯舒适地睡觉。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-341",
+    "type": "classical",
+    "prompt": "下列哪首诗描写了节日习俗？",
+    "options": [
+      "《山行》",
+      "《望天门山》",
+      "《元日》",
+      "《望洞庭》"
+    ],
+    "correct": 2,
+    "explanation": "《元日》描写了春节放爆竹、喝屠苏酒、换桃符（春联）等节日习俗。",
+    "difficulty": 1,
+    "tags": [
+      "宋诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-342",
+    "type": "classical",
+    "prompt": "下列哪首诗描写了洞庭湖的景色？",
+    "options": [
+      "《饮湖上初晴后雨》",
+      "《望天门山》",
+      "《望洞庭》",
+      "《忆江南》"
+    ],
+    "correct": 2,
+    "explanation": "《望洞庭》是刘禹锡描写洞庭湖秋夜美景的作品。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-343",
+    "type": "classical",
+    "prompt": "下列哪首诗描写了西湖的景色？",
+    "options": [
+      "《望洞庭》",
+      "《望天门山》",
+      "《饮湖上初晴后雨》",
+      "《忆江南》"
+    ],
+    "correct": 2,
+    "explanation": "苏轼的《饮湖上初晴后雨》专门描写西湖在晴天和雨天的美丽景色。",
+    "difficulty": 1,
+    "tags": [
+      "宋诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-344",
+    "type": "classical",
+    "prompt": "下列哪首诗描写了长江和天门山？",
+    "options": [
+      "《望洞庭》",
+      "《饮湖上初晴后雨》",
+      "《望天门山》",
+      "《忆江南》"
+    ],
+    "correct": 2,
+    "explanation": "李白的《望天门山》描写了长江水劈开天门山的壮丽景色。",
+    "difficulty": 1,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-345",
+    "type": "classical",
+    "prompt": "下列哪两首诗都是苏轼的作品？",
+    "options": [
+      "《山行》和《清明》",
+      "《赠刘景文》和《饮湖上初晴后雨》",
+      "《元日》和《忆江南》",
+      "《望洞庭》和《咏柳》"
+    ],
+    "correct": 1,
+    "explanation": "《赠刘景文》和《饮湖上初晴后雨》都是苏轼的作品。",
+    "difficulty": 2,
+    "tags": [
+      "宋诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-346",
+    "type": "classical",
+    "prompt": "「借问酒家何处有」中行人为什么要找酒家？",
+    "options": [
+      "他很饿",
+      "想借酒消愁、避雨歇脚",
+      "要买东西",
+      "要找人"
+    ],
+    "correct": 1,
+    "explanation": "清明时节细雨纷纷，行人悲愁交加，想找个酒家喝酒消愁，也好避雨歇脚。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-347",
+    "type": "classical",
+    "prompt": "「遥知兄弟登高处」中「登高」是什么节日的习俗？",
+    "options": [
+      "春节",
+      "清明节",
+      "重阳节",
+      "中秋节"
+    ],
+    "correct": 2,
+    "explanation": "登高是重阳节（九月九日）的传统习俗，人们认为登高可以避灾祈福。",
+    "difficulty": 2,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-348",
+    "type": "classical",
+    "prompt": "「白银盘里一青螺」这个比喻好在哪里？",
+    "options": [
+      "颜色鲜艳",
+      "把广阔的洞庭湖和君山缩小为盘和螺，小巧精致，富有情趣",
+      "写得很长",
+      "描写很详细"
+    ],
+    "correct": 1,
+    "explanation": "诗人从远处望去，把浩大的洞庭湖比作小小的银盘，君山比作一枚青螺，以小写大，妙趣横生。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-349",
+    "type": "classical",
+    "prompt": "杜甫《绝句》（两个黄鹂）中「上」字用得好在哪里？",
+    "options": [
+      "没什么特别",
+      "写出了白鹭飞向蓝天的动态和向上的气势",
+      "字简单",
+      "很常见"
+    ],
+    "correct": 1,
+    "explanation": "一个「上」字写出了白鹭轻快地飞向蓝天的动感和向上的姿态，充满生机和活力。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c3-350",
+    "type": "classical",
+    "prompt": "《咏柳》全诗用了什么方法来赞美柳树？",
+    "options": [
+      "直接说柳树好看",
+      "先描写柳树的外形，再用比喻探究是谁裁出了柳叶",
+      "列举很多树做对比",
+      "写了一个故事"
+    ],
+    "correct": 1,
+    "explanation": "诗人先用碧玉和绿丝绦比喻柳树的形态，再用设问和比喻（春风似剪刀）揭示造化之功。",
+    "difficulty": 3,
+    "tags": [
+      "唐诗",
+      "理解"
+    ],
+    "source": "curriculum"
+  }
 ]

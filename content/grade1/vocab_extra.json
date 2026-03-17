@@ -1,442 +1,5 @@
 [
   {
-    "id": "v1-151",
-    "type": "vocab",
-    "prompt": "「一」字怎么读？",
-    "options": [
-      "lì",
-      "dī",
-      "yī",
-      "hóng"
-    ],
-    "correct": 2,
-    "explanation": "「一」读 yī，第一声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-152",
-    "type": "vocab",
-    "prompt": "「二」字怎么读？",
-    "options": [
-      "liù",
-      "mā",
-      "lái",
-      "èr"
-    ],
-    "correct": 3,
-    "explanation": "「二」读 èr，第四声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-153",
-    "type": "vocab",
-    "prompt": "「三」字怎么读？",
-    "options": [
-      "zuǒ",
-      "tóu",
-      "sān",
-      "shù"
-    ],
-    "correct": 2,
-    "explanation": "「三」读 sān，第一声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-154",
-    "type": "vocab",
-    "prompt": "「四」字怎么读？",
-    "options": [
-      "sì",
-      "chuáng",
-      "duō",
-      "fēng"
-    ],
-    "correct": 0,
-    "explanation": "「四」读 sì，第四声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-155",
-    "type": "vocab",
-    "prompt": "「五」字怎么读？",
-    "options": [
-      "wǔ",
-      "shū",
-      "shí",
-      "huí"
-    ],
-    "correct": 0,
-    "explanation": "「五」读 wǔ，第三声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-156",
-    "type": "vocab",
-    "prompt": "「六」字怎么读？",
-    "options": [
-      "yòu",
-      "liù",
-      "mǎ",
-      "shàng"
-    ],
-    "correct": 1,
-    "explanation": "「六」读 liù，第四声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-157",
-    "type": "vocab",
-    "prompt": "「七」字怎么读？",
-    "options": [
-      "zuǒ",
-      "xué",
-      "qī",
-      "chǐ"
-    ],
-    "correct": 2,
-    "explanation": "「七」读 qī，第一声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-158",
-    "type": "vocab",
-    "prompt": "「八」字怎么读？",
-    "options": [
-      "xīng",
-      "bā",
-      "zì",
-      "hǎo"
-    ],
-    "correct": 1,
-    "explanation": "「八」读 bā，第一声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-159",
-    "type": "vocab",
-    "prompt": "「九」字怎么读？",
-    "options": [
-      "hòu",
-      "jiǔ",
-      "zì",
-      "wǔ"
-    ],
-    "correct": 1,
-    "explanation": "「九」读 jiǔ，第三声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-160",
-    "type": "vocab",
-    "prompt": "「十」字怎么读？",
-    "options": [
-      "běi",
-      "chī",
-      "gǒu",
-      "shí"
-    ],
-    "correct": 3,
-    "explanation": "「十」读 shí，第二声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-161",
-    "type": "vocab",
-    "prompt": "「口」字怎么读？",
-    "options": [
-      "shàng",
-      "sān",
-      "kǒu",
-      "mào"
-    ],
-    "correct": 2,
-    "explanation": "「口」读 kǒu，第三声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-162",
-    "type": "vocab",
-    "prompt": "「手」字怎么读？",
-    "options": [
-      "zǒu",
-      "tóu",
-      "shǒu",
-      "mā"
-    ],
-    "correct": 2,
-    "explanation": "「手」读 shǒu，第三声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-163",
-    "type": "vocab",
-    "prompt": "「足」字怎么读？",
-    "options": [
-      "tián",
-      "yú",
-      "zú",
-      "cǎo"
-    ],
-    "correct": 2,
-    "explanation": "「足」读 zú，第二声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-164",
-    "type": "vocab",
-    "prompt": "「日」字怎么读？",
-    "options": [
-      "rì",
-      "liù",
-      "dōng",
-      "huā"
-    ],
-    "correct": 0,
-    "explanation": "「日」读 rì，第四声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-165",
-    "type": "vocab",
-    "prompt": "「月」字怎么读？",
-    "options": [
-      "yuè",
-      "zhuō",
-      "shū",
-      "shǎo"
-    ],
-    "correct": 0,
-    "explanation": "「月」读 yuè，第四声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-166",
-    "type": "vocab",
-    "prompt": "「水」字怎么读？",
-    "options": [
-      "niǎo",
-      "zuò",
-      "shuǐ",
-      "shuì"
-    ],
-    "correct": 2,
-    "explanation": "「水」读 shuǐ，第三声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-167",
-    "type": "vocab",
-    "prompt": "「火」字怎么读？",
-    "options": [
-      "shù",
-      "huǒ",
-      "shǒu",
-      "yé"
-    ],
-    "correct": 1,
-    "explanation": "「火」读 huǒ，第三声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-168",
-    "type": "vocab",
-    "prompt": "「山」字怎么读？",
-    "options": [
-      "yáng",
-      "shān",
-      "qiū",
-      "chuáng"
-    ],
-    "correct": 1,
-    "explanation": "「山」读 shān，第一声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-169",
-    "type": "vocab",
-    "prompt": "「石」字怎么读？",
-    "options": [
-      "yǔ",
-      "lù",
-      "yú",
-      "shí"
-    ],
-    "correct": 3,
-    "explanation": "「石」读 shí，第二声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-170",
-    "type": "vocab",
-    "prompt": "「土」字怎么读？",
-    "options": [
-      "nǎi",
-      "tǔ",
-      "yuè",
-      "māo"
-    ],
-    "correct": 1,
-    "explanation": "「土」读 tǔ，第三声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-171",
-    "type": "vocab",
-    "prompt": "「田」字怎么读？",
-    "options": [
-      "dēng",
-      "tián",
-      "huā",
-      "lè"
-    ],
-    "correct": 1,
-    "explanation": "「田」读 tián，第二声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-172",
-    "type": "vocab",
-    "prompt": "「上」字怎么读？",
-    "options": [
-      "shàng",
-      "shuō",
-      "qù",
-      "mén"
-    ],
-    "correct": 0,
-    "explanation": "「上」读 shàng，第四声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-173",
-    "type": "vocab",
-    "prompt": "「下」字怎么读？",
-    "options": [
-      "shuō",
-      "èr",
-      "bā",
-      "xià"
-    ],
-    "correct": 3,
-    "explanation": "「下」读 xià，第四声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
     "id": "v1-174",
     "type": "vocab",
     "prompt": "「左」字怎么读？",
@@ -551,82 +114,6 @@
     "source": "curriculum"
   },
   {
-    "id": "v1-180",
-    "type": "vocab",
-    "prompt": "「春」字怎么读？",
-    "options": [
-      "xuě",
-      "chūn",
-      "jīn",
-      "lì"
-    ],
-    "correct": 1,
-    "explanation": "「春」读 chūn，第一声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-181",
-    "type": "vocab",
-    "prompt": "「夏」字怎么读？",
-    "options": [
-      "diàn",
-      "xià",
-      "bǐ",
-      "dōng"
-    ],
-    "correct": 1,
-    "explanation": "「夏」读 xià，第四声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-182",
-    "type": "vocab",
-    "prompt": "「秋」字怎么读？",
-    "options": [
-      "chī",
-      "rù",
-      "qiū",
-      "lǎo"
-    ],
-    "correct": 2,
-    "explanation": "「秋」读 qiū，第一声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-183",
-    "type": "vocab",
-    "prompt": "「冬」字怎么读？",
-    "options": [
-      "tiān",
-      "rù",
-      "dōng",
-      "gǒu"
-    ],
-    "correct": 2,
-    "explanation": "「冬」读 dōng，第一声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
     "id": "v1-184",
     "type": "vocab",
     "prompt": "「红」字怎么读？",
@@ -703,25 +190,6 @@
     "source": "curriculum"
   },
   {
-    "id": "v1-188",
-    "type": "vocab",
-    "prompt": "「爸」字怎么读？",
-    "options": [
-      "rù",
-      "běn",
-      "bà",
-      "shān"
-    ],
-    "correct": 2,
-    "explanation": "「爸」读 bà，第四声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
     "id": "v1-189",
     "type": "vocab",
     "prompt": "「妈」字怎么读？",
@@ -779,25 +247,6 @@
     "source": "curriculum"
   },
   {
-    "id": "v1-192",
-    "type": "vocab",
-    "prompt": "「猫」字怎么读？",
-    "options": [
-      "nán",
-      "māo",
-      "míng",
-      "shàng"
-    ],
-    "correct": 1,
-    "explanation": "「猫」读 māo，第一声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
     "id": "v1-193",
     "type": "vocab",
     "prompt": "「狗」字怎么读？",
@@ -809,63 +258,6 @@
     ],
     "correct": 0,
     "explanation": "「狗」读 gǒu，第三声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-194",
-    "type": "vocab",
-    "prompt": "「鸟」字怎么读？",
-    "options": [
-      "nǚ",
-      "bǐ",
-      "niǎo",
-      "huǒ"
-    ],
-    "correct": 2,
-    "explanation": "「鸟」读 niǎo，第三声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-195",
-    "type": "vocab",
-    "prompt": "「鱼」字怎么读？",
-    "options": [
-      "guǒ",
-      "yú",
-      "zuǒ",
-      "chūn"
-    ],
-    "correct": 1,
-    "explanation": "「鱼」读 yú，第二声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-196",
-    "type": "vocab",
-    "prompt": "「虫」字怎么读？",
-    "options": [
-      "gāo",
-      "chuāng",
-      "chóng",
-      "kāi"
-    ],
-    "correct": 2,
-    "explanation": "「虫」读 chóng，第二声。",
     "difficulty": 1,
     "tags": [
       "认字",
@@ -1444,44 +836,6 @@
     "source": "curriculum"
   },
   {
-    "id": "v1-227",
-    "type": "vocab",
-    "prompt": "「天」字怎么读？",
-    "options": [
-      "duǎn",
-      "tiān",
-      "pǎo",
-      "gāo"
-    ],
-    "correct": 1,
-    "explanation": "「天」读 tiān，第一声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-228",
-    "type": "vocab",
-    "prompt": "「地」字怎么读？",
-    "options": [
-      "dì",
-      "chūn",
-      "lù",
-      "yī"
-    ],
-    "correct": 0,
-    "explanation": "「地」读 dì，第四声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
     "id": "v1-229",
     "type": "vocab",
     "prompt": "「白」字怎么读？",
@@ -2033,25 +1387,6 @@
     "source": "curriculum"
   },
   {
-    "id": "v1-258",
-    "type": "vocab",
-    "prompt": "「少」字怎么读？",
-    "options": [
-      "chē",
-      "huài",
-      "shǎo",
-      "niǎo"
-    ],
-    "correct": 2,
-    "explanation": "「少」读 shǎo，第四声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
     "id": "v1-259",
     "type": "vocab",
     "prompt": "「王」字怎么读？",
@@ -2234,44 +1569,6 @@
     ],
     "correct": 1,
     "explanation": "「门」读 mén，第二声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-269",
-    "type": "vocab",
-    "prompt": "「目」字怎么读？",
-    "options": [
-      "mù",
-      "shuì",
-      "xuě",
-      "qiū"
-    ],
-    "correct": 0,
-    "explanation": "「目」读 mù，第四声。",
-    "difficulty": 1,
-    "tags": [
-      "认字",
-      "拼音"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-270",
-    "type": "vocab",
-    "prompt": "「耳」字怎么读？",
-    "options": [
-      "chuán",
-      "ěr",
-      "kuài",
-      "liù"
-    ],
-    "correct": 1,
-    "explanation": "「耳」读 ěr，第三声。",
     "difficulty": 1,
     "tags": [
       "认字",
@@ -2850,24 +2147,6 @@
     "source": "curriculum"
   },
   {
-    "id": "v1-301",
-    "type": "vocab",
-    "prompt": "「大」的反义词是什么？",
-    "options": [
-      "湿",
-      "入",
-      "小",
-      "假"
-    ],
-    "correct": 2,
-    "explanation": "「大」的反义词是「小」。",
-    "difficulty": 1,
-    "tags": [
-      "反义词"
-    ],
-    "source": "curriculum"
-  },
-  {
     "id": "v1-302",
     "type": "vocab",
     "prompt": "「小」的反义词是什么？",
@@ -2879,24 +2158,6 @@
     ],
     "correct": 2,
     "explanation": "「小」的反义词是「大」。",
-    "difficulty": 1,
-    "tags": [
-      "反义词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-303",
-    "type": "vocab",
-    "prompt": "「多」的反义词是什么？",
-    "options": [
-      "少",
-      "假",
-      "热",
-      "重"
-    ],
-    "correct": 0,
-    "explanation": "「多」的反义词是「少」。",
     "difficulty": 1,
     "tags": [
       "反义词"
@@ -2922,24 +2183,6 @@
     "source": "curriculum"
   },
   {
-    "id": "v1-305",
-    "type": "vocab",
-    "prompt": "「上」的反义词是什么？",
-    "options": [
-      "下",
-      "苦",
-      "退",
-      "笑"
-    ],
-    "correct": 0,
-    "explanation": "「上」的反义词是「下」。",
-    "difficulty": 1,
-    "tags": [
-      "反义词"
-    ],
-    "source": "curriculum"
-  },
-  {
     "id": "v1-306",
     "type": "vocab",
     "prompt": "「下」的反义词是什么？",
@@ -2951,24 +2194,6 @@
     ],
     "correct": 3,
     "explanation": "「下」的反义词是「上」。",
-    "difficulty": 1,
-    "tags": [
-      "反义词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-307",
-    "type": "vocab",
-    "prompt": "「左」的反义词是什么？",
-    "options": [
-      "苦",
-      "紧",
-      "右",
-      "低"
-    ],
-    "correct": 2,
-    "explanation": "「左」的反义词是「右」。",
     "difficulty": 1,
     "tags": [
       "反义词"
@@ -2994,24 +2219,6 @@
     "source": "curriculum"
   },
   {
-    "id": "v1-309",
-    "type": "vocab",
-    "prompt": "「前」的反义词是什么？",
-    "options": [
-      "退",
-      "后",
-      "重",
-      "西"
-    ],
-    "correct": 1,
-    "explanation": "「前」的反义词是「后」。",
-    "difficulty": 1,
-    "tags": [
-      "反义词"
-    ],
-    "source": "curriculum"
-  },
-  {
     "id": "v1-310",
     "type": "vocab",
     "prompt": "「后」的反义词是什么？",
@@ -3023,24 +2230,6 @@
     ],
     "correct": 3,
     "explanation": "「后」的反义词是「前」。",
-    "difficulty": 1,
-    "tags": [
-      "反义词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-311",
-    "type": "vocab",
-    "prompt": "「长」的反义词是什么？",
-    "options": [
-      "慢",
-      "窄",
-      "短",
-      "西"
-    ],
-    "correct": 2,
-    "explanation": "「长」的反义词是「短」。",
     "difficulty": 1,
     "tags": [
       "反义词"
@@ -3066,24 +2255,6 @@
     "source": "curriculum"
   },
   {
-    "id": "v1-313",
-    "type": "vocab",
-    "prompt": "「高」的反义词是什么？",
-    "options": [
-      "丑",
-      "北",
-      "低",
-      "浅"
-    ],
-    "correct": 2,
-    "explanation": "「高」的反义词是「低」。",
-    "difficulty": 1,
-    "tags": [
-      "反义词"
-    ],
-    "source": "curriculum"
-  },
-  {
     "id": "v1-314",
     "type": "vocab",
     "prompt": "「低」的反义词是什么？",
@@ -3095,24 +2266,6 @@
     ],
     "correct": 0,
     "explanation": "「低」的反义词是「高」。",
-    "difficulty": 1,
-    "tags": [
-      "反义词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-315",
-    "type": "vocab",
-    "prompt": "「快」的反义词是什么？",
-    "options": [
-      "慢",
-      "入",
-      "近",
-      "少"
-    ],
-    "correct": 0,
-    "explanation": "「快」的反义词是「慢」。",
     "difficulty": 1,
     "tags": [
       "反义词"
@@ -3138,24 +2291,6 @@
     "source": "curriculum"
   },
   {
-    "id": "v1-317",
-    "type": "vocab",
-    "prompt": "「冷」的反义词是什么？",
-    "options": [
-      "闲",
-      "丑",
-      "浅",
-      "热"
-    ],
-    "correct": 3,
-    "explanation": "「冷」的反义词是「热」。",
-    "difficulty": 1,
-    "tags": [
-      "反义词"
-    ],
-    "source": "curriculum"
-  },
-  {
     "id": "v1-318",
     "type": "vocab",
     "prompt": "「热」的反义词是什么？",
@@ -3167,24 +2302,6 @@
     ],
     "correct": 0,
     "explanation": "「热」的反义词是「冷」。",
-    "difficulty": 1,
-    "tags": [
-      "反义词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-319",
-    "type": "vocab",
-    "prompt": "「黑」的反义词是什么？",
-    "options": [
-      "近",
-      "少",
-      "少",
-      "白"
-    ],
-    "correct": 3,
-    "explanation": "「黑」的反义词是「白」。",
     "difficulty": 1,
     "tags": [
       "反义词"
@@ -3210,24 +2327,6 @@
     "source": "curriculum"
   },
   {
-    "id": "v1-321",
-    "type": "vocab",
-    "prompt": "「新」的反义词是什么？",
-    "options": [
-      "假",
-      "旧",
-      "白",
-      "后"
-    ],
-    "correct": 1,
-    "explanation": "「新」的反义词是「旧」。",
-    "difficulty": 1,
-    "tags": [
-      "反义词"
-    ],
-    "source": "curriculum"
-  },
-  {
     "id": "v1-322",
     "type": "vocab",
     "prompt": "「旧」的反义词是什么？",
@@ -3239,24 +2338,6 @@
     ],
     "correct": 3,
     "explanation": "「旧」的反义词是「新」。",
-    "difficulty": 1,
-    "tags": [
-      "反义词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-323",
-    "type": "vocab",
-    "prompt": "「好」的反义词是什么？",
-    "options": [
-      "短",
-      "去",
-      "坏",
-      "旧"
-    ],
-    "correct": 2,
-    "explanation": "「好」的反义词是「坏」。",
     "difficulty": 1,
     "tags": [
       "反义词"
@@ -3282,24 +2363,6 @@
     "source": "curriculum"
   },
   {
-    "id": "v1-325",
-    "type": "vocab",
-    "prompt": "「开」的反义词是什么？",
-    "options": [
-      "入",
-      "坏",
-      "关",
-      "细"
-    ],
-    "correct": 2,
-    "explanation": "「开」的反义词是「关」。",
-    "difficulty": 1,
-    "tags": [
-      "反义词"
-    ],
-    "source": "curriculum"
-  },
-  {
     "id": "v1-326",
     "type": "vocab",
     "prompt": "「关」的反义词是什么？",
@@ -3311,24 +2374,6 @@
     ],
     "correct": 1,
     "explanation": "「关」的反义词是「开」。",
-    "difficulty": 1,
-    "tags": [
-      "反义词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-327",
-    "type": "vocab",
-    "prompt": "「来」的反义词是什么？",
-    "options": [
-      "女",
-      "下",
-      "假",
-      "去"
-    ],
-    "correct": 3,
-    "explanation": "「来」的反义词是「去」。",
     "difficulty": 1,
     "tags": [
       "反义词"
@@ -3383,24 +2428,6 @@
     ],
     "correct": 3,
     "explanation": "「入」的反义词是「出」。",
-    "difficulty": 1,
-    "tags": [
-      "反义词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-331",
-    "type": "vocab",
-    "prompt": "「早」的反义词是什么？",
-    "options": [
-      "晚",
-      "假",
-      "热",
-      "右"
-    ],
-    "correct": 0,
-    "explanation": "「早」的反义词是「晚」。",
     "difficulty": 1,
     "tags": [
       "反义词"
@@ -3498,42 +2525,6 @@
     "source": "curriculum"
   },
   {
-    "id": "v1-337",
-    "type": "vocab",
-    "prompt": "「老」的反义词是什么？",
-    "options": [
-      "慢",
-      "重",
-      "北",
-      "少"
-    ],
-    "correct": 3,
-    "explanation": "「老」的反义词是「少」。",
-    "difficulty": 1,
-    "tags": [
-      "反义词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-338",
-    "type": "vocab",
-    "prompt": "「少」的反义词是什么？",
-    "options": [
-      "冷",
-      "老",
-      "好",
-      "胖"
-    ],
-    "correct": 1,
-    "explanation": "「少」的反义词是「老」。",
-    "difficulty": 1,
-    "tags": [
-      "反义词"
-    ],
-    "source": "curriculum"
-  },
-  {
     "id": "v1-339",
     "type": "vocab",
     "prompt": "「东」的反义词是什么？",
@@ -3606,24 +2597,6 @@
     "source": "curriculum"
   },
   {
-    "id": "v1-343",
-    "type": "vocab",
-    "prompt": "「哭」的反义词是什么？",
-    "options": [
-      "笑",
-      "入",
-      "少",
-      "去"
-    ],
-    "correct": 0,
-    "explanation": "「哭」的反义词是「笑」。",
-    "difficulty": 1,
-    "tags": [
-      "反义词"
-    ],
-    "source": "curriculum"
-  },
-  {
     "id": "v1-344",
     "type": "vocab",
     "prompt": "「笑」的反义词是什么？",
@@ -3642,24 +2615,6 @@
     "source": "curriculum"
   },
   {
-    "id": "v1-345",
-    "type": "vocab",
-    "prompt": "「胖」的反义词是什么？",
-    "options": [
-      "瘦",
-      "短",
-      "硬",
-      "暗"
-    ],
-    "correct": 0,
-    "explanation": "「胖」的反义词是「瘦」。",
-    "difficulty": 1,
-    "tags": [
-      "反义词"
-    ],
-    "source": "curriculum"
-  },
-  {
     "id": "v1-346",
     "type": "vocab",
     "prompt": "「瘦」的反义词是什么？",
@@ -3671,24 +2626,6 @@
     ],
     "correct": 3,
     "explanation": "「瘦」的反义词是「胖」。",
-    "difficulty": 1,
-    "tags": [
-      "反义词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-347",
-    "type": "vocab",
-    "prompt": "「远」的反义词是什么？",
-    "options": [
-      "右",
-      "细",
-      "湿",
-      "近"
-    ],
-    "correct": 3,
-    "explanation": "「远」的反义词是「近」。",
     "difficulty": 1,
     "tags": [
       "反义词"
@@ -3779,24 +2716,6 @@
     ],
     "correct": 0,
     "explanation": "「细」的反义词是「粗」。",
-    "difficulty": 1,
-    "tags": [
-      "反义词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-353",
-    "type": "vocab",
-    "prompt": "「轻」的反义词是什么？",
-    "options": [
-      "西",
-      "右",
-      "热",
-      "重"
-    ],
-    "correct": 3,
-    "explanation": "「轻」的反义词是「重」。",
     "difficulty": 1,
     "tags": [
       "反义词"
@@ -4002,24 +2921,6 @@
     "source": "curriculum"
   },
   {
-    "id": "v1-365",
-    "type": "vocab",
-    "prompt": "「进」的反义词是什么？",
-    "options": [
-      "错",
-      "退",
-      "湿",
-      "近"
-    ],
-    "correct": 1,
-    "explanation": "「进」的反义词是「退」。",
-    "difficulty": 1,
-    "tags": [
-      "反义词"
-    ],
-    "source": "curriculum"
-  },
-  {
     "id": "v1-366",
     "type": "vocab",
     "prompt": "「退」的反义词是什么？",
@@ -4175,24 +3076,6 @@
     ],
     "correct": 0,
     "explanation": "「假」的反义词是「真」。",
-    "difficulty": 1,
-    "tags": [
-      "反义词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v1-375",
-    "type": "vocab",
-    "prompt": "「对」的反义词是什么？",
-    "options": [
-      "白",
-      "错",
-      "热",
-      "苦"
-    ],
-    "correct": 1,
-    "explanation": "「对」的反义词是「错」。",
     "difficulty": 1,
     "tags": [
       "反义词"

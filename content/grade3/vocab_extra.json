@@ -18,96 +18,6 @@
     "source": "curriculum"
   },
   {
-    "id": "v3-202",
-    "type": "vocab",
-    "prompt": "「安静」的反义词是什么？",
-    "options": [
-      "热闹",
-      "平静",
-      "安宁",
-      "沉默"
-    ],
-    "correct": 0,
-    "explanation": "「安静」的反义词是「热闹」，表示喧哗吵闹。",
-    "difficulty": 1,
-    "tags": [
-      "反义词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v3-203",
-    "type": "vocab",
-    "prompt": "「勤劳」的反义词是什么？",
-    "options": [
-      "懒惰",
-      "努力",
-      "刻苦",
-      "认真"
-    ],
-    "correct": 0,
-    "explanation": "「勤劳」的反义词是「懒惰」，表示不愿劳动。",
-    "difficulty": 1,
-    "tags": [
-      "反义词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v3-204",
-    "type": "vocab",
-    "prompt": "「黑暗」的反义词是什么？",
-    "options": [
-      "光明",
-      "阴暗",
-      "灰暗",
-      "昏暗"
-    ],
-    "correct": 0,
-    "explanation": "「黑暗」的反义词是「光明」，表示有光亮、明亮。",
-    "difficulty": 1,
-    "tags": [
-      "反义词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v3-205",
-    "type": "vocab",
-    "prompt": "「危险」的反义词是什么？",
-    "options": [
-      "安全",
-      "可怕",
-      "恐怖",
-      "害怕"
-    ],
-    "correct": 0,
-    "explanation": "「危险」的反义词是「安全」，表示没有危险。",
-    "difficulty": 1,
-    "tags": [
-      "反义词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v3-206",
-    "type": "vocab",
-    "prompt": "「粗心」的反义词是什么？",
-    "options": [
-      "细心",
-      "大意",
-      "马虎",
-      "粗糙"
-    ],
-    "correct": 0,
-    "explanation": "「粗心」的反义词是「细心」，表示做事认真仔细。",
-    "difficulty": 1,
-    "tags": [
-      "反义词"
-    ],
-    "source": "curriculum"
-  },
-  {
     "id": "v3-207",
     "type": "vocab",
     "prompt": "「寒冷」的反义词是什么？",
@@ -119,24 +29,6 @@
     ],
     "correct": 0,
     "explanation": "「寒冷」的反义词是「温暖」，表示气温适宜舒适。",
-    "difficulty": 1,
-    "tags": [
-      "反义词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v3-208",
-    "type": "vocab",
-    "prompt": "「成功」的反义词是什么？",
-    "options": [
-      "失败",
-      "胜利",
-      "成就",
-      "进步"
-    ],
-    "correct": 0,
-    "explanation": "「成功」的反义词是「失败」，表示没有达到目的。",
     "difficulty": 1,
     "tags": [
       "反义词"
@@ -210,24 +102,6 @@
     "correct": 0,
     "explanation": "「轻松」的反义词是「紧张」，表示精神处于高度准备状态。",
     "difficulty": 1,
-    "tags": [
-      "反义词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v3-213",
-    "type": "vocab",
-    "prompt": "「善良」的反义词是什么？",
-    "options": [
-      "凶恶",
-      "温柔",
-      "和蔼",
-      "慈祥"
-    ],
-    "correct": 0,
-    "explanation": "「善良」的反义词是「凶恶」，表示性情凶狠恶毒。",
-    "difficulty": 2,
     "tags": [
       "反义词"
     ],
@@ -371,24 +245,6 @@
     ],
     "correct": 0,
     "explanation": "「聪明」的反义词是「愚笨」，表示不聪明、反应迟钝。",
-    "difficulty": 1,
-    "tags": [
-      "反义词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v3-222",
-    "type": "vocab",
-    "prompt": "「干燥」的反义词是什么？",
-    "options": [
-      "潮湿",
-      "温暖",
-      "炎热",
-      "凉爽"
-    ],
-    "correct": 0,
-    "explanation": "「干燥」的反义词是「潮湿」，表示含有较多水分。",
     "difficulty": 1,
     "tags": [
       "反义词"
@@ -630,24 +486,6 @@
     "source": "curriculum"
   },
   {
-    "id": "v3-236",
-    "type": "vocab",
-    "prompt": "「骄傲」的反义词是什么？",
-    "options": [
-      "谦虚",
-      "自豪",
-      "自信",
-      "得意"
-    ],
-    "correct": 0,
-    "explanation": "「骄傲」的反义词是「谦虚」，表示不自满、虚心。",
-    "difficulty": 1,
-    "tags": [
-      "反义词"
-    ],
-    "source": "curriculum"
-  },
-  {
     "id": "v3-237",
     "type": "vocab",
     "prompt": "「严厉」的反义词是什么？",
@@ -720,168 +558,6 @@
     "source": "curriculum"
   },
   {
-    "id": "v3-241",
-    "type": "vocab",
-    "prompt": "「高兴」的近义词是什么？",
-    "options": [
-      "开心",
-      "悲伤",
-      "害怕",
-      "生气"
-    ],
-    "correct": 0,
-    "explanation": "「高兴」的近义词是「开心」，都表示心情愉快。",
-    "difficulty": 1,
-    "tags": [
-      "近义词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v3-242",
-    "type": "vocab",
-    "prompt": "「美丽」的近义词是什么？",
-    "options": [
-      "漂亮",
-      "丑陋",
-      "平凡",
-      "普通"
-    ],
-    "correct": 0,
-    "explanation": "「美丽」的近义词是「漂亮」，都形容好看。",
-    "difficulty": 1,
-    "tags": [
-      "近义词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v3-243",
-    "type": "vocab",
-    "prompt": "「忽然」的近义词是什么？",
-    "options": [
-      "突然",
-      "慢慢",
-      "渐渐",
-      "逐渐"
-    ],
-    "correct": 0,
-    "explanation": "「忽然」的近义词是「突然」，都表示出乎意料地发生。",
-    "difficulty": 1,
-    "tags": [
-      "近义词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v3-244",
-    "type": "vocab",
-    "prompt": "「著名」的近义词是什么？",
-    "options": [
-      "有名",
-      "普通",
-      "平凡",
-      "一般"
-    ],
-    "correct": 0,
-    "explanation": "「著名」的近义词是「有名」，都表示名气大。",
-    "difficulty": 1,
-    "tags": [
-      "近义词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v3-245",
-    "type": "vocab",
-    "prompt": "「立刻」的近义词是什么？",
-    "options": [
-      "马上",
-      "慢慢",
-      "稍后",
-      "等待"
-    ],
-    "correct": 0,
-    "explanation": "「立刻」的近义词是「马上」，都表示很快、毫不迟疑。",
-    "difficulty": 1,
-    "tags": [
-      "近义词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v3-246",
-    "type": "vocab",
-    "prompt": "「仔细」的近义词是什么？",
-    "options": [
-      "认真",
-      "马虎",
-      "粗心",
-      "大意"
-    ],
-    "correct": 0,
-    "explanation": "「仔细」的近义词是「认真」，都表示做事细心。",
-    "difficulty": 1,
-    "tags": [
-      "近义词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v3-247",
-    "type": "vocab",
-    "prompt": "「特别」的近义词是什么？",
-    "options": [
-      "格外",
-      "普通",
-      "一般",
-      "平常"
-    ],
-    "correct": 0,
-    "explanation": "「特别」的近义词是「格外」，都表示与众不同、超出一般。",
-    "difficulty": 2,
-    "tags": [
-      "近义词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v3-248",
-    "type": "vocab",
-    "prompt": "「经常」的近义词是什么？",
-    "options": [
-      "常常",
-      "偶尔",
-      "很少",
-      "从不"
-    ],
-    "correct": 0,
-    "explanation": "「经常」的近义词是「常常」，都表示频繁发生。",
-    "difficulty": 1,
-    "tags": [
-      "近义词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v3-249",
-    "type": "vocab",
-    "prompt": "「帮助」的近义词是什么？",
-    "options": [
-      "援助",
-      "阻碍",
-      "妨碍",
-      "阻止"
-    ],
-    "correct": 0,
-    "explanation": "「帮助」的近义词是「援助」，都表示给予支持和帮忙。",
-    "difficulty": 2,
-    "tags": [
-      "近义词"
-    ],
-    "source": "curriculum"
-  },
-  {
     "id": "v3-250",
     "type": "vocab",
     "prompt": "「愤怒」的近义词是什么？",
@@ -900,42 +576,6 @@
     "source": "curriculum"
   },
   {
-    "id": "v3-251",
-    "type": "vocab",
-    "prompt": "「观察」的近义词是什么？",
-    "options": [
-      "察看",
-      "忽略",
-      "忽视",
-      "无视"
-    ],
-    "correct": 0,
-    "explanation": "「观察」的近义词是「察看」，都表示仔细地看。",
-    "difficulty": 2,
-    "tags": [
-      "近义词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v3-252",
-    "type": "vocab",
-    "prompt": "「温暖」的近义词是什么？",
-    "options": [
-      "暖和",
-      "寒冷",
-      "冰冷",
-      "凉爽"
-    ],
-    "correct": 0,
-    "explanation": "「温暖」的近义词是「暖和」，都表示气温适宜。",
-    "difficulty": 1,
-    "tags": [
-      "近义词"
-    ],
-    "source": "curriculum"
-  },
-  {
     "id": "v3-253",
     "type": "vocab",
     "prompt": "「思念」的近义词是什么？",
@@ -948,24 +588,6 @@
     "correct": 0,
     "explanation": "「思念」的近义词是「想念」，都表示对人或事的挂念。",
     "difficulty": 1,
-    "tags": [
-      "近义词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v3-254",
-    "type": "vocab",
-    "prompt": "「害怕」的近义词是什么？",
-    "options": [
-      "恐惧",
-      "勇敢",
-      "大胆",
-      "镇定"
-    ],
-    "correct": 0,
-    "explanation": "「害怕」的近义词是「恐惧」，都表示心里感到畏惧。",
-    "difficulty": 2,
     "tags": [
       "近义词"
     ],
@@ -1074,24 +696,6 @@
     "correct": 0,
     "explanation": "「明亮」的近义词是「光亮」，都形容有光、很亮。",
     "difficulty": 1,
-    "tags": [
-      "近义词"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v3-261",
-    "type": "vocab",
-    "prompt": "「安慰」的近义词是什么？",
-    "options": [
-      "宽慰",
-      "刺激",
-      "打击",
-      "伤害"
-    ],
-    "correct": 0,
-    "explanation": "「安慰」的近义词是「宽慰」，都表示使人心情好转。",
-    "difficulty": 2,
     "tags": [
       "近义词"
     ],
@@ -1440,96 +1044,6 @@
     "source": "curriculum"
   },
   {
-    "id": "v3-281",
-    "type": "vocab",
-    "prompt": "「湖」字是什么结构？",
-    "options": [
-      "左右结构",
-      "上下结构",
-      "半包围结构",
-      "独体字"
-    ],
-    "correct": 0,
-    "explanation": "「湖」字左边是三点水「氵」，右边是「胡」，是左右结构。",
-    "difficulty": 1,
-    "tags": [
-      "字形结构"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v3-282",
-    "type": "vocab",
-    "prompt": "「草」字是什么结构？",
-    "options": [
-      "上下结构",
-      "左右结构",
-      "半包围结构",
-      "独体字"
-    ],
-    "correct": 0,
-    "explanation": "「草」字上面是草字头「艹」，下面是「早」，是上下结构。",
-    "difficulty": 1,
-    "tags": [
-      "字形结构"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v3-283",
-    "type": "vocab",
-    "prompt": "「国」字是什么结构？",
-    "options": [
-      "全包围结构",
-      "左右结构",
-      "上下结构",
-      "半包围结构"
-    ],
-    "correct": 0,
-    "explanation": "「国」字外面是「囗」，里面是「玉」，是全包围结构。",
-    "difficulty": 1,
-    "tags": [
-      "字形结构"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v3-284",
-    "type": "vocab",
-    "prompt": "「远」字是什么结构？",
-    "options": [
-      "半包围结构",
-      "左右结构",
-      "上下结构",
-      "独体字"
-    ],
-    "correct": 0,
-    "explanation": "「远」字外面是走之底「辶」，里面是「元」，是半包围结构。",
-    "difficulty": 1,
-    "tags": [
-      "字形结构"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v3-285",
-    "type": "vocab",
-    "prompt": "「想」字是什么结构？",
-    "options": [
-      "上下结构",
-      "左右结构",
-      "半包围结构",
-      "独体字"
-    ],
-    "correct": 0,
-    "explanation": "「想」字上面是「相」，下面是「心」，是上下结构。",
-    "difficulty": 1,
-    "tags": [
-      "字形结构"
-    ],
-    "source": "curriculum"
-  },
-  {
     "id": "v3-286",
     "type": "vocab",
     "prompt": "「树」字是什么结构？",
@@ -1548,60 +1062,6 @@
     "source": "curriculum"
   },
   {
-    "id": "v3-287",
-    "type": "vocab",
-    "prompt": "「问」字是什么结构？",
-    "options": [
-      "半包围结构",
-      "左右结构",
-      "上下结构",
-      "全包围结构"
-    ],
-    "correct": 0,
-    "explanation": "「问」字外面是「门」，里面是「口」，是半包围结构。",
-    "difficulty": 1,
-    "tags": [
-      "字形结构"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v3-288",
-    "type": "vocab",
-    "prompt": "「架」字是什么结构？",
-    "options": [
-      "上下结构",
-      "左右结构",
-      "半包围结构",
-      "独体字"
-    ],
-    "correct": 0,
-    "explanation": "「架」字上面是「加」，下面是「木」，是上下结构。",
-    "difficulty": 2,
-    "tags": [
-      "字形结构"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v3-289",
-    "type": "vocab",
-    "prompt": "「圆」字是什么结构？",
-    "options": [
-      "全包围结构",
-      "半包围结构",
-      "上下结构",
-      "左右结构"
-    ],
-    "correct": 0,
-    "explanation": "「圆」字外面是「囗」，里面是「员」，是全包围结构。",
-    "difficulty": 1,
-    "tags": [
-      "字形结构"
-    ],
-    "source": "curriculum"
-  },
-  {
     "id": "v3-290",
     "type": "vocab",
     "prompt": "「跑」字是什么结构？",
@@ -1614,24 +1074,6 @@
     "correct": 0,
     "explanation": "「跑」字左边是「足」，右边是「包」，是左右结构。",
     "difficulty": 1,
-    "tags": [
-      "字形结构"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v3-291",
-    "type": "vocab",
-    "prompt": "「照」字是什么结构？",
-    "options": [
-      "上下结构",
-      "左右结构",
-      "半包围结构",
-      "全包围结构"
-    ],
-    "correct": 0,
-    "explanation": "「照」字上面是「昭」，下面是四点底「灬」，是上下结构。",
-    "difficulty": 2,
     "tags": [
       "字形结构"
     ],
@@ -1776,42 +1218,6 @@
     "correct": 0,
     "explanation": "「鼻」字上面是「自」，中间是「田」，下面是「廾」，是上中下结构。",
     "difficulty": 3,
-    "tags": [
-      "字形结构"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v3-300",
-    "type": "vocab",
-    "prompt": "「趣」字是什么结构？",
-    "options": [
-      "半包围结构",
-      "左右结构",
-      "上下结构",
-      "独体字"
-    ],
-    "correct": 0,
-    "explanation": "「趣」字外面是走字底「走」，里面是「取」，是半包围结构。",
-    "difficulty": 2,
-    "tags": [
-      "字形结构"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v3-301",
-    "type": "vocab",
-    "prompt": "「景」字是什么结构？",
-    "options": [
-      "上下结构",
-      "左右结构",
-      "半包围结构",
-      "独体字"
-    ],
-    "correct": 0,
-    "explanation": "「景」字上面是「日」，下面是「京」，是上下结构。",
-    "difficulty": 1,
     "tags": [
       "字形结构"
     ],
@@ -1974,24 +1380,6 @@
     "correct": 0,
     "explanation": "「窗」字上面是宝盖头「穴」，下面是「囱」，是上下结构。",
     "difficulty": 2,
-    "tags": [
-      "字形结构"
-    ],
-    "source": "curriculum"
-  },
-  {
-    "id": "v3-311",
-    "type": "vocab",
-    "prompt": "「谢」字是什么结构？",
-    "options": [
-      "左右结构",
-      "上下结构",
-      "半包围结构",
-      "全包围结构"
-    ],
-    "correct": 0,
-    "explanation": "「谢」字左边是言字旁「讠」，右边是「射」，是左右结构。",
-    "difficulty": 1,
     "tags": [
       "字形结构"
     ],
