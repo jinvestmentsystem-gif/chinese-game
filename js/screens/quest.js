@@ -416,16 +416,28 @@ function renderQuest(params) {
   const titleBar = document.createElement('div');
   titleBar.style.cssText = `
     position:sticky; top:0; left:0; right:0; z-index:50;
-    padding:10px 20px 8px;
-    background:linear-gradient(180deg,rgba(0,0,0,0.85) 0%,rgba(0,0,0,0) 100%);
+    padding:12px 20px 10px;
+    background:linear-gradient(180deg,rgba(0,0,0,0.9) 0%,rgba(0,0,0,0.4) 70%,rgba(0,0,0,0) 100%);
     display:flex; align-items:center; justify-content:space-between;
     pointer-events:none;
+    border-bottom: 1px solid ${theme.accent}22;
   `;
   titleBar.innerHTML = `
-    <div style="font-size:1rem; font-weight:700; color:${theme.accent}; letter-spacing:0.06em;">
+    <div style="
+      font-size:1.3rem; font-weight:900; color:${theme.accent};
+      letter-spacing:0.08em;
+      text-shadow: 0 0 14px ${theme.accent}55, 0 0 28px ${theme.accent}22;
+    ">
       第${chapterId}章 · ${theme.label}
     </div>
-    <div style="font-size:0.8rem; color:rgba(255,255,255,0.55);">第 ${questIndex + 1} 关</div>
+    <div style="
+      font-size:0.85rem; color:${theme.accent}99;
+      font-weight:600; letter-spacing:0.05em;
+      padding:2px 10px;
+      border:1px solid ${theme.accent}33;
+      border-radius:12px;
+      background:${theme.accent}11;
+    ">第 ${questIndex + 1} 关</div>
   `;
   mapWrap.appendChild(titleBar);
 
@@ -805,6 +817,27 @@ function renderQuest(params) {
         g.appendChild(pulseRing2);
       }
 
+      // Animated dashed border ring on the current encounter node
+      if (isCurrent) {
+        const dashedRing = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        dashedRing.setAttribute('r', r + 4);
+        dashedRing.setAttribute('fill', 'none');
+        dashedRing.setAttribute('stroke', theme.accent);
+        dashedRing.setAttribute('stroke-width', '2');
+        dashedRing.setAttribute('stroke-dasharray', '6 4');
+        dashedRing.setAttribute('opacity', '0.7');
+        // Rotating animation via animateTransform
+        const rotAnim = document.createElementNS('http://www.w3.org/2000/svg', 'animateTransform');
+        rotAnim.setAttribute('attributeName', 'transform');
+        rotAnim.setAttribute('type', 'rotate');
+        rotAnim.setAttribute('from', '0');
+        rotAnim.setAttribute('to', '360');
+        rotAnim.setAttribute('dur', '8s');
+        rotAnim.setAttribute('repeatCount', 'indefinite');
+        dashedRing.appendChild(rotAnim);
+        g.appendChild(dashedRing);
+      }
+
       // Shadow / glow ring beneath node
       const glowCirc = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
       glowCirc.setAttribute('r', r + 8);
@@ -981,9 +1014,13 @@ function renderQuest(params) {
     btnStart.id = 'btn-start';
     btnStart.className = 'btn btn-primary';
     btnStart.style.cssText = `
-      min-width:180px; font-size:1rem; padding:12px 28px;
+      min-width:220px; font-size:1.2rem; padding:16px 36px;
       animation: btn-glow 2s ease-in-out infinite;
-      letter-spacing:0.05em;
+      letter-spacing:0.08em;
+      font-weight:700;
+      border-radius:12px;
+      text-shadow: 0 0 8px rgba(212,160,23,0.4);
+      box-shadow: 0 0 20px rgba(212,160,23,0.3), 0 4px 16px rgba(0,0,0,0.4);
     `;
     const nextEncType = currentIdx >= 0 ? encounters[currentIdx]?.type : null;
     if (nextEncType === 'boss') {

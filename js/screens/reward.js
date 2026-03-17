@@ -441,6 +441,8 @@ function renderReward() {
   title.style.cssText = `
     margin-bottom:1rem; opacity:0;
     transition: opacity 0.4s ease-out;
+    font-size:1.8rem; letter-spacing:0.12em;
+    text-shadow: 0 0 16px rgba(212,160,23,0.5), 0 0 32px rgba(212,160,23,0.2);
   `;
   div.appendChild(title);
   div.appendChild(card);
@@ -459,8 +461,14 @@ function renderReward() {
   const btnContinue = document.createElement('button');
   btnContinue.className = 'btn btn-primary';
   // When chapter is complete, change label to lead into the celebration screen
-  btnContinue.textContent = isChapterComplete ? '查看成就' : '继续';
-  btnContinue.style.cssText = 'animation:none;'; // will add pulse later
+  btnContinue.textContent = isChapterComplete ? '查看成就 ▸' : '继续 ▸';
+  btnContinue.style.cssText = `
+    animation:none;
+    font-size:1.2rem; font-weight:700; padding:14px 36px;
+    min-width:180px; letter-spacing:0.1em;
+    border-radius:12px;
+    text-shadow: 0 0 8px rgba(212,160,23,0.4);
+  `;
   btnRow.appendChild(btnContinue);
 
   const btnMap = document.createElement('button');
@@ -479,15 +487,44 @@ function renderReward() {
   `;
   div.appendChild(pulseStyle);
 
+  // Inject reward-screen shimmer keyframe once
+  if (!document.getElementById('reward-shimmer-style')) {
+    const shimStyle = document.createElement('style');
+    shimStyle.id = 'reward-shimmer-style';
+    shimStyle.textContent = `
+      @keyframes reward-gold-shimmer {
+        0%   { background-position: -200% center; }
+        100% { background-position: 200% center; }
+      }
+      .reward-gold-shimmer {
+        background: linear-gradient(
+          90deg,
+          var(--accent-gold) 0%,
+          #fff5c0 25%,
+          var(--accent-gold) 50%,
+          #fff5c0 75%,
+          var(--accent-gold) 100%
+        );
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: reward-gold-shimmer 3s linear infinite;
+      }
+    `;
+    document.head.appendChild(shimStyle);
+  }
+
   // Helper: build a stat row that slides in from the left
-  function buildStat(label, valueHtml, color, staggerN) {
+  function buildStat(label, valueHtml, color, staggerN, extraStyles) {
     const row = document.createElement('div');
     const staggerClass = staggerN ? ` stagger-${staggerN}` : '';
     row.className = `text-reveal${staggerClass}`;
     row.style.cssText = `
-      font-size:1.1rem; margin-bottom:8px;
+      font-size:1.1rem; margin-bottom:10px;
       transform:translateX(-40px); opacity:0;
       transition:transform 0.4s ease-out, opacity 0.4s ease-out;
+      ${extraStyles || ''}
     `;
     row.innerHTML = `${label}: <span style="color:${color};font-weight:700;">${valueHtml}</span>`;
     card.appendChild(row);
@@ -497,13 +534,14 @@ function renderReward() {
   const accuracyRow = buildStat('正确率', `${accuracy}% (${results.correct}/${results.total})`, 'var(--accent-gold)', 1);
   const comboRow    = buildStat('最高连击', String(results.maxCombo), 'var(--accent-jade)', 2);
 
-  // XP row placeholder (will be replaced by the animated bar)
-  const xpRow = buildStat('获得经验', `+${totalXP} XP`, 'var(--accent-gold)', 3);
+  // XP row placeholder (will be replaced by the animated bar) — larger number
+  const xpRow = buildStat('获得经验', `<span style="font-size:2.2rem;line-height:1.2;display:inline-block;vertical-align:middle;">+${totalXP}</span> <span style="font-size:1rem;opacity:0.8;">XP</span>`, 'var(--accent-gold)', 3, 'display:flex;align-items:center;gap:8px;');
 
-  // Gold row: show perfect bonus in the display if applicable
+  // Gold row: show perfect bonus — with gold shimmer effect on the amount
+  const goldAmountHTML = `<span class="reward-gold-shimmer" style="font-size:2.2rem;font-weight:900;line-height:1.2;display:inline-block;vertical-align:middle;">+${goldEarned}</span> <span style="font-size:1.1rem;">💰</span>`;
   const goldLabel = isPerfect
-    ? `+${goldEarned} 💰 <span style="font-size:0.92rem;color:#e67e22;font-weight:600;">(含满分奖励 +50)</span>`
-    : `+${goldEarned} 💰`;
+    ? `${goldAmountHTML} <span style="font-size:0.88rem;color:#e67e22;font-weight:600;display:block;margin-top:2px;">(含满分奖励 +50)</span>`
+    : goldAmountHTML;
   const goldRow = buildStat('获得金币', goldLabel, 'var(--accent-gold)', 4);
 
   // ── Animated sequence ──
