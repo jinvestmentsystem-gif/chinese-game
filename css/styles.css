@@ -4381,20 +4381,21 @@ input[type="text"]:focus, input[type="number"]:focus {
    ============================================================= */
 
 /* ── 1. Global Vignette + Bloom Layer ─────────────────────────── */
-/* HD-2D Vignette — dark edges, warm center glow */
+/* HD-2D Vignette — very subtle dark edges, must NOT obscure content */
+/* DISABLED: was making all screens too dark. Use per-screen vignettes instead */
+/*
 #game-root::after {
   content: '';
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 9999;
-  background: radial-gradient(ellipse 70% 70% at 50% 45%,
-    transparent 30%,
-    rgba(0,0,0,0.15) 60%,
-    rgba(0,0,0,0.4) 85%,
-    rgba(0,0,0,0.65) 100%);
-  mix-blend-mode: multiply;
+  z-index: 0;
+  background: radial-gradient(ellipse 80% 80% at 50% 45%,
+    transparent 50%,
+    rgba(0,0,0,0.08) 70%,
+    rgba(0,0,0,0.15) 100%);
 }
+*/
 
 /* ── 2. Sprite Bloom Effect ───────────────────────────────────── */
 /* HD-2D Sprite Bloom — warm light glow around pixel sprites */

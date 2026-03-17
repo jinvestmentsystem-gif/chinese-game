@@ -1078,7 +1078,7 @@ function renderCombat() {
       const eraClass = eraClassMap[chapterId] || 'era-xianqin';
       div.classList.add(eraClass);
       // Background gets depth-far blur so foreground sprites pop
-      div.classList.add('bg-depth-far');
+      // bg-depth-far removed - was blurring entire screen
       const arena = div.querySelector('#arena');
       if (arena) arena.classList.add('bg-depth-near');
     }

@@ -607,7 +607,7 @@ function renderBoss() {
       const eraClassMap = {1:'era-xianqin',2:'era-han',3:'era-tang',4:'era-song',5:'era-modern'};
       const eraClass = eraClassMap[quest.chapterId] || 'era-xianqin';
       div.classList.add(eraClass);
-      div.classList.add('bg-depth-far');
+      // bg-depth-far removed - was blurring entire screen
       const spriteWrap = div.querySelector('#boss-sprite-wrap');
       if (spriteWrap) spriteWrap.classList.add('bg-depth-near');
     }
