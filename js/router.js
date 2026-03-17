@@ -67,7 +67,17 @@ function _swapScreen(name, params) {
 
 function _mountScreen(name, params) {
   if (!screens[name]) return;
-  const el = screens[name](params);
+  let el;
+  try {
+    el = screens[name](params);
+  } catch (err) {
+    console.error(`[Router] Screen "${name}" render error:`, err);
+    // Create a fallback error screen instead of crashing
+    el = document.createElement('div');
+    el.className = 'screen';
+    el.innerHTML = `<div style="padding:40px;text-align:center;"><h2 style="color:#e74c3c;">加载失败</h2><p style="color:var(--text-secondary);margin:12px 0;">${err.message || '未知错误'}</p><button class="btn" onclick="location.reload()">刷新</button></div>`;
+  }
+  if (!el || !(el instanceof HTMLElement)) return;
   // When wipe is active, the overlay hides the swap — no opacity fade needed
   if (transitioning) {
     el.style.opacity = '1';
