@@ -1933,5 +1933,3958 @@
       "虚词"
     ],
     "source": "curriculum"
+  },
+  {
+    "id": "c7-101",
+    "type": "classical",
+    "prompt": "《孙权劝学》中「卿今者才略，非复吴下阿蒙」，「才略」的意思是？",
+    "options": [
+      "才能和谋略",
+      "才华和简略",
+      "才气和策略",
+      "才学和省略"
+    ],
+    "correct": 0,
+    "explanation": "「才略」指才能和谋略。鲁肃感叹吕蒙已非昔日无学之人。",
+    "difficulty": 2,
+    "tags": [
+      "宋代",
+      "实词",
+      "孙权劝学"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-102",
+    "type": "classical",
+    "prompt": "《孙权劝学》「士别三日，即更刮目相待」中「更」的意思是？",
+    "options": [
+      "更加",
+      "重新",
+      "更换",
+      "更替"
+    ],
+    "correct": 1,
+    "explanation": "「更」意为重新。分别几天就应该重新用新眼光看待他。",
+    "difficulty": 3,
+    "tags": [
+      "宋代",
+      "实词",
+      "孙权劝学"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-103",
+    "type": "classical",
+    "prompt": "《孙权劝学》中孙权用什么例子劝吕蒙读书？",
+    "options": [
+      "自己读书的经历",
+      "诸葛亮的故事",
+      "古代圣贤的事迹",
+      "曹操不读书的后果"
+    ],
+    "correct": 0,
+    "explanation": "孙权以自己为例，说自己事务繁忙仍然读书。",
+    "difficulty": 2,
+    "tags": [
+      "宋代",
+      "文意理解",
+      "孙权劝学"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-104",
+    "type": "classical",
+    "prompt": "《孙权劝学》「蒙辞以军中多务」中「辞」的意思是？",
+    "options": [
+      "辞职",
+      "推辞",
+      "辞别",
+      "文辞"
+    ],
+    "correct": 1,
+    "explanation": "「辞」意为推辞。吕蒙以军中事务繁忙为由推辞。",
+    "difficulty": 2,
+    "tags": [
+      "宋代",
+      "实词",
+      "孙权劝学"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-105",
+    "type": "classical",
+    "prompt": "《孙权劝学》「但当涉猎，见往事耳」中「涉猎」的意思是？",
+    "options": [
+      "打猎",
+      "广泛浏览阅读",
+      "深入研究",
+      "过河和打猎"
+    ],
+    "correct": 1,
+    "explanation": "「涉猎」意为广泛浏览、粗略地阅读。",
+    "difficulty": 3,
+    "tags": [
+      "宋代",
+      "实词",
+      "孙权劝学"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-106",
+    "type": "classical",
+    "prompt": "《卖油翁》中「但手熟尔」的「但」是什么意思？",
+    "options": [
+      "但是",
+      "只是",
+      "然而",
+      "不过"
+    ],
+    "correct": 1,
+    "explanation": "「但」意为只是。卖油翁说只不过是手法熟练罢了。",
+    "difficulty": 2,
+    "tags": [
+      "宋代",
+      "虚词",
+      "卖油翁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-107",
+    "type": "classical",
+    "prompt": "《卖油翁》「以我酌油知之」中「酌」的意思是？",
+    "options": [
+      "斟酒",
+      "倒油",
+      "舀取",
+      "品尝"
+    ],
+    "correct": 1,
+    "explanation": "「酌」此处意为倒油。凭倒油经验就懂得这个道理。",
+    "difficulty": 3,
+    "tags": [
+      "宋代",
+      "实词",
+      "卖油翁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-108",
+    "type": "classical",
+    "prompt": "《卖油翁》「善射，当世无双」中「善」的意思是？",
+    "options": [
+      "善良",
+      "擅长",
+      "善于交际",
+      "好的"
+    ],
+    "correct": 1,
+    "explanation": "「善」意为擅长。",
+    "difficulty": 1,
+    "tags": [
+      "宋代",
+      "实词",
+      "卖油翁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-109",
+    "type": "classical",
+    "prompt": "《卖油翁》的主旨是什么？",
+    "options": [
+      "射箭比倒油更难",
+      "熟能生巧，不应自满",
+      "老人比年轻人聪明",
+      "技术没有高低之分"
+    ],
+    "correct": 1,
+    "explanation": "说明熟能生巧的道理，暗示人不应因小有所长而骄傲自满。",
+    "difficulty": 2,
+    "tags": [
+      "宋代",
+      "文意理解",
+      "卖油翁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-110",
+    "type": "classical",
+    "prompt": "《卖油翁》「康肃忿然曰」中「忿然」的意思是？",
+    "options": [
+      "高兴的样子",
+      "愤怒的样子",
+      "惊讶的样子",
+      "悲伤的样子"
+    ],
+    "correct": 1,
+    "explanation": "「忿然」形容愤怒、恼怒的样子。",
+    "difficulty": 2,
+    "tags": [
+      "宋代",
+      "实词",
+      "卖油翁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-111",
+    "type": "classical",
+    "prompt": "《陋室铭》「山不在高，有仙则名」中「名」的词性是？",
+    "options": [
+      "名词",
+      "动词，出名",
+      "形容词",
+      "副词"
+    ],
+    "correct": 1,
+    "explanation": "「名」在此活用为动词，意为出名。",
+    "difficulty": 3,
+    "tags": [
+      "唐代",
+      "实词",
+      "陋室铭"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-112",
+    "type": "classical",
+    "prompt": "《陋室铭》「惟吾德馨」中「馨」的意思是？",
+    "options": [
+      "温馨",
+      "散布很远的香气",
+      "芳香",
+      "美好的品德"
+    ],
+    "correct": 1,
+    "explanation": "「馨」本义为散布很远的香气，比喻品德高尚。",
+    "difficulty": 3,
+    "tags": [
+      "唐代",
+      "实词",
+      "陋室铭"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-113",
+    "type": "classical",
+    "prompt": "《陋室铭》「往来无白丁」中「白丁」指什么？",
+    "options": [
+      "穿白衣的人",
+      "没有学问的人",
+      "普通百姓",
+      "白发老人"
+    ],
+    "correct": 1,
+    "explanation": "「白丁」指没有功名、没有学问的人。与「鸿儒」对比。",
+    "difficulty": 2,
+    "tags": [
+      "唐代",
+      "实词",
+      "陋室铭"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-114",
+    "type": "classical",
+    "prompt": "《陋室铭》「无丝竹之乱耳」中「丝竹」指什么？",
+    "options": [
+      "丝线和竹子",
+      "音乐",
+      "乐器",
+      "绸缎"
+    ],
+    "correct": 1,
+    "explanation": "「丝竹」借代为音乐。",
+    "difficulty": 3,
+    "tags": [
+      "唐代",
+      "实词",
+      "陋室铭"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-115",
+    "type": "classical",
+    "prompt": "《陋室铭》结尾引用「何陋之有」出自谁？",
+    "options": [
+      "刘禹锡",
+      "诸葛亮",
+      "孔子",
+      "庄子"
+    ],
+    "correct": 2,
+    "explanation": "出自《论语》，孔子说君子居之何陋之有。",
+    "difficulty": 3,
+    "tags": [
+      "唐代",
+      "文意理解",
+      "陋室铭"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-116",
+    "type": "classical",
+    "prompt": "《爱莲说》「出淤泥而不染」中「染」的意思是？",
+    "options": [
+      "染色",
+      "沾染、污染",
+      "渲染",
+      "传染"
+    ],
+    "correct": 1,
+    "explanation": "「染」意为沾染。莲花从污泥中生长却不被沾染。",
+    "difficulty": 2,
+    "tags": [
+      "宋代",
+      "实词",
+      "爱莲说"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-117",
+    "type": "classical",
+    "prompt": "《爱莲说》中作者将莲比作什么？",
+    "options": [
+      "隐逸者",
+      "富贵者",
+      "君子",
+      "小人"
+    ],
+    "correct": 2,
+    "explanation": "莲花比喻君子，菊花比喻隐逸者，牡丹比喻富贵者。",
+    "difficulty": 2,
+    "tags": [
+      "宋代",
+      "文意理解",
+      "爱莲说"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-118",
+    "type": "classical",
+    "prompt": "《爱莲说》「濯清涟而不妖」中「濯」的意思是？",
+    "options": [
+      "浊",
+      "洗涤",
+      "污染",
+      "浸泡"
+    ],
+    "correct": 1,
+    "explanation": "「濯」意为洗涤。经清水洗涤却不妖艳。",
+    "difficulty": 3,
+    "tags": [
+      "宋代",
+      "实词",
+      "爱莲说"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-119",
+    "type": "classical",
+    "prompt": "「不可亵玩焉」中「亵」的意思是？",
+    "options": [
+      "轻慢不庄重",
+      "仔细",
+      "害怕",
+      "小心"
+    ],
+    "correct": 0,
+    "explanation": "「亵」意为轻慢。莲花只可远观不可随意玩弄。",
+    "difficulty": 4,
+    "tags": [
+      "宋代",
+      "实词",
+      "爱莲说"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-120",
+    "type": "classical",
+    "prompt": "「中通外直，不蔓不枝」描写莲的哪部分？",
+    "options": [
+      "花瓣",
+      "叶子",
+      "茎",
+      "根"
+    ],
+    "correct": 2,
+    "explanation": "形容莲茎中空外直，比喻君子正直。",
+    "difficulty": 3,
+    "tags": [
+      "宋代",
+      "文意理解",
+      "爱莲说"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-121",
+    "type": "classical",
+    "prompt": "《河中石兽》的主旨是？",
+    "options": [
+      "石兽无法找到",
+      "做事要从实际出发",
+      "老人总比年轻人聪明",
+      "河流力量很大"
+    ],
+    "correct": 1,
+    "explanation": "通过三人不同结论说明实践出真知。",
+    "difficulty": 3,
+    "tags": [
+      "清代",
+      "文意理解",
+      "河中石兽"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-122",
+    "type": "classical",
+    "prompt": "「是非木杮」中「杮」的意思是？",
+    "options": [
+      "柿子",
+      "木片",
+      "木桩",
+      "树枝"
+    ],
+    "correct": 1,
+    "explanation": "「杮」指削下的木片。石兽不是木片不能被水冲走。",
+    "difficulty": 4,
+    "tags": [
+      "清代",
+      "实词",
+      "河中石兽"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-123",
+    "type": "classical",
+    "prompt": "老河兵认为石兽在哪里？",
+    "options": [
+      "下游",
+      "原地不动",
+      "上游",
+      "埋在原处"
+    ],
+    "correct": 2,
+    "explanation": "根据水流冲刷原理认为石兽向上游移动。",
+    "difficulty": 3,
+    "tags": [
+      "清代",
+      "文意理解",
+      "河中石兽"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-124",
+    "type": "classical",
+    "prompt": "「然则天下之事」中「然则」意思是？",
+    "options": [
+      "然而",
+      "既然这样那么",
+      "自然法则",
+      "虽然如此"
+    ],
+    "correct": 1,
+    "explanation": "然则意为既然这样那么。",
+    "difficulty": 3,
+    "tags": [
+      "清代",
+      "虚词",
+      "河中石兽"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-125",
+    "type": "classical",
+    "prompt": "「于我如浮云」中「浮云」比喻什么？",
+    "options": [
+      "美好事物",
+      "毫无价值",
+      "高高在上",
+      "自由自在"
+    ],
+    "correct": 1,
+    "explanation": "浮云比喻毫无价值。不义之财不值追求。",
+    "difficulty": 2,
+    "tags": [
+      "先秦",
+      "文意理解",
+      "论语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-126",
+    "type": "classical",
+    "prompt": "「饭疏食饮水」中「疏食」意思是？",
+    "options": [
+      "稀饭",
+      "粗粮",
+      "蔬菜",
+      "少量食物"
+    ],
+    "correct": 1,
+    "explanation": "疏食指粗粮。表达安贫乐道。",
+    "difficulty": 3,
+    "tags": [
+      "先秦",
+      "实词",
+      "论语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-127",
+    "type": "classical",
+    "prompt": "「匹夫不可夺志也」中「夺」意思是？",
+    "options": [
+      "抢夺",
+      "改变动摇",
+      "夺取",
+      "竞争"
+    ],
+    "correct": 1,
+    "explanation": "夺意为改变动摇。志向不可被动摇。",
+    "difficulty": 3,
+    "tags": [
+      "先秦",
+      "实词",
+      "论语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-128",
+    "type": "classical",
+    "prompt": "翻译「择其善者而从之」",
+    "options": [
+      "选择好人跟随",
+      "选取别人优点来学习",
+      "只向好人学习",
+      "挑选善良朋友"
+    ],
+    "correct": 1,
+    "explanation": "善者指优点；从之指学习。",
+    "difficulty": 2,
+    "tags": [
+      "先秦",
+      "翻译",
+      "论语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-129",
+    "type": "classical",
+    "prompt": "「静以修身，俭以养德」中「以」用法是？",
+    "options": [
+      "介词用",
+      "连词用来",
+      "动词认为",
+      "介词因为"
+    ],
+    "correct": 1,
+    "explanation": "以是连词意为用来。",
+    "difficulty": 3,
+    "tags": [
+      "魏晋",
+      "虚词",
+      "诫子书"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-130",
+    "type": "classical",
+    "prompt": "「断其股」中「股」古义是？",
+    "options": [
+      "屁股",
+      "大腿",
+      "股份",
+      "腿部"
+    ],
+    "correct": 1,
+    "explanation": "股古义是大腿。典型古今异义词。",
+    "difficulty": 4,
+    "tags": [
+      "清代",
+      "古今异义",
+      "狼"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-131",
+    "type": "classical",
+    "prompt": "「一狼洞其中」中「洞」的用法是？",
+    "options": [
+      "名词洞穴",
+      "名词活用为动词打洞",
+      "形容词深",
+      "副词快速"
+    ],
+    "correct": 1,
+    "explanation": "洞名词活用为动词意为打洞。",
+    "difficulty": 4,
+    "tags": [
+      "清代",
+      "实词",
+      "狼"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-132",
+    "type": "classical",
+    "prompt": "翻译「禽兽之变诈几何哉？止增笑耳」",
+    "options": [
+      "欺骗手段能有多少？只增笑料罢了",
+      "动物很狡猾",
+      "禽兽变化太多",
+      "禽兽很聪明"
+    ],
+    "correct": 0,
+    "explanation": "变诈意为欺骗手段；几何意为多少；止意为只是。",
+    "difficulty": 3,
+    "tags": [
+      "清代",
+      "翻译",
+      "狼"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-133",
+    "type": "classical",
+    "prompt": "「得一人之使」中「使」意思是？",
+    "options": [
+      "使用",
+      "使者",
+      "使唤",
+      "劳力"
+    ],
+    "correct": 3,
+    "explanation": "使意为劳力。得到一个人的劳力。",
+    "difficulty": 3,
+    "tags": [
+      "先秦",
+      "实词",
+      "穿井得一人"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-134",
+    "type": "classical",
+    "prompt": "「其人舍然大喜」中「舍然」意思是？",
+    "options": [
+      "离开",
+      "放下心来",
+      "住在房子里",
+      "舍不得"
+    ],
+    "correct": 1,
+    "explanation": "舍然意为释然。杞人开导后释然大喜。",
+    "difficulty": 3,
+    "tags": [
+      "先秦",
+      "实词",
+      "杞人忧天"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-135",
+    "type": "classical",
+    "prompt": "《杞人忧天》告诉我们什么？",
+    "options": [
+      "天会塌下来",
+      "要时刻警惕",
+      "不要为不可能的事过分担忧",
+      "担忧是本能"
+    ],
+    "correct": 2,
+    "explanation": "比喻不必要的忧虑。",
+    "difficulty": 1,
+    "tags": [
+      "先秦",
+      "文意理解",
+      "杞人忧天"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-136",
+    "type": "classical",
+    "prompt": "「之」在「宋之丁氏」中用法是？",
+    "options": [
+      "代词",
+      "助词的",
+      "动词去",
+      "取消独立性"
+    ],
+    "correct": 1,
+    "explanation": "助词意为的。",
+    "difficulty": 2,
+    "tags": [
+      "先秦",
+      "虚词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-137",
+    "type": "classical",
+    "prompt": "「为」在「此为何若人」中意为？",
+    "options": [
+      "替",
+      "是",
+      "被",
+      "做"
+    ],
+    "correct": 1,
+    "explanation": "动词意为是。",
+    "difficulty": 3,
+    "tags": [
+      "先秦",
+      "虚词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-138",
+    "type": "classical",
+    "prompt": "「其」在「其一犬坐于前」和「其真无马邪」中用法？",
+    "options": [
+      "都是代词",
+      "前者代词后者语气词",
+      "都是语气词",
+      "前者语气词后者代词"
+    ],
+    "correct": 1,
+    "explanation": "前者代词意为其中，后者语气词表反问。",
+    "difficulty": 4,
+    "tags": [
+      "虚词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-139",
+    "type": "classical",
+    "prompt": "翻译「学而时习之，不亦说乎？」",
+    "options": [
+      "学了常练习不是很快乐吗",
+      "学习并时常复习不也令人愉快吗？",
+      "学了又学很高兴",
+      "反复背诵难道不高兴吗"
+    ],
+    "correct": 1,
+    "explanation": "时意为经常；习意为温习；说通悦。",
+    "difficulty": 2,
+    "tags": [
+      "先秦",
+      "翻译",
+      "论语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-140",
+    "type": "classical",
+    "prompt": "下列「而」字表修饰关系的是？",
+    "options": [
+      "学而不思则罔",
+      "人不知而不愠",
+      "笑而止之",
+      "温故而知新"
+    ],
+    "correct": 2,
+    "explanation": "笑而止之中而表修饰：笑着阻止他。",
+    "difficulty": 4,
+    "tags": [
+      "虚词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-141",
+    "type": "classical",
+    "prompt": "「东临碣石」中「临」意思是？",
+    "options": [
+      "面临",
+      "到达登上",
+      "临时",
+      "即将"
+    ],
+    "correct": 1,
+    "explanation": "临意为到达登上。",
+    "difficulty": 2,
+    "tags": [
+      "汉代",
+      "实词",
+      "观沧海"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-142",
+    "type": "classical",
+    "prompt": "「日月之行，若出其中」运用了什么？",
+    "options": [
+      "写实",
+      "想象和夸张",
+      "拟人",
+      "对比"
+    ],
+    "correct": 1,
+    "explanation": "日月好像从大海升起——想象和夸张。",
+    "difficulty": 3,
+    "tags": [
+      "汉代",
+      "修辞",
+      "观沧海"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-143",
+    "type": "classical",
+    "prompt": "《观沧海》作者是？",
+    "options": [
+      "曹植",
+      "曹丕",
+      "曹操",
+      "司马懿"
+    ],
+    "correct": 2,
+    "explanation": "曹操北征乌桓胜利后所作。",
+    "difficulty": 1,
+    "tags": [
+      "汉代",
+      "作者",
+      "观沧海"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-144",
+    "type": "classical",
+    "prompt": "「我寄愁心与明月」用了什么修辞？",
+    "options": [
+      "比喻",
+      "拟人",
+      "夸张",
+      "对偶"
+    ],
+    "correct": 1,
+    "explanation": "赋予明月以人的情感，是拟人。",
+    "difficulty": 3,
+    "tags": [
+      "唐代",
+      "修辞",
+      "闻王昌龄"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-145",
+    "type": "classical",
+    "prompt": "「左迁」的意思是？",
+    "options": [
+      "升官",
+      "贬官",
+      "向左搬迁",
+      "调任"
+    ],
+    "correct": 1,
+    "explanation": "古代以右为尊，左迁即降职贬官。",
+    "difficulty": 2,
+    "tags": [
+      "唐代",
+      "实词",
+      "闻王昌龄"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-146",
+    "type": "classical",
+    "prompt": "「海日生残夜，江春入旧年」蕴含什么哲理？",
+    "options": [
+      "大海壮观",
+      "新事物孕育于旧事物中",
+      "春天更好",
+      "日夜更替不停"
+    ],
+    "correct": 1,
+    "explanation": "残夜未尽红日已升。新旧交替。",
+    "difficulty": 4,
+    "tags": [
+      "唐代",
+      "文意理解",
+      "次北固山下"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-147",
+    "type": "classical",
+    "prompt": "「乡书何处达？归雁洛阳边」表达什么？",
+    "options": [
+      "赞美洛阳",
+      "思乡之情",
+      "喜爱大雁",
+      "旅途欢乐"
+    ],
+    "correct": 1,
+    "explanation": "想让归雁带信回家，思乡之情。",
+    "difficulty": 2,
+    "tags": [
+      "唐代",
+      "文意理解",
+      "次北固山下"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-148",
+    "type": "classical",
+    "prompt": "「昏鸦」是什么意思？",
+    "options": [
+      "发昏的乌鸦",
+      "黄昏归巢的乌鸦",
+      "黑色乌鸦",
+      "年老乌鸦"
+    ],
+    "correct": 1,
+    "explanation": "昏鸦指黄昏时归巢的乌鸦。",
+    "difficulty": 2,
+    "tags": [
+      "元代",
+      "实词",
+      "天净沙秋思"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-149",
+    "type": "classical",
+    "prompt": "「断肠人在天涯」中「断肠」形容什么？",
+    "options": [
+      "肠子断了",
+      "极度悲伤",
+      "饥饿",
+      "疾病"
+    ],
+    "correct": 1,
+    "explanation": "断肠比喻极度悲伤。",
+    "difficulty": 2,
+    "tags": [
+      "元代",
+      "实词",
+      "天净沙秋思"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-150",
+    "type": "classical",
+    "prompt": "《天净沙·秋思》主旨是？",
+    "options": [
+      "赞美秋景",
+      "描写农村",
+      "游子思乡愁苦",
+      "小桥流水"
+    ],
+    "correct": 2,
+    "explanation": "通过萧瑟意象烘托游子思乡之苦。",
+    "difficulty": 1,
+    "tags": [
+      "元代",
+      "文意理解",
+      "天净沙秋思"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-151",
+    "type": "classical",
+    "prompt": "「小桥流水人家」在全曲中的作用？",
+    "options": [
+      "描写美景",
+      "以乐景衬哀情反衬游子孤独",
+      "过渡",
+      "总结"
+    ],
+    "correct": 1,
+    "explanation": "温馨画面反衬游子漂泊的悲凉。",
+    "difficulty": 4,
+    "tags": [
+      "元代",
+      "修辞",
+      "天净沙秋思"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-152",
+    "type": "classical",
+    "prompt": "「而」在「学而不思则罔」中表什么？",
+    "options": [
+      "顺承",
+      "转折",
+      "修饰",
+      "并列"
+    ],
+    "correct": 1,
+    "explanation": "学习却不思考。而表转折。",
+    "difficulty": 3,
+    "tags": [
+      "先秦",
+      "虚词",
+      "论语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-153",
+    "type": "classical",
+    "prompt": "通假字：「说」通什么？",
+    "options": [
+      "悦",
+      "阅",
+      "越",
+      "月"
+    ],
+    "correct": 0,
+    "explanation": "说通悦意为高兴。",
+    "difficulty": 1,
+    "tags": [
+      "先秦",
+      "通假字",
+      "论语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-154",
+    "type": "classical",
+    "prompt": "通假字：「十有五」中「有」通什么？",
+    "options": [
+      "又",
+      "友",
+      "右",
+      "优"
+    ],
+    "correct": 0,
+    "explanation": "有通又，十有五即十五。",
+    "difficulty": 2,
+    "tags": [
+      "先秦",
+      "通假字",
+      "论语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-155",
+    "type": "classical",
+    "prompt": "通假字：「止有剩骨」中「止」通什么？",
+    "options": [
+      "只",
+      "至",
+      "指",
+      "之"
+    ],
+    "correct": 0,
+    "explanation": "止通只意为仅仅。",
+    "difficulty": 2,
+    "tags": [
+      "清代",
+      "通假字",
+      "狼"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-156",
+    "type": "classical",
+    "prompt": "「率妻子邑人」中「妻子」古义是？",
+    "options": [
+      "现代义妻子",
+      "妻子和儿女",
+      "已婚女性",
+      "配偶"
+    ],
+    "correct": 1,
+    "explanation": "妻子古义指妻子和儿女。",
+    "difficulty": 2,
+    "tags": [
+      "魏晋",
+      "古今异义",
+      "桃花源记"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-157",
+    "type": "classical",
+    "prompt": "「阡陌交通」中「交通」古义是？",
+    "options": [
+      "交通运输",
+      "交错相通",
+      "交通工具",
+      "道路"
+    ],
+    "correct": 1,
+    "explanation": "交通古义指交错相通。",
+    "difficulty": 3,
+    "tags": [
+      "魏晋",
+      "古今异义",
+      "桃花源记"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-158",
+    "type": "classical",
+    "prompt": "「不以臣卑鄙」中「卑鄙」古义是？",
+    "options": [
+      "品行低劣",
+      "地位低下见识浅薄",
+      "自私自利",
+      "粗俗无礼"
+    ],
+    "correct": 1,
+    "explanation": "卑鄙古义为地位低下见识浅薄，是谦辞。",
+    "difficulty": 3,
+    "tags": [
+      "魏晋",
+      "古今异义",
+      "出师表"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-159",
+    "type": "classical",
+    "prompt": "「走」在古文中常见意思是？",
+    "options": [
+      "行走",
+      "跑",
+      "散步",
+      "走路"
+    ],
+    "correct": 1,
+    "explanation": "走在古文中多意为跑。",
+    "difficulty": 2,
+    "tags": [
+      "古今异义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-160",
+    "type": "classical",
+    "prompt": "「太丘舍去」中「去」意思是？",
+    "options": [
+      "去往",
+      "离开",
+      "距离",
+      "过去"
+    ],
+    "correct": 1,
+    "explanation": "去古义为离开。",
+    "difficulty": 2,
+    "tags": [
+      "先秦",
+      "古今异义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-161",
+    "type": "classical",
+    "prompt": "「陈胜者，阳城人也」属于什么句式？",
+    "options": [
+      "倒装句",
+      "省略句",
+      "判断句",
+      "被动句"
+    ],
+    "correct": 2,
+    "explanation": "者也是判断句式。",
+    "difficulty": 2,
+    "tags": [
+      "先秦",
+      "句式"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-162",
+    "type": "classical",
+    "prompt": "「何陋之有」正常语序是？",
+    "options": [
+      "有何陋",
+      "陋何之有",
+      "之有何陋",
+      "有陋何"
+    ],
+    "correct": 0,
+    "explanation": "宾语前置句，正常为有何陋。",
+    "difficulty": 4,
+    "tags": [
+      "句式",
+      "陋室铭"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-163",
+    "type": "classical",
+    "prompt": "「再而衰，三而竭」省略了什么？",
+    "options": [
+      "主语",
+      "鼓字",
+      "宾语",
+      "而"
+    ],
+    "correct": 1,
+    "explanation": "省略了鼓字：再鼓而衰三鼓而竭。",
+    "difficulty": 4,
+    "tags": [
+      "先秦",
+      "句式"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-164",
+    "type": "classical",
+    "prompt": "「帝感其诚」中谁被感动？",
+    "options": [
+      "帝感动别人",
+      "帝被愚公诚意感动",
+      "诚意被帝发现",
+      "愚公感动帝"
+    ],
+    "correct": 1,
+    "explanation": "被动句。天帝被感动。",
+    "difficulty": 4,
+    "tags": [
+      "先秦",
+      "句式"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-165",
+    "type": "classical",
+    "prompt": "「竦峙」意思是？",
+    "options": [
+      "摇晃",
+      "高高耸立",
+      "倒映",
+      "隐约"
+    ],
+    "correct": 1,
+    "explanation": "竦峙意为高高耸立。",
+    "difficulty": 3,
+    "tags": [
+      "汉代",
+      "实词",
+      "观沧海"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-166",
+    "type": "classical",
+    "prompt": "「子规」指什么？",
+    "options": [
+      "植物",
+      "杜鹃鸟",
+      "蝉",
+      "画眉鸟"
+    ],
+    "correct": 1,
+    "explanation": "子规即杜鹃鸟，啼声悲切。",
+    "difficulty": 2,
+    "tags": [
+      "唐代",
+      "实词",
+      "闻王昌龄"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-167",
+    "type": "classical",
+    "prompt": "「客路」意思是？",
+    "options": [
+      "客人走的路",
+      "旅人行经的路",
+      "客栈的路",
+      "客家人的路"
+    ],
+    "correct": 1,
+    "explanation": "客路指旅人行经的路。",
+    "difficulty": 2,
+    "tags": [
+      "唐代",
+      "实词",
+      "次北固山下"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-168",
+    "type": "classical",
+    "prompt": "「风正一帆悬」中「悬」意思是？",
+    "options": [
+      "悬挂",
+      "端正高挂",
+      "悬念",
+      "悬崖"
+    ],
+    "correct": 1,
+    "explanation": "悬意为端正高挂。",
+    "difficulty": 3,
+    "tags": [
+      "唐代",
+      "实词",
+      "次北固山下"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-169",
+    "type": "classical",
+    "prompt": "两个「以」在「以刀劈」「以钱覆」中用法同吗？",
+    "options": [
+      "相同都是介词表工具",
+      "不同",
+      "前者表目的后者表工具",
+      "都是连词"
+    ],
+    "correct": 0,
+    "explanation": "两个都是介词意为用。",
+    "difficulty": 3,
+    "tags": [
+      "虚词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-170",
+    "type": "classical",
+    "prompt": "「贤于材人远矣」中「于」用法是？",
+    "options": [
+      "在",
+      "对",
+      "比",
+      "被"
+    ],
+    "correct": 2,
+    "explanation": "于表比较意为比。",
+    "difficulty": 3,
+    "tags": [
+      "虚词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-171",
+    "type": "classical",
+    "prompt": "「何陋之有」中「之」用法是？",
+    "options": [
+      "代词",
+      "助词的",
+      "宾语前置标志",
+      "动词去"
+    ],
+    "correct": 2,
+    "explanation": "之是宾语前置标志。",
+    "difficulty": 4,
+    "tags": [
+      "虚词",
+      "陋室铭"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-172",
+    "type": "classical",
+    "prompt": "「逝者如斯夫」表达什么？",
+    "options": [
+      "赞美河流",
+      "感慨时间流逝",
+      "悼念死者",
+      "旅途感受"
+    ],
+    "correct": 1,
+    "explanation": "感叹时间如流水不停流逝。",
+    "difficulty": 2,
+    "tags": [
+      "先秦",
+      "文意理解",
+      "论语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-173",
+    "type": "classical",
+    "prompt": "《诫子书》核心思想是？",
+    "options": [
+      "治理国家",
+      "修身治学淡泊宁静",
+      "军事策略",
+      "交友之道"
+    ],
+    "correct": 1,
+    "explanation": "教育儿子修身治学。",
+    "difficulty": 2,
+    "tags": [
+      "魏晋",
+      "文意理解",
+      "诫子书"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-174",
+    "type": "classical",
+    "prompt": "翻译「莲之爱，同予者何人？」",
+    "options": [
+      "喜爱莲花和我一样的有谁呢？",
+      "莲花的爱和我相同",
+      "爱莲花像爱我的人有谁",
+      "谁和我一样喜欢"
+    ],
+    "correct": 0,
+    "explanation": "莲之爱是宾语前置。感叹知己难寻。",
+    "difficulty": 3,
+    "tags": [
+      "宋代",
+      "翻译",
+      "爱莲说"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-175",
+    "type": "classical",
+    "prompt": "讲学家的错误在于？",
+    "options": [
+      "不懂水流",
+      "只凭主观推理缺乏经验",
+      "故意误导",
+      "不懂石头"
+    ],
+    "correct": 1,
+    "explanation": "有理论但缺实际经验。",
+    "difficulty": 3,
+    "tags": [
+      "清代",
+      "文意理解",
+      "河中石兽"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-176",
+    "type": "classical",
+    "prompt": "翻译「卿今当涂掌事，不可不学」",
+    "options": [
+      "你现在当权管事不可不学",
+      "去涂山掌管事情",
+      "走路上掌管事务",
+      "处理事务可以不学"
+    ],
+    "correct": 0,
+    "explanation": "当涂即当权。",
+    "difficulty": 2,
+    "tags": [
+      "宋代",
+      "翻译",
+      "孙权劝学"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-177",
+    "type": "classical",
+    "prompt": "「乃取一葫芦」中「乃」意思是？",
+    "options": [
+      "你的",
+      "于是就",
+      "竟然",
+      "才"
+    ],
+    "correct": 1,
+    "explanation": "乃意为于是。",
+    "difficulty": 2,
+    "tags": [
+      "宋代",
+      "虚词",
+      "卖油翁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-178",
+    "type": "classical",
+    "prompt": "《陋室铭》和《爱莲说》都用了什么手法？",
+    "options": [
+      "直接抒情",
+      "托物言志",
+      "借景抒情",
+      "对比"
+    ],
+    "correct": 1,
+    "explanation": "都是托物言志。",
+    "difficulty": 3,
+    "tags": [
+      "修辞"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-179",
+    "type": "classical",
+    "prompt": "「铭」和「说」分别是什么文体？",
+    "options": [
+      "铭是韵文说是议论散文",
+      "铭是诗歌说是小说",
+      "铭是书信说是寓言",
+      "铭是史书说是日记"
+    ],
+    "correct": 0,
+    "explanation": "铭是刻在器物上的韵文；说是议论文体。",
+    "difficulty": 3,
+    "tags": [
+      "文体"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-180",
+    "type": "classical",
+    "prompt": "《观沧海》属于什么体裁？",
+    "options": [
+      "律诗",
+      "绝句",
+      "四言乐府诗",
+      "词"
+    ],
+    "correct": 2,
+    "explanation": "四言古体乐府诗。",
+    "difficulty": 3,
+    "tags": [
+      "汉代",
+      "文体",
+      "观沧海"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-181",
+    "type": "classical",
+    "prompt": "《天净沙·秋思》属于什么体裁？",
+    "options": [
+      "词",
+      "元曲散曲",
+      "律诗",
+      "绝句"
+    ],
+    "correct": 1,
+    "explanation": "马致远的散曲小令。",
+    "difficulty": 2,
+    "tags": [
+      "元代",
+      "文体",
+      "天净沙秋思"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-182",
+    "type": "classical",
+    "prompt": "《天净沙·秋思》作者是？",
+    "options": [
+      "李白",
+      "杜甫",
+      "马致远",
+      "关汉卿"
+    ],
+    "correct": 2,
+    "explanation": "元代散曲家。",
+    "difficulty": 1,
+    "tags": [
+      "元代",
+      "作者",
+      "天净沙秋思"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-183",
+    "type": "classical",
+    "prompt": "《诫子书》作者是？",
+    "options": [
+      "曹操",
+      "诸葛亮",
+      "司马懿",
+      "刘备"
+    ],
+    "correct": 1,
+    "explanation": "蜀汉丞相诸葛亮写给儿子的家书。",
+    "difficulty": 1,
+    "tags": [
+      "魏晋",
+      "作者",
+      "诫子书"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-184",
+    "type": "classical",
+    "prompt": "《世说新语》编者是？",
+    "options": [
+      "刘义庆",
+      "陶渊明",
+      "谢安",
+      "王羲之"
+    ],
+    "correct": 0,
+    "explanation": "南朝宋刘义庆组织编写。",
+    "difficulty": 2,
+    "tags": [
+      "先秦",
+      "作者"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-185",
+    "type": "classical",
+    "prompt": "《狼》出自哪部作品？",
+    "options": [
+      "聊斋志异",
+      "儒林外史",
+      "红楼梦",
+      "西游记"
+    ],
+    "correct": 0,
+    "explanation": "蒲松龄的《聊斋志异》。",
+    "difficulty": 1,
+    "tags": [
+      "清代",
+      "出处",
+      "狼"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-186",
+    "type": "classical",
+    "prompt": "《穿井得一人》出自？",
+    "options": [
+      "韩非子",
+      "吕氏春秋",
+      "战国策",
+      "左传"
+    ],
+    "correct": 1,
+    "explanation": "出自《吕氏春秋》。",
+    "difficulty": 2,
+    "tags": [
+      "先秦",
+      "出处",
+      "穿井得一人"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-187",
+    "type": "classical",
+    "prompt": "《杞人忧天》出自？",
+    "options": [
+      "庄子",
+      "列子",
+      "孟子",
+      "荀子"
+    ],
+    "correct": 1,
+    "explanation": "出自《列子》。",
+    "difficulty": 2,
+    "tags": [
+      "先秦",
+      "出处",
+      "杞人忧天"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-188",
+    "type": "classical",
+    "prompt": "《陋室铭》作者是？",
+    "options": [
+      "韩愈",
+      "柳宗元",
+      "刘禹锡",
+      "白居易"
+    ],
+    "correct": 2,
+    "explanation": "唐代刘禹锡。",
+    "difficulty": 1,
+    "tags": [
+      "唐代",
+      "作者",
+      "陋室铭"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-189",
+    "type": "classical",
+    "prompt": "《爱莲说》作者是？",
+    "options": [
+      "苏轼",
+      "欧阳修",
+      "周敦颐",
+      "王安石"
+    ],
+    "correct": 2,
+    "explanation": "北宋周敦颐。",
+    "difficulty": 1,
+    "tags": [
+      "宋代",
+      "作者",
+      "爱莲说"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-190",
+    "type": "classical",
+    "prompt": "《河中石兽》出自？",
+    "options": [
+      "阅微草堂笔记",
+      "聊斋志异",
+      "儒林外史",
+      "梦溪笔谈"
+    ],
+    "correct": 0,
+    "explanation": "清代纪昀的《阅微草堂笔记》。",
+    "difficulty": 2,
+    "tags": [
+      "清代",
+      "出处",
+      "河中石兽"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-191",
+    "type": "classical",
+    "prompt": "翻译「苔痕上阶绿，草色入帘青」",
+    "options": [
+      "苔藓蔓延到台阶变绿草色映入帘使染上青色",
+      "台阶有苔帘里有青草",
+      "苔变绿草入帘",
+      "青苔爬上台阶帘外翠绿"
+    ],
+    "correct": 0,
+    "explanation": "上和入是动词，以拟人表现清幽。",
+    "difficulty": 3,
+    "tags": [
+      "唐代",
+      "翻译",
+      "陋室铭"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-192",
+    "type": "classical",
+    "prompt": "「宜乎众矣」中「宜」意思是？",
+    "options": [
+      "适宜",
+      "应当",
+      "应该有很多",
+      "适合"
+    ],
+    "correct": 2,
+    "explanation": "应该有很多人喜爱了。",
+    "difficulty": 3,
+    "tags": [
+      "宋代",
+      "实词",
+      "爱莲说"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-193",
+    "type": "classical",
+    "prompt": "「是知也」最后的「知」通什么？",
+    "options": [
+      "智",
+      "志",
+      "治",
+      "值"
+    ],
+    "correct": 0,
+    "explanation": "知通智意为智慧。",
+    "difficulty": 3,
+    "tags": [
+      "先秦",
+      "通假字",
+      "论语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-194",
+    "type": "classical",
+    "prompt": "「释担而立」中「释」意思是？",
+    "options": [
+      "解释",
+      "放下",
+      "释放",
+      "高兴"
+    ],
+    "correct": 1,
+    "explanation": "释意为放下。",
+    "difficulty": 2,
+    "tags": [
+      "宋代",
+      "实词",
+      "卖油翁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-195",
+    "type": "classical",
+    "prompt": "「何见事之晚乎」中「见事」意思是？",
+    "options": [
+      "看见事情",
+      "认清事物明白事理",
+      "发现事件",
+      "见到事故"
+    ],
+    "correct": 1,
+    "explanation": "见事意为认清事物。",
+    "difficulty": 3,
+    "tags": [
+      "宋代",
+      "实词",
+      "孙权劝学"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-196",
+    "type": "classical",
+    "prompt": "「虽」在「虽有嘉肴」中意为？",
+    "options": [
+      "虽然",
+      "即使",
+      "尽管",
+      "虽然这样"
+    ],
+    "correct": 1,
+    "explanation": "此处虽意为即使。",
+    "difficulty": 4,
+    "tags": [
+      "虚词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-197",
+    "type": "classical",
+    "prompt": "翻译「求之下流，固颠」",
+    "options": [
+      "在下游寻找固然荒唐",
+      "在下面找很傻",
+      "到下游一定失败",
+      "在下游是固定做法"
+    ],
+    "correct": 0,
+    "explanation": "下流指下游；固意为固然；颠意为荒唐。",
+    "difficulty": 3,
+    "tags": [
+      "清代",
+      "翻译",
+      "河中石兽"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-198",
+    "type": "classical",
+    "prompt": "「学而不厌」中「厌」意思是？",
+    "options": [
+      "讨厌",
+      "满足",
+      "疲倦",
+      "放弃"
+    ],
+    "correct": 1,
+    "explanation": "厌意为满足。学习不感到满足。",
+    "difficulty": 3,
+    "tags": [
+      "先秦",
+      "实词",
+      "论语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-199",
+    "type": "classical",
+    "prompt": "「一狼径去」中「径」意思是？",
+    "options": [
+      "小路",
+      "径直",
+      "经过",
+      "路径"
+    ],
+    "correct": 1,
+    "explanation": "径意为径直。一只狼径直走开。",
+    "difficulty": 2,
+    "tags": [
+      "清代",
+      "实词",
+      "狼"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-200",
+    "type": "classical",
+    "prompt": "屠夫如何杀死两只狼？",
+    "options": [
+      "用毒药",
+      "趁前狼假睡从后砍断其股再杀打洞的狼",
+      "请猎人帮忙",
+      "用陷阱"
+    ],
+    "correct": 1,
+    "explanation": "趁前狼假寐从后砍之，又杀了打洞的狼。",
+    "difficulty": 2,
+    "tags": [
+      "清代",
+      "文意理解",
+      "狼"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-201",
+    "type": "classical",
+    "prompt": "《木兰诗》「唧唧复唧唧」开篇的声音有何作用？",
+    "options": [
+      "表现织布机噪音大",
+      "以声音引出木兰制造悬念",
+      "说明木兰勤劳",
+      "描写夜晚宁静"
+    ],
+    "correct": 1,
+    "explanation": "先是织布声后转为叹息声，巧妙引出木兰的忧愁。",
+    "difficulty": 3,
+    "tags": [
+      "南北朝",
+      "修辞",
+      "木兰诗"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-202",
+    "type": "classical",
+    "prompt": "翻译「万里赴戎机，关山度若飞」",
+    "options": [
+      "不远万里奔赴战场越过关山如同飞翔",
+      "木兰骑马飞奔",
+      "战场在万里之外",
+      "木兰像飞鸟越过关山"
+    ],
+    "correct": 0,
+    "explanation": "戎机指战事；度意为越过；若飞形容速度之快。",
+    "difficulty": 3,
+    "tags": [
+      "南北朝",
+      "翻译",
+      "木兰诗"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-203",
+    "type": "classical",
+    "prompt": "「将军百战死，壮士十年归」运用了什么手法？",
+    "options": [
+      "夸张",
+      "互文",
+      "比喻",
+      "排比"
+    ],
+    "correct": 1,
+    "explanation": "互文手法，意思上互相补充。将军和壮士有的战死有的归来。",
+    "difficulty": 4,
+    "tags": [
+      "南北朝",
+      "修辞",
+      "木兰诗"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-204",
+    "type": "classical",
+    "prompt": "「雄兔脚扑朔，雌兔眼迷离」的寓意是？",
+    "options": [
+      "兔子辨别雌雄很难",
+      "以雌雄难辨的兔比喻木兰女扮男装的高超",
+      "动物雌雄外形相似",
+      "批评分不清木兰性别的人"
+    ],
+    "correct": 1,
+    "explanation": "用雌雄难辨的兔子赞美木兰的机智。",
+    "difficulty": 3,
+    "tags": [
+      "南北朝",
+      "文意理解",
+      "木兰诗"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-205",
+    "type": "classical",
+    "prompt": "《论语》「温故而知新，可以为师矣」体现了什么学习方法？",
+    "options": [
+      "只复习旧知识",
+      "在复习旧知识中获得新领悟",
+      "只学新知识",
+      "让老师帮助复习"
+    ],
+    "correct": 1,
+    "explanation": "强调复习中领悟新知，这是学习的高级境界。",
+    "difficulty": 2,
+    "tags": [
+      "先秦",
+      "文意理解",
+      "论语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-206",
+    "type": "classical",
+    "prompt": "「知之者不如好之者，好之者不如乐之者」说明了什么？",
+    "options": [
+      "知道比喜欢重要",
+      "兴趣是最好的老师",
+      "学习分三个阶段",
+      "乐趣最不重要"
+    ],
+    "correct": 1,
+    "explanation": "学习的最高境界是以学为乐。兴趣和热爱是最强的学习动力。",
+    "difficulty": 2,
+    "tags": [
+      "先秦",
+      "文意理解",
+      "论语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-207",
+    "type": "classical",
+    "prompt": "《狼》「屠大窘，恐前后受其敌」中「敌」的意思是？",
+    "options": [
+      "敌人",
+      "攻击、对付",
+      "抵挡",
+      "仇敌"
+    ],
+    "correct": 1,
+    "explanation": "敌在此是动词，意为攻击、胁迫。屠夫担心前后受到两狼攻击。",
+    "difficulty": 3,
+    "tags": [
+      "清代",
+      "实词",
+      "狼"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-208",
+    "type": "classical",
+    "prompt": "《狼》「屠暴起，以刀劈狼首」中「暴」的意思是？",
+    "options": [
+      "暴力",
+      "突然",
+      "暴躁",
+      "猛烈"
+    ],
+    "correct": 1,
+    "explanation": "暴意为突然。屠夫突然跳起来用刀砍狼头。",
+    "difficulty": 2,
+    "tags": [
+      "清代",
+      "实词",
+      "狼"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-209",
+    "type": "classical",
+    "prompt": "翻译《诫子书》「非学无以广才，非志无以成学」",
+    "options": [
+      "不学习就无法增长才干，没有志向就无法学有所成",
+      "不学习没有广泛的才能",
+      "不立志就不能成才",
+      "学习和志向都不重要"
+    ],
+    "correct": 0,
+    "explanation": "非无以是双重否定，强调学习和立志的必要性。",
+    "difficulty": 3,
+    "tags": [
+      "魏晋",
+      "翻译",
+      "诫子书"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-210",
+    "type": "classical",
+    "prompt": "《陋室铭》「可以调素琴，阅金经」中「素琴」和「金经」分别指？",
+    "options": [
+      "朴素的琴和金色的经书",
+      "不加装饰的琴和佛经",
+      "素色琴弦和黄金书",
+      "古琴和经典"
+    ],
+    "correct": 1,
+    "explanation": "素琴指不加装饰的古琴；金经指佛经（用泥金书写）。表现主人高雅情趣。",
+    "difficulty": 3,
+    "tags": [
+      "唐代",
+      "实词",
+      "陋室铭"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-211",
+    "type": "classical",
+    "prompt": "《爱莲说》「香远益清」中「益」的意思是？",
+    "options": [
+      "利益",
+      "更加",
+      "有益",
+      "好处"
+    ],
+    "correct": 1,
+    "explanation": "益意为更加。香气远播更加清幽。比喻君子美名远扬。",
+    "difficulty": 3,
+    "tags": [
+      "宋代",
+      "实词",
+      "爱莲说"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-212",
+    "type": "classical",
+    "prompt": "《爱莲说》「菊之爱，陶后鲜有闻」中「鲜」的读音和意思是？",
+    "options": [
+      "xiān，新鲜",
+      "xiǎn，很少",
+      "xiān，鲜明",
+      "xiǎn，鲜有"
+    ],
+    "correct": 1,
+    "explanation": "鲜读xiǎn意为很少。陶渊明之后很少听说有人爱菊了。",
+    "difficulty": 3,
+    "tags": [
+      "宋代",
+      "实词",
+      "爱莲说"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-213",
+    "type": "classical",
+    "prompt": "翻译《河中石兽》「凡河中失石，当求之于上流」",
+    "options": [
+      "凡是河中丢失的石头，都应当到上游去寻找",
+      "河中失去的石头在上面",
+      "河流中丢失的石头在下游",
+      "所有河中的石头都在上游"
+    ],
+    "correct": 0,
+    "explanation": "老河兵根据实际经验得出的结论。",
+    "difficulty": 2,
+    "tags": [
+      "清代",
+      "翻译",
+      "河中石兽"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-214",
+    "type": "classical",
+    "prompt": "《穿井得一人》中「丁氏穿井得一人」被误传为什么？",
+    "options": [
+      "丁氏在井里发现了一个人",
+      "丁氏挖井挖到了宝藏",
+      "丁氏请了一个人挖井",
+      "丁氏的井很深"
+    ],
+    "correct": 0,
+    "explanation": "丁氏说得一人之使（省了一人劳力），被误传为挖出了一个人。",
+    "difficulty": 2,
+    "tags": [
+      "先秦",
+      "文意理解",
+      "穿井得一人"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-215",
+    "type": "classical",
+    "prompt": "《杞人忧天》「天，积气耳」中「积气」的意思是？",
+    "options": [
+      "生气",
+      "聚积的气体",
+      "积蓄力量",
+      "空气"
+    ],
+    "correct": 1,
+    "explanation": "晓之者解释天是聚积的气体，不会塌下来。",
+    "difficulty": 3,
+    "tags": [
+      "先秦",
+      "实词",
+      "杞人忧天"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-216",
+    "type": "classical",
+    "prompt": "「而」在「择其善者而从之」中表什么关系？",
+    "options": [
+      "转折",
+      "顺承",
+      "修饰",
+      "并列"
+    ],
+    "correct": 1,
+    "explanation": "选取优点然后学习。而表顺承，前后动作有先后关系。",
+    "difficulty": 3,
+    "tags": [
+      "先秦",
+      "虚词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-217",
+    "type": "classical",
+    "prompt": "「以」在「蒙辞以军中多务」中的用法是？",
+    "options": [
+      "连词",
+      "介词用",
+      "动词认为",
+      "介词因为"
+    ],
+    "correct": 1,
+    "explanation": "以是介词意为用，引出推辞的理由。这是倒装：以军中多务辞。",
+    "difficulty": 4,
+    "tags": [
+      "宋代",
+      "虚词",
+      "孙权劝学"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-218",
+    "type": "classical",
+    "prompt": "「其」在「择其善者」中的意思是？",
+    "options": [
+      "他的",
+      "其中的",
+      "他们的",
+      "那个"
+    ],
+    "correct": 2,
+    "explanation": "其意为他们的。选取他们当中的优点。",
+    "difficulty": 2,
+    "tags": [
+      "先秦",
+      "虚词",
+      "论语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-219",
+    "type": "classical",
+    "prompt": "翻译「己所不欲，勿施于人」",
+    "options": [
+      "自己不想要的不要强加给别人",
+      "自己不喜欢的人不要去接近",
+      "自己做不到的就不要做",
+      "对自己不好的事要拒绝"
+    ],
+    "correct": 0,
+    "explanation": "欲意为想要；施意为施加；于意为对。",
+    "difficulty": 1,
+    "tags": [
+      "先秦",
+      "翻译",
+      "论语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-220",
+    "type": "classical",
+    "prompt": "「为」在「可以为师矣」中的意思是？",
+    "options": [
+      "做、当",
+      "是",
+      "被",
+      "替"
+    ],
+    "correct": 0,
+    "explanation": "为意为做、当。可以做老师了。",
+    "difficulty": 2,
+    "tags": [
+      "先秦",
+      "虚词",
+      "论语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-221",
+    "type": "classical",
+    "prompt": "《观沧海》「秋风萧瑟，洪波涌起」中「萧瑟」意思是？",
+    "options": [
+      "凄凉的",
+      "风声沙沙",
+      "秋天特有的寒冷",
+      "荒凉"
+    ],
+    "correct": 1,
+    "explanation": "萧瑟形容秋风的声音，沙沙作响。",
+    "difficulty": 2,
+    "tags": [
+      "汉代",
+      "实词",
+      "观沧海"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-222",
+    "type": "classical",
+    "prompt": "《闻王昌龄左迁龙标遥有此寄》的作者是？",
+    "options": [
+      "王昌龄",
+      "杜甫",
+      "李白",
+      "白居易"
+    ],
+    "correct": 2,
+    "explanation": "是李白得知好友王昌龄被贬后写的送别诗。",
+    "difficulty": 1,
+    "tags": [
+      "唐代",
+      "作者",
+      "闻王昌龄"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-223",
+    "type": "classical",
+    "prompt": "《次北固山下》的作者是？",
+    "options": [
+      "王湾",
+      "王维",
+      "李白",
+      "杜甫"
+    ],
+    "correct": 0,
+    "explanation": "唐代诗人王湾的作品。",
+    "difficulty": 2,
+    "tags": [
+      "唐代",
+      "作者",
+      "次北固山下"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-224",
+    "type": "classical",
+    "prompt": "《木兰诗》是什么时期的作品？",
+    "options": [
+      "唐代",
+      "南北朝",
+      "宋代",
+      "汉代"
+    ],
+    "correct": 1,
+    "explanation": "《木兰诗》是南北朝时期的乐府民歌。",
+    "difficulty": 2,
+    "tags": [
+      "南北朝",
+      "文体",
+      "木兰诗"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-225",
+    "type": "classical",
+    "prompt": "「以」在「静以修身」和「以刀劈狼首」中用法相同吗？",
+    "options": [
+      "相同都是介词",
+      "不同前者是连词后者是介词",
+      "相同都是连词",
+      "不同前者是动词后者是介词"
+    ],
+    "correct": 1,
+    "explanation": "静以修身中以是连词意为用来；以刀劈中以是介词意为用。",
+    "difficulty": 4,
+    "tags": [
+      "虚词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-226",
+    "type": "classical",
+    "prompt": "通假字：《木兰诗》「对镜帖花黄」中「帖」通什么？",
+    "options": [
+      "贴",
+      "铁",
+      "体",
+      "替"
+    ],
+    "correct": 0,
+    "explanation": "帖通贴意为粘贴。对着镜子贴上花黄装饰。",
+    "difficulty": 2,
+    "tags": [
+      "南北朝",
+      "通假字",
+      "木兰诗"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-227",
+    "type": "classical",
+    "prompt": "通假字：《木兰诗》「出门看火伴」中「火」通什么？",
+    "options": [
+      "伙",
+      "活",
+      "或",
+      "获"
+    ],
+    "correct": 0,
+    "explanation": "火通伙。火伴即伙伴。",
+    "difficulty": 2,
+    "tags": [
+      "南北朝",
+      "通假字",
+      "木兰诗"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-228",
+    "type": "classical",
+    "prompt": "古今异义：《木兰诗》「但闻黄河流水鸣溅溅」中「但」的古义是？",
+    "options": [
+      "但是",
+      "只",
+      "然而",
+      "不过"
+    ],
+    "correct": 1,
+    "explanation": "但古义为只、仅仅。今义为转折连词但是。",
+    "difficulty": 2,
+    "tags": [
+      "南北朝",
+      "古今异义",
+      "木兰诗"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-229",
+    "type": "classical",
+    "prompt": "「孙权劝学」这一事件记载在哪部史书中？",
+    "options": [
+      "《三国志》",
+      "《资治通鉴》",
+      "《史记》",
+      "《汉书》"
+    ],
+    "correct": 1,
+    "explanation": "记载于北宋司马光编写的《资治通鉴》。",
+    "difficulty": 2,
+    "tags": [
+      "宋代",
+      "出处",
+      "孙权劝学"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-230",
+    "type": "classical",
+    "prompt": "《卖油翁》出自谁的作品？",
+    "options": [
+      "苏轼",
+      "欧阳修",
+      "王安石",
+      "司马光"
+    ],
+    "correct": 1,
+    "explanation": "出自欧阳修的《归田录》。",
+    "difficulty": 2,
+    "tags": [
+      "宋代",
+      "作者",
+      "卖油翁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-231",
+    "type": "classical",
+    "prompt": "「之」在「夫君子之行」中的用法是？",
+    "options": [
+      "代词",
+      "助词的",
+      "动词去",
+      "取消独立性"
+    ],
+    "correct": 1,
+    "explanation": "之是助词意为的。君子的行为操守。",
+    "difficulty": 2,
+    "tags": [
+      "魏晋",
+      "虚词",
+      "诫子书"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-232",
+    "type": "classical",
+    "prompt": "翻译「非淡泊无以明志，非宁静无以致远」",
+    "options": [
+      "不恬淡寡欲就无法明确志向，不宁静专一就无法到达远方",
+      "不淡泊就没有志向",
+      "安静才能成功",
+      "清心寡欲才能有志向"
+    ],
+    "correct": 0,
+    "explanation": "非无以是双重否定表强调。致远意为到达远大目标。",
+    "difficulty": 3,
+    "tags": [
+      "魏晋",
+      "翻译",
+      "诫子书"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-233",
+    "type": "classical",
+    "prompt": "《陋室铭》全文用了什么结构？",
+    "options": [
+      "总分总",
+      "先叙后议",
+      "类比引出，托物言志",
+      "先抑后扬"
+    ],
+    "correct": 2,
+    "explanation": "先用山水类比引出主题，再描写陋室环境，最后引用点明主旨。",
+    "difficulty": 3,
+    "tags": [
+      "唐代",
+      "修辞",
+      "陋室铭"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-234",
+    "type": "classical",
+    "prompt": "《爱莲说》全文的论证方法是？",
+    "options": [
+      "举例论证",
+      "对比衬托",
+      "道理论证",
+      "引用论证"
+    ],
+    "correct": 1,
+    "explanation": "用菊花（正衬）和牡丹（反衬）来衬托莲花的高洁品格。",
+    "difficulty": 3,
+    "tags": [
+      "宋代",
+      "修辞",
+      "爱莲说"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-235",
+    "type": "classical",
+    "prompt": "「而」在「出淤泥而不染」中表什么？",
+    "options": [
+      "顺承",
+      "转折",
+      "修饰",
+      "并列"
+    ],
+    "correct": 1,
+    "explanation": "从淤泥中生长出来却不被污染。而表转折。",
+    "difficulty": 3,
+    "tags": [
+      "宋代",
+      "虚词",
+      "爱莲说"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-236",
+    "type": "classical",
+    "prompt": "《河中石兽》「阅十余岁，僧募金重修」中「阅」意思是？",
+    "options": [
+      "阅读",
+      "经过、经历",
+      "检阅",
+      "浏览"
+    ],
+    "correct": 1,
+    "explanation": "阅意为经过、经历。经过十多年。",
+    "difficulty": 3,
+    "tags": [
+      "清代",
+      "实词",
+      "河中石兽"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-237",
+    "type": "classical",
+    "prompt": "《论语》「温故而知新」中「故」和「新」分别指？",
+    "options": [
+      "故事和新闻",
+      "旧知识和新知识",
+      "原因和结果",
+      "故乡和新地方"
+    ],
+    "correct": 1,
+    "explanation": "故指已学过的旧知识；新指从中领悟到的新知识。",
+    "difficulty": 1,
+    "tags": [
+      "先秦",
+      "实词",
+      "论语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-238",
+    "type": "classical",
+    "prompt": "「夫」在「夫学须静也」中的作用是？",
+    "options": [
+      "代词那个人",
+      "句首发语词无实义",
+      "丈夫",
+      "连词"
+    ],
+    "correct": 1,
+    "explanation": "夫是句首发语词，起引出下文的作用。",
+    "difficulty": 3,
+    "tags": [
+      "魏晋",
+      "虚词",
+      "诫子书"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-239",
+    "type": "classical",
+    "prompt": "《狼》「顾野有麦场」中「顾」的意思是？",
+    "options": [
+      "照顾",
+      "回头看",
+      "顾客",
+      "考虑"
+    ],
+    "correct": 1,
+    "explanation": "顾意为回头看。屠夫回头看到野外有麦场。",
+    "difficulty": 2,
+    "tags": [
+      "清代",
+      "实词",
+      "狼"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-240",
+    "type": "classical",
+    "prompt": "《狼》「意将隧入以攻其后也」中「隧」的用法是？",
+    "options": [
+      "名词隧道",
+      "名词活用为动词从隧道中",
+      "形容词",
+      "副词"
+    ],
+    "correct": 1,
+    "explanation": "隧名词活用为状语意为从通道中。那只狼打算从通道钻入攻击屠夫后方。",
+    "difficulty": 4,
+    "tags": [
+      "清代",
+      "实词",
+      "狼"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-241",
+    "type": "classical",
+    "prompt": "翻译《穿井得一人》「宋君令人问之于丁氏」",
+    "options": [
+      "宋国国君派人向丁氏询问这件事",
+      "宋国君主让人问丁氏姓名",
+      "宋君询问了丁氏",
+      "宋君命令丁氏回答问题"
+    ],
+    "correct": 0,
+    "explanation": "令意为命令、派遣；问之意为询问这件事；于意为向。",
+    "difficulty": 3,
+    "tags": [
+      "先秦",
+      "翻译",
+      "穿井得一人"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-242",
+    "type": "classical",
+    "prompt": "《杞人忧天》「身亡所寄」中「亡」的意思是？",
+    "options": [
+      "死亡",
+      "没有",
+      "逃亡",
+      "灭亡"
+    ],
+    "correct": 1,
+    "explanation": "亡意为没有。身体没有寄托的地方。",
+    "difficulty": 3,
+    "tags": [
+      "先秦",
+      "实词",
+      "杞人忧天"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-243",
+    "type": "classical",
+    "prompt": "「者」在「晓之者」中的用法是？",
+    "options": [
+      "代词指人",
+      "助词",
+      "语气词",
+      "判断标志"
+    ],
+    "correct": 0,
+    "explanation": "者是代词意为……的人。开导他的那个人。",
+    "difficulty": 2,
+    "tags": [
+      "先秦",
+      "虚词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-244",
+    "type": "classical",
+    "prompt": "「焉」在「三人行必有我师焉」中的用法是？",
+    "options": [
+      "兼词于此",
+      "语气词",
+      "代词",
+      "疑问词"
+    ],
+    "correct": 0,
+    "explanation": "焉是兼词相当于于此意为在其中。",
+    "difficulty": 4,
+    "tags": [
+      "先秦",
+      "虚词",
+      "论语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-245",
+    "type": "classical",
+    "prompt": "《论语》中「不逾矩」的「逾」意思是？",
+    "options": [
+      "愉快",
+      "超越、越过",
+      "犹豫",
+      "经过"
+    ],
+    "correct": 1,
+    "explanation": "逾意为超越、越过。不逾矩即不超越规矩。",
+    "difficulty": 3,
+    "tags": [
+      "先秦",
+      "实词",
+      "论语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-246",
+    "type": "classical",
+    "prompt": "翻译「吾十有五而志于学，三十而立」",
+    "options": [
+      "我十五岁立志学习三十岁有所成就",
+      "我十五岁开始学习三十岁才毕业",
+      "我十五年学了很多三十年成功了",
+      "我小时候志向远大长大后成功"
+    ],
+    "correct": 0,
+    "explanation": "十有五即十五岁；志于学即立志学习；立即有所成就独立。",
+    "difficulty": 2,
+    "tags": [
+      "先秦",
+      "翻译",
+      "论语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-247",
+    "type": "classical",
+    "prompt": "《卖油翁》「以杓酌油沥之」中「沥」意思是？",
+    "options": [
+      "过滤",
+      "一滴滴地注入",
+      "用力倒",
+      "慢慢倒"
+    ],
+    "correct": 1,
+    "explanation": "沥意为液体一滴滴地注入。从铜钱孔中把油一滴滴注入葫芦。",
+    "difficulty": 3,
+    "tags": [
+      "宋代",
+      "实词",
+      "卖油翁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-248",
+    "type": "classical",
+    "prompt": "「乃」在「乃悟前狼假寐」中意为？",
+    "options": [
+      "于是",
+      "竟然",
+      "你的",
+      "才"
+    ],
+    "correct": 3,
+    "explanation": "乃意为才。这才醒悟前面那只狼是假装睡觉。",
+    "difficulty": 3,
+    "tags": [
+      "清代",
+      "虚词",
+      "狼"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-249",
+    "type": "classical",
+    "prompt": "《论语》「博学而笃志，切问而近思」中「切」意思是？",
+    "options": [
+      "切断",
+      "恳切、紧迫",
+      "一切",
+      "切磋"
+    ],
+    "correct": 1,
+    "explanation": "切意为恳切。恳切地发问深入思考。",
+    "difficulty": 3,
+    "tags": [
+      "先秦",
+      "实词",
+      "论语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-250",
+    "type": "classical",
+    "prompt": "「仁在其中矣」中「仁」在《论语》中核心含义是？",
+    "options": [
+      "仁慈",
+      "爱人，人与人之间的关爱",
+      "仁义",
+      "勇敢"
+    ],
+    "correct": 1,
+    "explanation": "仁是孔子思想的核心，主要指爱人、关爱他人。",
+    "difficulty": 2,
+    "tags": [
+      "先秦",
+      "文意理解",
+      "论语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-251",
+    "type": "classical",
+    "prompt": "《陋室铭》「南阳诸葛庐，西蜀子云亭」引用这两个典故的作用是？",
+    "options": [
+      "说明南阳和西蜀的房子都很好",
+      "以诸葛亮和扬雄自比表明品德高尚",
+      "介绍历史人物",
+      "描写陋室的位置"
+    ],
+    "correct": 1,
+    "explanation": "引用两位贤人的居所自比，说明陋室因人而雅。",
+    "difficulty": 4,
+    "tags": [
+      "唐代",
+      "文意理解",
+      "陋室铭"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-252",
+    "type": "classical",
+    "prompt": "「或」在「或以为死，或以为亡」中意思是？",
+    "options": [
+      "或者",
+      "有的人",
+      "或许",
+      "有时"
+    ],
+    "correct": 1,
+    "explanation": "或意为有的人。有的人认为他死了，有的人认为他逃跑了。",
+    "difficulty": 3,
+    "tags": [
+      "先秦",
+      "虚词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-253",
+    "type": "classical",
+    "prompt": "翻译「知之为知之，不知为不知，是知也」",
+    "options": [
+      "知道就是知道不知道就是不知道这才是真正的智慧",
+      "知道和不知道都一样",
+      "知道的人比不知道的人聪明",
+      "知识就是力量"
+    ],
+    "correct": 0,
+    "explanation": "最后的知通智。强调实事求是的学习态度。",
+    "difficulty": 2,
+    "tags": [
+      "先秦",
+      "翻译",
+      "论语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-254",
+    "type": "classical",
+    "prompt": "《孙权劝学》中「吴下阿蒙」后来成为成语，比喻什么？",
+    "options": [
+      "聪明人",
+      "学识浅薄的人",
+      "勇猛的将军",
+      "善于学习的人"
+    ],
+    "correct": 1,
+    "explanation": "吴下阿蒙比喻学识浅薄缺少文才的人。",
+    "difficulty": 2,
+    "tags": [
+      "宋代",
+      "文意理解",
+      "孙权劝学"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-255",
+    "type": "classical",
+    "prompt": "《孙权劝学》中「刮目相看」后来成为成语，意思是？",
+    "options": [
+      "用刀刮眼睛",
+      "用新的眼光来看待",
+      "批评某人",
+      "不看好某人"
+    ],
+    "correct": 1,
+    "explanation": "刮目相看意为擦亮眼睛重新审视，表示别人已有进步不能再用老眼光看。",
+    "difficulty": 2,
+    "tags": [
+      "宋代",
+      "文意理解",
+      "孙权劝学"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-256",
+    "type": "classical",
+    "prompt": "「其」在「其人舍然大喜」中意思是？",
+    "options": [
+      "其中",
+      "那",
+      "他的",
+      "或许"
+    ],
+    "correct": 1,
+    "explanation": "其意为那。那个人放下心来很高兴。",
+    "difficulty": 2,
+    "tags": [
+      "先秦",
+      "虚词",
+      "杞人忧天"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-257",
+    "type": "classical",
+    "prompt": "翻译「有朋自远方来，不亦乐乎？」中「朋」指什么？",
+    "options": [
+      "朋友",
+      "志同道合的人",
+      "同学",
+      "邻居"
+    ],
+    "correct": 1,
+    "explanation": "朋在古代指志同道合的人。",
+    "difficulty": 2,
+    "tags": [
+      "先秦",
+      "实词",
+      "论语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-258",
+    "type": "classical",
+    "prompt": "《论语》「四十而不惑」中「惑」意思是？",
+    "options": [
+      "迷惑困惑",
+      "诱惑",
+      "疑惑",
+      "困难"
+    ],
+    "correct": 0,
+    "explanation": "惑意为迷惑困惑。四十岁不再对事物感到困惑。",
+    "difficulty": 2,
+    "tags": [
+      "先秦",
+      "实词",
+      "论语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-259",
+    "type": "classical",
+    "prompt": "《诫子书》中「年与时驰，意与日去」的「驰」意思是？",
+    "options": [
+      "骑马",
+      "飞速流逝",
+      "奔跑",
+      "驰骋"
+    ],
+    "correct": 1,
+    "explanation": "驰意为飞速流逝。年龄随时间飞逝。",
+    "difficulty": 3,
+    "tags": [
+      "魏晋",
+      "实词",
+      "诫子书"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-260",
+    "type": "classical",
+    "prompt": "「盖」在「盖余之勤且艰若此」中意思是？",
+    "options": [
+      "盖子",
+      "大概",
+      "因为",
+      "遮盖"
+    ],
+    "correct": 0,
+    "explanation": "盖意为大概、大致。表示推测或总结语气。",
+    "difficulty": 4,
+    "tags": [
+      "虚词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-261",
+    "type": "classical",
+    "prompt": "「所以」在古文中可以表什么？",
+    "options": [
+      "只能表原因",
+      "可以表原因也可以表方式",
+      "只能表方式",
+      "只能表结果"
+    ],
+    "correct": 1,
+    "explanation": "所以有两种用法：表原因（……的原因）和表方式（用来……的方法）。",
+    "difficulty": 4,
+    "tags": [
+      "虚词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-262",
+    "type": "classical",
+    "prompt": "《木兰诗》「愿为市鞍马」中「市」意思是？",
+    "options": [
+      "市场",
+      "买",
+      "城市",
+      "集市"
+    ],
+    "correct": 1,
+    "explanation": "市在此活用为动词意为买。愿意去买马鞍和马匹。",
+    "difficulty": 3,
+    "tags": [
+      "南北朝",
+      "实词",
+      "木兰诗"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-263",
+    "type": "classical",
+    "prompt": "《木兰诗》「旦辞爷娘去，暮宿黄河边」中「旦」意思是？",
+    "options": [
+      "一天",
+      "早晨",
+      "元旦",
+      "某天"
+    ],
+    "correct": 1,
+    "explanation": "旦意为早晨。早晨辞别父母傍晚住在黄河边。",
+    "difficulty": 2,
+    "tags": [
+      "南北朝",
+      "实词",
+      "木兰诗"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-264",
+    "type": "classical",
+    "prompt": "《卖油翁》「尔安敢轻吾射」中「安」意思是？",
+    "options": [
+      "安全",
+      "怎么",
+      "平安",
+      "安心"
+    ],
+    "correct": 1,
+    "explanation": "安意为怎么。你怎么敢轻视我的射术！",
+    "difficulty": 3,
+    "tags": [
+      "宋代",
+      "虚词",
+      "卖油翁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-265",
+    "type": "classical",
+    "prompt": "《陋室铭》开头用山和水做类比的修辞手法叫什么？",
+    "options": [
+      "比喻",
+      "类比",
+      "排比",
+      "对偶"
+    ],
+    "correct": 1,
+    "explanation": "用山不在高有仙则名、水不在深有龙则灵来类比引出陋室不陋。",
+    "difficulty": 3,
+    "tags": [
+      "唐代",
+      "修辞",
+      "陋室铭"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-266",
+    "type": "classical",
+    "prompt": "《爱莲说》开篇提到「水陆草木之花，可爱者甚蕃」中「蕃」意思是？",
+    "options": [
+      "烦恼",
+      "多",
+      "繁殖",
+      "平凡"
+    ],
+    "correct": 1,
+    "explanation": "蕃意为多。水陆各种花草中值得喜爱的有很多。",
+    "difficulty": 2,
+    "tags": [
+      "宋代",
+      "实词",
+      "爱莲说"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-267",
+    "type": "classical",
+    "prompt": "翻译「吾日三省吾身」",
+    "options": [
+      "我每天三次反省自己",
+      "我每天多次反省自己",
+      "我三天反省一次自己",
+      "我每天省察三件事"
+    ],
+    "correct": 1,
+    "explanation": "三是虚数表示多次。日意为每天。省意为反省。",
+    "difficulty": 2,
+    "tags": [
+      "先秦",
+      "翻译",
+      "论语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-268",
+    "type": "classical",
+    "prompt": "「为」在「中峨冠而多髯者为东坡」中意思是？",
+    "options": [
+      "做",
+      "是",
+      "被",
+      "因为"
+    ],
+    "correct": 1,
+    "explanation": "为是判断动词意为是。那个戴高帽多胡须的人是苏东坡。",
+    "difficulty": 2,
+    "tags": [
+      "虚词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-269",
+    "type": "classical",
+    "prompt": "「则」在「学而不思则罔」中意思是？",
+    "options": [
+      "就",
+      "却",
+      "法则",
+      "规则"
+    ],
+    "correct": 0,
+    "explanation": "则意为就。学习却不思考就会迷惑。",
+    "difficulty": 2,
+    "tags": [
+      "先秦",
+      "虚词",
+      "论语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-270",
+    "type": "classical",
+    "prompt": "《论语》「吾十有五而志于学」到「七十而从心所欲」描述了什么？",
+    "options": [
+      "孔子的一生经历",
+      "人生不同阶段的修养境界",
+      "学习的七个步骤",
+      "孔子的年龄变化"
+    ],
+    "correct": 1,
+    "explanation": "描述了从十五到七十岁修养不断提高的过程。",
+    "difficulty": 3,
+    "tags": [
+      "先秦",
+      "文意理解",
+      "论语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-271",
+    "type": "classical",
+    "prompt": "「矣」在「可以为师矣」中的作用是？",
+    "options": [
+      "代词",
+      "语气助词表肯定",
+      "动词",
+      "连词"
+    ],
+    "correct": 1,
+    "explanation": "矣是语气助词，表示肯定的语气。",
+    "difficulty": 2,
+    "tags": [
+      "先秦",
+      "虚词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-272",
+    "type": "classical",
+    "prompt": "翻译「三军可夺帅也，匹夫不可夺志也」",
+    "options": [
+      "三军主帅可以被改变但一个人的志向不可以被改变",
+      "军队可以获胜但个人不行",
+      "三军夺取将帅个人不能夺取志向",
+      "军队和个人都不能放弃"
+    ],
+    "correct": 0,
+    "explanation": "三军指军队；夺意为改变；匹夫指普通人。",
+    "difficulty": 3,
+    "tags": [
+      "先秦",
+      "翻译",
+      "论语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-273",
+    "type": "classical",
+    "prompt": "《狼》「方欲行，转视积薪后」中「方」意思是？",
+    "options": [
+      "方向",
+      "正、正要",
+      "方法",
+      "地方"
+    ],
+    "correct": 1,
+    "explanation": "方意为正、正要。正要走时回头看积薪后面。",
+    "difficulty": 2,
+    "tags": [
+      "清代",
+      "虚词",
+      "狼"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-274",
+    "type": "classical",
+    "prompt": "《卖油翁》「徐以杓酌油沥之」中「徐」意思是？",
+    "options": [
+      "徐徐",
+      "慢慢地",
+      "突然",
+      "认真地"
+    ],
+    "correct": 1,
+    "explanation": "徐意为慢慢地。慢慢地用勺子倒油。",
+    "difficulty": 2,
+    "tags": [
+      "宋代",
+      "实词",
+      "卖油翁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-275",
+    "type": "classical",
+    "prompt": "「然」在「忿然」「泯然」「舍然」中的共同作用是？",
+    "options": [
+      "代词",
+      "连词",
+      "形容词词尾表样子",
+      "动词"
+    ],
+    "correct": 2,
+    "explanation": "然在这些词中都是形容词词尾表示……的样子。",
+    "difficulty": 3,
+    "tags": [
+      "虚词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-276",
+    "type": "classical",
+    "prompt": "翻译「人不知而不愠，不亦君子乎？」",
+    "options": [
+      "别人不了解我我却不恼怒，不也是有修养的人吗？",
+      "别人不知道我不高兴",
+      "人们不认识我我就不开心",
+      "大家都不知道我是不是好人"
+    ],
+    "correct": 0,
+    "explanation": "知意为了解；愠意为恼怒；君子指有修养的人。",
+    "difficulty": 2,
+    "tags": [
+      "先秦",
+      "翻译",
+      "论语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-277",
+    "type": "classical",
+    "prompt": "《河中石兽》中三种寻找石兽的方案分别是？",
+    "options": [
+      "都在下游找",
+      "僧人在下游找、讲学家说在原地、老河兵说在上游",
+      "都在上游找",
+      "讲学家和老河兵意见一致"
+    ],
+    "correct": 1,
+    "explanation": "三人分别代表了不同的认知层次。",
+    "difficulty": 2,
+    "tags": [
+      "清代",
+      "文意理解",
+      "河中石兽"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-278",
+    "type": "classical",
+    "prompt": "「因」在「未若柳絮因风起」中意思是？",
+    "options": [
+      "因为",
+      "凭借、乘着",
+      "原因",
+      "因此"
+    ],
+    "correct": 1,
+    "explanation": "因意为凭借、乘着。不如比作柳絮乘风飞起。",
+    "difficulty": 3,
+    "tags": [
+      "先秦",
+      "虚词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-279",
+    "type": "classical",
+    "prompt": "「安」在「燕雀安知鸿鹄之志哉」中意思是？",
+    "options": [
+      "安全",
+      "怎么",
+      "平安",
+      "安心"
+    ],
+    "correct": 1,
+    "explanation": "安意为怎么。燕雀怎么知道鸿鹄的远大志向呢？",
+    "difficulty": 3,
+    "tags": [
+      "先秦",
+      "虚词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-280",
+    "type": "classical",
+    "prompt": "翻译「岁寒，然后知松柏之后凋也」",
+    "options": [
+      "到了寒冷的时候，才知道松柏是最后凋落的",
+      "天气冷了松柏就凋落了",
+      "一年冷了松柏才发芽",
+      "冬天之后松柏开始生长"
+    ],
+    "correct": 0,
+    "explanation": "岁寒指天气寒冷之时；后凋指最后才凋零。比喻君子在困境中坚守。",
+    "difficulty": 3,
+    "tags": [
+      "先秦",
+      "翻译",
+      "论语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-281",
+    "type": "classical",
+    "prompt": "「遂」在「遂成枯落」中意思是？",
+    "options": [
+      "就、于是",
+      "最后",
+      "完成",
+      "成功"
+    ],
+    "correct": 0,
+    "explanation": "遂意为于是、就。于是变得枯败衰落。",
+    "difficulty": 3,
+    "tags": [
+      "魏晋",
+      "虚词",
+      "诫子书"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-282",
+    "type": "classical",
+    "prompt": "《卖油翁》中「睨之」的「睨」意思是？",
+    "options": [
+      "正视",
+      "斜着眼看",
+      "仰视",
+      "俯视"
+    ],
+    "correct": 1,
+    "explanation": "睨意为斜着眼看，表示不以为然。",
+    "difficulty": 3,
+    "tags": [
+      "宋代",
+      "实词",
+      "卖油翁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-283",
+    "type": "classical",
+    "prompt": "「于」在「战于长勺」中表什么？",
+    "options": [
+      "比较",
+      "对象",
+      "处所",
+      "被动"
+    ],
+    "correct": 2,
+    "explanation": "于表处所意为在。在长勺这个地方作战。",
+    "difficulty": 2,
+    "tags": [
+      "先秦",
+      "虚词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-284",
+    "type": "classical",
+    "prompt": "翻译「骨已尽矣，而两狼之并驱如故」",
+    "options": [
+      "骨头已经扔完了但两只狼仍然像以前一样一起追赶",
+      "骨头没了狼不追了",
+      "扔完骨头狼争夺食物",
+      "骨头还有很多狼继续追"
+    ],
+    "correct": 0,
+    "explanation": "尽意为完；并意为一起；驱意为追赶；如故意为像以前一样。",
+    "difficulty": 3,
+    "tags": [
+      "清代",
+      "翻译",
+      "狼"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-285",
+    "type": "classical",
+    "prompt": "「哉」在「禽兽之变诈几何哉」中的作用是？",
+    "options": [
+      "代词",
+      "语气词表反问",
+      "动词",
+      "连词"
+    ],
+    "correct": 1,
+    "explanation": "哉是语气词表反问。禽兽的诡计能有多少呢！",
+    "difficulty": 2,
+    "tags": [
+      "清代",
+      "虚词",
+      "狼"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-286",
+    "type": "classical",
+    "prompt": "《观沧海》全诗表达了曹操什么样的情怀？",
+    "options": [
+      "消极厌世",
+      "统一天下的雄心壮志",
+      "归隐田园",
+      "思念故乡"
+    ],
+    "correct": 1,
+    "explanation": "通过描写大海的壮阔表达了曹操统一天下的雄心和博大胸怀。",
+    "difficulty": 3,
+    "tags": [
+      "汉代",
+      "文意理解",
+      "观沧海"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-287",
+    "type": "classical",
+    "prompt": "《闻王昌龄左迁龙标遥有此寄》表达了什么感情？",
+    "options": [
+      "对被贬友人的同情和关切",
+      "对自然的赞美",
+      "对朝廷的感恩",
+      "旅途的快乐"
+    ],
+    "correct": 0,
+    "explanation": "李白听闻好友被贬，以诗寄情表达同情和关切。",
+    "difficulty": 2,
+    "tags": [
+      "唐代",
+      "文意理解",
+      "闻王昌龄"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-288",
+    "type": "classical",
+    "prompt": "《次北固山下》全诗的感情基调是？",
+    "options": [
+      "愉快",
+      "思乡",
+      "愤怒",
+      "悲伤"
+    ],
+    "correct": 1,
+    "explanation": "诗人旅途中感受到时光流逝和对故乡的思念。",
+    "difficulty": 2,
+    "tags": [
+      "唐代",
+      "文意理解",
+      "次北固山下"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-289",
+    "type": "classical",
+    "prompt": "《木兰诗》中木兰代父从军的原因是？",
+    "options": [
+      "木兰喜欢打仗",
+      "父亲年老无壮男可从军",
+      "木兰被强制征兵",
+      "木兰为了立功"
+    ],
+    "correct": 1,
+    "explanation": "阿爷无大儿木兰无长兄，父亲年老弟弟年幼。",
+    "difficulty": 1,
+    "tags": [
+      "南北朝",
+      "文意理解",
+      "木兰诗"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-290",
+    "type": "classical",
+    "prompt": "《论语》作为儒家经典，主要记录了什么？",
+    "options": [
+      "历史事件",
+      "孔子及弟子的言行",
+      "诗歌散文",
+      "战争策略"
+    ],
+    "correct": 1,
+    "explanation": "《论语》主要记录孔子及其弟子的言行和思想。",
+    "difficulty": 1,
+    "tags": [
+      "先秦",
+      "文体",
+      "论语"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-291",
+    "type": "classical",
+    "prompt": "翻译《卖油翁》「我亦无他，但手熟尔」",
+    "options": [
+      "我也没有什么别的奥妙只不过手法熟练罢了",
+      "我没有其他才能只是手法快",
+      "我什么都不会只会倒油",
+      "我除了倒油什么都不熟练"
+    ],
+    "correct": 0,
+    "explanation": "亦意为也；无他意为没有别的奥妙；但意为只是；尔意为罢了。",
+    "difficulty": 2,
+    "tags": [
+      "宋代",
+      "翻译",
+      "卖油翁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-292",
+    "type": "classical",
+    "prompt": "「耳」在「但手熟尔」中的作用是？",
+    "options": [
+      "耳朵",
+      "语气词罢了",
+      "代词",
+      "连词"
+    ],
+    "correct": 1,
+    "explanation": "尔同耳是语气词意为罢了。表示语气轻松。",
+    "difficulty": 2,
+    "tags": [
+      "宋代",
+      "虚词",
+      "卖油翁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-293",
+    "type": "classical",
+    "prompt": "「虽」在「虽人有百手」和「虽有嘉肴」中意思相同吗？",
+    "options": [
+      "相同都是虽然",
+      "相同都是即使",
+      "不同前者是即使后者是虽然",
+      "不同前者是虽然后者是即使"
+    ],
+    "correct": 1,
+    "explanation": "两处虽都表示即使（假设关系）。",
+    "difficulty": 4,
+    "tags": [
+      "虚词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-294",
+    "type": "classical",
+    "prompt": "「何」在「何陋之有」和「何处达」中用法？",
+    "options": [
+      "都是疑问代词什么",
+      "前者是什么后者是哪里",
+      "前者是哪里后者是什么",
+      "都是感叹词"
+    ],
+    "correct": 1,
+    "explanation": "何陋之有中何意为什么；何处达中何意为哪里。",
+    "difficulty": 3,
+    "tags": [
+      "虚词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-295",
+    "type": "classical",
+    "prompt": "翻译「蒙辞以军中多务」",
+    "options": [
+      "吕蒙用军中事务繁多来推辞",
+      "吕蒙辞去了军中的事务",
+      "吕蒙在军中讲话",
+      "吕蒙拒绝了军事任务"
+    ],
+    "correct": 0,
+    "explanation": "辞意为推辞；以意为用。这是状语后置句正常为以军中多务辞。",
+    "difficulty": 3,
+    "tags": [
+      "宋代",
+      "翻译",
+      "孙权劝学"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-296",
+    "type": "classical",
+    "prompt": "《陋室铭》最后引用孔子的话有什么作用？",
+    "options": [
+      "充实文章内容",
+      "画龙点睛总结全文突出主旨",
+      "表示对孔子的尊敬",
+      "说明作者学识渊博"
+    ],
+    "correct": 1,
+    "explanation": "引用何陋之有点明主旨：有德之人居住的地方不会简陋。",
+    "difficulty": 3,
+    "tags": [
+      "唐代",
+      "修辞",
+      "陋室铭"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-297",
+    "type": "classical",
+    "prompt": "《爱莲说》结尾感叹「牡丹之爱，宜乎众矣」表达什么？",
+    "options": [
+      "赞美牡丹",
+      "对追逐富贵世风的批判和感叹",
+      "喜爱牡丹的人很好",
+      "大家都应该爱牡丹"
+    ],
+    "correct": 1,
+    "explanation": "对当时追求名利富贵的世风进行含蓄批评。",
+    "difficulty": 4,
+    "tags": [
+      "宋代",
+      "文意理解",
+      "爱莲说"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-298",
+    "type": "classical",
+    "prompt": "「者」在「陈胜者，阳城人也」中的用法是？",
+    "options": [
+      "代词指人",
+      "判断句标志",
+      "助词",
+      "语气词"
+    ],
+    "correct": 1,
+    "explanation": "者和也构成判断句式，者提示主语也结束判断。",
+    "difficulty": 3,
+    "tags": [
+      "先秦",
+      "虚词",
+      "句式"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-299",
+    "type": "classical",
+    "prompt": "「也」在「学不可以已也」中的作用是？",
+    "options": [
+      "语气词表判断",
+      "语气词表肯定",
+      "代词",
+      "动词"
+    ],
+    "correct": 1,
+    "explanation": "也是语气词表示肯定。学习不可以停止。",
+    "difficulty": 2,
+    "tags": [
+      "先秦",
+      "虚词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c7-300",
+    "type": "classical",
+    "prompt": "《论语》「仁以为己任，不亦重乎？死而后已，不亦远乎？」中「已」意思是？",
+    "options": [
+      "已经",
+      "停止",
+      "过去",
+      "完毕"
+    ],
+    "correct": 1,
+    "explanation": "已意为停止。死后才停止即一生都在为仁义奋斗。",
+    "difficulty": 3,
+    "tags": [
+      "先秦",
+      "实词",
+      "论语"
+    ],
+    "source": "curriculum"
   }
 ]
