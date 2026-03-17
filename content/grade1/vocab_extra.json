@@ -1,0 +1,9152 @@
+[
+  {
+    "id": "v1-151",
+    "type": "vocab",
+    "prompt": "「一」字怎么读？",
+    "options": [
+      "lì",
+      "dī",
+      "yī",
+      "hóng"
+    ],
+    "correct": 2,
+    "explanation": "「一」读 yī，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-152",
+    "type": "vocab",
+    "prompt": "「二」字怎么读？",
+    "options": [
+      "liù",
+      "mā",
+      "lái",
+      "èr"
+    ],
+    "correct": 3,
+    "explanation": "「二」读 èr，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-153",
+    "type": "vocab",
+    "prompt": "「三」字怎么读？",
+    "options": [
+      "zuǒ",
+      "tóu",
+      "sān",
+      "shù"
+    ],
+    "correct": 2,
+    "explanation": "「三」读 sān，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-154",
+    "type": "vocab",
+    "prompt": "「四」字怎么读？",
+    "options": [
+      "sì",
+      "chuáng",
+      "duō",
+      "fēng"
+    ],
+    "correct": 0,
+    "explanation": "「四」读 sì，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-155",
+    "type": "vocab",
+    "prompt": "「五」字怎么读？",
+    "options": [
+      "wǔ",
+      "shū",
+      "shí",
+      "huí"
+    ],
+    "correct": 0,
+    "explanation": "「五」读 wǔ，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-156",
+    "type": "vocab",
+    "prompt": "「六」字怎么读？",
+    "options": [
+      "yòu",
+      "liù",
+      "mǎ",
+      "shàng"
+    ],
+    "correct": 1,
+    "explanation": "「六」读 liù，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-157",
+    "type": "vocab",
+    "prompt": "「七」字怎么读？",
+    "options": [
+      "zuǒ",
+      "xué",
+      "qī",
+      "chǐ"
+    ],
+    "correct": 2,
+    "explanation": "「七」读 qī，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-158",
+    "type": "vocab",
+    "prompt": "「八」字怎么读？",
+    "options": [
+      "xīng",
+      "bā",
+      "zì",
+      "hǎo"
+    ],
+    "correct": 1,
+    "explanation": "「八」读 bā，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-159",
+    "type": "vocab",
+    "prompt": "「九」字怎么读？",
+    "options": [
+      "hòu",
+      "jiǔ",
+      "zì",
+      "wǔ"
+    ],
+    "correct": 1,
+    "explanation": "「九」读 jiǔ，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-160",
+    "type": "vocab",
+    "prompt": "「十」字怎么读？",
+    "options": [
+      "běi",
+      "chī",
+      "gǒu",
+      "shí"
+    ],
+    "correct": 3,
+    "explanation": "「十」读 shí，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-161",
+    "type": "vocab",
+    "prompt": "「口」字怎么读？",
+    "options": [
+      "shàng",
+      "sān",
+      "kǒu",
+      "mào"
+    ],
+    "correct": 2,
+    "explanation": "「口」读 kǒu，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-162",
+    "type": "vocab",
+    "prompt": "「手」字怎么读？",
+    "options": [
+      "zǒu",
+      "tóu",
+      "shǒu",
+      "mā"
+    ],
+    "correct": 2,
+    "explanation": "「手」读 shǒu，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-163",
+    "type": "vocab",
+    "prompt": "「足」字怎么读？",
+    "options": [
+      "tián",
+      "yú",
+      "zú",
+      "cǎo"
+    ],
+    "correct": 2,
+    "explanation": "「足」读 zú，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-164",
+    "type": "vocab",
+    "prompt": "「日」字怎么读？",
+    "options": [
+      "rì",
+      "liù",
+      "dōng",
+      "huā"
+    ],
+    "correct": 0,
+    "explanation": "「日」读 rì，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-165",
+    "type": "vocab",
+    "prompt": "「月」字怎么读？",
+    "options": [
+      "yuè",
+      "zhuō",
+      "shū",
+      "shǎo"
+    ],
+    "correct": 0,
+    "explanation": "「月」读 yuè，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-166",
+    "type": "vocab",
+    "prompt": "「水」字怎么读？",
+    "options": [
+      "niǎo",
+      "zuò",
+      "shuǐ",
+      "shuì"
+    ],
+    "correct": 2,
+    "explanation": "「水」读 shuǐ，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-167",
+    "type": "vocab",
+    "prompt": "「火」字怎么读？",
+    "options": [
+      "shù",
+      "huǒ",
+      "shǒu",
+      "yé"
+    ],
+    "correct": 1,
+    "explanation": "「火」读 huǒ，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-168",
+    "type": "vocab",
+    "prompt": "「山」字怎么读？",
+    "options": [
+      "yáng",
+      "shān",
+      "qiū",
+      "chuáng"
+    ],
+    "correct": 1,
+    "explanation": "「山」读 shān，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-169",
+    "type": "vocab",
+    "prompt": "「石」字怎么读？",
+    "options": [
+      "yǔ",
+      "lù",
+      "yú",
+      "shí"
+    ],
+    "correct": 3,
+    "explanation": "「石」读 shí，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-170",
+    "type": "vocab",
+    "prompt": "「土」字怎么读？",
+    "options": [
+      "nǎi",
+      "tǔ",
+      "yuè",
+      "māo"
+    ],
+    "correct": 1,
+    "explanation": "「土」读 tǔ，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-171",
+    "type": "vocab",
+    "prompt": "「田」字怎么读？",
+    "options": [
+      "dēng",
+      "tián",
+      "huā",
+      "lè"
+    ],
+    "correct": 1,
+    "explanation": "「田」读 tián，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-172",
+    "type": "vocab",
+    "prompt": "「上」字怎么读？",
+    "options": [
+      "shàng",
+      "shuō",
+      "qù",
+      "mén"
+    ],
+    "correct": 0,
+    "explanation": "「上」读 shàng，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-173",
+    "type": "vocab",
+    "prompt": "「下」字怎么读？",
+    "options": [
+      "shuō",
+      "èr",
+      "bā",
+      "xià"
+    ],
+    "correct": 3,
+    "explanation": "「下」读 xià，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-174",
+    "type": "vocab",
+    "prompt": "「左」字怎么读？",
+    "options": [
+      "zuǒ",
+      "èr",
+      "yún",
+      "tīng"
+    ],
+    "correct": 0,
+    "explanation": "「左」读 zuǒ，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-175",
+    "type": "vocab",
+    "prompt": "「右」字怎么读？",
+    "options": [
+      "yòu",
+      "kǒu",
+      "chū",
+      "yǐ"
+    ],
+    "correct": 0,
+    "explanation": "「右」读 yòu，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-176",
+    "type": "vocab",
+    "prompt": "「前」字怎么读？",
+    "options": [
+      "sān",
+      "dōng",
+      "qián",
+      "jiù"
+    ],
+    "correct": 2,
+    "explanation": "「前」读 qián，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-177",
+    "type": "vocab",
+    "prompt": "「后」字怎么读？",
+    "options": [
+      "zhú",
+      "hòu",
+      "lěng",
+      "fēi"
+    ],
+    "correct": 1,
+    "explanation": "「后」读 hòu，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-178",
+    "type": "vocab",
+    "prompt": "「多」字怎么读？",
+    "options": [
+      "sān",
+      "duō",
+      "hēi",
+      "chē"
+    ],
+    "correct": 1,
+    "explanation": "「多」读 duō，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-179",
+    "type": "vocab",
+    "prompt": "「少」字怎么读？",
+    "options": [
+      "shuì",
+      "chū",
+      "huáng",
+      "shǎo"
+    ],
+    "correct": 3,
+    "explanation": "「少」读 shǎo，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-180",
+    "type": "vocab",
+    "prompt": "「春」字怎么读？",
+    "options": [
+      "xuě",
+      "chūn",
+      "jīn",
+      "lì"
+    ],
+    "correct": 1,
+    "explanation": "「春」读 chūn，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-181",
+    "type": "vocab",
+    "prompt": "「夏」字怎么读？",
+    "options": [
+      "diàn",
+      "xià",
+      "bǐ",
+      "dōng"
+    ],
+    "correct": 1,
+    "explanation": "「夏」读 xià，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-182",
+    "type": "vocab",
+    "prompt": "「秋」字怎么读？",
+    "options": [
+      "chī",
+      "rù",
+      "qiū",
+      "lǎo"
+    ],
+    "correct": 2,
+    "explanation": "「秋」读 qiū，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-183",
+    "type": "vocab",
+    "prompt": "「冬」字怎么读？",
+    "options": [
+      "tiān",
+      "rù",
+      "dōng",
+      "gǒu"
+    ],
+    "correct": 2,
+    "explanation": "「冬」读 dōng，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-184",
+    "type": "vocab",
+    "prompt": "「红」字怎么读？",
+    "options": [
+      "tóu",
+      "wáng",
+      "hóng",
+      "kàn"
+    ],
+    "correct": 2,
+    "explanation": "「红」读 hóng，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-185",
+    "type": "vocab",
+    "prompt": "「黄」字怎么读？",
+    "options": [
+      "huáng",
+      "huǒ",
+      "bái",
+      "nǎi"
+    ],
+    "correct": 0,
+    "explanation": "「黄」读 huáng，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-186",
+    "type": "vocab",
+    "prompt": "「蓝」字怎么读？",
+    "options": [
+      "lán",
+      "shuō",
+      "lǜ",
+      "duō"
+    ],
+    "correct": 0,
+    "explanation": "「蓝」读 lán，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-187",
+    "type": "vocab",
+    "prompt": "「绿」字怎么读？",
+    "options": [
+      "lǜ",
+      "yǐ",
+      "zhuō",
+      "cǎo"
+    ],
+    "correct": 0,
+    "explanation": "「绿」读 lǜ，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-188",
+    "type": "vocab",
+    "prompt": "「爸」字怎么读？",
+    "options": [
+      "rù",
+      "běn",
+      "bà",
+      "shān"
+    ],
+    "correct": 2,
+    "explanation": "「爸」读 bà，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-189",
+    "type": "vocab",
+    "prompt": "「妈」字怎么读？",
+    "options": [
+      "mā",
+      "dāo",
+      "hēi",
+      "mén"
+    ],
+    "correct": 0,
+    "explanation": "「妈」读 mā，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-190",
+    "type": "vocab",
+    "prompt": "「爷」字怎么读？",
+    "options": [
+      "guān",
+      "chuán",
+      "yé",
+      "yǐ"
+    ],
+    "correct": 2,
+    "explanation": "「爷」读 yé，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-191",
+    "type": "vocab",
+    "prompt": "「奶」字怎么读？",
+    "options": [
+      "tiān",
+      "shuǐ",
+      "nǎi",
+      "shuì"
+    ],
+    "correct": 2,
+    "explanation": "「奶」读 nǎi，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-192",
+    "type": "vocab",
+    "prompt": "「猫」字怎么读？",
+    "options": [
+      "nán",
+      "māo",
+      "míng",
+      "shàng"
+    ],
+    "correct": 1,
+    "explanation": "「猫」读 māo，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-193",
+    "type": "vocab",
+    "prompt": "「狗」字怎么读？",
+    "options": [
+      "gǒu",
+      "xié",
+      "běn",
+      "kǒu"
+    ],
+    "correct": 0,
+    "explanation": "「狗」读 gǒu，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-194",
+    "type": "vocab",
+    "prompt": "「鸟」字怎么读？",
+    "options": [
+      "nǚ",
+      "bǐ",
+      "niǎo",
+      "huǒ"
+    ],
+    "correct": 2,
+    "explanation": "「鸟」读 niǎo，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-195",
+    "type": "vocab",
+    "prompt": "「鱼」字怎么读？",
+    "options": [
+      "guǒ",
+      "yú",
+      "zuǒ",
+      "chūn"
+    ],
+    "correct": 1,
+    "explanation": "「鱼」读 yú，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-196",
+    "type": "vocab",
+    "prompt": "「虫」字怎么读？",
+    "options": [
+      "gāo",
+      "chuāng",
+      "chóng",
+      "kāi"
+    ],
+    "correct": 2,
+    "explanation": "「虫」读 chóng，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-197",
+    "type": "vocab",
+    "prompt": "「花」字怎么读？",
+    "options": [
+      "xīn",
+      "fēng",
+      "xià",
+      "huā"
+    ],
+    "correct": 3,
+    "explanation": "「花」读 huā，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-198",
+    "type": "vocab",
+    "prompt": "「草」字怎么读？",
+    "options": [
+      "bēi",
+      "nǎi",
+      "huǒ",
+      "cǎo"
+    ],
+    "correct": 3,
+    "explanation": "「草」读 cǎo，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-199",
+    "type": "vocab",
+    "prompt": "「树」字怎么读？",
+    "options": [
+      "shù",
+      "kàn",
+      "dī",
+      "yáng"
+    ],
+    "correct": 0,
+    "explanation": "「树」读 shù，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-200",
+    "type": "vocab",
+    "prompt": "「木」字怎么读？",
+    "options": [
+      "mù",
+      "xuě",
+      "yǐ",
+      "guān"
+    ],
+    "correct": 0,
+    "explanation": "「木」读 mù，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-201",
+    "type": "vocab",
+    "prompt": "「果」字怎么读？",
+    "options": [
+      "guǒ",
+      "bā",
+      "hóng",
+      "dēng"
+    ],
+    "correct": 0,
+    "explanation": "「果」读 guǒ，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-202",
+    "type": "vocab",
+    "prompt": "「吃」字怎么读？",
+    "options": [
+      "wáng",
+      "zǒu",
+      "qiū",
+      "chī"
+    ],
+    "correct": 3,
+    "explanation": "「吃」读 chī，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-203",
+    "type": "vocab",
+    "prompt": "「喝」字怎么读？",
+    "options": [
+      "hē",
+      "kū",
+      "kāi",
+      "zhōng"
+    ],
+    "correct": 0,
+    "explanation": "「喝」读 hē，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-204",
+    "type": "vocab",
+    "prompt": "「玩」字怎么读？",
+    "options": [
+      "zhǐ",
+      "wán",
+      "lái",
+      "huǒ"
+    ],
+    "correct": 1,
+    "explanation": "「玩」读 wán，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-205",
+    "type": "vocab",
+    "prompt": "「乐」字怎么读？",
+    "options": [
+      "wén",
+      "lè",
+      "chūn",
+      "wáng"
+    ],
+    "correct": 1,
+    "explanation": "「乐」读 lè，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-206",
+    "type": "vocab",
+    "prompt": "「睡」字怎么读？",
+    "options": [
+      "shuì",
+      "tóu",
+      "dī",
+      "chē"
+    ],
+    "correct": 0,
+    "explanation": "「睡」读 shuì，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-207",
+    "type": "vocab",
+    "prompt": "「跑」字怎么读？",
+    "options": [
+      "kǒu",
+      "pǎo",
+      "dōng",
+      "zú"
+    ],
+    "correct": 1,
+    "explanation": "「跑」读 pǎo，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-208",
+    "type": "vocab",
+    "prompt": "「跳」字怎么读？",
+    "options": [
+      "tiào",
+      "rè",
+      "duō",
+      "sī"
+    ],
+    "correct": 0,
+    "explanation": "「跳」读 tiào，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-209",
+    "type": "vocab",
+    "prompt": "「走」字怎么读？",
+    "options": [
+      "zǒu",
+      "lù",
+      "wǔ",
+      "rì"
+    ],
+    "correct": 0,
+    "explanation": "「走」读 zǒu，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-210",
+    "type": "vocab",
+    "prompt": "「坐」字怎么读？",
+    "options": [
+      "fēi",
+      "zuò",
+      "shí",
+      "zhàn"
+    ],
+    "correct": 1,
+    "explanation": "「坐」读 zuò，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-211",
+    "type": "vocab",
+    "prompt": "「站」字怎么读？",
+    "options": [
+      "yǐ",
+      "běn",
+      "zhàn",
+      "tiào"
+    ],
+    "correct": 2,
+    "explanation": "「站」读 zhàn，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-212",
+    "type": "vocab",
+    "prompt": "「哭」字怎么读？",
+    "options": [
+      "kū",
+      "tián",
+      "nǎi",
+      "běi"
+    ],
+    "correct": 0,
+    "explanation": "「哭」读 kū，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-213",
+    "type": "vocab",
+    "prompt": "「笑」字怎么读？",
+    "options": [
+      "xiào",
+      "duō",
+      "hēi",
+      "zǒu"
+    ],
+    "correct": 0,
+    "explanation": "「笑」读 xiào，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-214",
+    "type": "vocab",
+    "prompt": "「说」字怎么读？",
+    "options": [
+      "shuō",
+      "shí",
+      "mào",
+      "zhàn"
+    ],
+    "correct": 0,
+    "explanation": "「说」读 shuō，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-215",
+    "type": "vocab",
+    "prompt": "「听」字怎么读？",
+    "options": [
+      "qián",
+      "hé",
+      "tīng",
+      "zǎo"
+    ],
+    "correct": 2,
+    "explanation": "「听」读 tīng，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-216",
+    "type": "vocab",
+    "prompt": "「看」字怎么读？",
+    "options": [
+      "zhuō",
+      "kàn",
+      "jiǔ",
+      "lán"
+    ],
+    "correct": 1,
+    "explanation": "「看」读 kàn，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-217",
+    "type": "vocab",
+    "prompt": "「风」字怎么读？",
+    "options": [
+      "fēng",
+      "dēng",
+      "xué",
+      "yé"
+    ],
+    "correct": 0,
+    "explanation": "「风」读 fēng，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-218",
+    "type": "vocab",
+    "prompt": "「雨」字怎么读？",
+    "options": [
+      "bēi",
+      "yǔ",
+      "mào",
+      "lǜ"
+    ],
+    "correct": 1,
+    "explanation": "「雨」读 yǔ，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-219",
+    "type": "vocab",
+    "prompt": "「雪」字怎么读？",
+    "options": [
+      "niǎo",
+      "pǎo",
+      "xuě",
+      "shǎo"
+    ],
+    "correct": 2,
+    "explanation": "「雪」读 xuě，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-220",
+    "type": "vocab",
+    "prompt": "「云」字怎么读？",
+    "options": [
+      "yún",
+      "hóng",
+      "àn",
+      "huǒ"
+    ],
+    "correct": 0,
+    "explanation": "「云」读 yún，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-221",
+    "type": "vocab",
+    "prompt": "「雷」字怎么读？",
+    "options": [
+      "qián",
+      "gǒu",
+      "léi",
+      "chē"
+    ],
+    "correct": 2,
+    "explanation": "「雷」读 léi，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-222",
+    "type": "vocab",
+    "prompt": "「东」字怎么读？",
+    "options": [
+      "dōng",
+      "xī",
+      "qián",
+      "yòu"
+    ],
+    "correct": 0,
+    "explanation": "「东」读 dōng，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-223",
+    "type": "vocab",
+    "prompt": "「西」字怎么读？",
+    "options": [
+      "lán",
+      "huáng",
+      "xī",
+      "zuǒ"
+    ],
+    "correct": 2,
+    "explanation": "「西」读 xī，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-224",
+    "type": "vocab",
+    "prompt": "「南」字怎么读？",
+    "options": [
+      "nán",
+      "yú",
+      "cǎo",
+      "mén"
+    ],
+    "correct": 0,
+    "explanation": "「南」读 nán，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-225",
+    "type": "vocab",
+    "prompt": "「北」字怎么读？",
+    "options": [
+      "lái",
+      "běi",
+      "rì",
+      "huǒ"
+    ],
+    "correct": 1,
+    "explanation": "「北」读 běi，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-226",
+    "type": "vocab",
+    "prompt": "「中」字怎么读？",
+    "options": [
+      "tǔ",
+      "yuè",
+      "yǔ",
+      "zhōng"
+    ],
+    "correct": 3,
+    "explanation": "「中」读 zhōng，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-227",
+    "type": "vocab",
+    "prompt": "「天」字怎么读？",
+    "options": [
+      "duǎn",
+      "tiān",
+      "pǎo",
+      "gāo"
+    ],
+    "correct": 1,
+    "explanation": "「天」读 tiān，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-228",
+    "type": "vocab",
+    "prompt": "「地」字怎么读？",
+    "options": [
+      "dì",
+      "chūn",
+      "lù",
+      "yī"
+    ],
+    "correct": 0,
+    "explanation": "「地」读 dì，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-229",
+    "type": "vocab",
+    "prompt": "「白」字怎么读？",
+    "options": [
+      "mào",
+      "chǐ",
+      "nǎi",
+      "bái"
+    ],
+    "correct": 3,
+    "explanation": "「白」读 bái，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-230",
+    "type": "vocab",
+    "prompt": "「黑」字怎么读？",
+    "options": [
+      "yuè",
+      "hǎo",
+      "hēi",
+      "mào"
+    ],
+    "correct": 2,
+    "explanation": "「黑」读 hēi，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-231",
+    "type": "vocab",
+    "prompt": "「长」字怎么读？",
+    "options": [
+      "cháng",
+      "nǎi",
+      "shǒu",
+      "diàn"
+    ],
+    "correct": 0,
+    "explanation": "「长」读 cháng，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-232",
+    "type": "vocab",
+    "prompt": "「短」字怎么读？",
+    "options": [
+      "jīn",
+      "dēng",
+      "duǎn",
+      "lù"
+    ],
+    "correct": 2,
+    "explanation": "「短」读 duǎn，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-233",
+    "type": "vocab",
+    "prompt": "「高」字怎么读？",
+    "options": [
+      "hē",
+      "chū",
+      "hǎi",
+      "gāo"
+    ],
+    "correct": 3,
+    "explanation": "「高」读 gāo，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-234",
+    "type": "vocab",
+    "prompt": "「低」字怎么读？",
+    "options": [
+      "chǐ",
+      "jiǔ",
+      "shuō",
+      "dī"
+    ],
+    "correct": 3,
+    "explanation": "「低」读 dī，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-235",
+    "type": "vocab",
+    "prompt": "「飞」字怎么读？",
+    "options": [
+      "zhàn",
+      "bà",
+      "fēi",
+      "hòu"
+    ],
+    "correct": 2,
+    "explanation": "「飞」读 fēi，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-236",
+    "type": "vocab",
+    "prompt": "「开」字怎么读？",
+    "options": [
+      "huí",
+      "kāi",
+      "tiān",
+      "dēng"
+    ],
+    "correct": 1,
+    "explanation": "「开」读 kāi，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-237",
+    "type": "vocab",
+    "prompt": "「关」字怎么读？",
+    "options": [
+      "xuě",
+      "guān",
+      "zì",
+      "kū"
+    ],
+    "correct": 1,
+    "explanation": "「关」读 guān，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-238",
+    "type": "vocab",
+    "prompt": "「来」字怎么读？",
+    "options": [
+      "lái",
+      "zhú",
+      "zhàn",
+      "yòu"
+    ],
+    "correct": 0,
+    "explanation": "「来」读 lái，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-239",
+    "type": "vocab",
+    "prompt": "「去」字怎么读？",
+    "options": [
+      "mǎ",
+      "yé",
+      "pǎo",
+      "qù"
+    ],
+    "correct": 3,
+    "explanation": "「去」读 qù，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-240",
+    "type": "vocab",
+    "prompt": "「回」字怎么读？",
+    "options": [
+      "tiào",
+      "tǔ",
+      "huí",
+      "chū"
+    ],
+    "correct": 2,
+    "explanation": "「回」读 huí，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-241",
+    "type": "vocab",
+    "prompt": "「出」字怎么读？",
+    "options": [
+      "tǔ",
+      "chū",
+      "xuě",
+      "wén"
+    ],
+    "correct": 1,
+    "explanation": "「出」读 chū，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-242",
+    "type": "vocab",
+    "prompt": "「入」字怎么读？",
+    "options": [
+      "rù",
+      "hǎo",
+      "zú",
+      "rè"
+    ],
+    "correct": 0,
+    "explanation": "「入」读 rù，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-243",
+    "type": "vocab",
+    "prompt": "「早」字怎么读？",
+    "options": [
+      "liù",
+      "zǎo",
+      "zú",
+      "hǎo"
+    ],
+    "correct": 1,
+    "explanation": "「早」读 zǎo，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-244",
+    "type": "vocab",
+    "prompt": "「晚」字怎么读？",
+    "options": [
+      "wǎn",
+      "hǎo",
+      "bà",
+      "lán"
+    ],
+    "correct": 0,
+    "explanation": "「晚」读 wǎn，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-245",
+    "type": "vocab",
+    "prompt": "「明」字怎么读？",
+    "options": [
+      "shū",
+      "míng",
+      "shàng",
+      "dì"
+    ],
+    "correct": 1,
+    "explanation": "「明」读 míng，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-246",
+    "type": "vocab",
+    "prompt": "「暗」字怎么读？",
+    "options": [
+      "yáng",
+      "àn",
+      "hēi",
+      "fēi"
+    ],
+    "correct": 1,
+    "explanation": "「暗」读 àn，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-247",
+    "type": "vocab",
+    "prompt": "「好」字怎么读？",
+    "options": [
+      "zhōng",
+      "wǔ",
+      "jiǔ",
+      "hǎo"
+    ],
+    "correct": 3,
+    "explanation": "「好」读 hǎo，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-248",
+    "type": "vocab",
+    "prompt": "「坏」字怎么读？",
+    "options": [
+      "huài",
+      "xué",
+      "mā",
+      "bā"
+    ],
+    "correct": 0,
+    "explanation": "「坏」读 huài，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-249",
+    "type": "vocab",
+    "prompt": "「新」字怎么读？",
+    "options": [
+      "nán",
+      "xīn",
+      "shàng",
+      "lái"
+    ],
+    "correct": 1,
+    "explanation": "「新」读 xīn，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-250",
+    "type": "vocab",
+    "prompt": "「旧」字怎么读？",
+    "options": [
+      "jiù",
+      "sī",
+      "chī",
+      "tīng"
+    ],
+    "correct": 0,
+    "explanation": "「旧」读 jiù，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-251",
+    "type": "vocab",
+    "prompt": "「快」字怎么读？",
+    "options": [
+      "běi",
+      "kuài",
+      "gāo",
+      "xià"
+    ],
+    "correct": 1,
+    "explanation": "「快」读 kuài，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-252",
+    "type": "vocab",
+    "prompt": "「慢」字怎么读？",
+    "options": [
+      "màn",
+      "sī",
+      "léi",
+      "lǎo"
+    ],
+    "correct": 0,
+    "explanation": "「慢」读 màn，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-253",
+    "type": "vocab",
+    "prompt": "「冷」字怎么读？",
+    "options": [
+      "lěng",
+      "zú",
+      "niǎo",
+      "bēi"
+    ],
+    "correct": 0,
+    "explanation": "「冷」读 lěng，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-254",
+    "type": "vocab",
+    "prompt": "「热」字怎么读？",
+    "options": [
+      "dāo",
+      "rè",
+      "yuè",
+      "bái"
+    ],
+    "correct": 1,
+    "explanation": "「热」读 rè，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-255",
+    "type": "vocab",
+    "prompt": "「男」字怎么读？",
+    "options": [
+      "lái",
+      "zhuō",
+      "lǎo",
+      "nán"
+    ],
+    "correct": 3,
+    "explanation": "「男」读 nán，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-256",
+    "type": "vocab",
+    "prompt": "「女」字怎么读？",
+    "options": [
+      "yún",
+      "tiào",
+      "mǐ",
+      "nǚ"
+    ],
+    "correct": 3,
+    "explanation": "「女」读 nǚ，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-257",
+    "type": "vocab",
+    "prompt": "「老」字怎么读？",
+    "options": [
+      "chóng",
+      "lǎo",
+      "gǒu",
+      "zhàn"
+    ],
+    "correct": 1,
+    "explanation": "「老」读 lǎo，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-258",
+    "type": "vocab",
+    "prompt": "「少」字怎么读？",
+    "options": [
+      "chē",
+      "huài",
+      "shǎo",
+      "niǎo"
+    ],
+    "correct": 2,
+    "explanation": "「少」读 shǎo，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-259",
+    "type": "vocab",
+    "prompt": "「王」字怎么读？",
+    "options": [
+      "léi",
+      "huí",
+      "chóng",
+      "wáng"
+    ],
+    "correct": 3,
+    "explanation": "「王」读 wáng，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-260",
+    "type": "vocab",
+    "prompt": "「金」字怎么读？",
+    "options": [
+      "bà",
+      "lán",
+      "jīn",
+      "diàn"
+    ],
+    "correct": 2,
+    "explanation": "「金」读 jīn，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-261",
+    "type": "vocab",
+    "prompt": "「米」字怎么读？",
+    "options": [
+      "jīn",
+      "bēi",
+      "mǐ",
+      "gǒu"
+    ],
+    "correct": 2,
+    "explanation": "「米」读 mǐ，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-262",
+    "type": "vocab",
+    "prompt": "「竹」字怎么读？",
+    "options": [
+      "lǜ",
+      "tǔ",
+      "kǒu",
+      "zhú"
+    ],
+    "correct": 3,
+    "explanation": "「竹」读 zhú，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-263",
+    "type": "vocab",
+    "prompt": "「丝」字怎么读？",
+    "options": [
+      "rè",
+      "sī",
+      "dāo",
+      "mǐ"
+    ],
+    "correct": 1,
+    "explanation": "「丝」读 sī，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-264",
+    "type": "vocab",
+    "prompt": "「马」字怎么读？",
+    "options": [
+      "mǎ",
+      "zuǒ",
+      "cháng",
+      "lù"
+    ],
+    "correct": 0,
+    "explanation": "「马」读 mǎ，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-265",
+    "type": "vocab",
+    "prompt": "「牛」字怎么读？",
+    "options": [
+      "dì",
+      "chē",
+      "kǒu",
+      "niú"
+    ],
+    "correct": 3,
+    "explanation": "「牛」读 niú，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-266",
+    "type": "vocab",
+    "prompt": "「羊」字怎么读？",
+    "options": [
+      "sì",
+      "xué",
+      "yáng",
+      "sī"
+    ],
+    "correct": 2,
+    "explanation": "「羊」读 yáng，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-267",
+    "type": "vocab",
+    "prompt": "「车」字怎么读？",
+    "options": [
+      "xué",
+      "sān",
+      "guān",
+      "chē"
+    ],
+    "correct": 3,
+    "explanation": "「车」读 chē，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-268",
+    "type": "vocab",
+    "prompt": "「门」字怎么读？",
+    "options": [
+      "chóng",
+      "mén",
+      "bāo",
+      "lù"
+    ],
+    "correct": 1,
+    "explanation": "「门」读 mén，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-269",
+    "type": "vocab",
+    "prompt": "「目」字怎么读？",
+    "options": [
+      "mù",
+      "shuì",
+      "xuě",
+      "qiū"
+    ],
+    "correct": 0,
+    "explanation": "「目」读 mù，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-270",
+    "type": "vocab",
+    "prompt": "「耳」字怎么读？",
+    "options": [
+      "chuán",
+      "ěr",
+      "kuài",
+      "liù"
+    ],
+    "correct": 1,
+    "explanation": "「耳」读 ěr，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-271",
+    "type": "vocab",
+    "prompt": "「头」字怎么读？",
+    "options": [
+      "kǒu",
+      "tóu",
+      "fēng",
+      "gāo"
+    ],
+    "correct": 1,
+    "explanation": "「头」读 tóu，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-272",
+    "type": "vocab",
+    "prompt": "「心」字怎么读？",
+    "options": [
+      "kǒu",
+      "jiù",
+      "xīn",
+      "dōng"
+    ],
+    "correct": 2,
+    "explanation": "「心」读 xīn，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-273",
+    "type": "vocab",
+    "prompt": "「力」字怎么读？",
+    "options": [
+      "lì",
+      "chuán",
+      "yuè",
+      "shuǐ"
+    ],
+    "correct": 0,
+    "explanation": "「力」读 lì，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-274",
+    "type": "vocab",
+    "prompt": "「刀」字怎么读？",
+    "options": [
+      "gāo",
+      "màn",
+      "dāo",
+      "huā"
+    ],
+    "correct": 2,
+    "explanation": "「刀」读 dāo，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-275",
+    "type": "vocab",
+    "prompt": "「尺」字怎么读？",
+    "options": [
+      "lù",
+      "chǐ",
+      "xī",
+      "lǜ"
+    ],
+    "correct": 1,
+    "explanation": "「尺」读 chǐ，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-276",
+    "type": "vocab",
+    "prompt": "「本」字怎么读？",
+    "options": [
+      "jīn",
+      "shān",
+      "běn",
+      "shù"
+    ],
+    "correct": 2,
+    "explanation": "「本」读 běn，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-277",
+    "type": "vocab",
+    "prompt": "「文」字怎么读？",
+    "options": [
+      "ěr",
+      "wén",
+      "qiáo",
+      "chī"
+    ],
+    "correct": 1,
+    "explanation": "「文」读 wén，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-278",
+    "type": "vocab",
+    "prompt": "「字」字怎么读？",
+    "options": [
+      "chuáng",
+      "zì",
+      "huài",
+      "lù"
+    ],
+    "correct": 1,
+    "explanation": "「字」读 zì，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-279",
+    "type": "vocab",
+    "prompt": "「学」字怎么读？",
+    "options": [
+      "xué",
+      "lán",
+      "shuì",
+      "zhuō"
+    ],
+    "correct": 0,
+    "explanation": "「学」读 xué，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-280",
+    "type": "vocab",
+    "prompt": "「校」字怎么读？",
+    "options": [
+      "lǎo",
+      "zuò",
+      "xiào",
+      "shuì"
+    ],
+    "correct": 2,
+    "explanation": "「校」读 xiào，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-281",
+    "type": "vocab",
+    "prompt": "「书」字怎么读？",
+    "options": [
+      "bà",
+      "jīn",
+      "shū",
+      "zì"
+    ],
+    "correct": 2,
+    "explanation": "「书」读 shū，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-282",
+    "type": "vocab",
+    "prompt": "「包」字怎么读？",
+    "options": [
+      "nǚ",
+      "bāo",
+      "jiǔ",
+      "kàn"
+    ],
+    "correct": 1,
+    "explanation": "「包」读 bāo，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-283",
+    "type": "vocab",
+    "prompt": "「笔」字怎么读？",
+    "options": [
+      "hē",
+      "huài",
+      "bǐ",
+      "shān"
+    ],
+    "correct": 2,
+    "explanation": "「笔」读 bǐ，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-284",
+    "type": "vocab",
+    "prompt": "「纸」字怎么读？",
+    "options": [
+      "dōng",
+      "lái",
+      "zhǐ",
+      "lǎo"
+    ],
+    "correct": 2,
+    "explanation": "「纸」读 zhǐ，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-285",
+    "type": "vocab",
+    "prompt": "「杯」字怎么读？",
+    "options": [
+      "bēi",
+      "qī",
+      "tóu",
+      "ěr"
+    ],
+    "correct": 0,
+    "explanation": "「杯」读 bēi，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-286",
+    "type": "vocab",
+    "prompt": "「灯」字怎么读？",
+    "options": [
+      "dēng",
+      "liù",
+      "dī",
+      "bēi"
+    ],
+    "correct": 0,
+    "explanation": "「灯」读 dēng，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-287",
+    "type": "vocab",
+    "prompt": "「电」字怎么读？",
+    "options": [
+      "tiào",
+      "zhǐ",
+      "huǒ",
+      "diàn"
+    ],
+    "correct": 3,
+    "explanation": "「电」读 diàn，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-288",
+    "type": "vocab",
+    "prompt": "「星」字怎么读？",
+    "options": [
+      "jiù",
+      "wǎn",
+      "tǔ",
+      "xīng"
+    ],
+    "correct": 3,
+    "explanation": "「星」读 xīng，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-289",
+    "type": "vocab",
+    "prompt": "「河」字怎么读？",
+    "options": [
+      "wǎn",
+      "shuì",
+      "hé",
+      "hóng"
+    ],
+    "correct": 2,
+    "explanation": "「河」读 hé，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-290",
+    "type": "vocab",
+    "prompt": "「海」字怎么读？",
+    "options": [
+      "fēng",
+      "hǎi",
+      "shí",
+      "lán"
+    ],
+    "correct": 1,
+    "explanation": "「海」读 hǎi，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-291",
+    "type": "vocab",
+    "prompt": "「路」字怎么读？",
+    "options": [
+      "bái",
+      "lù",
+      "dēng",
+      "guǒ"
+    ],
+    "correct": 1,
+    "explanation": "「路」读 lù，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-292",
+    "type": "vocab",
+    "prompt": "「桥」字怎么读？",
+    "options": [
+      "qiáo",
+      "shān",
+      "tiān",
+      "huí"
+    ],
+    "correct": 0,
+    "explanation": "「桥」读 qiáo，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-293",
+    "type": "vocab",
+    "prompt": "「船」字怎么读？",
+    "options": [
+      "yáng",
+      "huí",
+      "chuán",
+      "huǒ"
+    ],
+    "correct": 2,
+    "explanation": "「船」读 chuán，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-294",
+    "type": "vocab",
+    "prompt": "「衣」字怎么读？",
+    "options": [
+      "yǐ",
+      "shān",
+      "xīn",
+      "yī"
+    ],
+    "correct": 3,
+    "explanation": "「衣」读 yī，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-295",
+    "type": "vocab",
+    "prompt": "「帽」字怎么读？",
+    "options": [
+      "guān",
+      "huáng",
+      "wǎn",
+      "mào"
+    ],
+    "correct": 3,
+    "explanation": "「帽」读 mào，第四声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-296",
+    "type": "vocab",
+    "prompt": "「鞋」字怎么读？",
+    "options": [
+      "xié",
+      "chū",
+      "kǒu",
+      "kuài"
+    ],
+    "correct": 0,
+    "explanation": "「鞋」读 xié，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-297",
+    "type": "vocab",
+    "prompt": "「床」字怎么读？",
+    "options": [
+      "chuāng",
+      "qù",
+      "chuáng",
+      "dī"
+    ],
+    "correct": 2,
+    "explanation": "「床」读 chuáng，第二声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-298",
+    "type": "vocab",
+    "prompt": "「桌」字怎么读？",
+    "options": [
+      "tóu",
+      "zhuō",
+      "wǎn",
+      "tǔ"
+    ],
+    "correct": 1,
+    "explanation": "「桌」读 zhuō，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-299",
+    "type": "vocab",
+    "prompt": "「椅」字怎么读？",
+    "options": [
+      "jiù",
+      "liù",
+      "yǐ",
+      "yòu"
+    ],
+    "correct": 2,
+    "explanation": "「椅」读 yǐ，第三声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-300",
+    "type": "vocab",
+    "prompt": "「窗」字怎么读？",
+    "options": [
+      "chuāng",
+      "chuáng",
+      "lái",
+      "sān"
+    ],
+    "correct": 0,
+    "explanation": "「窗」读 chuāng，第一声。",
+    "difficulty": 1,
+    "tags": [
+      "认字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-301",
+    "type": "vocab",
+    "prompt": "「大」的反义词是什么？",
+    "options": [
+      "湿",
+      "入",
+      "小",
+      "假"
+    ],
+    "correct": 2,
+    "explanation": "「大」的反义词是「小」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-302",
+    "type": "vocab",
+    "prompt": "「小」的反义词是什么？",
+    "options": [
+      "早",
+      "出",
+      "大",
+      "南"
+    ],
+    "correct": 2,
+    "explanation": "「小」的反义词是「大」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-303",
+    "type": "vocab",
+    "prompt": "「多」的反义词是什么？",
+    "options": [
+      "少",
+      "假",
+      "热",
+      "重"
+    ],
+    "correct": 0,
+    "explanation": "「多」的反义词是「少」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-304",
+    "type": "vocab",
+    "prompt": "「少」的反义词是什么？",
+    "options": [
+      "快",
+      "远",
+      "好",
+      "多"
+    ],
+    "correct": 3,
+    "explanation": "「少」的反义词是「多」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-305",
+    "type": "vocab",
+    "prompt": "「上」的反义词是什么？",
+    "options": [
+      "下",
+      "苦",
+      "退",
+      "笑"
+    ],
+    "correct": 0,
+    "explanation": "「上」的反义词是「下」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-306",
+    "type": "vocab",
+    "prompt": "「下」的反义词是什么？",
+    "options": [
+      "冷",
+      "好",
+      "甜",
+      "上"
+    ],
+    "correct": 3,
+    "explanation": "「下」的反义词是「上」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-307",
+    "type": "vocab",
+    "prompt": "「左」的反义词是什么？",
+    "options": [
+      "苦",
+      "紧",
+      "右",
+      "低"
+    ],
+    "correct": 2,
+    "explanation": "「左」的反义词是「右」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-308",
+    "type": "vocab",
+    "prompt": "「右」的反义词是什么？",
+    "options": [
+      "男",
+      "黑",
+      "左",
+      "胖"
+    ],
+    "correct": 2,
+    "explanation": "「右」的反义词是「左」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-309",
+    "type": "vocab",
+    "prompt": "「前」的反义词是什么？",
+    "options": [
+      "退",
+      "后",
+      "重",
+      "西"
+    ],
+    "correct": 1,
+    "explanation": "「前」的反义词是「后」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-310",
+    "type": "vocab",
+    "prompt": "「后」的反义词是什么？",
+    "options": [
+      "生",
+      "软",
+      "黑",
+      "前"
+    ],
+    "correct": 3,
+    "explanation": "「后」的反义词是「前」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-311",
+    "type": "vocab",
+    "prompt": "「长」的反义词是什么？",
+    "options": [
+      "慢",
+      "窄",
+      "短",
+      "西"
+    ],
+    "correct": 2,
+    "explanation": "「长」的反义词是「短」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-312",
+    "type": "vocab",
+    "prompt": "「短」的反义词是什么？",
+    "options": [
+      "出",
+      "长",
+      "甜",
+      "明"
+    ],
+    "correct": 1,
+    "explanation": "「短」的反义词是「长」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-313",
+    "type": "vocab",
+    "prompt": "「高」的反义词是什么？",
+    "options": [
+      "丑",
+      "北",
+      "低",
+      "浅"
+    ],
+    "correct": 2,
+    "explanation": "「高」的反义词是「低」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-314",
+    "type": "vocab",
+    "prompt": "「低」的反义词是什么？",
+    "options": [
+      "高",
+      "干",
+      "男",
+      "南"
+    ],
+    "correct": 0,
+    "explanation": "「低」的反义词是「高」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-315",
+    "type": "vocab",
+    "prompt": "「快」的反义词是什么？",
+    "options": [
+      "慢",
+      "入",
+      "近",
+      "少"
+    ],
+    "correct": 0,
+    "explanation": "「快」的反义词是「慢」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-316",
+    "type": "vocab",
+    "prompt": "「慢」的反义词是什么？",
+    "options": [
+      "深",
+      "远",
+      "左",
+      "快"
+    ],
+    "correct": 3,
+    "explanation": "「慢」的反义词是「快」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-317",
+    "type": "vocab",
+    "prompt": "「冷」的反义词是什么？",
+    "options": [
+      "闲",
+      "丑",
+      "浅",
+      "热"
+    ],
+    "correct": 3,
+    "explanation": "「冷」的反义词是「热」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-318",
+    "type": "vocab",
+    "prompt": "「热」的反义词是什么？",
+    "options": [
+      "冷",
+      "前",
+      "香",
+      "东"
+    ],
+    "correct": 0,
+    "explanation": "「热」的反义词是「冷」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-319",
+    "type": "vocab",
+    "prompt": "「黑」的反义词是什么？",
+    "options": [
+      "近",
+      "少",
+      "少",
+      "白"
+    ],
+    "correct": 3,
+    "explanation": "「黑」的反义词是「白」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-320",
+    "type": "vocab",
+    "prompt": "「白」的反义词是什么？",
+    "options": [
+      "多",
+      "黑",
+      "饱",
+      "真"
+    ],
+    "correct": 1,
+    "explanation": "「白」的反义词是「黑」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-321",
+    "type": "vocab",
+    "prompt": "「新」的反义词是什么？",
+    "options": [
+      "假",
+      "旧",
+      "白",
+      "后"
+    ],
+    "correct": 1,
+    "explanation": "「新」的反义词是「旧」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-322",
+    "type": "vocab",
+    "prompt": "「旧」的反义词是什么？",
+    "options": [
+      "忙",
+      "左",
+      "生",
+      "新"
+    ],
+    "correct": 3,
+    "explanation": "「旧」的反义词是「新」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-323",
+    "type": "vocab",
+    "prompt": "「好」的反义词是什么？",
+    "options": [
+      "短",
+      "去",
+      "坏",
+      "旧"
+    ],
+    "correct": 2,
+    "explanation": "「好」的反义词是「坏」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-324",
+    "type": "vocab",
+    "prompt": "「坏」的反义词是什么？",
+    "options": [
+      "软",
+      "香",
+      "好",
+      "多"
+    ],
+    "correct": 2,
+    "explanation": "「坏」的反义词是「好」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-325",
+    "type": "vocab",
+    "prompt": "「开」的反义词是什么？",
+    "options": [
+      "入",
+      "坏",
+      "关",
+      "细"
+    ],
+    "correct": 2,
+    "explanation": "「开」的反义词是「关」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-326",
+    "type": "vocab",
+    "prompt": "「关」的反义词是什么？",
+    "options": [
+      "香",
+      "开",
+      "远",
+      "美"
+    ],
+    "correct": 1,
+    "explanation": "「关」的反义词是「开」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-327",
+    "type": "vocab",
+    "prompt": "「来」的反义词是什么？",
+    "options": [
+      "女",
+      "下",
+      "假",
+      "去"
+    ],
+    "correct": 3,
+    "explanation": "「来」的反义词是「去」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-328",
+    "type": "vocab",
+    "prompt": "「去」的反义词是什么？",
+    "options": [
+      "来",
+      "开",
+      "早",
+      "东"
+    ],
+    "correct": 0,
+    "explanation": "「去」的反义词是「来」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-329",
+    "type": "vocab",
+    "prompt": "「出」的反义词是什么？",
+    "options": [
+      "入",
+      "坏",
+      "紧",
+      "短"
+    ],
+    "correct": 0,
+    "explanation": "「出」的反义词是「入」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-330",
+    "type": "vocab",
+    "prompt": "「入」的反义词是什么？",
+    "options": [
+      "美",
+      "开",
+      "进",
+      "出"
+    ],
+    "correct": 3,
+    "explanation": "「入」的反义词是「出」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-331",
+    "type": "vocab",
+    "prompt": "「早」的反义词是什么？",
+    "options": [
+      "晚",
+      "假",
+      "热",
+      "右"
+    ],
+    "correct": 0,
+    "explanation": "「早」的反义词是「晚」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-332",
+    "type": "vocab",
+    "prompt": "「晚」的反义词是什么？",
+    "options": [
+      "干",
+      "进",
+      "早",
+      "深"
+    ],
+    "correct": 2,
+    "explanation": "「晚」的反义词是「早」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-333",
+    "type": "vocab",
+    "prompt": "「明」的反义词是什么？",
+    "options": [
+      "湿",
+      "闲",
+      "暗",
+      "白"
+    ],
+    "correct": 2,
+    "explanation": "「明」的反义词是「暗」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-334",
+    "type": "vocab",
+    "prompt": "「暗」的反义词是什么？",
+    "options": [
+      "忙",
+      "快",
+      "明",
+      "长"
+    ],
+    "correct": 2,
+    "explanation": "「暗」的反义词是「明」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-335",
+    "type": "vocab",
+    "prompt": "「男」的反义词是什么？",
+    "options": [
+      "短",
+      "女",
+      "关",
+      "低"
+    ],
+    "correct": 1,
+    "explanation": "「男」的反义词是「女」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-336",
+    "type": "vocab",
+    "prompt": "「女」的反义词是什么？",
+    "options": [
+      "远",
+      "干",
+      "男",
+      "胖"
+    ],
+    "correct": 2,
+    "explanation": "「女」的反义词是「男」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-337",
+    "type": "vocab",
+    "prompt": "「老」的反义词是什么？",
+    "options": [
+      "慢",
+      "重",
+      "北",
+      "少"
+    ],
+    "correct": 3,
+    "explanation": "「老」的反义词是「少」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-338",
+    "type": "vocab",
+    "prompt": "「少」的反义词是什么？",
+    "options": [
+      "冷",
+      "老",
+      "好",
+      "胖"
+    ],
+    "correct": 1,
+    "explanation": "「少」的反义词是「老」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-339",
+    "type": "vocab",
+    "prompt": "「东」的反义词是什么？",
+    "options": [
+      "硬",
+      "笑",
+      "去",
+      "西"
+    ],
+    "correct": 3,
+    "explanation": "「东」的反义词是「西」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-340",
+    "type": "vocab",
+    "prompt": "「西」的反义词是什么？",
+    "options": [
+      "生",
+      "来",
+      "进",
+      "东"
+    ],
+    "correct": 3,
+    "explanation": "「西」的反义词是「东」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-341",
+    "type": "vocab",
+    "prompt": "「南」的反义词是什么？",
+    "options": [
+      "重",
+      "北",
+      "去",
+      "晚"
+    ],
+    "correct": 1,
+    "explanation": "「南」的反义词是「北」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-342",
+    "type": "vocab",
+    "prompt": "「北」的反义词是什么？",
+    "options": [
+      "开",
+      "松",
+      "冷",
+      "南"
+    ],
+    "correct": 3,
+    "explanation": "「北」的反义词是「南」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-343",
+    "type": "vocab",
+    "prompt": "「哭」的反义词是什么？",
+    "options": [
+      "笑",
+      "入",
+      "少",
+      "去"
+    ],
+    "correct": 0,
+    "explanation": "「哭」的反义词是「笑」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-344",
+    "type": "vocab",
+    "prompt": "「笑」的反义词是什么？",
+    "options": [
+      "对",
+      "甜",
+      "明",
+      "哭"
+    ],
+    "correct": 3,
+    "explanation": "「笑」的反义词是「哭」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-345",
+    "type": "vocab",
+    "prompt": "「胖」的反义词是什么？",
+    "options": [
+      "瘦",
+      "短",
+      "硬",
+      "暗"
+    ],
+    "correct": 0,
+    "explanation": "「胖」的反义词是「瘦」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-346",
+    "type": "vocab",
+    "prompt": "「瘦」的反义词是什么？",
+    "options": [
+      "轻",
+      "远",
+      "高",
+      "胖"
+    ],
+    "correct": 3,
+    "explanation": "「瘦」的反义词是「胖」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-347",
+    "type": "vocab",
+    "prompt": "「远」的反义词是什么？",
+    "options": [
+      "右",
+      "细",
+      "湿",
+      "近"
+    ],
+    "correct": 3,
+    "explanation": "「远」的反义词是「近」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-348",
+    "type": "vocab",
+    "prompt": "「近」的反义词是什么？",
+    "options": [
+      "远",
+      "轻",
+      "黑",
+      "松"
+    ],
+    "correct": 0,
+    "explanation": "「近」的反义词是「远」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-349",
+    "type": "vocab",
+    "prompt": "「深」的反义词是什么？",
+    "options": [
+      "浅",
+      "下",
+      "少",
+      "细"
+    ],
+    "correct": 0,
+    "explanation": "「深」的反义词是「浅」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-350",
+    "type": "vocab",
+    "prompt": "「浅」的反义词是什么？",
+    "options": [
+      "大",
+      "左",
+      "深",
+      "软"
+    ],
+    "correct": 2,
+    "explanation": "「浅」的反义词是「深」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-351",
+    "type": "vocab",
+    "prompt": "「粗」的反义词是什么？",
+    "options": [
+      "去",
+      "饿",
+      "短",
+      "细"
+    ],
+    "correct": 3,
+    "explanation": "「粗」的反义词是「细」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-352",
+    "type": "vocab",
+    "prompt": "「细」的反义词是什么？",
+    "options": [
+      "粗",
+      "明",
+      "香",
+      "松"
+    ],
+    "correct": 0,
+    "explanation": "「细」的反义词是「粗」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-353",
+    "type": "vocab",
+    "prompt": "「轻」的反义词是什么？",
+    "options": [
+      "西",
+      "右",
+      "热",
+      "重"
+    ],
+    "correct": 3,
+    "explanation": "「轻」的反义词是「重」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-354",
+    "type": "vocab",
+    "prompt": "「重」的反义词是什么？",
+    "options": [
+      "轻",
+      "多",
+      "新",
+      "饱"
+    ],
+    "correct": 0,
+    "explanation": "「重」的反义词是「轻」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-355",
+    "type": "vocab",
+    "prompt": "「宽」的反义词是什么？",
+    "options": [
+      "窄",
+      "湿",
+      "女",
+      "重"
+    ],
+    "correct": 0,
+    "explanation": "「宽」的反义词是「窄」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-356",
+    "type": "vocab",
+    "prompt": "「窄」的反义词是什么？",
+    "options": [
+      "高",
+      "饱",
+      "老",
+      "宽"
+    ],
+    "correct": 3,
+    "explanation": "「窄」的反义词是「宽」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-357",
+    "type": "vocab",
+    "prompt": "「干」的反义词是什么？",
+    "options": [
+      "热",
+      "湿",
+      "瘦",
+      "慢"
+    ],
+    "correct": 1,
+    "explanation": "「干」的反义词是「湿」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-358",
+    "type": "vocab",
+    "prompt": "「湿」的反义词是什么？",
+    "options": [
+      "大",
+      "干",
+      "深",
+      "冷"
+    ],
+    "correct": 1,
+    "explanation": "「湿」的反义词是「干」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-359",
+    "type": "vocab",
+    "prompt": "「甜」的反义词是什么？",
+    "options": [
+      "苦",
+      "下",
+      "晚",
+      "坏"
+    ],
+    "correct": 0,
+    "explanation": "「甜」的反义词是「苦」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-360",
+    "type": "vocab",
+    "prompt": "「苦」的反义词是什么？",
+    "options": [
+      "甜",
+      "明",
+      "远",
+      "老"
+    ],
+    "correct": 0,
+    "explanation": "「苦」的反义词是「甜」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-361",
+    "type": "vocab",
+    "prompt": "「软」的反义词是什么？",
+    "options": [
+      "硬",
+      "笑",
+      "闲",
+      "退"
+    ],
+    "correct": 0,
+    "explanation": "「软」的反义词是「硬」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-362",
+    "type": "vocab",
+    "prompt": "「硬」的反义词是什么？",
+    "options": [
+      "前",
+      "软",
+      "宽",
+      "哭"
+    ],
+    "correct": 1,
+    "explanation": "「硬」的反义词是「软」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-363",
+    "type": "vocab",
+    "prompt": "「生」的反义词是什么？",
+    "options": [
+      "北",
+      "苦",
+      "关",
+      "死"
+    ],
+    "correct": 3,
+    "explanation": "「生」的反义词是「死」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-364",
+    "type": "vocab",
+    "prompt": "「死」的反义词是什么？",
+    "options": [
+      "新",
+      "生",
+      "甜",
+      "男"
+    ],
+    "correct": 1,
+    "explanation": "「死」的反义词是「生」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-365",
+    "type": "vocab",
+    "prompt": "「进」的反义词是什么？",
+    "options": [
+      "错",
+      "退",
+      "湿",
+      "近"
+    ],
+    "correct": 1,
+    "explanation": "「进」的反义词是「退」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-366",
+    "type": "vocab",
+    "prompt": "「退」的反义词是什么？",
+    "options": [
+      "进",
+      "远",
+      "明",
+      "干"
+    ],
+    "correct": 0,
+    "explanation": "「退」的反义词是「进」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-367",
+    "type": "vocab",
+    "prompt": "「忙」的反义词是什么？",
+    "options": [
+      "去",
+      "闲",
+      "旧",
+      "晚"
+    ],
+    "correct": 1,
+    "explanation": "「忙」的反义词是「闲」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-368",
+    "type": "vocab",
+    "prompt": "「闲」的反义词是什么？",
+    "options": [
+      "哭",
+      "多",
+      "冷",
+      "忙"
+    ],
+    "correct": 3,
+    "explanation": "「闲」的反义词是「忙」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-369",
+    "type": "vocab",
+    "prompt": "「香」的反义词是什么？",
+    "options": [
+      "低",
+      "苦",
+      "硬",
+      "臭"
+    ],
+    "correct": 3,
+    "explanation": "「香」的反义词是「臭」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-370",
+    "type": "vocab",
+    "prompt": "「臭」的反义词是什么？",
+    "options": [
+      "轻",
+      "香",
+      "生",
+      "美"
+    ],
+    "correct": 1,
+    "explanation": "「臭」的反义词是「香」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-371",
+    "type": "vocab",
+    "prompt": "「美」的反义词是什么？",
+    "options": [
+      "错",
+      "瘦",
+      "闲",
+      "丑"
+    ],
+    "correct": 3,
+    "explanation": "「美」的反义词是「丑」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-372",
+    "type": "vocab",
+    "prompt": "「丑」的反义词是什么？",
+    "options": [
+      "胖",
+      "美",
+      "哭",
+      "冷"
+    ],
+    "correct": 1,
+    "explanation": "「丑」的反义词是「美」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-373",
+    "type": "vocab",
+    "prompt": "「真」的反义词是什么？",
+    "options": [
+      "后",
+      "低",
+      "臭",
+      "假"
+    ],
+    "correct": 3,
+    "explanation": "「真」的反义词是「假」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-374",
+    "type": "vocab",
+    "prompt": "「假」的反义词是什么？",
+    "options": [
+      "真",
+      "出",
+      "粗",
+      "软"
+    ],
+    "correct": 0,
+    "explanation": "「假」的反义词是「真」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-375",
+    "type": "vocab",
+    "prompt": "「对」的反义词是什么？",
+    "options": [
+      "白",
+      "错",
+      "热",
+      "苦"
+    ],
+    "correct": 1,
+    "explanation": "「对」的反义词是「错」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-376",
+    "type": "vocab",
+    "prompt": "「错」的反义词是什么？",
+    "options": [
+      "冷",
+      "对",
+      "轻",
+      "来"
+    ],
+    "correct": 1,
+    "explanation": "「错」的反义词是「对」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-377",
+    "type": "vocab",
+    "prompt": "「饱」的反义词是什么？",
+    "options": [
+      "饿",
+      "坏",
+      "去",
+      "浅"
+    ],
+    "correct": 0,
+    "explanation": "「饱」的反义词是「饿」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-378",
+    "type": "vocab",
+    "prompt": "「饿」的反义词是什么？",
+    "options": [
+      "饱",
+      "南",
+      "生",
+      "进"
+    ],
+    "correct": 0,
+    "explanation": "「饿」的反义词是「饱」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-379",
+    "type": "vocab",
+    "prompt": "「松」的反义词是什么？",
+    "options": [
+      "小",
+      "重",
+      "紧",
+      "暗"
+    ],
+    "correct": 2,
+    "explanation": "「松」的反义词是「紧」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-380",
+    "type": "vocab",
+    "prompt": "「紧」的反义词是什么？",
+    "options": [
+      "黑",
+      "南",
+      "宽",
+      "松"
+    ],
+    "correct": 3,
+    "explanation": "「紧」的反义词是「松」。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-381",
+    "type": "vocab",
+    "prompt": "「一」字有几画？",
+    "options": [
+      "1画",
+      "2画",
+      "3画",
+      "4画"
+    ],
+    "correct": 0,
+    "explanation": "「一」字共有1画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-382",
+    "type": "vocab",
+    "prompt": "「二」字有几画？",
+    "options": [
+      "4画",
+      "2画",
+      "3画",
+      "1画"
+    ],
+    "correct": 1,
+    "explanation": "「二」字共有2画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-383",
+    "type": "vocab",
+    "prompt": "「三」字有几画？",
+    "options": [
+      "2画",
+      "4画",
+      "1画",
+      "3画"
+    ],
+    "correct": 3,
+    "explanation": "「三」字共有3画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-384",
+    "type": "vocab",
+    "prompt": "「十」字有几画？",
+    "options": [
+      "2画",
+      "1画",
+      "3画",
+      "4画"
+    ],
+    "correct": 0,
+    "explanation": "「十」字共有2画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-385",
+    "type": "vocab",
+    "prompt": "「人」字有几画？",
+    "options": [
+      "4画",
+      "3画",
+      "1画",
+      "2画"
+    ],
+    "correct": 3,
+    "explanation": "「人」字共有2画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-386",
+    "type": "vocab",
+    "prompt": "「大」字有几画？",
+    "options": [
+      "1画",
+      "2画",
+      "5画",
+      "3画"
+    ],
+    "correct": 3,
+    "explanation": "「大」字共有3画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-387",
+    "type": "vocab",
+    "prompt": "「小」字有几画？",
+    "options": [
+      "2画",
+      "3画",
+      "4画",
+      "1画"
+    ],
+    "correct": 1,
+    "explanation": "「小」字共有3画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-388",
+    "type": "vocab",
+    "prompt": "「上」字有几画？",
+    "options": [
+      "1画",
+      "3画",
+      "5画",
+      "2画"
+    ],
+    "correct": 1,
+    "explanation": "「上」字共有3画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-389",
+    "type": "vocab",
+    "prompt": "「下」字有几画？",
+    "options": [
+      "1画",
+      "3画",
+      "2画",
+      "5画"
+    ],
+    "correct": 1,
+    "explanation": "「下」字共有3画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-390",
+    "type": "vocab",
+    "prompt": "「口」字有几画？",
+    "options": [
+      "3画",
+      "5画",
+      "2画",
+      "4画"
+    ],
+    "correct": 0,
+    "explanation": "「口」字共有3画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-391",
+    "type": "vocab",
+    "prompt": "「日」字有几画？",
+    "options": [
+      "3画",
+      "4画",
+      "5画",
+      "2画"
+    ],
+    "correct": 1,
+    "explanation": "「日」字共有4画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-392",
+    "type": "vocab",
+    "prompt": "「月」字有几画？",
+    "options": [
+      "5画",
+      "2画",
+      "3画",
+      "4画"
+    ],
+    "correct": 3,
+    "explanation": "「月」字共有4画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-393",
+    "type": "vocab",
+    "prompt": "「水」字有几画？",
+    "options": [
+      "4画",
+      "6画",
+      "2画",
+      "3画"
+    ],
+    "correct": 0,
+    "explanation": "「水」字共有4画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-394",
+    "type": "vocab",
+    "prompt": "「火」字有几画？",
+    "options": [
+      "5画",
+      "4画",
+      "6画",
+      "2画"
+    ],
+    "correct": 1,
+    "explanation": "「火」字共有4画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-395",
+    "type": "vocab",
+    "prompt": "「山」字有几画？",
+    "options": [
+      "5画",
+      "3画",
+      "1画",
+      "2画"
+    ],
+    "correct": 1,
+    "explanation": "「山」字共有3画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-396",
+    "type": "vocab",
+    "prompt": "「石」字有几画？",
+    "options": [
+      "7画",
+      "5画",
+      "6画",
+      "4画"
+    ],
+    "correct": 1,
+    "explanation": "「石」字共有5画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-397",
+    "type": "vocab",
+    "prompt": "「土」字有几画？",
+    "options": [
+      "4画",
+      "2画",
+      "5画",
+      "3画"
+    ],
+    "correct": 3,
+    "explanation": "「土」字共有3画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-398",
+    "type": "vocab",
+    "prompt": "「田」字有几画？",
+    "options": [
+      "6画",
+      "3画",
+      "4画",
+      "5画"
+    ],
+    "correct": 3,
+    "explanation": "「田」字共有5画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-399",
+    "type": "vocab",
+    "prompt": "「木」字有几画？",
+    "options": [
+      "3画",
+      "4画",
+      "5画",
+      "6画"
+    ],
+    "correct": 1,
+    "explanation": "「木」字共有4画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-400",
+    "type": "vocab",
+    "prompt": "「手」字有几画？",
+    "options": [
+      "4画",
+      "2画",
+      "3画",
+      "6画"
+    ],
+    "correct": 0,
+    "explanation": "「手」字共有4画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-401",
+    "type": "vocab",
+    "prompt": "「目」字有几画？",
+    "options": [
+      "6画",
+      "4画",
+      "5画",
+      "3画"
+    ],
+    "correct": 2,
+    "explanation": "「目」字共有5画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-402",
+    "type": "vocab",
+    "prompt": "「耳」字有几画？",
+    "options": [
+      "7画",
+      "5画",
+      "4画",
+      "6画"
+    ],
+    "correct": 3,
+    "explanation": "「耳」字共有6画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-403",
+    "type": "vocab",
+    "prompt": "「足」字有几画？",
+    "options": [
+      "7画",
+      "5画",
+      "9画",
+      "8画"
+    ],
+    "correct": 0,
+    "explanation": "「足」字共有7画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-404",
+    "type": "vocab",
+    "prompt": "「花」字有几画？",
+    "options": [
+      "7画",
+      "8画",
+      "9画",
+      "6画"
+    ],
+    "correct": 0,
+    "explanation": "「花」字共有7画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-405",
+    "type": "vocab",
+    "prompt": "「草」字有几画？",
+    "options": [
+      "9画",
+      "10画",
+      "8画",
+      "11画"
+    ],
+    "correct": 0,
+    "explanation": "「草」字共有9画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-406",
+    "type": "vocab",
+    "prompt": "「鸟」字有几画？",
+    "options": [
+      "3画",
+      "6画",
+      "5画",
+      "4画"
+    ],
+    "correct": 2,
+    "explanation": "「鸟」字共有5画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-407",
+    "type": "vocab",
+    "prompt": "「鱼」字有几画？",
+    "options": [
+      "10画",
+      "9画",
+      "8画",
+      "7画"
+    ],
+    "correct": 2,
+    "explanation": "「鱼」字共有8画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-408",
+    "type": "vocab",
+    "prompt": "「虫」字有几画？",
+    "options": [
+      "6画",
+      "7画",
+      "4画",
+      "5画"
+    ],
+    "correct": 0,
+    "explanation": "「虫」字共有6画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-409",
+    "type": "vocab",
+    "prompt": "「天」字有几画？",
+    "options": [
+      "4画",
+      "5画",
+      "3画",
+      "2画"
+    ],
+    "correct": 0,
+    "explanation": "「天」字共有4画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-410",
+    "type": "vocab",
+    "prompt": "「白」字有几画？",
+    "options": [
+      "5画",
+      "3画",
+      "7画",
+      "6画"
+    ],
+    "correct": 0,
+    "explanation": "「白」字共有5画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-411",
+    "type": "vocab",
+    "prompt": "「云」字有几画？",
+    "options": [
+      "5画",
+      "4画",
+      "6画",
+      "2画"
+    ],
+    "correct": 1,
+    "explanation": "「云」字共有4画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-412",
+    "type": "vocab",
+    "prompt": "「雨」字有几画？",
+    "options": [
+      "8画",
+      "7画",
+      "6画",
+      "10画"
+    ],
+    "correct": 0,
+    "explanation": "「雨」字共有8画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-413",
+    "type": "vocab",
+    "prompt": "「风」字有几画？",
+    "options": [
+      "3画",
+      "5画",
+      "4画",
+      "2画"
+    ],
+    "correct": 2,
+    "explanation": "「风」字共有4画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-414",
+    "type": "vocab",
+    "prompt": "「雪」字有几画？",
+    "options": [
+      "12画",
+      "9画",
+      "11画",
+      "10画"
+    ],
+    "correct": 2,
+    "explanation": "「雪」字共有11画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-415",
+    "type": "vocab",
+    "prompt": "「春」字有几画？",
+    "options": [
+      "11画",
+      "9画",
+      "8画",
+      "7画"
+    ],
+    "correct": 1,
+    "explanation": "「春」字共有9画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-416",
+    "type": "vocab",
+    "prompt": "「夏」字有几画？",
+    "options": [
+      "12画",
+      "9画",
+      "10画",
+      "8画"
+    ],
+    "correct": 2,
+    "explanation": "「夏」字共有10画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-417",
+    "type": "vocab",
+    "prompt": "「秋」字有几画？",
+    "options": [
+      "10画",
+      "8画",
+      "9画",
+      "11画"
+    ],
+    "correct": 2,
+    "explanation": "「秋」字共有9画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-418",
+    "type": "vocab",
+    "prompt": "「冬」字有几画？",
+    "options": [
+      "7画",
+      "3画",
+      "5画",
+      "4画"
+    ],
+    "correct": 2,
+    "explanation": "「冬」字共有5画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-419",
+    "type": "vocab",
+    "prompt": "「东」字有几画？",
+    "options": [
+      "6画",
+      "7画",
+      "5画",
+      "3画"
+    ],
+    "correct": 2,
+    "explanation": "「东」字共有5画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-420",
+    "type": "vocab",
+    "prompt": "「西」字有几画？",
+    "options": [
+      "8画",
+      "5画",
+      "6画",
+      "7画"
+    ],
+    "correct": 2,
+    "explanation": "「西」字共有6画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-421",
+    "type": "vocab",
+    "prompt": "「南」字有几画？",
+    "options": [
+      "7画",
+      "11画",
+      "9画",
+      "8画"
+    ],
+    "correct": 2,
+    "explanation": "「南」字共有9画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-422",
+    "type": "vocab",
+    "prompt": "「北」字有几画？",
+    "options": [
+      "6画",
+      "3画",
+      "5画",
+      "4画"
+    ],
+    "correct": 2,
+    "explanation": "「北」字共有5画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-423",
+    "type": "vocab",
+    "prompt": "「中」字有几画？",
+    "options": [
+      "6画",
+      "4画",
+      "3画",
+      "2画"
+    ],
+    "correct": 1,
+    "explanation": "「中」字共有4画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-424",
+    "type": "vocab",
+    "prompt": "「心」字有几画？",
+    "options": [
+      "4画",
+      "3画",
+      "2画",
+      "5画"
+    ],
+    "correct": 0,
+    "explanation": "「心」字共有4画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-425",
+    "type": "vocab",
+    "prompt": "「头」字有几画？",
+    "options": [
+      "4画",
+      "6画",
+      "5画",
+      "3画"
+    ],
+    "correct": 2,
+    "explanation": "「头」字共有5画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-426",
+    "type": "vocab",
+    "prompt": "「王」字有几画？",
+    "options": [
+      "4画",
+      "2画",
+      "5画",
+      "6画"
+    ],
+    "correct": 0,
+    "explanation": "「王」字共有4画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-427",
+    "type": "vocab",
+    "prompt": "「女」字有几画？",
+    "options": [
+      "1画",
+      "5画",
+      "3画",
+      "4画"
+    ],
+    "correct": 2,
+    "explanation": "「女」字共有3画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-428",
+    "type": "vocab",
+    "prompt": "「门」字有几画？",
+    "options": [
+      "3画",
+      "5画",
+      "2画",
+      "1画"
+    ],
+    "correct": 0,
+    "explanation": "「门」字共有3画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-429",
+    "type": "vocab",
+    "prompt": "「马」字有几画？",
+    "options": [
+      "3画",
+      "4画",
+      "2画",
+      "5画"
+    ],
+    "correct": 0,
+    "explanation": "「马」字共有3画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-430",
+    "type": "vocab",
+    "prompt": "「车」字有几画？",
+    "options": [
+      "4画",
+      "3画",
+      "2画",
+      "6画"
+    ],
+    "correct": 0,
+    "explanation": "「车」字共有4画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-431",
+    "type": "vocab",
+    "prompt": "「开」字有几画？",
+    "options": [
+      "4画",
+      "3画",
+      "6画",
+      "2画"
+    ],
+    "correct": 0,
+    "explanation": "「开」字共有4画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-432",
+    "type": "vocab",
+    "prompt": "「关」字有几画？",
+    "options": [
+      "7画",
+      "5画",
+      "4画",
+      "6画"
+    ],
+    "correct": 3,
+    "explanation": "「关」字共有6画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-433",
+    "type": "vocab",
+    "prompt": "「书」字有几画？",
+    "options": [
+      "4画",
+      "2画",
+      "6画",
+      "5画"
+    ],
+    "correct": 0,
+    "explanation": "「书」字共有4画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-434",
+    "type": "vocab",
+    "prompt": "「学」字有几画？",
+    "options": [
+      "7画",
+      "10画",
+      "6画",
+      "8画"
+    ],
+    "correct": 3,
+    "explanation": "「学」字共有8画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-435",
+    "type": "vocab",
+    "prompt": "「字」字有几画？",
+    "options": [
+      "4画",
+      "8画",
+      "6画",
+      "7画"
+    ],
+    "correct": 2,
+    "explanation": "「字」字共有6画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-436",
+    "type": "vocab",
+    "prompt": "「文」字有几画？",
+    "options": [
+      "2画",
+      "4画",
+      "5画",
+      "3画"
+    ],
+    "correct": 1,
+    "explanation": "「文」字共有4画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-437",
+    "type": "vocab",
+    "prompt": "「力」字有几画？",
+    "options": [
+      "2画",
+      "1画",
+      "3画",
+      "4画"
+    ],
+    "correct": 0,
+    "explanation": "「力」字共有2画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-438",
+    "type": "vocab",
+    "prompt": "「刀」字有几画？",
+    "options": [
+      "3画",
+      "4画",
+      "2画",
+      "1画"
+    ],
+    "correct": 2,
+    "explanation": "「刀」字共有2画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-439",
+    "type": "vocab",
+    "prompt": "「飞」字有几画？",
+    "options": [
+      "1画",
+      "4画",
+      "2画",
+      "3画"
+    ],
+    "correct": 3,
+    "explanation": "「飞」字共有3画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-440",
+    "type": "vocab",
+    "prompt": "「长」字有几画？",
+    "options": [
+      "5画",
+      "3画",
+      "4画",
+      "6画"
+    ],
+    "correct": 2,
+    "explanation": "「长」字共有4画。",
+    "difficulty": 2,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-441",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「天」字？",
+    "options": [
+      "长大",
+      "喝水",
+      "高山",
+      "天空"
+    ],
+    "correct": 3,
+    "explanation": "「天空」包含「天」字。还可以组词：天上白云飘。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-442",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「地」字？",
+    "options": [
+      "小草",
+      "老人",
+      "大地",
+      "蓝天"
+    ],
+    "correct": 2,
+    "explanation": "「大地」包含「地」字。还可以组词：地上有花。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-443",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「花」字？",
+    "options": [
+      "小船",
+      "好玩",
+      "花朵",
+      "高山"
+    ],
+    "correct": 2,
+    "explanation": "「花朵」包含「花」字。还可以组词：美丽的花。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-444",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「草」字？",
+    "options": [
+      "妈妈",
+      "小草",
+      "看见",
+      "小马"
+    ],
+    "correct": 1,
+    "explanation": "「小草」包含「草」字。还可以组词：草地很绿。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-445",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「树」字？",
+    "options": [
+      "窗户",
+      "高山",
+      "大树",
+      "小猫"
+    ],
+    "correct": 2,
+    "explanation": "「大树」包含「树」字。还可以组词：树上有鸟。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-446",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「水」字？",
+    "options": [
+      "飞机",
+      "河水",
+      "小河",
+      "跑步"
+    ],
+    "correct": 1,
+    "explanation": "「河水」包含「水」字。还可以组词：水很清。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-447",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「火」字？",
+    "options": [
+      "大火",
+      "开门",
+      "小猫",
+      "黑夜"
+    ],
+    "correct": 0,
+    "explanation": "「大火」包含「火」字。还可以组词：火很热。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-448",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「山」字？",
+    "options": [
+      "绿色",
+      "高山",
+      "花朵",
+      "关门"
+    ],
+    "correct": 1,
+    "explanation": "「高山」包含「山」字。还可以组词：山上有树。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-449",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「风」字？",
+    "options": [
+      "走路",
+      "大风",
+      "木床",
+      "高山"
+    ],
+    "correct": 1,
+    "explanation": "「大风」包含「风」字。还可以组词：风在吹。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-450",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「雨」字？",
+    "options": [
+      "下雨",
+      "开门",
+      "哭声",
+      "绿色"
+    ],
+    "correct": 0,
+    "explanation": "「下雨」包含「雨」字。还可以组词：雨水。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-451",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「雪」字？",
+    "options": [
+      "白雪",
+      "大地",
+      "爸爸",
+      "长大"
+    ],
+    "correct": 0,
+    "explanation": "「白雪」包含「雪」字。还可以组词：雪花飘。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-452",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「云」字？",
+    "options": [
+      "跳舞",
+      "白云",
+      "窗户",
+      "男孩"
+    ],
+    "correct": 1,
+    "explanation": "「白云」包含「云」字。还可以组词：云朵。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-453",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「日」字？",
+    "options": [
+      "听见",
+      "日出",
+      "秋天",
+      "小鱼"
+    ],
+    "correct": 1,
+    "explanation": "「日出」包含「日」字。还可以组词：日光。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-454",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「月」字？",
+    "options": [
+      "老人",
+      "关门",
+      "高山",
+      "月亮"
+    ],
+    "correct": 3,
+    "explanation": "「月亮」包含「月」字。还可以组词：月光。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-455",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「星」字？",
+    "options": [
+      "高山",
+      "大门",
+      "飞机",
+      "星星"
+    ],
+    "correct": 3,
+    "explanation": "「星星」包含「星」字。还可以组词：星光。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-456",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「春」字？",
+    "options": [
+      "天空",
+      "春天",
+      "大米",
+      "大火"
+    ],
+    "correct": 1,
+    "explanation": "「春天」包含「春」字。还可以组词：春风。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-457",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「夏」字？",
+    "options": [
+      "小鱼",
+      "帽子",
+      "关门",
+      "夏天"
+    ],
+    "correct": 3,
+    "explanation": "「夏天」包含「夏」字。还可以组词：夏日。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-458",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「秋」字？",
+    "options": [
+      "看见",
+      "秋天",
+      "小鸟",
+      "大地"
+    ],
+    "correct": 1,
+    "explanation": "「秋天」包含「秋」字。还可以组词：秋风。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-459",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「冬」字？",
+    "options": [
+      "小鸟",
+      "水果",
+      "冬天",
+      "小猫"
+    ],
+    "correct": 2,
+    "explanation": "「冬天」包含「冬」字。还可以组词：冬日。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-460",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「红」字？",
+    "options": [
+      "大风",
+      "小草",
+      "红花",
+      "笑声"
+    ],
+    "correct": 2,
+    "explanation": "「红花」包含「红」字。还可以组词：红色。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-461",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「黄」字？",
+    "options": [
+      "冬天",
+      "高山",
+      "白纸",
+      "黄色"
+    ],
+    "correct": 3,
+    "explanation": "「黄色」包含「黄」字。还可以组词：黄金。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-462",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「蓝」字？",
+    "options": [
+      "飞机",
+      "蓝天",
+      "走路",
+      "跑步"
+    ],
+    "correct": 1,
+    "explanation": "「蓝天」包含「蓝」字。还可以组词：蓝色。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-463",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「绿」字？",
+    "options": [
+      "笑声",
+      "奶奶",
+      "绿色",
+      "小船"
+    ],
+    "correct": 2,
+    "explanation": "「绿色」包含「绿」字。还可以组词：绿草。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-464",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「白」字？",
+    "options": [
+      "衣服",
+      "老人",
+      "白云",
+      "学习"
+    ],
+    "correct": 2,
+    "explanation": "「白云」包含「白」字。还可以组词：白色。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-465",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「黑」字？",
+    "options": [
+      "黑夜",
+      "夏天",
+      "喝水",
+      "小鸟"
+    ],
+    "correct": 0,
+    "explanation": "「黑夜」包含「黑」字。还可以组词：黑色。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-466",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「大」字？",
+    "options": [
+      "天空",
+      "写字",
+      "大人",
+      "笑声"
+    ],
+    "correct": 2,
+    "explanation": "「大人」包含「大」字。还可以组词：大家。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-467",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「小」字？",
+    "options": [
+      "帽子",
+      "毛笔",
+      "小鸟",
+      "大火"
+    ],
+    "correct": 2,
+    "explanation": "「小鸟」包含「小」字。还可以组词：小花。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-468",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「多」字？",
+    "options": [
+      "小狗",
+      "很多",
+      "大米",
+      "书包"
+    ],
+    "correct": 1,
+    "explanation": "「很多」包含「多」字。还可以组词：多少。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-469",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「高」字？",
+    "options": [
+      "书包",
+      "书本",
+      "高山",
+      "哭声"
+    ],
+    "correct": 2,
+    "explanation": "「高山」包含「高」字。还可以组词：高兴。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-470",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「长」字？",
+    "options": [
+      "日出",
+      "长大",
+      "小马",
+      "哭声"
+    ],
+    "correct": 1,
+    "explanation": "「长大」包含「长」字。还可以组词：长江。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-471",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「开」字？",
+    "options": [
+      "走路",
+      "女孩",
+      "蓝天",
+      "开门"
+    ],
+    "correct": 3,
+    "explanation": "「开门」包含「开」字。还可以组词：开心。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-472",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「关」字？",
+    "options": [
+      "衣服",
+      "小河",
+      "小虫",
+      "关门"
+    ],
+    "correct": 3,
+    "explanation": "「关门」包含「关」字。还可以组词：关心。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-473",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「看」字？",
+    "options": [
+      "跑步",
+      "窗户",
+      "看见",
+      "电灯"
+    ],
+    "correct": 2,
+    "explanation": "「看见」包含「看」字。还可以组词：好看。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-474",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「听」字？",
+    "options": [
+      "说话",
+      "绿色",
+      "小船",
+      "听见"
+    ],
+    "correct": 3,
+    "explanation": "「听见」包含「听」字。还可以组词：好听。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-475",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「说」字？",
+    "options": [
+      "马路",
+      "下雨",
+      "看见",
+      "说话"
+    ],
+    "correct": 3,
+    "explanation": "「说话」包含「说」字。还可以组词：小说。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-476",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「笑」字？",
+    "options": [
+      "笑声",
+      "男孩",
+      "大海",
+      "山羊"
+    ],
+    "correct": 0,
+    "explanation": "「笑声」包含「笑」字。还可以组词：微笑。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-477",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「哭」字？",
+    "options": [
+      "毛笔",
+      "爸爸",
+      "大桥",
+      "哭声"
+    ],
+    "correct": 3,
+    "explanation": "「哭声」包含「哭」字。还可以组词：哭泣。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-478",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「走」字？",
+    "options": [
+      "大树",
+      "走路",
+      "窗户",
+      "衣服"
+    ],
+    "correct": 1,
+    "explanation": "「走路」包含「走」字。还可以组词：走开。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-479",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「跑」字？",
+    "options": [
+      "长大",
+      "跑步",
+      "白纸",
+      "大海"
+    ],
+    "correct": 1,
+    "explanation": "「跑步」包含「跑」字。还可以组词：赛跑。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-480",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「跳」字？",
+    "options": [
+      "下雨",
+      "哭声",
+      "老人",
+      "跳舞"
+    ],
+    "correct": 3,
+    "explanation": "「跳舞」包含「跳」字。还可以组词：跳高。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-481",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「飞」字？",
+    "options": [
+      "男孩",
+      "飞机",
+      "睡觉",
+      "小虫"
+    ],
+    "correct": 1,
+    "explanation": "「飞机」包含「飞」字。还可以组词：飞鸟。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-482",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「吃」字？",
+    "options": [
+      "吃饭",
+      "白雪",
+      "汽车",
+      "日出"
+    ],
+    "correct": 0,
+    "explanation": "「吃饭」包含「吃」字。还可以组词：好吃。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-483",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「喝」字？",
+    "options": [
+      "大人",
+      "喝水",
+      "爸爸",
+      "红花"
+    ],
+    "correct": 1,
+    "explanation": "「喝水」包含「喝」字。还可以组词：喝茶。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-484",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「睡」字？",
+    "options": [
+      "夏天",
+      "桌子",
+      "睡觉",
+      "红花"
+    ],
+    "correct": 2,
+    "explanation": "「睡觉」包含「睡」字。还可以组词：午睡。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-485",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「玩」字？",
+    "options": [
+      "椅子",
+      "好玩",
+      "高山",
+      "走路"
+    ],
+    "correct": 1,
+    "explanation": "「好玩」包含「玩」字。还可以组词：玩具。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-486",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「学」字？",
+    "options": [
+      "小草",
+      "白云",
+      "飞机",
+      "学习"
+    ],
+    "correct": 3,
+    "explanation": "「学习」包含「学」字。还可以组词：学校。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-487",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「书」字？",
+    "options": [
+      "书本",
+      "大门",
+      "红花",
+      "好玩"
+    ],
+    "correct": 0,
+    "explanation": "「书本」包含「书」字。还可以组词：读书。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-488",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「字」字？",
+    "options": [
+      "白雪",
+      "写字",
+      "大地",
+      "小鸟"
+    ],
+    "correct": 1,
+    "explanation": "「写字」包含「字」字。还可以组词：汉字。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-489",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「笔」字？",
+    "options": [
+      "关门",
+      "蓝天",
+      "毛笔",
+      "皮鞋"
+    ],
+    "correct": 2,
+    "explanation": "「毛笔」包含「笔」字。还可以组词：铅笔。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-490",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「纸」字？",
+    "options": [
+      "白纸",
+      "奶奶",
+      "笑声",
+      "日出"
+    ],
+    "correct": 0,
+    "explanation": "「白纸」包含「纸」字。还可以组词：纸张。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-491",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「包」字？",
+    "options": [
+      "书包",
+      "开门",
+      "绿色",
+      "大人"
+    ],
+    "correct": 0,
+    "explanation": "「书包」包含「包」字。还可以组词：面包。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-492",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「车」字？",
+    "options": [
+      "飞机",
+      "汽车",
+      "爸爸",
+      "小猫"
+    ],
+    "correct": 1,
+    "explanation": "「汽车」包含「车」字。还可以组词：火车。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-493",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「船」字？",
+    "options": [
+      "桌子",
+      "电灯",
+      "天空",
+      "小船"
+    ],
+    "correct": 3,
+    "explanation": "「小船」包含「船」字。还可以组词：轮船。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-494",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「桥」字？",
+    "options": [
+      "看见",
+      "飞机",
+      "大桥",
+      "星星"
+    ],
+    "correct": 2,
+    "explanation": "「大桥」包含「桥」字。还可以组词：石桥。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-495",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「路」字？",
+    "options": [
+      "走路",
+      "小鱼",
+      "春天",
+      "马路"
+    ],
+    "correct": 3,
+    "explanation": "「马路」包含「路」字。还可以组词：道路。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-496",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「门」字？",
+    "options": [
+      "奶奶",
+      "日出",
+      "喝水",
+      "大门"
+    ],
+    "correct": 3,
+    "explanation": "「大门」包含「门」字。还可以组词：门口。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-497",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「窗」字？",
+    "options": [
+      "窗户",
+      "笑声",
+      "长大",
+      "女孩"
+    ],
+    "correct": 0,
+    "explanation": "「窗户」包含「窗」字。还可以组词：窗外。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-498",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「床」字？",
+    "options": [
+      "水果",
+      "白云",
+      "冬天",
+      "木床"
+    ],
+    "correct": 3,
+    "explanation": "「木床」包含「床」字。还可以组词：床上。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-499",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「桌」字？",
+    "options": [
+      "老人",
+      "桌子",
+      "黄色",
+      "白雪"
+    ],
+    "correct": 1,
+    "explanation": "「桌子」包含「桌」字。还可以组词：书桌。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-500",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「椅」字？",
+    "options": [
+      "小鱼",
+      "小虫",
+      "椅子",
+      "电灯"
+    ],
+    "correct": 2,
+    "explanation": "「椅子」包含「椅」字。还可以组词：木椅。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-501",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「衣」字？",
+    "options": [
+      "衣服",
+      "窗户",
+      "飞机",
+      "高山"
+    ],
+    "correct": 0,
+    "explanation": "「衣服」包含「衣」字。还可以组词：上衣。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-502",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「帽」字？",
+    "options": [
+      "爸爸",
+      "水果",
+      "帽子",
+      "白云"
+    ],
+    "correct": 2,
+    "explanation": "「帽子」包含「帽」字。还可以组词：草帽。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-503",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「鞋」字？",
+    "options": [
+      "小鱼",
+      "大人",
+      "窗户",
+      "皮鞋"
+    ],
+    "correct": 3,
+    "explanation": "「皮鞋」包含「鞋」字。还可以组词：布鞋。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-504",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「猫」字？",
+    "options": [
+      "小河",
+      "小猫",
+      "汽车",
+      "日出"
+    ],
+    "correct": 1,
+    "explanation": "「小猫」包含「猫」字。还可以组词：花猫。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-505",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「狗」字？",
+    "options": [
+      "小狗",
+      "女孩",
+      "跳舞",
+      "爷爷"
+    ],
+    "correct": 0,
+    "explanation": "「小狗」包含「狗」字。还可以组词：黄狗。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-506",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「鸟」字？",
+    "options": [
+      "秋天",
+      "大人",
+      "小鸟",
+      "喝水"
+    ],
+    "correct": 2,
+    "explanation": "「小鸟」包含「鸟」字。还可以组词：飞鸟。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-507",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「鱼」字？",
+    "options": [
+      "白雪",
+      "高山",
+      "小鱼",
+      "长大"
+    ],
+    "correct": 2,
+    "explanation": "「小鱼」包含「鱼」字。还可以组词：金鱼。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-508",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「虫」字？",
+    "options": [
+      "大海",
+      "男孩",
+      "很多",
+      "小虫"
+    ],
+    "correct": 3,
+    "explanation": "「小虫」包含「虫」字。还可以组词：虫子。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-509",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「马」字？",
+    "options": [
+      "河水",
+      "小河",
+      "白云",
+      "小马"
+    ],
+    "correct": 3,
+    "explanation": "「小马」包含「马」字。还可以组词：白马。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-510",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「牛」字？",
+    "options": [
+      "水牛",
+      "奶奶",
+      "好玩",
+      "秋天"
+    ],
+    "correct": 0,
+    "explanation": "「水牛」包含「牛」字。还可以组词：黄牛。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-511",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「羊」字？",
+    "options": [
+      "山羊",
+      "白云",
+      "大门",
+      "小马"
+    ],
+    "correct": 0,
+    "explanation": "「山羊」包含「羊」字。还可以组词：绵羊。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-512",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「爸」字？",
+    "options": [
+      "男孩",
+      "爸爸",
+      "星星",
+      "书包"
+    ],
+    "correct": 1,
+    "explanation": "「爸爸」包含「爸」字。还可以组词：老爸。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-513",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「妈」字？",
+    "options": [
+      "小猫",
+      "小马",
+      "妈妈",
+      "木床"
+    ],
+    "correct": 2,
+    "explanation": "「妈妈」包含「妈」字。还可以组词：老妈。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-514",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「爷」字？",
+    "options": [
+      "白雪",
+      "笑声",
+      "小猫",
+      "爷爷"
+    ],
+    "correct": 3,
+    "explanation": "「爷爷」包含「爷」字。还可以组词：老爷。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-515",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「奶」字？",
+    "options": [
+      "水果",
+      "好玩",
+      "奶奶",
+      "夏天"
+    ],
+    "correct": 2,
+    "explanation": "「奶奶」包含「奶」字。还可以组词：牛奶。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-516",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「男」字？",
+    "options": [
+      "男孩",
+      "大火",
+      "帽子",
+      "汽车"
+    ],
+    "correct": 0,
+    "explanation": "「男孩」包含「男」字。还可以组词：男生。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-517",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「女」字？",
+    "options": [
+      "女孩",
+      "黄色",
+      "黑夜",
+      "花朵"
+    ],
+    "correct": 0,
+    "explanation": "「女孩」包含「女」字。还可以组词：女生。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-518",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「老」字？",
+    "options": [
+      "天空",
+      "红花",
+      "关门",
+      "老人"
+    ],
+    "correct": 3,
+    "explanation": "「老人」包含「老」字。还可以组词：老师。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-519",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「果」字？",
+    "options": [
+      "学习",
+      "水果",
+      "听见",
+      "关门"
+    ],
+    "correct": 1,
+    "explanation": "「水果」包含「果」字。还可以组词：果子。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-520",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「米」字？",
+    "options": [
+      "跳舞",
+      "大米",
+      "小猫",
+      "跑步"
+    ],
+    "correct": 1,
+    "explanation": "「大米」包含「米」字。还可以组词：米饭。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-521",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「电」字？",
+    "options": [
+      "电灯",
+      "小狗",
+      "白云",
+      "大火"
+    ],
+    "correct": 0,
+    "explanation": "「电灯」包含「电」字。还可以组词：电话。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-522",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「河」字？",
+    "options": [
+      "黄色",
+      "山羊",
+      "小河",
+      "木床"
+    ],
+    "correct": 2,
+    "explanation": "「小河」包含「河」字。还可以组词：河水。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-523",
+    "type": "vocab",
+    "prompt": "下面哪个词语包含「海」字？",
+    "options": [
+      "椅子",
+      "男孩",
+      "长大",
+      "大海"
+    ],
+    "correct": 3,
+    "explanation": "「大海」包含「海」字。还可以组词：海水。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-524",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___花",
+    "options": [
+      "节",
+      "盏",
+      "朵",
+      "幅"
+    ],
+    "correct": 2,
+    "explanation": "正确说法是「一朵花」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-525",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___狗",
+    "options": [
+      "只",
+      "杯",
+      "扇",
+      "声"
+    ],
+    "correct": 0,
+    "explanation": "正确说法是「一只狗」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-526",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___鱼",
+    "options": [
+      "盏",
+      "声",
+      "条",
+      "碗"
+    ],
+    "correct": 2,
+    "explanation": "正确说法是「一条鱼」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-527",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___书",
+    "options": [
+      "本",
+      "节",
+      "场",
+      "句"
+    ],
+    "correct": 0,
+    "explanation": "正确说法是「一本书」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-528",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___笔",
+    "options": [
+      "块",
+      "首",
+      "只",
+      "支"
+    ],
+    "correct": 3,
+    "explanation": "正确说法是「一支笔」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-529",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___纸",
+    "options": [
+      "节",
+      "头",
+      "艘",
+      "张"
+    ],
+    "correct": 3,
+    "explanation": "正确说法是「一张纸」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-530",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___树",
+    "options": [
+      "棵",
+      "阵",
+      "条",
+      "声"
+    ],
+    "correct": 0,
+    "explanation": "正确说法是「一棵树」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-531",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___山",
+    "options": [
+      "辆",
+      "本",
+      "座",
+      "根"
+    ],
+    "correct": 2,
+    "explanation": "正确说法是「一座山」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-532",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___河",
+    "options": [
+      "条",
+      "支",
+      "根",
+      "顶"
+    ],
+    "correct": 0,
+    "explanation": "正确说法是「一条河」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-533",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___桥",
+    "options": [
+      "座",
+      "只",
+      "辆",
+      "粒"
+    ],
+    "correct": 0,
+    "explanation": "正确说法是「一座桥」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-534",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___车",
+    "options": [
+      "扇",
+      "头",
+      "辆",
+      "棵"
+    ],
+    "correct": 2,
+    "explanation": "正确说法是「一辆车」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-535",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___船",
+    "options": [
+      "朵",
+      "阵",
+      "张",
+      "艘"
+    ],
+    "correct": 3,
+    "explanation": "正确说法是「一艘船」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-536",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___马",
+    "options": [
+      "声",
+      "阵",
+      "辆",
+      "匹"
+    ],
+    "correct": 3,
+    "explanation": "正确说法是「一匹马」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-537",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___牛",
+    "options": [
+      "本",
+      "头",
+      "艘",
+      "扇"
+    ],
+    "correct": 1,
+    "explanation": "正确说法是「一头牛」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-538",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___鸟",
+    "options": [
+      "只",
+      "匹",
+      "杯",
+      "颗"
+    ],
+    "correct": 0,
+    "explanation": "正确说法是「一只鸟」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-539",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___猫",
+    "options": [
+      "块",
+      "只",
+      "座",
+      "头"
+    ],
+    "correct": 1,
+    "explanation": "正确说法是「一只猫」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-540",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___衣服",
+    "options": [
+      "句",
+      "根",
+      "件",
+      "顶"
+    ],
+    "correct": 2,
+    "explanation": "正确说法是「一件衣服」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-541",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___帽子",
+    "options": [
+      "匹",
+      "棵",
+      "双",
+      "顶"
+    ],
+    "correct": 3,
+    "explanation": "正确说法是「一顶帽子」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-542",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___鞋",
+    "options": [
+      "双",
+      "顶",
+      "匹",
+      "碗"
+    ],
+    "correct": 0,
+    "explanation": "正确说法是「一双鞋」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-543",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___眼睛",
+    "options": [
+      "阵",
+      "本",
+      "盏",
+      "双"
+    ],
+    "correct": 3,
+    "explanation": "正确说法是「一双眼睛」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-544",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___手",
+    "options": [
+      "支",
+      "辆",
+      "只",
+      "双"
+    ],
+    "correct": 3,
+    "explanation": "正确说法是「一双手」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-545",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___门",
+    "options": [
+      "件",
+      "幅",
+      "扇",
+      "头"
+    ],
+    "correct": 2,
+    "explanation": "正确说法是「一扇门」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-546",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___窗",
+    "options": [
+      "阵",
+      "扇",
+      "匹",
+      "件"
+    ],
+    "correct": 1,
+    "explanation": "正确说法是「一扇窗」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-547",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___桌子",
+    "options": [
+      "条",
+      "声",
+      "张",
+      "辆"
+    ],
+    "correct": 2,
+    "explanation": "正确说法是「一张桌子」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-548",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___椅子",
+    "options": [
+      "节",
+      "头",
+      "根",
+      "把"
+    ],
+    "correct": 3,
+    "explanation": "正确说法是「一把椅子」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-549",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___床",
+    "options": [
+      "粒",
+      "个",
+      "句",
+      "张"
+    ],
+    "correct": 3,
+    "explanation": "正确说法是「一张床」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-550",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___灯",
+    "options": [
+      "双",
+      "座",
+      "盏",
+      "块"
+    ],
+    "correct": 2,
+    "explanation": "正确说法是「一盏灯」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-551",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___人",
+    "options": [
+      "场",
+      "节",
+      "个",
+      "碗"
+    ],
+    "correct": 2,
+    "explanation": "正确说法是「一个人」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-552",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___水",
+    "options": [
+      "件",
+      "张",
+      "杯",
+      "句"
+    ],
+    "correct": 2,
+    "explanation": "正确说法是「一杯水」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-553",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___饭",
+    "options": [
+      "杯",
+      "碗",
+      "根",
+      "顶"
+    ],
+    "correct": 1,
+    "explanation": "正确说法是「一碗饭」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-554",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___路",
+    "options": [
+      "颗",
+      "支",
+      "条",
+      "顶"
+    ],
+    "correct": 2,
+    "explanation": "正确说法是「一条路」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-555",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___雨",
+    "options": [
+      "只",
+      "朵",
+      "场",
+      "粒"
+    ],
+    "correct": 2,
+    "explanation": "正确说法是「一场雨」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-556",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___风",
+    "options": [
+      "碗",
+      "阵",
+      "块",
+      "场"
+    ],
+    "correct": 1,
+    "explanation": "正确说法是「一阵风」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-557",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___雪",
+    "options": [
+      "只",
+      "场",
+      "头",
+      "扇"
+    ],
+    "correct": 1,
+    "explanation": "正确说法是「一场雪」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-558",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___云",
+    "options": [
+      "朵",
+      "本",
+      "件",
+      "张"
+    ],
+    "correct": 0,
+    "explanation": "正确说法是「一朵云」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-559",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___星星",
+    "options": [
+      "场",
+      "颗",
+      "朵",
+      "声"
+    ],
+    "correct": 1,
+    "explanation": "正确说法是「一颗星星」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-560",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___草",
+    "options": [
+      "盏",
+      "棵",
+      "座",
+      "颗"
+    ],
+    "correct": 1,
+    "explanation": "正确说法是「一棵草」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-561",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___刀",
+    "options": [
+      "把",
+      "粒",
+      "支",
+      "杯"
+    ],
+    "correct": 0,
+    "explanation": "正确说法是「一把刀」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-562",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___画",
+    "options": [
+      "幅",
+      "棵",
+      "粒",
+      "碗"
+    ],
+    "correct": 0,
+    "explanation": "正确说法是「一幅画」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-563",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___歌",
+    "options": [
+      "本",
+      "根",
+      "首",
+      "声"
+    ],
+    "correct": 2,
+    "explanation": "正确说法是「一首歌」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-564",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___诗",
+    "options": [
+      "节",
+      "盏",
+      "首",
+      "颗"
+    ],
+    "correct": 2,
+    "explanation": "正确说法是「一首诗」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-565",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___故事",
+    "options": [
+      "支",
+      "辆",
+      "个",
+      "把"
+    ],
+    "correct": 2,
+    "explanation": "正确说法是「一个故事」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-566",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___苹果",
+    "options": [
+      "艘",
+      "张",
+      "双",
+      "个"
+    ],
+    "correct": 3,
+    "explanation": "正确说法是「一个苹果」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-567",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___西瓜",
+    "options": [
+      "首",
+      "个",
+      "辆",
+      "幅"
+    ],
+    "correct": 1,
+    "explanation": "正确说法是「一个西瓜」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-568",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___虫",
+    "options": [
+      "条",
+      "只",
+      "支",
+      "张"
+    ],
+    "correct": 0,
+    "explanation": "正确说法是「一条虫」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-569",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___羊",
+    "options": [
+      "本",
+      "只",
+      "根",
+      "盏"
+    ],
+    "correct": 1,
+    "explanation": "正确说法是「一只羊」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-570",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___米",
+    "options": [
+      "条",
+      "场",
+      "粒",
+      "个"
+    ],
+    "correct": 2,
+    "explanation": "正确说法是「一粒米」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-571",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___电话",
+    "options": [
+      "个",
+      "本",
+      "双",
+      "阵"
+    ],
+    "correct": 0,
+    "explanation": "正确说法是「一个电话」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-572",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___字",
+    "options": [
+      "匹",
+      "个",
+      "首",
+      "艘"
+    ],
+    "correct": 1,
+    "explanation": "正确说法是「一个字」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-573",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___话",
+    "options": [
+      "条",
+      "把",
+      "句",
+      "艘"
+    ],
+    "correct": 2,
+    "explanation": "正确说法是「一句话」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-574",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___课",
+    "options": [
+      "扇",
+      "顶",
+      "节",
+      "件"
+    ],
+    "correct": 2,
+    "explanation": "正确说法是「一节课」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-575",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___操场",
+    "options": [
+      "声",
+      "幅",
+      "根",
+      "个"
+    ],
+    "correct": 3,
+    "explanation": "正确说法是「一个操场」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-576",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___雷",
+    "options": [
+      "个",
+      "件",
+      "粒",
+      "声"
+    ],
+    "correct": 3,
+    "explanation": "正确说法是「一声雷」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-577",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___果子",
+    "options": [
+      "盏",
+      "粒",
+      "颗",
+      "棵"
+    ],
+    "correct": 2,
+    "explanation": "正确说法是「一颗果子」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-578",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___面包",
+    "options": [
+      "块",
+      "声",
+      "支",
+      "节"
+    ],
+    "correct": 0,
+    "explanation": "正确说法是「一块面包」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-579",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___石头",
+    "options": [
+      "声",
+      "座",
+      "块",
+      "艘"
+    ],
+    "correct": 2,
+    "explanation": "正确说法是「一块石头」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-580",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___木头",
+    "options": [
+      "艘",
+      "扇",
+      "根",
+      "幅"
+    ],
+    "correct": 2,
+    "explanation": "正确说法是「一根木头」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-581",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___绳子",
+    "options": [
+      "本",
+      "碗",
+      "头",
+      "根"
+    ],
+    "correct": 3,
+    "explanation": "正确说法是「一根绳子」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-582",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___花园",
+    "options": [
+      "杯",
+      "头",
+      "幅",
+      "个"
+    ],
+    "correct": 3,
+    "explanation": "正确说法是「一个花园」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-583",
+    "type": "vocab",
+    "prompt": "填上合适的量词：一___大山",
+    "options": [
+      "本",
+      "艘",
+      "座",
+      "张"
+    ],
+    "correct": 2,
+    "explanation": "正确说法是「一座大山」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-584",
+    "type": "vocab",
+    "prompt": "「花」字的偏旁部首是什么？",
+    "options": [
+      "草字头",
+      "反犬旁",
+      "立字旁",
+      "广字头"
+    ],
+    "correct": 0,
+    "explanation": "「花」的偏旁是「草字头」（艹），与植物有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-585",
+    "type": "vocab",
+    "prompt": "「草」字的偏旁部首是什么？",
+    "options": [
+      "火字旁",
+      "鸟字底",
+      "鸟字旁",
+      "草字头"
+    ],
+    "correct": 3,
+    "explanation": "「草」的偏旁是「草字头」（艹），与植物有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-586",
+    "type": "vocab",
+    "prompt": "「树」字的偏旁部首是什么？",
+    "options": [
+      "日字旁",
+      "雨字头",
+      "木字旁",
+      "王字旁"
+    ],
+    "correct": 2,
+    "explanation": "「树」的偏旁是「木字旁」（木），与树木有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-587",
+    "type": "vocab",
+    "prompt": "「桥」字的偏旁部首是什么？",
+    "options": [
+      "门字框",
+      "鸟字旁",
+      "木字旁",
+      "日字头"
+    ],
+    "correct": 2,
+    "explanation": "「桥」的偏旁是「木字旁」（木），与树木有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-588",
+    "type": "vocab",
+    "prompt": "「桌」字的偏旁部首是什么？",
+    "options": [
+      "口字旁",
+      "木字旁",
+      "虫字旁",
+      "革字旁"
+    ],
+    "correct": 1,
+    "explanation": "「桌」的偏旁是「木字旁」（木），与树木有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-589",
+    "type": "vocab",
+    "prompt": "「椅」字的偏旁部首是什么？",
+    "options": [
+      "木字旁",
+      "木字底",
+      "日字旁",
+      "王字旁"
+    ],
+    "correct": 0,
+    "explanation": "「椅」的偏旁是「木字旁」（木），与树木有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-590",
+    "type": "vocab",
+    "prompt": "「河」字的偏旁部首是什么？",
+    "options": [
+      "三点水",
+      "食字旁",
+      "口字旁",
+      "日字头"
+    ],
+    "correct": 0,
+    "explanation": "「河」的偏旁是「三点水」（氵），与水有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-591",
+    "type": "vocab",
+    "prompt": "「海」字的偏旁部首是什么？",
+    "options": [
+      "鸟字旁",
+      "三点水",
+      "日字底",
+      "门字框"
+    ],
+    "correct": 1,
+    "explanation": "「海」的偏旁是「三点水」（氵），与水有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-592",
+    "type": "vocab",
+    "prompt": "「喝」字的偏旁部首是什么？",
+    "options": [
+      "虫字旁",
+      "口字旁",
+      "舟字旁",
+      "木字底"
+    ],
+    "correct": 1,
+    "explanation": "「喝」的偏旁是「口字旁」（口），与嘴有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-593",
+    "type": "vocab",
+    "prompt": "「吃」字的偏旁部首是什么？",
+    "options": [
+      "足字旁",
+      "食字旁",
+      "口字旁",
+      "舟字旁"
+    ],
+    "correct": 2,
+    "explanation": "「吃」的偏旁是「口字旁」（口），与嘴有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-594",
+    "type": "vocab",
+    "prompt": "「说」字的偏旁部首是什么？",
+    "options": [
+      "反犬旁",
+      "雨字头",
+      "言字旁",
+      "革字旁"
+    ],
+    "correct": 2,
+    "explanation": "「说」的偏旁是「言字旁」（讠），与说话有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-595",
+    "type": "vocab",
+    "prompt": "「听」字的偏旁部首是什么？",
+    "options": [
+      "鸟字底",
+      "父字头",
+      "目字旁",
+      "口字旁"
+    ],
+    "correct": 3,
+    "explanation": "「听」的偏旁是「口字旁」（口），与耳朵有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-596",
+    "type": "vocab",
+    "prompt": "「跑」字的偏旁部首是什么？",
+    "options": [
+      "日字头",
+      "父字头",
+      "足字旁",
+      "广字头"
+    ],
+    "correct": 2,
+    "explanation": "「跑」的偏旁是「足字旁」（足），与脚有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-597",
+    "type": "vocab",
+    "prompt": "「跳」字的偏旁部首是什么？",
+    "options": [
+      "女字旁",
+      "广字头",
+      "足字旁",
+      "日字头"
+    ],
+    "correct": 2,
+    "explanation": "「跳」的偏旁是「足字旁」（足），与脚有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-598",
+    "type": "vocab",
+    "prompt": "「猫」字的偏旁部首是什么？",
+    "options": [
+      "虫字旁",
+      "反犬旁",
+      "木字旁",
+      "日字旁"
+    ],
+    "correct": 1,
+    "explanation": "「猫」的偏旁是「反犬旁」（犭），与动物有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-599",
+    "type": "vocab",
+    "prompt": "「狗」字的偏旁部首是什么？",
+    "options": [
+      "衣字底",
+      "日字头",
+      "反犬旁",
+      "目字旁"
+    ],
+    "correct": 2,
+    "explanation": "「狗」的偏旁是「反犬旁」（犭），与动物有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-600",
+    "type": "vocab",
+    "prompt": "「妈」字的偏旁部首是什么？",
+    "options": [
+      "足字旁",
+      "广字头",
+      "鱼字底",
+      "女字旁"
+    ],
+    "correct": 3,
+    "explanation": "「妈」的偏旁是「女字旁」（女），与女性有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-601",
+    "type": "vocab",
+    "prompt": "「奶」字的偏旁部首是什么？",
+    "options": [
+      "绞丝旁",
+      "立字旁",
+      "草字头",
+      "女字旁"
+    ],
+    "correct": 3,
+    "explanation": "「奶」的偏旁是「女字旁」（女），与女性有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-602",
+    "type": "vocab",
+    "prompt": "「红」字的偏旁部首是什么？",
+    "options": [
+      "口字旁",
+      "绞丝旁",
+      "竹字头",
+      "鸟字底"
+    ],
+    "correct": 1,
+    "explanation": "「红」的偏旁是「绞丝旁」（纟），与丝线有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-603",
+    "type": "vocab",
+    "prompt": "「绿」字的偏旁部首是什么？",
+    "options": [
+      "雨字头",
+      "绞丝旁",
+      "鱼字底",
+      "木字底"
+    ],
+    "correct": 1,
+    "explanation": "「绿」的偏旁是「绞丝旁」（纟），与丝线有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-604",
+    "type": "vocab",
+    "prompt": "「蓝」字的偏旁部首是什么？",
+    "options": [
+      "立字旁",
+      "舟字旁",
+      "草字头",
+      "广字头"
+    ],
+    "correct": 2,
+    "explanation": "「蓝」的偏旁是「草字头」（艹），与植物有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-605",
+    "type": "vocab",
+    "prompt": "「鸟」字的偏旁部首是什么？",
+    "options": [
+      "广字头",
+      "鸟字底",
+      "目字旁",
+      "巾字旁"
+    ],
+    "correct": 1,
+    "explanation": "「鸟」的偏旁是「鸟字底」（鸟），与鸟有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-606",
+    "type": "vocab",
+    "prompt": "「鱼」字的偏旁部首是什么？",
+    "options": [
+      "鱼字底",
+      "日字头",
+      "立字旁",
+      "竹字头"
+    ],
+    "correct": 0,
+    "explanation": "「鱼」的偏旁是「鱼字底」（鱼），与鱼有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-607",
+    "type": "vocab",
+    "prompt": "「明」字的偏旁部首是什么？",
+    "options": [
+      "日字底",
+      "舟字旁",
+      "日字旁",
+      "衣字底"
+    ],
+    "correct": 2,
+    "explanation": "「明」的偏旁是「日字旁」（日），与太阳有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-608",
+    "type": "vocab",
+    "prompt": "「睡」字的偏旁部首是什么？",
+    "options": [
+      "目字旁",
+      "革字旁",
+      "草字头",
+      "鱼字底"
+    ],
+    "correct": 0,
+    "explanation": "「睡」的偏旁是「目字旁」（目），与眼睛有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-609",
+    "type": "vocab",
+    "prompt": "「看」字的偏旁部首是什么？",
+    "options": [
+      "反犬旁",
+      "父字头",
+      "目字旁",
+      "立字旁"
+    ],
+    "correct": 2,
+    "explanation": "「看」的偏旁是「目字旁」（目），与眼睛有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-610",
+    "type": "vocab",
+    "prompt": "「笑」字的偏旁部首是什么？",
+    "options": [
+      "反犬旁",
+      "绞丝旁",
+      "舟字旁",
+      "竹字头"
+    ],
+    "correct": 3,
+    "explanation": "「笑」的偏旁是「竹字头」（竹），与竹有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-611",
+    "type": "vocab",
+    "prompt": "「笔」字的偏旁部首是什么？",
+    "options": [
+      "竹字头",
+      "虫字旁",
+      "日字底",
+      "广字头"
+    ],
+    "correct": 0,
+    "explanation": "「笔」的偏旁是「竹字头」（竹），与竹有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-612",
+    "type": "vocab",
+    "prompt": "「纸」字的偏旁部首是什么？",
+    "options": [
+      "木字底",
+      "日字头",
+      "鸟字旁",
+      "绞丝旁"
+    ],
+    "correct": 3,
+    "explanation": "「纸」的偏旁是「绞丝旁」（纟），与丝线有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-613",
+    "type": "vocab",
+    "prompt": "「雪」字的偏旁部首是什么？",
+    "options": [
+      "父字头",
+      "木字旁",
+      "足字旁",
+      "雨字头"
+    ],
+    "correct": 3,
+    "explanation": "「雪」的偏旁是「雨字头」（雨），与天气有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-614",
+    "type": "vocab",
+    "prompt": "「雷」字的偏旁部首是什么？",
+    "options": [
+      "目字旁",
+      "雨字头",
+      "反犬旁",
+      "衣字底"
+    ],
+    "correct": 1,
+    "explanation": "「雷」的偏旁是「雨字头」（雨），与天气有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-615",
+    "type": "vocab",
+    "prompt": "「灯」字的偏旁部首是什么？",
+    "options": [
+      "父字头",
+      "立字旁",
+      "食字旁",
+      "火字旁"
+    ],
+    "correct": 3,
+    "explanation": "「灯」的偏旁是「火字旁」（火），与火有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-616",
+    "type": "vocab",
+    "prompt": "「站」字的偏旁部首是什么？",
+    "options": [
+      "女字旁",
+      "草字头",
+      "足字旁",
+      "立字旁"
+    ],
+    "correct": 3,
+    "explanation": "「站」的偏旁是「立字旁」（立），与站立有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-617",
+    "type": "vocab",
+    "prompt": "「路」字的偏旁部首是什么？",
+    "options": [
+      "足字旁",
+      "虫字旁",
+      "鸟字底",
+      "日字旁"
+    ],
+    "correct": 0,
+    "explanation": "「路」的偏旁是「足字旁」（足），与脚有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-618",
+    "type": "vocab",
+    "prompt": "「帽」字的偏旁部首是什么？",
+    "options": [
+      "巾字旁",
+      "鱼字底",
+      "口字旁",
+      "木字底"
+    ],
+    "correct": 0,
+    "explanation": "「帽」的偏旁是「巾字旁」（巾），与布有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-619",
+    "type": "vocab",
+    "prompt": "「鞋」字的偏旁部首是什么？",
+    "options": [
+      "鱼字底",
+      "言字旁",
+      "雨字头",
+      "革字旁"
+    ],
+    "correct": 3,
+    "explanation": "「鞋」的偏旁是「革字旁」（革），与皮革有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-620",
+    "type": "vocab",
+    "prompt": "「床」字的偏旁部首是什么？",
+    "options": [
+      "言字旁",
+      "鸟字底",
+      "广字头",
+      "衣字底"
+    ],
+    "correct": 2,
+    "explanation": "「床」的偏旁是「广字头」（广），与房屋有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-621",
+    "type": "vocab",
+    "prompt": "「门」字的偏旁部首是什么？",
+    "options": [
+      "日字头",
+      "父字头",
+      "门字框",
+      "足字旁"
+    ],
+    "correct": 2,
+    "explanation": "「门」的偏旁是「门字框」（门），是独体字。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-622",
+    "type": "vocab",
+    "prompt": "「玩」字的偏旁部首是什么？",
+    "options": [
+      "三点水",
+      "竹字头",
+      "王字旁",
+      "足字旁"
+    ],
+    "correct": 2,
+    "explanation": "「玩」的偏旁是「王字旁」（王），与玉有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-623",
+    "type": "vocab",
+    "prompt": "「杯」字的偏旁部首是什么？",
+    "options": [
+      "木字旁",
+      "鸟字底",
+      "广字头",
+      "日字旁"
+    ],
+    "correct": 0,
+    "explanation": "「杯」的偏旁是「木字旁」（木），与木有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-624",
+    "type": "vocab",
+    "prompt": "「星」字的偏旁部首是什么？",
+    "options": [
+      "日字头",
+      "日字底",
+      "虫字旁",
+      "反犬旁"
+    ],
+    "correct": 1,
+    "explanation": "「星」的偏旁是「日字底」（日），与太阳有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-625",
+    "type": "vocab",
+    "prompt": "「晚」字的偏旁部首是什么？",
+    "options": [
+      "王字旁",
+      "草字头",
+      "广字头",
+      "日字旁"
+    ],
+    "correct": 3,
+    "explanation": "「晚」的偏旁是「日字旁」（日），与太阳有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-626",
+    "type": "vocab",
+    "prompt": "「早」字的偏旁部首是什么？",
+    "options": [
+      "口字旁",
+      "绞丝旁",
+      "日字头",
+      "舟字旁"
+    ],
+    "correct": 2,
+    "explanation": "「早」的偏旁是「日字头」（日），与太阳有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-627",
+    "type": "vocab",
+    "prompt": "「果」字的偏旁部首是什么？",
+    "options": [
+      "目字旁",
+      "木字旁",
+      "女字旁",
+      "木字底"
+    ],
+    "correct": 3,
+    "explanation": "「果」的偏旁是「木字底」（木），与树木有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-628",
+    "type": "vocab",
+    "prompt": "「衣」字的偏旁部首是什么？",
+    "options": [
+      "足字旁",
+      "女字旁",
+      "衣字底",
+      "木字底"
+    ],
+    "correct": 2,
+    "explanation": "「衣」的偏旁是「衣字底」（衣），与衣服有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-629",
+    "type": "vocab",
+    "prompt": "「船」字的偏旁部首是什么？",
+    "options": [
+      "立字旁",
+      "鱼字底",
+      "舟字旁",
+      "父字头"
+    ],
+    "correct": 2,
+    "explanation": "「船」的偏旁是「舟字旁」（舟），与船有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-630",
+    "type": "vocab",
+    "prompt": "「爸」字的偏旁部首是什么？",
+    "options": [
+      "革字旁",
+      "女字旁",
+      "父字头",
+      "竹字头"
+    ],
+    "correct": 2,
+    "explanation": "「爸」的偏旁是「父字头」（父），与父亲有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-631",
+    "type": "vocab",
+    "prompt": "「爷」字的偏旁部首是什么？",
+    "options": [
+      "立字旁",
+      "草字头",
+      "绞丝旁",
+      "父字头"
+    ],
+    "correct": 3,
+    "explanation": "「爷」的偏旁是「父字头」（父），与父亲有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-632",
+    "type": "vocab",
+    "prompt": "「鹅」字的偏旁部首是什么？",
+    "options": [
+      "日字旁",
+      "立字旁",
+      "雨字头",
+      "鸟字旁"
+    ],
+    "correct": 3,
+    "explanation": "「鹅」的偏旁是「鸟字旁」（鸟），与鸟有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-633",
+    "type": "vocab",
+    "prompt": "「蛙」字的偏旁部首是什么？",
+    "options": [
+      "木字旁",
+      "绞丝旁",
+      "木字底",
+      "虫字旁"
+    ],
+    "correct": 3,
+    "explanation": "「蛙」的偏旁是「虫字旁」（虫），与虫有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-634",
+    "type": "vocab",
+    "prompt": "「蚂」字的偏旁部首是什么？",
+    "options": [
+      "虫字旁",
+      "火字旁",
+      "木字底",
+      "衣字底"
+    ],
+    "correct": 0,
+    "explanation": "「蚂」的偏旁是「虫字旁」（虫），与虫有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-635",
+    "type": "vocab",
+    "prompt": "「洗」字的偏旁部首是什么？",
+    "options": [
+      "雨字头",
+      "三点水",
+      "虫字旁",
+      "反犬旁"
+    ],
+    "correct": 1,
+    "explanation": "「洗」的偏旁是「三点水」（氵），与水有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-636",
+    "type": "vocab",
+    "prompt": "「江」字的偏旁部首是什么？",
+    "options": [
+      "口字旁",
+      "草字头",
+      "竹字头",
+      "三点水"
+    ],
+    "correct": 3,
+    "explanation": "「江」的偏旁是「三点水」（氵），与水有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-637",
+    "type": "vocab",
+    "prompt": "「池」字的偏旁部首是什么？",
+    "options": [
+      "三点水",
+      "足字旁",
+      "舟字旁",
+      "竹字头"
+    ],
+    "correct": 0,
+    "explanation": "「池」的偏旁是「三点水」（氵），与水有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-638",
+    "type": "vocab",
+    "prompt": "「松」字的偏旁部首是什么？",
+    "options": [
+      "父字头",
+      "王字旁",
+      "火字旁",
+      "木字旁"
+    ],
+    "correct": 3,
+    "explanation": "「松」的偏旁是「木字旁」（木），与树木有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-639",
+    "type": "vocab",
+    "prompt": "「柳」字的偏旁部首是什么？",
+    "options": [
+      "口字旁",
+      "虫字旁",
+      "舟字旁",
+      "木字旁"
+    ],
+    "correct": 3,
+    "explanation": "「柳」的偏旁是「木字旁」（木），与树木有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-640",
+    "type": "vocab",
+    "prompt": "「梅」字的偏旁部首是什么？",
+    "options": [
+      "立字旁",
+      "衣字底",
+      "足字旁",
+      "木字旁"
+    ],
+    "correct": 3,
+    "explanation": "「梅」的偏旁是「木字旁」（木），与树木有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-641",
+    "type": "vocab",
+    "prompt": "「桃」字的偏旁部首是什么？",
+    "options": [
+      "木字旁",
+      "火字旁",
+      "鸟字旁",
+      "日字旁"
+    ],
+    "correct": 0,
+    "explanation": "「桃」的偏旁是「木字旁」（木），与树木有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-642",
+    "type": "vocab",
+    "prompt": "「苗」字的偏旁部首是什么？",
+    "options": [
+      "草字头",
+      "鸟字底",
+      "革字旁",
+      "日字底"
+    ],
+    "correct": 0,
+    "explanation": "「苗」的偏旁是「草字头」（艹），与植物有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-643",
+    "type": "vocab",
+    "prompt": "「菜」字的偏旁部首是什么？",
+    "options": [
+      "草字头",
+      "绞丝旁",
+      "日字旁",
+      "火字旁"
+    ],
+    "correct": 0,
+    "explanation": "「菜」的偏旁是「草字头」（艹），与植物有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-644",
+    "type": "vocab",
+    "prompt": "「荷」字的偏旁部首是什么？",
+    "options": [
+      "草字头",
+      "足字旁",
+      "王字旁",
+      "广字头"
+    ],
+    "correct": 0,
+    "explanation": "「荷」的偏旁是「草字头」（艹），与植物有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-645",
+    "type": "vocab",
+    "prompt": "「莲」字的偏旁部首是什么？",
+    "options": [
+      "广字头",
+      "立字旁",
+      "革字旁",
+      "草字头"
+    ],
+    "correct": 3,
+    "explanation": "「莲」的偏旁是「草字头」（艹），与植物有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-646",
+    "type": "vocab",
+    "prompt": "「蜂」字的偏旁部首是什么？",
+    "options": [
+      "舟字旁",
+      "竹字头",
+      "虫字旁",
+      "女字旁"
+    ],
+    "correct": 2,
+    "explanation": "「蜂」的偏旁是「虫字旁」（虫），与虫有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-647",
+    "type": "vocab",
+    "prompt": "「蝶」字的偏旁部首是什么？",
+    "options": [
+      "鸟字旁",
+      "虫字旁",
+      "三点水",
+      "女字旁"
+    ],
+    "correct": 1,
+    "explanation": "「蝶」的偏旁是「虫字旁」（虫），与虫有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-648",
+    "type": "vocab",
+    "prompt": "「话」字的偏旁部首是什么？",
+    "options": [
+      "反犬旁",
+      "鱼字底",
+      "鸟字旁",
+      "言字旁"
+    ],
+    "correct": 3,
+    "explanation": "「话」的偏旁是「言字旁」（讠），与说话有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-649",
+    "type": "vocab",
+    "prompt": "「读」字的偏旁部首是什么？",
+    "options": [
+      "革字旁",
+      "言字旁",
+      "食字旁",
+      "绞丝旁"
+    ],
+    "correct": 1,
+    "explanation": "「读」的偏旁是「言字旁」（讠），与说话有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-650",
+    "type": "vocab",
+    "prompt": "「认」字的偏旁部首是什么？",
+    "options": [
+      "日字头",
+      "足字旁",
+      "广字头",
+      "言字旁"
+    ],
+    "correct": 3,
+    "explanation": "「认」的偏旁是「言字旁」（讠），与说话有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  }
+]
