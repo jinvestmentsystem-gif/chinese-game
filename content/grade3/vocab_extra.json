@@ -1,0 +1,5402 @@
+[
+  {
+    "id": "v3-201",
+    "type": "vocab",
+    "prompt": "「美丽」的反义词是什么？",
+    "options": [
+      "丑陋",
+      "漂亮",
+      "好看",
+      "美好"
+    ],
+    "correct": 0,
+    "explanation": "「美丽」的反义词是「丑陋」，形容外表不好看。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-202",
+    "type": "vocab",
+    "prompt": "「安静」的反义词是什么？",
+    "options": [
+      "热闹",
+      "平静",
+      "安宁",
+      "沉默"
+    ],
+    "correct": 0,
+    "explanation": "「安静」的反义词是「热闹」，表示喧哗吵闹。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-203",
+    "type": "vocab",
+    "prompt": "「勤劳」的反义词是什么？",
+    "options": [
+      "懒惰",
+      "努力",
+      "刻苦",
+      "认真"
+    ],
+    "correct": 0,
+    "explanation": "「勤劳」的反义词是「懒惰」，表示不愿劳动。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-204",
+    "type": "vocab",
+    "prompt": "「黑暗」的反义词是什么？",
+    "options": [
+      "光明",
+      "阴暗",
+      "灰暗",
+      "昏暗"
+    ],
+    "correct": 0,
+    "explanation": "「黑暗」的反义词是「光明」，表示有光亮、明亮。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-205",
+    "type": "vocab",
+    "prompt": "「危险」的反义词是什么？",
+    "options": [
+      "安全",
+      "可怕",
+      "恐怖",
+      "害怕"
+    ],
+    "correct": 0,
+    "explanation": "「危险」的反义词是「安全」，表示没有危险。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-206",
+    "type": "vocab",
+    "prompt": "「粗心」的反义词是什么？",
+    "options": [
+      "细心",
+      "大意",
+      "马虎",
+      "粗糙"
+    ],
+    "correct": 0,
+    "explanation": "「粗心」的反义词是「细心」，表示做事认真仔细。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-207",
+    "type": "vocab",
+    "prompt": "「寒冷」的反义词是什么？",
+    "options": [
+      "温暖",
+      "凉爽",
+      "冰冷",
+      "炎热"
+    ],
+    "correct": 0,
+    "explanation": "「寒冷」的反义词是「温暖」，表示气温适宜舒适。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-208",
+    "type": "vocab",
+    "prompt": "「成功」的反义词是什么？",
+    "options": [
+      "失败",
+      "胜利",
+      "成就",
+      "进步"
+    ],
+    "correct": 0,
+    "explanation": "「成功」的反义词是「失败」，表示没有达到目的。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-209",
+    "type": "vocab",
+    "prompt": "「谦虚」的反义词是什么？",
+    "options": [
+      "骄傲",
+      "害羞",
+      "胆小",
+      "低调"
+    ],
+    "correct": 0,
+    "explanation": "「谦虚」的反义词是「骄傲」，表示自满自大。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-210",
+    "type": "vocab",
+    "prompt": "「迅速」的反义词是什么？",
+    "options": [
+      "缓慢",
+      "快速",
+      "飞快",
+      "急忙"
+    ],
+    "correct": 0,
+    "explanation": "「迅速」的反义词是「缓慢」，表示速度很慢。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-211",
+    "type": "vocab",
+    "prompt": "「坚强」的反义词是什么？",
+    "options": [
+      "软弱",
+      "勇敢",
+      "坚定",
+      "刚强"
+    ],
+    "correct": 0,
+    "explanation": "「坚强」的反义词是「软弱」，表示意志不坚定。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-212",
+    "type": "vocab",
+    "prompt": "「轻松」的反义词是什么？",
+    "options": [
+      "紧张",
+      "舒服",
+      "愉快",
+      "快乐"
+    ],
+    "correct": 0,
+    "explanation": "「轻松」的反义词是「紧张」，表示精神处于高度准备状态。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-213",
+    "type": "vocab",
+    "prompt": "「善良」的反义词是什么？",
+    "options": [
+      "凶恶",
+      "温柔",
+      "和蔼",
+      "慈祥"
+    ],
+    "correct": 0,
+    "explanation": "「善良」的反义词是「凶恶」，表示性情凶狠恶毒。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-214",
+    "type": "vocab",
+    "prompt": "「节约」的反义词是什么？",
+    "options": [
+      "浪费",
+      "节省",
+      "省钱",
+      "珍惜"
+    ],
+    "correct": 0,
+    "explanation": "「节约」的反义词是「浪费」，表示不必要地消耗资源。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-215",
+    "type": "vocab",
+    "prompt": "「诚实」的反义词是什么？",
+    "options": [
+      "虚假",
+      "真诚",
+      "老实",
+      "忠诚"
+    ],
+    "correct": 0,
+    "explanation": "「诚实」的反义词是「虚假」，表示不真实、不诚恳。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-216",
+    "type": "vocab",
+    "prompt": "「容易」的反义词是什么？",
+    "options": [
+      "困难",
+      "简单",
+      "方便",
+      "轻松"
+    ],
+    "correct": 0,
+    "explanation": "「容易」的反义词是「困难」，表示做起来不容易。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-217",
+    "type": "vocab",
+    "prompt": "「明白」的反义词是什么？",
+    "options": [
+      "糊涂",
+      "清楚",
+      "了解",
+      "知道"
+    ],
+    "correct": 0,
+    "explanation": "「明白」的反义词是「糊涂」，表示不清楚、不明了。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-218",
+    "type": "vocab",
+    "prompt": "「团结」的反义词是什么？",
+    "options": [
+      "分裂",
+      "和睦",
+      "友好",
+      "亲密"
+    ],
+    "correct": 0,
+    "explanation": "「团结」的反义词是「分裂」，表示分开、不团结。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-219",
+    "type": "vocab",
+    "prompt": "「整齐」的反义词是什么？",
+    "options": [
+      "凌乱",
+      "干净",
+      "整洁",
+      "美观"
+    ],
+    "correct": 0,
+    "explanation": "「整齐」的反义词是「凌乱」，表示不整齐、杂乱。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-220",
+    "type": "vocab",
+    "prompt": "「痛苦」的反义词是什么？",
+    "options": [
+      "幸福",
+      "悲伤",
+      "难过",
+      "忧愁"
+    ],
+    "correct": 0,
+    "explanation": "「痛苦」的反义词是「幸福」，表示生活美满、心情愉快。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-221",
+    "type": "vocab",
+    "prompt": "「聪明」的反义词是什么？",
+    "options": [
+      "愚笨",
+      "机灵",
+      "灵活",
+      "敏捷"
+    ],
+    "correct": 0,
+    "explanation": "「聪明」的反义词是「愚笨」，表示不聪明、反应迟钝。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-222",
+    "type": "vocab",
+    "prompt": "「干燥」的反义词是什么？",
+    "options": [
+      "潮湿",
+      "温暖",
+      "炎热",
+      "凉爽"
+    ],
+    "correct": 0,
+    "explanation": "「干燥」的反义词是「潮湿」，表示含有较多水分。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-223",
+    "type": "vocab",
+    "prompt": "「升高」的反义词是什么？",
+    "options": [
+      "降低",
+      "增加",
+      "上升",
+      "提高"
+    ],
+    "correct": 0,
+    "explanation": "「升高」的反义词是「降低」，表示从高处往低处变化。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-224",
+    "type": "vocab",
+    "prompt": "「陌生」的反义词是什么？",
+    "options": [
+      "熟悉",
+      "奇怪",
+      "新鲜",
+      "特别"
+    ],
+    "correct": 0,
+    "explanation": "「陌生」的反义词是「熟悉」，表示对事物了解、知道得清楚。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-225",
+    "type": "vocab",
+    "prompt": "「进攻」的反义词是什么？",
+    "options": [
+      "防守",
+      "攻击",
+      "冲锋",
+      "撤退"
+    ],
+    "correct": 0,
+    "explanation": "「进攻」的反义词是「防守」，表示守卫、抵御攻击。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-226",
+    "type": "vocab",
+    "prompt": "「喜欢」的反义词是什么？",
+    "options": [
+      "讨厌",
+      "开心",
+      "高兴",
+      "愉快"
+    ],
+    "correct": 0,
+    "explanation": "「喜欢」的反义词是「讨厌」，表示不喜欢、厌烦。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-227",
+    "type": "vocab",
+    "prompt": "「保护」的反义词是什么？",
+    "options": [
+      "破坏",
+      "爱护",
+      "珍惜",
+      "守护"
+    ],
+    "correct": 0,
+    "explanation": "「保护」的反义词是「破坏」，表示损毁、损害。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-228",
+    "type": "vocab",
+    "prompt": "「光滑」的反义词是什么？",
+    "options": [
+      "粗糙",
+      "平整",
+      "细腻",
+      "柔软"
+    ],
+    "correct": 0,
+    "explanation": "「光滑」的反义词是「粗糙」，表示不光滑、表面不平。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-229",
+    "type": "vocab",
+    "prompt": "「接受」的反义词是什么？",
+    "options": [
+      "拒绝",
+      "同意",
+      "答应",
+      "允许"
+    ],
+    "correct": 0,
+    "explanation": "「接受」的反义词是「拒绝」，表示不接受、不答应。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-230",
+    "type": "vocab",
+    "prompt": "「悲伤」的反义词是什么？",
+    "options": [
+      "欢乐",
+      "难过",
+      "痛苦",
+      "忧愁"
+    ],
+    "correct": 0,
+    "explanation": "「悲伤」的反义词是「欢乐」，表示快乐、高兴。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-231",
+    "type": "vocab",
+    "prompt": "「勇敢」的反义词是什么？",
+    "options": [
+      "胆怯",
+      "坚强",
+      "果断",
+      "大胆"
+    ],
+    "correct": 0,
+    "explanation": "「勇敢」的反义词是「胆怯」，表示胆小害怕。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-232",
+    "type": "vocab",
+    "prompt": "「开放」的反义词是什么？",
+    "options": [
+      "封闭",
+      "开花",
+      "绽放",
+      "盛开"
+    ],
+    "correct": 0,
+    "explanation": "「开放」的反义词是「封闭」，表示关闭、不开放。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-233",
+    "type": "vocab",
+    "prompt": "「伟大」的反义词是什么？",
+    "options": [
+      "渺小",
+      "高大",
+      "雄伟",
+      "巨大"
+    ],
+    "correct": 0,
+    "explanation": "「伟大」的反义词是「渺小」，表示非常微小、不重要。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-234",
+    "type": "vocab",
+    "prompt": "「集中」的反义词是什么？",
+    "options": [
+      "分散",
+      "集合",
+      "聚集",
+      "汇合"
+    ],
+    "correct": 0,
+    "explanation": "「集中」的反义词是「分散」，表示散开、不集中。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-235",
+    "type": "vocab",
+    "prompt": "「赞成」的反义词是什么？",
+    "options": [
+      "反对",
+      "同意",
+      "支持",
+      "赞同"
+    ],
+    "correct": 0,
+    "explanation": "「赞成」的反义词是「反对」，表示不同意、不赞同。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-236",
+    "type": "vocab",
+    "prompt": "「骄傲」的反义词是什么？",
+    "options": [
+      "谦虚",
+      "自豪",
+      "自信",
+      "得意"
+    ],
+    "correct": 0,
+    "explanation": "「骄傲」的反义词是「谦虚」，表示不自满、虚心。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-237",
+    "type": "vocab",
+    "prompt": "「严厉」的反义词是什么？",
+    "options": [
+      "温和",
+      "严格",
+      "认真",
+      "严肃"
+    ],
+    "correct": 0,
+    "explanation": "「严厉」的反义词是「温和」，表示态度和善不严厉。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-238",
+    "type": "vocab",
+    "prompt": "「浓密」的反义词是什么？",
+    "options": [
+      "稀疏",
+      "茂密",
+      "茂盛",
+      "繁密"
+    ],
+    "correct": 0,
+    "explanation": "「浓密」的反义词是「稀疏」，表示不密、间隔大。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-239",
+    "type": "vocab",
+    "prompt": "「前进」的反义词是什么？",
+    "options": [
+      "后退",
+      "行走",
+      "奔跑",
+      "出发"
+    ],
+    "correct": 0,
+    "explanation": "「前进」的反义词是「后退」，表示向后移动。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-240",
+    "type": "vocab",
+    "prompt": "「增加」的反义词是什么？",
+    "options": [
+      "减少",
+      "增多",
+      "增长",
+      "扩大"
+    ],
+    "correct": 0,
+    "explanation": "「增加」的反义词是「减少」，表示数量变少。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-241",
+    "type": "vocab",
+    "prompt": "「高兴」的近义词是什么？",
+    "options": [
+      "开心",
+      "悲伤",
+      "害怕",
+      "生气"
+    ],
+    "correct": 0,
+    "explanation": "「高兴」的近义词是「开心」，都表示心情愉快。",
+    "difficulty": 1,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-242",
+    "type": "vocab",
+    "prompt": "「美丽」的近义词是什么？",
+    "options": [
+      "漂亮",
+      "丑陋",
+      "平凡",
+      "普通"
+    ],
+    "correct": 0,
+    "explanation": "「美丽」的近义词是「漂亮」，都形容好看。",
+    "difficulty": 1,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-243",
+    "type": "vocab",
+    "prompt": "「忽然」的近义词是什么？",
+    "options": [
+      "突然",
+      "慢慢",
+      "渐渐",
+      "逐渐"
+    ],
+    "correct": 0,
+    "explanation": "「忽然」的近义词是「突然」，都表示出乎意料地发生。",
+    "difficulty": 1,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-244",
+    "type": "vocab",
+    "prompt": "「著名」的近义词是什么？",
+    "options": [
+      "有名",
+      "普通",
+      "平凡",
+      "一般"
+    ],
+    "correct": 0,
+    "explanation": "「著名」的近义词是「有名」，都表示名气大。",
+    "difficulty": 1,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-245",
+    "type": "vocab",
+    "prompt": "「立刻」的近义词是什么？",
+    "options": [
+      "马上",
+      "慢慢",
+      "稍后",
+      "等待"
+    ],
+    "correct": 0,
+    "explanation": "「立刻」的近义词是「马上」，都表示很快、毫不迟疑。",
+    "difficulty": 1,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-246",
+    "type": "vocab",
+    "prompt": "「仔细」的近义词是什么？",
+    "options": [
+      "认真",
+      "马虎",
+      "粗心",
+      "大意"
+    ],
+    "correct": 0,
+    "explanation": "「仔细」的近义词是「认真」，都表示做事细心。",
+    "difficulty": 1,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-247",
+    "type": "vocab",
+    "prompt": "「特别」的近义词是什么？",
+    "options": [
+      "格外",
+      "普通",
+      "一般",
+      "平常"
+    ],
+    "correct": 0,
+    "explanation": "「特别」的近义词是「格外」，都表示与众不同、超出一般。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-248",
+    "type": "vocab",
+    "prompt": "「经常」的近义词是什么？",
+    "options": [
+      "常常",
+      "偶尔",
+      "很少",
+      "从不"
+    ],
+    "correct": 0,
+    "explanation": "「经常」的近义词是「常常」，都表示频繁发生。",
+    "difficulty": 1,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-249",
+    "type": "vocab",
+    "prompt": "「帮助」的近义词是什么？",
+    "options": [
+      "援助",
+      "阻碍",
+      "妨碍",
+      "阻止"
+    ],
+    "correct": 0,
+    "explanation": "「帮助」的近义词是「援助」，都表示给予支持和帮忙。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-250",
+    "type": "vocab",
+    "prompt": "「愤怒」的近义词是什么？",
+    "options": [
+      "气愤",
+      "平静",
+      "冷静",
+      "温和"
+    ],
+    "correct": 0,
+    "explanation": "「愤怒」的近义词是「气愤」，都表示非常生气。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-251",
+    "type": "vocab",
+    "prompt": "「观察」的近义词是什么？",
+    "options": [
+      "察看",
+      "忽略",
+      "忽视",
+      "无视"
+    ],
+    "correct": 0,
+    "explanation": "「观察」的近义词是「察看」，都表示仔细地看。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-252",
+    "type": "vocab",
+    "prompt": "「温暖」的近义词是什么？",
+    "options": [
+      "暖和",
+      "寒冷",
+      "冰冷",
+      "凉爽"
+    ],
+    "correct": 0,
+    "explanation": "「温暖」的近义词是「暖和」，都表示气温适宜。",
+    "difficulty": 1,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-253",
+    "type": "vocab",
+    "prompt": "「思念」的近义词是什么？",
+    "options": [
+      "想念",
+      "忘记",
+      "遗忘",
+      "抛弃"
+    ],
+    "correct": 0,
+    "explanation": "「思念」的近义词是「想念」，都表示对人或事的挂念。",
+    "difficulty": 1,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-254",
+    "type": "vocab",
+    "prompt": "「害怕」的近义词是什么？",
+    "options": [
+      "恐惧",
+      "勇敢",
+      "大胆",
+      "镇定"
+    ],
+    "correct": 0,
+    "explanation": "「害怕」的近义词是「恐惧」，都表示心里感到畏惧。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-255",
+    "type": "vocab",
+    "prompt": "「喜爱」的近义词是什么？",
+    "options": [
+      "喜欢",
+      "讨厌",
+      "厌恶",
+      "嫌弃"
+    ],
+    "correct": 0,
+    "explanation": "「喜爱」的近义词是「喜欢」，都表示对事物有好感。",
+    "difficulty": 1,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-256",
+    "type": "vocab",
+    "prompt": "「感激」的近义词是什么？",
+    "options": [
+      "感谢",
+      "抱怨",
+      "埋怨",
+      "责怪"
+    ],
+    "correct": 0,
+    "explanation": "「感激」的近义词是「感谢」，都表示对别人的帮助心怀谢意。",
+    "difficulty": 1,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-257",
+    "type": "vocab",
+    "prompt": "「坚固」的近义词是什么？",
+    "options": [
+      "牢固",
+      "脆弱",
+      "松散",
+      "柔软"
+    ],
+    "correct": 0,
+    "explanation": "「坚固」的近义词是「牢固」，都表示结实、不容易破坏。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-258",
+    "type": "vocab",
+    "prompt": "「宝贵」的近义词是什么？",
+    "options": [
+      "珍贵",
+      "廉价",
+      "便宜",
+      "普通"
+    ],
+    "correct": 0,
+    "explanation": "「宝贵」的近义词是「珍贵」，都表示价值很高、非常重要。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-259",
+    "type": "vocab",
+    "prompt": "「疲劳」的近义词是什么？",
+    "options": [
+      "疲倦",
+      "精神",
+      "活力",
+      "轻松"
+    ],
+    "correct": 0,
+    "explanation": "「疲劳」的近义词是「疲倦」，都表示身体感到很累。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-260",
+    "type": "vocab",
+    "prompt": "「明亮」的近义词是什么？",
+    "options": [
+      "光亮",
+      "黑暗",
+      "阴暗",
+      "昏暗"
+    ],
+    "correct": 0,
+    "explanation": "「明亮」的近义词是「光亮」，都形容有光、很亮。",
+    "difficulty": 1,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-261",
+    "type": "vocab",
+    "prompt": "「安慰」的近义词是什么？",
+    "options": [
+      "宽慰",
+      "刺激",
+      "打击",
+      "伤害"
+    ],
+    "correct": 0,
+    "explanation": "「安慰」的近义词是「宽慰」，都表示使人心情好转。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-262",
+    "type": "vocab",
+    "prompt": "「严肃」的近义词是什么？",
+    "options": [
+      "庄重",
+      "随便",
+      "轻松",
+      "活泼"
+    ],
+    "correct": 0,
+    "explanation": "「严肃」的近义词是「庄重」，都表示态度认真不随便。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-263",
+    "type": "vocab",
+    "prompt": "「渐渐」的近义词是什么？",
+    "options": [
+      "逐渐",
+      "忽然",
+      "突然",
+      "立刻"
+    ],
+    "correct": 0,
+    "explanation": "「渐渐」的近义词是「逐渐」，都表示慢慢地、一点一点地。",
+    "difficulty": 1,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-264",
+    "type": "vocab",
+    "prompt": "「希望」的近义词是什么？",
+    "options": [
+      "期望",
+      "失望",
+      "绝望",
+      "灰心"
+    ],
+    "correct": 0,
+    "explanation": "「希望」的近义词是「期望」，都表示心中盼望。",
+    "difficulty": 1,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-265",
+    "type": "vocab",
+    "prompt": "「赞扬」的近义词是什么？",
+    "options": [
+      "表扬",
+      "批评",
+      "指责",
+      "责备"
+    ],
+    "correct": 0,
+    "explanation": "「赞扬」的近义词是「表扬」，都表示对好的行为给予肯定。",
+    "difficulty": 1,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-266",
+    "type": "vocab",
+    "prompt": "「信任」的近义词是什么？",
+    "options": [
+      "信赖",
+      "怀疑",
+      "猜疑",
+      "不信"
+    ],
+    "correct": 0,
+    "explanation": "「信任」的近义词是「信赖」，都表示相信并依靠。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-267",
+    "type": "vocab",
+    "prompt": "「果然」的近义词是什么？",
+    "options": [
+      "果真",
+      "也许",
+      "大概",
+      "可能"
+    ],
+    "correct": 0,
+    "explanation": "「果然」的近义词是「果真」，都表示事实与预料的一样。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-268",
+    "type": "vocab",
+    "prompt": "「拜访」的近义词是什么？",
+    "options": [
+      "探望",
+      "离开",
+      "告别",
+      "分离"
+    ],
+    "correct": 0,
+    "explanation": "「拜访」的近义词是「探望」，都表示去看望某人。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-269",
+    "type": "vocab",
+    "prompt": "「吩咐」的近义词是什么？",
+    "options": [
+      "嘱咐",
+      "请求",
+      "恳求",
+      "拜托"
+    ],
+    "correct": 0,
+    "explanation": "「吩咐」的近义词是「嘱咐」，都表示叮嘱、交代事情。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-270",
+    "type": "vocab",
+    "prompt": "「模仿」的近义词是什么？",
+    "options": [
+      "仿照",
+      "创造",
+      "发明",
+      "创新"
+    ],
+    "correct": 0,
+    "explanation": "「模仿」的近义词是「仿照」，都表示照着样子学做。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-271",
+    "type": "vocab",
+    "prompt": "「必须」的近义词是什么？",
+    "options": [
+      "一定",
+      "也许",
+      "可能",
+      "大概"
+    ],
+    "correct": 0,
+    "explanation": "「必须」的近义词是「一定」，都表示非做不可。",
+    "difficulty": 1,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-272",
+    "type": "vocab",
+    "prompt": "「辛苦」的近义词是什么？",
+    "options": [
+      "劳累",
+      "轻松",
+      "舒服",
+      "安逸"
+    ],
+    "correct": 0,
+    "explanation": "「辛苦」的近义词是「劳累」，都表示身心疲惫。",
+    "difficulty": 1,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-273",
+    "type": "vocab",
+    "prompt": "「称赞」的近义词是什么？",
+    "options": [
+      "夸奖",
+      "批评",
+      "责骂",
+      "训斥"
+    ],
+    "correct": 0,
+    "explanation": "「称赞」的近义词是「夸奖」，都表示对好的方面加以赞美。",
+    "difficulty": 1,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-274",
+    "type": "vocab",
+    "prompt": "「聪慧」的近义词是什么？",
+    "options": [
+      "聪明",
+      "愚蠢",
+      "迟钝",
+      "笨拙"
+    ],
+    "correct": 0,
+    "explanation": "「聪慧」的近义词是「聪明」，都表示天资好、反应快。",
+    "difficulty": 1,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-275",
+    "type": "vocab",
+    "prompt": "「爱惜」的近义词是什么？",
+    "options": [
+      "珍惜",
+      "浪费",
+      "糟蹋",
+      "丢弃"
+    ],
+    "correct": 0,
+    "explanation": "「爱惜」的近义词是「珍惜」，都表示重视而不糟蹋。",
+    "difficulty": 1,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-276",
+    "type": "vocab",
+    "prompt": "「忧伤」的近义词是什么？",
+    "options": [
+      "悲伤",
+      "快乐",
+      "愉快",
+      "欢乐"
+    ],
+    "correct": 0,
+    "explanation": "「忧伤」的近义词是「悲伤」，都表示心里难过。",
+    "difficulty": 1,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-277",
+    "type": "vocab",
+    "prompt": "「奇妙」的近义词是什么？",
+    "options": [
+      "奇特",
+      "平常",
+      "普通",
+      "一般"
+    ],
+    "correct": 0,
+    "explanation": "「奇妙」的近义词是「奇特」，都形容稀奇、不寻常。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-278",
+    "type": "vocab",
+    "prompt": "「敬佩」的近义词是什么？",
+    "options": [
+      "佩服",
+      "轻视",
+      "鄙视",
+      "看不起"
+    ],
+    "correct": 0,
+    "explanation": "「敬佩」的近义词是「佩服」，都表示对人的才能或品德感到钦佩。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-279",
+    "type": "vocab",
+    "prompt": "「恳求」的近义词是什么？",
+    "options": [
+      "请求",
+      "命令",
+      "要求",
+      "强迫"
+    ],
+    "correct": 0,
+    "explanation": "「恳求」的近义词是「请求」，都表示诚恳地求人帮忙。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-280",
+    "type": "vocab",
+    "prompt": "「打扮」的近义词是什么？",
+    "options": [
+      "装扮",
+      "邋遢",
+      "随意",
+      "将就"
+    ],
+    "correct": 0,
+    "explanation": "「打扮」的近义词是「装扮」，都表示修饰外表。",
+    "difficulty": 1,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-281",
+    "type": "vocab",
+    "prompt": "「湖」字是什么结构？",
+    "options": [
+      "左右结构",
+      "上下结构",
+      "半包围结构",
+      "独体字"
+    ],
+    "correct": 0,
+    "explanation": "「湖」字左边是三点水「氵」，右边是「胡」，是左右结构。",
+    "difficulty": 1,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-282",
+    "type": "vocab",
+    "prompt": "「草」字是什么结构？",
+    "options": [
+      "上下结构",
+      "左右结构",
+      "半包围结构",
+      "独体字"
+    ],
+    "correct": 0,
+    "explanation": "「草」字上面是草字头「艹」，下面是「早」，是上下结构。",
+    "difficulty": 1,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-283",
+    "type": "vocab",
+    "prompt": "「国」字是什么结构？",
+    "options": [
+      "全包围结构",
+      "左右结构",
+      "上下结构",
+      "半包围结构"
+    ],
+    "correct": 0,
+    "explanation": "「国」字外面是「囗」，里面是「玉」，是全包围结构。",
+    "difficulty": 1,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-284",
+    "type": "vocab",
+    "prompt": "「远」字是什么结构？",
+    "options": [
+      "半包围结构",
+      "左右结构",
+      "上下结构",
+      "独体字"
+    ],
+    "correct": 0,
+    "explanation": "「远」字外面是走之底「辶」，里面是「元」，是半包围结构。",
+    "difficulty": 1,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-285",
+    "type": "vocab",
+    "prompt": "「想」字是什么结构？",
+    "options": [
+      "上下结构",
+      "左右结构",
+      "半包围结构",
+      "独体字"
+    ],
+    "correct": 0,
+    "explanation": "「想」字上面是「相」，下面是「心」，是上下结构。",
+    "difficulty": 1,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-286",
+    "type": "vocab",
+    "prompt": "「树」字是什么结构？",
+    "options": [
+      "左中右结构",
+      "上下结构",
+      "半包围结构",
+      "左右结构"
+    ],
+    "correct": 0,
+    "explanation": "「树」字由「木」「又」「寸」三部分组成，是左中右结构。",
+    "difficulty": 2,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-287",
+    "type": "vocab",
+    "prompt": "「问」字是什么结构？",
+    "options": [
+      "半包围结构",
+      "左右结构",
+      "上下结构",
+      "全包围结构"
+    ],
+    "correct": 0,
+    "explanation": "「问」字外面是「门」，里面是「口」，是半包围结构。",
+    "difficulty": 1,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-288",
+    "type": "vocab",
+    "prompt": "「架」字是什么结构？",
+    "options": [
+      "上下结构",
+      "左右结构",
+      "半包围结构",
+      "独体字"
+    ],
+    "correct": 0,
+    "explanation": "「架」字上面是「加」，下面是「木」，是上下结构。",
+    "difficulty": 2,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-289",
+    "type": "vocab",
+    "prompt": "「圆」字是什么结构？",
+    "options": [
+      "全包围结构",
+      "半包围结构",
+      "上下结构",
+      "左右结构"
+    ],
+    "correct": 0,
+    "explanation": "「圆」字外面是「囗」，里面是「员」，是全包围结构。",
+    "difficulty": 1,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-290",
+    "type": "vocab",
+    "prompt": "「跑」字是什么结构？",
+    "options": [
+      "左右结构",
+      "上下结构",
+      "半包围结构",
+      "独体字"
+    ],
+    "correct": 0,
+    "explanation": "「跑」字左边是「足」，右边是「包」，是左右结构。",
+    "difficulty": 1,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-291",
+    "type": "vocab",
+    "prompt": "「照」字是什么结构？",
+    "options": [
+      "上下结构",
+      "左右结构",
+      "半包围结构",
+      "全包围结构"
+    ],
+    "correct": 0,
+    "explanation": "「照」字上面是「昭」，下面是四点底「灬」，是上下结构。",
+    "difficulty": 2,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-292",
+    "type": "vocab",
+    "prompt": "「病」字是什么结构？",
+    "options": [
+      "半包围结构",
+      "左右结构",
+      "上下结构",
+      "独体字"
+    ],
+    "correct": 0,
+    "explanation": "「病」字外面是病字头「疒」，里面是「丙」，是半包围结构。",
+    "difficulty": 2,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-293",
+    "type": "vocab",
+    "prompt": "「蓝」字是什么结构？",
+    "options": [
+      "上下结构",
+      "左右结构",
+      "半包围结构",
+      "独体字"
+    ],
+    "correct": 0,
+    "explanation": "「蓝」字上面是草字头「艹」，下面是「监」，是上下结构。",
+    "difficulty": 1,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-294",
+    "type": "vocab",
+    "prompt": "「做」字是什么结构？",
+    "options": [
+      "左右结构",
+      "上下结构",
+      "半包围结构",
+      "独体字"
+    ],
+    "correct": 0,
+    "explanation": "「做」字左边是单人旁「亻」，右边是「故」，是左右结构。",
+    "difficulty": 1,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-295",
+    "type": "vocab",
+    "prompt": "「赶」字是什么结构？",
+    "options": [
+      "半包围结构",
+      "左右结构",
+      "上下结构",
+      "独体字"
+    ],
+    "correct": 0,
+    "explanation": "「赶」字外面是走字底「走」，里面是「干」，是半包围结构。",
+    "difficulty": 2,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-296",
+    "type": "vocab",
+    "prompt": "「器」字是什么结构？",
+    "options": [
+      "上中下结构",
+      "左右结构",
+      "上下结构",
+      "半包围结构"
+    ],
+    "correct": 0,
+    "explanation": "「器」字由四个「口」和中间的「犬」组成，是上中下结构。",
+    "difficulty": 3,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-297",
+    "type": "vocab",
+    "prompt": "「晴」字是什么结构？",
+    "options": [
+      "左右结构",
+      "上下结构",
+      "半包围结构",
+      "独体字"
+    ],
+    "correct": 0,
+    "explanation": "「晴」字左边是日字旁「日」，右边是「青」，是左右结构。",
+    "difficulty": 1,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-298",
+    "type": "vocab",
+    "prompt": "「回」字是什么结构？",
+    "options": [
+      "全包围结构",
+      "半包围结构",
+      "上下结构",
+      "独体字"
+    ],
+    "correct": 0,
+    "explanation": "「回」字外面是大「囗」，里面是小「口」，是全包围结构。",
+    "difficulty": 1,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-299",
+    "type": "vocab",
+    "prompt": "「鼻」字是什么结构？",
+    "options": [
+      "上中下结构",
+      "左右结构",
+      "上下结构",
+      "半包围结构"
+    ],
+    "correct": 0,
+    "explanation": "「鼻」字上面是「自」，中间是「田」，下面是「廾」，是上中下结构。",
+    "difficulty": 3,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-300",
+    "type": "vocab",
+    "prompt": "「趣」字是什么结构？",
+    "options": [
+      "半包围结构",
+      "左右结构",
+      "上下结构",
+      "独体字"
+    ],
+    "correct": 0,
+    "explanation": "「趣」字外面是走字底「走」，里面是「取」，是半包围结构。",
+    "difficulty": 2,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-301",
+    "type": "vocab",
+    "prompt": "「景」字是什么结构？",
+    "options": [
+      "上下结构",
+      "左右结构",
+      "半包围结构",
+      "独体字"
+    ],
+    "correct": 0,
+    "explanation": "「景」字上面是「日」，下面是「京」，是上下结构。",
+    "difficulty": 1,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-302",
+    "type": "vocab",
+    "prompt": "「掉」字是什么结构？",
+    "options": [
+      "左右结构",
+      "上下结构",
+      "半包围结构",
+      "独体字"
+    ],
+    "correct": 0,
+    "explanation": "「掉」字左边是提手旁「扌」，右边是「卓」，是左右结构。",
+    "difficulty": 1,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-303",
+    "type": "vocab",
+    "prompt": "「整」字是什么结构？",
+    "options": [
+      "上下结构",
+      "左右结构",
+      "半包围结构",
+      "全包围结构"
+    ],
+    "correct": 0,
+    "explanation": "「整」字上面是「敕」，下面是「正」，是上下结构。",
+    "difficulty": 2,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-304",
+    "type": "vocab",
+    "prompt": "「闪」字是什么结构？",
+    "options": [
+      "半包围结构",
+      "左右结构",
+      "上下结构",
+      "独体字"
+    ],
+    "correct": 0,
+    "explanation": "「闪」字外面是「门」，里面是「人」，是半包围结构。",
+    "difficulty": 1,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-305",
+    "type": "vocab",
+    "prompt": "「翠」字是什么结构？",
+    "options": [
+      "上下结构",
+      "左右结构",
+      "半包围结构",
+      "独体字"
+    ],
+    "correct": 0,
+    "explanation": "「翠」字上面是「羽」，下面是「卒」，是上下结构。",
+    "difficulty": 2,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-306",
+    "type": "vocab",
+    "prompt": "「甜」字是什么结构？",
+    "options": [
+      "左右结构",
+      "上下结构",
+      "半包围结构",
+      "独体字"
+    ],
+    "correct": 0,
+    "explanation": "「甜」字左边是「舌」，右边是「甘」，是左右结构。",
+    "difficulty": 2,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-307",
+    "type": "vocab",
+    "prompt": "「题」字是什么结构？",
+    "options": [
+      "半包围结构",
+      "左右结构",
+      "上下结构",
+      "全包围结构"
+    ],
+    "correct": 0,
+    "explanation": "「题」字是「是」和「页」组合，属于半包围结构。",
+    "difficulty": 2,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-308",
+    "type": "vocab",
+    "prompt": "「席」字是什么结构？",
+    "options": [
+      "半包围结构",
+      "上下结构",
+      "左右结构",
+      "独体字"
+    ],
+    "correct": 0,
+    "explanation": "「席」字外面是广字头「广」，里面是部件，是半包围结构。",
+    "difficulty": 2,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-309",
+    "type": "vocab",
+    "prompt": "「歌」字是什么结构？",
+    "options": [
+      "左右结构",
+      "上下结构",
+      "半包围结构",
+      "独体字"
+    ],
+    "correct": 0,
+    "explanation": "「歌」字左边是「哥」，右边是「欠」，是左右结构。",
+    "difficulty": 1,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-310",
+    "type": "vocab",
+    "prompt": "「窗」字是什么结构？",
+    "options": [
+      "上下结构",
+      "左右结构",
+      "半包围结构",
+      "全包围结构"
+    ],
+    "correct": 0,
+    "explanation": "「窗」字上面是宝盖头「穴」，下面是「囱」，是上下结构。",
+    "difficulty": 2,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-311",
+    "type": "vocab",
+    "prompt": "「谢」字是什么结构？",
+    "options": [
+      "左右结构",
+      "上下结构",
+      "半包围结构",
+      "全包围结构"
+    ],
+    "correct": 0,
+    "explanation": "「谢」字左边是言字旁「讠」，右边是「射」，是左右结构。",
+    "difficulty": 1,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-312",
+    "type": "vocab",
+    "prompt": "「笔」字是什么结构？",
+    "options": [
+      "上下结构",
+      "左右结构",
+      "半包围结构",
+      "独体字"
+    ],
+    "correct": 0,
+    "explanation": "「笔」字上面是竹字头，下面是「毛」，是上下结构。",
+    "difficulty": 1,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-313",
+    "type": "vocab",
+    "prompt": "「街」字是什么结构？",
+    "options": [
+      "左中右结构",
+      "左右结构",
+      "上下结构",
+      "半包围结构"
+    ],
+    "correct": 0,
+    "explanation": "「街」字由「行」中间嵌入「圭」，是左中右结构。",
+    "difficulty": 3,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-314",
+    "type": "vocab",
+    "prompt": "「固」字是什么结构？",
+    "options": [
+      "全包围结构",
+      "半包围结构",
+      "上下结构",
+      "左右结构"
+    ],
+    "correct": 0,
+    "explanation": "「固」字外面是「囗」，里面是「古」，是全包围结构。",
+    "difficulty": 1,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-315",
+    "type": "vocab",
+    "prompt": "「落」字是什么结构？",
+    "options": [
+      "上下结构",
+      "左右结构",
+      "半包围结构",
+      "独体字"
+    ],
+    "correct": 0,
+    "explanation": "「落」字上面是草字头「艹」，下面是「洛」，是上下结构。",
+    "difficulty": 1,
+    "tags": [
+      "字形结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-316",
+    "type": "vocab",
+    "prompt": "「河」字的偏旁是什么？",
+    "options": [
+      "氵",
+      "亻",
+      "扌",
+      "木"
+    ],
+    "correct": 0,
+    "explanation": "「河」字的偏旁是三点水「氵」，与水有关。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-317",
+    "type": "vocab",
+    "prompt": "「说」字的偏旁是什么？",
+    "options": [
+      "讠",
+      "口",
+      "言",
+      "氵"
+    ],
+    "correct": 0,
+    "explanation": "「说」字的偏旁是言字旁「讠」，与说话有关。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-318",
+    "type": "vocab",
+    "prompt": "「打」字的偏旁是什么？",
+    "options": [
+      "扌",
+      "手",
+      "亻",
+      "木"
+    ],
+    "correct": 0,
+    "explanation": "「打」字的偏旁是提手旁「扌」，与手的动作有关。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-319",
+    "type": "vocab",
+    "prompt": "「松」字的偏旁是什么？",
+    "options": [
+      "木",
+      "氵",
+      "扌",
+      "艹"
+    ],
+    "correct": 0,
+    "explanation": "「松」字的偏旁是木字旁「木」，与树木有关。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-320",
+    "type": "vocab",
+    "prompt": "「饭」字的偏旁是什么？",
+    "options": [
+      "饣",
+      "食",
+      "口",
+      "氵"
+    ],
+    "correct": 0,
+    "explanation": "「饭」字的偏旁是食字旁「饣」，与饮食有关。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-321",
+    "type": "vocab",
+    "prompt": "「跳」字的偏旁是什么？",
+    "options": [
+      "足",
+      "走",
+      "口",
+      "辶"
+    ],
+    "correct": 0,
+    "explanation": "「跳」字的偏旁是足字旁「足」，与脚的动作有关。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-322",
+    "type": "vocab",
+    "prompt": "「铁」字的偏旁是什么？",
+    "options": [
+      "钅",
+      "金",
+      "木",
+      "石"
+    ],
+    "correct": 0,
+    "explanation": "「铁」字的偏旁是金字旁「钅」，与金属有关。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-323",
+    "type": "vocab",
+    "prompt": "「猫」字的偏旁是什么？",
+    "options": [
+      "犭",
+      "犬",
+      "豸",
+      "虫"
+    ],
+    "correct": 0,
+    "explanation": "「猫」字的偏旁是反犬旁「犭」，与动物有关。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-324",
+    "type": "vocab",
+    "prompt": "「冷」字的偏旁是什么？",
+    "options": [
+      "冫",
+      "氵",
+      "丶",
+      "冖"
+    ],
+    "correct": 0,
+    "explanation": "「冷」字的偏旁是两点水「冫」，与寒冷有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-325",
+    "type": "vocab",
+    "prompt": "「被」字的偏旁是什么？",
+    "options": [
+      "衤",
+      "礻",
+      "亻",
+      "巾"
+    ],
+    "correct": 0,
+    "explanation": "「被」字的偏旁是衣字旁「衤」，与衣物有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-326",
+    "type": "vocab",
+    "prompt": "「眼」字的偏旁是什么？",
+    "options": [
+      "目",
+      "日",
+      "口",
+      "田"
+    ],
+    "correct": 0,
+    "explanation": "「眼」字的偏旁是目字旁「目」，与眼睛有关。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-327",
+    "type": "vocab",
+    "prompt": "「蚂」字的偏旁是什么？",
+    "options": [
+      "虫",
+      "犭",
+      "鸟",
+      "马"
+    ],
+    "correct": 0,
+    "explanation": "「蚂」字的偏旁是虫字旁「虫」，与昆虫有关。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-328",
+    "type": "vocab",
+    "prompt": "「院」字的偏旁是什么？",
+    "options": [
+      "阝",
+      "门",
+      "囗",
+      "宀"
+    ],
+    "correct": 0,
+    "explanation": "「院」字的偏旁是左耳旁「阝」，与地方有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-329",
+    "type": "vocab",
+    "prompt": "「烧」字的偏旁是什么？",
+    "options": [
+      "火",
+      "灬",
+      "日",
+      "光"
+    ],
+    "correct": 0,
+    "explanation": "「烧」字的偏旁是火字旁「火」，与火焰有关。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-330",
+    "type": "vocab",
+    "prompt": "「鸡」字的偏旁是什么？",
+    "options": [
+      "鸟",
+      "隹",
+      "羽",
+      "飞"
+    ],
+    "correct": 0,
+    "explanation": "「鸡」字的偏旁是鸟字旁「鸟」，与禽类有关。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-331",
+    "type": "vocab",
+    "prompt": "「晒」字的偏旁是什么？",
+    "options": [
+      "日",
+      "月",
+      "火",
+      "灬"
+    ],
+    "correct": 0,
+    "explanation": "「晒」字的偏旁是日字旁「日」，与太阳有关。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-332",
+    "type": "vocab",
+    "prompt": "「纸」字的偏旁是什么？",
+    "options": [
+      "纟",
+      "糸",
+      "丝",
+      "巾"
+    ],
+    "correct": 0,
+    "explanation": "「纸」字的偏旁是绞丝旁「纟」，与丝线有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-333",
+    "type": "vocab",
+    "prompt": "「砖」字的偏旁是什么？",
+    "options": [
+      "石",
+      "土",
+      "山",
+      "厂"
+    ],
+    "correct": 0,
+    "explanation": "「砖」字的偏旁是石字旁「石」，与石头有关。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-334",
+    "type": "vocab",
+    "prompt": "「祝」字的偏旁是什么？",
+    "options": [
+      "礻",
+      "衤",
+      "示",
+      "初"
+    ],
+    "correct": 0,
+    "explanation": "「祝」字的偏旁是示字旁「礻」，与祭祀祈祷有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-335",
+    "type": "vocab",
+    "prompt": "「蛙」字的偏旁是什么？",
+    "options": [
+      "虫",
+      "土",
+      "圭",
+      "犭"
+    ],
+    "correct": 0,
+    "explanation": "「蛙」字的偏旁是虫字旁「虫」，与昆虫、两栖动物有关。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-336",
+    "type": "vocab",
+    "prompt": "「呢」字的偏旁是什么？",
+    "options": [
+      "口",
+      "尸",
+      "讠",
+      "亻"
+    ],
+    "correct": 0,
+    "explanation": "「呢」字的偏旁是口字旁「口」，与嘴巴说话有关。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-337",
+    "type": "vocab",
+    "prompt": "「怕」字的偏旁是什么？",
+    "options": [
+      "忄",
+      "心",
+      "亻",
+      "白"
+    ],
+    "correct": 0,
+    "explanation": "「怕」字的偏旁是竖心旁「忄」，与心理活动有关。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-338",
+    "type": "vocab",
+    "prompt": "「肚」字的偏旁是什么？",
+    "options": [
+      "月",
+      "肉",
+      "土",
+      "日"
+    ],
+    "correct": 0,
+    "explanation": "「肚」字的偏旁是月字旁（肉字旁）「月」，与身体部位有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-339",
+    "type": "vocab",
+    "prompt": "「粮」字的偏旁是什么？",
+    "options": [
+      "米",
+      "禾",
+      "食",
+      "饣"
+    ],
+    "correct": 0,
+    "explanation": "「粮」字的偏旁是米字旁「米」，与粮食有关。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-340",
+    "type": "vocab",
+    "prompt": "「裤」字的偏旁是什么？",
+    "options": [
+      "衤",
+      "礻",
+      "巾",
+      "纟"
+    ],
+    "correct": 0,
+    "explanation": "「裤」字的偏旁是衣字旁「衤」，与衣物有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-341",
+    "type": "vocab",
+    "prompt": "「坡」字的偏旁是什么？",
+    "options": [
+      "土",
+      "石",
+      "山",
+      "阝"
+    ],
+    "correct": 0,
+    "explanation": "「坡」字的偏旁是土字旁「土」，与土地有关。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-342",
+    "type": "vocab",
+    "prompt": "「渴」字的偏旁是什么？",
+    "options": [
+      "氵",
+      "火",
+      "日",
+      "曷"
+    ],
+    "correct": 0,
+    "explanation": "「渴」字的偏旁是三点水「氵」，与水有关（缺水才渴）。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-343",
+    "type": "vocab",
+    "prompt": "「竹」字的偏旁是什么？",
+    "options": [
+      "竹",
+      "木",
+      "艹",
+      "禾"
+    ],
+    "correct": 0,
+    "explanation": "「竹」字本身就是独体字，偏旁是「竹」。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-344",
+    "type": "vocab",
+    "prompt": "「鲜」字的偏旁是什么？",
+    "options": [
+      "鱼",
+      "羊",
+      "氵",
+      "月"
+    ],
+    "correct": 0,
+    "explanation": "「鲜」字的偏旁是鱼字旁「鱼」，与鱼类有关。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-345",
+    "type": "vocab",
+    "prompt": "「城」字的偏旁是什么？",
+    "options": [
+      "土",
+      "城",
+      "阝",
+      "囗"
+    ],
+    "correct": 0,
+    "explanation": "「城」字的偏旁是土字旁「土」，与土地建筑有关。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-346",
+    "type": "vocab",
+    "prompt": "「领」字的偏旁是什么？",
+    "options": [
+      "页",
+      "令",
+      "目",
+      "首"
+    ],
+    "correct": 0,
+    "explanation": "「领」字的偏旁是页字旁「页」，与头部有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-347",
+    "type": "vocab",
+    "prompt": "「船」字的偏旁是什么？",
+    "options": [
+      "舟",
+      "月",
+      "氵",
+      "几"
+    ],
+    "correct": 0,
+    "explanation": "「船」字的偏旁是舟字旁「舟」，与船只有关。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-348",
+    "type": "vocab",
+    "prompt": "「穷」字的偏旁是什么？",
+    "options": [
+      "穴",
+      "宀",
+      "力",
+      "八"
+    ],
+    "correct": 0,
+    "explanation": "「穷」字的偏旁是穴字头「穴」，与洞穴有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-349",
+    "type": "vocab",
+    "prompt": "「脸」字的偏旁是什么？",
+    "options": [
+      "月",
+      "目",
+      "日",
+      "口"
+    ],
+    "correct": 0,
+    "explanation": "「脸」字的偏旁是月字旁（肉字旁）「月」，与身体部位有关。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-350",
+    "type": "vocab",
+    "prompt": "「补」字的偏旁是什么？",
+    "options": [
+      "衤",
+      "礻",
+      "扌",
+      "讠"
+    ],
+    "correct": 0,
+    "explanation": "「补」字的偏旁是衣字旁「衤」，与衣物有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-351",
+    "type": "vocab",
+    "prompt": "「学」字可以组成哪个词？",
+    "options": [
+      "学习",
+      "鸟巢",
+      "花园",
+      "天空"
+    ],
+    "correct": 0,
+    "explanation": "「学」可以组词为「学习」，表示通过读书获取知识。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-352",
+    "type": "vocab",
+    "prompt": "「操」字可以组成哪个词？",
+    "options": [
+      "操场",
+      "草地",
+      "菜园",
+      "车站"
+    ],
+    "correct": 0,
+    "explanation": "「操」可以组词为「操场」，指学校里做运动的场地。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-353",
+    "type": "vocab",
+    "prompt": "「旅」字可以组成哪个词？",
+    "options": [
+      "旅行",
+      "流行",
+      "步行",
+      "飞行"
+    ],
+    "correct": 0,
+    "explanation": "「旅」可以组词为「旅行」，表示到外地游览。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-354",
+    "type": "vocab",
+    "prompt": "「温」字可以组成哪个词？",
+    "options": [
+      "温度",
+      "速度",
+      "长度",
+      "高度"
+    ],
+    "correct": 0,
+    "explanation": "「温」可以组词为「温度」，表示冷热的程度。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-355",
+    "type": "vocab",
+    "prompt": "「勇」字可以组成哪个词？",
+    "options": [
+      "勇敢",
+      "坚强",
+      "聪明",
+      "善良"
+    ],
+    "correct": 0,
+    "explanation": "「勇」可以组词为「勇敢」，表示不怕危险和困难。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-356",
+    "type": "vocab",
+    "prompt": "「秘」字可以组成哪个词？",
+    "options": [
+      "秘密",
+      "安全",
+      "公开",
+      "透明"
+    ],
+    "correct": 0,
+    "explanation": "「秘」可以组词为「秘密」，表示不让人知道的事情。",
+    "difficulty": 2,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-357",
+    "type": "vocab",
+    "prompt": "「观」字可以组成哪个词？",
+    "options": [
+      "观察",
+      "睡觉",
+      "休息",
+      "安静"
+    ],
+    "correct": 0,
+    "explanation": "「观」可以组词为「观察」，表示仔细地看。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-358",
+    "type": "vocab",
+    "prompt": "「植」字可以组成哪个词？",
+    "options": [
+      "植物",
+      "动物",
+      "食物",
+      "矿物"
+    ],
+    "correct": 0,
+    "explanation": "「植」可以组词为「植物」，指花草树木等有生命的东西。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-359",
+    "type": "vocab",
+    "prompt": "「礼」字可以组成哪个词？",
+    "options": [
+      "礼物",
+      "食物",
+      "动物",
+      "植物"
+    ],
+    "correct": 0,
+    "explanation": "「礼」可以组词为「礼物」，指送给别人表示心意的东西。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-360",
+    "type": "vocab",
+    "prompt": "「趣」字可以组成哪个词？",
+    "options": [
+      "有趣",
+      "无聊",
+      "烦闷",
+      "枯燥"
+    ],
+    "correct": 0,
+    "explanation": "「趣」可以组词为「有趣」，表示能引起人兴趣。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-361",
+    "type": "vocab",
+    "prompt": "「精」字可以组成哪个词？",
+    "options": [
+      "精神",
+      "粗心",
+      "马虎",
+      "大意"
+    ],
+    "correct": 0,
+    "explanation": "「精」可以组词为「精神」，表示人的意识和思维活动。",
+    "difficulty": 2,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-362",
+    "type": "vocab",
+    "prompt": "「获」字可以组成哪个词？",
+    "options": [
+      "收获",
+      "失去",
+      "丢失",
+      "遗失"
+    ],
+    "correct": 0,
+    "explanation": "「获」可以组词为「收获」，表示取得成果。",
+    "difficulty": 2,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-363",
+    "type": "vocab",
+    "prompt": "「环」字可以组成哪个词？",
+    "options": [
+      "环境",
+      "处境",
+      "心境",
+      "困境"
+    ],
+    "correct": 0,
+    "explanation": "「环」可以组词为「环境」，表示周围的自然条件和社会条件。",
+    "difficulty": 2,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-364",
+    "type": "vocab",
+    "prompt": "「借」字可以组成哪个词？",
+    "options": [
+      "借口",
+      "出口",
+      "门口",
+      "路口"
+    ],
+    "correct": 0,
+    "explanation": "「借」可以组词为「借口」，表示用来推托的理由。",
+    "difficulty": 2,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-365",
+    "type": "vocab",
+    "prompt": "「阳」字可以组成哪个词？",
+    "options": [
+      "阳光",
+      "月光",
+      "灯光",
+      "星光"
+    ],
+    "correct": 0,
+    "explanation": "「阳」可以组词为「阳光」，指太阳发出的光。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-366",
+    "type": "vocab",
+    "prompt": "「诚」字可以组成哪个词？",
+    "options": [
+      "诚实",
+      "虚假",
+      "谎言",
+      "欺骗"
+    ],
+    "correct": 0,
+    "explanation": "「诚」可以组词为「诚实」，表示真实不欺骗。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-367",
+    "type": "vocab",
+    "prompt": "「幸」字可以组成哪个词？",
+    "options": [
+      "幸福",
+      "痛苦",
+      "悲伤",
+      "忧愁"
+    ],
+    "correct": 0,
+    "explanation": "「幸」可以组词为「幸福」，表示生活美满如意。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-368",
+    "type": "vocab",
+    "prompt": "「约」字可以组成哪个词？",
+    "options": [
+      "约定",
+      "否定",
+      "肯定",
+      "确定"
+    ],
+    "correct": 0,
+    "explanation": "「约」可以组词为「约定」，表示事先商量好。",
+    "difficulty": 2,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-369",
+    "type": "vocab",
+    "prompt": "「宝」字可以组成哪个词？",
+    "options": [
+      "宝贝",
+      "公主",
+      "王子",
+      "仙女"
+    ],
+    "correct": 0,
+    "explanation": "「宝」可以组词为「宝贝」，指珍贵的东西或对孩子的爱称。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-370",
+    "type": "vocab",
+    "prompt": "「害」字可以组成哪个词？",
+    "options": [
+      "害怕",
+      "勇敢",
+      "坚强",
+      "大胆"
+    ],
+    "correct": 0,
+    "explanation": "「害」可以组词为「害怕」，表示心里恐惧。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-371",
+    "type": "vocab",
+    "prompt": "「零」字可以组成哪个词？",
+    "options": [
+      "零食",
+      "主食",
+      "粮食",
+      "美食"
+    ],
+    "correct": 0,
+    "explanation": "「零」可以组词为「零食」，指正餐以外的小食品。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-372",
+    "type": "vocab",
+    "prompt": "「创」字可以组成哪个词？",
+    "options": [
+      "创造",
+      "模仿",
+      "抄袭",
+      "复制"
+    ],
+    "correct": 0,
+    "explanation": "「创」可以组词为「创造」，表示做出新的东西。",
+    "difficulty": 2,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-373",
+    "type": "vocab",
+    "prompt": "「志」字可以组成哪个词？",
+    "options": [
+      "志气",
+      "脾气",
+      "力气",
+      "生气"
+    ],
+    "correct": 0,
+    "explanation": "「志」可以组词为「志气」，表示做成某事的决心和勇气。",
+    "difficulty": 2,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-374",
+    "type": "vocab",
+    "prompt": "「继」字可以组成哪个词？",
+    "options": [
+      "继续",
+      "暂停",
+      "中断",
+      "停止"
+    ],
+    "correct": 0,
+    "explanation": "「继」可以组词为「继续」，表示不停地做下去。",
+    "difficulty": 2,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-375",
+    "type": "vocab",
+    "prompt": "「境」字可以组成哪个词？",
+    "options": [
+      "环境",
+      "心情",
+      "天气",
+      "风景"
+    ],
+    "correct": 0,
+    "explanation": "「境」可以组词为「环境」，表示周围的条件和状况。",
+    "difficulty": 2,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-376",
+    "type": "vocab",
+    "prompt": "「顿」字可以组成哪个词？",
+    "options": [
+      "顿时",
+      "当时",
+      "随时",
+      "及时"
+    ],
+    "correct": 0,
+    "explanation": "「顿」可以组词为「顿时」，表示立刻、马上。",
+    "difficulty": 2,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-377",
+    "type": "vocab",
+    "prompt": "「验」字可以组成哪个词？",
+    "options": [
+      "经验",
+      "试卷",
+      "考试",
+      "作业"
+    ],
+    "correct": 0,
+    "explanation": "「验」可以组词为「经验」，指从实践中得到的知识。",
+    "difficulty": 2,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-378",
+    "type": "vocab",
+    "prompt": "「养」字可以组成哪个词？",
+    "options": [
+      "营养",
+      "休息",
+      "睡眠",
+      "健康"
+    ],
+    "correct": 0,
+    "explanation": "「养」可以组词为「营养」，指维持生命和健康所需的物质。",
+    "difficulty": 2,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-379",
+    "type": "vocab",
+    "prompt": "「翅」字可以组成哪个词？",
+    "options": [
+      "翅膀",
+      "手臂",
+      "腿脚",
+      "尾巴"
+    ],
+    "correct": 0,
+    "explanation": "「翅」可以组词为「翅膀」，指鸟类用来飞行的器官。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-380",
+    "type": "vocab",
+    "prompt": "「梦」字可以组成哪个词？",
+    "options": [
+      "梦想",
+      "现实",
+      "真实",
+      "实际"
+    ],
+    "correct": 0,
+    "explanation": "「梦」可以组词为「梦想」，指心中的理想和愿望。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-381",
+    "type": "vocab",
+    "prompt": "「究」字可以组成哪个词？",
+    "options": [
+      "研究",
+      "学习",
+      "复习",
+      "练习"
+    ],
+    "correct": 0,
+    "explanation": "「究」可以组词为「研究」，表示深入探索事物的道理。",
+    "difficulty": 2,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-382",
+    "type": "vocab",
+    "prompt": "「练」字可以组成哪个词？",
+    "options": [
+      "练习",
+      "学习",
+      "复习",
+      "温习"
+    ],
+    "correct": 0,
+    "explanation": "「练」可以组词为「练习」，表示反复做以熟练掌握。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-383",
+    "type": "vocab",
+    "prompt": "「脑」字可以组成哪个词？",
+    "options": [
+      "脑袋",
+      "口袋",
+      "衣袋",
+      "书包"
+    ],
+    "correct": 0,
+    "explanation": "「脑」可以组词为「脑袋」，指人的头部。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-384",
+    "type": "vocab",
+    "prompt": "「像」字可以组成哪个词？",
+    "options": [
+      "好像",
+      "果然",
+      "忽然",
+      "虽然"
+    ],
+    "correct": 0,
+    "explanation": "「像」可以组词为「好像」，表示似乎、仿佛。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-385",
+    "type": "vocab",
+    "prompt": "「厉」字可以组成哪个词？",
+    "options": [
+      "厉害",
+      "害怕",
+      "可怕",
+      "恐怖"
+    ],
+    "correct": 0,
+    "explanation": "「厉」可以组词为「厉害」，形容程度很深。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-386",
+    "type": "vocab",
+    "prompt": "「慧」字可以组成哪个词？",
+    "options": [
+      "智慧",
+      "聪明",
+      "机灵",
+      "灵活"
+    ],
+    "correct": 0,
+    "explanation": "「慧」可以组词为「智慧」，指分析判断和发明创造的能力。",
+    "difficulty": 2,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-387",
+    "type": "vocab",
+    "prompt": "「刻」字可以组成哪个词？",
+    "options": [
+      "立刻",
+      "忽然",
+      "居然",
+      "果然"
+    ],
+    "correct": 0,
+    "explanation": "「刻」可以组词为「立刻」，表示马上、毫不迟疑。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-388",
+    "type": "vocab",
+    "prompt": "「命」字可以组成哪个词？",
+    "options": [
+      "生命",
+      "死亡",
+      "消失",
+      "灭亡"
+    ],
+    "correct": 0,
+    "explanation": "「命」可以组词为「生命」，表示生物活着的状态。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-389",
+    "type": "vocab",
+    "prompt": "「辆」字可以组成哪个词？",
+    "options": [
+      "车辆",
+      "船只",
+      "飞机",
+      "火车"
+    ],
+    "correct": 0,
+    "explanation": "「辆」可以组词为「车辆」，泛指各种车。",
+    "difficulty": 1,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-390",
+    "type": "vocab",
+    "prompt": "「府」字可以组成哪个词？",
+    "options": [
+      "政府",
+      "学校",
+      "医院",
+      "工厂"
+    ],
+    "correct": 0,
+    "explanation": "「府」可以组词为「政府」，指国家行政管理机关。",
+    "difficulty": 2,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-391",
+    "type": "vocab",
+    "prompt": "「长」在「长大」中读什么？",
+    "options": [
+      "zhǎng",
+      "cháng",
+      "chǎng",
+      "zháng"
+    ],
+    "correct": 0,
+    "explanation": "「长大」的「长」读 zhǎng（第三声），表示生长、成长。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-392",
+    "type": "vocab",
+    "prompt": "「乐」在「音乐」中读什么？",
+    "options": [
+      "yuè",
+      "lè",
+      "luò",
+      "yào"
+    ],
+    "correct": 0,
+    "explanation": "「音乐」的「乐」读 yuè，表示有节奏的声音。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-393",
+    "type": "vocab",
+    "prompt": "「行」在「银行」中读什么？",
+    "options": [
+      "háng",
+      "xíng",
+      "hàng",
+      "xìng"
+    ],
+    "correct": 0,
+    "explanation": "「银行」的「行」读 háng（第二声），指金融机构。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-394",
+    "type": "vocab",
+    "prompt": "「好」在「好奇」中读什么？",
+    "options": [
+      "hào",
+      "hǎo",
+      "hāo",
+      "háo"
+    ],
+    "correct": 0,
+    "explanation": "「好奇」的「好」读 hào（第四声），表示喜爱、感兴趣。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-395",
+    "type": "vocab",
+    "prompt": "「种」在「种子」中读什么？",
+    "options": [
+      "zhǒng",
+      "zhòng",
+      "chóng",
+      "zhōng"
+    ],
+    "correct": 0,
+    "explanation": "「种子」的「种」读 zhǒng（第三声），表示类别、品种。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-396",
+    "type": "vocab",
+    "prompt": "「干」在「干净」中读什么？",
+    "options": [
+      "gān",
+      "gàn",
+      "qián",
+      "jiān"
+    ],
+    "correct": 0,
+    "explanation": "「干净」的「干」读 gān（第一声），表示没有水分、清洁。",
+    "difficulty": 1,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-397",
+    "type": "vocab",
+    "prompt": "「发」在「发现」中读什么？",
+    "options": [
+      "fā",
+      "fà",
+      "fǎ",
+      "fá"
+    ],
+    "correct": 0,
+    "explanation": "「发现」的「发」读 fā（第一声），表示觉察到。",
+    "difficulty": 1,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-398",
+    "type": "vocab",
+    "prompt": "「发」在「头发」中读什么？",
+    "options": [
+      "fà",
+      "fā",
+      "fǎ",
+      "fá"
+    ],
+    "correct": 0,
+    "explanation": "「头发」的「发」读 fà（第四声），指人头上的毛。",
+    "difficulty": 1,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-399",
+    "type": "vocab",
+    "prompt": "「还」在「还是」中读什么？",
+    "options": [
+      "hái",
+      "huán",
+      "hǎi",
+      "huan"
+    ],
+    "correct": 0,
+    "explanation": "「还是」的「还」读 hái（第二声），表示仍然、或者。",
+    "difficulty": 1,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-400",
+    "type": "vocab",
+    "prompt": "「还」在「归还」中读什么？",
+    "options": [
+      "huán",
+      "hái",
+      "hǎi",
+      "huan"
+    ],
+    "correct": 0,
+    "explanation": "「归还」的「还」读 huán（第二声），表示把东西还回去。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-401",
+    "type": "vocab",
+    "prompt": "「数」在「数学」中读什么？",
+    "options": [
+      "shù",
+      "shǔ",
+      "shuò",
+      "shú"
+    ],
+    "correct": 0,
+    "explanation": "「数学」的「数」读 shù（第四声），表示数目。",
+    "difficulty": 1,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-402",
+    "type": "vocab",
+    "prompt": "「数」在「数数」中读什么？",
+    "options": [
+      "shǔ",
+      "shù",
+      "shuò",
+      "shú"
+    ],
+    "correct": 0,
+    "explanation": "「数数」的「数」读 shǔ（第三声），表示一个一个地计算。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-403",
+    "type": "vocab",
+    "prompt": "「倒」在「倒下」中读什么？",
+    "options": [
+      "dǎo",
+      "dào",
+      "tǎo",
+      "tào"
+    ],
+    "correct": 0,
+    "explanation": "「倒下」的「倒」读 dǎo（第三声），表示躺下或坍塌。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-404",
+    "type": "vocab",
+    "prompt": "「倒」在「倒水」中读什么？",
+    "options": [
+      "dào",
+      "dǎo",
+      "tǎo",
+      "tào"
+    ],
+    "correct": 0,
+    "explanation": "「倒水」的「倒」读 dào（第四声），表示使液体从容器中流出。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-405",
+    "type": "vocab",
+    "prompt": "「觉」在「觉得」中读什么？",
+    "options": [
+      "jué",
+      "jiào",
+      "juè",
+      "jiāo"
+    ],
+    "correct": 0,
+    "explanation": "「觉得」的「觉」读 jué（第二声），表示感到、认为。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-406",
+    "type": "vocab",
+    "prompt": "「觉」在「睡觉」中读什么？",
+    "options": [
+      "jiào",
+      "jué",
+      "juè",
+      "jiāo"
+    ],
+    "correct": 0,
+    "explanation": "「睡觉」的「觉」读 jiào（第四声），表示睡眠。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-407",
+    "type": "vocab",
+    "prompt": "「背」在「背诵」中读什么？",
+    "options": [
+      "bèi",
+      "bēi",
+      "bié",
+      "bǐ"
+    ],
+    "correct": 0,
+    "explanation": "「背诵」的「背」读 bèi（第四声），表示凭记忆读出来。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-408",
+    "type": "vocab",
+    "prompt": "「背」在「背包」中读什么？",
+    "options": [
+      "bēi",
+      "bèi",
+      "bié",
+      "bǐ"
+    ],
+    "correct": 0,
+    "explanation": "「背包」的「背」读 bēi（第一声），表示用背部驮东西。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-409",
+    "type": "vocab",
+    "prompt": "「弹」在「弹琴」中读什么？",
+    "options": [
+      "tán",
+      "dàn",
+      "dān",
+      "tàn"
+    ],
+    "correct": 0,
+    "explanation": "「弹琴」的「弹」读 tán（第二声），表示用手指拨动。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-410",
+    "type": "vocab",
+    "prompt": "「弹」在「子弹」中读什么？",
+    "options": [
+      "dàn",
+      "tán",
+      "dān",
+      "tàn"
+    ],
+    "correct": 0,
+    "explanation": "「子弹」的「弹」读 dàn（第四声），指枪炮中的弹丸。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-411",
+    "type": "vocab",
+    "prompt": "「教」在「教室」中读什么？",
+    "options": [
+      "jiào",
+      "jiāo",
+      "jiǎo",
+      "jiá"
+    ],
+    "correct": 0,
+    "explanation": "「教室」的「教」读 jiào（第四声），与教学场所有关。",
+    "difficulty": 1,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-412",
+    "type": "vocab",
+    "prompt": "「教」在「教书」中读什么？",
+    "options": [
+      "jiāo",
+      "jiào",
+      "jiǎo",
+      "jiá"
+    ],
+    "correct": 0,
+    "explanation": "「教书」的「教」读 jiāo（第一声），表示传授知识的动作。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-413",
+    "type": "vocab",
+    "prompt": "「处」在「到处」中读什么？",
+    "options": [
+      "chù",
+      "chǔ",
+      "cù",
+      "cǔ"
+    ],
+    "correct": 0,
+    "explanation": "「到处」的「处」读 chù（第四声），表示地方。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-414",
+    "type": "vocab",
+    "prompt": "「处」在「处理」中读什么？",
+    "options": [
+      "chǔ",
+      "chù",
+      "cù",
+      "cǔ"
+    ],
+    "correct": 0,
+    "explanation": "「处理」的「处」读 chǔ（第三声），表示安排、解决。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-415",
+    "type": "vocab",
+    "prompt": "「为」在「因为」中读什么？",
+    "options": [
+      "wèi",
+      "wéi",
+      "wěi",
+      "wēi"
+    ],
+    "correct": 0,
+    "explanation": "「因为」的「为」读 wèi（第四声），表示原因。",
+    "difficulty": 1,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-416",
+    "type": "vocab",
+    "prompt": "「空」在「天空」中读什么？",
+    "options": [
+      "kōng",
+      "kòng",
+      "kǒng",
+      "kóng"
+    ],
+    "correct": 0,
+    "explanation": "「天空」的「空」读 kōng（第一声），指头顶上方的广大空间。",
+    "difficulty": 1,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-417",
+    "type": "vocab",
+    "prompt": "「空」在「空地」中读什么？",
+    "options": [
+      "kòng",
+      "kōng",
+      "kǒng",
+      "kóng"
+    ],
+    "correct": 0,
+    "explanation": "「空地」的「空」读 kòng（第四声），指空着的、闲置的。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-418",
+    "type": "vocab",
+    "prompt": "「称」在「称赞」中读什么？",
+    "options": [
+      "chēng",
+      "chèn",
+      "chèng",
+      "chén"
+    ],
+    "correct": 0,
+    "explanation": "「称赞」的「称」读 chēng（第一声），表示赞扬。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-419",
+    "type": "vocab",
+    "prompt": "「当」在「当时」中读什么？",
+    "options": [
+      "dāng",
+      "dàng",
+      "dǎng",
+      "dáng"
+    ],
+    "correct": 0,
+    "explanation": "「当时」的「当」读 dāng（第一声），表示那个时候。",
+    "difficulty": 1,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-420",
+    "type": "vocab",
+    "prompt": "「当」在「上当」中读什么？",
+    "options": [
+      "dàng",
+      "dāng",
+      "dǎng",
+      "dáng"
+    ],
+    "correct": 0,
+    "explanation": "「上当」的「当」读 dàng（第四声），表示受骗。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-421",
+    "type": "vocab",
+    "prompt": "「血」在「血液」中读什么？",
+    "options": [
+      "xuè",
+      "xiě",
+      "xuě",
+      "xié"
+    ],
+    "correct": 0,
+    "explanation": "「血液」的「血」读 xuè（第四声），是书面语读法。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-422",
+    "type": "vocab",
+    "prompt": "「差」在「差别」中读什么？",
+    "options": [
+      "chā",
+      "chà",
+      "chāi",
+      "cī"
+    ],
+    "correct": 0,
+    "explanation": "「差别」的「差」读 chā（第一声），表示不同、区别。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-423",
+    "type": "vocab",
+    "prompt": "「相」在「相信」中读什么？",
+    "options": [
+      "xiāng",
+      "xiàng",
+      "xiǎng",
+      "xiáng"
+    ],
+    "correct": 0,
+    "explanation": "「相信」的「相」读 xiāng（第一声），表示互相。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-424",
+    "type": "vocab",
+    "prompt": "「相」在「照相」中读什么？",
+    "options": [
+      "xiàng",
+      "xiāng",
+      "xiǎng",
+      "xiáng"
+    ],
+    "correct": 0,
+    "explanation": "「照相」的「相」读 xiàng（第四声），表示样子、像。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-425",
+    "type": "vocab",
+    "prompt": "「曾」在「曾经」中读什么？",
+    "options": [
+      "céng",
+      "zēng",
+      "cēng",
+      "zèng"
+    ],
+    "correct": 0,
+    "explanation": "「曾经」的「曾」读 céng（第二声），表示以前发生过。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-426",
+    "type": "vocab",
+    "prompt": "选词填空：小鸟在树上___地唱歌。",
+    "options": [
+      "欢快",
+      "安静",
+      "缓慢",
+      "沉重"
+    ],
+    "correct": 0,
+    "explanation": "小鸟唱歌应该是「欢快」的，表示快乐活泼。",
+    "difficulty": 1,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-427",
+    "type": "vocab",
+    "prompt": "选词填空：___的阳光照在大地上。",
+    "options": [
+      "温暖",
+      "寒冷",
+      "凉爽",
+      "冰冷"
+    ],
+    "correct": 0,
+    "explanation": "阳光通常用「温暖」来形容，表示暖和舒适。",
+    "difficulty": 1,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-428",
+    "type": "vocab",
+    "prompt": "选词填空：春天来了，花儿___开放了。",
+    "options": [
+      "纷纷",
+      "慢慢",
+      "偷偷",
+      "轻轻"
+    ],
+    "correct": 0,
+    "explanation": "花儿开放用「纷纷」形容，表示一个接一个地开放。",
+    "difficulty": 1,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-429",
+    "type": "vocab",
+    "prompt": "选词填空：老师___地批改作业。",
+    "options": [
+      "认真",
+      "马虎",
+      "随便",
+      "快速"
+    ],
+    "correct": 0,
+    "explanation": "老师批改作业应该是「认真」的，表示仔细负责。",
+    "difficulty": 1,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-430",
+    "type": "vocab",
+    "prompt": "选词填空：大海___无边。",
+    "options": [
+      "一望",
+      "一点",
+      "一片",
+      "一块"
+    ],
+    "correct": 0,
+    "explanation": "形容大海广阔用「一望无边」，表示望不到边际。",
+    "difficulty": 2,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-431",
+    "type": "vocab",
+    "prompt": "选词填空：妈妈___地抱着孩子。",
+    "options": [
+      "紧紧",
+      "轻轻",
+      "慢慢",
+      "快快"
+    ],
+    "correct": 0,
+    "explanation": "妈妈抱孩子用「紧紧」形容，表示抱得很紧不放手。",
+    "difficulty": 1,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-432",
+    "type": "vocab",
+    "prompt": "选词填空：他___了一口气。",
+    "options": [
+      "叹",
+      "吹",
+      "呼",
+      "喊"
+    ],
+    "correct": 0,
+    "explanation": "「叹了一口气」表示因忧愁或感慨而长出气。",
+    "difficulty": 1,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-433",
+    "type": "vocab",
+    "prompt": "选词填空：雨后天晴，天空出现了一道___。",
+    "options": [
+      "彩虹",
+      "白云",
+      "闪电",
+      "雷声"
+    ],
+    "correct": 0,
+    "explanation": "雨后天晴容易出现「彩虹」，是阳光折射形成的。",
+    "difficulty": 1,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-434",
+    "type": "vocab",
+    "prompt": "选词填空：夜晚，星星在天空中___。",
+    "options": [
+      "闪烁",
+      "飞翔",
+      "跳舞",
+      "歌唱"
+    ],
+    "correct": 0,
+    "explanation": "星星在夜空中用「闪烁」形容，表示一亮一亮的。",
+    "difficulty": 1,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-435",
+    "type": "vocab",
+    "prompt": "选词填空：秋天，树叶___地飘落下来。",
+    "options": [
+      "纷纷",
+      "渐渐",
+      "快快",
+      "偷偷"
+    ],
+    "correct": 0,
+    "explanation": "树叶飘落用「纷纷」形容，表示一片接一片地落下。",
+    "difficulty": 1,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-436",
+    "type": "vocab",
+    "prompt": "选词填空：同学们___地做完了作业。",
+    "options": [
+      "顺利",
+      "困难",
+      "艰难",
+      "勉强"
+    ],
+    "correct": 0,
+    "explanation": "做完作业用「顺利」形容，表示没有困难地完成。",
+    "difficulty": 1,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-437",
+    "type": "vocab",
+    "prompt": "选词填空：这个故事非常___。",
+    "options": [
+      "感人",
+      "可怕",
+      "无聊",
+      "平淡"
+    ],
+    "correct": 0,
+    "explanation": "好的故事用「感人」形容，表示令人感动。",
+    "difficulty": 1,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-438",
+    "type": "vocab",
+    "prompt": "选词填空：他___着眼泪离开了。",
+    "options": [
+      "含",
+      "流",
+      "掉",
+      "落"
+    ],
+    "correct": 0,
+    "explanation": "「含着眼泪」表示眼泪在眼眶中打转但没有流下来。",
+    "difficulty": 2,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-439",
+    "type": "vocab",
+    "prompt": "选词填空：这道题真___，我想了很久。",
+    "options": [
+      "难",
+      "易",
+      "快",
+      "慢"
+    ],
+    "correct": 0,
+    "explanation": "想了很久说明题目很「难」，不容易解答。",
+    "difficulty": 1,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-440",
+    "type": "vocab",
+    "prompt": "选词填空：小河___地流向远方。",
+    "options": [
+      "静静",
+      "急急",
+      "快快",
+      "大大"
+    ],
+    "correct": 0,
+    "explanation": "小河流淌用「静静」形容，表示安静平缓地流动。",
+    "difficulty": 1,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-441",
+    "type": "vocab",
+    "prompt": "选词填空：他的成绩___提高了。",
+    "options": [
+      "明显",
+      "稍微",
+      "可能",
+      "大概"
+    ],
+    "correct": 0,
+    "explanation": "成绩提高用「明显」形容，表示变化很大、看得出来。",
+    "difficulty": 2,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-442",
+    "type": "vocab",
+    "prompt": "选词填空：___的月光洒在湖面上。",
+    "options": [
+      "皎洁",
+      "火红",
+      "碧绿",
+      "金黄"
+    ],
+    "correct": 0,
+    "explanation": "形容月光用「皎洁」，表示明亮洁白。",
+    "difficulty": 2,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-443",
+    "type": "vocab",
+    "prompt": "选词填空：远处传来___的歌声。",
+    "options": [
+      "悠扬",
+      "刺耳",
+      "沉闷",
+      "嘈杂"
+    ],
+    "correct": 0,
+    "explanation": "好听的歌声用「悠扬」形容，表示声音优美动听。",
+    "difficulty": 2,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-444",
+    "type": "vocab",
+    "prompt": "选词填空：他___了一下门就走了进去。",
+    "options": [
+      "敲",
+      "踢",
+      "撞",
+      "推"
+    ],
+    "correct": 0,
+    "explanation": "进门前应该「敲」门，表示有礼貌地叩击。",
+    "difficulty": 1,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-445",
+    "type": "vocab",
+    "prompt": "选词填空：冬天到了，北风___地吹着。",
+    "options": [
+      "呼呼",
+      "轻轻",
+      "慢慢",
+      "静静"
+    ],
+    "correct": 0,
+    "explanation": "北风用「呼呼」形容，表示风声很大。",
+    "difficulty": 1,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-446",
+    "type": "vocab",
+    "prompt": "选词填空：同学们___地讨论着问题。",
+    "options": [
+      "热烈",
+      "冷淡",
+      "安静",
+      "沉默"
+    ],
+    "correct": 0,
+    "explanation": "讨论问题用「热烈」形容，表示积极踊跃。",
+    "difficulty": 2,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-447",
+    "type": "vocab",
+    "prompt": "选词填空：小花猫___地走过来。",
+    "options": [
+      "悄悄",
+      "大声",
+      "飞快",
+      "使劲"
+    ],
+    "correct": 0,
+    "explanation": "猫走路用「悄悄」形容，表示轻声、不出声。",
+    "difficulty": 1,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-448",
+    "type": "vocab",
+    "prompt": "选词填空：这朵花开得真___。",
+    "options": [
+      "鲜艳",
+      "暗淡",
+      "枯萎",
+      "凋谢"
+    ],
+    "correct": 0,
+    "explanation": "花开得好用「鲜艳」形容，表示颜色鲜明美丽。",
+    "difficulty": 1,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-449",
+    "type": "vocab",
+    "prompt": "选词填空：爷爷___地给我讲故事。",
+    "options": [
+      "慈祥",
+      "严厉",
+      "凶狠",
+      "冷漠"
+    ],
+    "correct": 0,
+    "explanation": "爷爷讲故事用「慈祥」形容，表示和蔼可亲。",
+    "difficulty": 2,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-450",
+    "type": "vocab",
+    "prompt": "选词填空：天___亮了，公鸡开始打鸣。",
+    "options": [
+      "渐渐",
+      "忽然",
+      "马上",
+      "突然"
+    ],
+    "correct": 0,
+    "explanation": "天亮是慢慢变化的过程，用「渐渐」形容最恰当。",
+    "difficulty": 1,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-451",
+    "type": "vocab",
+    "prompt": "选词填空：大家___鼓起掌来。",
+    "options": [
+      "不约而同",
+      "三心二意",
+      "自言自语",
+      "七嘴八舌"
+    ],
+    "correct": 0,
+    "explanation": "「不约而同」表示事先没有约定而彼此行动一致。",
+    "difficulty": 3,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-452",
+    "type": "vocab",
+    "prompt": "选词填空：他跑得___快。",
+    "options": [
+      "飞",
+      "很",
+      "有",
+      "可"
+    ],
+    "correct": 0,
+    "explanation": "「飞快」形容速度非常快，像飞一样。",
+    "difficulty": 1,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-453",
+    "type": "vocab",
+    "prompt": "选词填空：花园里的花___开了。",
+    "options": [
+      "竞相",
+      "安静",
+      "缓缓",
+      "偷偷"
+    ],
+    "correct": 0,
+    "explanation": "花开放用「竞相」形容，表示争先恐后地开放。",
+    "difficulty": 3,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-454",
+    "type": "vocab",
+    "prompt": "选词填空：他的脸___通红。",
+    "options": [
+      "涨得",
+      "变得",
+      "化得",
+      "拉得"
+    ],
+    "correct": 0,
+    "explanation": "脸红用「涨得通红」来形容，表示因激动、害羞而发红。",
+    "difficulty": 2,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-455",
+    "type": "vocab",
+    "prompt": "选词填空：一阵风吹来，树叶___作响。",
+    "options": [
+      "沙沙",
+      "轰轰",
+      "咚咚",
+      "啪啪"
+    ],
+    "correct": 0,
+    "explanation": "树叶被风吹的声音用「沙沙」形容，是拟声词。",
+    "difficulty": 1,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-456",
+    "type": "vocab",
+    "prompt": "选词填空：这件衣服___合身。",
+    "options": [
+      "十分",
+      "不太",
+      "可能",
+      "大概"
+    ],
+    "correct": 0,
+    "explanation": "「十分合身」表示衣服穿起来非常合适。",
+    "difficulty": 1,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-457",
+    "type": "vocab",
+    "prompt": "选词填空：他___地回答了老师的问题。",
+    "options": [
+      "流利",
+      "结巴",
+      "犹豫",
+      "缓慢"
+    ],
+    "correct": 0,
+    "explanation": "回答好用「流利」形容，表示说话通顺、不停顿。",
+    "difficulty": 2,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-458",
+    "type": "vocab",
+    "prompt": "选词填空：雪花___地飘落下来。",
+    "options": [
+      "纷纷扬扬",
+      "急急忙忙",
+      "高高兴兴",
+      "平平安安"
+    ],
+    "correct": 0,
+    "explanation": "雪花飘落用「纷纷扬扬」形容，表示在空中飘舞。",
+    "difficulty": 2,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-459",
+    "type": "vocab",
+    "prompt": "选词填空：他的眼睛___有神。",
+    "options": [
+      "炯炯",
+      "闪闪",
+      "亮亮",
+      "明明"
+    ],
+    "correct": 0,
+    "explanation": "形容眼睛有光彩用「炯炯有神」，是固定搭配。",
+    "difficulty": 3,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-460",
+    "type": "vocab",
+    "prompt": "选词填空：小溪___地流着。",
+    "options": [
+      "潺潺",
+      "呼呼",
+      "隆隆",
+      "轰轰"
+    ],
+    "correct": 0,
+    "explanation": "小溪流水声用「潺潺」形容，是拟声词。",
+    "difficulty": 2,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-461",
+    "type": "vocab",
+    "prompt": "选词填空：草地上的小草___的。",
+    "options": [
+      "绿油油",
+      "红彤彤",
+      "黄灿灿",
+      "白花花"
+    ],
+    "correct": 0,
+    "explanation": "小草的颜色用「绿油油」形容，表示鲜绿而有光泽。",
+    "difficulty": 1,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-462",
+    "type": "vocab",
+    "prompt": "选词填空：___的太阳挂在天空。",
+    "options": [
+      "火红",
+      "碧绿",
+      "雪白",
+      "漆黑"
+    ],
+    "correct": 0,
+    "explanation": "太阳用「火红」形容，表示像火一样的红色。",
+    "difficulty": 1,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-463",
+    "type": "vocab",
+    "prompt": "选词填空：他___地站起来回答问题。",
+    "options": [
+      "勇敢",
+      "害怕",
+      "胆怯",
+      "犹豫"
+    ],
+    "correct": 0,
+    "explanation": "主动站起来回答用「勇敢」形容，表示不害怕。",
+    "difficulty": 1,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-464",
+    "type": "vocab",
+    "prompt": "选词填空：湖水___的，像一面镜子。",
+    "options": [
+      "平静",
+      "汹涌",
+      "波浪",
+      "翻滚"
+    ],
+    "correct": 0,
+    "explanation": "湖水像镜子用「平静」形容，表示水面没有波浪。",
+    "difficulty": 1,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-465",
+    "type": "vocab",
+    "prompt": "选词填空：他___地对大家说了声谢谢。",
+    "options": [
+      "诚恳",
+      "冷淡",
+      "随意",
+      "勉强"
+    ],
+    "correct": 0,
+    "explanation": "说谢谢用「诚恳」形容，表示真心诚意。",
+    "difficulty": 2,
+    "tags": [
+      "填空"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-466",
+    "type": "vocab",
+    "prompt": "一___书",
+    "options": [
+      "本",
+      "条",
+      "只",
+      "块"
+    ],
+    "correct": 0,
+    "explanation": "书用量词「本」，一本书。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-467",
+    "type": "vocab",
+    "prompt": "一___鱼",
+    "options": [
+      "条",
+      "本",
+      "棵",
+      "块"
+    ],
+    "correct": 0,
+    "explanation": "鱼用量词「条」，一条鱼。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-468",
+    "type": "vocab",
+    "prompt": "一___树",
+    "options": [
+      "棵",
+      "条",
+      "本",
+      "张"
+    ],
+    "correct": 0,
+    "explanation": "树用量词「棵」，一棵树。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-469",
+    "type": "vocab",
+    "prompt": "一___画",
+    "options": [
+      "幅",
+      "本",
+      "块",
+      "条"
+    ],
+    "correct": 0,
+    "explanation": "画用量词「幅」，一幅画。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-470",
+    "type": "vocab",
+    "prompt": "一___马",
+    "options": [
+      "匹",
+      "只",
+      "头",
+      "条"
+    ],
+    "correct": 0,
+    "explanation": "马用量词「匹」，一匹马。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-471",
+    "type": "vocab",
+    "prompt": "一___花",
+    "options": [
+      "朵",
+      "棵",
+      "片",
+      "株"
+    ],
+    "correct": 0,
+    "explanation": "花用量词「朵」，一朵花。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-472",
+    "type": "vocab",
+    "prompt": "一___山",
+    "options": [
+      "座",
+      "条",
+      "块",
+      "片"
+    ],
+    "correct": 0,
+    "explanation": "山用量词「座」，一座山。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-473",
+    "type": "vocab",
+    "prompt": "一___河",
+    "options": [
+      "条",
+      "座",
+      "块",
+      "片"
+    ],
+    "correct": 0,
+    "explanation": "河用量词「条」，一条河。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-474",
+    "type": "vocab",
+    "prompt": "一___眼泪",
+    "options": [
+      "滴",
+      "条",
+      "片",
+      "块"
+    ],
+    "correct": 0,
+    "explanation": "眼泪用量词「滴」，一滴眼泪。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-475",
+    "type": "vocab",
+    "prompt": "一___牛",
+    "options": [
+      "头",
+      "匹",
+      "只",
+      "条"
+    ],
+    "correct": 0,
+    "explanation": "牛用量词「头」，一头牛。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-476",
+    "type": "vocab",
+    "prompt": "一___纸",
+    "options": [
+      "张",
+      "本",
+      "块",
+      "片"
+    ],
+    "correct": 0,
+    "explanation": "纸用量词「张」，一张纸。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-477",
+    "type": "vocab",
+    "prompt": "一___船",
+    "options": [
+      "艘",
+      "辆",
+      "架",
+      "台"
+    ],
+    "correct": 0,
+    "explanation": "船用量词「艘」，一艘船。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-478",
+    "type": "vocab",
+    "prompt": "一___飞机",
+    "options": [
+      "架",
+      "辆",
+      "艘",
+      "台"
+    ],
+    "correct": 0,
+    "explanation": "飞机用量词「架」，一架飞机。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-479",
+    "type": "vocab",
+    "prompt": "一___月饼",
+    "options": [
+      "块",
+      "条",
+      "片",
+      "根"
+    ],
+    "correct": 0,
+    "explanation": "月饼用量词「块」，一块月饼。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-480",
+    "type": "vocab",
+    "prompt": "一___裤子",
+    "options": [
+      "条",
+      "件",
+      "套",
+      "双"
+    ],
+    "correct": 0,
+    "explanation": "裤子用量词「条」，一条裤子。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-481",
+    "type": "vocab",
+    "prompt": "一___桥",
+    "options": [
+      "座",
+      "条",
+      "根",
+      "架"
+    ],
+    "correct": 0,
+    "explanation": "桥用量词「座」，一座桥。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-482",
+    "type": "vocab",
+    "prompt": "一___雨",
+    "options": [
+      "场",
+      "条",
+      "片",
+      "块"
+    ],
+    "correct": 0,
+    "explanation": "雨用量词「场」，一场雨。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-483",
+    "type": "vocab",
+    "prompt": "一___歌",
+    "options": [
+      "首",
+      "条",
+      "本",
+      "块"
+    ],
+    "correct": 0,
+    "explanation": "歌用量词「首」，一首歌。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-484",
+    "type": "vocab",
+    "prompt": "一___镜子",
+    "options": [
+      "面",
+      "块",
+      "张",
+      "片"
+    ],
+    "correct": 0,
+    "explanation": "镜子用量词「面」，一面镜子。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-485",
+    "type": "vocab",
+    "prompt": "一___衣服",
+    "options": [
+      "件",
+      "条",
+      "块",
+      "套"
+    ],
+    "correct": 0,
+    "explanation": "衣服用量词「件」，一件衣服。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-486",
+    "type": "vocab",
+    "prompt": "一___手套",
+    "options": [
+      "双",
+      "只",
+      "件",
+      "条"
+    ],
+    "correct": 0,
+    "explanation": "手套用量词「双」，一双手套。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-487",
+    "type": "vocab",
+    "prompt": "一___小刀",
+    "options": [
+      "把",
+      "条",
+      "块",
+      "根"
+    ],
+    "correct": 0,
+    "explanation": "刀用量词「把」，一把小刀。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-488",
+    "type": "vocab",
+    "prompt": "一___电影",
+    "options": [
+      "部",
+      "场",
+      "本",
+      "集"
+    ],
+    "correct": 0,
+    "explanation": "电影用量词「部」，一部电影。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-489",
+    "type": "vocab",
+    "prompt": "一___白云",
+    "options": [
+      "朵",
+      "片",
+      "块",
+      "团"
+    ],
+    "correct": 0,
+    "explanation": "白云用量词「朵」，一朵白云。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-490",
+    "type": "vocab",
+    "prompt": "一___彩虹",
+    "options": [
+      "道",
+      "条",
+      "根",
+      "座"
+    ],
+    "correct": 0,
+    "explanation": "彩虹用量词「道」，一道彩虹。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-491",
+    "type": "vocab",
+    "prompt": "一___筷子",
+    "options": [
+      "双",
+      "根",
+      "把",
+      "条"
+    ],
+    "correct": 0,
+    "explanation": "筷子用量词「双」，一双筷子。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-492",
+    "type": "vocab",
+    "prompt": "一___楼房",
+    "options": [
+      "栋",
+      "座",
+      "间",
+      "套"
+    ],
+    "correct": 0,
+    "explanation": "楼房用量词「栋」，一栋楼房。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-493",
+    "type": "vocab",
+    "prompt": "一___事情",
+    "options": [
+      "件",
+      "条",
+      "个",
+      "块"
+    ],
+    "correct": 0,
+    "explanation": "事情用量词「件」，一件事情。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-494",
+    "type": "vocab",
+    "prompt": "一___蜡烛",
+    "options": [
+      "根",
+      "条",
+      "把",
+      "支"
+    ],
+    "correct": 0,
+    "explanation": "蜡烛用量词「根」，一根蜡烛。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-495",
+    "type": "vocab",
+    "prompt": "一___草地",
+    "options": [
+      "片",
+      "块",
+      "条",
+      "座"
+    ],
+    "correct": 0,
+    "explanation": "草地用量词「片」，一片草地。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-496",
+    "type": "vocab",
+    "prompt": "一___钢琴",
+    "options": [
+      "架",
+      "台",
+      "部",
+      "套"
+    ],
+    "correct": 0,
+    "explanation": "钢琴用量词「架」，一架钢琴。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-497",
+    "type": "vocab",
+    "prompt": "一___诗",
+    "options": [
+      "首",
+      "篇",
+      "条",
+      "句"
+    ],
+    "correct": 0,
+    "explanation": "诗用量词「首」，一首诗。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-498",
+    "type": "vocab",
+    "prompt": "一___风",
+    "options": [
+      "阵",
+      "场",
+      "股",
+      "条"
+    ],
+    "correct": 0,
+    "explanation": "风用量词「阵」，一阵风。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-499",
+    "type": "vocab",
+    "prompt": "一___眼镜",
+    "options": [
+      "副",
+      "双",
+      "只",
+      "条"
+    ],
+    "correct": 0,
+    "explanation": "眼镜用量词「副」，一副眼镜。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-500",
+    "type": "vocab",
+    "prompt": "一___文章",
+    "options": [
+      "篇",
+      "本",
+      "首",
+      "条"
+    ],
+    "correct": 0,
+    "explanation": "文章用量词「篇」，一篇文章。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  }
+]
