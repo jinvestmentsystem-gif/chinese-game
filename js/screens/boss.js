@@ -608,6 +608,7 @@ function renderBoss() {
       ">
         <div style="font-size:2rem; font-weight:900; color:var(--text-primary); text-shadow:var(--shadow-gold);">游戏暂停</div>
         <button id="btn-boss-resume" class="btn" style="font-size:1.1rem; padding:12px 36px;">继续</button>
+        <button id="btn-boss-retreat" class="btn" style="font-size:1rem; padding:10px 28px; margin-top:8px; opacity:0.7;">放弃 · 回到地图</button>
       </div>
 
       ${bossIntentHTML}
@@ -895,6 +896,22 @@ function renderBoss() {
             }, 1600);
           }
         }, 100);
+      });
+    }
+
+    // Retreat from boss pause menu
+    const bossRetreatBtn = div.querySelector('#btn-boss-retreat');
+    if (bossRetreatBtn) {
+      bossRetreatBtn.addEventListener('click', () => {
+        clearInterval(bossTimerInterval);
+        destroyCombatBackground();
+        profile.hp = playerHp;
+        gameState.save();
+        if (quest.gauntletMode) {
+          showScreen('gauntlet');
+        } else {
+          showScreen('worldmap');
+        }
       });
     }
 

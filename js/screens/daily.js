@@ -238,11 +238,18 @@ async function renderDaily() {
     <button class="btn btn-primary" id="daily-start-btn" style="font-size:1.1rem;padding:12px 32px;animation:daily-btn-glow 2s infinite;">
       开始挑战
     </button>
+    <button class="btn" id="daily-back-btn" style="font-size:1rem;padding:10px 24px;margin-top:12px;opacity:0.7;">
+      返回
+    </button>
   `;
 
   div.appendChild(preDiv);
 
   setTimeout(() => {
+    // Back button on pre-challenge screen
+    const backBtn = div.querySelector('#daily-back-btn');
+    if (backBtn) backBtn.addEventListener('click', () => showScreen('title'));
+
     const startBtn = div.querySelector('#daily-start-btn');
     if (startBtn) {
       startBtn.addEventListener('click', () => {

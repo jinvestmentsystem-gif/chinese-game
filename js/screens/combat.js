@@ -1018,6 +1018,7 @@ function renderCombat() {
         ">
           <div style="font-size:2rem; font-weight:900; color:var(--text-primary); text-shadow:var(--shadow-gold);">游戏暂停</div>
           <button id="btn-resume" class="btn" style="font-size:1.1rem; padding:12px 36px;">继续</button>
+          <button id="btn-pause-retreat" class="btn" style="font-size:1rem; padding:10px 28px; margin-top:8px; opacity:0.7;">放弃 · 回到地图</button>
         </div>
 
         <!-- Battle arena: player sprite | energy | enemy sprite -->
@@ -1424,6 +1425,22 @@ function renderCombat() {
             handleAnswer(-1, q, true);
           }
         }, 100);
+      });
+    }
+
+    // Retreat from pause menu
+    const retreatBtn = div.querySelector('#btn-pause-retreat');
+    if (retreatBtn) {
+      retreatBtn.addEventListener('click', () => {
+        clearInterval(timerInterval);
+        clearInterval(timerPulseInterval);
+        if (scrambleTimer) { clearTimeout(scrambleTimer); scrambleTimer = null; }
+        if (activeKeyHandler) { document.removeEventListener('keydown', activeKeyHandler); activeKeyHandler = null; }
+        destroyCombatBackground();
+        stopBreaths();
+        profile.hp = playerHp;
+        gameState.save();
+        showScreen('worldmap');
       });
     }
   }

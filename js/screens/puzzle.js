@@ -333,8 +333,11 @@ function renderPuzzle() {
         </div>
         <div style="font-size:0.92rem; color:var(--text-secondary); margin-top:2px;">HP: ${playerHp}/${effectiveMaxHp}</div>
       </div>
-      <div style="font-size:0.95rem; color:var(--text-secondary); text-align:center; align-self:center;">
-        问题 ${qIndex + 1} / ${totalQuestions}
+      <div style="display:flex;flex-direction:column;align-items:center;align-self:center;gap:4px;">
+        <div style="font-size:0.95rem; color:var(--text-secondary); text-align:center;">
+          问题 ${qIndex + 1} / ${totalQuestions}
+        </div>
+        <button class="btn btn-sm" id="btn-puzzle-retreat" style="font-size:0.9rem;padding:4px 12px;opacity:0.6;">放弃</button>
       </div>
       <div class="puzzle-hp-section">
         <div class="puzzle-hp-label" style="color:#c084fc;">封印强度</div>
@@ -432,6 +435,16 @@ function renderPuzzle() {
     feedbackDiv.className = 'puzzle-feedback';
     feedbackDiv.id = 'feedback';
     inner.appendChild(feedbackDiv);
+
+    // Retreat button
+    const retreatBtn = inner.querySelector('#btn-puzzle-retreat');
+    if (retreatBtn) {
+      retreatBtn.addEventListener('click', () => {
+        profile.hp = playerHp;
+        gameState.save();
+        showScreen('worldmap');
+      });
+    }
 
     inner.querySelectorAll('.puzzle-option').forEach(btn => {
       btn.classList.add('spotlight-card');
