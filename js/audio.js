@@ -15,6 +15,10 @@ let currentTrackKey = null;
 function ensureMusicTracks() {
   if (MUSIC_TRACKS._loaded) return;
   MUSIC_TRACKS._loaded = true;
+  if (typeof Howl === 'undefined') {
+    console.warn('[Audio] Howler.js not loaded — MP3 music unavailable');
+    return;
+  }
   const base = 'assets/audio/';
   const tracks = {
     menu:    { src: base + 'music_menu.mp3' + _av,    loop: true,  volume: 0.4 },
@@ -29,17 +33,31 @@ function ensureMusicTracks() {
       src: [cfg.src],
       loop: cfg.loop,
       volume: cfg.volume,
-      preload: false, // Lazy load — only load when first played
+      html5: true, // Use HTML5 Audio for better mobile/browser compatibility
+      preload: false,
+      onloaderror: (id, err) => console.warn(`[Audio] Failed to load ${key}:`, err),
+      onplayerror: (id, err) => {
+        console.warn(`[Audio] Play error ${key}:`, err);
+        // Unlock audio context and retry
+        if (typeof Howler !== 'undefined') {
+          Howler.ctx?.resume?.();
+          MUSIC_TRACKS[key]?.play();
+        }
+      },
     });
   }
 }
 
 function playMusicTrack(key) {
   ensureMusicTracks();
-  if (currentTrackKey === key && currentHowl?.playing()) return; // Already playing
+  if (currentTrackKey === key && currentHowl?.playing()) return;
   stopMusicTrack();
   const howl = MUSIC_TRACKS[key];
   if (!howl) return;
+  // Ensure Howler's audio context is unlocked (browser autoplay policy)
+  if (typeof Howler !== 'undefined' && Howler.ctx && Howler.ctx.state === 'suspended') {
+    Howler.ctx.resume();
+  }
   currentTrackKey = key;
   currentHowl = howl;
   howl.play();
