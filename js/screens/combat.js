@@ -6,7 +6,7 @@ import { hasAbility, calcDamage, calcDamageTaken, getTimerDuration, rollCrit, ge
 import { playSound, playMusic, setMusicIntensity, playStinger } from '../audio.js';
 import { showCompanionBubble, showEnemyTaunt, COMPANION, ENEMY_TAUNTS, pick } from './companion.js';
 import { setParticleMode, burstParticles } from '../particles.js';
-import { SPRITES } from '../sprites.js';
+import { SPRITES, COMBAT_BGS } from '../sprites.js';
 import { showTutorial } from '../tutorial.js';
 import { shakeElement, lungeElement, slashEffect, screenFlash, floatingText } from '../effects.js';
 import { recordWrongAnswer, recordCorrectReview } from '../spaced-repetition.js';
@@ -327,6 +327,10 @@ function renderCombat() {
   const div = document.createElement('div');
   div.className = 'screen';
 
+  // Use painted background image if available, fall back to gradient
+  const eraKeyMap = {1:'xianqin',2:'han',3:'tang',4:'song',5:'modern'};
+  const combatBgUrl = COMBAT_BGS[eraKeyMap[eraBgChapter]];
+
   div.style.cssText = `
     overflow: hidden;
     display: flex;
@@ -336,6 +340,7 @@ function renderCombat() {
     background:
       radial-gradient(ellipse at 50% 25%, ${eraBg.accent} 0%, transparent 60%),
       radial-gradient(ellipse at 20% 80%, ${eraBg.accent} 0%, transparent 40%),
+      url('${combatBgUrl}') center/cover no-repeat,
       ${eraBg.gradient};
   `;
 

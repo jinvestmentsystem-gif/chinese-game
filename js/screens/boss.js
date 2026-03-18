@@ -5,7 +5,7 @@ import { getCurrentEncounter, advanceEncounter, recordAnswer } from '../game-eng
 import { hasAbility, calcDamage, calcDamageTaken, getTimerDuration, rollCrit, getEffectiveMaxHp, getTalentEffects, addXP } from '../progression.js';
 import { showToast } from '../toast.js';
 import { loadChengyu } from '../content-loader.js';
-import { SPRITES } from '../sprites.js';
+import { SPRITES, COMBAT_BGS } from '../sprites.js';
 import { playSound, playMusic, setMusicIntensity, playStinger } from '../audio.js';
 import { showCompanionBubble, showEnemyTaunt, COMPANION, ENEMY_TAUNTS, pick } from './companion.js';
 import { setParticleMode, burstParticles } from '../particles.js';
@@ -350,16 +350,19 @@ function renderBoss() {
 
   const div = document.createElement('div');
   div.className = 'screen';
+  // Use painted background image if available
+  const eraMap = {1:'xianqin',2:'han',3:'tang',4:'song',5:'modern'};
+  const eraKey = eraMap[quest.chapterId] || 'xianqin';
+  const bossBgUrl = COMBAT_BGS[eraKey];
+
   div.style.cssText = `
     overflow:hidden;
     background:
       radial-gradient(ellipse at 50% 30%, ${bossBg.accent} 0%, transparent 55%),
       radial-gradient(ellipse at 50% 70%, ${bossBg.accent} 0%, transparent 45%),
+      url('${bossBgUrl}') center/cover no-repeat,
       ${bossBg.gradient};
   `;
-  // Create PixiJS dynamic background
-  const eraMap = {1:'xianqin',2:'han',3:'tang',4:'song',5:'modern'};
-  const eraKey = eraMap[quest.chapterId] || 'xianqin';
   createCombatBackground(div, eraKey);
 
   const bossAbility = getBossAbility(quest.chapterId);

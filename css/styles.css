@@ -4776,19 +4776,22 @@ input[type="text"]:focus, input[type="number"]:focus {
 }
 
 /* Player sprite in combat */
-#player-sprite svg {
+#player-sprite svg,
+#player-sprite img {
   animation: sprite-idle-breathe 3s ease-in-out infinite;
   filter: drop-shadow(0 0 12px rgba(46, 204, 138, 0.3));
 }
 
 /* Enemy sprite in combat */
-#enemy-sprite svg {
+#enemy-sprite svg,
+#enemy-sprite img {
   animation: sprite-enemy-hover 4s ease-in-out infinite;
   filter: drop-shadow(0 0 12px rgba(106, 13, 173, 0.4));
 }
 
 /* Boss sprite */
-#boss-sprite svg {
+#boss-sprite svg,
+#boss-sprite img {
   animation: sprite-boss-menace 3s ease-in-out infinite;
   filter: drop-shadow(0 0 20px rgba(214, 48, 49, 0.5)) drop-shadow(0 0 40px rgba(214, 48, 49, 0.2));
 }
@@ -4809,8 +4812,8 @@ input[type="text"]:focus, input[type="number"]:focus {
   100% { transform: translateX(0); filter: brightness(1); }
 }
 
-.sprite-attacking svg { animation: sprite-attack-lunge 0.5s ease-out !important; }
-.sprite-hurting svg { animation: sprite-hurt-recoil 0.5s ease-out !important; }
+.sprite-attacking svg, .sprite-attacking img { animation: sprite-attack-lunge 0.5s ease-out !important; }
+.sprite-hurting svg, .sprite-hurting img { animation: sprite-hurt-recoil 0.5s ease-out !important; }
 
 /* ═══════════════════════════════════════════════════════════════════════════
    VISUAL POLISH PASS — Enhanced Ink-Wash Atmosphere & Combat Feedback

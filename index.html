@@ -16,7 +16,7 @@
   <meta property="og:description" content="用文字力量拯救世界的中文学习RPG">
   <meta property="og:type" content="website">
   <!-- App version — bump this on every deploy to bust browser caches -->
-  <script>window.APP_VERSION = '2026031803';</script>
+  <script>window.APP_VERSION = '2026031804';</script>
   <script>
     // Append version to CSS so browsers fetch the latest on deploy
     const css = document.createElement('link');
@@ -29,8 +29,9 @@
   <!-- PixiJS for combat rendering effects -->
   <script src="https://cdn.jsdelivr.net/npm/pixi.js@7.3.3/dist/pixi.min.js"></script>
   <style>
-    /* Crisp pixel art rendering */
-    img, canvas { image-rendering: pixelated; image-rendering: crisp-edges; }
+    /* Smooth rendering for painted art; crisp for particle canvas */
+    img { image-rendering: auto; }
+    canvas { image-rendering: pixelated; image-rendering: crisp-edges; }
   </style>
 </head>
 <body>
