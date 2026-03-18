@@ -33,20 +33,22 @@ function ensureMusicTracks() {
       src: [cfg.src],
       loop: cfg.loop,
       volume: cfg.volume,
-      html5: true, // Use HTML5 Audio for better mobile/browser compatibility
-      preload: false,
+      html5: true,
+      preload: true, // Preload all tracks so they play instantly
       onloaderror: (id, err) => console.warn(`[Audio] Failed to load ${key}:`, err),
       onplayerror: (id, err) => {
         console.warn(`[Audio] Play error ${key}:`, err);
-        // Unlock audio context and retry
         if (typeof Howler !== 'undefined') {
           Howler.ctx?.resume?.();
-          MUSIC_TRACKS[key]?.play();
+          setTimeout(() => MUSIC_TRACKS[key]?.play(), 100);
         }
       },
     });
   }
 }
+
+// Start preloading tracks immediately (don't wait for first play)
+setTimeout(ensureMusicTracks, 500);
 
 function playMusicTrack(key) {
   ensureMusicTracks();
