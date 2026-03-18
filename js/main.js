@@ -212,10 +212,7 @@ registerScreen('title', () => {
       <div class="title-ink-splatter title-splat-2" aria-hidden="true"></div>
       <div class="title-ink-splatter title-splat-3" aria-hidden="true"></div>
 
-      <!-- Red seal stamp 印章 -->
-      <div class="title-seal" aria-hidden="true">
-        <span class="title-seal-char">印</span>
-      </div>
+      <!-- Seal removed — was covering title -->
     </div>
 
     <!-- ===== SUBTITLE: WORD HERO letter-by-letter ===== -->

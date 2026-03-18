@@ -864,12 +864,13 @@ export function setMusicIntensity(level) {
   const prev = currentIntensity;
   currentIntensity = clamped;
 
-  // Switch MP3 track if intensity category changed
+  // Switch MP3 track if intensity category changed — skip old procedural system
   if (musicEnabled) {
     const trackKey = getMusicTrackForState(currentEra, clamped);
     if (trackKey !== currentTrackKey) {
       playMusicTrack(trackKey);
     }
+    return; // MP3 handles everything — don't run old procedural music below
   }
 
   const FADE = 0.5; // seconds for crossfade

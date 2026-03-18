@@ -2,6 +2,6 @@
 node_modules/
 .DS_Store
 Thumbs.db
-*.png
-music_*.mp3
-sfx_*.mp3
+# Ignore original uncompressed source files in project root only
+/*.png
+/*.mp3
