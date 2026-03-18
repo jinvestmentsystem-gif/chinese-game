@@ -130,7 +130,7 @@ async function renderChengyu() {
       letter-spacing: 0.06em;
     }
     .cy-word { font-size: 1.3rem; font-weight: 700; color: var(--accent-gold); margin-bottom: 4px; }
-    .cy-pinyin { font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 6px; }
+    .cy-pinyin { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 6px; }
     .cy-meaning { margin-bottom: 4px; font-size: 0.92rem; }
     .cy-origin { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 4px; }
     .cy-example { font-size: 0.85rem; color: var(--accent-jade); }
@@ -196,7 +196,7 @@ async function renderChengyu() {
       transition: width 0.5s ease-out;
     }
     .ach-reward {
-      font-size: 0.82rem;
+      font-size: 0.95rem;
       color: var(--accent-gold);
       font-weight: 600;
       flex-shrink: 0;
@@ -243,7 +243,7 @@ async function renderChengyu() {
       margin-bottom: 4px;
     }
     .title-desc {
-      font-size: 0.82rem;
+      font-size: 0.95rem;
       color: var(--text-secondary);
     }
     .title-active-badge {

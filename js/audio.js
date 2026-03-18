@@ -827,8 +827,6 @@ export function initAudio() {
 }
 
 export function playMusic(era) {
-  if (!audioCtx) return;
-
   stopMusic();
 
   if (!musicEnabled) return;
@@ -836,7 +834,7 @@ export function playMusic(era) {
   currentEra       = era || 'menu';
   currentIntensity = 0;
 
-  // Use MP3 track instead of procedural ambient
+  // Use MP3 track via Howler (doesn't need our audioCtx)
   const trackKey = getMusicTrackForState(currentEra, currentIntensity);
   playMusicTrack(trackKey);
 }
@@ -860,7 +858,6 @@ export function stopMusic() {
 
 // ─── setMusicIntensity — 0–3, switches MP3 track accordingly ─────────────────
 export function setMusicIntensity(level) {
-  if (!audioCtx) return;
   const clamped = Math.max(0, Math.min(3, Math.floor(level)));
   if (clamped === currentIntensity) return;
 
@@ -919,9 +916,7 @@ export function setMusicIntensity(level) {
 
 // ─── playStinger — short dramatic musical bursts ──────────────────────────────
 export function playStinger(type) {
-  if (!audioCtx) return;
-
-  // Use MP3 stingers for victory/defeat if available
+  // Use MP3 stingers for victory/defeat (Howler — no audioCtx needed)
   if (type === 'victory' || type === 'boss_death') {
     ensureMusicTracks();
     if (MUSIC_TRACKS.victory) {
@@ -938,6 +933,9 @@ export function playStinger(type) {
       return;
     }
   }
+
+  // Procedural stingers need audioCtx
+  if (!audioCtx) return;
   const now = audioCtx.currentTime;
 
   switch (type) {

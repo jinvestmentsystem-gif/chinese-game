@@ -425,7 +425,7 @@ function renderSettings(params) {
         box-shadow: 0 0 8px rgba(46,204,138,0.4);
       }
       .settings-toggle-text {
-        font-size: 0.82rem;
+        font-size: 0.95rem;
         color: var(--text-secondary);
         min-width: 28px;
       }
@@ -464,7 +464,7 @@ function renderSettings(params) {
         border: none;
       }
       .settings-slider-val {
-        font-size: 0.82rem;
+        font-size: 0.95rem;
         color: var(--gold);
         min-width: 36px;
         text-align: right;
@@ -473,7 +473,7 @@ function renderSettings(params) {
 
       /* Readonly badge */
       .settings-readonly-badge {
-        font-size: 0.82rem;
+        font-size: 0.95rem;
         color: var(--text-secondary);
         background: rgba(255,255,255,0.05);
         padding: 4px 12px;
@@ -494,7 +494,7 @@ function renderSettings(params) {
         border: none;
         color: var(--text-secondary);
         padding: 6px 14px;
-        font-size: 0.82rem;
+        font-size: 0.95rem;
         cursor: pointer;
         font-family: var(--font-main);
         transition: all 0.2s ease;
@@ -526,7 +526,7 @@ function renderSettings(params) {
         margin-bottom: 2px;
       }
       .settings-profile-info {
-        font-size: 0.82rem;
+        font-size: 0.95rem;
         color: var(--text-secondary);
       }
 
@@ -586,7 +586,7 @@ function renderSettings(params) {
         color: var(--text-secondary);
         padding: 6px 14px;
         border-radius: 6px;
-        font-size: 0.82rem;
+        font-size: 0.95rem;
         cursor: pointer;
         font-family: var(--font-main);
       }
@@ -596,7 +596,7 @@ function renderSettings(params) {
         color: #ff6b6b;
         padding: 6px 14px;
         border-radius: 6px;
-        font-size: 0.82rem;
+        font-size: 0.95rem;
         cursor: pointer;
         font-weight: 700;
         font-family: var(--font-main);
@@ -615,7 +615,7 @@ function renderSettings(params) {
         margin-bottom: 4px;
       }
       .settings-about-version {
-        font-size: 0.82rem;
+        font-size: 0.95rem;
         color: var(--text-secondary);
         margin-bottom: 8px;
       }

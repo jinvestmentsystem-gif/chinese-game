@@ -441,12 +441,12 @@ function renderQuest(params) {
       border-radius:12px;
       background:${theme.accent}11;
     ">第 ${questIndex + 1} 关</div>
-    ${quest.objective ? `<div style="
-      font-size:0.82rem; color:#d4a017; margin-top:4px;
+    ${gameState.currentQuest?.objective ? `<div style="
+      font-size:0.92rem; color:#d4a017; margin-top:4px;
       padding:3px 10px; background:rgba(212,160,23,0.1);
       border:1px dashed rgba(212,160,23,0.3); border-radius:8px;
       letter-spacing:0.04em;
-    ">🎯 目标: ${quest.objective.desc} → +${quest.objective.bonusXP}XP +${quest.objective.bonusGold}金币</div>` : ''}
+    ">🎯 目标: ${gameState.currentQuest.objective.desc} → +${gameState.currentQuest.objective.bonusXP}XP +${gameState.currentQuest.objective.bonusGold}金币</div>` : ''}
   `;
   mapWrap.appendChild(titleBar);
 
@@ -544,7 +544,7 @@ function renderQuest(params) {
   ];
   const tipEl = document.createElement('div');
   tipEl.style.cssText = `
-    color:rgba(255,255,255,0.35); font-size:0.78rem; max-width:260px;
+    color:rgba(255,255,255,0.35); font-size: 0.92rem; max-width:260px;
     text-align:center; line-height:1.5; margin-top:8px;
     font-style:italic;
   `;
@@ -1485,7 +1485,7 @@ function renderQuest(params) {
             <span style="font-size:1.4rem;">♨️</span>
             <div>
               <div style="font-weight:700;color:#2ecc8a;">温泉</div>
-              <div style="font-size:0.82rem;color:var(--text-secondary);">+50% HP</div>
+              <div style="font-size: 0.95rem;color:var(--text-secondary);">+50% HP</div>
             </div>
           </button>
           <button class="rest-choice" data-hp="0.3" data-gold="15" data-wenli="0" style="
@@ -1498,7 +1498,7 @@ function renderQuest(params) {
             <span style="font-size:1.4rem;">🍶</span>
             <div>
               <div style="font-weight:700;color:#d4a017;">酒馆</div>
-              <div style="font-size:0.82rem;color:var(--text-secondary);">+30% HP · +15 金币</div>
+              <div style="font-size: 0.95rem;color:var(--text-secondary);">+30% HP · +15 金币</div>
             </div>
           </button>
           <button class="rest-choice" data-hp="0.2" data-gold="0" data-wenli="1" style="
@@ -1511,7 +1511,7 @@ function renderQuest(params) {
             <span style="font-size:1.4rem;">🏛️</span>
             <div>
               <div style="font-weight:700;color:#a855f7;">寺院</div>
-              <div style="font-size:0.82rem;color:var(--text-secondary);">+20% HP · +1 文力</div>
+              <div style="font-size: 0.95rem;color:var(--text-secondary);">+20% HP · +1 文力</div>
             </div>
           </button>
         </div>

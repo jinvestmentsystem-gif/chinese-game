@@ -4667,18 +4667,17 @@ input[type="text"]:focus, input[type="number"]:focus {
    This is the NUCLEAR OPTION to ensure nothing is unreadably small.
    ═══════════════════════════════════════════════════════════════════ */
 
-/* Base: EVERYTHING in a screen gets at least 15px */
+/* Base: EVERYTHING in a screen gets at least 16px */
 .screen, .screen * {
-  font-size: max(var(--fs, inherit), 15px);
+  font-size: max(var(--fs, inherit), 16px);
 }
 
-/* All buttons must be at least 15px */
+/* All buttons must be at least 16px */
 .screen button, .screen .btn, .screen [role="button"] {
-  font-size: 15px !important;
-  min-font-size: 15px;
+  font-size: 16px !important;
 }
-.screen .btn-primary { font-size: 16px !important; }
-.screen .btn-sm { font-size: 14px !important; }
+.screen .btn-primary { font-size: 17px !important; }
+.screen .btn-sm { font-size: 15px !important; }
 
 /* Headings must be bold and large */
 .screen h2 { font-size: 1.6rem !important; font-weight: 800 !important; }
@@ -4710,23 +4709,23 @@ input[type="text"]:focus, input[type="number"]:focus {
 /* Combat/boss option buttons — LARGE touch targets */
 .combat-option, .boss-option, .puzzle-option,
 .daily-option-enhanced, .arena-option {
-  font-size: 1.15rem !important;
-  padding: 16px 22px !important;
-  min-height: 52px !important;
+  font-size: 1.25rem !important;
+  padding: 18px 24px !important;
+  min-height: 56px !important;
   line-height: 1.5 !important;
 }
 
 /* Question prompts — the MOST important text */
 .combat-question, .boss-question, .puzzle-question,
 [class*="question"] {
-  font-size: 1.35rem !important;
+  font-size: 1.45rem !important;
   line-height: 1.6 !important;
-  font-weight: 600 !important;
+  font-weight: 700 !important;
 }
 
 /* HP/stat HUD text */
 [class*="hud"] *, [class*="hp-text"], [class*="hp-label"] {
-  font-size: 0.9rem !important;
+  font-size: 0.95rem !important;
 }
 
 /* Info/tip text — still readable */

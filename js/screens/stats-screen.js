@@ -485,7 +485,7 @@ function renderStats(params) {
         text-align: center;
       }
       .stats-num-label {
-        font-size: 0.82rem;
+        font-size: 0.95rem;
         color: var(--text-secondary);
         flex: 1;
       }
@@ -511,7 +511,7 @@ function renderStats(params) {
         flex-shrink: 0;
       }
       .stats-pie-labels {
-        font-size: 0.78rem;
+        font-size: 0.92rem;
         color: var(--text-secondary);
         display: flex;
         flex-direction: column;
@@ -558,7 +558,7 @@ function renderStats(params) {
         color: var(--jade);
       }
       .stats-trend {
-        font-size: 0.75rem;
+        font-size: 0.92rem;
         padding: 2px 8px;
         border-radius: 10px;
       }
@@ -600,7 +600,7 @@ function renderStats(params) {
         border-radius: 0 5px 5px 0;
       }
       .stats-subject-detail {
-        font-size: 0.75rem;
+        font-size: 0.92rem;
         color: var(--text-dim);
       }
 
@@ -624,7 +624,7 @@ function renderStats(params) {
         margin-bottom: 4px;
       }
       .stats-combat-label {
-        font-size: 0.78rem;
+        font-size: 0.92rem;
         color: var(--text-secondary);
         margin-bottom: 8px;
       }
@@ -707,7 +707,7 @@ function renderStats(params) {
         font-weight: 700;
       }
       .stats-timeline-detail {
-        font-size: 0.75rem;
+        font-size: 0.92rem;
         color: var(--text-dim);
       }
 
@@ -758,7 +758,7 @@ function renderStats(params) {
         line-height: 1;
       }
       .stats-engage-label {
-        font-size: 0.75rem;
+        font-size: 0.92rem;
         color: var(--text-secondary);
       }
 

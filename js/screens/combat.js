@@ -668,7 +668,7 @@ function renderCombat() {
         /* ── Narrative strip ── */
         .combat-narrative {
           font-style: italic;
-          font-size: 0.82rem;
+          font-size: 0.95rem;
           color: #d4a017;
           text-align: center;
           padding: 4px 16px;
@@ -699,7 +699,7 @@ function renderCombat() {
           display: inline-block;
           background: rgba(142,68,173,0.85);
           color: #fff;
-          font-size: 0.82rem;
+          font-size: 0.95rem;
           font-weight: 700;
           padding: 3px 10px;
           border-radius: 5px;
