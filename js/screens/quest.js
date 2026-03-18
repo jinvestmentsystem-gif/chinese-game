@@ -438,6 +438,12 @@ function renderQuest(params) {
       border-radius:12px;
       background:${theme.accent}11;
     ">第 ${questIndex + 1} 关</div>
+    ${quest.objective ? `<div style="
+      font-size:0.82rem; color:#d4a017; margin-top:4px;
+      padding:3px 10px; background:rgba(212,160,23,0.1);
+      border:1px dashed rgba(212,160,23,0.3); border-radius:8px;
+      letter-spacing:0.04em;
+    ">🎯 目标: ${quest.objective.desc} → +${quest.objective.bonusXP}XP +${quest.objective.bonusGold}金币</div>` : ''}
   `;
   mapWrap.appendChild(titleBar);
 
@@ -1454,64 +1460,75 @@ function renderQuest(params) {
           letter-spacing:0.03em;
         ">${narrative}</div>
 
-        <!-- HP restore bar -->
+        <!-- Strategic rest choices -->
         <div style="
-          width:100%; max-width:280px;
+          width:100%; max-width:340px;
+          display:flex; flex-direction:column; gap:10px;
           animation: rest-fade-in 0.6s ease-out 0.6s both;
         ">
-          <div style="font-size:0.85rem; color:rgba(255,255,255,0.5); text-align:center; margin-bottom:6px;">
-            HP 恢复
+          <div style="font-size:0.85rem; color:rgba(255,255,255,0.5); text-align:center; margin-bottom:2px;">
+            选择休息方式
           </div>
-          <div style="
-            width:100%; height:14px; border-radius:7px;
-            background:rgba(255,255,255,0.1); overflow:hidden;
-            border:1px solid rgba(46,204,138,0.3);
+          <button class="rest-choice" data-hp="0.5" data-gold="0" data-wenli="0" style="
+            display:flex; align-items:center; gap:12px; padding:12px 16px;
+            background:rgba(46,204,138,0.1); border:1.5px solid rgba(46,204,138,0.35);
+            border-radius:10px; cursor:pointer; font-family:var(--font-main);
+            color:var(--text-primary); font-size:0.95rem; text-align:left;
+            transition:all 0.2s; width:100%;
           ">
-            <div id="rest-hp-fill" style="
-              height:100%; border-radius:7px;
-              background: linear-gradient(90deg, #27ae60, #2ecc8a);
-              width: ${(hpBefore / maxHp) * 100}%;
-              animation: hp-fill-anim 1.5s ease-out 1s both;
-              box-shadow: 0 0 8px rgba(46,204,138,0.4);
-            "></div>
-          </div>
-          <div style="
-            font-size:0.9rem; color:#2ecc8a; text-align:center; margin-top:6px;
-            animation: rest-fade-in 0.5s ease-out 2s both; opacity:0;
-            font-weight:700;
-          ">+${restoreAmount} HP</div>
+            <span style="font-size:1.4rem;">♨️</span>
+            <div>
+              <div style="font-weight:700;color:#2ecc8a;">温泉</div>
+              <div style="font-size:0.82rem;color:var(--text-secondary);">+50% HP</div>
+            </div>
+          </button>
+          <button class="rest-choice" data-hp="0.3" data-gold="15" data-wenli="0" style="
+            display:flex; align-items:center; gap:12px; padding:12px 16px;
+            background:rgba(212,160,23,0.1); border:1.5px solid rgba(212,160,23,0.35);
+            border-radius:10px; cursor:pointer; font-family:var(--font-main);
+            color:var(--text-primary); font-size:0.95rem; text-align:left;
+            transition:all 0.2s; width:100%;
+          ">
+            <span style="font-size:1.4rem;">🍶</span>
+            <div>
+              <div style="font-weight:700;color:#d4a017;">酒馆</div>
+              <div style="font-size:0.82rem;color:var(--text-secondary);">+30% HP · +15 金币</div>
+            </div>
+          </button>
+          <button class="rest-choice" data-hp="0.2" data-gold="0" data-wenli="1" style="
+            display:flex; align-items:center; gap:12px; padding:12px 16px;
+            background:rgba(142,68,173,0.1); border:1.5px solid rgba(142,68,173,0.35);
+            border-radius:10px; cursor:pointer; font-family:var(--font-main);
+            color:var(--text-primary); font-size:0.95rem; text-align:left;
+            transition:all 0.2s; width:100%;
+          ">
+            <span style="font-size:1.4rem;">🏛️</span>
+            <div>
+              <div style="font-weight:700;color:#a855f7;">寺院</div>
+              <div style="font-size:0.82rem;color:var(--text-secondary);">+20% HP · +1 文力</div>
+            </div>
+          </button>
         </div>
-
-        <!-- Continue button -->
-        <button id="btn-rest-continue" style="
-          padding: 12px 36px;
-          background: linear-gradient(145deg, rgba(0,0,0,0.6), rgba(0,20,10,0.7));
-          border: 2px solid #2ecc8a;
-          color: #2ecc8a;
-          font-size: 1.2rem;
-          font-weight: 700;
-          letter-spacing: 0.15em;
-          cursor: pointer;
-          border-radius: 8px;
-          font-family: var(--font-main);
-          opacity:0;
-          animation: rest-fade-in 0.5s ease-out 2.5s both,
-                     rest-glow 2s ease-in-out 3s infinite;
-          transition: background 0.2s, transform 0.15s;
-        ">继续前进</button>
       `;
 
       div.appendChild(overlay);
       requestAnimationFrame(() => { overlay.style.opacity = '1'; });
 
-      // Apply HP restore
-      profile.hp = hpAfter;
-      gameState.save();
-
       setTimeout(() => {
-        const btn = overlay.querySelector('#btn-rest-continue');
-        if (btn) {
+        overlay.querySelectorAll('.rest-choice').forEach(btn => {
+          btn.addEventListener('mouseenter', () => { btn.style.transform = 'scale(1.02)'; });
+          btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
           btn.addEventListener('click', () => {
+            const hpPct = parseFloat(btn.dataset.hp);
+            const goldBonus = parseInt(btn.dataset.gold);
+            const wenliBonus = parseInt(btn.dataset.wenli);
+
+            const restoreAmt = Math.floor(maxHp * hpPct);
+            profile.hp = Math.min(maxHp, hpBefore + restoreAmt);
+            if (goldBonus) profile.gold = (profile.gold || 0) + goldBonus;
+            if (wenliBonus) profile.wenli = Math.min(profile.maxWenli, (profile.wenli || 0) + wenliBonus);
+            gameState.save();
+
             try { playSound('heal'); } catch(_) {}
             enc.completed = true;
             overlay.style.opacity = '0';
@@ -1529,7 +1546,7 @@ function renderQuest(params) {
               }
             }, 400);
           });
-        }
+        });
       }, 0);
     }
 

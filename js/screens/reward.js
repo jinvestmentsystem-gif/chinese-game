@@ -359,11 +359,32 @@ function renderReward() {
   // Calculate XP and Gold
   const baseXP = results.correct * 10;
   const comboBonus = results.maxCombo * 5;
-  const totalXP = baseXP + comboBonus;
-  results.xpEarned = totalXP;
-  const goldEarned = calculateGoldReward(results);
-  results.goldEarned = goldEarned;
+  let totalXP = baseXP + comboBonus;
+  let goldEarned = calculateGoldReward(results);
   const isPerfect = results.total > 0 && results.correct === results.total;
+
+  // ── Check quest objective ──
+  let objectiveCompleted = false;
+  const objective = quest.objective;
+  if (objective) {
+    quest._endHp = profile.hp;
+    quest._elapsed = Date.now() - (quest._startTime || Date.now());
+    objectiveCompleted = objective.check(results, quest);
+    if (objectiveCompleted) {
+      totalXP += objective.bonusXP;
+      goldEarned += objective.bonusGold;
+    }
+  }
+
+  // ── Apply encounter modifier XP/gold multipliers ──
+  const activeModifiers = quest.encounters?.filter(e => e.modifier && e.completed) || [];
+  for (const enc of activeModifiers) {
+    if (enc.modifier.xpMult) totalXP = Math.round(totalXP * enc.modifier.xpMult);
+    if (enc.modifier.goldMult) goldEarned = Math.round(goldEarned * enc.modifier.goldMult);
+  }
+
+  results.xpEarned = totalXP;
+  results.goldEarned = goldEarned;
 
   // Apply XP (also adds gold internally)
   const levelUpInfo = addXP(totalXP);
@@ -681,6 +702,29 @@ function renderReward() {
     card.appendChild(starLabel);
     buildStarRating(accuracy, card, null);
   }, 3000);
+
+  // Step 5.5 (3200ms): objective result
+  if (objective) {
+    setTimeout(() => {
+      const objEl = document.createElement('div');
+      objEl.style.cssText = `
+        margin-top:8px; padding:8px 14px; border-radius:8px; text-align:center;
+        font-size:0.95rem; font-weight:700; transform:scale(0);
+        transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+        ${objectiveCompleted
+          ? 'background:rgba(46,204,138,0.12); border:1px solid rgba(46,204,138,0.3); color:#2ecc8a;'
+          : 'background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:var(--text-dim);'}
+      `;
+      objEl.textContent = objectiveCompleted
+        ? `🎯 目标达成: ${objective.desc} → +${objective.bonusXP}XP +${objective.bonusGold}金币`
+        : `🎯 目标未达成: ${objective.desc}`;
+      card.appendChild(objEl);
+      requestAnimationFrame(() => requestAnimationFrame(() => { objEl.style.transform = 'scale(1)'; }));
+      if (objectiveCompleted) {
+        try { playSound('correct'); } catch (_) {}
+      }
+    }, 3200);
+  }
 
   // Step 6 (3500ms): engagement hook slides in, then "继续" button fades in with pulse glow
   setTimeout(() => {

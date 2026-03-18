@@ -355,6 +355,7 @@ function renderCombat() {
   let qIndex = 0;
   const effectiveMaxHp = getEffectiveMaxHp(profile);
   let playerHp = profile.hp;
+  const modifier = encounter.modifier || null; // Encounter modifier (elite, blitz, etc.)
 
   // Start battle music — explicitly set era and intensity
   const chapterId = gameState.currentQuest?.chapterId || 1;
@@ -366,10 +367,14 @@ function renderCombat() {
   const questIndex = gameState.currentQuest?.questIndex || 0;
   const enemyType = selectEnemyType(chapterId, questIndex);
   const enemyName = enemyType.name;
-  const baseTimer = getTimerDuration(profile);
+  const baseTimer = modifier?.timerMult
+    ? Math.round(getTimerDuration(profile) * modifier.timerMult)
+    : getTimerDuration(profile);
 
-  // Real enemy HP from enemy type
-  let enemyMaxHp = enemyType.hp;
+  // Real enemy HP from enemy type (scaled by modifier)
+  let enemyMaxHp = modifier?.enemyHpMult
+    ? Math.round(enemyType.hp * modifier.enemyHpMult)
+    : enemyType.hp;
   let enemyHp = enemyMaxHp;
   let combo = 0;
   let timerInterval = null;
@@ -1049,6 +1054,13 @@ function renderCombat() {
           <div style="font-size:0.92rem; color:var(--text-secondary); opacity:0.7; white-space:nowrap;">答对: +XP +金币 +连击</div>
         </div>
 
+        <!-- Modifier banner (if active) -->
+        ${modifier ? `<div style="
+          text-align:center; padding:4px 12px; margin-bottom:4px;
+          background:rgba(212,160,23,0.12); border:1px solid rgba(212,160,23,0.3);
+          border-radius:6px; font-size:0.88rem; color:#d4a017; letter-spacing:0.06em;
+        ">⚡ ${modifier.name} — ${modifier.desc}</div>` : ''}
+
         <!-- Narrative -->
         <div class="combat-narrative">${combatNarrative}</div>
 
@@ -1624,6 +1636,10 @@ function renderCombat() {
       if (talents.executePct && enemyHp < (enemyMaxHp * 0.3)) {
         dmg = Math.round(dmg * (1 + talents.executePct / 100));
       }
+
+      // Apply encounter modifier effects
+      if (modifier?.dmgMult) dmg = Math.round(dmg * modifier.dmgMult);
+      if (modifier?.comboDmgMult && combo >= 3) dmg = Math.round(dmg * modifier.comboDmgMult);
 
       enemyHp = Math.max(0, enemyHp - dmg);
 

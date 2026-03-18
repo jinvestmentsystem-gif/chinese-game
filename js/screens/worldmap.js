@@ -6,6 +6,7 @@ import { playMusic, setMusicIntensity } from '../audio.js';
 import { getXPProgress, getEffectiveMaxHp, checkDailyLogin } from '../progression.js';
 import { showTutorial } from '../tutorial.js';
 import { getReviewStats } from '../spaced-repetition.js';
+import { showToast } from '../toast.js';
 
 function getGradeLabel(tier) {
   const map = { grade1: '一二年级', grade3: '三年级', grade4: '四年级', grade5: '五六年级', grade7: '七年级', grade8: '八九年级' };
@@ -436,6 +437,7 @@ function renderWorldMap() {
           <button class="btn btn-sm" id="btn-daily-reward" style="width:100%;margin-bottom:4px;" title="每日奖励">${dailyClaimed ? '已领' : '🎁 每日奖励'}</button>
           <button class="btn btn-sm" id="btn-chengyu" style="width:100%;margin-bottom:4px;" title="查看成语">📜 成语</button>
           <button class="btn btn-sm" id="btn-stats" style="width:100%;margin-bottom:4px;" title="学习统计">📊 统计</button>
+          <button class="btn btn-sm" id="btn-respec" style="width:100%;margin-bottom:4px;" title="重置天赋 (200金币)">🔄 重置天赋</button>
           <button class="btn btn-sm" id="btn-settings" style="width:100%;" title="设置">⚙ 设置</button>
         </div>
       </div>
@@ -598,6 +600,28 @@ function renderWorldMap() {
     div.querySelector('#btn-chengyu')?.addEventListener('click', () => showScreen('chengyu'));
     div.querySelector('#btn-stats')?.addEventListener('click', () => showScreen('stats', { returnTo: 'worldmap' }));
     div.querySelector('#btn-settings')?.addEventListener('click', () => showScreen('settings', { returnTo: 'worldmap' }));
+
+    // Talent respec button
+    div.querySelector('#btn-respec')?.addEventListener('click', () => {
+      const RESPEC_COST = 200;
+      if ((profile.gold || 0) < RESPEC_COST) {
+        showToast(`金币不足 (需要${RESPEC_COST})`, { type: 'error', duration: 2500 });
+        return;
+      }
+      // Count total talent points spent
+      const totalSpent = Object.values(profile.talents || {}).reduce((sum, rank) => sum + rank, 0);
+      if (totalSpent === 0) {
+        showToast('没有已学天赋可以重置', { type: 'info', duration: 2000 });
+        return;
+      }
+      if (!confirm(`花费 ${RESPEC_COST} 金币重置所有天赋？\n将返还 ${totalSpent} 天赋点`)) return;
+      profile.gold -= RESPEC_COST;
+      profile.talentPoints = (profile.talentPoints || 0) + totalSpent;
+      profile.talents = {};
+      gameState.save();
+      showToast(`天赋已重置！返还 ${totalSpent} 天赋点`, { type: 'talent', duration: 3000 });
+      showScreen('worldmap'); // Refresh to show updated state
+    });
 
     // "More" popup toggle
     const btnMore = div.querySelector('#btn-more');
