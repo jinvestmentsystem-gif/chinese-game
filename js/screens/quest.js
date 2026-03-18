@@ -30,7 +30,7 @@ const CHAPTER_BOSS_NAMES = {
 // Era-specific visual themes
 const ERA_THEME = {
   xianqin: {
-    bg:     'linear-gradient(180deg, #1a0e00 0%, #2d1800 25%, #3d2200 50%, #2a1500 75%, #1a0c00 100%)',
+    bg:     'linear-gradient(180deg, rgba(26,14,0,0.7) 0%, rgba(45,24,0,0.5) 30%, rgba(61,34,0,0.3) 50%, rgba(42,21,0,0.5) 70%, rgba(26,12,0,0.7) 100%)',
     accent: '#c8861a',
     sky:    '#1a0e00',
     cloud:  'rgba(180,130,60,0.18)',
@@ -43,7 +43,7 @@ const ERA_THEME = {
     starColor: '255,200,120',
   },
   han: {
-    bg:     'linear-gradient(180deg, #1a0000 0%, #2d0808 25%, #400a0a 50%, #2d0505 75%, #1a0000 100%)',
+    bg:     'linear-gradient(180deg, rgba(26,0,0,0.7) 0%, rgba(45,8,8,0.5) 30%, rgba(64,10,10,0.3) 50%, rgba(45,5,5,0.5) 70%, rgba(26,0,0,0.7) 100%)',
     accent: '#e03030',
     sky:    '#1a0000',
     cloud:  'rgba(200,80,80,0.18)',
@@ -56,7 +56,7 @@ const ERA_THEME = {
     starColor: '255,160,160',
   },
   tang: {
-    bg:     'linear-gradient(180deg, #0d0a00 0%, #1e1600 25%, #2e2000 50%, #1e1600 75%, #0d0a00 100%)',
+    bg:     'linear-gradient(180deg, rgba(13,10,0,0.7) 0%, rgba(30,22,0,0.5) 30%, rgba(46,32,0,0.3) 50%, rgba(30,22,0,0.5) 70%, rgba(13,10,0,0.7) 100%)',
     accent: '#d4a017',
     sky:    '#0d0a00',
     cloud:  'rgba(212,160,23,0.18)',
@@ -69,7 +69,7 @@ const ERA_THEME = {
     starColor: '255,220,100',
   },
   song: {
-    bg:     'linear-gradient(180deg, #001a10 0%, #002818 25%, #00381e 50%, #002818 75%, #001a10 100%)',
+    bg:     'linear-gradient(180deg, rgba(0,26,16,0.7) 0%, rgba(0,40,24,0.5) 30%, rgba(0,56,30,0.3) 50%, rgba(0,40,24,0.5) 70%, rgba(0,26,16,0.7) 100%)',
     accent: '#2ecc8a',
     sky:    '#001a10',
     cloud:  'rgba(46,204,138,0.15)',
@@ -82,7 +82,7 @@ const ERA_THEME = {
     starColor: '100,255,180',
   },
   modern: {
-    bg:     'linear-gradient(180deg, #0a0018 0%, #120028 25%, #1a0038 50%, #120028 75%, #0a0018 100%)',
+    bg:     'linear-gradient(180deg, rgba(10,0,24,0.7) 0%, rgba(18,0,40,0.5) 30%, rgba(26,0,56,0.3) 50%, rgba(18,0,40,0.5) 70%, rgba(10,0,24,0.7) 100%)',
     accent: '#9060ff',
     sky:    '#0a0018',
     cloud:  'rgba(140,80,255,0.15)',

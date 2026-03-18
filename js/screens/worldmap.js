@@ -173,29 +173,20 @@ function buildPathConnector(fromColor, toColor) {
 
 // ── Landscape Silhouette Background (with parallax layers) ───────────────────
 function buildLandscapeBg() {
+  // Minimal overlay — the painted bg_worldmap.webp provides the main visual
   return `
-    <div class="map-bg-silhouette map-parallax-wrap" aria-hidden="true">
-      <!-- Far mountains (slowest parallax) -->
+    <div class="map-bg-silhouette map-parallax-wrap" aria-hidden="true" style="opacity:0.3;">
       <div class="map-parallax-layer map-parallax-far">
         <svg viewBox="0 0 900 300" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet">
           <path d="M0 300 L0 180 Q50 100 120 160 Q180 80 260 130 Q320 50 400 110
                    Q460 30 540 100 Q610 50 680 120 Q740 70 800 130 Q850 90 900 150 L900 300 Z"
-            fill="rgba(30,20,60,0.8)"/>
-          <circle cx="820" cy="60" r="28" fill="rgba(212,160,23,0.08)"/>
-          <circle cx="820" cy="60" r="22" fill="rgba(212,160,23,0.05)"/>
+            fill="rgba(30,20,60,0.6)"/>
         </svg>
       </div>
-      <!-- Near hills + trees (faster parallax) -->
       <div class="map-parallax-layer map-parallax-near">
         <svg viewBox="0 0 900 300" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet">
           <path d="M0 300 Q100 240 200 260 Q350 200 500 250 Q650 210 800 240 Q860 230 900 250 L900 300 Z"
-            fill="rgba(20,10,40,0.9)"/>
-          <polygon points="80,215 88,240 72,240" fill="rgba(20,10,40,0.95)"/>
-          <polygon points="90,200 96,220 84,220" fill="rgba(20,10,40,0.95)"/>
-          <polygon points="160,210 170,238 150,238" fill="rgba(20,10,40,0.95)"/>
-          <polygon points="370,220 378,244 362,244" fill="rgba(20,10,40,0.95)"/>
-          <polygon points="650,218 658,242 642,242" fill="rgba(20,10,40,0.95)"/>
-          <polygon points="750,210 758,238 742,238" fill="rgba(20,10,40,0.95)"/>
+            fill="rgba(20,10,40,0.5)"/>
         </svg>
       </div>
     </div>`;
