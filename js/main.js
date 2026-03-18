@@ -213,13 +213,13 @@ registerScreen('title', () => {
       </div>
     </div>
 
-    <!-- ===== SUBTITLE: WORD HERO letter-by-letter ===== -->
-    <p class="title-subtitle">
-      <span class="title-letter title-letter-1">W</span><span class="title-letter title-letter-2">O</span><span class="title-letter title-letter-3">R</span><span class="title-letter title-letter-4">D</span><span class="title-letter title-letter-sp">&nbsp;</span><span class="title-letter title-letter-5">H</span><span class="title-letter title-letter-6">E</span><span class="title-letter title-letter-7">R</span><span class="title-letter title-letter-8">O</span>
+    <!-- ===== SUBTITLE ===== -->
+    <p class="title-subtitle" style="letter-spacing:0.3em;">
+      <span class="title-letter title-letter-1">W</span><span class="title-letter title-letter-2">E</span><span class="title-letter title-letter-3">N</span><span class="title-letter title-letter-sp">&nbsp;</span><span class="title-letter title-letter-4">D</span><span class="title-letter title-letter-5">I</span><span class="title-letter title-letter-6">N</span><span class="title-letter title-letter-7">G</span><span class="title-letter title-letter-sp">&nbsp;</span><span class="title-letter title-letter-8">Q</span><span class="title-letter title-letter-9">I</span><span class="title-letter title-letter-10">A</span><span class="title-letter title-letter-11">N</span><span class="title-letter title-letter-sp">&nbsp;</span><span class="title-letter title-letter-12">K</span><span class="title-letter title-letter-13">U</span><span class="title-letter title-letter-14">N</span>
     </p>
 
     <!-- ===== TAGLINE ===== -->
-    <p class="title-tagline">以文字之力，守护千年文明</p>
+    <p class="title-tagline">以文定乾坤，守护千年文明</p>
 
     <!-- ===== MENU BUTTONS ===== -->
     <div class="title-menu">
