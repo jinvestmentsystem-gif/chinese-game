@@ -1,5 +1,5 @@
 // sw.js — Network-first service worker with versioned cache
-const CACHE_NAME = 'wdqk-v2026031824';
+const CACHE_NAME = 'wdqk-v2026031825';
 
 self.addEventListener('install', () => self.skipWaiting());
 

@@ -491,6 +491,20 @@ function renderReward() {
   const chapterQuestTotal = CHAPTER_QUESTS[quest.chapterId] || Infinity;
   const isChapterComplete = cp.questsCompleted >= chapterQuestTotal;
 
+  // Grant chapter rewards immediately (idempotent — chaptersRewarded guard prevents double-claim)
+  // This ensures rewards are granted even if player clicks "返回地图" instead of "继续"
+  if (isChapterComplete) {
+    if (!profile.chaptersRewarded) profile.chaptersRewarded = [];
+    if (!profile.chaptersRewarded.includes(quest.chapterId)) {
+      profile.gold = (profile.gold || 0) + 100;
+      profile.stats.totalGoldEarned = (profile.stats.totalGoldEarned || 0) + 100;
+      profile.talentPoints = (profile.talentPoints || 0) + 1;
+      profile.chaptersRewarded.push(quest.chapterId);
+      gameState.save();
+      showToast('章节通关！+100金币 +1天赋点', { type: 'achievement', duration: 3500 });
+    }
+  }
+
   // Continue / map buttons container — hidden until step 7
   const btnRow = document.createElement('div');
   btnRow.style.cssText = 'display:flex; gap:12px; opacity:0; transition:opacity 0.5s ease-out;';
