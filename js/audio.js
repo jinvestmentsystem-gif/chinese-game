@@ -63,11 +63,16 @@ function playMusicTrack(key) {
   howl.play();
 }
 
+let _stopGen = 0; // Generation counter to prevent stale stop() calls
 function stopMusicTrack() {
   if (currentHowl) {
+    const gen = ++_stopGen;
     currentHowl.fade(currentHowl.volume(), 0, 300);
     const h = currentHowl;
-    setTimeout(() => { try { h.stop(); } catch(_) {} }, 350);
+    setTimeout(() => {
+      // Only stop if no new track was started since this fade began
+      if (_stopGen === gen) { try { h.stop(); } catch(_) {} }
+    }, 350);
     currentHowl = null;
     currentTrackKey = null;
   }
@@ -845,15 +850,21 @@ export function initAudio() {
 }
 
 export function playMusic(era) {
+  if (!musicEnabled) { stopMusic(); return; }
+
+  const newEra = era || 'menu';
+  const trackKey = getMusicTrackForState(newEra, 0);
+
+  // If the same track is already playing, just update era — don't restart
+  if (trackKey === currentTrackKey && currentHowl?.playing()) {
+    currentEra = newEra;
+    currentIntensity = 0;
+    return;
+  }
+
   stopMusic();
-
-  if (!musicEnabled) return;
-
-  currentEra       = era || 'menu';
+  currentEra       = newEra;
   currentIntensity = 0;
-
-  // Use MP3 track via Howler (doesn't need our audioCtx)
-  const trackKey = getMusicTrackForState(currentEra, currentIntensity);
   playMusicTrack(trackKey);
 }
 
