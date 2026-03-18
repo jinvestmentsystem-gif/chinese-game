@@ -105,89 +105,45 @@ function renderPuzzle() {
       overflow:hidden;
     }
     .puzzle-hud {
-      display:flex; justify-content:space-between; align-items:flex-start;
-      width:100%; padding:14px 32px; padding-top:44px; box-sizing:border-box;
-      flex-shrink:0;
+      display:flex; justify-content:space-between; align-items:center;
+      width:100%; padding:8px 20px; padding-top:10px; box-sizing:border-box;
+      flex-shrink:0; gap:12px;
     }
-    .puzzle-hp-section { text-align:center; }
-    .puzzle-hp-label { font-weight:800; font-size:0.95rem; margin-bottom:4px; }
+    .puzzle-hp-section { text-align:center; flex:1; }
+    .puzzle-hp-label { font-weight:800; font-size:0.95rem; margin-bottom:3px; }
     .puzzle-hp-bg {
-      width:180px; height:14px; background:var(--bg-secondary);
-      border-radius:7px; overflow:hidden; margin:0 auto;
+      width:100%; max-width:160px; height:10px; background:var(--bg-secondary);
+      border-radius:5px; overflow:hidden; margin:0 auto;
     }
-    .puzzle-hp-bar { height:100%; border-radius:7px; transition:width 0.4s; }
+    .puzzle-hp-bar { height:100%; border-radius:5px; transition:width 0.4s; }
     .puzzle-hp-player { background:var(--hp-green); }
     .puzzle-hp-seal {
       background: linear-gradient(90deg, #7c3aed, #a855f7);
     }
-    .puzzle-arena {
-      display:flex; align-items:center; justify-content:space-between;
-      width:100%; padding:0 36px; box-sizing:border-box;
-      flex-shrink:0;
-    }
-    .puzzle-player-sprite {
-      display:flex; flex-direction:column; align-items:center;
-      position:relative;
-    }
-    .puzzle-vs {
-      font-size:1.8rem; font-weight:900; color:var(--accent-gold);
-      text-shadow: 0 0 12px #d4a017;
-      flex:1; text-align:center;
-    }
-    .puzzle-seal-icon {
-      width:100px; height:130px;
-      border:3px solid #a855f7;
-      border-radius:8px;
-      background:rgba(60,20,90,0.7);
-      display:flex; flex-direction:column; align-items:center; justify-content:center;
-      box-shadow: 0 0 28px rgba(168,85,247,0.7), inset 0 0 24px rgba(124,58,237,0.4),
-                  0 0 60px rgba(168,85,247,0.2);
-      position:relative; overflow:hidden;
-      transition: box-shadow 0.3s, border-color 0.3s;
-    }
-    .puzzle-seal-icon .seal-char {
-      font-size:3rem; font-weight:900; color:#d8b4fe;
-      text-shadow: 0 0 18px #a855f7, 0 0 36px #7c3aed;
-      line-height:1;
-    }
-    .puzzle-seal-icon .seal-label {
-      font-size:0.9rem; color:#c084fc; margin-top:6px; letter-spacing:2px;
-    }
-    .puzzle-seal-icon::before {
-      content:'';
-      position:absolute; inset:0;
-      background:repeating-linear-gradient(
-        45deg,
-        transparent, transparent 6px,
-        rgba(168,85,247,0.08) 6px, rgba(168,85,247,0.08) 7px
-      );
-    }
-    @keyframes sealGlow {
-      0%,100% { box-shadow: 0 0 28px rgba(168,85,247,0.7), inset 0 0 24px rgba(124,58,237,0.4), 0 0 60px rgba(168,85,247,0.2); }
-      50%      { box-shadow: 0 0 42px rgba(168,85,247,0.9), inset 0 0 32px rgba(124,58,237,0.6), 0 0 80px rgba(168,85,247,0.35); }
-    }
-    .puzzle-seal-icon { animation: sealGlow 2.4s ease-in-out infinite; }
+    .puzzle-arena { display:none; }
+    .puzzle-player-sprite { display:none; }
+    .puzzle-vs { display:none; }
+    .puzzle-seal-icon { display:none; }
     .puzzle-narrative {
-      font-style:italic; font-size:0.92rem; color:#c084fc;
-      text-align:center; margin:0 24px 4px;
+      font-style:italic; font-size:1rem; color:#c084fc;
+      text-align:center; margin:0 16px 8px;
       text-shadow: 0 0 8px rgba(168,85,247,0.5);
-      padding:7px 14px;
+      padding:6px 14px;
       border-radius:6px;
       background:rgba(60,20,90,0.3);
       border:1px solid rgba(124,58,237,0.3);
       flex-shrink:0;
     }
     .puzzle-scroll-box {
-      margin:0 24px 6px; padding:14px 18px;
-      background:rgba(30,25,15,0.9);
+      margin:0 16px 10px; padding:16px 20px;
+      background:rgba(30,25,15,0.92);
       border:2px solid #7c5a0a;
-      border-radius:8px;
+      border-radius:10px;
       box-shadow: inset 0 0 20px rgba(212,160,23,0.08), 0 0 12px rgba(124,90,10,0.3);
-      max-height:200px; overflow-y:auto;
-      font-size:1rem; line-height:1.85;
+      flex:1; overflow-y:auto; min-height:0;
+      font-size:1.1rem; line-height:2;
       color:#f0e0b0;
       position:relative;
-      flex-shrink:0;
     }
     .puzzle-scroll-box::before {
       content:'';
@@ -200,28 +156,29 @@ function renderPuzzle() {
       background:linear-gradient(90deg, transparent, #d4a017, transparent);
     }
     .puzzle-scroll-title {
-      font-size:0.95rem; font-weight:700; color:#d4a017;
+      font-size:1.05rem; font-weight:700; color:#d4a017;
       margin-bottom:8px; letter-spacing:2px;
     }
     .puzzle-progress {
-      font-size:0.95rem; color:var(--text-secondary);
-      text-align:center; margin-bottom:4px;
+      font-size:1rem; color:var(--text-secondary);
+      text-align:center; margin-bottom:6px;
       flex-shrink:0;
     }
     .puzzle-question {
-      font-size:1.4rem; margin:0 24px 8px; text-align:center; font-weight:600;
+      font-size:1.5rem; margin:0 16px 10px; text-align:center; font-weight:700;
       flex-shrink:0;
-      padding:10px 16px;
-      background:rgba(0,0,0,0.25);
-      border-radius:8px;
+      padding:12px 18px;
+      background:rgba(0,0,0,0.3);
+      border-radius:10px;
+      border:1px solid rgba(212,160,23,0.15);
     }
     .puzzle-options {
       display:grid; grid-template-columns:1fr 1fr;
-      gap:12px; margin:0 24px 8px; flex-shrink:0;
+      gap:10px; margin:0 16px 10px; flex-shrink:0;
     }
     .puzzle-options .puzzle-option {
-      padding:18px 24px; font-size:1.2rem;
-      min-height:56px; border-radius:8px;
+      padding:14px 18px; font-size:1.15rem;
+      min-height:50px; border-radius:8px;
       background:rgba(40,30,10,0.85);
       border:2px solid rgba(212,160,23,0.3);
       color:#f0e0b0; cursor:pointer;
@@ -245,8 +202,8 @@ function renderPuzzle() {
       color:#ffa8a8;
     }
     .puzzle-feedback {
-      margin:0 24px 4px; text-align:center;
-      font-size:1.1rem; min-height:32px;
+      margin:0 16px 6px; text-align:center;
+      font-size:1.1rem; min-height:28px;
       flex-shrink:0;
     }
     @keyframes sealCrack {
