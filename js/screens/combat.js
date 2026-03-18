@@ -12,6 +12,7 @@ import { shakeElement, lungeElement, slashEffect, screenFlash, floatingText } fr
 import { recordWrongAnswer, recordCorrectReview } from '../spaced-repetition.js';
 import { createCombatBackground, destroyCombatBackground } from '../pixi-backgrounds.js';
 import { confettiBurst } from '../celebrations.js';
+import { showToast } from '../toast.js';
 
 // ─── Enemy type system ──────────────────────────────────────────────────────
 const ENEMY_TYPES = [
@@ -2318,6 +2319,24 @@ function renderCombat() {
       }, 0);
       return;
     }
+
+    // Record enemy in bestiary
+    const enemySpriteKey = enemyType.sprite || 'enemy_moling';
+    if (!profile.bestiary) profile.bestiary = {};
+    const entry = profile.bestiary[enemySpriteKey] || { defeated: 0, firstSeen: Date.now() };
+    entry.defeated++;
+    profile.bestiary[enemySpriteKey] = entry;
+
+    // Update combo record
+    if (!profile.comboRecords) profile.comboRecords = { bestOverall: 0, bestPerChapter: {}, history: [] };
+    const questCombo = gameState.currentQuest?.results?.maxCombo || 0;
+    if (questCombo > profile.comboRecords.bestOverall) {
+      profile.comboRecords.bestOverall = questCombo;
+      showToast(`新连击记录！${questCombo}连击！`, { type: 'achievement', duration: 3000 });
+    }
+
+    // Update lastActiveTimestamp for comeback bonus
+    profile.lastActiveTimestamp = Date.now();
 
     // Combat victory confetti
     confettiBurst({ count: 40, force: 8, colors: ['#d4a017', '#f5c842', '#2ecc8a'] });

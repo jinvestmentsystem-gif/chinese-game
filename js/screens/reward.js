@@ -420,6 +420,21 @@ function renderReward() {
   profile.stats.maxCombo = Math.max(profile.stats.maxCombo, results.maxCombo || 0);
   profile.stats.totalXP  += totalXP;
 
+  // ── Update combo records ──
+  if (!profile.comboRecords) profile.comboRecords = { bestOverall: 0, bestPerChapter: {}, history: [] };
+  const questMaxCombo = results.maxCombo || 0;
+  if (questMaxCombo > 0) {
+    if (questMaxCombo > (profile.comboRecords.bestPerChapter[quest.chapterId] || 0)) {
+      profile.comboRecords.bestPerChapter[quest.chapterId] = questMaxCombo;
+    }
+    if (questMaxCombo > profile.comboRecords.bestOverall) {
+      profile.comboRecords.bestOverall = questMaxCombo;
+    }
+    profile.comboRecords.history.push({ combo: questMaxCombo, date: Date.now(), chapterId: quest.chapterId });
+    if (profile.comboRecords.history.length > 10) profile.comboRecords.history = profile.comboRecords.history.slice(-10);
+  }
+  profile.lastActiveTimestamp = Date.now();
+
   // Check if we just beat a boss
   const lastEnc = quest.encounters[quest.encounters.length - 1];
   if (lastEnc && lastEnc.type === 'boss' && lastEnc.completed) {

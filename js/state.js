@@ -62,6 +62,17 @@ const DEFAULT_PROFILE = {
   // Spaced repetition data: tracks wrong answers for review
   wrongAnswerLog: [],  // Array of { questionId, contentType, wrongCount, lastSeen, nextReview, correctStreak }
   masteredQuestions: [], // IDs of questions answered correctly 3+ times in a row
+  // ── Engagement systems ──
+  luckyWheel: { lastSpinDate: null, totalSpins: 0 },
+  bestiary: {},  // { enemyKey: { defeated: number, firstSeen: timestamp } }
+  weeklyBoss: { lastWeekId: null, defeated: false, bestTime: null },
+  lastActiveTimestamp: null,
+  comebackClaimed: null,
+  comboRecords: { bestOverall: 0, bestPerChapter: {}, history: [] },
+  enchantments: {},  // { itemId: { stat, value, label } }
+  companionFriendship: { level: 1, xp: 0, interactions: 0, lastInteractionDate: null },
+  seasonalEvents: {},
+  prestige: { level: 0, totalLevels: 0, bonuses: { xpMultiplier: 0, goldMultiplier: 0, startingGold: 0, statBonus: 0 } },
 };
 
 class GameState {
@@ -134,6 +145,17 @@ class GameState {
     // Migrate old profiles with 0 attack/defense to new base values
     if (p.attack === 0 && p.level === 1 && !p.equipment.weapon) p.attack = 5;
     if (p.defense === 0 && p.level === 1 && !p.equipment.armor) p.defense = 5;
+    // ── Engagement systems backfill ──
+    if (!p.luckyWheel)           p.luckyWheel = { lastSpinDate: null, totalSpins: 0 };
+    if (!p.bestiary)             p.bestiary = {};
+    if (!p.weeklyBoss)           p.weeklyBoss = { lastWeekId: null, defeated: false, bestTime: null };
+    if (!('lastActiveTimestamp' in p)) p.lastActiveTimestamp = null;
+    if (!('comebackClaimed' in p))    p.comebackClaimed = null;
+    if (!p.comboRecords)         p.comboRecords = { bestOverall: p.stats?.maxCombo || 0, bestPerChapter: {}, history: [] };
+    if (!p.enchantments)         p.enchantments = {};
+    if (!p.companionFriendship)  p.companionFriendship = { level: 1, xp: 0, interactions: 0, lastInteractionDate: null };
+    if (!p.seasonalEvents)       p.seasonalEvents = {};
+    if (!p.prestige)             p.prestige = { level: 0, totalLevels: 0, bonuses: { xpMultiplier: 0, goldMultiplier: 0, startingGold: 0, statBonus: 0 } };
     return p;
   }
 

@@ -1289,6 +1289,14 @@ function renderBoss() {
       setTimeout(() => goldenLightExpansion(div, cx, cy), 400);
     }
 
+    // Record boss in bestiary
+    const bossSpriteKey = bossSprites[quest.chapterId] || 'boss_cangjie';
+    if (!profile.bestiary) profile.bestiary = {};
+    const bEntry = profile.bestiary[bossSpriteKey] || { defeated: 0, firstSeen: Date.now() };
+    bEntry.defeated++;
+    profile.bestiary[bossSpriteKey] = bEntry;
+    profile.lastActiveTimestamp = Date.now();
+
     // Boss defeat celebration — confetti + fireworks
     confettiBurst({ count: 80, force: 12, colors: ['#d4a017', '#f5c842', '#e74c3c', '#2ecc8a', '#a855f7'] });
     setTimeout(() => fireworkShow({ count: 5, interval: 400 }), 500);

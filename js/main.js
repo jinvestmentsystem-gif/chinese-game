@@ -36,6 +36,15 @@ registerLazyScreen('chapter-complete', () => import('./screens/chapter-complete.
 registerLazyScreen('settings',         () => import('./screens/settings.js' + _v));
 registerLazyScreen('stats',            () => import('./screens/stats-screen.js' + _v));
 registerLazyScreen('gauntlet',         () => import('./screens/gauntlet.js' + _v));
+// ── Engagement feature screens ──
+registerLazyScreen('lucky-wheel',      () => import('./screens/lucky-wheel.js' + _v));
+registerLazyScreen('trophy-room',      () => import('./screens/trophy-room.js' + _v));
+registerLazyScreen('bestiary',         () => import('./screens/bestiary.js' + _v));
+registerLazyScreen('weekly-boss',      () => import('./screens/weekly-boss.js' + _v));
+registerLazyScreen('combo-wall',       () => import('./screens/combo-wall.js' + _v));
+registerLazyScreen('companion-profile',() => import('./screens/companion-profile.js' + _v));
+registerLazyScreen('seasonal-event',   () => import('./screens/seasonal-event.js' + _v));
+registerLazyScreen('prestige',         () => import('./screens/prestige.js' + _v));
 
 // Initialize audio — try immediately, then ensure on first interaction
 let audioReady = false;
@@ -338,8 +347,32 @@ if (gameState.profiles.length === 0) {
 } else if (gameState.profiles.length === 1) {
   // Returning player with a single profile — auto-select and go to title
   gameState.selectProfile(0);
+  checkComebackBonus();
   showScreen('title');
 } else {
   // Multiple profiles — show title as normal
   showScreen('title');
+}
+
+// ── Comeback bonus: idle gold + welcome back overlay ──────────────────────
+function checkComebackBonus() {
+  const profile = gameState.profile;
+  if (!profile || !profile.lastActiveTimestamp) return;
+  const todayStr = new Date().toISOString().slice(0, 10);
+  if (profile.comebackClaimed === todayStr) return;
+  const hoursSince = (Date.now() - profile.lastActiveTimestamp) / 3600000;
+  if (hoursSince < 24) return;
+  const idleHours = Math.min(hoursSince, 168);
+  const idleGold = Math.floor(idleHours * 2);
+  const idleXP = Math.floor(idleHours * 1);
+  profile.gold = (profile.gold || 0) + idleGold;
+  profile.comebackClaimed = todayStr;
+  profile.lastActiveTimestamp = Date.now();
+  gameState.save();
+  // Show comeback toast on next tick (after title renders)
+  setTimeout(() => {
+    if (typeof showToast === 'undefined') {
+      import('./toast.js').then(m => m.showToast(`欢迎回来！离线收入: +${idleGold}金币 +${idleXP}XP`, { type: 'reward', duration: 4000 }));
+    }
+  }, 1500);
 }

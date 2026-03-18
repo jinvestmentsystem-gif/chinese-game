@@ -439,7 +439,12 @@ function renderWorldMap() {
           backdrop-filter:blur(12px);
         ">
           <button class="btn btn-sm" id="btn-daily-reward" style="width:100%;margin-bottom:4px;" title="每日奖励">${dailyClaimed ? '已领' : '🎁 每日奖励'}</button>
+          <button class="btn btn-sm" id="btn-lucky-wheel" style="width:100%;margin-bottom:4px;" title="每日转盘">${profile.luckyWheel?.lastSpinDate === new Date().toISOString().slice(0,10) ? '🎡 转盘(已转)' : '🎡 幸运转盘'}</button>
           <button class="btn btn-sm" id="btn-chengyu" style="width:100%;margin-bottom:4px;" title="查看成语">📜 成语</button>
+          <button class="btn btn-sm" id="btn-trophy" style="width:100%;margin-bottom:4px;" title="成就殿堂">🏆 成就</button>
+          <button class="btn btn-sm" id="btn-bestiary" style="width:100%;margin-bottom:4px;" title="妖怪图鉴">📖 图鉴</button>
+          <button class="btn btn-sm" id="btn-combo-wall" style="width:100%;margin-bottom:4px;" title="连击记录">🔥 连击</button>
+          <button class="btn btn-sm" id="btn-companion" style="width:100%;margin-bottom:4px;" title="墨小灵">🐾 伙伴</button>
           <button class="btn btn-sm" id="btn-stats" style="width:100%;margin-bottom:4px;" title="学习统计">📊 统计</button>
           <button class="btn btn-sm" id="btn-respec" style="width:100%;margin-bottom:4px;" title="重置天赋 (200金币)">🔄 重置天赋</button>
           <button class="btn btn-sm" id="btn-settings" style="width:100%;" title="设置">⚙ 设置</button>
@@ -538,6 +543,32 @@ function renderWorldMap() {
         ${nodesHTML}
       </div>
 
+      <!-- ── Weekly Boss Banner (level 5+) ── -->
+      ${profile.level >= 5 ? `
+        <div class="era-node node-active clickable" data-chapter="weekly-boss"
+             style="--node-color:#e74c3c; margin:10px 20px; cursor:pointer;"
+             role="button" tabindex="0">
+          <div class="era-icon" style="font-size:1.6rem;">⚔️</div>
+          <div class="era-info">
+            <div class="era-tag" style="color:#e74c3c;">每周Boss · Weekly Challenge</div>
+            <div class="era-title" style="color:#e74c3c;">特殊挑战</div>
+            <div class="era-subtitle">每周轮换的强力Boss · 丰厚奖励</div>
+          </div>
+        </div>` : ''}
+
+      <!-- ── Prestige (level 20+ & all complete) ── -->
+      ${profile.level >= 20 && allChaptersComplete ? `
+        <div class="era-node node-active clickable" data-chapter="prestige"
+             style="--node-color:#a855f7; margin:10px 20px; cursor:pointer; background:linear-gradient(135deg, rgba(168,85,247,0.08), rgba(212,160,23,0.08), var(--bg-glass));"
+             role="button" tabindex="0">
+          <div class="era-icon" style="font-size:1.6rem;">✨</div>
+          <div class="era-info">
+            <div class="era-tag" style="color:#a855f7;">轮回飞升 · Prestige${profile.prestige?.level > 0 ? ` (★${profile.prestige.level})` : ''}</div>
+            <div class="era-title" style="color:#a855f7;">飞升转世</div>
+            <div class="era-subtitle">重置等级，获得永久加成 · 成为传说</div>
+          </div>
+        </div>` : ''}
+
       <!-- ── Bottom padding ── -->
       <div style="height: 60px;"></div>
     </div>
@@ -576,11 +607,10 @@ function renderWorldMap() {
       const chapterVal = node.dataset.chapter;
 
       const activate = () => {
-        if (chapterVal === 'gauntlet') {
-          showScreen('gauntlet');
-        } else {
-          showScreen('quest', { chapterId: parseInt(chapterVal) });
-        }
+        if (chapterVal === 'gauntlet') showScreen('gauntlet');
+        else if (chapterVal === 'weekly-boss') showScreen('weekly-boss');
+        else if (chapterVal === 'prestige') showScreen('prestige');
+        else showScreen('quest', { chapterId: parseInt(chapterVal) });
       };
 
       node.addEventListener('click', activate);
@@ -604,6 +634,11 @@ function renderWorldMap() {
     div.querySelector('#btn-chengyu')?.addEventListener('click', () => showScreen('chengyu'));
     div.querySelector('#btn-stats')?.addEventListener('click', () => showScreen('stats', { returnTo: 'worldmap' }));
     div.querySelector('#btn-settings')?.addEventListener('click', () => showScreen('settings', { returnTo: 'worldmap' }));
+    div.querySelector('#btn-lucky-wheel')?.addEventListener('click', () => showScreen('lucky-wheel'));
+    div.querySelector('#btn-trophy')?.addEventListener('click', () => showScreen('trophy-room'));
+    div.querySelector('#btn-bestiary')?.addEventListener('click', () => showScreen('bestiary'));
+    div.querySelector('#btn-combo-wall')?.addEventListener('click', () => showScreen('combo-wall'));
+    div.querySelector('#btn-companion')?.addEventListener('click', () => showScreen('companion-profile'));
 
     // Talent respec button
     div.querySelector('#btn-respec')?.addEventListener('click', () => {
