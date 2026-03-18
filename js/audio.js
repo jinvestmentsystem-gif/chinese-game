@@ -1874,8 +1874,13 @@ export function toggleMusic() {
   musicEnabled = !musicEnabled;
   if (!musicEnabled) {
     stopMusic();
-  } else if (audioCtx) {
-    playMusic('menu');
+  } else {
+    // Resume with contextually appropriate track (not always 'menu')
+    playMusic(currentEra || 'menu');
+    if (currentIntensity > 0) {
+      const trackKey = getMusicTrackForState(currentEra, currentIntensity);
+      playMusicTrack(trackKey);
+    }
   }
   return musicEnabled;
 }
@@ -1916,6 +1921,8 @@ export function setMusicVolume(vol) {
   v.music = clamped;
   _saveVolumes(v);
   if (masterMusicGain) masterMusicGain.gain.value = clamped;
+  // Also adjust Howler MP3 track volume
+  if (currentHowl) currentHowl.volume(clamped);
 }
 /** Set SFX volume (0-1 range), persists to localStorage and applies immediately */
 export function setSfxVolume(vol) {

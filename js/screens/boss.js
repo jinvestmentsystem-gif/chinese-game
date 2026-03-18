@@ -392,13 +392,16 @@ function renderBoss() {
   let doubleActive = false;
   // Gauntlet scaling: boss deals more damage on higher floors
   const gauntletAtkScale = quest.gauntletMode ? (quest.gauntletScaling || 1) : 1;
-  const bossBaseAtk = Math.round(25 * gauntletAtkScale);
+  let bossBaseAtk = Math.round(25 * gauntletAtkScale);
+  const bossModifier = encounter.modifier || null; // Encounter modifier (if any)
+  if (bossModifier?.enemyDmgMult) bossBaseAtk = Math.round(bossBaseAtk * bossModifier.enemyDmgMult);
   let isFirstRender = true;
 
   // Timer value depends on half_timer ability — use stat-based timer with base 20
-  const bossBaseTimer = abilityActive(bossAbility, 'half_timer')
+  let bossBaseTimer = abilityActive(bossAbility, 'half_timer')
     ? Math.round(getTimerDuration(profile, 20) / 2)
     : getTimerDuration(profile, 20);
+  if (bossModifier?.timerMult) bossBaseTimer = Math.round(bossBaseTimer * bossModifier.timerMult);
   const effectiveMaxHp = getEffectiveMaxHp(profile);
 
   function getCurrentPhaseForHp() {
@@ -929,7 +932,8 @@ function renderBoss() {
 
         if (correct) {
           // ── New stat-based boss damage calculation ──
-          const isCrit = rollCrit(profile);
+          let isCrit = rollCrit(profile);
+          if (!isCrit && bossModifier?.critBonus && Math.random() < bossModifier.critBonus) isCrit = true;
           if (isCrit) playSound('crit');
           const bossCombo = (gameState.currentQuest?.results?.combo || 0);
           if (bossCombo >= 3) playSound('combo');
@@ -942,6 +946,9 @@ function renderBoss() {
           if (talents.executePct && bossHp < 30) {
             dmg = Math.round(dmg * (1 + talents.executePct / 100));
           }
+
+          // Encounter modifier damage scaling
+          if (bossModifier?.dmgMult) dmg = Math.round(dmg * bossModifier.dmgMult);
 
           // Gauntlet scaling: reduce damage dealt based on floor scaling
           if (quest.gauntletMode && quest.gauntletScaling > 1) {
