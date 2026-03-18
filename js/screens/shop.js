@@ -202,8 +202,8 @@ function renderShop(params = {}) {
       : '';
 
     const tierLabel = item.tier ? `<span style="font-size:0.9rem;color:var(--text-dim);margin-left:4px;">${TIER_LABEL[item.tier] || ''}</span>` : '';
-    const statsHTML = item.stats ? `<div style="margin:4px 0;font-size:0.92rem;">${formatStats(item.stats)}</div>` : '';
-    const effectHTML = item.effect ? `<div style="margin:4px 0;font-size:0.92rem;color:var(--accent-blue);">${item.effect}</div>` : '';
+    const statsHTML = item.stats ? `<div style="margin:4px 0;font-size:1.05rem;">${formatStats(item.stats)}</div>` : '';
+    const effectHTML = (item.effect && item.type === 'consumable') ? `<div style="margin:4px 0;font-size:1rem;color:var(--accent-jade);">${item.desc}</div>` : '';
     const previewHTML = (!owned && item.type !== 'consumable') ? buildStatPreview(item) : '';
 
     return `
@@ -221,17 +221,17 @@ function renderShop(params = {}) {
         <div style="display:flex;justify-content:space-between;align-items:flex-start;">
           <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
             <span style="font-size:1.3rem;">${TYPE_ICON[item.type] || '📦'}</span>
-            <span style="font-weight:700;font-size:0.95rem;">${item.name}</span>
+            <span style="font-weight:700;font-size:1.15rem;">${item.name}</span>
             ${tierLabel}
             ${recommendedBadge}
           </div>
           ${statusBadge}
         </div>
-        <div style="font-size:0.92rem;color:var(--text-secondary);">${item.desc}</div>
+        <div style="font-size:1.05rem;color:var(--text-secondary);">${item.desc}</div>
         ${statsHTML}${effectHTML}
         ${previewHTML}
         <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px;">
-          <span style="color:var(--accent-gold);font-weight:700;font-size:0.9rem;">💰 ${item.price}</span>
+          <span style="color:var(--accent-gold);font-weight:700;font-size:1.05rem;">💰 ${item.price}</span>
           ${buyBtnHTML}
         </div>
       </div>`;
@@ -338,7 +338,7 @@ function renderShop(params = {}) {
         <div style="display:flex;justify-content:space-between;align-items:flex-start;">
           <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
             <span style="font-size:1.3rem;">${typeIcon}</span>
-            <span style="font-weight:700;font-size:0.95rem;">${item.name}</span>
+            <span style="font-weight:700;font-size:1.15rem;">${item.name}</span>
             ${upgradeBadge}
           </div>
           <div style="font-size:0.95rem;">${stars}</div>
@@ -461,7 +461,7 @@ function renderShop(params = {}) {
     </div>
     ${isShopTab ? `
       <div style="padding:0 20px 8px;">
-        <h3 style="margin:0 0 10px;font-size:0.9rem;color:var(--text-secondary);letter-spacing:0.06em;">套装效果</h3>
+        <h3 style="margin:0 0 10px;font-size:1.1rem;color:var(--text-secondary);letter-spacing:0.06em;">套装效果</h3>
       </div>
       <div class="set-bonus-grid">${setBonusHTML}</div>
       <div class="shop-grid" id="shop-grid">

@@ -2675,18 +2675,19 @@ input[type="text"]:focus, input[type="number"]:focus {
 
 /* ── Tagline ──────────────────────────────────────────────────── */
 .title-tagline {
-  font-size: clamp(1.1rem, 3vw, 1.4rem);
-  color: rgba(200, 190, 180, 0.6);
-  letter-spacing: 0.25em;
+  font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+  color: #d4a017;
+  letter-spacing: 0.2em;
   opacity: 0;
   animation: title-tagline-in 1.2s ease 3.4s forwards;
   margin-bottom: 2.5rem;
   z-index: 5;
-  font-style: italic;
+  font-weight: 600;
+  text-shadow: 0 0 20px rgba(212,160,23,0.5), 0 0 40px rgba(212,160,23,0.2);
 }
 @keyframes title-tagline-in {
   0%   { opacity: 0; transform: translateY(8px); filter: blur(3px); }
-  100% { opacity: 0.7; transform: translateY(0); filter: blur(0); }
+  100% { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
 
 /* ── Menu Buttons ─────────────────────────────────────────────── */

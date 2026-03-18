@@ -267,6 +267,7 @@ registerScreen('title', () => {
 
     btnSFX.addEventListener('click', (e) => {
       e.stopPropagation();
+      ensureAudio();
       toggleSFX();
       updateSFXBtn();
     });
@@ -274,6 +275,7 @@ registerScreen('title', () => {
     // --- Settings gear ---
     div.querySelector('#btn-title-settings')?.addEventListener('click', (e) => {
       e.stopPropagation();
+      ensureAudio();
       showScreen('settings', { returnTo: 'title' });
     });
 
@@ -290,10 +292,10 @@ registerScreen('title', () => {
       });
     });
 
-    // --- Menu navigation ---
-    div.querySelector('#btn-solo').addEventListener('click', () => showScreen('profile', { mode: 'solo' }));
-    div.querySelector('#btn-arena').addEventListener('click', () => showScreen('profile', { mode: 'arena' }));
-    div.querySelector('#btn-daily').addEventListener('click', () => showScreen('profile', { mode: 'daily' }));
+    // --- Menu navigation (ensureAudio on every button so music always starts) ---
+    div.querySelector('#btn-solo').addEventListener('click', () => { ensureAudio(); showScreen('profile', { mode: 'solo' }); });
+    div.querySelector('#btn-arena').addEventListener('click', () => { ensureAudio(); showScreen('profile', { mode: 'arena' }); });
+    div.querySelector('#btn-daily').addEventListener('click', () => { ensureAudio(); showScreen('profile', { mode: 'daily' }); });
 
     // --- Daily login reward check ---
     const profile = gameState.profile;
