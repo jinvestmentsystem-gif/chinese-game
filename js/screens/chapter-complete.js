@@ -401,7 +401,7 @@ function renderChapterComplete() {
 
   const rewardsTitle = document.createElement('div');
   rewardsTitle.style.cssText = `
-    font-size: 0.78rem; color: rgba(212,160,23,0.6);
+    font-size: 0.88rem; color: rgba(212,160,23,0.6);
     letter-spacing: 0.18em; text-align: center;
     margin-bottom: 12px;
   `;
@@ -462,7 +462,7 @@ function renderChapterComplete() {
   if (chapterChengyuTotal > 0 || collectedCount > 0) {
     const chengyuTitle = document.createElement('div');
     chengyuTitle.style.cssText = `
-      font-size: 0.78rem; color: rgba(212,160,23,0.6);
+      font-size: 0.88rem; color: rgba(212,160,23,0.6);
       letter-spacing: 0.18em; text-align: center;
       margin-bottom: 10px;
     `;
@@ -609,8 +609,8 @@ function renderChapterComplete() {
 
     const previewLabel = document.createElement('div');
     previewLabel.style.cssText = `
-      font-size: 0.72rem; color: rgba(212,160,23,0.6);
-      letter-spacing: 0.18em; text-transform: uppercase;
+      font-size: 0.85rem; color: rgba(212,160,23,0.6);
+      letter-spacing: 0.14em; text-transform: uppercase;
       margin-bottom: 8px;
     `;
     previewLabel.textContent = '下一章预告';
@@ -632,8 +632,8 @@ function renderChapterComplete() {
     newBadge.style.cssText = `
       position: absolute; top: 14px; right: 16px;
       background: #d4a017; color: #000;
-      font-size: 0.68rem; font-weight: 900;
-      padding: 3px 8px; border-radius: 4px;
+      font-size: 0.8rem; font-weight: 900;
+      padding: 4px 10px; border-radius: 5px;
       letter-spacing: 0.12em;
       animation: chcompl-new-badge 1.5s ease-in-out infinite;
     `;

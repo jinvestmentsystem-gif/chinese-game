@@ -556,7 +556,7 @@ function renderCombat() {
         .hp-player { background: linear-gradient(90deg, #27ae60, #2ecc71); }
         .hp-enemy  { background: linear-gradient(90deg, #c0392b, #e74c3c); }
         .hud-hp-text {
-          font-size: 0.75rem;
+          font-size: 0.88rem;
           color: var(--text-secondary);
           line-height: 1;
         }
@@ -602,7 +602,7 @@ function renderCombat() {
           flex-shrink: 0;
         }
         .sprite-label {
-          font-size: 0.75rem;
+          font-size: 0.88rem;
           color: var(--text-secondary);
           margin-bottom: 4px;
         }
@@ -643,7 +643,7 @@ function renderCombat() {
         .enemy-intent-bar {
           display: flex;
           gap: 10px;
-          font-size: 0.78rem;
+          font-size: 0.9rem;
           opacity: 0.9;
           padding: 4px 12px;
           border-radius: 6px;
@@ -699,10 +699,10 @@ function renderCombat() {
           display: inline-block;
           background: rgba(142,68,173,0.85);
           color: #fff;
-          font-size: 0.7rem;
+          font-size: 0.82rem;
           font-weight: 700;
-          padding: 2px 8px;
-          border-radius: 4px;
+          padding: 3px 10px;
+          border-radius: 5px;
           margin-right: 6px;
           vertical-align: middle;
           letter-spacing: 0.05em;
@@ -817,12 +817,12 @@ function renderCombat() {
 
         /* ── Enemy ability banner ── */
         .enemy-ability-banner {
-          font-size: 0.65rem;
+          font-size: 0.9rem;
           color: #e8a0a0;
           background: rgba(192,57,43,0.2);
           border: 1px solid rgba(192,57,43,0.3);
-          border-radius: 4px;
-          padding: 2px 8px;
+          border-radius: 6px;
+          padding: 4px 10px;
           margin-top: 4px;
           text-align: center;
           max-width: 140px;

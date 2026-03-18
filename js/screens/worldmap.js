@@ -414,7 +414,7 @@ function renderWorldMap() {
           <div class="level">Lv.${profile.level}</div>
           <div style="display:flex;align-items:center;gap:5px;margin-left:4px;">
             <div style="width:8px;height:8px;background:var(--jade);border-radius:50%;box-shadow:var(--shadow-jade);"></div>
-            <span style="font-size:0.95rem;color:var(--jade);">${profile.wenli}/${profile.maxWenli} 文力</span>
+            <span style="font-size:0.95rem;color:var(--jade);cursor:help;" title="文力用于释放提示、跳过等特殊技能">${profile.wenli}/${profile.maxWenli} 文力</span>
           </div>
         </div>
 

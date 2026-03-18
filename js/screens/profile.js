@@ -295,11 +295,16 @@ function renderProfileSelect(params = {}) {
         } else if (mode === 'daily') {
           showScreen('daily');
         } else {
-          // Show character card overlay before entering worldmap
           const selectedProfile = profiles[idx];
-          showCharacterCard(selectedProfile, div, () => {
+          if (selectedProfile.level <= 1) {
+            // New character — skip card overlay, go straight to worldmap
             showScreen('worldmap');
-          });
+          } else {
+            // Returning player — show character card overlay
+            showCharacterCard(selectedProfile, div, () => {
+              showScreen('worldmap');
+            });
+          }
         }
       });
     });
