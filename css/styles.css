@@ -4760,11 +4760,7 @@ input[type="text"]:focus, input[type="number"]:focus {
   font-size: 0.88rem !important;
 }
 
-/* Anything marked as secondary/dim text should still be readable */
-.screen [style*="color:var(--text-secondary)"],
-.screen [style*="color:var(--text-dim)"] {
-  font-size: max(0.88rem, 14px) !important;
-}
+/* Removed: was shrinking intentionally-larger text with color:var(--text-secondary) */
 
 /* ── SVG Sprite Idle Animations — breathing, floating, glow ── */
 @keyframes sprite-idle-breathe {
