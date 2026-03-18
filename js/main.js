@@ -204,20 +204,13 @@ registerScreen('title', () => {
         ${orbitHTML}
       </div>
 
-      <!-- Main title -->
+      <!-- Main title — calligraphy image -->
       <div class="title-logo">
-        <span class="title-char title-char-1">文</span>
-        <span class="title-char title-char-2">定</span>
-        <span class="title-char title-char-3">乾</span>
-        <span class="title-char title-char-4">坤</span>
+        <img src="assets/img/title_calligraphy.webp?v=${window.APP_VERSION || ''}" alt="文定乾坤"
+          class="title-calligraphy-img"
+          style="width:min(85vw, 700px); height:auto; filter:drop-shadow(0 0 30px rgba(212,160,23,0.6)) drop-shadow(0 0 60px rgba(212,160,23,0.3)); opacity:0; animation: title-calligraphy-in 1.2s ease 1.2s forwards;"
+          draggable="false">
       </div>
-
-      <!-- Ink splatter accents -->
-      <div class="title-ink-splatter title-splat-1" aria-hidden="true"></div>
-      <div class="title-ink-splatter title-splat-2" aria-hidden="true"></div>
-      <div class="title-ink-splatter title-splat-3" aria-hidden="true"></div>
-
-      <!-- Seal removed — was covering title -->
     </div>
 
     <!-- ===== SUBTITLE: WORD HERO letter-by-letter ===== -->
