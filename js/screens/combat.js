@@ -6,7 +6,7 @@ import { hasAbility, calcDamage, calcDamageTaken, getTimerDuration, rollCrit, ge
 import { playSound, playMusic, setMusicIntensity, playStinger } from '../audio.js';
 import { showCompanionBubble, showEnemyTaunt, COMPANION, ENEMY_TAUNTS, pick } from './companion.js';
 import { setParticleMode, burstParticles } from '../particles.js';
-import { SPRITES, COMBAT_BGS } from '../sprites.js';
+import { SPRITES, COMBAT_BGS, getPlayerSprite } from '../sprites.js';
 import { showTutorial } from '../tutorial.js';
 import { shakeElement, lungeElement, slashEffect, screenFlash, floatingText } from '../effects.js';
 import { recordWrongAnswer, recordCorrectReview } from '../spaced-repetition.js';
@@ -1130,7 +1130,7 @@ function renderCombat() {
     {
       const playerContainer = div.querySelector('#player-sprite');
       if (playerContainer) {
-        playerContainer.innerHTML = SPRITES.player;
+        playerContainer.innerHTML = getPlayerSprite();
         playerContainer.style.width = '140px';
         playerContainer.style.height = '180px';
       }

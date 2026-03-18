@@ -1,7 +1,7 @@
 // js/screens/worldmap.js — Visual path-based world map
 import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
-import { SPRITES } from '../sprites.js';
+import { SPRITES, WORLDMAP_BG } from '../sprites.js';
 import { playMusic, setMusicIntensity } from '../audio.js';
 import { getXPProgress, getEffectiveMaxHp, checkDailyLogin } from '../progression.js';
 import { showTutorial } from '../tutorial.js';
@@ -387,6 +387,10 @@ function renderWorldMap() {
   // Determine current era accent color for the top bar
   const currentChapterData = CHAPTERS.find(ch => ch.id === currentChapter) || CHAPTERS[0];
   const eraAccent = currentChapterData.color;
+
+  div.style.backgroundImage = `url('${WORLDMAP_BG}')`;
+  div.style.backgroundSize = 'cover';
+  div.style.backgroundPosition = 'center top';
 
   div.innerHTML = `
     ${buildLandscapeBg()}

@@ -4,6 +4,7 @@ import { initRouter, registerScreen, registerLazyScreen, showScreen } from './ro
 import { initAudio, playMusic, playSound, toggleMusic, toggleSFX, isMusicEnabled, isSFXEnabled } from './audio.js';
 import { startParticles, setParticleMode } from './particles.js';
 import { checkDailyLogin } from './progression.js';
+import { TITLE_BG } from './sprites.js';
 
 // Export particle control for screens to use
 export { setParticleMode };
@@ -51,6 +52,9 @@ document.addEventListener('keydown', ensureAudio, { once: true });
 registerScreen('title', () => {
   const div = document.createElement('div');
   div.className = 'screen title-screen-root';
+  div.style.backgroundImage = `url('${TITLE_BG}')`;
+  div.style.backgroundSize = 'cover';
+  div.style.backgroundPosition = 'center';
 
   // --- Floating ancient calligraphy characters (from various dynasties) ---
   const dynastyChars = [

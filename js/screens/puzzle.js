@@ -4,7 +4,7 @@ import { registerScreen, showScreen } from '../main.js';
 import { getCurrentEncounter, advanceEncounter, recordAnswer } from '../game-engine.js';
 import { calcDamageTaken, getEffectiveMaxHp } from '../progression.js';
 import { playSound, playMusic, setMusicIntensity } from '../audio.js';
-import { SPRITES } from '../sprites.js';
+import { SPRITES, getPlayerSprite } from '../sprites.js';
 import { setParticleMode } from '../particles.js';
 
 const PUZZLE_NARRATIVES = [
@@ -368,7 +368,7 @@ function renderPuzzle() {
     {
       const playerEl = inner.querySelector('#player-sprite');
       if (playerEl) {
-        playerEl.innerHTML = SPRITES.player;
+        playerEl.innerHTML = getPlayerSprite();
         playerEl.style.width = '140px';
         playerEl.style.height = '180px';
       }

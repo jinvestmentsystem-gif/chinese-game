@@ -4,7 +4,7 @@ import { registerScreen, showScreen } from '../main.js';
 import { startQuest, getCurrentEncounter, advanceEncounter } from '../game-engine.js';
 import { STORIES } from './story.js';
 import { playMusic, playSound } from '../audio.js';
-import { SPRITES } from '../sprites.js';
+import { SPRITES, QUEST_BGS, getPlayerSprite } from '../sprites.js';
 import { showCompanionBubble, COMPANION, pick } from './companion.js';
 import { setParticleMode, burstAtPoint } from '../particles.js';
 
@@ -403,9 +403,12 @@ function renderQuest(params) {
 
   // ── Full-screen journey map container ──
   const mapWrap = document.createElement('div');
+  const questBgUrl = QUEST_BGS[CHAPTER_ERA[chapterId]] || '';
   mapWrap.style.cssText = `
     position:absolute; inset:0;
-    background:${theme.bg};
+    background:
+      ${theme.bg},
+      url('${questBgUrl}') center/cover no-repeat;
     overflow-y:auto; overflow-x:hidden;
     display:flex; flex-direction:column;
     align-items:center;

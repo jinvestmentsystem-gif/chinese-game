@@ -149,8 +149,8 @@ class GameState {
     return this.profiles[this.activeProfileIndex] || null;
   }
 
-  createProfile(name, tier, difficultyBase = 3) {
-    const p = { ...DEFAULT_PROFILE, name, tier, difficultyBase, createdAt: Date.now() };
+  createProfile(name, tier, difficultyBase = 3, gender = 'male') {
+    const p = { ...DEFAULT_PROFILE, name, tier, difficultyBase, gender, createdAt: Date.now() };
     // Deep clone nested objects
     p.equipment = { ...DEFAULT_PROFILE.equipment };
     p.gold = 0;
