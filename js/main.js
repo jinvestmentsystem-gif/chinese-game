@@ -23,16 +23,18 @@ import './screens/story.js';
 import './screens/encounter-intro.js';
 
 // ── Lazy-loaded screens (navigated on demand, ~250K deferred) ──
-registerLazyScreen('chengyu',          () => import('./screens/chengyu.js'));
-registerLazyScreen('inventory',        () => import('./screens/inventory.js'));
-registerLazyScreen('shop',             () => import('./screens/shop.js'));
-registerLazyScreen('levelup',          () => import('./screens/levelup.js'));
-registerLazyScreen('daily',            () => import('./screens/daily.js'));
-registerLazyScreen('arena',            () => import('./screens/arena.js'));
-registerLazyScreen('chapter-complete', () => import('./screens/chapter-complete.js'));
-registerLazyScreen('settings',         () => import('./screens/settings.js'));
-registerLazyScreen('stats',            () => import('./screens/stats-screen.js'));
-registerLazyScreen('gauntlet',         () => import('./screens/gauntlet.js'));
+// Version stamp from index.html — appended to dynamic imports for cache busting
+const _v = window.APP_VERSION ? '?v=' + window.APP_VERSION : '';
+registerLazyScreen('chengyu',          () => import('./screens/chengyu.js' + _v));
+registerLazyScreen('inventory',        () => import('./screens/inventory.js' + _v));
+registerLazyScreen('shop',             () => import('./screens/shop.js' + _v));
+registerLazyScreen('levelup',          () => import('./screens/levelup.js' + _v));
+registerLazyScreen('daily',            () => import('./screens/daily.js' + _v));
+registerLazyScreen('arena',            () => import('./screens/arena.js' + _v));
+registerLazyScreen('chapter-complete', () => import('./screens/chapter-complete.js' + _v));
+registerLazyScreen('settings',         () => import('./screens/settings.js' + _v));
+registerLazyScreen('stats',            () => import('./screens/stats-screen.js' + _v));
+registerLazyScreen('gauntlet',         () => import('./screens/gauntlet.js' + _v));
 
 // Initialize audio on the very first user interaction (browser autoplay policy)
 let audioReady = false;

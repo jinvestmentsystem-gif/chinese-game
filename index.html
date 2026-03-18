@@ -4,12 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>文字侠 — Word Hero</title>
-  <link rel="stylesheet" href="css/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700;900&display=swap" rel="stylesheet">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
   <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#d4a017">
@@ -19,6 +15,15 @@
   <meta property="og:title" content="文字侠 — Word Hero">
   <meta property="og:description" content="用文字力量拯救世界的中文学习RPG">
   <meta property="og:type" content="website">
+  <!-- App version — bump this on every deploy to bust browser caches -->
+  <script>window.APP_VERSION = '2026031803';</script>
+  <script>
+    // Append version to CSS so browsers fetch the latest on deploy
+    const css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = 'css/styles.css?v=' + window.APP_VERSION;
+    document.head.appendChild(css);
+  </script>
   <!-- Howler.js for professional audio playback -->
   <script src="https://cdn.jsdelivr.net/npm/howler@2.2.4/dist/howler.min.js"></script>
   <!-- PixiJS for combat rendering effects -->
@@ -61,8 +66,16 @@
       });
     }
   </script>
-  <!-- Lottie + Tone.js removed — unused, saving ~150K gzipped -->
   <script src="js/error-handler.js"></script>
+  <!-- Version-stamped module entry point for cache busting -->
   <script type="module" src="js/main.js"></script>
+  <script>
+    // Cache-bust the ES module entry point by rewriting it with version param
+    // Browsers cache ES modules by URL — the ?v= forces a fresh fetch on deploy
+    (function() {
+      const s = document.querySelector('script[src="js/main.js"]');
+      if (s) s.src = 'js/main.js?v=' + window.APP_VERSION;
+    })();
+  </script>
 </body>
 </html>
