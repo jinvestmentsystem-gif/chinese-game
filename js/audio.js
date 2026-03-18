@@ -1,10 +1,67 @@
-// js/audio.js — Procedural music & SFX via Web Audio API (no external files)
+// js/audio.js — Music (MP3 via Howler.js) + Procedural SFX (Web Audio API)
 
 let audioCtx = null;
 let musicEnabled = true;
 let sfxEnabled = true;
 let currentMusicNodes = []; // oscillators / intervals currently playing
 let musicLoopHandle = null;
+
+// ─── Howler.js MP3 music tracks ──────────────────────────────────────────────
+const _av = window.APP_VERSION ? '?v=' + window.APP_VERSION : '';
+const MUSIC_TRACKS = {};
+let currentHowl = null; // Currently playing Howler track
+let currentTrackKey = null;
+
+function ensureMusicTracks() {
+  if (MUSIC_TRACKS._loaded) return;
+  MUSIC_TRACKS._loaded = true;
+  const base = 'assets/audio/';
+  const tracks = {
+    menu:    { src: base + 'music_menu.mp3' + _av,    loop: true,  volume: 0.4 },
+    explore: { src: base + 'music_explore.mp3' + _av, loop: true,  volume: 0.35 },
+    combat:  { src: base + 'music_combat.mp3' + _av,  loop: true,  volume: 0.45 },
+    boss:    { src: base + 'music_boss.mp3' + _av,    loop: true,  volume: 0.5 },
+    victory: { src: base + 'sfx_victory.mp3' + _av,   loop: false, volume: 0.55 },
+    defeat:  { src: base + 'sfx_defeat.mp3' + _av,    loop: false, volume: 0.5 },
+  };
+  for (const [key, cfg] of Object.entries(tracks)) {
+    MUSIC_TRACKS[key] = new Howl({
+      src: [cfg.src],
+      loop: cfg.loop,
+      volume: cfg.volume,
+      preload: false, // Lazy load — only load when first played
+    });
+  }
+}
+
+function playMusicTrack(key) {
+  ensureMusicTracks();
+  if (currentTrackKey === key && currentHowl?.playing()) return; // Already playing
+  stopMusicTrack();
+  const howl = MUSIC_TRACKS[key];
+  if (!howl) return;
+  currentTrackKey = key;
+  currentHowl = howl;
+  howl.play();
+}
+
+function stopMusicTrack() {
+  if (currentHowl) {
+    currentHowl.fade(currentHowl.volume(), 0, 300);
+    const h = currentHowl;
+    setTimeout(() => { try { h.stop(); } catch(_) {} }, 350);
+    currentHowl = null;
+    currentTrackKey = null;
+  }
+}
+
+// Map era + intensity to the right MP3 track
+function getMusicTrackForState(era, intensity) {
+  if (intensity >= 3) return 'boss';
+  if (intensity >= 1) return 'combat';
+  if (era === 'menu') return 'menu';
+  return 'explore'; // ambient/worldmap/quest for all eras
+}
 
 // ─── Music state ──────────────────────────────────────────────────────────────
 let currentEra = 'menu';
@@ -779,10 +836,13 @@ export function playMusic(era) {
   currentEra       = era || 'menu';
   currentIntensity = 0;
 
-  startAmbientLoop();
+  // Use MP3 track instead of procedural ambient
+  const trackKey = getMusicTrackForState(currentEra, currentIntensity);
+  playMusicTrack(trackKey);
 }
 
 export function stopMusic() {
+  stopMusicTrack(); // Stop MP3 track
   stopAmbientLoop();
   stopScheduler();
 
@@ -798,7 +858,7 @@ export function stopMusic() {
   currentStep       = 0;
 }
 
-// ─── setMusicIntensity — 0–3, dynamically layers in/out ──────────────────────
+// ─── setMusicIntensity — 0–3, switches MP3 track accordingly ─────────────────
 export function setMusicIntensity(level) {
   if (!audioCtx) return;
   const clamped = Math.max(0, Math.min(3, Math.floor(level)));
@@ -806,6 +866,14 @@ export function setMusicIntensity(level) {
 
   const prev = currentIntensity;
   currentIntensity = clamped;
+
+  // Switch MP3 track if intensity category changed
+  if (musicEnabled) {
+    const trackKey = getMusicTrackForState(currentEra, clamped);
+    if (trackKey !== currentTrackKey) {
+      playMusicTrack(trackKey);
+    }
+  }
 
   const FADE = 0.5; // seconds for crossfade
 
@@ -852,6 +920,24 @@ export function setMusicIntensity(level) {
 // ─── playStinger — short dramatic musical bursts ──────────────────────────────
 export function playStinger(type) {
   if (!audioCtx) return;
+
+  // Use MP3 stingers for victory/defeat if available
+  if (type === 'victory' || type === 'boss_death') {
+    ensureMusicTracks();
+    if (MUSIC_TRACKS.victory) {
+      stopMusicTrack(); // Stop current music for stinger
+      MUSIC_TRACKS.victory.play();
+      return;
+    }
+  }
+  if (type === 'defeat') {
+    ensureMusicTracks();
+    if (MUSIC_TRACKS.defeat) {
+      stopMusicTrack();
+      MUSIC_TRACKS.defeat.play();
+      return;
+    }
+  }
   const now = audioCtx.currentTime;
 
   switch (type) {
