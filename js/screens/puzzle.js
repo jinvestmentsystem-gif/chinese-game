@@ -80,6 +80,7 @@ function renderPuzzle() {
 
   const encounter = getCurrentEncounter();
   const profile = gameState.profile;
+  if (!encounter || !profile) { showScreen('worldmap'); return div; }
   const effectiveMaxHp = getEffectiveMaxHp(profile);
   const passage = encounter.passage;
   const questions = passage.questions;

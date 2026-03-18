@@ -341,6 +341,10 @@ function renderBoss() {
   const encounter = getCurrentEncounter();
   const profile = gameState.profile;
   const quest = gameState.currentQuest;
+  if (!encounter || !profile || !quest) {
+    const d = document.createElement('div'); d.className = 'screen';
+    showScreen('worldmap'); return d;
+  }
   const bossInfo = BOSS_NAMES[quest.chapterId] || BOSS_NAMES[1];
 
   // Apply era-specific boss background and particles

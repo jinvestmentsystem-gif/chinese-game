@@ -351,6 +351,7 @@ function renderCombat() {
 
   const encounter = getCurrentEncounter();
   const profile = gameState.profile;
+  if (!encounter || !profile) { showScreen('worldmap'); return div; }
   const questions = encounter.questions;
   let qIndex = 0;
   const effectiveMaxHp = getEffectiveMaxHp(profile);

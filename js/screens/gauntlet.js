@@ -197,7 +197,8 @@ function renderGauntlet() {
       const scaling = 1 + Math.floor((floor - 1) / 3) * 0.1;
 
       // Preserve HP before startQuest (which heals to full)
-      const preservedHp = profile.hp;
+      // Ensure at least 1 HP (shouldn't be 0 but guard against it)
+      const preservedHp = Math.max(1, profile.hp);
 
       // Set up quest state for boss fight — MUST await since startQuest is async
       const chapterId = bossIdx + 1; // 1-5 to match content tiers

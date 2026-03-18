@@ -104,7 +104,13 @@ function _swapScreen(name, params) {
 }
 
 function _mountScreen(name, params) {
-  if (!screens[name]) return;
+  if (!screens[name]) {
+    console.error(`[Router] Screen "${name}" not found`);
+    // Show error rather than blank screen
+    const err = new Error(`Screen "${name}" not found`);
+    root.appendChild(_createErrorElement(err));
+    return;
+  }
   let el;
   try {
     el = screens[name](params);
