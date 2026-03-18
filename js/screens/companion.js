@@ -62,7 +62,7 @@ export const COMPANION = {
   ],
   bossVictory: [
     "你……你居然真的打败了它！太了不起了！",
-    "不敢相信！BOSS被你击败了！你就是真正的文字侠！",
+    "不敢相信！BOSS被你击败了！你就是真正的文定乾坤！",
   ],
 
   // Between encounters

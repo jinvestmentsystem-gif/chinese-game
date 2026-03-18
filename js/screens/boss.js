@@ -1128,7 +1128,7 @@ function renderBoss() {
       const motivationalTexts = [
         "文字之路没有捷径，但每次失败都让你更强！",
         "墨暗之力只是暂时的胜利——你的知识终将战胜一切！",
-        "连最强的文字侠也有过失败——重要的是永不放弃！",
+        "连最强的文定乾坤也有过失败——重要的是永不放弃！",
       ];
       const motivation = motivationalTexts[Math.floor(Math.random() * motivationalTexts.length)];
 
@@ -1312,7 +1312,7 @@ function renderBoss() {
         if (floor > (profile_.gauntletRecord || 0)) {
           profile_.gauntletRecord = floor;
           // Award mastery titles at milestones
-          if (!profile_.titles) profile_.titles = ['新手文字侠'];
+          if (!profile_.titles) profile_.titles = ['新手文定乾坤'];
           const titleMap = { 5: '试炼新手', 10: '试炼勇士', 20: '试炼大师', 50: '试炼传说' };
           if (titleMap[floor] && !profile_.titles.includes(titleMap[floor])) {
             profile_.titles.push(titleMap[floor]);

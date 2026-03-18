@@ -20,13 +20,13 @@ function bgUrl(name) {
  */
 export function getPlayerSprite() {
   const gender = gameState.profile?.gender || 'male';
-  return gender === 'female' ? spriteImg('playerf', '文字侠') : spriteImg('player', '文字侠');
+  return gender === 'female' ? spriteImg('playerf', '文定乾坤') : spriteImg('player', '文定乾坤');
 }
 
 export const SPRITES = {
   // Player sprites — use getPlayerSprite() for gender-aware version
-  player:        spriteImg('player', '文字侠'),
-  playerf:       spriteImg('playerf', '文字侠'),
+  player:        spriteImg('player', '文定乾坤'),
+  playerf:       spriteImg('playerf', '文定乾坤'),
   // Enemies
   enemy_moling:  spriteImg('enemy_moling', '墨灵'),
   enemy_guard:   spriteImg('enemy_guard', '暗字兵'),

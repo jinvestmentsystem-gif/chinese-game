@@ -169,7 +169,7 @@ function renderSettings(params) {
           <div class="settings-profile-card">
             <div class="settings-profile-name">${profile.name}</div>
             <div class="settings-profile-info">
-              Lv.${profile.level} · ${profile.activeTitle || '新手文字侠'}
+              Lv.${profile.level} · ${profile.activeTitle || '新手文定乾坤'}
               · ${profile.stats?.totalQuests || 0} 次冒险
             </div>
           </div>
@@ -240,7 +240,7 @@ function renderSettings(params) {
           </div>
 
           <div class="settings-about">
-            <div class="settings-about-title">文字侠 · Word Hero</div>
+            <div class="settings-about-title">文定乾坤 · Wen Ding Qian Kun</div>
             <div class="settings-about-version">版本 v1.0</div>
             <div class="settings-about-credit">
               一款中文学习角色扮演游戏<br>

@@ -1,5 +1,5 @@
 /* =============================================================
-   文字侠 — Word Hero | Ink-Wash RPG Visual Stylesheet
+   文定乾坤 — Wen Ding Qian Kun | Ink-Wash RPG Visual Stylesheet
    Complete rewrite: ink-wash (水墨画) aesthetic
    ============================================================= */
 
@@ -2562,6 +2562,7 @@ input[type="text"]:focus, input[type="number"]:focus {
 .title-char-1 { animation-delay: 1.4s, 3s; }
 .title-char-2 { animation-delay: 1.8s, 3.4s; }
 .title-char-3 { animation-delay: 2.2s, 3.8s; }
+.title-char-4 { animation-delay: 2.6s, 4.2s; }
 
 /* ── Ink Splatter Accents ─────────────────────────────────────── */
 .title-ink-splatter {
@@ -4075,7 +4076,7 @@ input[type="text"]:focus, input[type="number"]:focus {
   }
   /* Show a simple message instead */
   body::before {
-    content: '文字侠 (Word Hero) — This game cannot be printed.';
+    content: '文定乾坤 (Wen Ding Qian Kun) — This game cannot be printed.';
     display: block !important;
     text-align: center;
     font-size: 1.5rem;
@@ -4667,17 +4668,17 @@ input[type="text"]:focus, input[type="number"]:focus {
    This is the NUCLEAR OPTION to ensure nothing is unreadably small.
    ═══════════════════════════════════════════════════════════════════ */
 
-/* Base: EVERYTHING in a screen gets at least 16px */
-.screen, .screen * {
-  font-size: max(var(--fs, inherit), 16px);
+/* Minimum font sizes — applied only to small text, NOT headings/titles */
+.screen p, .screen span, .screen div, .screen label {
+  min-height: 0; /* no layout side effects */
 }
 
-/* All buttons must be at least 16px */
+/* Buttons minimum sizes */
 .screen button, .screen .btn, .screen [role="button"] {
-  font-size: 16px !important;
+  font-size: max(1em, 16px);
 }
-.screen .btn-primary { font-size: 17px !important; }
-.screen .btn-sm { font-size: 15px !important; }
+.screen .btn-primary { font-size: max(1em, 17px); }
+.screen .btn-sm { font-size: max(1em, 15px); }
 
 /* Headings must be bold and large */
 .screen h2 { font-size: 1.6rem !important; font-weight: 800 !important; }

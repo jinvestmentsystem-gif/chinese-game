@@ -40,7 +40,7 @@ export const TALENT_TREE = {
 // ═══════════════════════════════════════════════════════════════════════════════
 
 export const TITLES = {
-  '新手文字侠':   { requirement: null, desc: '初始称号' },
+  '新手文定乾坤':   { requirement: null, desc: '初始称号' },
   '学有所成':     { requirement: { totalCorrect: 50 }, desc: '答对50题' },
   '文字达人':     { requirement: { totalCorrect: 200 }, desc: '答对200题' },
   '连击高手':     { requirement: { maxCombo: 10 }, desc: '达成10连击' },
@@ -381,7 +381,7 @@ export function checkDailyLogin(profile) {
 // ═══════════════════════════════════════════════════════════════════════════════
 
 function checkTitleUnlocks(profile) {
-  if (!profile.titles) profile.titles = ['新手文字侠'];
+  if (!profile.titles) profile.titles = ['新手文定乾坤'];
   const stats = profile.stats || {};
   const cp = profile.chapterProgress || {};
 

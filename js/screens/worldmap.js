@@ -374,7 +374,7 @@ function renderWorldMap() {
   const effectiveMaxHp = getEffectiveMaxHp(profile);
   const hpPct = Math.round((profile.hp / effectiveMaxHp) * 100);
   const hpColor = hpPct > 60 ? 'var(--hp-green)' : hpPct > 30 ? 'var(--hp-yellow)' : 'var(--hp-red)';
-  const activeTitle = profile.activeTitle || '新手文字侠';
+  const activeTitle = profile.activeTitle || '新手文定乾坤';
 
   // Daily reward status check (peek only, don't claim)
   const dailyLogin = profile.dailyLogin || { lastDate: null, streak: 0 };
@@ -420,7 +420,7 @@ function renderWorldMap() {
 
         <div style="text-align:center;">
           <div style="font-size:0.92rem;color:${eraAccent}99;letter-spacing:0.1em;text-transform:uppercase;">征途</div>
-          <div style="font-size:1rem;font-weight:700;color:${eraAccent};text-shadow:0 0 12px ${eraAccent}55;">文字侠</div>
+          <div style="font-size:1rem;font-weight:700;color:${eraAccent};text-shadow:0 0 12px ${eraAccent}55;">文定乾坤</div>
         </div>
 
         <div class="nav-buttons">

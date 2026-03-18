@@ -4,7 +4,7 @@ import { gameState } from './state.js';
 // ── Tutorial Content Definitions ─────────────────────────────────────────────
 const TUTORIALS = {
   tutorial_worldmap: {
-    text: '欢迎来到文字侠的世界！点击章节开始你的冒险。',
+    text: '欢迎来到文定乾坤的世界！点击章节开始你的冒险。',
     defaultTarget: '.era-node',
     defaultPosition: 'bottom',
   },

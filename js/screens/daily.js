@@ -674,7 +674,7 @@ async function renderDaily() {
       shareBtn.textContent = '分享';
       shareBtn.style.cssText = 'padding:8px 20px;';
       shareBtn.addEventListener('click', () => {
-        const shareText = `文字侠每日挑战 ${starDisplay} 正确率${accuracy}% 连击x${maxCombo} 连续打卡${profile.dailyStreak}天`;
+        const shareText = `文定乾坤每日挑战 ${starDisplay} 正确率${accuracy}% 连击x${maxCombo} 连续打卡${profile.dailyStreak}天`;
         navigator.clipboard.writeText(shareText).then(() => {
           const copied = document.createElement('div');
           copied.textContent = '已复制到剪贴板！';

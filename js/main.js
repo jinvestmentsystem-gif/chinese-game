@@ -37,7 +37,7 @@ registerLazyScreen('settings',         () => import('./screens/settings.js' + _v
 registerLazyScreen('stats',            () => import('./screens/stats-screen.js' + _v));
 registerLazyScreen('gauntlet',         () => import('./screens/gauntlet.js' + _v));
 
-// Initialize audio on the very first user interaction (browser autoplay policy)
+// Initialize audio — try immediately, then ensure on first interaction
 let audioReady = false;
 function ensureAudio() {
   if (audioReady) return;
@@ -45,8 +45,12 @@ function ensureAudio() {
   initAudio();
   if (isMusicEnabled()) playMusic('menu');
 }
+// Try to start music immediately (some browsers allow it)
+try { playMusic('menu'); } catch(_) {}
+// Fallback: ensure on first user interaction (browser autoplay policy)
 document.addEventListener('click', ensureAudio, { once: true });
 document.addEventListener('keydown', ensureAudio, { once: true });
+document.addEventListener('touchstart', ensureAudio, { once: true });
 
 // ── Cinematic AAA Title Screen ────────────────────────────────────────────────
 registerScreen('title', () => {
@@ -203,8 +207,9 @@ registerScreen('title', () => {
       <!-- Main title -->
       <div class="title-logo">
         <span class="title-char title-char-1">文</span>
-        <span class="title-char title-char-2">字</span>
-        <span class="title-char title-char-3">侠</span>
+        <span class="title-char title-char-2">定</span>
+        <span class="title-char title-char-3">乾</span>
+        <span class="title-char title-char-4">坤</span>
       </div>
 
       <!-- Ink splatter accents -->

@@ -1,4 +1,4 @@
-// js/toast.js — Reusable toast notification system for 文字侠
+// js/toast.js — Reusable toast notification system for 文定乾坤
 // Usage: showToast('成就解锁！初出茅庐', { type: 'achievement', duration: 3000 })
 
 const TOAST_TYPES = {

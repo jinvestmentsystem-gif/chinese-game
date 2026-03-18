@@ -237,7 +237,7 @@ function buildEngagementHook(profile, levelUpInfo, statsBefore, parent) {
   `;
   parent.appendChild(hookWrap);
 
-  // ── Stat comparison: "你的文字侠在变强！" with before/after ──
+  // ── Stat comparison: "你的文定乾坤在变强！" with before/after ──
   const statsAfter = getEffectiveStats(profile);
   const statKeys = ['attack', 'defense', 'speed', 'maxHp', 'maxWenli', 'critChance'];
   const statLabels = { attack: '攻击', defense: '防御', speed: '速度', maxHp: 'HP', maxWenli: '文力', critChance: '暴击率' };
@@ -249,7 +249,7 @@ function buildEngagementHook(profile, levelUpInfo, statsBefore, parent) {
       font-size: 1rem; font-weight: 700; color: var(--accent-gold);
       text-align: center; letter-spacing: 0.06em; margin-bottom: 4px;
     `;
-    compTitle.textContent = '你的文字侠在变强！';
+    compTitle.textContent = '你的文定乾坤在变强！';
     hookWrap.appendChild(compTitle);
 
     const compGrid = document.createElement('div');

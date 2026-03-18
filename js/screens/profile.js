@@ -69,7 +69,7 @@ function showCharacterCard(profile, div, onContinue) {
         ${getPlayerSprite()}
       </div>
       <div class="char-card-name">${profile.name}</div>
-      <div class="char-card-title">${profile.activeTitle || '新手文字侠'}</div>
+      <div class="char-card-title">${profile.activeTitle || '新手文定乾坤'}</div>
       <div class="char-card-level">Lv.${profile.level}</div>
       <div class="char-card-stats">
         ${statBar('攻击', stats.attack, 50, '#e74c3c')}

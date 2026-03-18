@@ -2191,7 +2191,7 @@ function renderCombat() {
       const motivationalTexts = [
         "文字之路没有捷径，但每次失败都让你更强！",
         "墨暗之力只是暂时的胜利——你的知识终将战胜一切！",
-        "连最强的文字侠也有过失败——重要的是永不放弃！",
+        "连最强的文定乾坤也有过失败——重要的是永不放弃！",
       ];
       const motivation = motivationalTexts[Math.floor(Math.random() * motivationalTexts.length)];
 

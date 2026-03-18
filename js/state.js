@@ -42,8 +42,8 @@ const DEFAULT_PROFILE = {
   talents: {},
   talentPoints: 0,
   // Titles earned + active title
-  titles: ['新手文字侠'],
-  activeTitle: '新手文字侠',
+  titles: ['新手文定乾坤'],
+  activeTitle: '新手文定乾坤',
   // Daily login reward tracking
   dailyLogin: { lastDate: null, streak: 0, totalDays: 0 },
   // Elemental affinity (unlocked via chengyu sets)
@@ -114,8 +114,8 @@ class GameState {
     // New fields backfill
     if (!p.talents)         p.talents = {};
     if (!('talentPoints' in p)) p.talentPoints = Math.max(0, Math.floor((p.level - 1) / 2) - Object.values(p.talents || {}).reduce((s, v) => s + v, 0));
-    if (!p.titles)          p.titles = ['新手文字侠'];
-    if (!p.activeTitle)     p.activeTitle = '新手文字侠';
+    if (!p.titles)          p.titles = ['新手文定乾坤'];
+    if (!p.activeTitle)     p.activeTitle = '新手文定乾坤';
     if (!p.dailyLogin)      p.dailyLogin = { lastDate: null, streak: 0, totalDays: 0 };
     if (!p.affinities)      p.affinities = { metal: 0, wood: 0, water: 0, fire: 0, earth: 0 };
     if (!('critChance' in p))     p.critChance = 5;

@@ -465,8 +465,8 @@ async function renderChengyu() {
 
   // ── TAB 3: Titles ──
   function renderTitlesTab() {
-    const earnedTitles = profile.titles || ['新手文字侠'];
-    const currentActive = profile.activeTitle || '新手文字侠';
+    const earnedTitles = profile.titles || ['新手文定乾坤'];
+    const currentActive = profile.activeTitle || '新手文定乾坤';
 
     // Summary
     const summary = document.createElement('div');

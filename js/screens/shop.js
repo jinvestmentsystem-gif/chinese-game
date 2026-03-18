@@ -437,7 +437,7 @@ function renderShop(params = {}) {
     <div style="width:100%;padding:20px 20px 0;">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px;">
         <div>
-          <h2 style="margin:0 0 4px;">文字侠商店</h2>
+          <h2 style="margin:0 0 4px;">文定乾坤商店</h2>
           <div style="font-size:0.95rem;color:var(--text-secondary);">购买装备，增强实力</div>
         </div>
         <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
