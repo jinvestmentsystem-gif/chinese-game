@@ -950,7 +950,14 @@ export function playStinger(type) {
   if (type === 'victory' || type === 'boss_death') {
     ensureMusicTracks();
     if (MUSIC_TRACKS.victory) {
-      stopMusicTrack(); // Stop current music for stinger
+      stopMusicTrack();
+      MUSIC_TRACKS.victory.once('end', () => {
+        // Resume background music after stinger finishes
+        if (musicEnabled) {
+          const trackKey = getMusicTrackForState(currentEra, currentIntensity);
+          playMusicTrack(trackKey);
+        }
+      });
       MUSIC_TRACKS.victory.play();
       return;
     }
@@ -959,6 +966,12 @@ export function playStinger(type) {
     ensureMusicTracks();
     if (MUSIC_TRACKS.defeat) {
       stopMusicTrack();
+      MUSIC_TRACKS.defeat.once('end', () => {
+        if (musicEnabled) {
+          const trackKey = getMusicTrackForState(currentEra, currentIntensity);
+          playMusicTrack(trackKey);
+        }
+      });
       MUSIC_TRACKS.defeat.play();
       return;
     }
