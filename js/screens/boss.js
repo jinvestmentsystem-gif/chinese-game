@@ -10,7 +10,7 @@ import { playSound, playMusic, setMusicIntensity, playStinger } from '../audio.j
 import { showCompanionBubble, showEnemyTaunt, COMPANION, ENEMY_TAUNTS, pick } from './companion.js';
 import { setParticleMode, burstParticles } from '../particles.js';
 import { showTutorial } from '../tutorial.js';
-import { shakeElement, shakeContainer, lungeElement, floatingText } from '../effects.js';
+import { shakeElement, shakeContainer, lungeElement, floatingText, screenFlash } from '../effects.js';
 import { createCombatBackground, destroyCombatBackground } from '../pixi-backgrounds.js';
 import { fireworkShow, confettiBurst, goldenRain } from '../celebrations.js';
 
@@ -448,6 +448,27 @@ function renderBoss() {
       playStinger('phase_change');
       phase = hpPhase;
       qIndex = 0;
+
+      // ── Dramatic phase transition fanfare ──
+      screenFlash('#c0392b', 400, div);
+      shakeContainer(div, 8, 500);
+      burstParticles(30, 'boss');
+      const phaseLabels = ['第一阶段', '第二阶段', '第三阶段', '最终阶段'];
+      const phaseBanner = document.createElement('div');
+      phaseBanner.style.cssText = `
+        position:absolute; top:40%; left:50%; transform:translate(-50%,-50%) scale(0);
+        font-size:2.2rem; font-weight:900; color:#e74c3c;
+        text-shadow: 0 0 20px rgba(231,76,60,0.7), 0 0 40px rgba(231,76,60,0.3);
+        z-index:1005; pointer-events:none;
+        transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), opacity 0.5s ease-out;
+      `;
+      phaseBanner.textContent = phaseLabels[phase] || `第${phase + 1}阶段`;
+      div.appendChild(phaseBanner);
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        phaseBanner.style.transform = 'translate(-50%,-50%) scale(1)';
+      }));
+      setTimeout(() => { phaseBanner.style.opacity = '0'; }, 1200);
+      setTimeout(() => phaseBanner.remove(), 1700);
     }
 
     const currentPhase = phases[phase];

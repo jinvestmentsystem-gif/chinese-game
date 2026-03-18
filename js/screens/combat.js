@@ -2154,7 +2154,7 @@ function renderCombat() {
         }
       }
       render();
-    }, 1800);
+    }, 1100);
   }
 
   function endCombat(won) {

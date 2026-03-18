@@ -1371,8 +1371,11 @@ function renderQuest(params) {
         if (btn) {
           btn.addEventListener('click', () => {
             try { playSound('gold'); } catch(_) {}
+            // Particle burst + gold rain on collection
+            burstAtPoint(window.innerWidth / 2, window.innerHeight * 0.35, 25, 'gold', 'explode');
             enc.completed = true;
-            overlay.style.opacity = '0';
+            // Brief delay for particles before fade
+            setTimeout(() => { overlay.style.opacity = '0'; }, 300);
             setTimeout(() => {
               overlay.remove();
               const next = advanceEncounter();
@@ -1522,6 +1525,7 @@ function renderQuest(params) {
           btn.addEventListener('mouseenter', () => { btn.style.transform = 'scale(1.02)'; });
           btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
           btn.addEventListener('click', () => {
+            try { playSound('click'); } catch(_) {}
             const hpPct = parseFloat(btn.dataset.hp);
             const goldBonus = parseInt(btn.dataset.gold);
             const wenliBonus = parseInt(btn.dataset.wenli);
@@ -1532,9 +1536,34 @@ function renderQuest(params) {
             if (wenliBonus) profile.wenli = Math.min(profile.maxWenli, (profile.wenli || 0) + wenliBonus);
             gameState.save();
 
+            // Visual feedback: highlight selected choice, show restore amount
+            btn.style.borderColor = '#2ecc8a';
+            btn.style.boxShadow = '0 0 20px rgba(46,204,138,0.4)';
+            overlay.querySelectorAll('.rest-choice').forEach(b => {
+              if (b !== btn) { b.style.opacity = '0.3'; b.style.pointerEvents = 'none'; }
+            });
+
+            // Floating restore text
+            const floatEl = document.createElement('div');
+            floatEl.textContent = `+${restoreAmt} HP` + (goldBonus ? ` +${goldBonus}💰` : '') + (wenliBonus ? ` +${wenliBonus}文力` : '');
+            floatEl.style.cssText = `
+              position:fixed; top:45%; left:50%; transform:translate(-50%,0);
+              color:#2ecc8a; font-size:1.4rem; font-weight:900;
+              text-shadow:0 0 12px rgba(46,204,138,0.5);
+              pointer-events:none; z-index:900;
+              transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+            `;
+            overlay.appendChild(floatEl);
+            requestAnimationFrame(() => requestAnimationFrame(() => {
+              floatEl.style.transform = 'translate(-50%, -40px)';
+              floatEl.style.opacity = '0';
+            }));
+            setTimeout(() => floatEl.remove(), 900);
+
             try { playSound('heal'); } catch(_) {}
+            burstAtPoint(window.innerWidth / 2, window.innerHeight * 0.4, 15, 'jade', 'fountain');
             enc.completed = true;
-            overlay.style.opacity = '0';
+            setTimeout(() => { overlay.style.opacity = '0'; }, 600);
             setTimeout(() => {
               overlay.remove();
               const next = advanceEncounter();
@@ -1547,7 +1576,7 @@ function renderQuest(params) {
                   justFinishedEncounter: true,
                 });
               }
-            }, 400);
+            }, 1000);
           });
         });
       }, 0);
