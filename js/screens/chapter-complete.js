@@ -4,6 +4,7 @@ import { registerScreen, showScreen } from '../main.js';
 import { playStinger, playMusic, setMusicIntensity } from '../audio.js';
 import { showCompanionBubble, COMPANION, pick } from './companion.js';
 import { showToast } from '../toast.js';
+import { chapterCompleteCelebration, fireworkShow, goldenRain } from '../celebrations.js';
 
 // ── Chapter completion data ────────────────────────────────────────────────────
 
@@ -683,10 +684,12 @@ function renderChapterComplete() {
   // 0ms: play victory stinger, screen visible
   try { playStinger('victory'); } catch (_) {}
 
-  // 500ms: title SLAMS in
+  // 500ms: title SLAMS in + full celebration
   setTimeout(() => {
     titleEl.style.animation = 'chcompl-slam 0.65s cubic-bezier(0.34,1.56,0.64,1) forwards';
     spawnGoldParticles(div, isEnding ? 60 : 40);
+    // Full confetti + fireworks celebration
+    chapterCompleteCelebration();
   }, 500);
 
   // 1000ms: subtitle fades in
@@ -740,8 +743,9 @@ function renderChapterComplete() {
 
     // Seal-breaking animation sequence (for non-ending chapters)
     if (!isEnding && data.nextChapter) {
-      // Play the victory stinger for the seal break
+      // Play the victory stinger for the seal break + fireworks
       try { playStinger('victory'); } catch (_) {}
+      fireworkShow({ count: 4, interval: 600 });
 
       // (1) Cracks appear (0.5s after fade-in)
       setTimeout(() => {
@@ -788,6 +792,14 @@ function renderChapterComplete() {
       setMusicIntensity(0);
     } catch (_) {}
   }, 5000);
+
+  // 6500ms: ending-specific golden rain + extra fireworks
+  if (isEnding) {
+    setTimeout(() => {
+      goldenRain({ count: 60, duration: 5000 });
+      fireworkShow({ count: 10, interval: 400 });
+    }, 6500);
+  }
 
   // 7000ms: buttons appear with pulse
   setTimeout(() => {

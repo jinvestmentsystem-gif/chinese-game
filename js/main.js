@@ -1,6 +1,6 @@
 // js/main.js — App initialization, imports all screens, boots the game
 import { gameState } from './state.js';
-import { initRouter, registerScreen, showScreen } from './router.js';
+import { initRouter, registerScreen, registerLazyScreen, showScreen } from './router.js';
 import { initAudio, playMusic, playSound, toggleMusic, toggleSFX, isMusicEnabled, isSFXEnabled } from './audio.js';
 import { startParticles, setParticleMode } from './particles.js';
 import { checkDailyLogin } from './progression.js';
@@ -9,9 +9,9 @@ import { checkDailyLogin } from './progression.js';
 export { setParticleMode };
 
 // Re-export so existing screen imports from './main.js' still work
-export { registerScreen, showScreen };
+export { registerScreen, registerLazyScreen, showScreen };
 
-// Import all screens (they register themselves via registerScreen)
+// ── Eager-loaded screens (core gameplay path) ──
 import './screens/profile.js';
 import './screens/worldmap.js';
 import './screens/quest.js';
@@ -19,17 +19,20 @@ import './screens/reward.js';
 import './screens/combat.js';
 import './screens/puzzle.js';
 import './screens/boss.js';
-import './screens/chengyu.js';
-import './screens/inventory.js';
-import './screens/shop.js';
-import './screens/levelup.js';
-import './screens/daily.js';
-import './screens/arena.js';
 import './screens/story.js';
 import './screens/encounter-intro.js';
-import './screens/chapter-complete.js';
-import './screens/settings.js';
-import './screens/stats-screen.js';
+
+// ── Lazy-loaded screens (navigated on demand, ~250K deferred) ──
+registerLazyScreen('chengyu',          () => import('./screens/chengyu.js'));
+registerLazyScreen('inventory',        () => import('./screens/inventory.js'));
+registerLazyScreen('shop',             () => import('./screens/shop.js'));
+registerLazyScreen('levelup',          () => import('./screens/levelup.js'));
+registerLazyScreen('daily',            () => import('./screens/daily.js'));
+registerLazyScreen('arena',            () => import('./screens/arena.js'));
+registerLazyScreen('chapter-complete', () => import('./screens/chapter-complete.js'));
+registerLazyScreen('settings',         () => import('./screens/settings.js'));
+registerLazyScreen('stats',            () => import('./screens/stats-screen.js'));
+registerLazyScreen('gauntlet',         () => import('./screens/gauntlet.js'));
 
 // Initialize audio on the very first user interaction (browser autoplay policy)
 let audioReady = false;
@@ -166,14 +169,14 @@ registerScreen('title', () => {
 
     <!-- ===== TOP-RIGHT CONTROLS ===== -->
     <div class="title-controls">
-      <button id="btn-title-settings" class="title-ctrl-btn" title="设置">
-        <span>&#x2699;</span>
+      <button id="btn-title-settings" class="title-ctrl-btn" title="设置" aria-label="打开设置">
+        <span aria-hidden="true">&#x2699;</span>
       </button>
-      <button id="btn-audio-music" class="title-ctrl-btn" title="音乐">
-        <span>&#x266B;</span>
+      <button id="btn-audio-music" class="title-ctrl-btn" title="音乐" aria-label="音乐开关">
+        <span aria-hidden="true">&#x266B;</span>
       </button>
-      <button id="btn-audio-sfx" class="title-ctrl-btn" title="音效">
-        <span>&#x1F50A;</span>
+      <button id="btn-audio-sfx" class="title-ctrl-btn" title="音效" aria-label="音效开关">
+        <span aria-hidden="true">&#x1F50A;</span>
       </button>
     </div>
 

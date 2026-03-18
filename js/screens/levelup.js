@@ -4,6 +4,7 @@ import { registerScreen, showScreen } from '../main.js';
 import { playSound } from '../audio.js';
 import { TALENT_TREE, canLearnTalent, learnTalent } from '../progression.js';
 import { showTutorial } from '../tutorial.js';
+import { levelUpCelebration, confettiBurst } from '../celebrations.js';
 
 // ─── Branch metadata ─────────────────────────────────────────────────────────
 const BRANCHES = {
@@ -476,6 +477,7 @@ function renderLevelUp(params) {
 
   // ── kick off ────────────────────────────────────────────────────────────
   playSound('levelup');
+  levelUpCelebration();
   render();
 
   // Tutorial: first level-up

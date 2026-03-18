@@ -1,7 +1,9 @@
-// js/router.js — Screen registry and navigation (no circular deps)
+// js/router.js — Screen registry and navigation with lazy loading support
 import { gameState } from './state.js';
+import { cleanupCelebrations } from './celebrations.js';
 
 const screens = {};
+const lazyLoaders = {}; // { screenName: () => import('./screens/foo.js') }
 let root = null;
 let transitioning = false;
 
@@ -13,10 +15,45 @@ export function registerScreen(name, renderFn) {
   screens[name] = renderFn;
 }
 
+/**
+ * Register a screen for lazy loading. The loader function should return
+ * a dynamic import() promise. The imported module must call registerScreen()
+ * at module scope so the screen becomes available after import resolves.
+ */
+export function registerLazyScreen(name, loader) {
+  lazyLoaders[name] = loader;
+}
+
 export function showScreen(name, params = {}) {
   gameState.currentScreen = name;
   if (!root) root = document.getElementById('game-root');
 
+  // If screen not registered yet, check for lazy loader
+  if (!screens[name] && lazyLoaders[name]) {
+    const loader = lazyLoaders[name];
+    delete lazyLoaders[name]; // Delete immediately to prevent double-call race
+    // Load the module asynchronously, then show
+    _showLoadingIndicator();
+    loader().then(() => {
+      _hideLoadingIndicator();
+      // Guard: if user navigated away while import was in-flight, don't render stale screen
+      if (gameState.currentScreen !== name) return;
+      // Now the module has called registerScreen() — proceed
+      if (screens[name]) {
+        _doShowScreen(name, params);
+      }
+    }).catch(err => {
+      console.error(`[Router] Lazy load "${name}" failed:`, err);
+      _hideLoadingIndicator();
+      _mountErrorScreen(err);
+    });
+    return;
+  }
+
+  _doShowScreen(name, params);
+}
+
+function _doShowScreen(name, params) {
   // If already transitioning, skip animation to avoid stacking
   if (transitioning) {
     _swapScreen(name, params);
@@ -61,6 +98,7 @@ export function showScreen(name, params = {}) {
 }
 
 function _swapScreen(name, params) {
+  cleanupCelebrations();
   root.innerHTML = '';
   _mountScreen(name, params);
 }
@@ -72,10 +110,7 @@ function _mountScreen(name, params) {
     el = screens[name](params);
   } catch (err) {
     console.error(`[Router] Screen "${name}" render error:`, err);
-    // Create a fallback error screen instead of crashing
-    el = document.createElement('div');
-    el.className = 'screen';
-    el.innerHTML = `<div style="padding:40px;text-align:center;"><h2 style="color:#e74c3c;">加载失败</h2><p style="color:var(--text-secondary);margin:12px 0;">${err.message || '未知错误'}</p><button class="btn" onclick="location.reload()">刷新</button></div>`;
+    el = _createErrorElement(err);
   }
   if (!el || !(el instanceof HTMLElement)) return;
   // When wipe is active, the overlay hides the swap — no opacity fade needed
@@ -86,8 +121,60 @@ function _mountScreen(name, params) {
     el.style.opacity = '0';
     el.style.transition = 'opacity 0.3s ease';
     root.appendChild(el);
-    // Force reflow so the transition triggers
     void el.offsetHeight;
     el.style.opacity = '1';
+  }
+}
+
+function _mountErrorScreen(err) {
+  root.innerHTML = '';
+  root.appendChild(_createErrorElement(err));
+}
+
+function _createErrorElement(err) {
+  const el = document.createElement('div');
+  el.className = 'screen';
+  el.innerHTML = `<div style="padding:40px;text-align:center;"><h2 style="color:#e74c3c;">加载失败</h2><p style="color:var(--text-secondary);margin:12px 0;">${err.message || '未知错误'}</p><button class="btn" onclick="location.reload()">刷新</button></div>`;
+  return el;
+}
+
+// ── Loading indicator for lazy-loaded screens ─────────────────────────────
+
+let loadingEl = null;
+
+function _showLoadingIndicator() {
+  if (loadingEl) return;
+  loadingEl = document.createElement('div');
+  loadingEl.style.cssText = `
+    position:fixed; inset:0; z-index:9998;
+    display:flex; align-items:center; justify-content:center;
+    background:rgba(11,12,26,0.85);
+    pointer-events:none;
+  `;
+  loadingEl.innerHTML = `
+    <div style="text-align:center;">
+      <div style="
+        width:32px; height:32px; border:3px solid rgba(212,160,23,0.3);
+        border-top-color:#d4a017; border-radius:50%;
+        animation:router-spin 0.7s linear infinite;
+        margin:0 auto 12px;
+      "></div>
+      <div style="color:rgba(212,160,23,0.7);font-size:0.9rem;letter-spacing:0.1em;">加载中…</div>
+    </div>
+  `;
+  // Inject spinner keyframe if needed
+  if (!document.getElementById('router-spin-style')) {
+    const s = document.createElement('style');
+    s.id = 'router-spin-style';
+    s.textContent = '@keyframes router-spin { to { transform: rotate(360deg); } }';
+    document.head.appendChild(s);
+  }
+  document.body.appendChild(loadingEl);
+}
+
+function _hideLoadingIndicator() {
+  if (loadingEl) {
+    loadingEl.remove();
+    loadingEl = null;
   }
 }

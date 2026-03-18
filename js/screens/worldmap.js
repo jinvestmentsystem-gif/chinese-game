@@ -334,6 +334,40 @@ function renderWorldMap() {
     }
   });
 
+  // ── Endgame: Infinite Gauntlet (unlocked after all 5 chapters) ──
+  const allChaptersComplete = chapters.every(ch => ch.isCompleted);
+  const gauntletRecord = profile.gauntletRecord || 0;
+  if (allChaptersComplete) {
+    nodesHTML += buildPathConnector('#8e44ad', '#d4a017');
+    nodesHTML += `
+      <div class="era-node node-active clickable" data-chapter="gauntlet"
+           style="--node-color:#d4a017; border-left-color:#d4a017; background:linear-gradient(135deg, rgba(212,160,23,0.08), rgba(142,68,173,0.08), var(--bg-glass));"
+           role="button" tabindex="0" aria-label="无尽试炼 — 挑战不断升级的BOSS">
+        <div class="era-icon" aria-hidden="true">
+          <svg viewBox="0 0 60 60" width="36" height="36" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="24" fill="none" stroke="#d4a017" stroke-width="2" opacity="0.7"/>
+            <circle cx="30" cy="30" r="16" fill="none" stroke="#d4a017" stroke-width="1.5" opacity="0.5" stroke-dasharray="4 3">
+              <animateTransform attributeName="transform" type="rotate" from="0 30 30" to="360 30 30" dur="8s" repeatCount="indefinite"/>
+            </circle>
+            <text x="30" y="36" text-anchor="middle" fill="#d4a017" font-size="18" font-weight="900">∞</text>
+          </svg>
+        </div>
+        <div class="era-info">
+          <div class="era-tag" style="color:#d4a017;">无尽试炼 · Infinite Gauntlet</div>
+          <div class="era-title" style="color:var(--accent-gold);">挑战极限</div>
+          <div class="era-subtitle">不断升级的BOSS · 每3层+10%属性 · 看你能走多远</div>
+          <div style="margin-top:6px;">
+            <span style="color:rgba(255,255,255,0.5);font-size:0.9rem;">最高记录: </span>
+            <span style="color:#d4a017;font-size:0.95rem;font-weight:700;">第 ${gauntletRecord} 层</span>
+          </div>
+        </div>
+        <div class="era-badge">
+          <div class="era-chapter-num" style="color:#d4a017;">∞</div>
+          <div class="era-status-badge active" style="background:rgba(212,160,23,0.2);color:#d4a017;">挑战</div>
+        </div>
+      </div>`;
+  }
+
   // --- Player stats for the stats bar ---
   const xpProgress = getXPProgress(profile);
   const effectiveMaxHp = getEffectiveMaxHp(profile);
@@ -533,10 +567,14 @@ function renderWorldMap() {
 
     // Chapter node click/keyboard handlers
     div.querySelectorAll('.era-node.clickable').forEach(node => {
-      const chapterId = parseInt(node.dataset.chapter);
+      const chapterVal = node.dataset.chapter;
 
       const activate = () => {
-        showScreen('quest', { chapterId });
+        if (chapterVal === 'gauntlet') {
+          showScreen('gauntlet');
+        } else {
+          showScreen('quest', { chapterId: parseInt(chapterVal) });
+        }
       };
 
       node.addEventListener('click', activate);

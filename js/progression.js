@@ -231,7 +231,9 @@ const UNLOCKS = {
 export function xpForLevel(level) {
   if (level <= 3) return 80 + level * 30; // 110, 140, 170 — fast early levels
   if (level <= 7) return Math.round(120 * Math.pow(level, 1.3)); // moderate middle
-  return Math.round(100 * Math.pow(level, 1.5)); // standard late game
+  if (level <= 15) return Math.round(100 * Math.pow(level, 1.35)); // softened late game (was 1.5)
+  // Post-15: linear growth instead of exponential — prevents infinite grind
+  return Math.round(100 * Math.pow(15, 1.35) + (level - 15) * 350);
 }
 
 export function calculateGoldReward(results, isChapterBoss = false) {

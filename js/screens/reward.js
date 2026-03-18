@@ -7,6 +7,7 @@ import { playSound } from '../audio.js';
 import { showCompanionBubble, COMPANION, pick } from './companion.js';
 import { setParticleMode, burstParticles } from '../particles.js';
 import { showToast } from '../toast.js';
+import { victoryCelebration, perfectScoreCelebration, confettiBurst } from '../celebrations.js';
 
 // ─── Chapter quest counts (mirrors worldmap.js CHAPTERS) ─────────────────────
 // Kept here to avoid circular dependency with worldmap.js.
@@ -546,11 +547,17 @@ function renderReward() {
 
   // ── Animated sequence ──
 
-  // Step 0 (0ms): fade in title + victory burst
+  // Step 0 (0ms): fade in title + victory burst + confetti
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       title.style.opacity = '1';
       burstParticles(50, 'victory');
+      // Confetti celebration — bigger for perfect scores
+      if (isPerfect) {
+        perfectScoreCelebration();
+      } else {
+        victoryCelebration();
+      }
     });
   });
 
@@ -595,6 +602,8 @@ function renderReward() {
 
     // Level-up bounce if applicable
     if (levelUpInfo) {
+      // Level-up confetti burst
+      confettiBurst({ count: 40, force: 10, colors: ['#d4a017', '#f5c842', '#2ecc8a'] });
       setTimeout(() => {
         const lvlBadge = document.createElement('div');
         lvlBadge.textContent = `升级！Lv.${levelUpInfo.newLevel}${levelUpInfo.unlock ? ' · 解锁: ' + levelUpInfo.unlock : ''}`;

@@ -11,6 +11,7 @@ import { showTutorial } from '../tutorial.js';
 import { shakeElement, lungeElement, slashEffect, screenFlash, floatingText } from '../effects.js';
 import { recordWrongAnswer, recordCorrectReview } from '../spaced-repetition.js';
 import { createCombatBackground, destroyCombatBackground } from '../pixi-backgrounds.js';
+import { confettiBurst } from '../celebrations.js';
 
 // ─── Enemy type system ──────────────────────────────────────────────────────
 const ENEMY_TYPES = [
@@ -383,6 +384,7 @@ function renderCombat() {
   let shieldActive = enemyType.ability === 'shield'; // shield blocks first wrong answer
   let enrageTriggered = false; // enrage fires once when HP < 50%
   let scrambleTimer = null; // scramble timer reference
+  let activeKeyHandler = null; // keyboard shortcut handler ref for cleanup
 
   // PixiJS overlay handle
   let pixiApp = null;
@@ -1328,8 +1330,10 @@ function renderCombat() {
       doubleBtn.textContent = '双倍 ✓';
     });
 
-    div.querySelectorAll('.combat-option').forEach(btn => {
+    const combatOptions = div.querySelectorAll('.combat-option');
+    combatOptions.forEach((btn, i) => {
       btn.classList.add('spotlight-card');
+      btn.setAttribute('aria-label', `选项 ${i + 1}: ${btn.textContent}`);
       btn.addEventListener('click', () => {
         clearInterval(timerInterval);
         clearInterval(timerPulseInterval);
@@ -1338,6 +1342,24 @@ function renderCombat() {
         handleAnswer(idx, q);
       });
     });
+
+    // Keyboard shortcuts: 1-4 keys select combat options
+    // Remove previous handler first (prevents stacking on re-render)
+    if (activeKeyHandler) {
+      document.removeEventListener('keydown', activeKeyHandler);
+      activeKeyHandler = null;
+    }
+    const keyHandler = (e) => {
+      const num = parseInt(e.key);
+      if (num >= 1 && num <= combatOptions.length) {
+        e.preventDefault();
+        document.removeEventListener('keydown', keyHandler);
+        activeKeyHandler = null;
+        combatOptions[num - 1]?.click();
+      }
+    };
+    activeKeyHandler = keyHandler;
+    document.addEventListener('keydown', keyHandler);
 
     // ── Pause / Resume ──
     const pauseBtn = div.querySelector('#btn-pause');
@@ -1389,6 +1411,11 @@ function renderCombat() {
 
   function handleAnswer(idx, q, isTimeout = false) {
     stopBreaths();
+    // Clean up keyboard handler to prevent stale firing
+    if (activeKeyHandler) {
+      document.removeEventListener('keydown', activeKeyHandler);
+      activeKeyHandler = null;
+    }
     // Remove urgency overlay on answer
     const urgEl = div.querySelector('.combat-urgency-overlay');
     if (urgEl) urgEl.remove();
@@ -1456,6 +1483,10 @@ function renderCombat() {
     }
 
     recordAnswer('vocab', correct, q.id);
+
+    // ── Per-question save checkpoint (prevents data loss on crash) ──
+    profile.hp = playerHp;
+    gameState.save();
 
     // ── Spaced repetition tracking ──
     if (!correct) {
@@ -2106,6 +2137,11 @@ function renderCombat() {
   }
 
   function endCombat(won) {
+    // Clean up keyboard handler
+    if (activeKeyHandler) {
+      document.removeEventListener('keydown', activeKeyHandler);
+      activeKeyHandler = null;
+    }
     destroyCombatBackground();
     stopBreaths();
     // Guard against double-calls (multiple code paths can trigger endCombat)
@@ -2240,6 +2276,9 @@ function renderCombat() {
       }, 0);
       return;
     }
+
+    // Combat victory confetti
+    confettiBurst({ count: 40, force: 8, colors: ['#d4a017', '#f5c842', '#2ecc8a'] });
 
     // Companion celebration on victory
     showCompanionBubble(div, pick(COMPANION.victory), 4000);

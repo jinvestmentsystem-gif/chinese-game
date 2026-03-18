@@ -2,7 +2,8 @@
 import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
 import { getCurrentEncounter, advanceEncounter, recordAnswer } from '../game-engine.js';
-import { hasAbility, calcDamage, calcDamageTaken, getTimerDuration, rollCrit, getEffectiveMaxHp, getTalentEffects } from '../progression.js';
+import { hasAbility, calcDamage, calcDamageTaken, getTimerDuration, rollCrit, getEffectiveMaxHp, getTalentEffects, addXP } from '../progression.js';
+import { showToast } from '../toast.js';
 import { loadChengyu } from '../content-loader.js';
 import { SPRITES } from '../sprites.js';
 import { playSound, playMusic, setMusicIntensity, playStinger } from '../audio.js';
@@ -11,6 +12,7 @@ import { setParticleMode, burstParticles } from '../particles.js';
 import { showTutorial } from '../tutorial.js';
 import { shakeElement, shakeContainer, lungeElement, floatingText } from '../effects.js';
 import { createCombatBackground, destroyCombatBackground } from '../pixi-backgrounds.js';
+import { fireworkShow, confettiBurst, goldenRain } from '../celebrations.js';
 
 const BOSS_NARRATIVES = {
   phase1: [
@@ -381,6 +383,9 @@ function renderBoss() {
   let playerHp = profile.hp;
   let bossHp = 100;
   let doubleActive = false;
+  // Gauntlet scaling: boss deals more damage on higher floors
+  const gauntletAtkScale = quest.gauntletMode ? (quest.gauntletScaling || 1) : 1;
+  const bossBaseAtk = Math.round(25 * gauntletAtkScale);
   let isFirstRender = true;
 
   // Timer value depends on half_timer ability — use stat-based timer with base 20
@@ -485,7 +490,7 @@ function renderBoss() {
     }).join('');
 
     // Intent damage preview — use new stat formula with boss base 25
-    const wrongDmgInfo = calcDamageTaken(profile, 25);
+    const wrongDmgInfo = calcDamageTaken(profile, bossBaseAtk);
     const wrongDamage = wrongDmgInfo.damage;
     const bossIntentHTML = `
       <div style="
@@ -739,7 +744,7 @@ function renderBoss() {
       if (bossTimeLeft <= 0) {
         clearInterval(bossTimerInterval);
         // Timeout acts like wrong answer — apply HP loss and thorns
-        const timeoutDmg = calcDamageTaken(profile, 25);
+        const timeoutDmg = calcDamageTaken(profile, bossBaseAtk);
         const hpLoss = timeoutDmg.damage;
         const thornsReturn = timeoutDmg.thornsReturn;
         playerHp = Math.max(0, playerHp - hpLoss);
@@ -837,7 +842,7 @@ function renderBoss() {
           if (bossTimerBar) bossTimerBar.style.width = Math.max(0, (bossTimeLeft / bossBaseTimer) * 100) + '%';
           if (bossTimeLeft <= 0) {
             clearInterval(bossTimerInterval);
-            const timeoutDmg = calcDamageTaken(profile, 25);
+            const timeoutDmg = calcDamageTaken(profile, bossBaseAtk);
             const hpLoss = timeoutDmg.damage;
             const thornsReturn = timeoutDmg.thornsReturn;
             playerHp = Math.max(0, playerHp - hpLoss);
@@ -878,6 +883,10 @@ function renderBoss() {
 
         recordAnswer('classical', correct, q.id);
 
+        // Per-question save checkpoint
+        profile.hp = playerHp;
+        gameState.save();
+
         // Correct/wrong SFX — fire immediately before animation delays
         if (correct) {
           playSound('correct');
@@ -904,6 +913,11 @@ function renderBoss() {
           const talents = getTalentEffects(profile);
           if (talents.executePct && bossHp < 30) {
             dmg = Math.round(dmg * (1 + talents.executePct / 100));
+          }
+
+          // Gauntlet scaling: reduce damage dealt based on floor scaling
+          if (quest.gauntletMode && quest.gauntletScaling > 1) {
+            dmg = Math.max(1, Math.round(dmg / quest.gauntletScaling));
           }
 
           bossHp = Math.max(0, bossHp - dmg);
@@ -993,7 +1007,7 @@ function renderBoss() {
 
         } else {
           // ── New stat-based damage taken calculation with thorns ──
-          const wrongResult = calcDamageTaken(profile, 25);
+          const wrongResult = calcDamageTaken(profile, bossBaseAtk);
           const hpLoss = wrongResult.damage;
           const thornsReturn = wrongResult.thornsReturn;
           playerHp = Math.max(0, playerHp - hpLoss);
@@ -1064,9 +1078,27 @@ function renderBoss() {
     profile.hp = playerHp;
     gameState.save();
 
+    // ── Gauntlet defeat: return to gauntlet screen, reset floor ──
+    if (!won && quest.gauntletMode) {
+      profile.gauntletFloor = 0; // Reset floor on defeat
+      gameState.save();
+      // Show brief defeat message, then return to gauntlet
+      div.innerHTML = `
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(0,0,0,0.85);z-index:10;padding:24px;text-align:center;">
+          <div style="font-size:2.4rem;font-weight:900;color:#c0392b;margin-bottom:12px;text-shadow:0 0 20px rgba(192,57,43,0.5);">试炼结束</div>
+          <div style="font-size:1.1rem;color:var(--text-secondary);margin-bottom:8px;">到达第 ${quest.gauntletFloor || 1} 层</div>
+          <div style="font-size:0.95rem;color:rgba(255,200,100,0.7);margin-bottom:24px;max-width:300px;">你的文字之力还在成长。休整后再来挑战吧！</div>
+          <button class="btn btn-primary" id="btn-gauntlet-return" style="font-size:1rem;padding:12px 28px;">返回试炼</button>
+        </div>
+      `;
+      setTimeout(() => {
+        div.querySelector('#btn-gauntlet-return')?.addEventListener('click', () => showScreen('gauntlet'));
+      }, 0);
+      return;
+    }
+
     if (!won) {
       // ── Enhanced boss defeat screen ───────────────────────────────────
-      const quest = gameState.currentQuest;
       const results = quest ? quest.results : { correct: 0, total: 0, maxCombo: 0 };
       const bossDamageDealt = 100 - bossHp;
       const motivationalTexts = [
@@ -1205,6 +1237,11 @@ function renderBoss() {
       setTimeout(() => goldenLightExpansion(div, cx, cy), 400);
     }
 
+    // Boss defeat celebration — confetti + fireworks
+    confettiBurst({ count: 80, force: 12, colors: ['#d4a017', '#f5c842', '#e74c3c', '#2ecc8a', '#a855f7'] });
+    setTimeout(() => fireworkShow({ count: 5, interval: 400 }), 500);
+    setTimeout(() => goldenRain({ count: 30, duration: 3000 }), 1500);
+
     // Companion celebrates boss victory
     showCompanionBubble(div, pick(COMPANION.bossVictory), 5000);
 
@@ -1233,7 +1270,43 @@ function renderBoss() {
       });
     }, 700);
 
-    // Check for chengyu drop
+    // ── Gauntlet mode: advance floor instead of normal quest flow ──
+    // (Skip chengyu drops in gauntlet — it's a boss rematch mode)
+    if (quest.gauntletMode && won) {
+      setTimeout(() => {
+        const floor = quest.gauntletFloor || 1;
+        const profile_ = gameState.profile;
+
+        // Award XP and gold for gauntlet floor
+        const floorXP = 30 + floor * 5;
+        const floorGold = 20 + floor * 3;
+        addXP(floorXP);
+        profile_.gold = (profile_.gold || 0) + floorGold;
+        profile_.gauntletFloor = floor;
+
+        // Update record
+        if (floor > (profile_.gauntletRecord || 0)) {
+          profile_.gauntletRecord = floor;
+          // Award mastery titles at milestones
+          if (!profile_.titles) profile_.titles = ['新手文字侠'];
+          const titleMap = { 5: '试炼新手', 10: '试炼勇士', 20: '试炼大师', 50: '试炼传说' };
+          if (titleMap[floor] && !profile_.titles.includes(titleMap[floor])) {
+            profile_.titles.push(titleMap[floor]);
+            showToast(`新称号: ${titleMap[floor]}`, { type: 'title', duration: 4000 });
+          }
+          showToast(`新纪录！第 ${floor} 层`, { type: 'achievement', duration: 3000 });
+        }
+
+        showToast(`+${floorXP} XP · +${floorGold} 金币`, { type: 'reward', duration: 2500 });
+        gameState.save();
+
+        // Return to gauntlet screen for next floor
+        showScreen('gauntlet');
+      }, 2000);
+      return;
+    }
+
+    // Check for chengyu drop (normal boss flow only)
     const allChengyu = await loadChengyu();
     const uncollected = allChengyu.filter(cy => !profile.chengyu.includes(cy.id) && cy.chapter === quest.chapterId);
 
@@ -1259,7 +1332,6 @@ function renderBoss() {
             if (!next) {
               showScreen('reward');
             } else {
-              // Return to journey map so the player sees their progress
               showScreen('quest', {
                 chapterId: quest.chapterId,
                 questIndex: quest.questIndex,

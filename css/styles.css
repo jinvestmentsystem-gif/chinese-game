@@ -13,7 +13,7 @@
 
   --text-primary:   #e8e6d8;
   --text-secondary: #9a97b8;
-  --text-dim:       #5a5875;
+  --text-dim:       #7a789a; /* was #5a5875 — improved contrast for WCAG AA */
 
   --gold:           #d4a017;
   --gold-bright:    #f0c040;
@@ -910,93 +910,6 @@ input[type="text"]:focus, input[type="number"]:focus {
   line-height: 1.5;
 }
 
-/* ── Chapter / World Map Cards ───────────────────────────────── */
-.chapter-grid {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 10px 20px 30px;
-}
-
-.chapter-card {
-  background: var(--bg-glass);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: var(--radius-lg);
-  padding: 22px 20px;
-  width: 165px;
-  text-align: center;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.22s ease, box-shadow 0.25s ease;
-  box-shadow:
-    0 0 0 1px rgba(212,160,23,0.18),
-    0 8px 28px rgba(0,0,0,0.45);
-}
-
-.chapter-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: var(--card-accent, var(--gold));
-  box-shadow: 0 0 10px var(--card-accent, var(--gold));
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-}
-
-.chapter-card.unlocked:hover {
-  transform: translateY(-5px);
-  box-shadow:
-    0 0 0 2px var(--card-accent, rgba(212,160,23,0.6)),
-    0 0 20px color-mix(in srgb, var(--card-accent, var(--gold)) 35%, transparent),
-    0 14px 40px rgba(0,0,0,0.55);
-}
-
-.chapter-card.locked {
-  opacity: 0.42;
-  cursor: not-allowed;
-  filter: grayscale(0.7);
-}
-
-.chapter-card.locked:hover { transform: none; }
-
-.chapter-era {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--card-accent, var(--jade));
-  margin-bottom: 6px;
-  text-shadow: 0 0 8px var(--card-accent, var(--jade));
-}
-
-.chapter-name {
-  font-size: 1.15rem;
-  font-weight: 900;
-  color: var(--gold);
-  margin-bottom: 8px;
-  text-shadow: 0 0 8px rgba(212,160,23,0.5);
-  line-height: 1.2;
-}
-
-.chapter-boss {
-  font-size: 0.78rem;
-  color: var(--text-secondary);
-  margin-bottom: 5px;
-}
-
-.chapter-progress {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--jade);
-}
-
-.chapter-card.locked .chapter-progress {
-  color: var(--text-dim);
-}
-
 /* ── Flash Overlays ──────────────────────────────────────────── */
 .flash-correct {
   position: fixed;
@@ -1641,25 +1554,6 @@ input[type="text"]:focus, input[type="number"]:focus {
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: rgba(212,160,23,0.25); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(212,160,23,0.45); }
-
-/* ── Utility ─────────────────────────────────────────────────── */
-.text-gold   { color: var(--gold); text-shadow: 0 0 6px rgba(212,160,23,0.4); }
-.text-jade   { color: var(--jade); text-shadow: 0 0 6px rgba(46,204,138,0.4); }
-.text-red    { color: var(--red);  text-shadow: 0 0 6px rgba(214,48,49,0.4); }
-.text-dim    { color: var(--text-secondary); }
-.text-center { text-align: center; }
-.mt-sm  { margin-top: 8px; }
-.mt-md  { margin-top: 16px; }
-.mt-lg  { margin-top: 28px; }
-.mb-sm  { margin-bottom: 8px; }
-.mb-md  { margin-bottom: 16px; }
-.gap-sm { gap: 8px; }
-.gap-md { gap: 14px; }
-
-.flex-row     { display: flex; align-items: center; }
-.flex-center  { display: flex; align-items: center; justify-content: center; }
-.flex-col     { display: flex; flex-direction: column; }
-.flex-between { display: flex; justify-content: space-between; align-items: center; }
 
 /* Divider */
 .divider {
@@ -4917,3 +4811,313 @@ input[type="text"]:focus, input[type="number"]:focus {
 
 .sprite-attacking svg { animation: sprite-attack-lunge 0.5s ease-out !important; }
 .sprite-hurting svg { animation: sprite-hurt-recoil 0.5s ease-out !important; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   VISUAL POLISH PASS — Enhanced Ink-Wash Atmosphere & Combat Feedback
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Ink-wash floating calligraphy overlay ─────────────────────────────── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    radial-gradient(circle at 15% 85%, rgba(212,160,23,0.03) 0%, transparent 40%),
+    radial-gradient(circle at 85% 15%, rgba(46,204,138,0.02) 0%, transparent 35%);
+  animation: ink-wash-drift 30s ease-in-out infinite alternate;
+}
+
+@keyframes ink-wash-drift {
+  0%   { opacity: 0.6; }
+  50%  { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+
+/* ── Enhanced combat option buttons ───────────────────────────────────── */
+.combat-option {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s ease, box-shadow 0.25s ease !important;
+}
+
+.combat-option::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.04) 50%, transparent 60%);
+  background-size: 250% 250%;
+  animation: option-shimmer 3s ease infinite;
+  pointer-events: none;
+}
+
+@keyframes option-shimmer {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 250% 250%; }
+}
+
+.combat-option:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow:
+    0 0 0 1px rgba(212,160,23,0.5),
+    0 4px 16px rgba(0,0,0,0.4),
+    0 0 20px rgba(212,160,23,0.15) !important;
+}
+
+.combat-option:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Correct answer flash */
+.combat-option.correct-flash {
+  animation: option-correct 0.6s ease forwards !important;
+  border-color: var(--jade) !important;
+}
+
+@keyframes option-correct {
+  0%   { background: rgba(46,204,138,0.3); box-shadow: 0 0 0 0 rgba(46,204,138,0.5); }
+  50%  { background: rgba(46,204,138,0.5); box-shadow: 0 0 20px 4px rgba(46,204,138,0.3); }
+  100% { background: rgba(46,204,138,0.15); box-shadow: 0 0 0 0 transparent; }
+}
+
+/* Wrong answer flash */
+.combat-option.wrong-flash {
+  animation: option-wrong 0.5s ease forwards !important;
+  border-color: var(--red) !important;
+}
+
+@keyframes option-wrong {
+  0%   { background: rgba(214,48,49,0.3); transform: translateX(0); }
+  20%  { transform: translateX(-6px); }
+  40%  { transform: translateX(6px); }
+  60%  { transform: translateX(-3px); }
+  80%  { transform: translateX(3px); }
+  100% { background: rgba(214,48,49,0.1); transform: translateX(0); }
+}
+
+/* ── Enhanced combo indicator ──────────────────────────────────────────── */
+.combo-display {
+  animation: combo-entrance 0.3s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+@keyframes combo-entrance {
+  from { transform: scale(0) rotate(-10deg); opacity: 0; }
+  to   { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* ── Improved HP bar animations ────────────────────────────────────────── */
+.wm-bar-fill,
+.era-progress-fill {
+  position: relative;
+  overflow: hidden;
+}
+
+.wm-bar-fill::after,
+.era-progress-fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,255,255,0.15) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: bar-shine 2.5s ease-in-out infinite;
+}
+
+@keyframes bar-shine {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ── Era node enhanced effects ─────────────────────────────────────────── */
+.era-node.node-active::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  bottom: -1px;
+  left: -1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--node-color, var(--gold)) 10%, transparent) 50%,
+    transparent 100%
+  );
+  background-size: 300% 100%;
+  animation: node-sweep 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes node-sweep {
+  0%   { background-position: -100% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ── Enhanced path connector animation ─────────────────────────────────── */
+.path-connector {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.path-connector svg path {
+  stroke-dashoffset: 0;
+  animation: path-flow 2s linear infinite;
+}
+
+@keyframes path-flow {
+  to { stroke-dashoffset: -14; }
+}
+
+/* ── Combat stage — dramatic vignette ──────────────────────────────────── */
+.combat-screen-inner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 40%,
+    rgba(0,0,0,0.3) 80%,
+    rgba(0,0,0,0.6) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Question card polish ──────────────────────────────────────────────── */
+.combat-question-area {
+  position: relative;
+}
+
+.combat-question-area::before {
+  content: '';
+  position: absolute;
+  top: -2px; left: -2px; right: -2px; bottom: -2px;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(212,160,23,0.2) 0%,
+    transparent 40%,
+    transparent 60%,
+    rgba(212,160,23,0.1) 100%
+  );
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ── Timer bar enhanced glow ──────────────────────────────────────────── */
+.timer-bar-fill {
+  position: relative;
+}
+
+.timer-bar-fill::before {
+  content: '';
+  position: absolute;
+  right: -4px;
+  top: -4px;
+  bottom: -4px;
+  width: 16px;
+  background: radial-gradient(circle, currentColor, transparent 70%);
+  opacity: 0.6;
+  border-radius: 50%;
+  animation: timer-glow-pulse 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes timer-glow-pulse {
+  from { opacity: 0.3; transform: scale(0.8); }
+  to   { opacity: 0.7; transform: scale(1.2); }
+}
+
+/* ── Worldmap — floating motes behind nodes ────────────────────────────── */
+.worldmap-path::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(1.5px 1.5px at 15% 25%, rgba(212,160,23,0.2), transparent),
+    radial-gradient(1px 1px at 55% 40%, rgba(46,204,138,0.15), transparent),
+    radial-gradient(2px 2px at 80% 65%, rgba(142,68,173,0.12), transparent),
+    radial-gradient(1.5px 1.5px at 30% 80%, rgba(214,48,49,0.1), transparent),
+    radial-gradient(1px 1px at 70% 15%, rgba(212,160,23,0.12), transparent);
+  pointer-events: none;
+  animation: motes-drift 8s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+@keyframes motes-drift {
+  0%   { opacity: 0.5; transform: translateY(0); }
+  100% { opacity: 1; transform: translateY(-8px); }
+}
+
+/* ── Reward screen gold number glow ────────────────────────────────────── */
+.reward-gold-shimmer {
+  filter: drop-shadow(0 0 6px rgba(212,160,23,0.4));
+}
+
+/* ── Chapter complete enhanced title ───────────────────────────────────── */
+[style*="chcompl-slam"] {
+  filter: drop-shadow(0 0 40px rgba(212,160,23,0.6))
+          drop-shadow(0 4px 12px rgba(0,0,0,0.8));
+}
+
+/* ── Improved scrollbar styling for all scrollable areas ───────────────── */
+.screen::-webkit-scrollbar {
+  width: 6px;
+}
+.screen::-webkit-scrollbar-track {
+  background: transparent;
+}
+.screen::-webkit-scrollbar-thumb {
+  background: rgba(212,160,23,0.2);
+  border-radius: 3px;
+}
+.screen::-webkit-scrollbar-thumb:hover {
+  background: rgba(212,160,23,0.4);
+}
+
+/* ── Better focus outlines for accessibility ───────────────────────────── */
+.era-node:focus-visible,
+.combat-option:focus-visible,
+.btn:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* ── Stat allocation card hover ────────────────────────────────────────── */
+.stat-btn:hover:not(:disabled) {
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(212,160,23,0.3);
+}
+
+/* ── Talent node hover glow ────────────────────────────────────────────── */
+.talent-node.talent-available:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 16px rgba(142,68,173,0.4), 0 4px 12px rgba(0,0,0,0.3) !important;
+}
+
+/* ── Daily login popup glass effect ────────────────────────────────────── */
+.daily-login-popup .daily-login-content {
+  backdrop-filter: blur(16px);
+}
+
+/* ── Shop item hover ───────────────────────────────────────────────────── */
+.shop-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1px rgba(212,160,23,0.3), 0 8px 24px rgba(0,0,0,0.4);
+}
+
+/* ── Better responsive landscape layout for combat ─────────────────────── */
+@media (max-height: 500px) and (orientation: landscape) {
+  .combat-screen-inner {
+    padding-top: 4px !important;
+  }
+  .combat-hud {
+    padding: 2px 8px !important;
+    padding-top: 28px !important;
+  }
+}
