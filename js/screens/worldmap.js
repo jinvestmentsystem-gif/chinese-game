@@ -601,7 +601,16 @@ function renderWorldMap() {
         if (chapterVal === 'gauntlet') showScreen('gauntlet');
         else if (chapterVal === 'weekly-boss') showScreen('weekly-boss');
         else if (chapterVal === 'prestige') showScreen('prestige');
-        else showScreen('quest', { chapterId: parseInt(chapterVal) });
+        else {
+          const cid = parseInt(chapterVal);
+          const ch = chapters.find(c => c.id === cid);
+          if (ch && ch.isCompleted) {
+            // Completed chapter — replay from quest 0
+            showScreen('quest', { chapterId: cid, questIndex: 0 });
+          } else {
+            showScreen('quest', { chapterId: cid });
+          }
+        }
       };
 
       node.addEventListener('click', activate);

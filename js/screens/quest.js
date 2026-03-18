@@ -389,7 +389,11 @@ function renderQuest(params) {
   const { chapterId } = params;
   const profile = gameState.profile;
   const progress = profile.chapterProgress[chapterId] || { questsCompleted: 0 };
-  const questIndex = params.questIndex ?? progress.questsCompleted;
+  const CHAPTER_QUEST_COUNTS = { 1: 4, 2: 4, 3: 4, 4: 4, 5: 5 };
+  const maxQuests = CHAPTER_QUEST_COUNTS[chapterId] || 4;
+  let questIndex = params.questIndex ?? progress.questsCompleted;
+  // Clamp to valid range — if chapter complete, replay from quest 0
+  if (questIndex >= maxQuests) questIndex = 0;
   const justFinishedEncounter = params.justFinishedEncounter || false;
 
   const era   = CHAPTER_ERA[chapterId] || 'xianqin';
