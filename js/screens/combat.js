@@ -501,7 +501,8 @@ function renderCombat() {
     else if (combo >= 4) comboColor = '#e67e22';
 
     // ── Enemy intent: damage on wrong answer / timeout ──
-    const enemyAtk = enrageTriggered ? Math.round(enemyType.attack * 1.5) : enemyType.attack;
+    let enemyAtk = enrageTriggered ? Math.round(enemyType.attack * 1.5) : enemyType.attack;
+    if (modifier?.enemyDmgMult) enemyAtk = Math.round(enemyAtk * modifier.enemyDmgMult);
     const wrongDmgInfo = calcDamageTaken(profile, enemyAtk);
     const timeoutDmgInfo = calcDamageTaken(profile, Math.round(enemyAtk * 1.3));
     const wrongDamage = wrongDmgInfo.damage;
@@ -1621,7 +1622,9 @@ function renderCombat() {
       }
 
       // ── New stat-based damage calculation ──
-      const isCrit = rollCrit(profile);
+      // Apply modifier crit bonus (e.g. 'critical storm' +30% crit chance)
+      let isCrit = rollCrit(profile);
+      if (!isCrit && modifier?.critBonus && Math.random() < modifier.critBonus) isCrit = true;
       const timerBar = div.querySelector('#timer-bar');
       const currentTimeLeft = timerBar ? (parseFloat(timerBar.style.width) / 100) * baseTimer : 0;
       let dmg = calcDamage(profile, combo, isCrit, currentTimeLeft);
