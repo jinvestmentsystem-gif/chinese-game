@@ -378,13 +378,10 @@ function showSplash() {
     splash.removeEventListener('click', enter);
     splash.removeEventListener('touchend', enter);
 
-    // Unlock audio — call initAudio + resume Howler context directly in gesture
+    // Unlock audio AND start music IMMEDIATELY in the gesture (iOS requires this)
     ensureAudio();
-
-    // Also directly resume Howler's context as a belt-and-suspenders
-    if (typeof Howler !== 'undefined' && Howler.ctx) {
-      Howler.ctx.resume();
-    }
+    if (typeof Howler !== 'undefined' && Howler.ctx) Howler.ctx.resume();
+    if (isMusicEnabled()) playMusic('menu'); // Must be in same gesture stack for iOS
 
     // Brief fade out splash then navigate
     splash.style.transition = 'opacity 0.4s';
