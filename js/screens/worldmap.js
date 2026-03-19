@@ -285,7 +285,7 @@ function renderWorldMap() {
           ? `<span style="color:#d4a017;font-size:0.7rem;margin-left:4px;">${'★'.repeat(stars)}${'☆'.repeat(3-stars)}</span>`
           : '';
 
-        const questLabel = qCurrent ? '← 当前' : qCompleted ? '✓' : '🔒';
+        const questLabel = qCurrent ? '← 当前' : qCompleted ? '✓ 重玩' : '🔒';
         const questColor = qCurrent ? ch.color : qCompleted ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.2)';
 
         questNodesHTML += `
@@ -694,12 +694,8 @@ function renderWorldMap() {
         else if (chapterVal === 'prestige') showScreen('prestige');
         else {
           const cid = parseInt(chapterVal);
-          const ch = chapters.find(c => c.id === cid);
-          if (ch && ch.isCompleted) {
-            showScreen('quest', { chapterId: cid, questIndex: 0 });
-          } else {
-            showScreen('quest', { chapterId: cid });
-          }
+          // Always go to current quest (quest.js defaults to questsCompleted)
+          showScreen('quest', { chapterId: cid });
         }
       };
 
