@@ -349,10 +349,10 @@ function showSplash() {
       background:linear-gradient(135deg,#d4a017,#f5c842,#d4a017);
       -webkit-background-clip:text;-webkit-text-fill-color:transparent;
       background-clip:text;text-shadow:none;filter:drop-shadow(0 2px 8px rgba(212,160,23,0.3));">
-      文字侠
+      文定乾坤
     </div>
     <div style="font-size:1rem;color:rgba(255,255,255,0.4);letter-spacing:0.15em;font-weight:300;">
-      W O R D &nbsp; H E R O
+      W E N &nbsp; D I N G &nbsp; Q I A N &nbsp; K U N
     </div>
     <div style="margin-top:32px;padding:14px 40px;border:1.5px solid rgba(212,160,23,0.4);
       border-radius:12px;color:rgba(212,160,23,0.8);font-size:1.05rem;font-weight:600;

@@ -2,6 +2,3 @@
 node_modules/
 .DS_Store
 Thumbs.db
-*.png
-music_*.mp3
-sfx_*.mp3
