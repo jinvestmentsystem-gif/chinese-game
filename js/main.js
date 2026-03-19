@@ -338,21 +338,55 @@ registerScreen('title', () => {
 // Boot
 initRouter();
 
-if (gameState.profiles.length === 0) {
-  // New player: opening cinematic (shortened) → profile creation → worldmap
-  showScreen('story', {
-    storyKey: 'opening',
-    onComplete: () => showScreen('profile', { mode: 'solo' }),
-  });
-} else if (gameState.profiles.length === 1) {
-  // Returning player with a single profile — auto-select and go to title
-  gameState.selectProfile(0);
-  checkComebackBonus();
-  showScreen('title');
-} else {
-  // Multiple profiles — show title as normal
-  showScreen('title');
+// ── Splash screen — dedicated click to unlock audio before title loads ──
+// This is the industry standard for web games. Without it, browsers block audio.
+function showSplash() {
+  const root = document.getElementById('game-root');
+  root.innerHTML = '';
+  const splash = document.createElement('div');
+  splash.style.cssText = `
+    position:absolute; inset:0; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; gap:20px;
+    background:radial-gradient(ellipse at 50% 40%, rgba(30,25,50,1) 0%, rgba(11,12,26,1) 70%);
+    cursor:pointer; user-select:none;
+  `;
+  splash.innerHTML = `
+    <div style="font-size:3rem;font-weight:900;letter-spacing:0.08em;
+      background:linear-gradient(135deg,#d4a017,#f5c842,#d4a017);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      background-clip:text;filter:drop-shadow(0 2px 8px rgba(212,160,23,0.3));">
+      文定乾坤
+    </div>
+    <div style="font-size:0.9rem;color:rgba(255,255,255,0.35);letter-spacing:0.2em;">
+      WEN DING QIAN KUN
+    </div>
+    <div style="margin-top:28px;padding:12px 36px;border:1.5px solid rgba(212,160,23,0.35);
+      border-radius:10px;color:rgba(212,160,23,0.7);font-size:1rem;
+      animation:splash-pulse 2s ease-in-out infinite;">
+      点击进入
+    </div>
+    <style>@keyframes splash-pulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(1.02)}}</style>
+  `;
+  const enter = () => {
+    splash.removeEventListener('click', enter);
+    splash.removeEventListener('touchend', enter);
+    ensureAudio();
+    if (gameState.profiles.length === 0) {
+      showScreen('story', { storyKey: 'opening', onComplete: () => showScreen('profile', { mode: 'solo' }) });
+    } else if (gameState.profiles.length === 1) {
+      gameState.selectProfile(0);
+      checkComebackBonus();
+      showScreen('title');
+    } else {
+      showScreen('title');
+    }
+  };
+  splash.addEventListener('click', enter);
+  splash.addEventListener('touchend', enter);
+  root.appendChild(splash);
+  startParticles('ambient');
 }
+showSplash();
 
 // ── Comeback bonus: idle gold + welcome back overlay ──────────────────────
 function checkComebackBonus() {

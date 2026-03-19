@@ -55,13 +55,18 @@ function playMusicTrack(key) {
   stopMusicTrack();
   const howl = MUSIC_TRACKS[key];
   if (!howl) return;
-  // Ensure Howler's audio context is unlocked (browser autoplay policy)
-  if (typeof Howler !== 'undefined' && Howler.ctx && Howler.ctx.state === 'suspended') {
-    Howler.ctx.resume();
-  }
   currentTrackKey = key;
   currentHowl = howl;
-  howl.play();
+  // Ensure Howler's audio context is unlocked (browser autoplay policy)
+  // Must wait for resume to complete before calling play()
+  if (typeof Howler !== 'undefined' && Howler.ctx && Howler.ctx.state === 'suspended') {
+    Howler.ctx.resume().then(() => {
+      // Only play if this track is still current (user may have navigated)
+      if (currentTrackKey === key) howl.play();
+    });
+  } else {
+    howl.play();
+  }
 }
 
 let _stopGen = 0; // Generation counter to prevent stale stop() calls
