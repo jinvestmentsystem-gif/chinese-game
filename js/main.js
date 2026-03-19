@@ -388,7 +388,9 @@ function showSplash() {
     splash.style.opacity = '0';
     setTimeout(() => {
       if (gameState.profiles.length === 0) {
-        showScreen('story', { storyKey: 'opening', onComplete: () => showScreen('profile', { mode: 'solo' }) });
+        // Skip cinematic for new players — go straight to profile creation
+        // Opening story plays after Quest 1 completion (guarded by openingStorySeen)
+        showScreen('profile', { mode: 'solo' });
       } else if (gameState.profiles.length === 1) {
         gameState.selectProfile(0);
         checkComebackBonus();

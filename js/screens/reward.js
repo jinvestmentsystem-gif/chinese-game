@@ -824,8 +824,14 @@ function renderReward() {
 
   // Wire up button listeners
   btnContinue.addEventListener('click', () => {
+    // After first quest ever, show opening cinematic as a narrative reward (once)
+    if (!profile.openingStorySeen && quest.chapterId === 1 && quest.questIndex === 0) {
+      profile.openingStorySeen = true;
+      gameState.save();
+      showScreen('story', { storyKey: 'opening', onComplete: () => showScreen('worldmap') });
+      return;
+    }
     if (isChapterComplete) {
-      // Go to chapter completion celebration screen
       showScreen('chapter-complete');
     } else {
       showScreen('quest', { chapterId: quest.chapterId, questIndex: quest.questIndex + 1 });
