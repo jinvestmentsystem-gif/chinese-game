@@ -51,7 +51,7 @@ function renderWeeklyBoss() {
       </div>`;
     setTimeout(() => {
       const btn = div.querySelector('#wb-back-locked');
-      if (btn) btn.addEventListener('click', () => { playSound('click'); showScreen('chapter-map'); });
+      if (btn) btn.addEventListener('click', () => { playSound('click'); showScreen('worldmap'); });
     }, 0);
     return div;
   }
@@ -266,7 +266,7 @@ function renderWeeklyBoss() {
   // Event listeners
   setTimeout(() => {
     const backBtn = div.querySelector('#wb-back');
-    if (backBtn) backBtn.addEventListener('click', () => { playSound('click'); showScreen('chapter-map'); });
+    if (backBtn) backBtn.addEventListener('click', () => { playSound('click'); showScreen('worldmap'); });
 
     const challengeBtn = div.querySelector('#wb-challenge');
     if (challengeBtn) {

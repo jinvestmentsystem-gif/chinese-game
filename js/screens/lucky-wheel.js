@@ -258,7 +258,7 @@ function renderLuckyWheel() {
   setTimeout(() => {
     div.querySelector('#btn-back-wheel').addEventListener('click', () => {
       playSound('click');
-      showScreen('chapter-map');
+      showScreen('worldmap');
     });
 
     const spinBtn = div.querySelector('#btn-spin');

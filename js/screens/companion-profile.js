@@ -292,7 +292,7 @@ function renderCompanionProfile() {
   // Event listeners
   setTimeout(() => {
     const backBtn = div.querySelector('#cp-back');
-    if (backBtn) backBtn.addEventListener('click', () => { playSound('click'); showScreen('chapter-map'); });
+    if (backBtn) backBtn.addEventListener('click', () => { playSound('click'); showScreen('worldmap'); });
 
     const giftBtn = div.querySelector('#cp-gift');
     if (giftBtn) {

@@ -448,7 +448,7 @@ function renderPrestige() {
   // Event listeners
   setTimeout(() => {
     const backBtn = div.querySelector('#pr-back');
-    if (backBtn) backBtn.addEventListener('click', () => { playSound('click'); showScreen('chapter-map'); });
+    if (backBtn) backBtn.addEventListener('click', () => { playSound('click'); showScreen('worldmap'); });
 
     const confirmInput = div.querySelector('#pr-confirm-input');
     const ascendBtn = div.querySelector('#pr-ascend');
@@ -495,7 +495,7 @@ function renderPrestige() {
     if (continueBtn) {
       continueBtn.addEventListener('click', () => {
         playSound('click');
-        showScreen('chapter-map');
+        showScreen('worldmap');
       });
     }
   }, 0);

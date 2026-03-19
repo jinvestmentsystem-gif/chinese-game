@@ -3,7 +3,7 @@ import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
 import { addXP, xpForLevel, getXPProgress, calculateGoldReward, getEffectiveStats, claimAchievementReward, ACHIEVEMENT_REWARDS } from '../progression.js';
 import { EQUIPMENT_DB } from './inventory.js';
-import { playSound } from '../audio.js';
+import { playSound, playMusic, setMusicIntensity } from '../audio.js';
 import { showCompanionBubble, COMPANION, pick } from './companion.js';
 import { setParticleMode, burstParticles } from '../particles.js';
 import { showToast } from '../toast.js';
@@ -341,6 +341,18 @@ function buildEngagementHook(profile, levelUpInfo, statsBefore, parent) {
 function renderReward() {
   setParticleMode('victory');
   burstParticles(40, 'victory');
+
+  // Restore ambient music after victory stinger (stinger clears currentHowl on end)
+  // Delayed so the stinger finishes its dramatic moment before ambient resumes
+  setTimeout(() => {
+    const quest = gameState.currentQuest;
+    if (quest) {
+      const eraMap = {1:'xianqin',2:'han',3:'tang',4:'song',5:'modern'};
+      playMusic(eraMap[quest.chapterId] || 'xianqin');
+      setMusicIntensity(0);
+    }
+  }, 3500); // victory stinger is ~3.5s
+
   const div = document.createElement('div');
   div.className = 'screen';
   div.style.cssText = 'overflow:hidden;';

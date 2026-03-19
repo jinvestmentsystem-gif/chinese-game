@@ -27,7 +27,7 @@ export function getNextGoal(profile) {
       type: 'quest',
       text: `完成征途 ${quest.chapterId}-${quest.questIndex + 1}`,
       icon: '⚔',
-      screen: 'chapter-map',
+      screen: 'worldmap',
       progress: enc / total,
     };
   }
@@ -54,7 +54,7 @@ export function getNextGoal(profile) {
         type: 'chapter',
         text: `完成第${chId}章 (${cp.questsCompleted}/${totalQuests} 征途)`,
         icon: '🏔',
-        screen: 'chapter-map',
+        screen: 'worldmap',
         progress: cp.questsCompleted / totalQuests,
       };
     }
@@ -83,5 +83,5 @@ export function getNextGoal(profile) {
   }
 
   // Fallback
-  return { type: 'explore', text: '继续冒险吧！', icon: '🎯', screen: 'chapter-map' };
+  return { type: 'explore', text: '继续冒险吧！', icon: '🎯', screen: 'worldmap' };
 }

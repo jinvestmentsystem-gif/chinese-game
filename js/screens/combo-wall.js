@@ -351,7 +351,7 @@ function renderComboWall() {
   setTimeout(() => {
     div.querySelector('#btn-back-combo').addEventListener('click', () => {
       playSound('click');
-      showScreen('chapter-map');
+      showScreen('worldmap');
     });
   }, 0);
 
