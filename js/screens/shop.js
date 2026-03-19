@@ -144,7 +144,7 @@ function renderShop(params = {}) {
       const diff = newVal - currentVal;
       const diffColor = diff > 0 ? 'var(--accent-jade)' : diff < 0 ? '#e74c3c' : 'var(--text-dim)';
       const diffStr = diff > 0 ? `+${diff}` : `${diff}`;
-      return `<span style="font-size:0.92rem;color:var(--text-secondary);">装备后: ${STAT_LABELS[k] || k} ${currentVal} → <span style="color:${diffColor};font-weight:600;">${newVal}</span> <span style="color:${diffColor};">(${diffStr})</span></span>`;
+      return `<span style="font-size:0.8rem;color:var(--text-secondary);">${STAT_LABELS[k] || k} ${currentVal}→<span style="color:${diffColor};font-weight:600;">${newVal}</span> <span style="color:${diffColor};">(${diffStr})</span></span>`;
     }).join('<br>');
 
     return `<div style="margin:4px 0;padding:6px 8px;background:rgba(255,255,255,0.03);border-radius:6px;border:1px dashed rgba(255,255,255,0.08);">${rows}</div>`;
@@ -213,27 +213,28 @@ function renderShop(params = {}) {
         background:var(--bg-card);
         border:1px solid ${isRecommended ? 'var(--accent-gold)' : affordable && (!owned || item.type === 'consumable') ? 'var(--bg-secondary)' : 'rgba(255,255,255,0.07)'};
         border-radius:10px;
-        padding:14px;
+        padding:12px 14px;
         display:flex;
         flex-direction:column;
-        gap:4px;
+        gap:6px;
         opacity:${!affordable && !owned ? '0.72' : '1'};
         ${isRecommended ? 'box-shadow:0 0 12px rgba(212,160,23,0.2);' : ''}
+        overflow:hidden;
       ">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
-          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
-            <span style="font-size:1.3rem;">${TYPE_ICON[item.type] || '📦'}</span>
-            <span style="font-weight:700;font-size:1.15rem;">${item.name}</span>
-            ${tierLabel}
-            ${recommendedBadge}
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:4px;">
+          <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;min-width:0;">
+            <span style="font-size:1.1rem;flex-shrink:0;">${TYPE_ICON[item.type] || '📦'}</span>
+            <span style="font-weight:700;font-size:0.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${item.name}</span>
+            ${tierLabel ? tierLabel.replace('0.9rem', '0.78rem') : ''}
+            ${recommendedBadge ? recommendedBadge.replace('0.9rem', '0.75rem') : ''}
           </div>
           ${statusBadge}
         </div>
-        <div style="font-size:1.05rem;color:var(--text-secondary);">${item.desc}</div>
-        ${statsHTML}${effectHTML}
-        ${previewHTML}
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px;">
-          <span style="color:var(--accent-gold);font-weight:700;font-size:1.05rem;">💰 ${item.price}</span>
+        <div style="font-size:0.85rem;color:var(--text-secondary);line-height:1.3;">${item.desc}</div>
+        <div style="font-size:0.88rem;">${statsHTML}${effectHTML}</div>
+        ${previewHTML ? '<div style="font-size:0.85rem;">' + previewHTML + '</div>' : ''}
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;">
+          <span style="color:var(--accent-gold);font-weight:700;font-size:0.92rem;">💰 ${item.price}</span>
           ${buyBtnHTML}
         </div>
       </div>`;
@@ -329,18 +330,18 @@ function renderShop(params = {}) {
         background:var(--bg-card);
         border:1px solid ${isMaxed ? 'var(--accent-gold)' : 'var(--bg-secondary)'};
         border-radius:10px;
-        padding:14px;
+        padding:12px 14px;
         display:flex;
         flex-direction:column;
-        gap:4px;
+        gap:6px;
         ${isMaxed ? 'box-shadow:0 0 12px rgba(212,160,23,0.15);' : ''}
         position:relative;
         overflow:hidden;
       ">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
-          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
-            <span style="font-size:1.3rem;">${typeIcon}</span>
-            <span style="font-weight:700;font-size:1.15rem;">${item.name}</span>
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:4px;">
+          <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;min-width:0;">
+            <span style="font-size:1.1rem;flex-shrink:0;">${typeIcon}</span>
+            <span style="font-weight:700;font-size:0.95rem;">${item.name}</span>
             ${upgradeBadge}
           </div>
           <div style="font-size:0.95rem;">${stars}</div>
