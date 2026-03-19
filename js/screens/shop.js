@@ -203,9 +203,9 @@ function renderShop(params = {}) {
       ? `<span style="background:linear-gradient(135deg,#e74c3c,#e67e22);color:#fff;font-size:0.9rem;font-weight:700;padding:2px 8px;border-radius:4px;margin-left:6px;letter-spacing:0.05em;">推荐</span>`
       : '';
 
-    const tierLabel = item.tier ? `<span style="font-size:0.9rem;color:var(--text-dim);margin-left:4px;">${TIER_LABEL[item.tier] || ''}</span>` : '';
-    const statsHTML = item.stats ? `<div style="margin:4px 0;font-size:1.05rem;">${formatStats(item.stats)}</div>` : '';
-    const effectHTML = (item.effect && item.type === 'consumable') ? `<div style="margin:4px 0;font-size:1rem;color:var(--accent-jade);">${item.desc}</div>` : '';
+    const tierLabel = item.tier ? `<span style="font-size:0.78rem;color:var(--text-dim);margin-left:4px;">${TIER_LABEL[item.tier] || ''}</span>` : '';
+    const statsHTML = item.stats ? `<div style="font-size:0.9rem;">${formatStats(item.stats)}</div>` : '';
+    const effectHTML = (item.effect && item.type === 'consumable') ? `<div style="font-size:0.9rem;color:var(--accent-jade);">${item.desc}</div>` : '';
     const previewHTML = (!owned && item.type !== 'consumable') ? buildStatPreview(item) : '';
 
     return `
@@ -213,27 +213,21 @@ function renderShop(params = {}) {
         background:var(--bg-card);
         border:1px solid ${isRecommended ? 'var(--accent-gold)' : affordable && (!owned || item.type === 'consumable') ? 'var(--bg-secondary)' : 'rgba(255,255,255,0.07)'};
         border-radius:10px;
-        padding:12px 14px;
-        display:flex;
-        flex-direction:column;
-        gap:6px;
+        padding:16px;
         opacity:${!affordable && !owned ? '0.72' : '1'};
         ${isRecommended ? 'box-shadow:0 0 12px rgba(212,160,23,0.2);' : ''}
-        overflow:hidden;
       ">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:4px;">
-          <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;min-width:0;">
-            <span style="font-size:1.1rem;flex-shrink:0;">${TYPE_ICON[item.type] || '📦'}</span>
-            <span style="font-weight:700;font-size:0.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${item.name}</span>
-            ${tierLabel ? tierLabel.replace('0.9rem', '0.78rem') : ''}
-            ${recommendedBadge ? recommendedBadge.replace('0.9rem', '0.75rem') : ''}
-          </div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;">
+          <span style="font-size:1.1rem;">${TYPE_ICON[item.type] || '📦'}</span>
+          <span style="font-weight:700;font-size:0.95rem;">${item.name}</span>
+          ${tierLabel}
+          ${recommendedBadge}
           ${statusBadge}
         </div>
-        <div style="font-size:0.85rem;color:var(--text-secondary);line-height:1.3;">${item.desc}</div>
-        <div style="font-size:0.88rem;">${statsHTML}${effectHTML}</div>
-        ${previewHTML ? '<div style="font-size:0.85rem;">' + previewHTML + '</div>' : ''}
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;">
+        <div style="font-size:0.82rem;color:var(--text-secondary);margin-bottom:8px;line-height:1.4;">${item.desc}</div>
+        <div style="margin-bottom:8px;">${statsHTML}${effectHTML}</div>
+        ${previewHTML ? '<div style="margin-bottom:8px;">' + previewHTML + '</div>' : ''}
+        <div style="display:flex;justify-content:space-between;align-items:center;padding-top:8px;border-top:1px solid rgba(255,255,255,0.06);">
           <span style="color:var(--accent-gold);font-weight:700;font-size:0.92rem;">💰 ${item.price}</span>
           ${buyBtnHTML}
         </div>
@@ -388,8 +382,8 @@ function renderShop(params = {}) {
     <style>
       .shop-grid {
         display:grid;
-        grid-template-columns:repeat(auto-fill, minmax(min(200px, 100%), 1fr));
-        gap:10px;
+        grid-template-columns:repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+        gap:12px;
         padding:0 16px 40px;
         width:100%;
       }
