@@ -213,23 +213,24 @@ function renderShop(params = {}) {
         background:var(--bg-card);
         border:2px solid ${isRecommended ? 'var(--accent-gold)' : affordable && (!owned || item.type === 'consumable') ? 'rgba(255,255,255,0.12)' : 'rgba(255,255,255,0.05)'};
         border-radius:12px;
-        padding:16px 16px 12px;
+        padding:14px;
         opacity:${!affordable && !owned ? '0.65' : '1'};
         ${isRecommended ? 'box-shadow:0 0 16px rgba(212,160,23,0.25);' : ''}
+        display:flex; gap:12px; align-items:stretch;
       ">
-        <div style="margin-bottom:10px;">
-          <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;">
-            <span style="font-size:1.1rem;">${TYPE_ICON[item.type] || '📦'}</span>
-            <span style="font-weight:700;font-size:0.95rem;">${item.name}</span>
+        <div style="flex:1;min-width:0;">
+          <div style="display:flex;align-items:center;gap:5px;margin-bottom:6px;flex-wrap:wrap;">
+            <span style="font-size:1rem;">${TYPE_ICON[item.type] || '📦'}</span>
+            <span style="font-weight:700;font-size:0.92rem;">${item.name}</span>
             ${tierLabel}
             ${recommendedBadge}
           </div>
-          <div style="font-size:0.8rem;color:var(--text-secondary);line-height:1.4;">${item.desc}</div>
+          <div style="font-size:0.78rem;color:var(--text-secondary);line-height:1.4;margin-bottom:6px;">${item.desc}</div>
+          <div style="font-size:0.85rem;">${statsHTML}${effectHTML}</div>
+          ${previewHTML ? '<div style="font-size:0.8rem;margin-top:4px;">' + previewHTML + '</div>' : ''}
         </div>
-        <div style="margin-bottom:10px;font-size:0.88rem;">${statsHTML}${effectHTML}</div>
-        ${previewHTML ? '<div style="margin-bottom:10px;font-size:0.82rem;">' + previewHTML + '</div>' : ''}
-        <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;margin:-0px -16px -12px;background:rgba(0,0,0,0.2);border-radius:0 0 10px 10px;border-top:1px solid rgba(255,255,255,0.08);">
-          <span style="color:var(--accent-gold);font-weight:700;font-size:0.95rem;">💰 ${item.price}</span>
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-width:70px;padding-left:10px;border-left:1px solid rgba(255,255,255,0.06);">
+          <span style="color:var(--accent-gold);font-weight:700;font-size:0.9rem;">💰 ${item.price}</span>
           ${statusBadge}
           ${buyBtnHTML}
         </div>
