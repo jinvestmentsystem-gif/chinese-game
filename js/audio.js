@@ -51,7 +51,7 @@ ensureMusicTracks();
 
 function playMusicTrack(key) {
   ensureMusicTracks();
-  if (currentTrackKey === key && currentHowl?.playing()) return;
+  if (currentTrackKey === key && currentHowl) return;
   stopMusicTrack();
   const howl = MUSIC_TRACKS[key];
   if (!howl) return;
@@ -871,8 +871,8 @@ export function playMusic(era) {
   const newEra = era || 'menu';
   const trackKey = getMusicTrackForState(newEra, 0);
 
-  // If the same track is already playing, just update era — don't restart
-  if (trackKey === currentTrackKey && currentHowl?.playing()) {
+  // If the same track is already set (playing OR loading), don't restart — avoids cancel loop
+  if (trackKey === currentTrackKey && currentHowl) {
     currentEra = newEra;
     currentIntensity = 0;
     return;
