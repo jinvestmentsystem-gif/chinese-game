@@ -974,34 +974,43 @@ export function setMusicIntensity(level) {
 }
 
 // ─── playStinger — short dramatic musical bursts ──────────────────────────────
+// Stingers are tracked as currentHowl so the next playMusic/playMusicTrack stops them cleanly.
+// NO auto-resume after stinger ends — the destination screen handles its own music.
 export function playStinger(type) {
-  // Use MP3 stingers for victory/defeat (Howler — no audioCtx needed)
   if (type === 'victory' || type === 'boss_death') {
     ensureMusicTracks();
-    if (MUSIC_TRACKS.victory) {
-      stopMusicTrack();
-      MUSIC_TRACKS.victory.once('end', () => {
-        // Resume background music after stinger finishes
-        if (musicEnabled) {
-          const trackKey = getMusicTrackForState(currentEra, currentIntensity);
-          playMusicTrack(trackKey);
+    const howl = MUSIC_TRACKS.victory;
+    if (howl) {
+      stopMusicTrack(); // stop current bg music
+      currentTrackKey = '_stinger_victory';
+      currentHowl = howl;
+      howl.volume(TRACK_VOLUMES.victory || 0.55);
+      howl.play();
+      // When stinger ends, clear tracking (but don't auto-resume — next screen handles it)
+      howl.once('end', () => {
+        if (currentTrackKey === '_stinger_victory') {
+          currentHowl = null;
+          currentTrackKey = null;
         }
       });
-      MUSIC_TRACKS.victory.play();
       return;
     }
   }
   if (type === 'defeat') {
     ensureMusicTracks();
-    if (MUSIC_TRACKS.defeat) {
+    const howl = MUSIC_TRACKS.defeat;
+    if (howl) {
       stopMusicTrack();
-      MUSIC_TRACKS.defeat.once('end', () => {
-        if (musicEnabled) {
-          const trackKey = getMusicTrackForState(currentEra, currentIntensity);
-          playMusicTrack(trackKey);
+      currentTrackKey = '_stinger_defeat';
+      currentHowl = howl;
+      howl.volume(TRACK_VOLUMES.defeat || 0.5);
+      howl.play();
+      howl.once('end', () => {
+        if (currentTrackKey === '_stinger_defeat') {
+          currentHowl = null;
+          currentTrackKey = null;
         }
       });
-      MUSIC_TRACKS.defeat.play();
       return;
     }
   }
