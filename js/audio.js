@@ -57,16 +57,24 @@ function playMusicTrack(key) {
   if (!howl) return;
   currentTrackKey = key;
   currentHowl = howl;
-  // Ensure Howler's audio context is unlocked (browser autoplay policy)
-  // Must wait for resume to complete before calling play()
-  if (typeof Howler !== 'undefined' && Howler.ctx && Howler.ctx.state === 'suspended') {
-    Howler.ctx.resume().then(() => {
-      // Only play if this track is still current (user may have navigated)
-      if (currentTrackKey === key) howl.play();
-    });
-  } else {
-    howl.play();
+
+  function tryPlay() {
+    if (currentTrackKey !== key) return; // navigated away
+    // Ensure Howler's audio context is unlocked
+    if (typeof Howler !== 'undefined' && Howler.ctx && Howler.ctx.state === 'suspended') {
+      Howler.ctx.resume().then(() => {
+        if (currentTrackKey === key) howl.play();
+      });
+    } else {
+      howl.play();
+    }
   }
+
+  tryPlay();
+  // Retry after 500ms if not playing (edge cases where resume was slow)
+  setTimeout(() => {
+    if (currentTrackKey === key && !howl.playing()) tryPlay();
+  }, 500);
 }
 
 let _stopGen = 0; // Generation counter to prevent stale stop() calls

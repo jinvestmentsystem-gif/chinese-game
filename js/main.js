@@ -63,6 +63,10 @@ document.addEventListener('touchstart', ensureAudio, { once: true });
 
 // ── Cinematic AAA Title Screen ────────────────────────────────────────────────
 registerScreen('title', () => {
+  // Always play menu music when title renders (handles return from other screens too)
+  ensureAudio();
+  if (isMusicEnabled()) playMusic('menu');
+
   const div = document.createElement('div');
   div.className = 'screen title-screen-root';
   div.style.backgroundImage = `url('${TITLE_BG}')`;
@@ -338,48 +342,66 @@ registerScreen('title', () => {
 // Boot
 initRouter();
 
-// ── Splash screen — dedicated click to unlock audio before title loads ──
-// This is the industry standard for web games. Without it, browsers block audio.
+// ── Splash screen — uses title background + calligraphy for beautiful first impression ──
+// Dedicated click unlocks audio (browser autoplay policy requires user gesture).
 function showSplash() {
   const root = document.getElementById('game-root');
   root.innerHTML = '';
   const splash = document.createElement('div');
   splash.style.cssText = `
     position:absolute; inset:0; display:flex; flex-direction:column;
-    align-items:center; justify-content:center; gap:20px;
-    background:radial-gradient(ellipse at 50% 40%, rgba(30,25,50,1) 0%, rgba(11,12,26,1) 70%);
-    cursor:pointer; user-select:none;
+    align-items:center; justify-content:center; gap:16px;
+    background: url('${TITLE_BG}') center/cover no-repeat,
+      radial-gradient(ellipse at 50% 30%, rgba(40,30,60,0.9) 0%, rgba(11,12,26,1) 70%);
+    cursor:pointer; user-select:none; overflow:hidden;
   `;
   splash.innerHTML = `
-    <div style="font-size:3rem;font-weight:900;letter-spacing:0.08em;
-      background:linear-gradient(135deg,#d4a017,#f5c842,#d4a017);
-      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-      background-clip:text;filter:drop-shadow(0 2px 8px rgba(212,160,23,0.3));">
-      文定乾坤
+    <img src="assets/img/title_calligraphy.webp?v=${window.APP_VERSION || ''}" alt="文定乾坤"
+      style="width:min(75vw, 500px); height:auto; opacity:0.9;
+      filter:drop-shadow(0 0 30px rgba(212,160,23,0.5)) drop-shadow(0 0 60px rgba(212,160,23,0.2));
+      animation: splash-logo 1.5s ease-out forwards;" draggable="false">
+    <div style="font-size:0.85rem;color:rgba(255,255,255,0.3);letter-spacing:0.25em;margin-top:4px;">
+      以文定乾坤，守护千年文明
     </div>
-    <div style="font-size:0.9rem;color:rgba(255,255,255,0.35);letter-spacing:0.2em;">
-      WEN DING QIAN KUN
+    <div style="margin-top:24px;padding:14px 42px;border:1.5px solid rgba(212,160,23,0.3);
+      border-radius:12px;color:rgba(212,160,23,0.75);font-size:1.05rem;font-weight:600;
+      letter-spacing:0.15em; backdrop-filter:blur(4px);
+      background:rgba(11,12,26,0.5);
+      animation:splash-pulse 2.2s ease-in-out infinite;">
+      点 击 进 入
     </div>
-    <div style="margin-top:28px;padding:12px 36px;border:1.5px solid rgba(212,160,23,0.35);
-      border-radius:10px;color:rgba(212,160,23,0.7);font-size:1rem;
-      animation:splash-pulse 2s ease-in-out infinite;">
-      点击进入
-    </div>
-    <style>@keyframes splash-pulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(1.02)}}</style>
+    <style>
+      @keyframes splash-pulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(1.03)}}
+      @keyframes splash-logo{from{opacity:0;transform:scale(0.9) translateY(10px)}to{opacity:0.9;transform:scale(1) translateY(0)}}
+    </style>
   `;
-  const enter = () => {
+  const enter = (e) => {
+    e.preventDefault();
     splash.removeEventListener('click', enter);
     splash.removeEventListener('touchend', enter);
+
+    // Unlock audio — call initAudio + resume Howler context directly in gesture
     ensureAudio();
-    if (gameState.profiles.length === 0) {
-      showScreen('story', { storyKey: 'opening', onComplete: () => showScreen('profile', { mode: 'solo' }) });
-    } else if (gameState.profiles.length === 1) {
-      gameState.selectProfile(0);
-      checkComebackBonus();
-      showScreen('title');
-    } else {
-      showScreen('title');
+
+    // Also directly resume Howler's context as a belt-and-suspenders
+    if (typeof Howler !== 'undefined' && Howler.ctx) {
+      Howler.ctx.resume();
     }
+
+    // Brief fade out splash then navigate
+    splash.style.transition = 'opacity 0.4s';
+    splash.style.opacity = '0';
+    setTimeout(() => {
+      if (gameState.profiles.length === 0) {
+        showScreen('story', { storyKey: 'opening', onComplete: () => showScreen('profile', { mode: 'solo' }) });
+      } else if (gameState.profiles.length === 1) {
+        gameState.selectProfile(0);
+        checkComebackBonus();
+        showScreen('title');
+      } else {
+        showScreen('title');
+      }
+    }, 300);
   };
   splash.addEventListener('click', enter);
   splash.addEventListener('touchend', enter);
