@@ -2,7 +2,7 @@
 import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
 import { SPRITES, WORLDMAP_BG } from '../sprites.js';
-import { playMusic, setMusicIntensity } from '../audio.js';
+import { playMusic, playSound, setMusicIntensity } from '../audio.js';
 import { getXPProgress, getEffectiveMaxHp, checkDailyLogin } from '../progression.js';
 import { showTutorial } from '../tutorial.js';
 import { getReviewStats } from '../spaced-repetition.js';
@@ -259,14 +259,58 @@ function renderWorldMap() {
          <span style="color:rgba(255,100,100,0.85);font-size:0.92rem;font-weight:700;">${ch.boss}</span>`
       : `<span style="color:rgba(255,255,255,0.25);font-size:0.92rem;">??? Boss ???</span>`;
 
+    // Build quest sub-nodes for expanded chapter view
+    const ENCOUNTER_ICONS = { combat: '⚔', puzzle: '📖', boss: '👹', treasure: '💰', rest: '🏕' };
+    const patterns = [
+      ['combat', 'puzzle', 'combat', 'puzzle', 'boss'],
+      ['combat', 'combat', 'puzzle', 'combat', 'boss'],
+      ['combat', 'puzzle', 'combat', 'combat', 'boss'],
+    ];
+
+    let questNodesHTML = '';
+    if (ch.isUnlocked) {
+      for (let qi = 0; qi < ch.quests; qi++) {
+        const qCompleted = qi < ch.progress.questsCompleted;
+        const qCurrent = qi === ch.progress.questsCompleted && ch.isCurrent;
+        const qLocked = qi > ch.progress.questsCompleted;
+        const stars = profile.questStars?.[`${ch.id}-${qi}`] || 0;
+        const pattern = patterns[(ch.id + qi) % patterns.length];
+
+        const encounterDots = pattern.map(type => {
+          const icon = ENCOUNTER_ICONS[type] || '⚔';
+          return `<span style="font-size:0.75rem;opacity:${qLocked ? '0.2' : qCompleted ? '0.9' : '0.5'};">${icon}</span>`;
+        }).join('');
+
+        const starStr = qCompleted && stars > 0
+          ? `<span style="color:#d4a017;font-size:0.7rem;margin-left:4px;">${'★'.repeat(stars)}${'☆'.repeat(3-stars)}</span>`
+          : '';
+
+        const questLabel = qCurrent ? '← 当前' : qCompleted ? '✓' : '🔒';
+        const questColor = qCurrent ? ch.color : qCompleted ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.2)';
+
+        questNodesHTML += `
+          <div class="quest-subnode ${qCurrent ? 'quest-current' : ''} ${qCompleted ? 'quest-done' : ''} ${qLocked ? 'quest-locked' : ''}"
+               data-chapter="${ch.id}" data-quest="${qi}"
+               style="
+                 display:flex; align-items:center; gap:8px; padding:6px 12px;
+                 margin:3px 0 3px 42px; border-radius:8px; cursor:${qLocked ? 'default' : 'pointer'};
+                 background:${qCurrent ? ch.color + '15' : 'rgba(255,255,255,0.02)'};
+                 border-left:3px solid ${qCurrent ? ch.color : qCompleted ? ch.color + '55' : 'rgba(255,255,255,0.06)'};
+                 transition: background 0.15s;
+               ">
+            <span style="font-size:0.8rem;color:${questColor};font-weight:${qCurrent ? '700' : '400'};min-width:52px;">
+              征途 ${qi + 1} ${questLabel}
+            </span>
+            <span style="display:flex;gap:3px;">${encounterDots}</span>
+            ${starStr}
+          </div>`;
+      }
+    }
+
     return `
       <div
-        class="era-node ${nodeStateClass} ${ch.isUnlocked ? 'clickable' : ''}"
-        data-chapter="${ch.id}"
+        class="era-node ${nodeStateClass}"
         style="--node-color: ${ch.color};"
-        role="${ch.isUnlocked ? 'button' : 'presentation'}"
-        tabindex="${ch.isUnlocked ? '0' : '-1'}"
-        aria-label="${ch.isUnlocked ? `进入${ch.era}：${ch.name}` : `${ch.era}尚未解锁`}"
       >
         <!-- Left: era icon -->
         <div class="era-icon" aria-hidden="true">
@@ -297,17 +341,8 @@ function renderWorldMap() {
           <div class="era-status-badge ${statusClass}">${statusLabel}</div>
           ${playerMarker}
         </div>
-
-        <!-- Quest stars -->
-        ${ch.isUnlocked ? (() => {
-          let starsHTML = '';
-          for (let qi = 0; qi < ch.quests; qi++) {
-            const s = profile.questStars?.[`${ch.id}-${qi}`] || 0;
-            if (s > 0) starsHTML += '<span style="color:#d4a017;">' + '★'.repeat(s) + '☆'.repeat(3-s) + '</span> ';
-          }
-          return starsHTML ? `<div style="position:absolute;bottom:8px;right:12px;font-size:0.65rem;opacity:0.7;display:flex;gap:2px;">${starsHTML}</div>` : '';
-        })() : ''}
-      </div>`;
+      </div>
+      ${questNodesHTML}`;
   }
 
   // Calculate overall progress
@@ -627,7 +662,26 @@ function renderWorldMap() {
       }, 120 * idx + 220);
     });
 
-    // Chapter node click/keyboard handlers
+    // Quest sub-node click handlers (direct quest entry)
+    div.querySelectorAll('.quest-subnode').forEach(node => {
+      if (node.classList.contains('quest-locked')) return;
+      node.addEventListener('click', () => {
+        playSound('click');
+        const cid = parseInt(node.dataset.chapter);
+        const qi = parseInt(node.dataset.quest);
+        showScreen('quest', { chapterId: cid, questIndex: qi });
+      });
+      node.addEventListener('mouseenter', () => {
+        if (!node.classList.contains('quest-locked')) node.style.background = 'rgba(255,255,255,0.05)';
+      });
+      node.addEventListener('mouseleave', () => {
+        const isCurrent = node.classList.contains('quest-current');
+        const ch = CHAPTERS.find(c => c.id === parseInt(node.dataset.chapter));
+        node.style.background = isCurrent && ch ? ch.color + '15' : 'rgba(255,255,255,0.02)';
+      });
+    });
+
+    // Chapter node click/keyboard handlers (for gauntlet, weekly-boss, prestige, and chapter headers)
     div.querySelectorAll('.era-node.clickable').forEach(node => {
       const chapterVal = node.dataset.chapter;
 
@@ -639,7 +693,6 @@ function renderWorldMap() {
           const cid = parseInt(chapterVal);
           const ch = chapters.find(c => c.id === cid);
           if (ch && ch.isCompleted) {
-            // Completed chapter — replay from quest 0
             showScreen('quest', { chapterId: cid, questIndex: 0 });
           } else {
             showScreen('quest', { chapterId: cid });
