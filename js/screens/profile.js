@@ -1,8 +1,8 @@
 // js/screens/profile.js — Profile creation and selection
 import { gameState } from '../state.js';
-import { registerScreen, showScreen } from '../main.js';
-import { playSound } from '../audio.js';
-import { SPRITES, getPlayerSprite } from '../sprites.js';
+import { registerScreen, showScreen, ensureAudio } from '../main.js';
+import { playSound, playMusic } from '../audio.js';
+import { SPRITES } from '../sprites.js';
 import { getEffectiveStats } from '../progression.js';
 import { SHOP_ITEMS } from './shop.js';
 
@@ -66,10 +66,10 @@ function showCharacterCard(profile, div, onContinue) {
   overlay.innerHTML = `
     <div class="char-card-box">
       <div class="char-card-sprite" style="width:120px;height:160px;margin:0 auto 12px;">
-        ${getPlayerSprite()}
+        ${SPRITES.player}
       </div>
       <div class="char-card-name">${profile.name}</div>
-      <div class="char-card-title">${profile.activeTitle || '新手文定乾坤'}</div>
+      <div class="char-card-title">${profile.activeTitle || '新手文字侠'}</div>
       <div class="char-card-level">Lv.${profile.level}</div>
       <div class="char-card-stats">
         ${statBar('攻击', stats.attack, 50, '#e74c3c')}
@@ -139,6 +139,8 @@ function showCharacterCard(profile, div, onContinue) {
 
 function renderProfileSelect(params = {}) {
   const mode = params.mode || 'solo';
+  ensureAudio();      // Ensure audio is initialized (belt-and-suspenders)
+  playMusic('menu');  // Continue menu music on profile screen
   const div = document.createElement('div');
   div.className = 'screen';
 
@@ -174,25 +176,6 @@ function renderProfileSelect(params = {}) {
         style="font-size:1.1rem; padding:8px 16px; background:var(--bg-secondary);
         border:1px solid var(--accent-gold); color:var(--text-primary); border-radius:4px;
         font-family:var(--font-main); margin-bottom:12px; display:block; width:240px; margin-left:auto; margin-right:auto;">
-
-      <p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:8px;">选择角色</p>
-      <div style="display:flex; gap:16px; justify-content:center; margin-bottom:16px;">
-        <button class="btn gender-btn selected" data-gender="male" style="
-          padding:8px 6px; display:flex; flex-direction:column; align-items:center; gap:4px;
-          min-width:100px; border-radius:10px; transition:all 0.2s;
-        ">
-          <div style="width:72px;height:96px;overflow:hidden;">${SPRITES.player}</div>
-          <span style="font-size:0.85rem;">少年侠客</span>
-        </button>
-        <button class="btn gender-btn" data-gender="female" style="
-          padding:8px 6px; display:flex; flex-direction:column; align-items:center; gap:4px;
-          min-width:100px; border-radius:10px; transition:all 0.2s;
-        ">
-          <div style="width:72px;height:96px;overflow:hidden;">${SPRITES.playerf}</div>
-          <span style="font-size:0.85rem;">少女侠客</span>
-        </button>
-      </div>
-
       <p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:8px;">选择年级</p>
       <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin-bottom:12px;">
         ${GRADE_OPTIONS.map((opt, i) => `<button class="btn tier-btn" data-grade-idx="${i}">${opt.label}</button>`).join('\n        ')}
@@ -214,8 +197,6 @@ function renderProfileSelect(params = {}) {
     .profile-info { font-size:0.9rem; color:var(--text-secondary); }
     .profile-new { border-style:dashed; }
     .tier-btn.selected { background:var(--accent-gold); color:var(--bg-primary); }
-    .gender-btn.selected { border-color:var(--accent-gold) !important; box-shadow:0 0 16px rgba(212,160,23,0.4); }
-    .gender-btn:not(.selected) { opacity:0.5; }
     .confirm-delete {
       position:fixed; inset:0; background:rgba(0,0,0,0.7); display:flex;
       align-items:center; justify-content:center; z-index:999;
@@ -229,17 +210,6 @@ function renderProfileSelect(params = {}) {
 
   setTimeout(() => {
     let selectedGradeIdx = null;
-    let selectedGender = 'male';
-
-    // Gender selection
-    div.querySelectorAll('.gender-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        playSound('click');
-        div.querySelectorAll('.gender-btn').forEach(b => b.classList.remove('selected'));
-        btn.classList.add('selected');
-        selectedGender = btn.dataset.gender;
-      });
-    });
 
     // Delete buttons
     div.querySelectorAll('.delete-profile-btn').forEach(btn => {
@@ -295,16 +265,11 @@ function renderProfileSelect(params = {}) {
         } else if (mode === 'daily') {
           showScreen('daily');
         } else {
+          // Show character card overlay before entering worldmap
           const selectedProfile = profiles[idx];
-          if (selectedProfile.level <= 1) {
-            // New character — skip card overlay, go straight to worldmap
-            showScreen('worldmap');
-          } else {
-            // Returning player — show character card overlay
-            showCharacterCard(selectedProfile, div, () => {
-              showScreen('worldmap');
-            });
-          }
+          showCharacterCard(selectedProfile, div, () => {
+            showScreen('chapter-map');
+          });
         }
       });
     });
@@ -334,7 +299,7 @@ function renderProfileSelect(params = {}) {
       if (name && selectedGradeIdx !== null) {
         playSound('correct');
         const { tier, difficultyBase } = GRADE_OPTIONS[selectedGradeIdx];
-        gameState.createProfile(name, tier, difficultyBase, selectedGender);
+        gameState.createProfile(name, tier, difficultyBase);
         showScreen('profile', params);
       }
     });

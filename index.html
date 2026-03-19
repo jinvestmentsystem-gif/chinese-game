@@ -3,35 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>文定乾坤 — Wen Ding Qian Kun</title>
+  <title>文字侠 — Word Hero</title>
+  <link rel="stylesheet" href="css/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700;900&display=swap" rel="stylesheet">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#d4a017">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="文定乾坤">
-  <meta property="og:title" content="文定乾坤 — Wen Ding Qian Kun">
-  <meta property="og:description" content="以文定乾坤，守护千年文明 — 中文学习RPG">
+  <meta name="apple-mobile-web-app-title" content="文字侠">
+  <meta property="og:title" content="文字侠 — Word Hero">
+  <meta property="og:description" content="用文字力量拯救世界的中文学习RPG">
   <meta property="og:type" content="website">
-  <!-- App version — bump this on every deploy to bust browser caches -->
-  <script>window.APP_VERSION = '2026031827';</script>
-  <script>
-    // Append version to CSS so browsers fetch the latest on deploy
-    const css = document.createElement('link');
-    css.rel = 'stylesheet';
-    css.href = 'css/styles.css?v=' + window.APP_VERSION;
-    document.head.appendChild(css);
-  </script>
   <!-- Howler.js for professional audio playback -->
   <script src="https://cdn.jsdelivr.net/npm/howler@2.2.4/dist/howler.min.js"></script>
   <!-- PixiJS for combat rendering effects -->
   <script src="https://cdn.jsdelivr.net/npm/pixi.js@7.3.3/dist/pixi.min.js"></script>
   <style>
-    /* Smooth rendering for painted art; crisp for particle canvas */
-    img { image-rendering: auto; }
-    canvas { image-rendering: pixelated; image-rendering: crisp-edges; }
+    /* Crisp pixel art rendering */
+    img, canvas { image-rendering: pixelated; image-rendering: crisp-edges; }
   </style>
 </head>
 <body>
@@ -60,22 +54,15 @@
     setTimeout(spawnMeteor, 2500);
   </script>
   <script>
-    // Register service worker for network-first caching (always fresh on deploy)
+    // UNREGISTER any old service worker
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js?v=' + window.APP_VERSION);
+      navigator.serviceWorker.getRegistrations().then(regs => {
+        regs.forEach(r => r.unregister());
+      });
     }
   </script>
-  <script>
-    const eh = document.createElement('script');
-    eh.src = 'js/error-handler.js?v=' + window.APP_VERSION;
-    document.head.appendChild(eh);
-  </script>
-  <!-- Version-stamped module entry — loaded dynamically so ?v= cache bust works -->
-  <script>
-    const m = document.createElement('script');
-    m.type = 'module';
-    m.src = 'js/main.js?v=' + window.APP_VERSION;
-    document.body.appendChild(m);
-  </script>
+  <!-- Lottie + Tone.js removed — unused, saving ~150K gzipped -->
+  <script src="js/error-handler.js"></script>
+  <script type="module" src="js/main.js?v=2"></script>
 </body>
 </html>

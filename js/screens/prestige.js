@@ -42,6 +42,7 @@ function executePrestige(profile) {
     seasonalEvents: { ...(profile.seasonalEvents || {}) },
     luckyWheel: { ...(profile.luckyWheel || {}) },
     tutorialSeen: { ...(profile.tutorialSeen || {}) },
+    _dailySeedMigrated: profile._dailySeedMigrated || false,
     name: profile.name,
     tier: profile.tier,
     difficultyBase: profile.difficultyBase,
@@ -447,7 +448,7 @@ function renderPrestige() {
   // Event listeners
   setTimeout(() => {
     const backBtn = div.querySelector('#pr-back');
-    if (backBtn) backBtn.addEventListener('click', () => { playSound('click'); showScreen('worldmap'); });
+    if (backBtn) backBtn.addEventListener('click', () => { playSound('click'); showScreen('chapter-map'); });
 
     const confirmInput = div.querySelector('#pr-confirm-input');
     const ascendBtn = div.querySelector('#pr-ascend');
@@ -494,7 +495,7 @@ function renderPrestige() {
     if (continueBtn) {
       continueBtn.addEventListener('click', () => {
         playSound('click');
-        showScreen('worldmap');
+        showScreen('chapter-map');
       });
     }
   }, 0);

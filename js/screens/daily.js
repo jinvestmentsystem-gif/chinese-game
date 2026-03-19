@@ -8,7 +8,27 @@ import { playSound, playMusic, setMusicIntensity, playStinger } from '../audio.j
 
 function getDailySeed() {
   const d = new Date();
-  return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
+  return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
+}
+
+// Migrate old 0-indexed month format ("2026-2-18" meant March) to 1-indexed ("2026-3-18").
+// ALL saves created before this fix use 0-indexed months, so migrate unconditionally once.
+function _migrateOldSeeds(profile) {
+  if (profile._dailySeedMigrated) return;
+  const migrateSeed = s => {
+    if (!s || typeof s !== 'string') return s;
+    const m = s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+    if (!m) return s;
+    return `${m[1]}-${parseInt(m[2], 10) + 1}-${m[3]}`;
+  };
+  const history = profile.dailyHistory || [];
+  if (history.length > 0) {
+    profile.dailyHistory = history.map(migrateSeed);
+  }
+  if (profile.lastDailyDate) {
+    profile.lastDailyDate = migrateSeed(profile.lastDailyDate);
+  }
+  profile._dailySeedMigrated = true;
 }
 
 function seededRandom(seed) {
@@ -30,7 +50,7 @@ function buildStreakCalendar(profile) {
   for (let i = 6; i >= 0; i--) {
     const d = new Date(today);
     d.setDate(d.getDate() - i);
-    const seed = `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
+    const seed = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
     const played = profile.dailyHistory && profile.dailyHistory.includes(seed);
     const isToday = i === 0;
     days.push({
@@ -61,10 +81,14 @@ async function renderDaily() {
   const div = document.createElement('div');
   div.className = 'screen';
   const profile = gameState.profile;
-  const today = getDailySeed();
 
   // Ensure dailyHistory exists
   if (!profile.dailyHistory) profile.dailyHistory = [];
+
+  // Migrate old 0-indexed month seeds if needed (persists flag to avoid re-running)
+  if (!profile._dailySeedMigrated) { _migrateOldSeeds(profile); gameState.save(); }
+
+  const today = getDailySeed();
 
   // Daily challenge music
   playMusic('tang');
@@ -201,11 +225,6 @@ async function renderDaily() {
 
   preDiv.innerHTML = `
     <h2 style="margin-bottom:0.3rem;">每日挑战</h2>
-    <div style="
-      font-size:0.88rem; color:#d4a017; padding:4px 14px;
-      background:rgba(212,160,23,0.1); border:1px solid rgba(212,160,23,0.25);
-      border-radius:8px; margin-bottom:8px; letter-spacing:0.06em;
-    ">今日主题: <strong>${(() => { const t = {0:'回顾日',1:'词汇冲刺',2:'阅读挑战',3:'古文试炼',4:'速答竞赛',5:'全能大师',6:'轻松周末'}; return t[new Date().getDay()]; })()}</strong></div>
     ${fireIcons ? `<div style="font-size:1.5rem;margin-bottom:0.5rem;animation:daily-fire-pulse 1s infinite;">${fireIcons}</div>` : ''}
     <div style="color:var(--accent-gold);font-size:1.1rem;font-weight:700;margin-bottom:1rem;">
       ${profile.dailyStreak > 0 ? `连续打卡 ${profile.dailyStreak} 天` : '开始你的连续打卡之旅！'}
@@ -238,18 +257,11 @@ async function renderDaily() {
     <button class="btn btn-primary" id="daily-start-btn" style="font-size:1.1rem;padding:12px 32px;animation:daily-btn-glow 2s infinite;">
       开始挑战
     </button>
-    <button class="btn" id="daily-back-btn" style="font-size:1rem;padding:10px 24px;margin-top:12px;opacity:0.7;">
-      返回
-    </button>
   `;
 
   div.appendChild(preDiv);
 
   setTimeout(() => {
-    // Back button on pre-challenge screen
-    const backBtn = div.querySelector('#daily-back-btn');
-    if (backBtn) backBtn.addEventListener('click', () => showScreen('title'));
-
     const startBtn = div.querySelector('#daily-start-btn');
     if (startBtn) {
       startBtn.addEventListener('click', () => {
@@ -301,61 +313,19 @@ async function renderDaily() {
       return shuffled.slice(0, count);
     }
 
-    // ── Daily themes by day of week ──
-    const dayOfWeek = new Date().getDay(); // 0=Sun, 1=Mon, ...
-    const DAILY_THEMES = {
-      0: { name: '回顾日',     desc: '复习错题，2倍奖励',        type: 'review' },
-      1: { name: '词汇冲刺',   desc: '8道词汇题',              type: 'vocab' },
-      2: { name: '阅读挑战',   desc: '2篇阅读理解',            type: 'reading' },
-      3: { name: '古文试炼',   desc: '6道古文题',              type: 'classical' },
-      4: { name: '速答竞赛',   desc: '6题混合，时间-3秒',      type: 'speed' },
-      5: { name: '全能大师',   desc: '最高难度混合',            type: 'hard' },
-      6: { name: '轻松周末',   desc: '简单混合，金币+50%',      type: 'easy' },
-    };
-    const dailyTheme = DAILY_THEMES[dayOfWeek];
-
     const recentVocab = profile.seenQuestions.vocab.slice(-20);
     const recentReading = profile.seenQuestions.reading.slice(-10);
     const recentClassical = profile.seenQuestions.classical.slice(-20);
+    const vocabQs = seededPick(content.vocab.filter(q => !recentVocab.includes(q.id)), 3);
+    const availPassages = content.reading.filter(p => !recentReading.includes(p.id));
+    const passage = availPassages.length > 0 ? seededPick(availPassages, 1)[0] : content.reading[0];
+    const classicalQs = seededPick(content.classical.filter(q => !recentClassical.includes(q.id)), 2);
 
-    let sequence = [];
-
-    if (dailyTheme.type === 'vocab') {
-      const vocabQs = seededPick(content.vocab.filter(q => !recentVocab.includes(q.id)), 8);
-      sequence = vocabQs.map(q => ({ ...q, contentType: 'vocab' }));
-    } else if (dailyTheme.type === 'reading') {
-      const availP = content.reading.filter(p => !recentReading.includes(p.id));
-      const passages = availP.length >= 2 ? seededPick(availP, 2) : [availP[0] || content.reading[0], content.reading[1] || content.reading[0]];
-      for (const p of passages) {
-        sequence.push(...p.questions.map(q => ({ ...q, contentType: 'reading', passageTitle: p.title, passageText: p.passage })));
-      }
-    } else if (dailyTheme.type === 'classical') {
-      const classQs = seededPick(content.classical.filter(q => !recentClassical.includes(q.id)), 6);
-      sequence = classQs.map(q => ({ ...q, contentType: 'classical' }));
-    } else if (dailyTheme.type === 'review') {
-      // Pull from wrong answer log for review
-      const wrongLog = profile.wrongAnswerLog || [];
-      const reviewIds = wrongLog.slice(-10).map(e => e.questionId);
-      const reviewQs = content.vocab.filter(q => reviewIds.includes(q.id)).slice(0, 6);
-      if (reviewQs.length < 4) {
-        // Fallback: mix if not enough wrong answers
-        const filler = seededPick(content.vocab.filter(q => !recentVocab.includes(q.id)), 6 - reviewQs.length);
-        sequence = [...reviewQs, ...filler].map(q => ({ ...q, contentType: 'vocab', isReview: true }));
-      } else {
-        sequence = reviewQs.map(q => ({ ...q, contentType: 'vocab', isReview: true }));
-      }
-    } else {
-      // Default mix (speed, hard, easy, or fallback)
-      const vocabQs = seededPick(content.vocab.filter(q => !recentVocab.includes(q.id)), 3);
-      const availPassages = content.reading.filter(p => !recentReading.includes(p.id));
-      const passage = availPassages.length > 0 ? seededPick(availPassages, 1)[0] : content.reading[0];
-      const classicalQs = seededPick(content.classical.filter(q => !recentClassical.includes(q.id)), 2);
-      sequence = [
-        ...vocabQs.map(q => ({ ...q, contentType: 'vocab' })),
-        ...passage.questions.map(q => ({ ...q, contentType: 'reading', passageTitle: passage.title, passageText: passage.passage })),
-        ...classicalQs.map(q => ({ ...q, contentType: 'classical' })),
-      ];
-    }
+    const sequence = [
+      ...vocabQs.map(q => ({ ...q, contentType: 'vocab' })),
+      ...passage.questions.map(q => ({ ...q, contentType: 'reading', passageTitle: passage.title, passageText: passage.passage })),
+      ...classicalQs.map(q => ({ ...q, contentType: 'classical' })),
+    ];
 
     let qIndex = 0;
     let correct = 0;
@@ -468,7 +438,7 @@ async function renderDaily() {
           }
         });
         playSound('wrong');
-        recordAnswer(q.contentType, false);
+        recordAnswer(q.contentType, false, q.id || null);
         total++;
         combo = 0;
         const fb = div.querySelector('#feedback');
@@ -495,7 +465,7 @@ async function renderDaily() {
             }
           });
 
-          recordAnswer(q.contentType, isCorrect);
+          recordAnswer(q.contentType, isCorrect, q.id || null);
           total++;
           if (isCorrect) {
             correct++;
@@ -531,7 +501,7 @@ async function renderDaily() {
       // Update streak
       const yesterday = new Date();
       yesterday.setDate(yesterday.getDate() - 1);
-      const yesterdaySeed = `${yesterday.getFullYear()}-${yesterday.getMonth()}-${yesterday.getDate()}`;
+      const yesterdaySeed = `${yesterday.getFullYear()}-${yesterday.getMonth() + 1}-${yesterday.getDate()}`;
       if (profile.lastDailyDate === yesterdaySeed) {
         profile.dailyStreak++;
       } else {
@@ -555,6 +525,10 @@ async function renderDaily() {
       const baseXP = correct * 10;
       const finalScore = baseXP + comboBonus + streakBonus;
       const totalXP = baseXP + streakBonus;
+      // Gold = 60% of XP earned
+      const dailyGold = Math.round(totalXP * 0.6);
+      profile.gold = (profile.gold || 0) + dailyGold;
+      profile.stats.totalGoldEarned = (profile.stats.totalGoldEarned || 0) + dailyGold;
       const levelUp = addXP(totalXP);
 
       // Update best score and accuracy
@@ -681,7 +655,7 @@ async function renderDaily() {
       shareBtn.textContent = '分享';
       shareBtn.style.cssText = 'padding:8px 20px;';
       shareBtn.addEventListener('click', () => {
-        const shareText = `文定乾坤每日挑战 ${starDisplay} 正确率${accuracy}% 连击x${maxCombo} 连续打卡${profile.dailyStreak}天`;
+        const shareText = `文字侠每日挑战 ${starDisplay} 正确率${accuracy}% 连击x${maxCombo} 连续打卡${profile.dailyStreak}天`;
         navigator.clipboard.writeText(shareText).then(() => {
           const copied = document.createElement('div');
           copied.textContent = '已复制到剪贴板！';

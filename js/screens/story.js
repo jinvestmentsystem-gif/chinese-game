@@ -323,14 +323,6 @@ function renderStory({ storyKey, onComplete } = {}) {
         animation: story-btn-pulse 2s ease-in-out infinite;
       ">继续 ▸</button>
 
-      <button id="btn-skip-story" style="
-        position:absolute; top:16px; right:16px; z-index:10;
-        padding:6px 16px; background:rgba(0,0,0,0.5);
-        border:1px solid rgba(255,255,255,0.2); color:rgba(255,255,255,0.5);
-        font-size:0.95rem; cursor:pointer; border-radius:6px;
-        font-family:var(--font-main); transition:opacity 0.2s;
-      ">跳过 ▸▸</button>
-
       <div id="story-progress" style="
         display: flex;
         gap: 8px;
@@ -448,20 +440,9 @@ function renderStory({ storyKey, onComplete } = {}) {
     advance();
   });
 
-  // Skip all — jump to end
-  const btnSkip = div.querySelector('#btn-skip-story');
-  if (btnSkip) {
-    btnSkip.addEventListener('click', (e) => {
-      e.stopPropagation();
-      div.remove();
-      if (onComplete) { onComplete(); }
-      else if (story.next) { showScreen(story.next); }
-    });
-  }
-
   // Also allow clicking anywhere on the overlay to advance
   div.addEventListener('click', (e) => {
-    if (e.target !== btnContinue && e.target !== btnSkip) {
+    if (e.target !== btnContinue) {
       advance();
     }
   });

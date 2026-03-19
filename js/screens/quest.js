@@ -4,7 +4,7 @@ import { registerScreen, showScreen } from '../main.js';
 import { startQuest, getCurrentEncounter, advanceEncounter } from '../game-engine.js';
 import { STORIES } from './story.js';
 import { playMusic, playSound } from '../audio.js';
-import { SPRITES, QUEST_BGS, getPlayerSprite } from '../sprites.js';
+import { SPRITES } from '../sprites.js';
 import { showCompanionBubble, COMPANION, pick } from './companion.js';
 import { setParticleMode, burstAtPoint } from '../particles.js';
 
@@ -30,7 +30,7 @@ const CHAPTER_BOSS_NAMES = {
 // Era-specific visual themes
 const ERA_THEME = {
   xianqin: {
-    bg:     'linear-gradient(180deg, rgba(26,14,0,0.7) 0%, rgba(45,24,0,0.5) 30%, rgba(61,34,0,0.3) 50%, rgba(42,21,0,0.5) 70%, rgba(26,12,0,0.7) 100%)',
+    bg:     'linear-gradient(180deg, #1a0e00 0%, #2d1800 25%, #3d2200 50%, #2a1500 75%, #1a0c00 100%)',
     accent: '#c8861a',
     sky:    '#1a0e00',
     cloud:  'rgba(180,130,60,0.18)',
@@ -43,7 +43,7 @@ const ERA_THEME = {
     starColor: '255,200,120',
   },
   han: {
-    bg:     'linear-gradient(180deg, rgba(26,0,0,0.7) 0%, rgba(45,8,8,0.5) 30%, rgba(64,10,10,0.3) 50%, rgba(45,5,5,0.5) 70%, rgba(26,0,0,0.7) 100%)',
+    bg:     'linear-gradient(180deg, #1a0000 0%, #2d0808 25%, #400a0a 50%, #2d0505 75%, #1a0000 100%)',
     accent: '#e03030',
     sky:    '#1a0000',
     cloud:  'rgba(200,80,80,0.18)',
@@ -56,7 +56,7 @@ const ERA_THEME = {
     starColor: '255,160,160',
   },
   tang: {
-    bg:     'linear-gradient(180deg, rgba(13,10,0,0.7) 0%, rgba(30,22,0,0.5) 30%, rgba(46,32,0,0.3) 50%, rgba(30,22,0,0.5) 70%, rgba(13,10,0,0.7) 100%)',
+    bg:     'linear-gradient(180deg, #0d0a00 0%, #1e1600 25%, #2e2000 50%, #1e1600 75%, #0d0a00 100%)',
     accent: '#d4a017',
     sky:    '#0d0a00',
     cloud:  'rgba(212,160,23,0.18)',
@@ -69,7 +69,7 @@ const ERA_THEME = {
     starColor: '255,220,100',
   },
   song: {
-    bg:     'linear-gradient(180deg, rgba(0,26,16,0.7) 0%, rgba(0,40,24,0.5) 30%, rgba(0,56,30,0.3) 50%, rgba(0,40,24,0.5) 70%, rgba(0,26,16,0.7) 100%)',
+    bg:     'linear-gradient(180deg, #001a10 0%, #002818 25%, #00381e 50%, #002818 75%, #001a10 100%)',
     accent: '#2ecc8a',
     sky:    '#001a10',
     cloud:  'rgba(46,204,138,0.15)',
@@ -82,7 +82,7 @@ const ERA_THEME = {
     starColor: '100,255,180',
   },
   modern: {
-    bg:     'linear-gradient(180deg, rgba(10,0,24,0.7) 0%, rgba(18,0,40,0.5) 30%, rgba(26,0,56,0.3) 50%, rgba(18,0,40,0.5) 70%, rgba(10,0,24,0.7) 100%)',
+    bg:     'linear-gradient(180deg, #0a0018 0%, #120028 25%, #1a0038 50%, #120028 75%, #0a0018 100%)',
     accent: '#9060ff',
     sky:    '#0a0018',
     cloud:  'rgba(140,80,255,0.15)',
@@ -389,11 +389,7 @@ function renderQuest(params) {
   const { chapterId } = params;
   const profile = gameState.profile;
   const progress = profile.chapterProgress[chapterId] || { questsCompleted: 0 };
-  const CHAPTER_QUEST_COUNTS = { 1: 4, 2: 4, 3: 4, 4: 4, 5: 5 };
-  const maxQuests = CHAPTER_QUEST_COUNTS[chapterId] || 4;
-  let questIndex = params.questIndex ?? progress.questsCompleted;
-  // Clamp to valid range — if chapter complete, replay from quest 0
-  if (questIndex >= maxQuests) questIndex = 0;
+  const questIndex = params.questIndex ?? progress.questsCompleted;
   const justFinishedEncounter = params.justFinishedEncounter || false;
 
   const era   = CHAPTER_ERA[chapterId] || 'xianqin';
@@ -407,12 +403,9 @@ function renderQuest(params) {
 
   // ── Full-screen journey map container ──
   const mapWrap = document.createElement('div');
-  const questBgUrl = QUEST_BGS[CHAPTER_ERA[chapterId]] || '';
   mapWrap.style.cssText = `
     position:absolute; inset:0;
-    background:
-      ${theme.bg},
-      url('${questBgUrl}') center/cover no-repeat;
+    background:${theme.bg};
     overflow-y:auto; overflow-x:hidden;
     display:flex; flex-direction:column;
     align-items:center;
@@ -445,12 +438,6 @@ function renderQuest(params) {
       border-radius:12px;
       background:${theme.accent}11;
     ">第 ${questIndex + 1} 关</div>
-    ${gameState.currentQuest?.objective ? `<div style="
-      font-size:0.92rem; color:#d4a017; margin-top:4px;
-      padding:3px 10px; background:rgba(212,160,23,0.1);
-      border:1px dashed rgba(212,160,23,0.3); border-radius:8px;
-      letter-spacing:0.04em;
-    ">🎯 目标: ${gameState.currentQuest.objective.desc} → +${gameState.currentQuest.objective.bonusXP}XP +${gameState.currentQuest.objective.bonusGold}金币</div>` : ''}
   `;
   mapWrap.appendChild(titleBar);
 
@@ -548,7 +535,7 @@ function renderQuest(params) {
   ];
   const tipEl = document.createElement('div');
   tipEl.style.cssText = `
-    color:rgba(255,255,255,0.35); font-size: 0.92rem; max-width:260px;
+    color:rgba(255,255,255,0.35); font-size:0.78rem; max-width:260px;
     text-align:center; line-height:1.5; margin-top:8px;
     font-style:italic;
   `;
@@ -1375,11 +1362,8 @@ function renderQuest(params) {
         if (btn) {
           btn.addEventListener('click', () => {
             try { playSound('gold'); } catch(_) {}
-            // Particle burst + gold rain on collection
-            burstAtPoint(window.innerWidth / 2, window.innerHeight * 0.35, 25, 'gold', 'explode');
             enc.completed = true;
-            // Brief delay for particles before fade
-            setTimeout(() => { overlay.style.opacity = '0'; }, 300);
+            overlay.style.opacity = '0';
             setTimeout(() => {
               overlay.remove();
               const next = advanceEncounter();
@@ -1470,104 +1454,67 @@ function renderQuest(params) {
           letter-spacing:0.03em;
         ">${narrative}</div>
 
-        <!-- Strategic rest choices -->
+        <!-- HP restore bar -->
         <div style="
-          width:100%; max-width:340px;
-          display:flex; flex-direction:column; gap:10px;
+          width:100%; max-width:280px;
           animation: rest-fade-in 0.6s ease-out 0.6s both;
         ">
-          <div style="font-size:0.85rem; color:rgba(255,255,255,0.5); text-align:center; margin-bottom:2px;">
-            选择休息方式
+          <div style="font-size:0.85rem; color:rgba(255,255,255,0.5); text-align:center; margin-bottom:6px;">
+            HP 恢复
           </div>
-          <button class="rest-choice" data-hp="0.5" data-gold="0" data-wenli="0" style="
-            display:flex; align-items:center; gap:12px; padding:12px 16px;
-            background:rgba(46,204,138,0.1); border:1.5px solid rgba(46,204,138,0.35);
-            border-radius:10px; cursor:pointer; font-family:var(--font-main);
-            color:var(--text-primary); font-size:0.95rem; text-align:left;
-            transition:all 0.2s; width:100%;
+          <div style="
+            width:100%; height:14px; border-radius:7px;
+            background:rgba(255,255,255,0.1); overflow:hidden;
+            border:1px solid rgba(46,204,138,0.3);
           ">
-            <span style="font-size:1.4rem;">♨️</span>
-            <div>
-              <div style="font-weight:700;color:#2ecc8a;">温泉</div>
-              <div style="font-size: 0.95rem;color:var(--text-secondary);">+50% HP</div>
-            </div>
-          </button>
-          <button class="rest-choice" data-hp="0.3" data-gold="15" data-wenli="0" style="
-            display:flex; align-items:center; gap:12px; padding:12px 16px;
-            background:rgba(212,160,23,0.1); border:1.5px solid rgba(212,160,23,0.35);
-            border-radius:10px; cursor:pointer; font-family:var(--font-main);
-            color:var(--text-primary); font-size:0.95rem; text-align:left;
-            transition:all 0.2s; width:100%;
-          ">
-            <span style="font-size:1.4rem;">🍶</span>
-            <div>
-              <div style="font-weight:700;color:#d4a017;">酒馆</div>
-              <div style="font-size: 0.95rem;color:var(--text-secondary);">+30% HP · +15 金币</div>
-            </div>
-          </button>
-          <button class="rest-choice" data-hp="0.2" data-gold="0" data-wenli="1" style="
-            display:flex; align-items:center; gap:12px; padding:12px 16px;
-            background:rgba(142,68,173,0.1); border:1.5px solid rgba(142,68,173,0.35);
-            border-radius:10px; cursor:pointer; font-family:var(--font-main);
-            color:var(--text-primary); font-size:0.95rem; text-align:left;
-            transition:all 0.2s; width:100%;
-          ">
-            <span style="font-size:1.4rem;">🏛️</span>
-            <div>
-              <div style="font-weight:700;color:#a855f7;">寺院</div>
-              <div style="font-size: 0.95rem;color:var(--text-secondary);">+20% HP · +1 文力</div>
-            </div>
-          </button>
+            <div id="rest-hp-fill" style="
+              height:100%; border-radius:7px;
+              background: linear-gradient(90deg, #27ae60, #2ecc8a);
+              width: ${(hpBefore / maxHp) * 100}%;
+              animation: hp-fill-anim 1.5s ease-out 1s both;
+              box-shadow: 0 0 8px rgba(46,204,138,0.4);
+            "></div>
+          </div>
+          <div style="
+            font-size:0.9rem; color:#2ecc8a; text-align:center; margin-top:6px;
+            animation: rest-fade-in 0.5s ease-out 2s both; opacity:0;
+            font-weight:700;
+          ">+${restoreAmount} HP</div>
         </div>
+
+        <!-- Continue button -->
+        <button id="btn-rest-continue" style="
+          padding: 12px 36px;
+          background: linear-gradient(145deg, rgba(0,0,0,0.6), rgba(0,20,10,0.7));
+          border: 2px solid #2ecc8a;
+          color: #2ecc8a;
+          font-size: 1.2rem;
+          font-weight: 700;
+          letter-spacing: 0.15em;
+          cursor: pointer;
+          border-radius: 8px;
+          font-family: var(--font-main);
+          opacity:0;
+          animation: rest-fade-in 0.5s ease-out 2.5s both,
+                     rest-glow 2s ease-in-out 3s infinite;
+          transition: background 0.2s, transform 0.15s;
+        ">继续前进</button>
       `;
 
       div.appendChild(overlay);
       requestAnimationFrame(() => { overlay.style.opacity = '1'; });
 
+      // Apply HP restore
+      profile.hp = hpAfter;
+      gameState.save();
+
       setTimeout(() => {
-        overlay.querySelectorAll('.rest-choice').forEach(btn => {
-          btn.addEventListener('mouseenter', () => { btn.style.transform = 'scale(1.02)'; });
-          btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+        const btn = overlay.querySelector('#btn-rest-continue');
+        if (btn) {
           btn.addEventListener('click', () => {
-            try { playSound('click'); } catch(_) {}
-            const hpPct = parseFloat(btn.dataset.hp);
-            const goldBonus = parseInt(btn.dataset.gold);
-            const wenliBonus = parseInt(btn.dataset.wenli);
-
-            const restoreAmt = Math.floor(maxHp * hpPct);
-            profile.hp = Math.min(maxHp, hpBefore + restoreAmt);
-            if (goldBonus) profile.gold = (profile.gold || 0) + goldBonus;
-            if (wenliBonus) profile.wenli = Math.min(profile.maxWenli, (profile.wenli || 0) + wenliBonus);
-            gameState.save();
-
-            // Visual feedback: highlight selected choice, show restore amount
-            btn.style.borderColor = '#2ecc8a';
-            btn.style.boxShadow = '0 0 20px rgba(46,204,138,0.4)';
-            overlay.querySelectorAll('.rest-choice').forEach(b => {
-              if (b !== btn) { b.style.opacity = '0.3'; b.style.pointerEvents = 'none'; }
-            });
-
-            // Floating restore text
-            const floatEl = document.createElement('div');
-            floatEl.textContent = `+${restoreAmt} HP` + (goldBonus ? ` +${goldBonus}💰` : '') + (wenliBonus ? ` +${wenliBonus}文力` : '');
-            floatEl.style.cssText = `
-              position:fixed; top:45%; left:50%; transform:translate(-50%,0);
-              color:#2ecc8a; font-size:1.4rem; font-weight:900;
-              text-shadow:0 0 12px rgba(46,204,138,0.5);
-              pointer-events:none; z-index:900;
-              transition: transform 0.8s ease-out, opacity 0.8s ease-out;
-            `;
-            overlay.appendChild(floatEl);
-            requestAnimationFrame(() => requestAnimationFrame(() => {
-              floatEl.style.transform = 'translate(-50%, -40px)';
-              floatEl.style.opacity = '0';
-            }));
-            setTimeout(() => floatEl.remove(), 900);
-
             try { playSound('heal'); } catch(_) {}
-            burstAtPoint(window.innerWidth / 2, window.innerHeight * 0.4, 15, 'jade', 'fountain');
             enc.completed = true;
-            setTimeout(() => { overlay.style.opacity = '0'; }, 600);
+            overlay.style.opacity = '0';
             setTimeout(() => {
               overlay.remove();
               const next = advanceEncounter();
@@ -1580,9 +1527,9 @@ function renderQuest(params) {
                   justFinishedEncounter: true,
                 });
               }
-            }, 1000);
+            }, 400);
           });
-        });
+        }
       }, 0);
     }
 

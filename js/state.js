@@ -38,12 +38,14 @@ const DEFAULT_PROFILE = {
     fastestAnswer: Infinity,
     perfectQuests: 0,
   },
+  // Stat points for level-up allocation
+  statPoints: 0,
   // Talent tree — each key maps to rank (0 = unlearned)
   talents: {},
   talentPoints: 0,
   // Titles earned + active title
-  titles: ['新手文定乾坤'],
-  activeTitle: '新手文定乾坤',
+  titles: ['新手文字侠'],
+  activeTitle: '新手文字侠',
   // Daily login reward tracking
   dailyLogin: { lastDate: null, streak: 0, totalDays: 0 },
   // Elemental affinity (unlocked via chengyu sets)
@@ -62,17 +64,11 @@ const DEFAULT_PROFILE = {
   // Spaced repetition data: tracks wrong answers for review
   wrongAnswerLog: [],  // Array of { questionId, contentType, wrongCount, lastSeen, nextReview, correctStreak }
   masteredQuestions: [], // IDs of questions answered correctly 3+ times in a row
-  // ── Engagement systems ──
-  luckyWheel: { lastSpinDate: null, totalSpins: 0 },
-  bestiary: {},  // { enemyKey: { defeated: number, firstSeen: timestamp } }
-  weeklyBoss: { lastWeekId: null, defeated: false, bestTime: null },
-  lastActiveTimestamp: null,
-  comebackClaimed: null,
-  comboRecords: { bestOverall: 0, bestPerChapter: {}, history: [] },
-  enchantments: {},  // { itemId: { stat, value, label } }
-  companionFriendship: { level: 1, xp: 0, interactions: 0, lastInteractionDate: null },
-  seasonalEvents: {},
-  prestige: { level: 0, totalLevels: 0, bonuses: { xpMultiplier: 0, goldMultiplier: 0, startingGold: 0, statBonus: 0 } },
+  // Engagement optimization
+  questStars: {},        // { "1-0": 3, "1-1": 2 } — best star rating per quest
+  openingStorySeen: false, // guards post-Quest-1 cinematic
+  ownedFrames: [],       // cosmetic profile border frames owned
+  activeFrame: null,     // currently equipped frame ID
 };
 
 class GameState {
@@ -125,8 +121,13 @@ class GameState {
     // New fields backfill
     if (!p.talents)         p.talents = {};
     if (!('talentPoints' in p)) p.talentPoints = Math.max(0, Math.floor((p.level - 1) / 2) - Object.values(p.talents || {}).reduce((s, v) => s + v, 0));
-    if (!p.titles)          p.titles = ['新手文定乾坤'];
-    if (!p.activeTitle)     p.activeTitle = '新手文定乾坤';
+    if (!('statPoints' in p)) p.statPoints = 0;
+    if (!p.questStars) p.questStars = {};
+    if (!('openingStorySeen' in p)) p.openingStorySeen = false;
+    if (!p.ownedFrames) p.ownedFrames = [];
+    if (!('activeFrame' in p)) p.activeFrame = null;
+    if (!p.titles)          p.titles = ['新手文字侠'];
+    if (!p.activeTitle)     p.activeTitle = '新手文字侠';
     if (!p.dailyLogin)      p.dailyLogin = { lastDate: null, streak: 0, totalDays: 0 };
     if (!p.affinities)      p.affinities = { metal: 0, wood: 0, water: 0, fire: 0, earth: 0 };
     if (!('critChance' in p))     p.critChance = 5;
@@ -145,17 +146,6 @@ class GameState {
     // Migrate old profiles with 0 attack/defense to new base values
     if (p.attack === 0 && p.level === 1 && !p.equipment.weapon) p.attack = 5;
     if (p.defense === 0 && p.level === 1 && !p.equipment.armor) p.defense = 5;
-    // ── Engagement systems backfill ──
-    if (!p.luckyWheel)           p.luckyWheel = { lastSpinDate: null, totalSpins: 0 };
-    if (!p.bestiary)             p.bestiary = {};
-    if (!p.weeklyBoss)           p.weeklyBoss = { lastWeekId: null, defeated: false, bestTime: null };
-    if (!('lastActiveTimestamp' in p)) p.lastActiveTimestamp = null;
-    if (!('comebackClaimed' in p))    p.comebackClaimed = null;
-    if (!p.comboRecords)         p.comboRecords = { bestOverall: p.stats?.maxCombo || 0, bestPerChapter: {}, history: [] };
-    if (!p.enchantments)         p.enchantments = {};
-    if (!p.companionFriendship)  p.companionFriendship = { level: 1, xp: 0, interactions: 0, lastInteractionDate: null };
-    if (!p.seasonalEvents)       p.seasonalEvents = {};
-    if (!p.prestige)             p.prestige = { level: 0, totalLevels: 0, bonuses: { xpMultiplier: 0, goldMultiplier: 0, startingGold: 0, statBonus: 0 } };
     return p;
   }
 
@@ -171,8 +161,8 @@ class GameState {
     return this.profiles[this.activeProfileIndex] || null;
   }
 
-  createProfile(name, tier, difficultyBase = 3, gender = 'male') {
-    const p = { ...DEFAULT_PROFILE, name, tier, difficultyBase, gender, createdAt: Date.now() };
+  createProfile(name, tier, difficultyBase = 3) {
+    const p = { ...DEFAULT_PROFILE, name, tier, difficultyBase, createdAt: Date.now() };
     // Deep clone nested objects
     p.equipment = { ...DEFAULT_PROFILE.equipment };
     p.gold = 0;

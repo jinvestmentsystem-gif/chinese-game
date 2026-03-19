@@ -3,14 +3,13 @@ import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
 import { getCurrentEncounter, advanceEncounter, recordAnswer } from '../game-engine.js';
 import { hasAbility, calcDamage, calcDamageTaken, getTimerDuration, rollCrit, getEffectiveMaxHp, getTalentEffects, addXP } from '../progression.js';
-import { showToast } from '../toast.js';
 import { loadChengyu } from '../content-loader.js';
-import { SPRITES, COMBAT_BGS } from '../sprites.js';
+import { SPRITES } from '../sprites.js';
 import { playSound, playMusic, setMusicIntensity, playStinger } from '../audio.js';
 import { showCompanionBubble, showEnemyTaunt, COMPANION, ENEMY_TAUNTS, pick } from './companion.js';
 import { setParticleMode, burstParticles } from '../particles.js';
 import { showTutorial } from '../tutorial.js';
-import { shakeElement, shakeContainer, lungeElement, floatingText, screenFlash } from '../effects.js';
+import { shakeElement, shakeContainer, lungeElement, floatingText } from '../effects.js';
 import { createCombatBackground, destroyCombatBackground } from '../pixi-backgrounds.js';
 import { fireworkShow, confettiBurst, goldenRain } from '../celebrations.js';
 
@@ -341,10 +340,6 @@ function renderBoss() {
   const encounter = getCurrentEncounter();
   const profile = gameState.profile;
   const quest = gameState.currentQuest;
-  if (!encounter || !profile || !quest) {
-    const d = document.createElement('div'); d.className = 'screen';
-    showScreen('worldmap'); return d;
-  }
   const bossInfo = BOSS_NAMES[quest.chapterId] || BOSS_NAMES[1];
 
   // Apply era-specific boss background and particles
@@ -354,19 +349,16 @@ function renderBoss() {
 
   const div = document.createElement('div');
   div.className = 'screen';
-  // Use painted background image if available
-  const eraMap = {1:'xianqin',2:'han',3:'tang',4:'song',5:'modern'};
-  const eraKey = eraMap[quest.chapterId] || 'xianqin';
-  const bossBgUrl = COMBAT_BGS[eraKey];
-
   div.style.cssText = `
     overflow:hidden;
     background:
       radial-gradient(ellipse at 50% 30%, ${bossBg.accent} 0%, transparent 55%),
       radial-gradient(ellipse at 50% 70%, ${bossBg.accent} 0%, transparent 45%),
-      url('${bossBgUrl}') center/cover no-repeat,
       ${bossBg.gradient};
   `;
+  // Create PixiJS dynamic background
+  const eraMap = {1:'xianqin',2:'han',3:'tang',4:'song',5:'modern'};
+  const eraKey = eraMap[quest.chapterId] || 'xianqin';
   createCombatBackground(div, eraKey);
 
   const bossAbility = getBossAbility(quest.chapterId);
@@ -392,16 +384,13 @@ function renderBoss() {
   let doubleActive = false;
   // Gauntlet scaling: boss deals more damage on higher floors
   const gauntletAtkScale = quest.gauntletMode ? (quest.gauntletScaling || 1) : 1;
-  let bossBaseAtk = Math.round(25 * gauntletAtkScale);
-  const bossModifier = encounter.modifier || null; // Encounter modifier (if any)
-  if (bossModifier?.enemyDmgMult) bossBaseAtk = Math.round(bossBaseAtk * bossModifier.enemyDmgMult);
+  const bossBaseAtk = Math.round(25 * gauntletAtkScale);
   let isFirstRender = true;
 
   // Timer value depends on half_timer ability — use stat-based timer with base 20
-  let bossBaseTimer = abilityActive(bossAbility, 'half_timer')
+  const bossBaseTimer = abilityActive(bossAbility, 'half_timer')
     ? Math.round(getTimerDuration(profile, 20) / 2)
     : getTimerDuration(profile, 20);
-  if (bossModifier?.timerMult) bossBaseTimer = Math.round(bossBaseTimer * bossModifier.timerMult);
   const effectiveMaxHp = getEffectiveMaxHp(profile);
 
   function getCurrentPhaseForHp() {
@@ -455,27 +444,6 @@ function renderBoss() {
       playStinger('phase_change');
       phase = hpPhase;
       qIndex = 0;
-
-      // ── Dramatic phase transition fanfare ──
-      screenFlash('#c0392b', 400, div);
-      shakeContainer(div, 8, 500);
-      burstParticles(30, 'boss');
-      const phaseLabels = ['第一阶段', '第二阶段', '第三阶段', '最终阶段'];
-      const phaseBanner = document.createElement('div');
-      phaseBanner.style.cssText = `
-        position:absolute; top:40%; left:50%; transform:translate(-50%,-50%) scale(0);
-        font-size:2.2rem; font-weight:900; color:#e74c3c;
-        text-shadow: 0 0 20px rgba(231,76,60,0.7), 0 0 40px rgba(231,76,60,0.3);
-        z-index:1005; pointer-events:none;
-        transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), opacity 0.5s ease-out;
-      `;
-      phaseBanner.textContent = phaseLabels[phase] || `第${phase + 1}阶段`;
-      div.appendChild(phaseBanner);
-      requestAnimationFrame(() => requestAnimationFrame(() => {
-        phaseBanner.style.transform = 'translate(-50%,-50%) scale(1)';
-      }));
-      setTimeout(() => { phaseBanner.style.opacity = '0'; }, 1200);
-      setTimeout(() => phaseBanner.remove(), 1700);
     }
 
     const currentPhase = phases[phase];
@@ -608,7 +576,6 @@ function renderBoss() {
       ">
         <div style="font-size:2rem; font-weight:900; color:var(--text-primary); text-shadow:var(--shadow-gold);">游戏暂停</div>
         <button id="btn-boss-resume" class="btn" style="font-size:1.1rem; padding:12px 36px;">继续</button>
-        <button id="btn-boss-retreat" class="btn" style="font-size:1rem; padding:10px 28px; margin-top:8px; opacity:0.7;">放弃 · 回到地图</button>
       </div>
 
       ${bossIntentHTML}
@@ -783,7 +750,7 @@ function renderBoss() {
 
         // Apply thorns on timeout
         if (thornsReturn > 0) {
-          bossHp = Math.max(1, bossHp - thornsReturn); // Thorns can't kill — min 1 HP
+          bossHp = Math.max(0, bossHp - thornsReturn);
           const bossHpBar = div.querySelector('#boss-hp-bar');
           if (bossHpBar) bossHpBar.style.width = bossHp + '%';
         }
@@ -879,7 +846,7 @@ function renderBoss() {
             const thornsReturn = timeoutDmg.thornsReturn;
             playerHp = Math.max(0, playerHp - hpLoss);
             if (thornsReturn > 0) {
-              bossHp = Math.max(1, bossHp - thornsReturn);
+              bossHp = Math.max(0, bossHp - thornsReturn);
               const bossHpBar = div.querySelector('#boss-hp-bar');
               if (bossHpBar) bossHpBar.style.width = bossHp + '%';
             }
@@ -899,22 +866,6 @@ function renderBoss() {
       });
     }
 
-    // Retreat from boss pause menu
-    const bossRetreatBtn = div.querySelector('#btn-boss-retreat');
-    if (bossRetreatBtn) {
-      bossRetreatBtn.addEventListener('click', () => {
-        clearInterval(bossTimerInterval);
-        destroyCombatBackground();
-        profile.hp = playerHp;
-        gameState.save();
-        if (quest.gauntletMode) {
-          showScreen('gauntlet');
-        } else {
-          showScreen('worldmap');
-        }
-      });
-    }
-
     div.querySelectorAll('.boss-option').forEach(btn => {
       btn.classList.add('spotlight-card');
       btn.addEventListener('click', () => {
@@ -930,6 +881,10 @@ function renderBoss() {
         });
 
         recordAnswer('classical', correct, q.id);
+
+        // Log question for learning summary
+        const questLog = gameState.currentQuest?.results?.questionsLog;
+        if (questLog) questLog.push({ prompt: q.prompt, correct, explanation: q.explanation || '', isReview: q.isReview || false });
 
         // Per-question save checkpoint
         profile.hp = playerHp;
@@ -949,8 +904,7 @@ function renderBoss() {
 
         if (correct) {
           // ── New stat-based boss damage calculation ──
-          let isCrit = rollCrit(profile);
-          if (!isCrit && bossModifier?.critBonus && Math.random() < bossModifier.critBonus) isCrit = true;
+          const isCrit = rollCrit(profile);
           if (isCrit) playSound('crit');
           const bossCombo = (gameState.currentQuest?.results?.combo || 0);
           if (bossCombo >= 3) playSound('combo');
@@ -963,9 +917,6 @@ function renderBoss() {
           if (talents.executePct && bossHp < 30) {
             dmg = Math.round(dmg * (1 + talents.executePct / 100));
           }
-
-          // Encounter modifier damage scaling
-          if (bossModifier?.dmgMult) dmg = Math.round(dmg * bossModifier.dmgMult);
 
           // Gauntlet scaling: reduce damage dealt based on floor scaling
           if (quest.gauntletMode && quest.gauntletScaling > 1) {
@@ -1066,7 +1017,7 @@ function renderBoss() {
 
           // ── Thorns: reflect damage back to boss ──
           if (thornsReturn > 0) {
-            bossHp = Math.max(1, bossHp - thornsReturn); // Thorns can't kill — min 1 HP
+            bossHp = Math.max(0, bossHp - thornsReturn);
             const bossHpBar = div.querySelector('#boss-hp-bar');
             if (bossHpBar) bossHpBar.style.width = bossHp + '%';
             // Thorns floating number on boss
@@ -1130,33 +1081,15 @@ function renderBoss() {
     profile.hp = playerHp;
     gameState.save();
 
-    // ── Gauntlet defeat: return to gauntlet screen, reset floor ──
-    if (!won && quest.gauntletMode) {
-      profile.gauntletFloor = 0; // Reset floor on defeat
-      gameState.save();
-      // Show brief defeat message, then return to gauntlet
-      div.innerHTML = `
-        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(0,0,0,0.85);z-index:10;padding:24px;text-align:center;">
-          <div style="font-size:2.4rem;font-weight:900;color:#c0392b;margin-bottom:12px;text-shadow:0 0 20px rgba(192,57,43,0.5);">试炼结束</div>
-          <div style="font-size:1.1rem;color:var(--text-secondary);margin-bottom:8px;">到达第 ${quest.gauntletFloor || 1} 层</div>
-          <div style="font-size:0.95rem;color:rgba(255,200,100,0.7);margin-bottom:24px;max-width:300px;">你的文字之力还在成长。休整后再来挑战吧！</div>
-          <button class="btn btn-primary" id="btn-gauntlet-return" style="font-size:1rem;padding:12px 28px;">返回试炼</button>
-        </div>
-      `;
-      setTimeout(() => {
-        div.querySelector('#btn-gauntlet-return')?.addEventListener('click', () => showScreen('gauntlet'));
-      }, 0);
-      return;
-    }
-
     if (!won) {
       // ── Enhanced boss defeat screen ───────────────────────────────────
+      const quest = gameState.currentQuest;
       const results = quest ? quest.results : { correct: 0, total: 0, maxCombo: 0 };
       const bossDamageDealt = 100 - bossHp;
       const motivationalTexts = [
         "文字之路没有捷径，但每次失败都让你更强！",
         "墨暗之力只是暂时的胜利——你的知识终将战胜一切！",
-        "连最强的文定乾坤也有过失败——重要的是永不放弃！",
+        "连最强的文字侠也有过失败——重要的是永不放弃！",
       ];
       const motivation = motivationalTexts[Math.floor(Math.random() * motivationalTexts.length)];
 
@@ -1254,7 +1187,7 @@ function renderBoss() {
           profile.hp = profile.maxHp;
           showScreen('boss');
         });
-        div.querySelector('#btn-retreat').addEventListener('click', () => showScreen('worldmap'));
+        div.querySelector('#btn-retreat').addEventListener('click', () => showScreen('chapter-map'));
         const shopBtn = div.querySelector('#btn-shop');
         if (shopBtn) shopBtn.addEventListener('click', () => showScreen('shop'));
       }, 0);
@@ -1289,14 +1222,6 @@ function renderBoss() {
       setTimeout(() => goldenLightExpansion(div, cx, cy), 400);
     }
 
-    // Record boss in bestiary
-    const bossSpriteKey = bossSprites[quest.chapterId] || 'boss_cangjie';
-    if (!profile.bestiary) profile.bestiary = {};
-    const bEntry = profile.bestiary[bossSpriteKey] || { defeated: 0, firstSeen: Date.now() };
-    bEntry.defeated++;
-    profile.bestiary[bossSpriteKey] = bEntry;
-    profile.lastActiveTimestamp = Date.now();
-
     // Boss defeat celebration — confetti + fireworks
     confettiBurst({ count: 80, force: 12, colors: ['#d4a017', '#f5c842', '#e74c3c', '#2ecc8a', '#a855f7'] });
     setTimeout(() => fireworkShow({ count: 5, interval: 400 }), 500);
@@ -1330,43 +1255,7 @@ function renderBoss() {
       });
     }, 700);
 
-    // ── Gauntlet mode: advance floor instead of normal quest flow ──
-    // (Skip chengyu drops in gauntlet — it's a boss rematch mode)
-    if (quest.gauntletMode && won) {
-      setTimeout(() => {
-        const floor = quest.gauntletFloor || 1;
-        const profile_ = gameState.profile;
-
-        // Award XP and gold for gauntlet floor
-        const floorXP = 30 + floor * 5;
-        const floorGold = 20 + floor * 3;
-        addXP(floorXP);
-        profile_.gold = (profile_.gold || 0) + floorGold;
-        profile_.gauntletFloor = floor;
-
-        // Update record
-        if (floor > (profile_.gauntletRecord || 0)) {
-          profile_.gauntletRecord = floor;
-          // Award mastery titles at milestones
-          if (!profile_.titles) profile_.titles = ['新手文定乾坤'];
-          const titleMap = { 5: '试炼新手', 10: '试炼勇士', 20: '试炼大师', 50: '试炼传说' };
-          if (titleMap[floor] && !profile_.titles.includes(titleMap[floor])) {
-            profile_.titles.push(titleMap[floor]);
-            showToast(`新称号: ${titleMap[floor]}`, { type: 'title', duration: 4000 });
-          }
-          showToast(`新纪录！第 ${floor} 层`, { type: 'achievement', duration: 3000 });
-        }
-
-        showToast(`+${floorXP} XP · +${floorGold} 金币`, { type: 'reward', duration: 2500 });
-        gameState.save();
-
-        // Return to gauntlet screen for next floor
-        showScreen('gauntlet');
-      }, 2000);
-      return;
-    }
-
-    // Check for chengyu drop (normal boss flow only)
+    // Check for chengyu drop
     const allChengyu = await loadChengyu();
     const uncollected = allChengyu.filter(cy => !profile.chengyu.includes(cy.id) && cy.chapter === quest.chapterId);
 
@@ -1392,14 +1281,57 @@ function renderBoss() {
             if (!next) {
               showScreen('reward');
             } else {
-              showScreen('quest', {
-                chapterId: quest.chapterId,
-                questIndex: quest.questIndex,
-                justFinishedEncounter: true,
-              });
+              // Return to journey map so the player sees their progress
+              showScreen('chapter-map', { resume: true });
             }
           });
         }, 0);
+      }, 2000);
+      return;
+    }
+
+    // ── Gauntlet mode: advance floor instead of normal quest flow ──
+    if (quest.gauntletMode && won) {
+      setTimeout(() => {
+        const floor = quest.gauntletFloor || 1;
+        const profile_ = gameState.profile;
+
+        // Award XP and gold for gauntlet floor
+        const floorXP = 30 + floor * 5;
+        const floorGold = 20 + floor * 3;
+        addXP(floorXP);
+        profile_.gold = (profile_.gold || 0) + floorGold;
+        profile_.gauntletFloor = floor + 1;
+
+        // Update record
+        if (floor > (profile_.gauntletRecord || 0)) {
+          profile_.gauntletRecord = floor;
+          // Award mastery titles at milestones
+          if (!profile_.titles) profile_.titles = ['新手文字侠'];
+          const titleMap = { 5: '试炼新手', 10: '试炼勇士', 20: '试炼大师', 50: '试炼传说' };
+          if (titleMap[floor] && !profile_.titles.includes(titleMap[floor])) {
+            profile_.titles.push(titleMap[floor]);
+            showToast(`新称号: ${titleMap[floor]}`, { type: 'title', duration: 4000 });
+          }
+          showToast(`新纪录！第 ${floor} 层`, { type: 'achievement', duration: 3000 });
+        }
+
+        showToast(`+${floorXP} XP · +${floorGold} 金币`, { type: 'reward', duration: 2500 });
+        gameState.save();
+
+        // Return to gauntlet screen for next floor
+        showScreen('gauntlet');
+      }, 2000);
+      return;
+    }
+
+    // ── Gauntlet defeat: show record and return ──
+    if (quest.gauntletMode && !won) {
+      setTimeout(() => {
+        const profile_ = gameState.profile;
+        profile_.gauntletFloor = 0; // Reset floor on defeat
+        gameState.save();
+        showScreen('gauntlet');
       }, 2000);
       return;
     }
@@ -1410,11 +1342,7 @@ function renderBoss() {
         showScreen('reward');
       } else {
         // Return to journey map so the player sees their progress
-        showScreen('quest', {
-          chapterId: quest.chapterId,
-          questIndex: quest.questIndex,
-          justFinishedEncounter: true,
-        });
+        showScreen('chapter-map', { resume: true });
       }
     }, 2000);
   }

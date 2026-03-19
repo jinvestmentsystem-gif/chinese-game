@@ -1,94 +1,20 @@
-// js/audio.js — Music (MP3 via Howler.js) + Procedural SFX (Web Audio API)
+// js/audio.js — Procedural music & SFX via Web Audio API (no external files)
 
 let audioCtx = null;
 let musicEnabled = true;
 let sfxEnabled = true;
-let currentMusicNodes = []; // oscillators / intervals currently playing
 let musicLoopHandle = null;
 
-// ─── Howler.js MP3 music tracks ──────────────────────────────────────────────
-const _av = window.APP_VERSION ? '?v=' + window.APP_VERSION : '';
-const MUSIC_TRACKS = {};
-let currentHowl = null; // Currently playing Howler track
-let currentTrackKey = null;
+// ─── Cached noise buffers (avoid per-hit allocation / GC pressure) ──────────
+let _noiseBufShort = null;  // ~0.04s for transients
+let _noiseBufMed   = null;  // ~0.2s  for snare / hihat
+let _noiseBufLong  = null;  // ~0.8s  for crashes / wind
 
-function ensureMusicTracks() {
-  if (MUSIC_TRACKS._loaded) return;
-  MUSIC_TRACKS._loaded = true;
-  if (typeof Howl === 'undefined') {
-    console.warn('[Audio] Howler.js not loaded — MP3 music unavailable');
-    return;
-  }
-  const base = 'assets/audio/';
-  const tracks = {
-    menu:    { src: base + 'music_menu.mp3' + _av,    loop: true,  volume: 0.4 },
-    explore: { src: base + 'music_explore.mp3' + _av, loop: true,  volume: 0.35 },
-    combat:  { src: base + 'music_combat.mp3' + _av,  loop: true,  volume: 0.45 },
-    boss:    { src: base + 'music_boss.mp3' + _av,    loop: true,  volume: 0.5 },
-    victory: { src: base + 'sfx_victory.mp3' + _av,   loop: false, volume: 0.55 },
-    defeat:  { src: base + 'sfx_defeat.mp3' + _av,    loop: false, volume: 0.5 },
-  };
-  for (const [key, cfg] of Object.entries(tracks)) {
-    MUSIC_TRACKS[key] = new Howl({
-      src: [cfg.src],
-      loop: cfg.loop,
-      volume: cfg.volume,
-      preload: true,
-      onloaderror: (id, err) => console.warn(`[Audio] Failed to load ${key}:`, err),
-      onplayerror: (id, err) => {
-        console.warn(`[Audio] Play error ${key}:`, err);
-        if (typeof Howler !== 'undefined') {
-          Howler.ctx?.resume?.();
-          setTimeout(() => MUSIC_TRACKS[key]?.play(), 200);
-        }
-      },
-    });
-  }
-}
-
-// Preload tracks immediately on module load
-ensureMusicTracks();
-
-function playMusicTrack(key) {
-  ensureMusicTracks();
-  if (currentTrackKey === key && currentHowl?.playing()) return;
-  stopMusicTrack();
-  const howl = MUSIC_TRACKS[key];
-  if (!howl) return;
-  // Ensure Howler's audio context is unlocked (browser autoplay policy)
-  if (typeof Howler !== 'undefined' && Howler.ctx && Howler.ctx.state === 'suspended') {
-    Howler.ctx.resume();
-  }
-  currentTrackKey = key;
-  currentHowl = howl;
-  howl.play();
-}
-
-let _stopGen = 0; // Generation counter to prevent stale stop() calls
-function stopMusicTrack() {
-  if (currentHowl) {
-    const gen = ++_stopGen;
-    currentHowl.fade(currentHowl.volume(), 0, 300);
-    const h = currentHowl;
-    setTimeout(() => {
-      // Only stop if no new track was started since this fade began
-      if (_stopGen === gen) { try { h.stop(); } catch(_) {} }
-    }, 350);
-    currentHowl = null;
-    currentTrackKey = null;
-  }
-}
-
-// Map era + intensity to the right MP3 track
-function getMusicTrackForState(era, intensity) {
-  if (intensity >= 3) return 'boss';
-  if (intensity >= 1) return 'combat';
-  if (era === 'menu') return 'menu';
-  return 'explore'; // ambient/worldmap/quest for all eras
-}
+// ─── Scheduler re-entry guard ───────────────────────────────────────────────
+let _schedulerRunning = false;
 
 // ─── Music state ──────────────────────────────────────────────────────────────
-let currentEra = 'menu';
+let currentEra = null;  // null until first playMusic call
 let currentIntensity = 0; // 0=ambient, 1=combat, 2=combo, 3=boss/critical
 let masterMusicGain = null;   // GainNode — master volume for all music layers
 let masterSfxGain = null;     // GainNode — master volume for SFX
@@ -330,13 +256,20 @@ function playNote(freq, wave, gainPeak, attackTime, decayTime, destination) {
   return osc;
 }
 
-// ─── Noise buffer helper (reused across drum hits) ────────────────────────────
-function makeNoiseBuffer(durationSecs) {
+// ─── Noise buffer helper — cached to avoid GC pressure at 155 BPM ───────────
+function _createNoiseBuf(durationSecs) {
   const len = Math.ceil(audioCtx.sampleRate * durationSecs);
   const buf = audioCtx.createBuffer(1, len, audioCtx.sampleRate);
   const d = buf.getChannelData(0);
   for (let i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
   return buf;
+}
+function makeNoiseBuffer(durationSecs) {
+  // Return a cached buffer for common durations; create fresh only for unusual sizes
+  if (durationSecs <= 0.06)  return _noiseBufShort || (_noiseBufShort = _createNoiseBuf(0.06));
+  if (durationSecs <= 0.25)  return _noiseBufMed   || (_noiseBufMed   = _createNoiseBuf(0.25));
+  if (durationSecs <= 1.5)   return _noiseBufLong  || (_noiseBufLong  = _createNoiseBuf(1.5));
+  return _createNoiseBuf(durationSecs);
 }
 
 // ─── Scheduled drum / bass / melody hit generators ────────────────────────────
@@ -728,6 +661,7 @@ function scheduleNote(time) {
 
 // ─── Look-ahead scheduler ─────────────────────────────────────────────────────
 function scheduler() {
+  if (!_schedulerRunning) return; // guard: stop() was called while we were in-flight
   while (nextNoteTime < audioCtx.currentTime + LOOK_AHEAD) {
     scheduleNote(nextNoteTime);
     nextNoteTime += SIXTEENTH_DURATION;
@@ -737,13 +671,21 @@ function scheduler() {
 }
 
 function startScheduler() {
+  if (audioCtx.state !== 'running') {
+    audioCtx.resume().then(() => {
+      if (currentIntensity > 0) startScheduler();
+    });
+    return;
+  }
   stopScheduler();
+  _schedulerRunning = true;
   currentStep  = 0;
   nextNoteTime = audioCtx.currentTime + 0.05; // small start delay
   scheduler();
 }
 
 function stopScheduler() {
+  _schedulerRunning = false;
   if (schedulerTimer !== null) {
     clearTimeout(schedulerTimer);
     schedulerTimer = null;
@@ -753,6 +695,19 @@ function stopScheduler() {
 // ─── Ambient scheduler (intensity 0) — arpeggiated chord progression ──────────
 // 75 BPM quarter note ≈ 800ms; arpeggio plays one note per beat.
 function startAmbientLoop() {
+  console.log('[audio] startAmbientLoop: state=' + audioCtx.state + ', musicEnabled=' + musicEnabled + ', intensity=' + currentIntensity);
+  // AudioContext starts suspended — notes scheduled at currentTime=0 are lost on resume.
+  // Wait for resume() Promise to resolve before scheduling any notes.
+  if (audioCtx.state !== 'running') {
+    console.log('[audio] startAmbientLoop: context suspended, waiting for resume...');
+    audioCtx.resume().then(() => {
+      console.log('[audio] startAmbientLoop: resume resolved, state=' + audioCtx.state + ', retrying...');
+      if (musicEnabled && currentIntensity === 0) startAmbientLoop();
+    });
+    return;
+  }
+
+  console.log('[audio] startAmbientLoop: context running, scheduling first note at t=' + audioCtx.currentTime);
   const dest = masterMusicGain || audioCtx.destination;
 
   const delayFx = createDelayNode(audioCtx, 0.5, 0.28, 0.22);
@@ -803,7 +758,8 @@ function startAmbientLoop() {
     musicLoopHandle = setTimeout(scheduleAmbientNote, 900);
   }
 
-  musicLoopHandle = setTimeout(scheduleAmbientNote, 300);
+  // Play first note immediately (no delay) so music is audible the instant it starts
+  scheduleAmbientNote();
 }
 
 function stopAmbientLoop() {
@@ -818,11 +774,32 @@ function stopAmbientLoop() {
 export function initAudio() {
   if (audioCtx) return;
   audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+  // ── Re-resume on any user gesture if context gets suspended (mobile / tab switch) ──
+  const _ensureRunning = () => {
+    if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+  };
+  audioCtx.addEventListener('statechange', () => {
+    if (audioCtx.state === 'suspended') {
+      // Browsers may suspend after tab-background or audio-focus loss;
+      // next user interaction will resume it via the listeners below.
+    }
+  });
+  ['click', 'touchstart', 'keydown'].forEach(evt =>
+    document.addEventListener(evt, _ensureRunning, { capture: true, passive: true })
+  );
   audioCtx.resume();
+
+  // Pre-create cached noise buffers now (avoids allocation during playback)
+  _noiseBufShort = _createNoiseBuf(0.06);
+  _noiseBufMed   = _createNoiseBuf(0.25);
+  _noiseBufLong  = _createNoiseBuf(1.5);
+
+  // ── Master gain buses ──────────────────────────────────────────────────────
 
   // Master SFX gain — controls volume of all sound effects
   masterSfxGain = audioCtx.createGain();
-  masterSfxGain.gain.value = 0.35; // SFX much softer than before
+  masterSfxGain.gain.value = 0.35;
   masterSfxGain.connect(audioCtx.destination);
 
   // Master stinger gain — musical stingers (victory, battle start)
@@ -830,10 +807,16 @@ export function initAudio() {
   masterStingerGain.gain.value = 0.4;
   masterStingerGain.connect(audioCtx.destination);
 
-  // Master gain for all music — kept below SFX headroom
+  // Master gain for all music — 0.55 is the "full" target used by setMusicIntensity
   masterMusicGain = audioCtx.createGain();
-  masterMusicGain.gain.value = 0.22; // Music volume — reduced, less overwhelming
+  masterMusicGain.gain.value = 0.55;
   masterMusicGain.connect(audioCtx.destination);
+
+  // Apply persisted user volume (overrides the default above)
+  const saved = _loadVolumes();
+  masterMusicGain.gain.value = saved.music;
+  masterSfxGain.gain.value = saved.sfx;
+  masterStingerGain.gain.value = saved.sfx;
 
   // Feedback delay for reverb-like spatial depth
   const reverbDelay = audioCtx.createDelay(1.0);
@@ -851,75 +834,89 @@ export function initAudio() {
 }
 
 export function playMusic(era) {
-  if (!musicEnabled) { stopMusic(); return; }
+  if (!audioCtx) return;
 
-  const newEra = era || 'menu';
-  const trackKey = getMusicTrackForState(newEra, 0);
-
-  // If the same track is already playing, just update era — don't restart
-  if (trackKey === currentTrackKey && currentHowl?.playing()) {
-    currentEra = newEra;
-    currentIntensity = 0;
-    return;
-  }
+  // If already playing (or pending) this era at ambient intensity, don't restart
+  const targetEra = era || 'menu';
+  if (currentEra === targetEra && currentIntensity === 0) return;
 
   stopMusic();
-  currentEra       = newEra;
+
+  if (!musicEnabled) return;
+
+  currentEra       = targetEra;
   currentIntensity = 0;
-  playMusicTrack(trackKey);
+
+  // Ensure gain is at user's saved level before starting
+  if (masterMusicGain) {
+    const saved = _loadVolumes();
+    const now = audioCtx.currentTime;
+    masterMusicGain.gain.cancelScheduledValues(now);
+    masterMusicGain.gain.setValueAtTime(saved.music, now);
+  }
+
+  startAmbientLoop();
 }
 
 export function stopMusic() {
-  stopMusicTrack(); // Stop MP3 track
   stopAmbientLoop();
   stopScheduler();
+  if (_ambientRestartTimer) { clearTimeout(_ambientRestartTimer); _ambientRestartTimer = null; }
 
-  for (const node of currentMusicNodes) {
+  // Cancel any pending gain automation so leftover scheduled nodes fade cleanly
+  if (masterMusicGain && audioCtx) {
     try {
-      node.stop      && node.stop();
-      node.disconnect && node.disconnect();
+      const now = audioCtx.currentTime;
+      masterMusicGain.gain.cancelScheduledValues(now);
+      masterMusicGain.gain.setValueAtTime(masterMusicGain.gain.value, now);
+      masterMusicGain.gain.linearRampToValueAtTime(0.0, now + 0.05);
+      // Restore to user's saved volume after brief fade-out
+      const saved = _loadVolumes();
+      masterMusicGain.gain.setValueAtTime(saved.music, now + 0.06);
     } catch (_) {}
   }
-  currentMusicNodes = [];
+
   layerGains        = {};
   activeLayerNodes  = {};
   currentStep       = 0;
+  currentEra        = null; // reset so next playMusic always starts fresh
 }
 
-// ─── setMusicIntensity — 0–3, switches MP3 track accordingly ─────────────────
+// ─── setMusicIntensity — 0–3, dynamically layers in/out ──────────────────────
+let _ambientRestartTimer = null; // track the delayed ambient restart
+
 export function setMusicIntensity(level) {
+  if (!audioCtx) return;
   const clamped = Math.max(0, Math.min(3, Math.floor(level)));
   if (clamped === currentIntensity) return;
 
   const prev = currentIntensity;
   currentIntensity = clamped;
 
-  // Switch MP3 track if intensity category changed — skip old procedural system
-  if (musicEnabled) {
-    const trackKey = getMusicTrackForState(currentEra, clamped);
-    if (trackKey !== currentTrackKey) {
-      playMusicTrack(trackKey);
-    }
-    return; // MP3 handles everything — don't run old procedural music below
-  }
-
   const FADE = 0.5; // seconds for crossfade
+  const targetVol = _loadVolumes().music || 0.55; // use user's saved volume as ceiling
+
+  // Cancel any pending ambient restart from a previous transition
+  if (_ambientRestartTimer) { clearTimeout(_ambientRestartTimer); _ambientRestartTimer = null; }
 
   if (clamped === 0) {
     // Transitioning back to ambient — stop scheduler, fade out then restart ambient
     if (masterMusicGain) {
       const now = audioCtx.currentTime;
+      masterMusicGain.gain.cancelScheduledValues(now);
       masterMusicGain.gain.setValueAtTime(masterMusicGain.gain.value, now);
       masterMusicGain.gain.linearRampToValueAtTime(0.0, now + FADE * 0.5);
     }
     stopScheduler();
-    setTimeout(() => {
+    _ambientRestartTimer = setTimeout(() => {
+      _ambientRestartTimer = null;
       if (!musicEnabled || !audioCtx) return;
-      if (currentIntensity !== 0) return;
+      if (currentIntensity !== 0) return; // intensity changed again while we were waiting
       if (masterMusicGain) {
         const now = audioCtx.currentTime;
+        masterMusicGain.gain.cancelScheduledValues(now);
         masterMusicGain.gain.setValueAtTime(0.0, now);
-        masterMusicGain.gain.linearRampToValueAtTime(0.55, now + FADE);
+        masterMusicGain.gain.linearRampToValueAtTime(targetVol, now + FADE);
       }
       startAmbientLoop();
     }, FADE * 500);
@@ -929,17 +926,19 @@ export function setMusicIntensity(level) {
       stopAmbientLoop();
       if (masterMusicGain) {
         const now = audioCtx.currentTime;
+        masterMusicGain.gain.cancelScheduledValues(now);
         masterMusicGain.gain.setValueAtTime(0.0, now);
-        masterMusicGain.gain.linearRampToValueAtTime(0.55, now + FADE);
+        masterMusicGain.gain.linearRampToValueAtTime(targetVol, now + FADE);
       }
       startScheduler();
     } else {
-      // Battle intensity shift — scheduler keeps running, just change level
+      // Battle intensity shift — scheduler keeps running, brief dip then restore
       if (masterMusicGain) {
         const now = audioCtx.currentTime;
+        masterMusicGain.gain.cancelScheduledValues(now);
         masterMusicGain.gain.setValueAtTime(masterMusicGain.gain.value, now);
-        masterMusicGain.gain.linearRampToValueAtTime(0.35, now + 0.05);
-        masterMusicGain.gain.linearRampToValueAtTime(0.55, now + 0.05 + FADE);
+        masterMusicGain.gain.linearRampToValueAtTime(targetVol * 0.65, now + 0.05);
+        masterMusicGain.gain.linearRampToValueAtTime(targetVol, now + 0.05 + FADE);
       }
     }
   }
@@ -947,38 +946,6 @@ export function setMusicIntensity(level) {
 
 // ─── playStinger — short dramatic musical bursts ──────────────────────────────
 export function playStinger(type) {
-  // Use MP3 stingers for victory/defeat (Howler — no audioCtx needed)
-  if (type === 'victory' || type === 'boss_death') {
-    ensureMusicTracks();
-    if (MUSIC_TRACKS.victory) {
-      stopMusicTrack();
-      MUSIC_TRACKS.victory.once('end', () => {
-        // Resume background music after stinger finishes
-        if (musicEnabled) {
-          const trackKey = getMusicTrackForState(currentEra, currentIntensity);
-          playMusicTrack(trackKey);
-        }
-      });
-      MUSIC_TRACKS.victory.play();
-      return;
-    }
-  }
-  if (type === 'defeat') {
-    ensureMusicTracks();
-    if (MUSIC_TRACKS.defeat) {
-      stopMusicTrack();
-      MUSIC_TRACKS.defeat.once('end', () => {
-        if (musicEnabled) {
-          const trackKey = getMusicTrackForState(currentEra, currentIntensity);
-          playMusicTrack(trackKey);
-        }
-      });
-      MUSIC_TRACKS.defeat.play();
-      return;
-    }
-  }
-
-  // Procedural stingers need audioCtx
   if (!audioCtx) return;
   const now = audioCtx.currentTime;
 
@@ -1899,13 +1866,8 @@ export function toggleMusic() {
   musicEnabled = !musicEnabled;
   if (!musicEnabled) {
     stopMusic();
-  } else {
-    // Resume with contextually appropriate track (not always 'menu')
-    playMusic(currentEra || 'menu');
-    if (currentIntensity > 0) {
-      const trackKey = getMusicTrackForState(currentEra, currentIntensity);
-      playMusicTrack(trackKey);
-    }
+  } else if (audioCtx) {
+    playMusic('menu');
   }
   return musicEnabled;
 }
@@ -1945,9 +1907,11 @@ export function setMusicVolume(vol) {
   const v = _loadVolumes();
   v.music = clamped;
   _saveVolumes(v);
-  if (masterMusicGain) masterMusicGain.gain.value = clamped;
-  // Also adjust Howler MP3 track volume
-  if (currentHowl) currentHowl.volume(clamped);
+  if (masterMusicGain && audioCtx) {
+    const now = audioCtx.currentTime;
+    masterMusicGain.gain.cancelScheduledValues(now);
+    masterMusicGain.gain.setValueAtTime(clamped, now);
+  }
 }
 /** Set SFX volume (0-1 range), persists to localStorage and applies immediately */
 export function setSfxVolume(vol) {

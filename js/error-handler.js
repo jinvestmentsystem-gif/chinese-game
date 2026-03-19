@@ -190,12 +190,16 @@
     if (errorShown) return;
     errorShown = true;
     showErrorScreen(event.error && event.error.message ? event.error.message : 'Unknown error');
+    // Reset flag after 5s so subsequent errors can still be caught
+    setTimeout(function () { errorShown = false; }, 5000);
   });
 
   window.addEventListener('unhandledrejection', function (event) {
     if (errorShown) return;
     errorShown = true;
     showErrorScreen(event.reason && event.reason.message ? event.reason.message : 'Async error');
+    // Reset flag after 5s so subsequent errors can still be caught
+    setTimeout(function () { errorShown = false; }, 5000);
   });
 
 })();

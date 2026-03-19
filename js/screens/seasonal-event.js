@@ -324,7 +324,7 @@ function renderSeasonalEvent() {
   // Event listeners
   setTimeout(() => {
     const backBtn = div.querySelector('#se-back');
-    if (backBtn) backBtn.addEventListener('click', () => { playSound('click'); showScreen('worldmap'); });
+    if (backBtn) backBtn.addEventListener('click', () => { playSound('click'); showScreen('chapter-map'); });
   }, 0);
 
   return div;

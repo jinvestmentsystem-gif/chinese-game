@@ -1,10 +1,12 @@
 // js/screens/gauntlet.js — Infinite Gauntlet: endless boss rematches with scaling difficulty
 import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
-import { startQuest } from '../game-engine.js';
-import { playMusic, setMusicIntensity } from '../audio.js';
-import { setParticleMode } from '../particles.js';
-import { getEffectiveMaxHp, getEffectiveStats } from '../progression.js';
+import { startQuest, getCurrentEncounter, advanceEncounter } from '../game-engine.js';
+import { playMusic, playSound, setMusicIntensity, playStinger } from '../audio.js';
+import { setParticleMode, burstParticles } from '../particles.js';
+import { confettiBurst, fireworkShow, goldenRain } from '../celebrations.js';
+import { showToast } from '../toast.js';
+import { getEffectiveMaxHp, getEffectiveStats, addXP } from '../progression.js';
 
 // Boss pool — cycles through all 5 bosses with scaling stats
 const GAUNTLET_BOSSES = [
@@ -182,7 +184,7 @@ function renderGauntlet() {
   `;
 
   setTimeout(() => {
-    div.querySelector('#btn-gauntlet-back')?.addEventListener('click', () => showScreen('worldmap'));
+    div.querySelector('#btn-gauntlet-back')?.addEventListener('click', () => showScreen('chapter-map'));
 
     div.querySelector('#btn-gauntlet-reset')?.addEventListener('click', () => {
       profile.gauntletFloor = 0;
@@ -190,22 +192,15 @@ function renderGauntlet() {
       showScreen('gauntlet');
     });
 
-    div.querySelector('#btn-gauntlet-start')?.addEventListener('click', async () => {
+    div.querySelector('#btn-gauntlet-start')?.addEventListener('click', () => {
       const floor = (profile.gauntletFloor || 0) + 1;
       const bossIdx = (floor - 1) % GAUNTLET_BOSSES.length;
       const boss = GAUNTLET_BOSSES[bossIdx];
       const scaling = 1 + Math.floor((floor - 1) / 3) * 0.1;
 
-      // Preserve HP before startQuest (which heals to full)
-      // Ensure at least 1 HP (shouldn't be 0 but guard against it)
-      const preservedHp = Math.max(1, profile.hp);
-
-      // Set up quest state for boss fight — MUST await since startQuest is async
+      // Set up quest state for boss fight
       const chapterId = bossIdx + 1; // 1-5 to match content tiers
-      await startQuest(chapterId, 0);
-
-      // Restore preserved HP (gauntlet: HP carries between floors)
-      profile.hp = preservedHp;
+      startQuest(chapterId, 0); // Use chapter's content pool
 
       // Override the first encounter to be a boss with scaled stats
       const quest = gameState.currentQuest;
@@ -228,8 +223,10 @@ function renderGauntlet() {
 
       // Navigate to boss fight via encounter-intro
       showScreen('encounter-intro', {
-        type: 'boss',
-        onComplete: () => showScreen('boss'),
+        encounterType: 'boss',
+        encounterName: `${boss.name} (第${floor}层)`,
+        chapterId,
+        onReady: () => showScreen('boss'),
       });
     });
   }, 0);

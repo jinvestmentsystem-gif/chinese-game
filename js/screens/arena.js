@@ -2,6 +2,7 @@
 import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
 import { loadContent, pickQuestions } from '../content-loader.js';
+import { recordAnswer } from '../game-engine.js';
 import { playSound, playMusic, setMusicIntensity, playStinger } from '../audio.js';
 
 // ── Inject arena keyframe styles once ───────────────────────────────────────
@@ -365,6 +366,8 @@ async function renderArena() {
 
   function handleArenaAnswer(idx, q, tierMultiplier, timeLeft = 0) {
     const correct = idx === q.correct;
+    // Track answer for question rotation and accuracy stats
+    recordAnswer(q.type || 'vocab', correct, q.id || null);
     div.querySelectorAll('.arena-option').forEach(b => {
       b.style.pointerEvents = 'none';
       const bIdx = parseInt(b.dataset.idx);
@@ -404,6 +407,7 @@ async function renderArena() {
       points,
       timeUsed: correct ? +(baseTimer - timeLeft).toFixed(1) : null,
       question: q.prompt,
+      questionId: q.id,
     });
 
     setTimeout(() => {
@@ -458,8 +462,8 @@ async function renderArena() {
   function renderSuddenDeathQuestion() {
     // Pick a shared question from p1's pool (unused)
     const pool = [...p1Questions, ...p2Questions];
-    const usedIds = roundLog.map(r => r.question);
-    const available = pool.filter(q => !usedIds.includes(q.prompt));
+    const usedIds = new Set(roundLog.map(r => r.questionId).filter(Boolean));
+    const available = pool.filter(q => !usedIds.has(q.id));
     const q = available[0] || p1Questions[0];
 
     let answered = false;

@@ -272,7 +272,7 @@ function renderBestiary() {
   setTimeout(() => {
     div.querySelector('#btn-back-bestiary').addEventListener('click', () => {
       playSound('click');
-      showScreen('worldmap');
+      showScreen('chapter-map');
     });
   }, 0);
 

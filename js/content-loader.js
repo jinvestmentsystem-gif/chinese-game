@@ -4,11 +4,16 @@ const cache = {};
 
 async function loadJSON(path) {
   if (cache[path]) return cache[path];
-  const res = await fetch(path);
-  if (!res.ok) return [];          // 404 or other errors → empty array
-  const data = await res.json();
-  cache[path] = data;
-  return data;
+  try {
+    const res = await fetch(path);
+    if (!res.ok) return [];
+    const data = await res.json();
+    cache[path] = data;
+    return data;
+  } catch (e) {
+    console.warn(`[content-loader] Failed to load ${path}:`, e);
+    return [];
+  }
 }
 
 export async function loadContent(tier) {
@@ -20,14 +25,15 @@ export async function loadContent(tier) {
   ]);
 
   // Try loading extra content files (optional — won't fail if missing)
-  const [vocabExtra, classicalExtra] = await Promise.all([
+  const [vocabExtra, classicalExtra, readingExtra] = await Promise.all([
     loadJSON(`${base}/vocab_extra.json`).catch(() => []),
     loadJSON(`${base}/classical_extra.json`).catch(() => []),
+    loadJSON(`${base}/reading_extra.json`).catch(() => []),
   ]);
 
   return {
     vocab: [...vocab, ...vocabExtra],
-    reading,
+    reading: [...reading, ...readingExtra],
     classical: [...classical, ...classicalExtra],
   };
 }
@@ -50,62 +56,62 @@ export async function loadChengyu() {
  */
 export function pickQuestions(pool, count, seenIds = [], difficultyTarget = 3, sessionUsed = [], gradeBias = null) {
   // 1. HARD FILTER — never return a question already used this session
-  let available = pool.filter(q => !sessionUsed.includes(q.id));
+  const sessionSet = new Set(sessionUsed);
+  let available = pool.filter(q => !sessionSet.has(q.id));
 
-  // 2. If hard filter leaves too few, relax to scoring only (last resort fallback)
+  // 2. If hard filter leaves too few, relax to full pool
   if (available.length < count) available = pool;
 
-  // 3. Deprioritize recently-seen questions via scoring (last 40 tracked)
-  const recentSeen = new Set(seenIds.slice(-40));
+  // 3. Build fast lookup of ALL seen question IDs (full history, not just last 40)
+  const seenSet = new Set(seenIds);
+  // Recent window: last 30% of seen IDs get a stronger penalty (very recently seen)
+  const recentWindow = Math.max(20, Math.floor(seenIds.length * 0.3));
+  const veryRecentSet = new Set(seenIds.slice(-recentWindow));
 
-  // ── Grade-level difficulty bias ───────────────────────────────────────
-  // Lower tiers (grade1-grade5): weight toward easier questions
-  // Upper tiers (grade7-grade8) / null: standard adaptive scoring (full difficulty range)
+  // 4. Grade-level difficulty bias
   const gradeWeights = buildGradeWeights(gradeBias, difficultyTarget);
 
-  // 4. Score each candidate
+  // 5. Score each candidate — balanced so novelty can overcome difficulty preference
   const scored = available.map(q => {
     let score = 0;
 
-    // Difficulty scoring with grade bias
+    // ── Difficulty scoring (max 30, not 50 — leaves room for novelty) ──
     if (gradeWeights) {
-      // Use grade-specific weight table
       const diff = q.difficulty || 1;
       const clampedDiff = Math.max(1, Math.min(5, diff));
-      score += (gradeWeights[clampedDiff] || 0);
+      // Scale grade weights to max 30 instead of 50
+      score += (gradeWeights[clampedDiff] || 0) * 0.6;
     } else {
-      // Standard adaptive: closer to target = higher score, max 50
       const diffDist = Math.abs((q.difficulty || 3) - difficultyTarget);
-      score += (5 - diffDist) * 10;
+      score += (5 - diffDist) * 6; // max 30
     }
 
-    // Recency penalty (recently seen = lower score)
-    if (recentSeen.has(q.id)) {
-      const recencyIndex = seenIds.lastIndexOf(q.id);
-      // howRecentlyNormalized: 0 = oldest in window, 1 = most recent
-      const howRecentlyNormalized = recencyIndex / seenIds.length;
-      score -= howRecentlyNormalized * 30; // up to -30 for very recent
+    // ── Novelty scoring (dominates over difficulty — ensures rotation) ──
+    if (veryRecentSet.has(q.id)) {
+      score -= 60; // very recently seen — heavy penalty, almost never picked
+    } else if (seenSet.has(q.id)) {
+      score -= 25; // seen before but not recently — moderate penalty
     } else {
-      score += 20; // bonus for never-seen
+      score += 35; // never seen — strong bonus
     }
 
-    // Small random factor to prevent deterministic ordering
-    score += Math.random() * 10;
+    // ── Random factor (large enough to break ties and create variety) ──
+    score += Math.random() * 25;
 
     return { question: q, score };
   });
 
-  // 5. Sort by score descending and take top N
-  scored.sort((a, b) => b.score - a.score);
-  const selected = scored.slice(0, count).map(s => s.question);
+  // 6. Weighted random sampling instead of deterministic top-N
+  //    This gives lower-scored questions a chance while still favoring higher scores
+  const selected = _weightedSample(scored, count);
 
-  // 6. Shuffle selected so they don't always appear in difficulty order
+  // 7. Shuffle selected order
   for (let i = selected.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [selected[i], selected[j]] = [selected[j], selected[i]];
   }
 
-  // 7. Shuffle OPTIONS within each question so the correct answer isn't always at the same position
+  // 8. Shuffle OPTIONS within each question so correct answer position varies
   return selected.map(q => {
     if (!q.options || q.options.length < 2) return q;
     const correctText = q.options[q.correct];
@@ -116,6 +122,36 @@ export function pickQuestions(pool, count, seenIds = [], difficultyTarget = 3, s
     }
     return { ...q, options: shuffled, correct: shuffled.indexOf(correctText) };
   });
+}
+
+/**
+ * Weighted random sampling without replacement.
+ * Converts scores to positive weights, then picks `count` items
+ * with probability proportional to weight.
+ */
+function _weightedSample(scored, count) {
+  if (scored.length <= count) return scored.map(s => s.question);
+
+  // Shift all scores to positive (min score → weight 1)
+  const minScore = Math.min(...scored.map(s => s.score));
+  const items = scored.map(s => ({
+    question: s.question,
+    weight: Math.max(1, s.score - minScore + 1),
+  }));
+
+  const selected = [];
+  for (let i = 0; i < count && items.length > 0; i++) {
+    const totalWeight = items.reduce((sum, it) => sum + it.weight, 0);
+    let roll = Math.random() * totalWeight;
+    let pickedIdx = 0;
+    for (let j = 0; j < items.length; j++) {
+      roll -= items[j].weight;
+      if (roll <= 0) { pickedIdx = j; break; }
+    }
+    selected.push(items[pickedIdx].question);
+    items.splice(pickedIdx, 1); // remove picked item
+  }
+  return selected;
 }
 
 /**
@@ -153,31 +189,42 @@ function buildGradeWeights(gradeBias, difficultyTarget) {
 }
 
 export function pickReadingPassage(passages, seenIds = [], difficultyTarget = 3) {
-  // Score passages the same way pickQuestions scores questions
-  const recentSeen = new Set(seenIds.slice(-40));
+  if (!passages || passages.length === 0) return undefined;
+
+  const seenSet = new Set(seenIds);
+  const recentWindow = Math.max(5, Math.floor(seenIds.length * 0.3));
+  const veryRecentSet = new Set(seenIds.slice(-recentWindow));
 
   const scored = passages.map(p => {
     let score = 0;
 
-    // Difficulty match
-    const diffDist = Math.abs(p.difficulty - difficultyTarget);
-    score += (5 - diffDist) * 10;
+    // Difficulty match (max 30)
+    const diffDist = Math.abs((p.difficulty || 3) - difficultyTarget);
+    score += (5 - diffDist) * 6;
 
-    // Recency penalty
-    if (recentSeen.has(p.id)) {
-      const recencyIndex = seenIds.lastIndexOf(p.id);
-      const howRecentlyNormalized = recencyIndex / seenIds.length;
-      score -= howRecentlyNormalized * 30;
+    // Novelty — strongly prefer unseen passages
+    if (veryRecentSet.has(p.id)) {
+      score -= 60;
+    } else if (seenSet.has(p.id)) {
+      score -= 25;
     } else {
-      score += 20;
+      score += 35;
     }
 
-    // Small random factor
-    score += Math.random() * 10;
+    // Random factor
+    score += Math.random() * 25;
 
     return { passage: p, score };
   });
 
-  scored.sort((a, b) => b.score - a.score);
-  return scored[0]?.passage ?? passages[0];
+  // Weighted random pick (single item)
+  const minScore = Math.min(...scored.map(s => s.score));
+  const weighted = scored.map(s => ({ passage: s.passage, weight: Math.max(1, s.score - minScore + 1) }));
+  const totalWeight = weighted.reduce((sum, w) => sum + w.weight, 0);
+  let roll = Math.random() * totalWeight;
+  for (const w of weighted) {
+    roll -= w.weight;
+    if (roll <= 0) return w.passage;
+  }
+  return weighted[weighted.length - 1]?.passage ?? passages[0];
 }

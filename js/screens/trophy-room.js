@@ -243,7 +243,7 @@ function renderTrophyRoom() {
   setTimeout(() => {
     div.querySelector('#btn-back-trophy').addEventListener('click', () => {
       playSound('click');
-      showScreen('worldmap');
+      showScreen('chapter-map');
     });
   }, 0);
 

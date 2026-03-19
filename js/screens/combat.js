@@ -6,13 +6,12 @@ import { hasAbility, calcDamage, calcDamageTaken, getTimerDuration, rollCrit, ge
 import { playSound, playMusic, setMusicIntensity, playStinger } from '../audio.js';
 import { showCompanionBubble, showEnemyTaunt, COMPANION, ENEMY_TAUNTS, pick } from './companion.js';
 import { setParticleMode, burstParticles } from '../particles.js';
-import { SPRITES, COMBAT_BGS, getPlayerSprite } from '../sprites.js';
+import { SPRITES } from '../sprites.js';
 import { showTutorial } from '../tutorial.js';
 import { shakeElement, lungeElement, slashEffect, screenFlash, floatingText } from '../effects.js';
 import { recordWrongAnswer, recordCorrectReview } from '../spaced-repetition.js';
 import { createCombatBackground, destroyCombatBackground } from '../pixi-backgrounds.js';
 import { confettiBurst } from '../celebrations.js';
-import { showToast } from '../toast.js';
 
 // ─── Enemy type system ──────────────────────────────────────────────────────
 const ENEMY_TYPES = [
@@ -328,10 +327,6 @@ function renderCombat() {
   const div = document.createElement('div');
   div.className = 'screen';
 
-  // Use painted background image if available, fall back to gradient
-  const eraKeyMap = {1:'xianqin',2:'han',3:'tang',4:'song',5:'modern'};
-  const combatBgUrl = COMBAT_BGS[eraKeyMap[eraBgChapter]];
-
   div.style.cssText = `
     overflow: hidden;
     display: flex;
@@ -341,7 +336,6 @@ function renderCombat() {
     background:
       radial-gradient(ellipse at 50% 25%, ${eraBg.accent} 0%, transparent 60%),
       radial-gradient(ellipse at 20% 80%, ${eraBg.accent} 0%, transparent 40%),
-      url('${combatBgUrl}') center/cover no-repeat,
       ${eraBg.gradient};
   `;
 
@@ -352,12 +346,10 @@ function renderCombat() {
 
   const encounter = getCurrentEncounter();
   const profile = gameState.profile;
-  if (!encounter || !profile) { showScreen('worldmap'); return div; }
   const questions = encounter.questions;
   let qIndex = 0;
   const effectiveMaxHp = getEffectiveMaxHp(profile);
   let playerHp = profile.hp;
-  const modifier = encounter.modifier || null; // Encounter modifier (elite, blitz, etc.)
 
   // Start battle music — explicitly set era and intensity
   const chapterId = gameState.currentQuest?.chapterId || 1;
@@ -369,19 +361,16 @@ function renderCombat() {
   const questIndex = gameState.currentQuest?.questIndex || 0;
   const enemyType = selectEnemyType(chapterId, questIndex);
   const enemyName = enemyType.name;
-  const baseTimer = modifier?.timerMult
-    ? Math.round(getTimerDuration(profile) * modifier.timerMult)
-    : getTimerDuration(profile);
+  const baseTimer = getTimerDuration(profile);
 
-  // Real enemy HP from enemy type (scaled by modifier)
-  let enemyMaxHp = modifier?.enemyHpMult
-    ? Math.round(enemyType.hp * modifier.enemyHpMult)
-    : enemyType.hp;
+  // Real enemy HP from enemy type
+  let enemyMaxHp = enemyType.hp;
   let enemyHp = enemyMaxHp;
   let combo = 0;
   let timerInterval = null;
   let timerPulseInterval = null;
   let doubleActive = false;
+  let _activeKeyHandler = null;  // track keyboard handler for cleanup
 
   // ── Balatro-style multiplicative scoring ──
   let chips = 0;
@@ -396,7 +385,6 @@ function renderCombat() {
   let shieldActive = enemyType.ability === 'shield'; // shield blocks first wrong answer
   let enrageTriggered = false; // enrage fires once when HP < 50%
   let scrambleTimer = null; // scramble timer reference
-  let activeKeyHandler = null; // keyboard shortcut handler ref for cleanup
 
   // PixiJS overlay handle
   let pixiApp = null;
@@ -502,8 +490,7 @@ function renderCombat() {
     else if (combo >= 4) comboColor = '#e67e22';
 
     // ── Enemy intent: damage on wrong answer / timeout ──
-    let enemyAtk = enrageTriggered ? Math.round(enemyType.attack * 1.5) : enemyType.attack;
-    if (modifier?.enemyDmgMult) enemyAtk = Math.round(enemyAtk * modifier.enemyDmgMult);
+    const enemyAtk = enrageTriggered ? Math.round(enemyType.attack * 1.5) : enemyType.attack;
     const wrongDmgInfo = calcDamageTaken(profile, enemyAtk);
     const timeoutDmgInfo = calcDamageTaken(profile, Math.round(enemyAtk * 1.3));
     const wrongDamage = wrongDmgInfo.damage;
@@ -559,7 +546,7 @@ function renderCombat() {
         .hp-player { background: linear-gradient(90deg, #27ae60, #2ecc71); }
         .hp-enemy  { background: linear-gradient(90deg, #c0392b, #e74c3c); }
         .hud-hp-text {
-          font-size: 0.88rem;
+          font-size: 0.75rem;
           color: var(--text-secondary);
           line-height: 1;
         }
@@ -605,7 +592,7 @@ function renderCombat() {
           flex-shrink: 0;
         }
         .sprite-label {
-          font-size: 0.88rem;
+          font-size: 0.75rem;
           color: var(--text-secondary);
           margin-bottom: 4px;
         }
@@ -646,7 +633,7 @@ function renderCombat() {
         .enemy-intent-bar {
           display: flex;
           gap: 10px;
-          font-size: 0.9rem;
+          font-size: 0.78rem;
           opacity: 0.9;
           padding: 4px 12px;
           border-radius: 6px;
@@ -671,7 +658,7 @@ function renderCombat() {
         /* ── Narrative strip ── */
         .combat-narrative {
           font-style: italic;
-          font-size: 0.95rem;
+          font-size: 0.82rem;
           color: #d4a017;
           text-align: center;
           padding: 4px 16px;
@@ -702,10 +689,10 @@ function renderCombat() {
           display: inline-block;
           background: rgba(142,68,173,0.85);
           color: #fff;
-          font-size: 0.95rem;
+          font-size: 0.7rem;
           font-weight: 700;
-          padding: 3px 10px;
-          border-radius: 5px;
+          padding: 2px 8px;
+          border-radius: 4px;
           margin-right: 6px;
           vertical-align: middle;
           letter-spacing: 0.05em;
@@ -820,12 +807,12 @@ function renderCombat() {
 
         /* ── Enemy ability banner ── */
         .enemy-ability-banner {
-          font-size: 0.9rem;
+          font-size: 0.65rem;
           color: #e8a0a0;
           background: rgba(192,57,43,0.2);
           border: 1px solid rgba(192,57,43,0.3);
-          border-radius: 6px;
-          padding: 4px 10px;
+          border-radius: 4px;
+          padding: 2px 8px;
           margin-top: 4px;
           text-align: center;
           max-width: 140px;
@@ -881,15 +868,18 @@ function renderCombat() {
           animation: combat-entrance-zoom 0.8s cubic-bezier(0.25,0.46,0.45,0.94) forwards;
         }
 
-        /* ── Timer urgency: red screen-edge pulse when < 5s ── */
+        /* ── Timer urgency: red screen-edge pulse when < 5s (uses opacity, no reflow) ── */
         @keyframes urgency-pulse {
-          0%   { box-shadow: inset 0 0 40px 8px rgba(231,76,60,0); }
-          50%  { box-shadow: inset 0 0 40px 8px rgba(231,76,60,0.35); }
-          100% { box-shadow: inset 0 0 40px 8px rgba(231,76,60,0); }
+          0%   { opacity: 0; }
+          50%  { opacity: 1; }
+          100% { opacity: 0; }
         }
         .combat-urgency-overlay {
           position: absolute; inset: 0; pointer-events: none; z-index: 999;
+          border: 4px solid rgba(231,76,60,0.5);
+          background: radial-gradient(ellipse at center, transparent 60%, rgba(231,76,60,0.15) 100%);
           animation: urgency-pulse 1s ease-in-out infinite;
+          will-change: opacity;
         }
 
         /* ── Correct answer confetti burst ── */
@@ -951,18 +941,21 @@ function renderCombat() {
           animation: golden-light-expand 0.8s ease-out forwards;
         }
 
-        /* ── Low HP heartbeat ── */
+        /* ── Low HP heartbeat (uses opacity, no reflow) ── */
         @keyframes heartbeat-edge {
-          0%   { box-shadow: inset 0 0 30px 5px rgba(192,57,43,0); }
-          15%  { box-shadow: inset 0 0 50px 12px rgba(192,57,43,0.3); }
-          30%  { box-shadow: inset 0 0 30px 5px rgba(192,57,43,0.05); }
-          45%  { box-shadow: inset 0 0 50px 12px rgba(192,57,43,0.25); }
-          60%  { box-shadow: inset 0 0 30px 5px rgba(192,57,43,0); }
-          100% { box-shadow: inset 0 0 30px 5px rgba(192,57,43,0); }
+          0%   { opacity: 0; }
+          15%  { opacity: 0.6; }
+          30%  { opacity: 0.1; }
+          45%  { opacity: 0.5; }
+          60%  { opacity: 0; }
+          100% { opacity: 0; }
         }
         .heartbeat-overlay {
           position: absolute; inset: 0; pointer-events: none; z-index: 997;
+          border: 3px solid rgba(192,57,43,0.4);
+          background: radial-gradient(ellipse at center, transparent 50%, rgba(192,57,43,0.12) 100%);
           animation: heartbeat-edge 1.5s ease-in-out infinite;
+          will-change: opacity;
         }
 
         /* ── Dodge animation ── */
@@ -1019,7 +1012,6 @@ function renderCombat() {
         ">
           <div style="font-size:2rem; font-weight:900; color:var(--text-primary); text-shadow:var(--shadow-gold);">游戏暂停</div>
           <button id="btn-resume" class="btn" style="font-size:1.1rem; padding:12px 36px;">继续</button>
-          <button id="btn-pause-retreat" class="btn" style="font-size:1rem; padding:10px 28px; margin-top:8px; opacity:0.7;">放弃 · 回到地图</button>
         </div>
 
         <!-- Battle arena: player sprite | energy | enemy sprite -->
@@ -1057,13 +1049,6 @@ function renderCombat() {
           </div>
           <div style="font-size:0.92rem; color:var(--text-secondary); opacity:0.7; white-space:nowrap;">答对: +XP +金币 +连击</div>
         </div>
-
-        <!-- Modifier banner (if active) -->
-        ${modifier ? `<div style="
-          text-align:center; padding:4px 12px; margin-bottom:4px;
-          background:rgba(212,160,23,0.12); border:1px solid rgba(212,160,23,0.3);
-          border-radius:6px; font-size:0.88rem; color:#d4a017; letter-spacing:0.06em;
-        ">⚡ ${modifier.name} — ${modifier.desc}</div>` : ''}
 
         <!-- Narrative -->
         <div class="combat-narrative">${combatNarrative}</div>
@@ -1134,7 +1119,7 @@ function renderCombat() {
     {
       const playerContainer = div.querySelector('#player-sprite');
       if (playerContainer) {
-        playerContainer.innerHTML = getPlayerSprite();
+        playerContainer.innerHTML = SPRITES.player;
         playerContainer.style.width = '140px';
         playerContainer.style.height = '180px';
       }
@@ -1236,21 +1221,17 @@ function renderCombat() {
         }
       }
 
-      if (timeLeft < 3 && timeLeft > 0) {
-        clearInterval(timerPulseInterval);
-        timerPulseInterval = null;
-        if (!timerPulseInterval) {
-          timerPulseInterval = setInterval(() => {
-            if (!timerBar) return;
-            const opVal = timerBar.style.opacity === '0.5' ? '1' : '0.5';
-            timerBar.style.opacity = opVal;
-            // Shake at < 2s
-            if (timeLeft < 2) {
-              const shiftVal = timerBar.style.marginLeft === '4px' ? '-4px' : '4px';
-              timerBar.style.marginLeft = shiftVal;
-            }
-          }, 150);
-        }
+      if (timeLeft < 3 && timeLeft > 0 && !timerPulseInterval) {
+        timerPulseInterval = setInterval(() => {
+          if (!timerBar) return;
+          const opVal = timerBar.style.opacity === '0.5' ? '1' : '0.5';
+          timerBar.style.opacity = opVal;
+          // Shake at < 2s
+          if (timeLeft < 2) {
+            const shiftVal = timerBar.style.marginLeft === '4px' ? '-4px' : '4px';
+            timerBar.style.marginLeft = shiftVal;
+          }
+        }, 150);
       }
 
       if (timeLeft <= 0) {
@@ -1365,21 +1346,21 @@ function renderCombat() {
     });
 
     // Keyboard shortcuts: 1-4 keys select combat options
-    // Remove previous handler first (prevents stacking on re-render)
-    if (activeKeyHandler) {
-      document.removeEventListener('keydown', activeKeyHandler);
-      activeKeyHandler = null;
-    }
+    // Remove previous handler if render() was called again before cleanup
+    if (_activeKeyHandler) document.removeEventListener('keydown', _activeKeyHandler);
+    let keyHandlerActive = true;
     const keyHandler = (e) => {
+      if (!keyHandlerActive) return;
       const num = parseInt(e.key);
       if (num >= 1 && num <= combatOptions.length) {
         e.preventDefault();
+        keyHandlerActive = false;
         document.removeEventListener('keydown', keyHandler);
-        activeKeyHandler = null;
+        _activeKeyHandler = null;
         combatOptions[num - 1]?.click();
       }
     };
-    activeKeyHandler = keyHandler;
+    _activeKeyHandler = keyHandler;
     document.addEventListener('keydown', keyHandler);
 
     // ── Pause / Resume ──
@@ -1428,31 +1409,10 @@ function renderCombat() {
         }, 100);
       });
     }
-
-    // Retreat from pause menu
-    const retreatBtn = div.querySelector('#btn-pause-retreat');
-    if (retreatBtn) {
-      retreatBtn.addEventListener('click', () => {
-        clearInterval(timerInterval);
-        clearInterval(timerPulseInterval);
-        if (scrambleTimer) { clearTimeout(scrambleTimer); scrambleTimer = null; }
-        if (activeKeyHandler) { document.removeEventListener('keydown', activeKeyHandler); activeKeyHandler = null; }
-        destroyCombatBackground();
-        stopBreaths();
-        profile.hp = playerHp;
-        gameState.save();
-        showScreen('worldmap');
-      });
-    }
   }
 
   function handleAnswer(idx, q, isTimeout = false) {
     stopBreaths();
-    // Clean up keyboard handler to prevent stale firing
-    if (activeKeyHandler) {
-      document.removeEventListener('keydown', activeKeyHandler);
-      activeKeyHandler = null;
-    }
     // Remove urgency overlay on answer
     const urgEl = div.querySelector('.combat-urgency-overlay');
     if (urgEl) urgEl.remove();
@@ -1521,6 +1481,10 @@ function renderCombat() {
 
     recordAnswer('vocab', correct, q.id);
 
+    // Log question for learning summary
+    const questLog = gameState.currentQuest?.results?.questionsLog;
+    if (questLog) questLog.push({ prompt: q.prompt, correct, explanation: q.explanation || '', isReview: q.isReview || false });
+
     // ── Per-question save checkpoint (prevents data loss on crash) ──
     profile.hp = playerHp;
     gameState.save();
@@ -1585,6 +1549,22 @@ function renderCombat() {
         setTimeout(() => setMusicIntensity(1), 3000);
       }
 
+      // ── Streak milestones with escalating feedback ──
+      if (combo === 3) {
+        try { import('../celebrations-ui.js').then(m => m.showCelebrationToast('不错！')); } catch(_) {}
+      } else if (combo === 5) {
+        try { import('../celebrations-ui.js').then(m => m.showCelebrationToast('厉害！')); } catch(_) {}
+        try { import('../effects.js').then(m => m.screenFlash('#d4a017', 150)); } catch(_) {}
+      } else if (combo === 8) {
+        try { import('../celebrations-ui.js').then(m => m.showCelebrationToast('无敌！+20金')); } catch(_) {}
+        try { import('../effects.js').then(m => m.shakeScreen(4, 200)); } catch(_) {}
+        burstParticles(20, 'victory');
+        profile.gold = (profile.gold || 0) + 20;
+      } else if (combo === 10) {
+        try { import('../celebrations-ui.js').then(m => m.showCelebrationBanner('完美连击！', '下一题双倍经验')); } catch(_) {}
+        burstParticles(30, 'victory');
+      }
+
       // ── Dodge ability: 20% chance enemy dodges ──
       if (enemyType.ability === 'dodge' && Math.random() < 0.2) {
         // Enemy dodges — no damage dealt
@@ -1640,9 +1620,7 @@ function renderCombat() {
       }
 
       // ── New stat-based damage calculation ──
-      // Apply modifier crit bonus (e.g. 'critical storm' +30% crit chance)
-      let isCrit = rollCrit(profile);
-      if (!isCrit && modifier?.critBonus && Math.random() < modifier.critBonus) isCrit = true;
+      const isCrit = rollCrit(profile);
       const timerBar = div.querySelector('#timer-bar');
       const currentTimeLeft = timerBar ? (parseFloat(timerBar.style.width) / 100) * baseTimer : 0;
       let dmg = calcDamage(profile, combo, isCrit, currentTimeLeft);
@@ -1658,10 +1636,6 @@ function renderCombat() {
       if (talents.executePct && enemyHp < (enemyMaxHp * 0.3)) {
         dmg = Math.round(dmg * (1 + talents.executePct / 100));
       }
-
-      // Apply encounter modifier effects
-      if (modifier?.dmgMult) dmg = Math.round(dmg * modifier.dmgMult);
-      if (modifier?.comboDmgMult && combo >= 3) dmg = Math.round(dmg * modifier.comboDmgMult);
 
       enemyHp = Math.max(0, enemyHp - dmg);
 
@@ -2021,7 +1995,7 @@ function renderCombat() {
 
       // ── Thorns damage: reflect damage back to enemy ──
       if (thornsReturn > 0) {
-        enemyHp = Math.max(1, enemyHp - thornsReturn); // Thorns can't kill — min 1 HP
+        enemyHp = Math.max(0, enemyHp - thornsReturn);
         // Show thorns damage floating number on enemy
         setTimeout(() => {
           if (enemyWrap) {
@@ -2176,17 +2150,14 @@ function renderCombat() {
         }
       }
       render();
-    }, 1100);
+    }, 1800);
   }
 
   function endCombat(won) {
-    // Clean up keyboard handler
-    if (activeKeyHandler) {
-      document.removeEventListener('keydown', activeKeyHandler);
-      activeKeyHandler = null;
-    }
     destroyCombatBackground();
     stopBreaths();
+    // Always restore pointer events (killing blow path disables them)
+    document.body.style.pointerEvents = '';
     // Guard against double-calls (multiple code paths can trigger endCombat)
     if (encounter.completed !== undefined && encounter.completed !== false) return;
 
@@ -2198,6 +2169,7 @@ function renderCombat() {
 
     clearInterval(timerInterval);
     clearInterval(timerPulseInterval);
+    if (_activeKeyHandler) { document.removeEventListener('keydown', _activeKeyHandler); _activeKeyHandler = null; }
     if (scrambleTimer) { clearTimeout(scrambleTimer); scrambleTimer = null; }
     setMusicIntensity(0); // Back to ambient
     if (won) playStinger('victory');
@@ -2213,7 +2185,7 @@ function renderCombat() {
       const motivationalTexts = [
         "文字之路没有捷径，但每次失败都让你更强！",
         "墨暗之力只是暂时的胜利——你的知识终将战胜一切！",
-        "连最强的文定乾坤也有过失败——重要的是永不放弃！",
+        "连最强的文字侠也有过失败——重要的是永不放弃！",
       ];
       const motivation = motivationalTexts[Math.floor(Math.random() * motivationalTexts.length)];
 
@@ -2313,30 +2285,12 @@ function renderCombat() {
           profile.hp = profile.maxHp;
           showScreen('combat');
         });
-        div.querySelector('#btn-retreat').addEventListener('click', () => showScreen('worldmap'));
+        div.querySelector('#btn-retreat').addEventListener('click', () => showScreen('chapter-map'));
         const shopBtn = div.querySelector('#btn-shop');
         if (shopBtn) shopBtn.addEventListener('click', () => showScreen('shop'));
       }, 0);
       return;
     }
-
-    // Record enemy in bestiary
-    const enemySpriteKey = enemyType.sprite || 'enemy_moling';
-    if (!profile.bestiary) profile.bestiary = {};
-    const entry = profile.bestiary[enemySpriteKey] || { defeated: 0, firstSeen: Date.now() };
-    entry.defeated++;
-    profile.bestiary[enemySpriteKey] = entry;
-
-    // Update combo record
-    if (!profile.comboRecords) profile.comboRecords = { bestOverall: 0, bestPerChapter: {}, history: [] };
-    const questCombo = gameState.currentQuest?.results?.maxCombo || 0;
-    if (questCombo > profile.comboRecords.bestOverall) {
-      profile.comboRecords.bestOverall = questCombo;
-      showToast(`新连击记录！${questCombo}连击！`, { type: 'achievement', duration: 3000 });
-    }
-
-    // Update lastActiveTimestamp for comeback bonus
-    profile.lastActiveTimestamp = Date.now();
 
     // Combat victory confetti
     confettiBurst({ count: 40, force: 8, colors: ['#d4a017', '#f5c842', '#2ecc8a'] });
@@ -2409,11 +2363,7 @@ function renderCombat() {
           showScreen('reward');
         } else {
           // Return to journey map so the player sees their progress
-          showScreen('quest', {
-            chapterId: quest.chapterId,
-            questIndex: quest.questIndex,
-            justFinishedEncounter: true,
-          });
+          showScreen('chapter-map', { resume: true });
         }
       });
     }, 1400);

@@ -13,7 +13,7 @@
 - `js/game-engine.js` — Quest/encounter generation, adaptive difficulty, answer recording
 - `js/content-loader.js` — Loads vocab, reading, classical, chengyu JSON content
 - `js/progression.js` — Level-up, stat calculations, talent/ability system
-- `js/audio.js` — Howler.js-based music/SFX with FM synthesis and waveshaper distortion
+- `js/audio.js` — Procedural Web Audio API music/SFX with FM synthesis and waveshaper distortion
 - `js/router.js` — URL hash-based routing
 
 ### Visual & Effects Systems
@@ -22,19 +22,25 @@
 - `js/pixel-sprites.js` — Pixel art sprite generation for characters/enemies
 - `js/sprites.js` — SVG sprite definitions for player, enemies, items
 
+### Engagement Systems
+- `js/celebrations-ui.js` — Centralized celebration system (Tier 1 toast, Tier 2 banner, Tier 3 fullscreen)
+- `js/goals.js` — Next-goal tracker logic (priority-based: stat points > quest > daily > chapter > achievement)
+- `js/nav.js` — Progressive disclosure (computes visible features by player level/state, notification dots)
+
 ### Utility Systems
 - `js/error-handler.js` — Global error boundary, save indicator, toast notification system (`window.showToast()`)
-- `js/tutorial.js` — First-time-user tutorial flow
+- `js/tutorial.js` — First-time-user tutorial flow + contextual engagement tips
 - `js/spaced-repetition.js` — SRS algorithm for vocabulary review scheduling
 
 ### Game Screens (`js/screens/`)
-- `quest.js` — Visual journey map (Ring Fit Adventure style), handles all 5 encounter types inline (combat, puzzle, boss, treasure, rest)
-- `combat.js` — Vocabulary combat with sprite animations, combo system, crit effects
+- `chapter-map.js` — Merged chapter map (Ring Fit Adventure style): scrollable vertical path showing all quests + encounters per chapter, chapter selector overlay, goal tracker, progressive nav bar. Replaces worldmap.js + quest.js.
+- `combat.js` — Vocabulary combat with sprite animations, combo system, streak milestones, consumable use, crit effects
 - `puzzle.js` — Reading comprehension puzzle encounters
-- `boss.js` — Boss fights with chengyu bonus rounds, multi-phase mechanics
+- `boss.js` — Boss fights with chengyu bonus rounds, multi-phase mechanics, phase transition narratives
 - `encounter-intro.js` — Dramatic encounter intro overlay (auto-skip after 3+ encounters, era-tinted backgrounds)
-- `worldmap.js` — Chapter select world map
-- `reward.js` — Post-quest reward summary
+- `worldmap.js` — (RETIRED) Replaced by chapter-map.js
+- `quest.js` — (RETIRED) Replaced by chapter-map.js
+- `reward.js` — Post-quest reward summary with star ratings, learning summary
 - `chapter-complete.js` — Chapter completion celebration
 - `story.js` — Narrative cutscenes between chapters
 - `companion.js` — AI companion dialogue bubbles
