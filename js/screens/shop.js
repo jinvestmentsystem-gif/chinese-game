@@ -211,24 +211,26 @@ function renderShop(params = {}) {
     return `
       <div style="
         background:var(--bg-card);
-        border:1px solid ${isRecommended ? 'var(--accent-gold)' : affordable && (!owned || item.type === 'consumable') ? 'var(--bg-secondary)' : 'rgba(255,255,255,0.07)'};
-        border-radius:10px;
-        padding:16px;
-        opacity:${!affordable && !owned ? '0.72' : '1'};
-        ${isRecommended ? 'box-shadow:0 0 12px rgba(212,160,23,0.2);' : ''}
+        border:2px solid ${isRecommended ? 'var(--accent-gold)' : affordable && (!owned || item.type === 'consumable') ? 'rgba(255,255,255,0.12)' : 'rgba(255,255,255,0.05)'};
+        border-radius:12px;
+        padding:16px 16px 12px;
+        opacity:${!affordable && !owned ? '0.65' : '1'};
+        ${isRecommended ? 'box-shadow:0 0 16px rgba(212,160,23,0.25);' : ''}
       ">
-        <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;">
-          <span style="font-size:1.1rem;">${TYPE_ICON[item.type] || '📦'}</span>
-          <span style="font-weight:700;font-size:0.95rem;">${item.name}</span>
-          ${tierLabel}
-          ${recommendedBadge}
-          ${statusBadge}
+        <div style="margin-bottom:10px;">
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;">
+            <span style="font-size:1.1rem;">${TYPE_ICON[item.type] || '📦'}</span>
+            <span style="font-weight:700;font-size:0.95rem;">${item.name}</span>
+            ${tierLabel}
+            ${recommendedBadge}
+          </div>
+          <div style="font-size:0.8rem;color:var(--text-secondary);line-height:1.4;">${item.desc}</div>
         </div>
-        <div style="font-size:0.82rem;color:var(--text-secondary);margin-bottom:8px;line-height:1.4;">${item.desc}</div>
-        <div style="margin-bottom:8px;">${statsHTML}${effectHTML}</div>
-        ${previewHTML ? '<div style="margin-bottom:8px;">' + previewHTML + '</div>' : ''}
-        <div style="display:flex;justify-content:space-between;align-items:center;padding-top:8px;border-top:1px solid rgba(255,255,255,0.06);">
-          <span style="color:var(--accent-gold);font-weight:700;font-size:0.92rem;">💰 ${item.price}</span>
+        <div style="margin-bottom:10px;font-size:0.88rem;">${statsHTML}${effectHTML}</div>
+        ${previewHTML ? '<div style="margin-bottom:10px;font-size:0.82rem;">' + previewHTML + '</div>' : ''}
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;margin:-0px -16px -12px;background:rgba(0,0,0,0.2);border-radius:0 0 10px 10px;border-top:1px solid rgba(255,255,255,0.08);">
+          <span style="color:var(--accent-gold);font-weight:700;font-size:0.95rem;">💰 ${item.price}</span>
+          ${statusBadge}
           ${buyBtnHTML}
         </div>
       </div>`;

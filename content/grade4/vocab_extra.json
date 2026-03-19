@@ -7828,5 +7828,635 @@
       "近义词"
     ],
     "source": "curriculum"
+  },
+  {
+    "id": "v4-591",
+    "type": "vocab",
+    "prompt": "\"假\"字在\"假期\"中读作哪个音？",
+    "options": [
+      "jiǎ",
+      "jià",
+      "xiá",
+      "gǎ"
+    ],
+    "correct": 1,
+    "explanation": "\"假期\"中\"假\"读jià，表示放假、休息；\"假装\"中\"假\"读jiǎ，表示虚假。",
+    "difficulty": 1,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-592",
+    "type": "vocab",
+    "prompt": "\"长\"字在\"长大\"中读作哪个音？",
+    "options": [
+      "cháng",
+      "zhǎng",
+      "chǎng",
+      "zháng"
+    ],
+    "correct": 1,
+    "explanation": "\"长大\"中\"长\"读zhǎng，表示成长；\"长江\"中\"长\"读cháng，表示长度。",
+    "difficulty": 1,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-593",
+    "type": "vocab",
+    "prompt": "\"好\"字在\"好奇\"中读作哪个音？",
+    "options": [
+      "hào",
+      "hǎo",
+      "háo",
+      "hāo"
+    ],
+    "correct": 0,
+    "explanation": "\"好奇\"中\"好\"读hào，表示喜好；\"好人\"中\"好\"读hǎo，表示品质好。",
+    "difficulty": 1,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-594",
+    "type": "vocab",
+    "prompt": "\"重\"字在\"重量\"中读作哪个音？",
+    "options": [
+      "chóng",
+      "zhòng",
+      "zòng",
+      "chóu"
+    ],
+    "correct": 1,
+    "explanation": "\"重量\"中\"重\"读zhòng，表示分量；\"重复\"中\"重\"读chóng，表示再次。",
+    "difficulty": 1,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-595",
+    "type": "vocab",
+    "prompt": "下列哪个量词与\"一___书\"搭配最恰当？",
+    "options": [
+      "条",
+      "本",
+      "张",
+      "棵"
+    ],
+    "correct": 1,
+    "explanation": "书是有页数的成册读物，用量词\"本\"，如\"一本书\"。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-596",
+    "type": "vocab",
+    "prompt": "\"高兴\"的近义词是哪个？",
+    "options": [
+      "悲伤",
+      "快乐",
+      "愤怒",
+      "担心"
+    ],
+    "correct": 1,
+    "explanation": "\"高兴\"和\"快乐\"都表示心情愉快，是近义词。",
+    "difficulty": 1,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-597",
+    "type": "vocab",
+    "prompt": "\"勇敢\"的反义词是哪个？",
+    "options": [
+      "坚强",
+      "胆小",
+      "聪明",
+      "善良"
+    ],
+    "correct": 1,
+    "explanation": "\"勇敢\"表示不怕困难，\"胆小\"表示畏惧，二者意思相反。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-598",
+    "type": "vocab",
+    "prompt": "\"一___树\"用哪个量词最恰当？",
+    "options": [
+      "条",
+      "片",
+      "棵",
+      "本"
+    ],
+    "correct": 2,
+    "explanation": "树木用量词\"棵\"，如\"一棵大树\"。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-599",
+    "type": "vocab",
+    "prompt": "\"美丽\"的反义词是哪个？",
+    "options": [
+      "漂亮",
+      "好看",
+      "丑陋",
+      "整洁"
+    ],
+    "correct": 2,
+    "explanation": "\"美丽\"表示好看，\"丑陋\"表示难看，是反义词。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-600",
+    "type": "vocab",
+    "prompt": "\"强大\"的近义词是哪个？",
+    "options": [
+      "弱小",
+      "渺小",
+      "强壮",
+      "柔软"
+    ],
+    "correct": 2,
+    "explanation": "\"强大\"和\"强壮\"都表示力量大，是近义词。",
+    "difficulty": 1,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-601",
+    "type": "vocab",
+    "prompt": "\"难\"字在\"难过\"中的意思是？",
+    "options": [
+      "困难",
+      "不好受",
+      "不容易",
+      "难看"
+    ],
+    "correct": 1,
+    "explanation": "\"难过\"中\"难\"表示不好受、伤心的意思，如\"他听到坏消息很难过\"。",
+    "difficulty": 2,
+    "tags": [
+      "字义辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-602",
+    "type": "vocab",
+    "prompt": "\"发\"字在\"发现\"中读作哪个音？",
+    "options": [
+      "fā",
+      "fà",
+      "fǎ",
+      "fá"
+    ],
+    "correct": 0,
+    "explanation": "\"发现\"中\"发\"读fā，表示发现、发生；\"头发\"中\"发\"读fà。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-603",
+    "type": "vocab",
+    "prompt": "\"一___鱼\"用哪个量词最恰当？",
+    "options": [
+      "棵",
+      "条",
+      "本",
+      "片"
+    ],
+    "correct": 1,
+    "explanation": "鱼类动物通常用量词\"条\"，如\"一条金鱼\"。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-604",
+    "type": "vocab",
+    "prompt": "\"明\"字的偏旁部首是？",
+    "options": [
+      "日",
+      "月",
+      "木",
+      "目"
+    ],
+    "correct": 0,
+    "explanation": "\"明\"字由\"日\"和\"月\"组成，部首是\"日\"（日字旁）。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-605",
+    "type": "vocab",
+    "prompt": "下列哪个词语搭配不正确？",
+    "options": [
+      "提高成绩",
+      "增加困难",
+      "解决问题",
+      "改善环境"
+    ],
+    "correct": 1,
+    "explanation": "应该说\"增加难度\"或\"克服困难\"，\"增加困难\"搭配不当。",
+    "difficulty": 2,
+    "tags": [
+      "词语搭配"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-606",
+    "type": "vocab",
+    "prompt": "\"精\"字的偏旁部首是？",
+    "options": [
+      "米",
+      "青",
+      "生",
+      "土"
+    ],
+    "correct": 0,
+    "explanation": "\"精\"字的部首是\"米\"（米字旁），表示与粮食精细有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-607",
+    "type": "vocab",
+    "prompt": "\"温暖\"的近义词是哪个？",
+    "options": [
+      "寒冷",
+      "炎热",
+      "暖和",
+      "凉爽"
+    ],
+    "correct": 2,
+    "explanation": "\"温暖\"和\"暖和\"都表示气温不冷不热、令人舒适，是近义词。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-608",
+    "type": "vocab",
+    "prompt": "\"一___云\"用哪个量词最恰当？",
+    "options": [
+      "片",
+      "条",
+      "棵",
+      "本"
+    ],
+    "correct": 0,
+    "explanation": "云用量词\"片\"，如\"一片白云\"，表示大片聚集的云。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-609",
+    "type": "vocab",
+    "prompt": "\"节\"字在\"节约\"中的意思是？",
+    "options": [
+      "节日",
+      "节奏",
+      "节省",
+      "章节"
+    ],
+    "correct": 2,
+    "explanation": "\"节约\"中\"节\"表示节省、减少浪费的意思。",
+    "difficulty": 2,
+    "tags": [
+      "字义辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-610",
+    "type": "vocab",
+    "prompt": "下列哪个词语搭配正确？",
+    "options": [
+      "扩大知识",
+      "丰富知识",
+      "增长力气",
+      "发展水平"
+    ],
+    "correct": 1,
+    "explanation": "\"丰富知识\"搭配正确，\"扩大知识\"应为\"扩大视野\"，\"增长力气\"不自然。",
+    "difficulty": 2,
+    "tags": [
+      "词语搭配"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-611",
+    "type": "vocab",
+    "prompt": "\"观\"字的偏旁部首是？",
+    "options": [
+      "见",
+      "又",
+      "隹",
+      "木"
+    ],
+    "correct": 0,
+    "explanation": "\"观\"字的部首是\"见\"，与看、视有关，如\"观看、观察\"。",
+    "difficulty": 3,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-612",
+    "type": "vocab",
+    "prompt": "\"处\"字在\"处理\"和\"到处\"中读音分别是？",
+    "options": [
+      "chǔ / chù",
+      "chù / chǔ",
+      "chú / chū",
+      "chū / chú"
+    ],
+    "correct": 0,
+    "explanation": "\"处理\"中\"处\"读chǔ（动词），\"到处\"中\"处\"读chù（名词，地方）。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-613",
+    "type": "vocab",
+    "prompt": "\"豁然开朗\"中\"豁\"字的意思是？",
+    "options": [
+      "宽阔",
+      "突然",
+      "高兴",
+      "明亮"
+    ],
+    "correct": 0,
+    "explanation": "\"豁\"表示开阔、宽敞，\"豁然开朗\"形容由狭窄突然变得宽广明亮。",
+    "difficulty": 3,
+    "tags": [
+      "字义辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-614",
+    "type": "vocab",
+    "prompt": "下列哪个词语搭配最恰当？",
+    "options": [
+      "发扬传统",
+      "发扬成绩",
+      "发扬缺点",
+      "发扬困难"
+    ],
+    "correct": 0,
+    "explanation": "\"发扬\"后接积极正面的词，\"发扬传统\"正确；成绩应\"取得\"，缺点应\"克服\"。",
+    "difficulty": 3,
+    "tags": [
+      "词语搭配"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-615",
+    "type": "vocab",
+    "prompt": "\"疲惫\"和\"疲倦\"的区别是？",
+    "options": [
+      "完全相同",
+      "疲惫程度更深",
+      "疲倦程度更深",
+      "使用场合完全不同"
+    ],
+    "correct": 1,
+    "explanation": "\"疲惫\"表示极度疲劳，程度比\"疲倦\"深，\"疲惫不堪\"比\"有些疲倦\"更严重。",
+    "difficulty": 3,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-616",
+    "type": "vocab",
+    "prompt": "\"一___诗\"用哪个量词最恰当？",
+    "options": [
+      "条",
+      "首",
+      "本",
+      "张"
+    ],
+    "correct": 1,
+    "explanation": "诗歌、歌曲用量词\"首\"，如\"一首古诗\"、\"一首歌\"。",
+    "difficulty": 3,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-617",
+    "type": "vocab",
+    "prompt": "\"骤\"字的偏旁部首是？",
+    "options": [
+      "马",
+      "取",
+      "聚",
+      "足"
+    ],
+    "correct": 0,
+    "explanation": "\"骤\"字的部首是\"马\"（马字旁），表示与马的奔跑有关，原义为马快跑。",
+    "difficulty": 3,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-618",
+    "type": "vocab",
+    "prompt": "\"空\"字在\"空气\"和\"空白\"中读音是否相同？",
+    "options": [
+      "相同，都读kōng",
+      "不同，分别读kōng和kòng",
+      "相同，都读kòng",
+      "不同，分别读kòng和kōng"
+    ],
+    "correct": 0,
+    "explanation": "\"空气\"和\"空白\"中\"空\"都读kōng，表示虚空；\"有空\"中\"空\"读kòng，表示闲暇。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-619",
+    "type": "vocab",
+    "prompt": "\"欣欣向荣\"和\"生机勃勃\"的共同意思是？",
+    "options": [
+      "形容天气晴朗",
+      "形容景色美丽",
+      "形容生命力旺盛",
+      "形容人心情好"
+    ],
+    "correct": 2,
+    "explanation": "\"欣欣向荣\"和\"生机勃勃\"都形容充满生命力、蓬勃发展的样子。",
+    "difficulty": 3,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-620",
+    "type": "vocab",
+    "prompt": "\"宁\"字在\"宁静\"和\"宁可\"中读音分别是？",
+    "options": [
+      "níng / nìng",
+      "nìng / níng",
+      "níng / níng",
+      "nìng / nìng"
+    ],
+    "correct": 0,
+    "explanation": "\"宁静\"中\"宁\"读níng，表示安静；\"宁可\"中\"宁\"读nìng，表示宁愿、情愿。",
+    "difficulty": 4,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-621",
+    "type": "vocab",
+    "prompt": "\"削\"字在\"削铅笔\"和\"削减\"中读音分别是？",
+    "options": [
+      "xuē / xiāo",
+      "xiāo / xuē",
+      "xiāo / xiāo",
+      "xuē / xuē"
+    ],
+    "correct": 1,
+    "explanation": "\"削铅笔\"中\"削\"读xiāo，表示用刀削；\"削减\"中\"削\"读xuē，表示减少。",
+    "difficulty": 4,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-622",
+    "type": "vocab",
+    "prompt": "\"推陈出新\"中\"陈\"字的意思是？",
+    "options": [
+      "姓陈",
+      "陈旧、老的",
+      "排列",
+      "陈述"
+    ],
+    "correct": 1,
+    "explanation": "\"推陈出新\"意为去除旧的，创造新的，其中\"陈\"表示陈旧、老的东西。",
+    "difficulty": 4,
+    "tags": [
+      "字义辨析"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-623",
+    "type": "vocab",
+    "prompt": "\"一___风景\"用哪个量词最恰当？",
+    "options": [
+      "幅",
+      "个",
+      "张",
+      "场"
+    ],
+    "correct": 0,
+    "explanation": "\"一幅风景\"正确，\"幅\"用于图画或像画一样的景色，如\"一幅山水画\"。",
+    "difficulty": 4,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-624",
+    "type": "vocab",
+    "prompt": "\"殷\"字的偏旁部首是？",
+    "options": [
+      "歹",
+      "殳",
+      "又",
+      "月"
+    ],
+    "correct": 1,
+    "explanation": "\"殷\"字的部首是\"殳\"（殳字旁），与击打工具有关，\"殷\"原指盛大之意。",
+    "difficulty": 4,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v4-625",
+    "type": "vocab",
+    "prompt": "\"凛然\"和\"森然\"都可以形容什么？",
+    "options": [
+      "高兴的心情",
+      "令人敬畏的气势",
+      "美丽的景色",
+      "热闹的场景"
+    ],
+    "correct": 1,
+    "explanation": "\"凛然\"和\"森然\"都可用来形容严肃、令人敬畏或感到寒意的气势，是近义词。",
+    "difficulty": 4,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
   }
 ]
