@@ -104,7 +104,7 @@ function renderLevelUp(params) {
     if (previousScreen) {
       showScreen(previousScreen, previousParams || {});
     } else {
-      showScreen('chapter-map');
+      showScreen('worldmap');
     }
   }
 

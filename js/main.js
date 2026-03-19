@@ -4,6 +4,7 @@ import { initRouter, registerScreen, registerLazyScreen, showScreen } from './ro
 import { initAudio, playMusic, playSound, toggleMusic, toggleSFX, isMusicEnabled, isSFXEnabled } from './audio.js';
 import { startParticles, setParticleMode } from './particles.js';
 import { checkDailyLogin } from './progression.js';
+import { TITLE_BG } from './sprites.js';
 
 // Export particle control for screens to use
 export { setParticleMode };
@@ -13,7 +14,8 @@ export { registerScreen, registerLazyScreen, showScreen };
 
 // ── Eager-loaded screens (core gameplay path) ──
 import './screens/profile.js';
-import './screens/chapter-map.js';  // replaces worldmap + quest
+import './screens/worldmap.js';
+import './screens/quest.js';
 import './screens/reward.js';
 import './screens/combat.js';
 import './screens/puzzle.js';
@@ -22,36 +24,50 @@ import './screens/story.js';
 import './screens/encounter-intro.js';
 
 // ── Lazy-loaded screens (navigated on demand, ~250K deferred) ──
-registerLazyScreen('chengyu',          () => import('./screens/chengyu.js'));
-registerLazyScreen('inventory',        () => import('./screens/inventory.js'));
-registerLazyScreen('shop',             () => import('./screens/shop.js'));
-registerLazyScreen('levelup',          () => import('./screens/levelup.js'));
-registerLazyScreen('daily',            () => import('./screens/daily.js'));
-registerLazyScreen('arena',            () => import('./screens/arena.js'));
-registerLazyScreen('chapter-complete', () => import('./screens/chapter-complete.js'));
-registerLazyScreen('settings',         () => import('./screens/settings.js'));
-registerLazyScreen('stats',            () => import('./screens/stats-screen.js'));
-registerLazyScreen('gauntlet',         () => import('./screens/gauntlet.js'));
+// Version stamp from index.html — appended to dynamic imports for cache busting
+const _v = window.APP_VERSION ? '?v=' + window.APP_VERSION : '';
+registerLazyScreen('chengyu',          () => import('./screens/chengyu.js' + _v));
+registerLazyScreen('inventory',        () => import('./screens/inventory.js' + _v));
+registerLazyScreen('shop',             () => import('./screens/shop.js' + _v));
+registerLazyScreen('levelup',          () => import('./screens/levelup.js' + _v));
+registerLazyScreen('daily',            () => import('./screens/daily.js' + _v));
+registerLazyScreen('arena',            () => import('./screens/arena.js' + _v));
+registerLazyScreen('chapter-complete', () => import('./screens/chapter-complete.js' + _v));
+registerLazyScreen('settings',         () => import('./screens/settings.js' + _v));
+registerLazyScreen('stats',            () => import('./screens/stats-screen.js' + _v));
+registerLazyScreen('gauntlet',         () => import('./screens/gauntlet.js' + _v));
+// ── Engagement feature screens ──
+registerLazyScreen('lucky-wheel',      () => import('./screens/lucky-wheel.js' + _v));
+registerLazyScreen('trophy-room',      () => import('./screens/trophy-room.js' + _v));
+registerLazyScreen('bestiary',         () => import('./screens/bestiary.js' + _v));
+registerLazyScreen('weekly-boss',      () => import('./screens/weekly-boss.js' + _v));
+registerLazyScreen('combo-wall',       () => import('./screens/combo-wall.js' + _v));
+registerLazyScreen('companion-profile',() => import('./screens/companion-profile.js' + _v));
+registerLazyScreen('seasonal-event',   () => import('./screens/seasonal-event.js' + _v));
+registerLazyScreen('prestige',         () => import('./screens/prestige.js' + _v));
 
-// ─── Audio initialization ─────────────────────────────────────────────────────
-// Browser autoplay policy requires a user gesture to unlock AudioContext.
-// We use a splash screen so the first click is dedicated to unlocking audio.
+// Initialize audio — try immediately, then ensure on first interaction
 let audioReady = false;
-export function ensureAudio() {
+function ensureAudio() {
   if (audioReady) return;
   audioReady = true;
   initAudio();
-  // Music is started by whichever screen calls playMusic() after this
+  if (isMusicEnabled()) playMusic('menu');
 }
+// Try to start music immediately (some browsers allow it)
+try { playMusic('menu'); } catch(_) {}
+// Fallback: ensure on first user interaction (browser autoplay policy)
+document.addEventListener('click', ensureAudio, { once: true });
+document.addEventListener('keydown', ensureAudio, { once: true });
+document.addEventListener('touchstart', ensureAudio, { once: true });
 
 // ── Cinematic AAA Title Screen ────────────────────────────────────────────────
 registerScreen('title', () => {
-  // Title screen always plays menu music (also handles returning from other screens)
-  ensureAudio();
-  playMusic('menu');
-
   const div = document.createElement('div');
   div.className = 'screen title-screen-root';
+  div.style.backgroundImage = `url('${TITLE_BG}')`;
+  div.style.backgroundSize = 'cover';
+  div.style.backgroundPosition = 'center';
 
   // --- Floating ancient calligraphy characters (from various dynasties) ---
   const dynastyChars = [
@@ -197,31 +213,22 @@ registerScreen('title', () => {
         ${orbitHTML}
       </div>
 
-      <!-- Main title -->
+      <!-- Main title — calligraphy image -->
       <div class="title-logo">
-        <span class="title-char title-char-1">文</span>
-        <span class="title-char title-char-2">字</span>
-        <span class="title-char title-char-3">侠</span>
-      </div>
-
-      <!-- Ink splatter accents -->
-      <div class="title-ink-splatter title-splat-1" aria-hidden="true"></div>
-      <div class="title-ink-splatter title-splat-2" aria-hidden="true"></div>
-      <div class="title-ink-splatter title-splat-3" aria-hidden="true"></div>
-
-      <!-- Red seal stamp 印章 -->
-      <div class="title-seal" aria-hidden="true">
-        <span class="title-seal-char">印</span>
+        <img src="assets/img/title_calligraphy.webp?v=${window.APP_VERSION || ''}" alt="文定乾坤"
+          class="title-calligraphy-img"
+          style="width:min(85vw, 700px); height:auto; filter:drop-shadow(0 0 30px rgba(212,160,23,0.6)) drop-shadow(0 0 60px rgba(212,160,23,0.3)); opacity:0; animation: title-calligraphy-in 1.2s ease 1.2s forwards;"
+          draggable="false">
       </div>
     </div>
 
-    <!-- ===== SUBTITLE: WORD HERO letter-by-letter ===== -->
-    <p class="title-subtitle">
-      <span class="title-letter title-letter-1">W</span><span class="title-letter title-letter-2">O</span><span class="title-letter title-letter-3">R</span><span class="title-letter title-letter-4">D</span><span class="title-letter title-letter-sp">&nbsp;</span><span class="title-letter title-letter-5">H</span><span class="title-letter title-letter-6">E</span><span class="title-letter title-letter-7">R</span><span class="title-letter title-letter-8">O</span>
+    <!-- ===== SUBTITLE ===== -->
+    <p class="title-subtitle" style="letter-spacing:0.3em;">
+      <span class="title-letter title-letter-1">W</span><span class="title-letter title-letter-2">E</span><span class="title-letter title-letter-3">N</span><span class="title-letter title-letter-sp">&nbsp;</span><span class="title-letter title-letter-4">D</span><span class="title-letter title-letter-5">I</span><span class="title-letter title-letter-6">N</span><span class="title-letter title-letter-7">G</span><span class="title-letter title-letter-sp">&nbsp;</span><span class="title-letter title-letter-8">Q</span><span class="title-letter title-letter-9">I</span><span class="title-letter title-letter-10">A</span><span class="title-letter title-letter-11">N</span><span class="title-letter title-letter-sp">&nbsp;</span><span class="title-letter title-letter-12">K</span><span class="title-letter title-letter-13">U</span><span class="title-letter title-letter-14">N</span>
     </p>
 
     <!-- ===== TAGLINE ===== -->
-    <p class="title-tagline">以文字之力，守护千年文明</p>
+    <p class="title-tagline">以文定乾坤，守护千年文明</p>
 
     <!-- ===== MENU BUTTONS ===== -->
     <div class="title-menu">
@@ -269,6 +276,7 @@ registerScreen('title', () => {
 
     btnSFX.addEventListener('click', (e) => {
       e.stopPropagation();
+      ensureAudio();
       toggleSFX();
       updateSFXBtn();
     });
@@ -276,6 +284,7 @@ registerScreen('title', () => {
     // --- Settings gear ---
     div.querySelector('#btn-title-settings')?.addEventListener('click', (e) => {
       e.stopPropagation();
+      ensureAudio();
       showScreen('settings', { returnTo: 'title' });
     });
 
@@ -292,10 +301,10 @@ registerScreen('title', () => {
       });
     });
 
-    // --- Menu navigation ---
-    div.querySelector('#btn-solo').addEventListener('click', () => showScreen('profile', { mode: 'solo' }));
-    div.querySelector('#btn-arena').addEventListener('click', () => showScreen('profile', { mode: 'arena' }));
-    div.querySelector('#btn-daily').addEventListener('click', () => showScreen('profile', { mode: 'daily' }));
+    // --- Menu navigation (ensureAudio on every button so music always starts) ---
+    div.querySelector('#btn-solo').addEventListener('click', () => { ensureAudio(); showScreen('profile', { mode: 'solo' }); });
+    div.querySelector('#btn-arena').addEventListener('click', () => { ensureAudio(); showScreen('profile', { mode: 'arena' }); });
+    div.querySelector('#btn-daily').addEventListener('click', () => { ensureAudio(); showScreen('profile', { mode: 'daily' }); });
 
     // --- Daily login reward check ---
     const profile = gameState.profile;
@@ -329,69 +338,41 @@ registerScreen('title', () => {
 // Boot
 initRouter();
 
-// ── Splash screen — unlocks audio on first tap, then shows title with music ──
-// This is the industry-standard pattern for web games.
-// The splash gives the browser a dedicated user gesture to unlock AudioContext,
-// so the title screen can launch with music playing from the first frame.
-function showSplash() {
-  const root = document.getElementById('game-root');
-  root.innerHTML = '';
-
-  const splash = document.createElement('div');
-  splash.style.cssText = `
-    position:absolute; inset:0; display:flex; flex-direction:column;
-    align-items:center; justify-content:center; gap:24px;
-    background:radial-gradient(ellipse at 50% 40%, rgba(30,25,50,1) 0%, rgba(11,12,26,1) 70%);
-    cursor:pointer; user-select:none; z-index:1;
-  `;
-  splash.innerHTML = `
-    <div style="font-size:3.2rem;font-weight:900;letter-spacing:0.08em;
-      background:linear-gradient(135deg,#d4a017,#f5c842,#d4a017);
-      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-      background-clip:text;text-shadow:none;filter:drop-shadow(0 2px 8px rgba(212,160,23,0.3));">
-      文定乾坤
-    </div>
-    <div style="font-size:1rem;color:rgba(255,255,255,0.4);letter-spacing:0.15em;font-weight:300;">
-      W E N &nbsp; D I N G &nbsp; Q I A N &nbsp; K U N
-    </div>
-    <div style="margin-top:32px;padding:14px 40px;border:1.5px solid rgba(212,160,23,0.4);
-      border-radius:12px;color:rgba(212,160,23,0.8);font-size:1.05rem;font-weight:600;
-      letter-spacing:0.1em;animation:splash-pulse 2s ease-in-out infinite;">
-      点击进入
-    </div>
-    <style>
-      @keyframes splash-pulse {
-        0%,100% { opacity:0.6; transform:scale(1); }
-        50% { opacity:1; transform:scale(1.03); }
-      }
-    </style>
-  `;
-
-  // Single click/tap → unlock audio → enter game with music
-  const enterGame = () => {
-    splash.removeEventListener('click', enterGame);
-    splash.removeEventListener('touchend', enterGame);
-
-    // Unlock audio (user gesture)
-    ensureAudio();
-
-    // Navigate to appropriate screen
-    if (gameState.profiles.length === 0) {
-      showScreen('profile', { mode: 'solo' });
-    } else if (gameState.profiles.length === 1) {
-      gameState.selectProfile(0);
-      showScreen('title');
-    } else {
-      showScreen('title');
-    }
-  };
-
-  splash.addEventListener('click', enterGame);
-  splash.addEventListener('touchend', enterGame);
-  root.appendChild(splash);
-
-  // Start ambient particles on splash too
-  startParticles('ambient');
+if (gameState.profiles.length === 0) {
+  // New player: opening cinematic (shortened) → profile creation → worldmap
+  showScreen('story', {
+    storyKey: 'opening',
+    onComplete: () => showScreen('profile', { mode: 'solo' }),
+  });
+} else if (gameState.profiles.length === 1) {
+  // Returning player with a single profile — auto-select and go to title
+  gameState.selectProfile(0);
+  checkComebackBonus();
+  showScreen('title');
+} else {
+  // Multiple profiles — show title as normal
+  showScreen('title');
 }
 
-showSplash();
+// ── Comeback bonus: idle gold + welcome back overlay ──────────────────────
+function checkComebackBonus() {
+  const profile = gameState.profile;
+  if (!profile || !profile.lastActiveTimestamp) return;
+  const todayStr = new Date().toISOString().slice(0, 10);
+  if (profile.comebackClaimed === todayStr) return;
+  const hoursSince = (Date.now() - profile.lastActiveTimestamp) / 3600000;
+  if (hoursSince < 24) return;
+  const idleHours = Math.min(hoursSince, 168);
+  const idleGold = Math.floor(idleHours * 2);
+  const idleXP = Math.floor(idleHours * 1);
+  profile.gold = (profile.gold || 0) + idleGold;
+  profile.comebackClaimed = todayStr;
+  profile.lastActiveTimestamp = Date.now();
+  gameState.save();
+  // Show comeback toast on next tick (after title renders)
+  setTimeout(() => {
+    if (typeof showToast === 'undefined') {
+      import('./toast.js').then(m => m.showToast(`欢迎回来！离线收入: +${idleGold}金币 +${idleXP}XP`, { type: 'reward', duration: 4000 }));
+    }
+  }, 1500);
+}

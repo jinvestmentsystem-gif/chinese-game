@@ -17,12 +17,6 @@ export function recordWrongAnswer(questionId, contentType) {
       lastSeen: Date.now(),
       nextReview: Date.now() + 60000, // review in 1 minute
     });
-    // Cap review queue to prevent unbounded localStorage growth
-    if (profile.wrongAnswerLog.length > 200) {
-      // Remove oldest entries (by lastSeen) that aren't due for review
-      profile.wrongAnswerLog.sort((a, b) => b.lastSeen - a.lastSeen);
-      profile.wrongAnswerLog = profile.wrongAnswerLog.slice(0, 200);
-    }
   }
   gameState.save();
 }
@@ -39,10 +33,6 @@ export function recordCorrectReview(questionId) {
       profile.wrongAnswerLog = profile.wrongAnswerLog.filter(e => e.questionId !== questionId);
       if (!profile.masteredQuestions.includes(questionId)) {
         profile.masteredQuestions.push(questionId);
-        // Cap mastered list to prevent unbounded growth
-        if (profile.masteredQuestions.length > 1000) {
-          profile.masteredQuestions = profile.masteredQuestions.slice(-1000);
-        }
       }
     } else {
       // Increase review interval (spaced repetition)

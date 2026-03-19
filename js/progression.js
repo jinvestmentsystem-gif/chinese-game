@@ -40,7 +40,7 @@ export const TALENT_TREE = {
 // ═══════════════════════════════════════════════════════════════════════════════
 
 export const TITLES = {
-  '新手文字侠':   { requirement: null, desc: '初始称号' },
+  '新手文定乾坤':   { requirement: null, desc: '初始称号' },
   '学有所成':     { requirement: { totalCorrect: 50 }, desc: '答对50题' },
   '文字达人':     { requirement: { totalCorrect: 200 }, desc: '答对200题' },
   '连击高手':     { requirement: { maxCombo: 10 }, desc: '达成10连击' },
@@ -255,14 +255,18 @@ export function addXP(amount) {
 
   profile.xp += boostedAmount;
 
+  // Gold = 60% of XP earned (base, before talent)
+  const goldMult = 1 + (t.goldPct || 0) / 100;
+  const goldEarned = Math.round(boostedAmount * 0.6 * goldMult);
+  profile.gold = (profile.gold || 0) + goldEarned;
+  profile.stats.totalGoldEarned = (profile.stats.totalGoldEarned || 0) + goldEarned;
+
   let leveledUp = false;
   let newLevel = profile.level;
   let unlock = null;
   let talentPointsGained = 0;
 
-  let safetyCount = 0;
-  while (profile.xp >= xpForLevel(newLevel) && safetyCount < 10) {
-    safetyCount++;
+  while (profile.xp >= xpForLevel(newLevel)) {
     profile.xp -= xpForLevel(newLevel);
     newLevel++;
     leveledUp = true;
@@ -292,7 +296,7 @@ export function addXP(amount) {
 
   gameState.save();
 
-  return leveledUp ? { newLevel, unlock, showLevelUpScreen: true, talentPointsGained, boostedAmount } : null;
+  return leveledUp ? { newLevel, unlock, showLevelUpScreen: true, talentPointsGained, goldEarned, boostedAmount } : null;
 }
 
 /** Grant bonus talent point for completing all quests in a chapter */
@@ -362,7 +366,7 @@ export function checkDailyLogin(profile) {
   const reward = DAILY_REWARDS[dayIndex];
 
   if (reward.gold) profile.gold = (profile.gold || 0) + reward.gold;
-  if (reward.xp) addXP(reward.xp);
+  if (reward.xp) profile.xp += reward.xp;
   if (reward.item) {
     if (!profile.consumables) profile.consumables = {};
     profile.consumables[reward.item] = (profile.consumables[reward.item] || 0) + 1;
@@ -377,7 +381,7 @@ export function checkDailyLogin(profile) {
 // ═══════════════════════════════════════════════════════════════════════════════
 
 function checkTitleUnlocks(profile) {
-  if (!profile.titles) profile.titles = ['新手文字侠'];
+  if (!profile.titles) profile.titles = ['新手文定乾坤'];
   const stats = profile.stats || {};
   const cp = profile.chapterProgress || {};
 

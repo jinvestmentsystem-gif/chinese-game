@@ -237,7 +237,7 @@ function buildEngagementHook(profile, levelUpInfo, statsBefore, parent) {
   `;
   parent.appendChild(hookWrap);
 
-  // ── Stat comparison: "你的文字侠在变强！" with before/after ──
+  // ── Stat comparison: "你的文定乾坤在变强！" with before/after ──
   const statsAfter = getEffectiveStats(profile);
   const statKeys = ['attack', 'defense', 'speed', 'maxHp', 'maxWenli', 'critChance'];
   const statLabels = { attack: '攻击', defense: '防御', speed: '速度', maxHp: 'HP', maxWenli: '文力', critChance: '暴击率' };
@@ -249,7 +249,7 @@ function buildEngagementHook(profile, levelUpInfo, statsBefore, parent) {
       font-size: 1rem; font-weight: 700; color: var(--accent-gold);
       text-align: center; letter-spacing: 0.06em; margin-bottom: 4px;
     `;
-    compTitle.textContent = '你的文字侠在变强！';
+    compTitle.textContent = '你的文定乾坤在变强！';
     hookWrap.appendChild(compTitle);
 
     const compGrid = document.createElement('div');
@@ -346,7 +346,6 @@ function renderReward() {
   div.style.cssText = 'overflow:hidden;';
 
   const quest = gameState.currentQuest;
-  if (!quest || !quest.results) { showScreen('chapter-map'); return div; }
   const results = quest.results;
   const accuracy = quest.results.total > 0
     ? Math.round((results.correct / results.total) * 100)
@@ -360,24 +359,34 @@ function renderReward() {
   // Calculate XP and Gold
   const baseXP = results.correct * 10;
   const comboBonus = results.maxCombo * 5;
-  const totalXP = baseXP + comboBonus;
-  results.xpEarned = totalXP;
-  const goldEarned = calculateGoldReward(results);
-  results.goldEarned = goldEarned;
+  let totalXP = baseXP + comboBonus;
+  let goldEarned = calculateGoldReward(results);
   const isPerfect = results.total > 0 && results.correct === results.total;
 
-  // Apply gold
-  profile.gold = (profile.gold || 0) + goldEarned;
-  profile.stats.totalGoldEarned = (profile.stats.totalGoldEarned || 0) + goldEarned;
+  // ── Check quest objective ──
+  let objectiveCompleted = false;
+  const objective = quest.objective;
+  if (objective) {
+    quest._endHp = profile.hp;
+    quest._elapsed = Date.now() - (quest._startTime || Date.now());
+    objectiveCompleted = objective.check(results, quest);
+    if (objectiveCompleted) {
+      totalXP += objective.bonusXP;
+      goldEarned += objective.bonusGold;
+    }
+  }
 
-  // Persist star rating (best per quest)
-  const stars = accuracy >= 85 ? 3 : accuracy >= 60 ? 2 : 1;
-  const starKey = `${quest.chapterId}-${quest.questIndex}`;
-  const prevStars = profile.questStars?.[starKey] || 0;
-  if (!profile.questStars) profile.questStars = {};
-  profile.questStars[starKey] = Math.max(prevStars, stars);
+  // ── Apply encounter modifier XP/gold multipliers ──
+  const activeModifiers = quest.encounters?.filter(e => e.modifier && e.completed) || [];
+  for (const enc of activeModifiers) {
+    if (enc.modifier.xpMult) totalXP = Math.round(totalXP * enc.modifier.xpMult);
+    if (enc.modifier.goldMult) goldEarned = Math.round(goldEarned * enc.modifier.goldMult);
+  }
 
-  // Apply XP
+  results.xpEarned = totalXP;
+  results.goldEarned = goldEarned;
+
+  // Apply XP (also adds gold internally)
   const levelUpInfo = addXP(totalXP);
 
   // Equipment drop (30% chance)
@@ -410,6 +419,21 @@ function renderReward() {
   profile.stats.totalQuests++;
   profile.stats.maxCombo = Math.max(profile.stats.maxCombo, results.maxCombo || 0);
   profile.stats.totalXP  += totalXP;
+
+  // ── Update combo records ──
+  if (!profile.comboRecords) profile.comboRecords = { bestOverall: 0, bestPerChapter: {}, history: [] };
+  const questMaxCombo = results.maxCombo || 0;
+  if (questMaxCombo > 0) {
+    if (questMaxCombo > (profile.comboRecords.bestPerChapter[quest.chapterId] || 0)) {
+      profile.comboRecords.bestPerChapter[quest.chapterId] = questMaxCombo;
+    }
+    if (questMaxCombo > profile.comboRecords.bestOverall) {
+      profile.comboRecords.bestOverall = questMaxCombo;
+    }
+    profile.comboRecords.history.push({ combo: questMaxCombo, date: Date.now(), chapterId: quest.chapterId });
+    if (profile.comboRecords.history.length > 10) profile.comboRecords.history = profile.comboRecords.history.slice(-10);
+  }
+  profile.lastActiveTimestamp = Date.now();
 
   // Check if we just beat a boss
   const lastEnc = quest.encounters[quest.encounters.length - 1];
@@ -463,49 +487,23 @@ function renderReward() {
   // Engagement hook (inserted before buttons) — now with stat comparison
   const engagementHook = buildEngagementHook(profile, levelUpInfo, statsBefore, div);
 
-  // ── Learning summary (collapsible) ──
-  const questionsLog = results.questionsLog || [];
-  if (questionsLog.length > 0) {
-    const learnSection = document.createElement('div');
-    learnSection.style.cssText = 'margin-top:16px; padding:12px; background:rgba(255,255,255,0.03); border-radius:10px; border:1px solid rgba(255,255,255,0.06);';
-    const correctCount = questionsLog.filter(q => q.correct).length;
-    const previewCount = Math.min(5, questionsLog.length);
-    const previewItems = questionsLog.slice(0, previewCount).map(q =>
-      `<div style="padding:3px 0;font-size:0.8rem;color:rgba(255,255,255,0.6);">
-        ${q.correct ? '<span style="color:#2ecc8a;">✅</span>' : '<span style="color:#e74c3c;">❌</span>'}
-        ${q.prompt.slice(0, 30)}${q.prompt.length > 30 ? '…' : ''}
-        ${!q.correct ? '<span style="color:rgba(212,160,23,0.6);font-size:0.7rem;"> → 已加入复习</span>' : ''}
-        ${q.isReview ? '<span style="color:rgba(168,85,247,0.7);font-size:0.7rem;"> 📝复习</span>' : ''}
-      </div>`
-    ).join('');
-    const hasMore = questionsLog.length > previewCount;
-    learnSection.innerHTML = `
-      <div style="font-size:0.85rem;color:rgba(255,255,255,0.5);margin-bottom:6px;">📚 学习回顾 (${correctCount}/${questionsLog.length} 正确)</div>
-      <div id="learn-preview">${previewItems}</div>
-      ${hasMore ? `<div id="learn-expand" style="text-align:center;margin-top:6px;font-size:0.75rem;color:var(--accent-gold);cursor:pointer;">展开更多 (${questionsLog.length - previewCount})</div>` : ''}
-    `;
-    card.appendChild(learnSection);
-    if (hasMore) {
-      setTimeout(() => {
-        const expandBtn = learnSection.querySelector('#learn-expand');
-        if (expandBtn) expandBtn.addEventListener('click', () => {
-          const allItems = questionsLog.map(q =>
-            `<div style="padding:3px 0;font-size:0.8rem;color:rgba(255,255,255,0.6);">
-              ${q.correct ? '<span style="color:#2ecc8a;">✅</span>' : '<span style="color:#e74c3c;">❌</span>'}
-              ${q.prompt.slice(0, 40)}${q.prompt.length > 40 ? '…' : ''}
-              ${!q.correct ? '<span style="color:rgba(212,160,23,0.6);font-size:0.7rem;"> → 已加入复习</span>' : ''}
-            </div>`
-          ).join('');
-          learnSection.querySelector('#learn-preview').innerHTML = allItems;
-          expandBtn.remove();
-        });
-      }, 0);
-    }
-  }
-
   // Detect chapter completion — did finishing this quest complete the chapter?
   const chapterQuestTotal = CHAPTER_QUESTS[quest.chapterId] || Infinity;
   const isChapterComplete = cp.questsCompleted >= chapterQuestTotal;
+
+  // Grant chapter rewards immediately (idempotent — chaptersRewarded guard prevents double-claim)
+  // This ensures rewards are granted even if player clicks "返回地图" instead of "继续"
+  if (isChapterComplete) {
+    if (!profile.chaptersRewarded) profile.chaptersRewarded = [];
+    if (!profile.chaptersRewarded.includes(quest.chapterId)) {
+      profile.gold = (profile.gold || 0) + 100;
+      profile.stats.totalGoldEarned = (profile.stats.totalGoldEarned || 0) + 100;
+      profile.talentPoints = (profile.talentPoints || 0) + 1;
+      profile.chaptersRewarded.push(quest.chapterId);
+      gameState.save();
+      showToast('章节通关！+100金币 +1天赋点', { type: 'achievement', duration: 3500 });
+    }
+  }
 
   // Continue / map buttons container — hidden until step 7
   const btnRow = document.createElement('div');
@@ -734,6 +732,29 @@ function renderReward() {
     buildStarRating(accuracy, card, null);
   }, 3000);
 
+  // Step 5.5 (3200ms): objective result
+  if (objective) {
+    setTimeout(() => {
+      const objEl = document.createElement('div');
+      objEl.style.cssText = `
+        margin-top:8px; padding:8px 14px; border-radius:8px; text-align:center;
+        font-size:0.95rem; font-weight:700; transform:scale(0);
+        transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+        ${objectiveCompleted
+          ? 'background:rgba(46,204,138,0.12); border:1px solid rgba(46,204,138,0.3); color:#2ecc8a;'
+          : 'background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:var(--text-dim);'}
+      `;
+      objEl.textContent = objectiveCompleted
+        ? `🎯 目标达成: ${objective.desc} → +${objective.bonusXP}XP +${objective.bonusGold}金币`
+        : `🎯 目标未达成: ${objective.desc}`;
+      card.appendChild(objEl);
+      requestAnimationFrame(() => requestAnimationFrame(() => { objEl.style.transform = 'scale(1)'; }));
+      if (objectiveCompleted) {
+        try { playSound('correct'); } catch (_) {}
+      }
+    }, 3200);
+  }
+
   // Step 6 (3500ms): engagement hook slides in, then "继续" button fades in with pulse glow
   setTimeout(() => {
     engagementHook.style.opacity = '1';
@@ -748,12 +769,13 @@ function renderReward() {
   // Wire up button listeners
   btnContinue.addEventListener('click', () => {
     if (isChapterComplete) {
+      // Go to chapter completion celebration screen
       showScreen('chapter-complete');
     } else {
-      showScreen('chapter-map', { resume: true });
+      showScreen('quest', { chapterId: quest.chapterId, questIndex: quest.questIndex + 1 });
     }
   });
-  btnMap.addEventListener('click', () => showScreen('chapter-map'));
+  btnMap.addEventListener('click', () => showScreen('worldmap'));
 
   // ── Achievement celebrations (after reward sequence finishes) ──
   if (newAchievements.length > 0) {

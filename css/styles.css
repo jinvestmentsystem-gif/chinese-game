@@ -1,5 +1,5 @@
 /* =============================================================
-   文字侠 — Word Hero | Ink-Wash RPG Visual Stylesheet
+   文定乾坤 — Wen Ding Qian Kun | Ink-Wash RPG Visual Stylesheet
    Complete rewrite: ink-wash (水墨画) aesthetic
    ============================================================= */
 
@@ -528,21 +528,20 @@ input[type="text"]:focus, input[type="number"]:focus {
   overflow: hidden;
 }
 
-/* Animated shimmer on HP bar — uses transform for GPU compositing (no layout thrashing) */
+/* Animated shimmer on HP bar */
 .hp-bar::after {
   content: '';
   position: absolute;
-  top: 0; left: 0;
+  top: 0; left: -60%;
   width: 50%;
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
   animation: barShimmer 2.5s ease-in-out infinite;
-  will-change: transform;
 }
 
 @keyframes barShimmer {
-  0%   { transform: translateX(-120%); }
-  100% { transform: translateX(240%); }
+  0%   { left: -60%; }
+  100% { left: 120%; }
 }
 
 /* Player HP — gradient green with shimmer */
@@ -1239,7 +1238,7 @@ input[type="text"]:focus, input[type="number"]:focus {
   content: '';
   position: absolute;
   top: 0;
-  left: 0;
+  left: -100%;
   width: 100%;
   height: 100%;
   background: linear-gradient(
@@ -1251,12 +1250,11 @@ input[type="text"]:focus, input[type="number"]:focus {
     transparent 100%
   );
   animation: progressShimmer 2.5s ease-in-out infinite;
-  will-change: transform;
 }
 
 @keyframes progressShimmer {
-  0%   { transform: translateX(-100%); }
-  100% { transform: translateX(200%); }
+  0%   { left: -100%; }
+  100% { left: 200%; }
 }
 
 .era-progress-text {
@@ -2530,7 +2528,7 @@ input[type="text"]:focus, input[type="number"]:focus {
 .title-char {
   display: inline-block;
   font-family: 'Noto Serif SC', 'SimSun', serif;
-  font-size: clamp(5rem, 15vw, 10rem);
+  font-size: clamp(6rem, 22vw, 14rem);
   font-weight: 900;
   background: linear-gradient(180deg,
     #ffd700 0%,
@@ -2564,6 +2562,18 @@ input[type="text"]:focus, input[type="number"]:focus {
 .title-char-1 { animation-delay: 1.4s, 3s; }
 .title-char-2 { animation-delay: 1.8s, 3.4s; }
 .title-char-3 { animation-delay: 2.2s, 3.8s; }
+.title-char-4 { animation-delay: 2.6s, 4.2s; }
+
+/* Calligraphy title image entrance */
+@keyframes title-calligraphy-in {
+  0%   { opacity: 0; transform: scale(0.7); filter: blur(8px); }
+  60%  { opacity: 1; transform: scale(1.05); filter: blur(0); }
+  100% { opacity: 1; transform: scale(1); filter: blur(0); }
+}
+.title-calligraphy-img {
+  display: block;
+  margin: 0 auto;
+}
 
 /* ── Ink Splatter Accents ─────────────────────────────────────── */
 .title-ink-splatter {
@@ -2665,18 +2675,19 @@ input[type="text"]:focus, input[type="number"]:focus {
 
 /* ── Tagline ──────────────────────────────────────────────────── */
 .title-tagline {
-  font-size: clamp(0.8rem, 2vw, 1rem);
-  color: rgba(200, 190, 180, 0.6);
-  letter-spacing: 0.25em;
+  font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+  color: #d4a017;
+  letter-spacing: 0.2em;
   opacity: 0;
   animation: title-tagline-in 1.2s ease 3.4s forwards;
   margin-bottom: 2.5rem;
   z-index: 5;
-  font-style: italic;
+  font-weight: 600;
+  text-shadow: 0 0 20px rgba(212,160,23,0.5), 0 0 40px rgba(212,160,23,0.2);
 }
 @keyframes title-tagline-in {
   0%   { opacity: 0; transform: translateY(8px); filter: blur(3px); }
-  100% { opacity: 0.7; transform: translateY(0); filter: blur(0); }
+  100% { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
 
 /* ── Menu Buttons ─────────────────────────────────────────────── */
@@ -2694,10 +2705,10 @@ input[type="text"]:focus, input[type="number"]:focus {
   opacity: 0;
   transform: translateY(40px);
   animation: title-btn-slide-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  font-size: 1.1rem;
+  font-size: 1.35rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
-  padding: 16px 28px;
+  letter-spacing: 0.12em;
+  padding: 18px 32px;
   background: rgba(17, 18, 40, 0.7) !important;
   backdrop-filter: blur(20px);
   border: 1px solid rgba(212, 160, 23, 0.15) !important;
@@ -2770,7 +2781,7 @@ input[type="text"]:focus, input[type="number"]:focus {
   bottom: 18px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 0.7rem;
+  font-size: 0.95rem;
   color: var(--text-dim);
   letter-spacing: 0.15em;
   z-index: 5;
@@ -4077,7 +4088,7 @@ input[type="text"]:focus, input[type="number"]:focus {
   }
   /* Show a simple message instead */
   body::before {
-    content: '文字侠 (Word Hero) — This game cannot be printed.';
+    content: '文定乾坤 (Wen Ding Qian Kun) — This game cannot be printed.';
     display: block !important;
     text-align: center;
     font-size: 1.5rem;
@@ -4669,18 +4680,17 @@ input[type="text"]:focus, input[type="number"]:focus {
    This is the NUCLEAR OPTION to ensure nothing is unreadably small.
    ═══════════════════════════════════════════════════════════════════ */
 
-/* Base: EVERYTHING in a screen gets at least 15px */
-.screen, .screen * {
-  font-size: max(var(--fs, inherit), 15px);
+/* Minimum font sizes — applied only to small text, NOT headings/titles */
+.screen p, .screen span, .screen div, .screen label {
+  min-height: 0; /* no layout side effects */
 }
 
-/* All buttons must be at least 15px */
+/* Buttons minimum sizes */
 .screen button, .screen .btn, .screen [role="button"] {
-  font-size: 15px !important;
-  min-font-size: 15px;
+  font-size: max(1em, 16px);
 }
-.screen .btn-primary { font-size: 16px !important; }
-.screen .btn-sm { font-size: 14px !important; }
+.screen .btn-primary { font-size: max(1em, 17px); }
+.screen .btn-sm { font-size: max(1em, 15px); }
 
 /* Headings must be bold and large */
 .screen h2 { font-size: 1.6rem !important; font-weight: 800 !important; }
@@ -4712,23 +4722,23 @@ input[type="text"]:focus, input[type="number"]:focus {
 /* Combat/boss option buttons — LARGE touch targets */
 .combat-option, .boss-option, .puzzle-option,
 .daily-option-enhanced, .arena-option {
-  font-size: 1.15rem !important;
-  padding: 16px 22px !important;
-  min-height: 52px !important;
+  font-size: 1.25rem !important;
+  padding: 18px 24px !important;
+  min-height: 56px !important;
   line-height: 1.5 !important;
 }
 
 /* Question prompts — the MOST important text */
 .combat-question, .boss-question, .puzzle-question,
 [class*="question"] {
-  font-size: 1.35rem !important;
+  font-size: 1.45rem !important;
   line-height: 1.6 !important;
-  font-weight: 600 !important;
+  font-weight: 700 !important;
 }
 
 /* HP/stat HUD text */
 [class*="hud"] *, [class*="hp-text"], [class*="hp-label"] {
-  font-size: 0.9rem !important;
+  font-size: 0.95rem !important;
 }
 
 /* Info/tip text — still readable */
@@ -4751,11 +4761,7 @@ input[type="text"]:focus, input[type="number"]:focus {
   font-size: 0.88rem !important;
 }
 
-/* Anything marked as secondary/dim text should still be readable */
-.screen [style*="color:var(--text-secondary)"],
-.screen [style*="color:var(--text-dim)"] {
-  font-size: max(0.88rem, 14px) !important;
-}
+/* Removed: was shrinking intentionally-larger text with color:var(--text-secondary) */
 
 /* ── SVG Sprite Idle Animations — breathing, floating, glow ── */
 @keyframes sprite-idle-breathe {
@@ -4778,19 +4784,22 @@ input[type="text"]:focus, input[type="number"]:focus {
 }
 
 /* Player sprite in combat */
-#player-sprite svg {
+#player-sprite svg,
+#player-sprite img {
   animation: sprite-idle-breathe 3s ease-in-out infinite;
   filter: drop-shadow(0 0 12px rgba(46, 204, 138, 0.3));
 }
 
 /* Enemy sprite in combat */
-#enemy-sprite svg {
+#enemy-sprite svg,
+#enemy-sprite img {
   animation: sprite-enemy-hover 4s ease-in-out infinite;
   filter: drop-shadow(0 0 12px rgba(106, 13, 173, 0.4));
 }
 
 /* Boss sprite */
-#boss-sprite svg {
+#boss-sprite svg,
+#boss-sprite img {
   animation: sprite-boss-menace 3s ease-in-out infinite;
   filter: drop-shadow(0 0 20px rgba(214, 48, 49, 0.5)) drop-shadow(0 0 40px rgba(214, 48, 49, 0.2));
 }
@@ -4811,8 +4820,8 @@ input[type="text"]:focus, input[type="number"]:focus {
   100% { transform: translateX(0); filter: brightness(1); }
 }
 
-.sprite-attacking svg { animation: sprite-attack-lunge 0.5s ease-out !important; }
-.sprite-hurting svg { animation: sprite-hurt-recoil 0.5s ease-out !important; }
+.sprite-attacking svg, .sprite-attacking img { animation: sprite-attack-lunge 0.5s ease-out !important; }
+.sprite-hurting svg, .sprite-hurting img { animation: sprite-hurt-recoil 0.5s ease-out !important; }
 
 /* ═══════════════════════════════════════════════════════════════════════════
    VISUAL POLISH PASS — Enhanced Ink-Wash Atmosphere & Combat Feedback
@@ -5121,16 +5130,5 @@ body::after {
   .combat-hud {
     padding: 2px 8px !important;
     padding-top: 28px !important;
-  }
-}
-
-/* ─── Accessibility: reduced motion ──────────────────────────────────────────
-   Disables non-essential animations for users who prefer reduced motion.
-   Keeps essential transitions (opacity fades) but removes infinite loops. */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.15s !important;
   }
 }

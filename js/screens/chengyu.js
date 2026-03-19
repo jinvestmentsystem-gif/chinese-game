@@ -546,7 +546,7 @@ async function renderChengyu() {
   // Back button
   setTimeout(() => {
     const backBtn = div.querySelector('#btn-back');
-    if (backBtn) backBtn.addEventListener('click', () => showScreen('chapter-map'));
+    if (backBtn) backBtn.addEventListener('click', () => showScreen('worldmap'));
 
     // Position indicator after DOM is rendered
     updateIndicator();

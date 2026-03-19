@@ -265,9 +265,7 @@ export function stopParticles() {
 }
 
 export function burstParticles(count = 30, mode = 'victory') {
-  const room = Math.max(0, MAX_PARTICLES - particles.length);
-  const actual = Math.min(count, room);
-  for (let i = 0; i < actual; i++) {
+  for (let i = 0; i < count; i++) {
     particles.push(new Particle(mode));
   }
 }
@@ -298,11 +296,9 @@ function randomInRange(min, max) {
  */
 export function burstAtPoint(x, y, count = 20, color = 'gold', mode = 'explode') {
   const preset = BURST_PRESETS[color];
-  const room = Math.max(0, MAX_PARTICLES - particles.length);
-  count = Math.min(count, room);
 
   for (let i = 0; i < count; i++) {
-    const p = new Particle(mode || currentMode);
+    const p = new Particle(currentMode);
 
     // Override position to the specified point
     p.x = x + (Math.random() - 0.5) * 20;

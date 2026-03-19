@@ -6,6 +6,7 @@ let celebCtx = null;
 let celebParticles = [];
 let celebAnimFrame = null;
 let celebLastTime = 0;
+let celebGeneration = 0; // Incremented on cleanup; stale callbacks check this
 
 function ensureCanvas() {
   if (celebCanvas) return true;
@@ -389,9 +390,13 @@ export function fireworkLaunch(opts = {}) {
 export function fireworkShow(opts = {}) {
   const count = opts.count || 8;
   const interval = opts.interval || 400;
+  const gen = celebGeneration; // Capture current generation
 
   for (let i = 0; i < count; i++) {
-    setTimeout(() => fireworkLaunch(), i * interval);
+    setTimeout(() => {
+      if (celebGeneration !== gen) return; // Stale — screen changed
+      fireworkLaunch();
+    }, i * interval);
   }
 }
 
@@ -430,10 +435,11 @@ export function goldenRain(opts = {}) {
   const count = opts.count || 30;
   const duration = opts.duration || 3000;
   const interval = duration / count;
+  const gen = celebGeneration; // Capture current generation
 
   for (let i = 0; i < count; i++) {
     setTimeout(() => {
-      if (!celebCanvas) return;
+      if (!celebCanvas || celebGeneration !== gen) return; // Stale — screen changed
       const x = Math.random() * w;
       const p = new ConfettiPiece(x, -10, {
         colors: ['#d4a017', '#f5c842', '#ffd700', '#daa520', '#b8860b'],
@@ -454,56 +460,57 @@ export function goldenRain(opts = {}) {
  * Level-up celebration sequence — combines multiple effects.
  */
 export function levelUpCelebration() {
+  const gen = celebGeneration;
   confettiBurst({ count: 60, force: 12, colors: ['#d4a017', '#f5c842', '#2ecc8a', '#a855f7'] });
-  setTimeout(() => sparkleRegion({ count: 15, color: '#d4a017' }), 300);
-  setTimeout(() => confettiCannons({ count: 30, colors: ['#d4a017', '#2ecc8a'] }), 600);
+  setTimeout(() => { if (celebGeneration !== gen) return; sparkleRegion({ count: 15, color: '#d4a017' }); }, 300);
+  setTimeout(() => { if (celebGeneration !== gen) return; confettiCannons({ count: 30, colors: ['#d4a017', '#2ecc8a'] }); }, 600);
 }
 
 /**
  * Chapter complete celebration — full fireworks show.
  */
 export function chapterCompleteCelebration() {
+  const gen = celebGeneration;
   confettiBurst({ count: 100, force: 14 });
-  setTimeout(() => fireworkShow({ count: 6, interval: 500 }), 500);
-  setTimeout(() => confettiCannons({ count: 60 }), 2000);
-  setTimeout(() => goldenRain({ count: 40, duration: 4000 }), 3000);
+  setTimeout(() => { if (celebGeneration !== gen) return; fireworkShow({ count: 6, interval: 500 }); }, 500);
+  setTimeout(() => { if (celebGeneration !== gen) return; confettiCannons({ count: 60 }); }, 2000);
+  setTimeout(() => { if (celebGeneration !== gen) return; goldenRain({ count: 40, duration: 4000 }); }, 3000);
 }
 
 /**
  * Victory celebration — moderate confetti + sparkles.
  */
 export function victoryCelebration() {
+  const gen = celebGeneration;
   confettiBurst({ count: 50, force: 8 });
-  setTimeout(() => sparkleRegion({ count: 20, color: '#d4a017' }), 400);
+  setTimeout(() => { if (celebGeneration !== gen) return; sparkleRegion({ count: 20, color: '#d4a017' }); }, 400);
 }
 
 /**
  * Perfect score celebration — rainbow confetti + fireworks.
  */
 export function perfectScoreCelebration() {
+  const gen = celebGeneration;
   confettiBurst({
     count: 120,
     force: 14,
     colors: ['#ff0000', '#ff7700', '#ffff00', '#00ff00', '#0077ff', '#8800ff', '#ff00ff'],
   });
-  setTimeout(() => fireworkShow({ count: 5, interval: 300 }), 300);
-  setTimeout(() => goldenRain({ count: 50, duration: 3000 }), 1500);
+  setTimeout(() => { if (celebGeneration !== gen) return; fireworkShow({ count: 5, interval: 300 }); }, 300);
+  setTimeout(() => { if (celebGeneration !== gen) return; goldenRain({ count: 50, duration: 3000 }); }, 1500);
 }
 
 /**
  * Clean up the celebration canvas.
  */
 export function cleanupCelebrations() {
+  celebGeneration++; // Invalidate all pending setTimeout callbacks
   if (celebAnimFrame) {
     cancelAnimationFrame(celebAnimFrame);
     celebAnimFrame = null;
   }
   celebParticles = [];
-  if (celebCanvas) {
-    if (celebCtx) celebCtx.clearRect(0, 0, celebCanvas.width, celebCanvas.height);
-    window.removeEventListener('resize', resize);
-    celebCanvas.remove();
-    celebCanvas = null;
-    celebCtx = null;
+  if (celebCtx && celebCanvas) {
+    celebCtx.clearRect(0, 0, celebCanvas.width, celebCanvas.height);
   }
 }

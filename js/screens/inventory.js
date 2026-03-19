@@ -320,7 +320,7 @@ function renderInventory() {
   `;
 
   setTimeout(() => {
-    div.querySelector('#btn-back').addEventListener('click', () => showScreen('chapter-map'));
+    div.querySelector('#btn-back').addEventListener('click', () => showScreen('worldmap'));
     div.querySelector('#btn-shop').addEventListener('click', () => showScreen('shop'));
     div.querySelector('#btn-forge').addEventListener('click', () => showScreen('shop', { tab: 'forge' }));
 

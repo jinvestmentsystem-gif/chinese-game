@@ -33,31 +33,6 @@ const TUTORIALS = {
     defaultTarget: '.boss-ability-banner',
     defaultPosition: 'bottom',
   },
-  // ── Contextual engagement tips ──
-  tip_first_gold: {
-    text: '你攒了不少金币！去商店看看有什么装备吧。',
-    defaultPosition: 'bottom',
-  },
-  tip_first_talent: {
-    text: '你获得了天赋点！打开天赋树选择你的成长路线。',
-    defaultPosition: 'bottom',
-  },
-  tip_first_equip_drop: {
-    text: '你获得了新装备！去背包中装备它来提升实力。',
-    defaultPosition: 'bottom',
-  },
-  tip_first_wrong: {
-    text: '别担心！答错的题目会进入复习队列，帮你巩固记忆。',
-    defaultPosition: 'top',
-  },
-  tip_first_low_hp: {
-    text: '血量告急！下次带上回春丹（商店有卖）。',
-    defaultPosition: 'top',
-  },
-  tip_first_chengyu: {
-    text: '你收集了一个成语！每集齐3个会获得永久加成。',
-    defaultPosition: 'bottom',
-  },
 };
 
 // ── Inject CSS once ──────────────────────────────────────────────────────────

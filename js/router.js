@@ -31,11 +31,13 @@ export function showScreen(name, params = {}) {
   // If screen not registered yet, check for lazy loader
   if (!screens[name] && lazyLoaders[name]) {
     const loader = lazyLoaders[name];
+    delete lazyLoaders[name]; // Delete immediately to prevent double-call race
     // Load the module asynchronously, then show
     _showLoadingIndicator();
     loader().then(() => {
-      delete lazyLoaders[name];
       _hideLoadingIndicator();
+      // Guard: if user navigated away while import was in-flight, don't render stale screen
+      if (gameState.currentScreen !== name) return;
       // Now the module has called registerScreen() — proceed
       if (screens[name]) {
         _doShowScreen(name, params);
@@ -70,9 +72,6 @@ function _doShowScreen(name, params) {
   transitioning = true;
   root.classList.add('screen-transitioning');
 
-  // Remove any lingering wipe overlays from rapid navigation
-  document.querySelectorAll('.screen-wipe').forEach(el => el.remove());
-
   // Create the diagonal wipe overlay
   const wipe = document.createElement('div');
   wipe.className = 'screen-wipe';
@@ -105,7 +104,12 @@ function _swapScreen(name, params) {
 }
 
 function _mountScreen(name, params) {
-  if (!screens[name]) return;
+  if (!screens[name]) {
+    console.error(`[Router] Screen "${name}" not found`);
+    const err = new Error(`Screen "${name}" not found`);
+    root.appendChild(_createErrorElement(err));
+    return;
+  }
   let el;
   try {
     el = screens[name](params);
@@ -113,8 +117,25 @@ function _mountScreen(name, params) {
     console.error(`[Router] Screen "${name}" render error:`, err);
     el = _createErrorElement(err);
   }
+
+  // Handle async render functions (return a Promise that resolves to HTMLElement)
+  if (el && typeof el.then === 'function') {
+    el.then(asyncEl => {
+      if (!asyncEl || !(asyncEl instanceof HTMLElement)) return;
+      if (gameState.currentScreen !== name) return; // Navigated away during async
+      _appendScreenElement(asyncEl);
+    }).catch(err => {
+      console.error(`[Router] Async screen "${name}" error:`, err);
+      _appendScreenElement(_createErrorElement(err));
+    });
+    return;
+  }
+
   if (!el || !(el instanceof HTMLElement)) return;
-  // When wipe is active, the overlay hides the swap — no opacity fade needed
+  _appendScreenElement(el);
+}
+
+function _appendScreenElement(el) {
   if (transitioning) {
     el.style.opacity = '1';
     root.appendChild(el);

@@ -1,11 +1,12 @@
 // js/screens/worldmap.js — Visual path-based world map
 import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
-import { SPRITES } from '../sprites.js';
+import { SPRITES, WORLDMAP_BG } from '../sprites.js';
 import { playMusic, setMusicIntensity } from '../audio.js';
 import { getXPProgress, getEffectiveMaxHp, checkDailyLogin } from '../progression.js';
 import { showTutorial } from '../tutorial.js';
 import { getReviewStats } from '../spaced-repetition.js';
+import { showToast } from '../toast.js';
 
 function getGradeLabel(tier) {
   const map = { grade1: '一二年级', grade3: '三年级', grade4: '四年级', grade5: '五六年级', grade7: '七年级', grade8: '八九年级' };
@@ -172,29 +173,20 @@ function buildPathConnector(fromColor, toColor) {
 
 // ── Landscape Silhouette Background (with parallax layers) ───────────────────
 function buildLandscapeBg() {
+  // Minimal overlay — the painted bg_worldmap.webp provides the main visual
   return `
-    <div class="map-bg-silhouette map-parallax-wrap" aria-hidden="true">
-      <!-- Far mountains (slowest parallax) -->
+    <div class="map-bg-silhouette map-parallax-wrap" aria-hidden="true" style="opacity:0.3;">
       <div class="map-parallax-layer map-parallax-far">
         <svg viewBox="0 0 900 300" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet">
           <path d="M0 300 L0 180 Q50 100 120 160 Q180 80 260 130 Q320 50 400 110
                    Q460 30 540 100 Q610 50 680 120 Q740 70 800 130 Q850 90 900 150 L900 300 Z"
-            fill="rgba(30,20,60,0.8)"/>
-          <circle cx="820" cy="60" r="28" fill="rgba(212,160,23,0.08)"/>
-          <circle cx="820" cy="60" r="22" fill="rgba(212,160,23,0.05)"/>
+            fill="rgba(30,20,60,0.6)"/>
         </svg>
       </div>
-      <!-- Near hills + trees (faster parallax) -->
       <div class="map-parallax-layer map-parallax-near">
         <svg viewBox="0 0 900 300" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet">
           <path d="M0 300 Q100 240 200 260 Q350 200 500 250 Q650 210 800 240 Q860 230 900 250 L900 300 Z"
-            fill="rgba(20,10,40,0.9)"/>
-          <polygon points="80,215 88,240 72,240" fill="rgba(20,10,40,0.95)"/>
-          <polygon points="90,200 96,220 84,220" fill="rgba(20,10,40,0.95)"/>
-          <polygon points="160,210 170,238 150,238" fill="rgba(20,10,40,0.95)"/>
-          <polygon points="370,220 378,244 362,244" fill="rgba(20,10,40,0.95)"/>
-          <polygon points="650,218 658,242 642,242" fill="rgba(20,10,40,0.95)"/>
-          <polygon points="750,210 758,238 742,238" fill="rgba(20,10,40,0.95)"/>
+            fill="rgba(20,10,40,0.5)"/>
         </svg>
       </div>
     </div>`;
@@ -373,7 +365,7 @@ function renderWorldMap() {
   const effectiveMaxHp = getEffectiveMaxHp(profile);
   const hpPct = Math.round((profile.hp / effectiveMaxHp) * 100);
   const hpColor = hpPct > 60 ? 'var(--hp-green)' : hpPct > 30 ? 'var(--hp-yellow)' : 'var(--hp-red)';
-  const activeTitle = profile.activeTitle || '新手文字侠';
+  const activeTitle = profile.activeTitle || '新手文定乾坤';
 
   // Daily reward status check (peek only, don't claim)
   const dailyLogin = profile.dailyLogin || { lastDate: null, streak: 0 };
@@ -386,6 +378,10 @@ function renderWorldMap() {
   // Determine current era accent color for the top bar
   const currentChapterData = CHAPTERS.find(ch => ch.id === currentChapter) || CHAPTERS[0];
   const eraAccent = currentChapterData.color;
+
+  div.style.backgroundImage = `url('${WORLDMAP_BG}')`;
+  div.style.backgroundSize = 'cover';
+  div.style.backgroundPosition = 'center top';
 
   div.innerHTML = `
     ${buildLandscapeBg()}
@@ -409,13 +405,13 @@ function renderWorldMap() {
           <div class="level">Lv.${profile.level}</div>
           <div style="display:flex;align-items:center;gap:5px;margin-left:4px;">
             <div style="width:8px;height:8px;background:var(--jade);border-radius:50%;box-shadow:var(--shadow-jade);"></div>
-            <span style="font-size:0.95rem;color:var(--jade);">${profile.wenli}/${profile.maxWenli} 文力</span>
+            <span style="font-size:0.95rem;color:var(--jade);cursor:help;" title="文力用于释放提示、跳过等特殊技能">${profile.wenli}/${profile.maxWenli} 文力</span>
           </div>
         </div>
 
         <div style="text-align:center;">
           <div style="font-size:0.92rem;color:${eraAccent}99;letter-spacing:0.1em;text-transform:uppercase;">征途</div>
-          <div style="font-size:1rem;font-weight:700;color:${eraAccent};text-shadow:0 0 12px ${eraAccent}55;">文字侠</div>
+          <div style="font-size:1rem;font-weight:700;color:${eraAccent};text-shadow:0 0 12px ${eraAccent}55;">文定乾坤</div>
         </div>
 
         <div class="nav-buttons">
@@ -434,8 +430,14 @@ function renderWorldMap() {
           backdrop-filter:blur(12px);
         ">
           <button class="btn btn-sm" id="btn-daily-reward" style="width:100%;margin-bottom:4px;" title="每日奖励">${dailyClaimed ? '已领' : '🎁 每日奖励'}</button>
+          <button class="btn btn-sm" id="btn-lucky-wheel" style="width:100%;margin-bottom:4px;" title="每日转盘">${profile.luckyWheel?.lastSpinDate === new Date().toISOString().slice(0,10) ? '🎡 转盘(已转)' : '🎡 幸运转盘'}</button>
           <button class="btn btn-sm" id="btn-chengyu" style="width:100%;margin-bottom:4px;" title="查看成语">📜 成语</button>
+          <button class="btn btn-sm" id="btn-trophy" style="width:100%;margin-bottom:4px;" title="成就殿堂">🏆 成就</button>
+          <button class="btn btn-sm" id="btn-bestiary" style="width:100%;margin-bottom:4px;" title="妖怪图鉴">📖 图鉴</button>
+          <button class="btn btn-sm" id="btn-combo-wall" style="width:100%;margin-bottom:4px;" title="连击记录">🔥 连击</button>
+          <button class="btn btn-sm" id="btn-companion" style="width:100%;margin-bottom:4px;" title="墨小灵">🐾 伙伴</button>
           <button class="btn btn-sm" id="btn-stats" style="width:100%;margin-bottom:4px;" title="学习统计">📊 统计</button>
+          <button class="btn btn-sm" id="btn-respec" style="width:100%;margin-bottom:4px;" title="重置天赋 (200金币)">🔄 重置天赋</button>
           <button class="btn btn-sm" id="btn-settings" style="width:100%;" title="设置">⚙ 设置</button>
         </div>
       </div>
@@ -532,6 +534,32 @@ function renderWorldMap() {
         ${nodesHTML}
       </div>
 
+      <!-- ── Weekly Boss Banner (level 5+) ── -->
+      ${profile.level >= 5 ? `
+        <div class="era-node node-active clickable" data-chapter="weekly-boss"
+             style="--node-color:#e74c3c; margin:10px 20px; cursor:pointer;"
+             role="button" tabindex="0">
+          <div class="era-icon" style="font-size:1.6rem;">⚔️</div>
+          <div class="era-info">
+            <div class="era-tag" style="color:#e74c3c;">每周Boss · Weekly Challenge</div>
+            <div class="era-title" style="color:#e74c3c;">特殊挑战</div>
+            <div class="era-subtitle">每周轮换的强力Boss · 丰厚奖励</div>
+          </div>
+        </div>` : ''}
+
+      <!-- ── Prestige (level 20+ & all complete) ── -->
+      ${profile.level >= 20 && allChaptersComplete ? `
+        <div class="era-node node-active clickable" data-chapter="prestige"
+             style="--node-color:#a855f7; margin:10px 20px; cursor:pointer; background:linear-gradient(135deg, rgba(168,85,247,0.08), rgba(212,160,23,0.08), var(--bg-glass));"
+             role="button" tabindex="0">
+          <div class="era-icon" style="font-size:1.6rem;">✨</div>
+          <div class="era-info">
+            <div class="era-tag" style="color:#a855f7;">轮回飞升 · Prestige${profile.prestige?.level > 0 ? ` (★${profile.prestige.level})` : ''}</div>
+            <div class="era-title" style="color:#a855f7;">飞升转世</div>
+            <div class="era-subtitle">重置等级，获得永久加成 · 成为传说</div>
+          </div>
+        </div>` : ''}
+
       <!-- ── Bottom padding ── -->
       <div style="height: 60px;"></div>
     </div>
@@ -570,10 +598,18 @@ function renderWorldMap() {
       const chapterVal = node.dataset.chapter;
 
       const activate = () => {
-        if (chapterVal === 'gauntlet') {
-          showScreen('gauntlet');
-        } else {
-          showScreen('quest', { chapterId: parseInt(chapterVal) });
+        if (chapterVal === 'gauntlet') showScreen('gauntlet');
+        else if (chapterVal === 'weekly-boss') showScreen('weekly-boss');
+        else if (chapterVal === 'prestige') showScreen('prestige');
+        else {
+          const cid = parseInt(chapterVal);
+          const ch = chapters.find(c => c.id === cid);
+          if (ch && ch.isCompleted) {
+            // Completed chapter — replay from quest 0
+            showScreen('quest', { chapterId: cid, questIndex: 0 });
+          } else {
+            showScreen('quest', { chapterId: cid });
+          }
         }
       };
 
@@ -598,6 +634,33 @@ function renderWorldMap() {
     div.querySelector('#btn-chengyu')?.addEventListener('click', () => showScreen('chengyu'));
     div.querySelector('#btn-stats')?.addEventListener('click', () => showScreen('stats', { returnTo: 'worldmap' }));
     div.querySelector('#btn-settings')?.addEventListener('click', () => showScreen('settings', { returnTo: 'worldmap' }));
+    div.querySelector('#btn-lucky-wheel')?.addEventListener('click', () => showScreen('lucky-wheel'));
+    div.querySelector('#btn-trophy')?.addEventListener('click', () => showScreen('trophy-room'));
+    div.querySelector('#btn-bestiary')?.addEventListener('click', () => showScreen('bestiary'));
+    div.querySelector('#btn-combo-wall')?.addEventListener('click', () => showScreen('combo-wall'));
+    div.querySelector('#btn-companion')?.addEventListener('click', () => showScreen('companion-profile'));
+
+    // Talent respec button
+    div.querySelector('#btn-respec')?.addEventListener('click', () => {
+      const RESPEC_COST = 200;
+      if ((profile.gold || 0) < RESPEC_COST) {
+        showToast(`金币不足 (需要${RESPEC_COST})`, { type: 'error', duration: 2500 });
+        return;
+      }
+      // Count total talent points spent
+      const totalSpent = Object.values(profile.talents || {}).reduce((sum, rank) => sum + rank, 0);
+      if (totalSpent === 0) {
+        showToast('没有已学天赋可以重置', { type: 'info', duration: 2000 });
+        return;
+      }
+      if (!confirm(`花费 ${RESPEC_COST} 金币重置所有天赋？\n将返还 ${totalSpent} 天赋点`)) return;
+      profile.gold -= RESPEC_COST;
+      profile.talentPoints = (profile.talentPoints || 0) + totalSpent;
+      profile.talents = {};
+      gameState.save();
+      showToast(`天赋已重置！返还 ${totalSpent} 天赋点`, { type: 'talent', duration: 3000 });
+      showScreen('worldmap'); // Refresh to show updated state
+    });
 
     // "More" popup toggle
     const btnMore = div.querySelector('#btn-more');

@@ -67,11 +67,11 @@ const CHAPTER_COMPLETION = {
   },
   5: {
     title: '恭喜通关！',
-    subtitle: '文字侠的传说',
+    subtitle: '文定乾坤的传说',
     color: '#8e44ad',
     colorDim: 'rgba(142,68,173,0.15)',
-    narrative: '墨暗之主轰然倒下！千年文字的光辉穿透了一切黑暗，从甲骨文到现代汉字，每一个字符都重新焕发了生命。你，文字侠，用知识和勇气守护了中华文明最珍贵的宝藏。',
-    companion: '你做到了……文字的力量因你而永存。从先秦到现代，你穿越了整个历史，守护了每一个字。谢谢你，文字侠。我会永远记住这段旅程……',
+    narrative: '墨暗之主轰然倒下！千年文字的光辉穿透了一切黑暗，从甲骨文到现代汉字，每一个字符都重新焕发了生命。你，文定乾坤，用知识和勇气守护了中华文明最珍贵的宝藏。',
+    companion: '你做到了……文字的力量因你而永存。从先秦到现代，你穿越了整个历史，守护了每一个字。谢谢你，文定乾坤。我会永远记住这段旅程……',
     nextChapter: null,
     nextHint: null,
     stats: '五千年文字文明已被守护',
@@ -149,9 +149,6 @@ function applyChapterRewards(profile, chapterId) {
   if (!profile.chaptersRewarded) profile.chaptersRewarded = [];
   if (profile.chaptersRewarded.includes(chapterId)) return false; // Already rewarded
 
-  // Mark as rewarded FIRST to prevent re-entry on rapid re-render or crash-restart
-  profile.chaptersRewarded.push(chapterId);
-
   // +100 gold
   profile.gold = (profile.gold || 0) + 100;
   profile.stats.totalGoldEarned = (profile.stats.totalGoldEarned || 0) + 100;
@@ -162,13 +159,15 @@ function applyChapterRewards(profile, chapterId) {
   // Unlock chapter title
   const data = CHAPTER_COMPLETION[chapterId];
   if (data && data.titleUnlock) {
-    if (!profile.titles) profile.titles = ['新手文字侠'];
+    if (!profile.titles) profile.titles = ['新手文定乾坤'];
     if (!profile.titles.includes(data.titleUnlock)) {
       profile.titles.push(data.titleUnlock);
       showToast(`新称号：${data.titleUnlock}`, { type: 'title', duration: 4000, sub: data.subtitle });
     }
   }
 
+  // Mark as rewarded
+  profile.chaptersRewarded.push(chapterId);
   gameState.save();
   return true;
 }
@@ -402,7 +401,7 @@ function renderChapterComplete() {
 
   const rewardsTitle = document.createElement('div');
   rewardsTitle.style.cssText = `
-    font-size: 0.78rem; color: rgba(212,160,23,0.6);
+    font-size: 0.88rem; color: rgba(212,160,23,0.6);
     letter-spacing: 0.18em; text-align: center;
     margin-bottom: 12px;
   `;
@@ -463,7 +462,7 @@ function renderChapterComplete() {
   if (chapterChengyuTotal > 0 || collectedCount > 0) {
     const chengyuTitle = document.createElement('div');
     chengyuTitle.style.cssText = `
-      font-size: 0.78rem; color: rgba(212,160,23,0.6);
+      font-size: 0.88rem; color: rgba(212,160,23,0.6);
       letter-spacing: 0.18em; text-align: center;
       margin-bottom: 10px;
     `;
@@ -515,7 +514,7 @@ function renderChapterComplete() {
     endBox.innerHTML = `
       <div style="font-size:3rem;margin-bottom:12px;animation:chcompl-star-spin 1s ease-out forwards;">★</div>
       <div style="font-size:1.4rem;font-weight:900;color:#d4a017;letter-spacing:0.1em;margin-bottom:12px;">
-        文字侠的传说
+        文定乾坤的传说
       </div>
       <div style="font-size:0.95rem;color:rgba(255,220,140,0.8);line-height:1.8;letter-spacing:0.04em;">
         你守护了五千年的文明。<br>
@@ -610,8 +609,8 @@ function renderChapterComplete() {
 
     const previewLabel = document.createElement('div');
     previewLabel.style.cssText = `
-      font-size: 0.72rem; color: rgba(212,160,23,0.6);
-      letter-spacing: 0.18em; text-transform: uppercase;
+      font-size: 0.85rem; color: rgba(212,160,23,0.6);
+      letter-spacing: 0.14em; text-transform: uppercase;
       margin-bottom: 8px;
     `;
     previewLabel.textContent = '下一章预告';
@@ -633,8 +632,8 @@ function renderChapterComplete() {
     newBadge.style.cssText = `
       position: absolute; top: 14px; right: 16px;
       background: #d4a017; color: #000;
-      font-size: 0.68rem; font-weight: 900;
-      padding: 3px 8px; border-radius: 4px;
+      font-size: 0.8rem; font-weight: 900;
+      padding: 4px 10px; border-radius: 5px;
       letter-spacing: 0.12em;
       animation: chcompl-new-badge 1.5s ease-in-out infinite;
     `;
@@ -814,14 +813,14 @@ function renderChapterComplete() {
     if (isEnding) {
       showScreen('title');
     } else {
-      showScreen('chapter-map');
+      showScreen('worldmap');
     }
   });
   btnAchiev.addEventListener('click', () => showScreen('chengyu'));
 
   // Share button — copies achievement text to clipboard
   btnShare.addEventListener('click', () => {
-    const shareText = `文字侠 | 第${chapterId}章完成！正确率${accuracy}% 连击x${results.maxCombo} 🏆`;
+    const shareText = `文定乾坤 | 第${chapterId}章完成！正确率${accuracy}% 连击x${results.maxCombo} 🏆`;
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(shareText).then(() => {
         showCopiedFeedback(btnShare);

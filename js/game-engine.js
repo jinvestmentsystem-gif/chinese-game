@@ -3,6 +3,42 @@ import { gameState } from './state.js';
 import { loadContent, pickQuestions, pickReadingPassage } from './content-loader.js';
 import { getDueReviews } from './spaced-repetition.js';
 
+// ── Encounter modifiers — random rule changes per combat/boss ──────────────
+const ENCOUNTER_MODIFIERS = [
+  { id: 'elite',     name: '精英',   desc: '敌人更强，经验+50%',        xpMult: 1.5, enemyHpMult: 1.5, weight: 3 },
+  { id: 'blitz',     name: '速攻',   desc: '时间减半，连击伤害翻倍',    timerMult: 0.5, comboDmgMult: 2, weight: 2 },
+  { id: 'goldRush',  name: '金潮',   desc: '金币奖励翻倍',             goldMult: 2, weight: 3 },
+  { id: 'headwind',  name: '逆风',   desc: '伤害-20%，经验+75%',       dmgMult: 0.8, xpMult: 1.75, weight: 2 },
+  { id: 'critical',  name: '暴击风暴', desc: '暴击率+30%',              critBonus: 0.3, weight: 2 },
+  { id: 'fragile',   name: '脆弱',   desc: '双方伤害+50%',             dmgMult: 1.5, enemyDmgMult: 1.5, weight: 1 },
+  null, null, null, // ~30% chance of no modifier (weighted)
+];
+
+function rollModifier() {
+  const pool = ENCOUNTER_MODIFIERS.flatMap(m => m ? Array(m.weight).fill(m) : [null, null, null]);
+  return pool[Math.floor(Math.random() * pool.length)] || null;
+}
+
+// ── Quest objectives — bonus goals for extra rewards ────────────────────────
+const QUEST_OBJECTIVES = [
+  { id: 'combo5',     desc: '达成5连击',           check: r => r.maxCombo >= 5,  bonusXP: 30, bonusGold: 20 },
+  { id: 'combo10',    desc: '达成10连击',          check: r => r.maxCombo >= 10, bonusXP: 60, bonusGold: 40 },
+  { id: 'noHpLoss',   desc: '不损失HP',            check: (r, q) => q._startHp === q._endHp, bonusXP: 50, bonusGold: 30 },
+  { id: 'accuracy80', desc: '正确率80%以上',        check: r => r.total > 0 && (r.correct / r.total) >= 0.8, bonusXP: 25, bonusGold: 15 },
+  { id: 'accuracy95', desc: '正确率95%以上',        check: r => r.total > 0 && (r.correct / r.total) >= 0.95, bonusXP: 50, bonusGold: 30 },
+  { id: 'perfect',    desc: '全部答对',            check: r => r.total > 0 && r.correct === r.total, bonusXP: 80, bonusGold: 50 },
+  { id: 'fast',       desc: '3分钟内完成',          check: (r, q) => q._elapsed < 180000, bonusXP: 40, bonusGold: 25 },
+];
+
+function pickObjective(chapterId, questIndex) {
+  // Harder objectives for later chapters
+  const eligible = chapterId <= 2
+    ? QUEST_OBJECTIVES.filter(o => ['combo5', 'accuracy80', 'fast'].includes(o.id))
+    : QUEST_OBJECTIVES;
+  const seed = (chapterId * 7 + questIndex * 13) % eligible.length;
+  return eligible[seed];
+}
+
 // Encounter types: 'combat', 'puzzle', 'boss', 'treasure', 'rest'
 function generateEncounterSequence(chapterId, questIndex, playerHpPercent = 1) {
   const patterns = [
@@ -50,9 +86,15 @@ function generateEncounterSequence(chapterId, questIndex, playerHpPercent = 1) {
     const enc = { type, index: i, completed: false };
 
     if (type === 'treasure') {
-      // Treasure gives random gold (30-80) + 20% chance for a consumable
-      enc.goldReward = 30 + Math.floor(Math.random() * 51);
+      // Treasure scales by chapter (was flat 30-80)
+      const chapterScale = 1 + (chapterNum - 1) * 0.4; // ch1=1x, ch5=2.6x
+      enc.goldReward = Math.round((30 + Math.floor(Math.random() * 51)) * chapterScale);
       enc.itemDrop = Math.random() < 0.2 ? 'hp-potion' : null;
+    }
+
+    // Roll encounter modifier for combat/boss (not first encounter, to ease new players in)
+    if ((type === 'combat' || type === 'boss') && i > 0) {
+      enc.modifier = rollModifier();
     }
 
     encounters.push(enc);
@@ -162,35 +204,21 @@ export async function startQuest(chapterId, questIndex) {
       enc.questions.forEach(q => sessionUsedIds.push(q.id));
     }
     // 'treasure' and 'rest' encounters have no questions — their data is set at generation time
-
-    // ── Fallback: ensure combat/boss encounters always have questions ──
-    if ((enc.type === 'combat' || enc.type === 'boss') && (!enc.questions || enc.questions.length === 0)) {
-      enc.questions = [{
-        id: '_fallback',
-        prompt: '请选择正确的答案',
-        options: ['正确', '错误', '不知道', '再想想'],
-        correct: 0,
-        difficulty: 1,
-        explanation: '内容加载失败，已跳过本题。',
-      }];
-    }
-
-    // ── Fallback: ensure puzzle encounters always have a passage ──
-    if (enc.type === 'puzzle' && !enc.passage) {
-      // Replace with a treasure encounter instead of showing a broken puzzle
-      enc.type = 'treasure';
-      enc.goldReward = 30 + Math.floor(Math.random() * 21);
-      enc.itemDrop = null;
-    }
   }
+
+  // Pick a quest objective for bonus rewards
+  const objective = pickObjective(chapterId, questIndex);
 
   gameState.currentQuest = {
     chapterId,
     questIndex,
     encounters,
     currentEncounter: 0,
-    results: { correct: 0, total: 0, combo: 0, maxCombo: 0, xpEarned: 0, itemsFound: [], questionsLog: [] },
+    results: { correct: 0, total: 0, combo: 0, maxCombo: 0, xpEarned: 0, itemsFound: [] },
     sessionUsedIds,
+    objective, // Bonus goal for extra XP/gold
+    _startHp: gameState.profile.hp,
+    _startTime: Date.now(),
   };
 
   return gameState.currentQuest;
@@ -235,13 +263,12 @@ export function recordAnswer(contentType, correct, questionId) {
     profile.accuracy[contentType] = profile.accuracy[contentType].slice(-50);
   }
 
-  // Track seen question IDs — keep enough to cover most of the pool
+  // Track seen question IDs (last 100 per content type)
   if (questionId && !profile.seenQuestions[contentType].includes(questionId)) {
     profile.seenQuestions[contentType].push(questionId);
-  }
-  // Cap at 500 to prevent unbounded growth (covers full pool for most grades)
-  if (profile.seenQuestions[contentType].length > 500) {
-    profile.seenQuestions[contentType] = profile.seenQuestions[contentType].slice(-500);
+    if (profile.seenQuestions[contentType].length > 100) {
+      profile.seenQuestions[contentType] = profile.seenQuestions[contentType].slice(-100);
+    }
   }
 
   const quest = gameState.currentQuest;
