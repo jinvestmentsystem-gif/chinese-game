@@ -97,7 +97,9 @@ function getUpgradeLevel(profile, itemId) {
 }
 
 function getUpgradeCost(item, currentLevel) {
-  return item.price * (currentLevel + 1);
+  // Front-loaded: cheap first upgrade, expensive final tier
+  const multipliers = [0.5, 1.0, 2.0];
+  return Math.round(item.price * (multipliers[currentLevel] ?? 2.0));
 }
 
 function renderShop(params = {}) {

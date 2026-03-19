@@ -386,6 +386,12 @@ function renderReward() {
   results.xpEarned = totalXP;
   results.goldEarned = goldEarned;
 
+  // Persist star rating (best per quest)
+  const stars = accuracy >= 85 ? 3 : accuracy >= 60 ? 2 : 1;
+  if (!profile.questStars) profile.questStars = {};
+  const starKey = `${quest.chapterId}-${quest.questIndex}`;
+  profile.questStars[starKey] = Math.max(profile.questStars[starKey] || 0, stars);
+
   // Apply XP (also adds gold internally)
   const levelUpInfo = addXP(totalXP);
 
@@ -483,6 +489,35 @@ function renderReward() {
   `;
   div.appendChild(title);
   div.appendChild(card);
+
+  // ── Learning summary (collapsible) ──
+  const qLog = results.questionsLog || [];
+  if (qLog.length > 0) {
+    const learnDiv = document.createElement('div');
+    learnDiv.style.cssText = 'margin-top:12px;padding:10px 14px;background:rgba(255,255,255,0.03);border-radius:8px;border:1px solid rgba(255,255,255,0.06);';
+    const correctCount = qLog.filter(q => q.correct).length;
+    const preview = qLog.slice(0, 5).map(q =>
+      `<div style="padding:2px 0;font-size:0.8rem;color:rgba(255,255,255,0.55);">
+        ${q.correct ? '<span style="color:#2ecc8a;">✅</span>' : '<span style="color:#e74c3c;">❌</span>'}
+        ${(q.prompt || '').slice(0, 28)}${(q.prompt || '').length > 28 ? '…' : ''}
+        ${!q.correct ? '<span style="color:rgba(212,160,23,0.5);font-size:0.7rem;"> → 已加入复习</span>' : ''}
+      </div>`
+    ).join('');
+    learnDiv.innerHTML = `<div style="font-size:0.8rem;color:rgba(255,255,255,0.4);margin-bottom:4px;">📚 学习回顾 (${correctCount}/${qLog.length})</div>${preview}`;
+    if (qLog.length > 5) {
+      const more = document.createElement('div');
+      more.style.cssText = 'text-align:center;font-size:0.72rem;color:var(--accent-gold);cursor:pointer;margin-top:4px;';
+      more.textContent = `展开更多 (${qLog.length - 5})`;
+      more.addEventListener('click', () => {
+        learnDiv.querySelector('div:first-child').nextSibling.innerHTML = qLog.map(q =>
+          `<div style="padding:2px 0;font-size:0.8rem;color:rgba(255,255,255,0.55);">${q.correct ? '✅' : '❌'} ${(q.prompt || '').slice(0, 35)}${(q.prompt || '').length > 35 ? '…' : ''}</div>`
+        ).join('');
+        more.remove();
+      });
+      learnDiv.appendChild(more);
+    }
+    card.appendChild(learnDiv);
+  }
 
   // Engagement hook (inserted before buttons) — now with stat comparison
   const engagementHook = buildEngagementHook(profile, levelUpInfo, statsBefore, div);

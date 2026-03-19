@@ -33,6 +33,10 @@ const TUTORIALS = {
     defaultTarget: '.boss-ability-banner',
     defaultPosition: 'bottom',
   },
+  // ── Contextual engagement tips (shown once per trigger) ──
+  tip_first_wrong: { text: '别担心！答错的题目会进入复习队列，帮你巩固记忆。', defaultPosition: 'top' },
+  tip_first_chengyu: { text: '你收集了一个成语！每集齐3个会获得永久属性加成。', defaultPosition: 'bottom' },
+  tip_first_equip: { text: '你获得了新装备！去背包中装备它来提升实力。', defaultPosition: 'bottom' },
 };
 
 // ── Inject CSS once ──────────────────────────────────────────────────────────

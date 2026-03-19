@@ -73,6 +73,9 @@ const DEFAULT_PROFILE = {
   companionFriendship: { level: 1, xp: 0, interactions: 0, lastInteractionDate: null },
   seasonalEvents: {},
   prestige: { level: 0, totalLevels: 0, bonuses: { xpMultiplier: 0, goldMultiplier: 0, startingGold: 0, statBonus: 0 } },
+  // ── Engagement optimization ──
+  questStars: {},          // { "1-0": 3, "1-1": 2 } — best star rating per quest
+  openingStorySeen: false,  // guards post-Quest-1 cinematic
 };
 
 class GameState {
@@ -156,6 +159,8 @@ class GameState {
     if (!p.companionFriendship)  p.companionFriendship = { level: 1, xp: 0, interactions: 0, lastInteractionDate: null };
     if (!p.seasonalEvents)       p.seasonalEvents = {};
     if (!p.prestige)             p.prestige = { level: 0, totalLevels: 0, bonuses: { xpMultiplier: 0, goldMultiplier: 0, startingGold: 0, statBonus: 0 } };
+    if (!p.questStars)           p.questStars = {};
+    if (!('openingStorySeen' in p)) p.openingStorySeen = false;
     return p;
   }
 

@@ -930,6 +930,8 @@ function renderBoss() {
         });
 
         recordAnswer('classical', correct, q.id);
+        const _ql = gameState.currentQuest?.results?.questionsLog;
+        if (_ql) _ql.push({ prompt: q.prompt, correct, explanation: q.explanation || '', isReview: q.isReview || false });
 
         // Per-question save checkpoint
         profile.hp = playerHp;

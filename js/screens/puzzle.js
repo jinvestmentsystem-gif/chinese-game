@@ -417,6 +417,8 @@ function renderPuzzle() {
         });
 
         recordAnswer('reading', correct, passage.id);
+        const _ql = gameState.currentQuest?.results?.questionsLog;
+        if (_ql) _ql.push({ prompt: q.prompt, correct, explanation: q.explanation || '', isReview: false });
         const sealIcon = inner.querySelector('#seal-icon');
 
         if (correct) {

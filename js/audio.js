@@ -55,27 +55,40 @@ const TRACK_VOLUMES = { menu: 0.4, explore: 0.35, combat: 0.45, boss: 0.5, victo
 function playMusicTrack(key) {
   ensureMusicTracks();
   if (currentTrackKey === key && currentHowl) return;
-  stopMusicTrack();
+
   const howl = MUSIC_TRACKS[key];
   if (!howl) return;
+
+  // Crossfade: fade out old track while fading in new track
+  const FADE_MS = 600;
+  if (currentHowl) {
+    const old = currentHowl;
+    const gen = ++_stopGen;
+    old.fade(old.volume(), 0, FADE_MS);
+    setTimeout(() => { if (_stopGen === gen) { try { old.stop(); } catch(_) {} } }, FADE_MS + 50);
+  }
+  currentHowl = null;
+  currentTrackKey = null;
+
   currentTrackKey = key;
   currentHowl = howl;
 
-  // Restore volume (fade-to-zero from previous stop leaves it at 0)
-  howl.volume(TRACK_VOLUMES[key] || 0.4);
-
-  // Resume Howler's context
+  // Start new track at 0 volume, fade in
+  const targetVol = TRACK_VOLUMES[key] || 0.4;
+  howl.volume(0);
   if (typeof Howler !== 'undefined' && Howler.ctx && Howler.ctx.state === 'suspended') {
     Howler.ctx.resume();
   }
   howl.play();
+  howl.fade(0, targetVol, FADE_MS);
 
   // Retry if not playing (Edge/Safari context resume delay)
   setTimeout(() => {
     if (currentTrackKey === key && !howl.playing()) {
       if (typeof Howler !== 'undefined' && Howler.ctx) Howler.ctx.resume();
-      howl.volume(TRACK_VOLUMES[key] || 0.4);
+      howl.volume(0);
       howl.play();
+      howl.fade(0, targetVol, FADE_MS);
     }
   }, 500);
 }
@@ -84,12 +97,11 @@ let _stopGen = 0; // Generation counter to prevent stale stop() calls
 function stopMusicTrack() {
   if (currentHowl) {
     const gen = ++_stopGen;
-    currentHowl.fade(currentHowl.volume(), 0, 300);
+    currentHowl.fade(currentHowl.volume(), 0, 600);
     const h = currentHowl;
     setTimeout(() => {
-      // Only stop if no new track was started since this fade began
       if (_stopGen === gen) { try { h.stop(); } catch(_) {} }
-    }, 350);
+    }, 650);
     currentHowl = null;
     currentTrackKey = null;
   }

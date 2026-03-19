@@ -214,7 +214,7 @@ export async function startQuest(chapterId, questIndex) {
     questIndex,
     encounters,
     currentEncounter: 0,
-    results: { correct: 0, total: 0, combo: 0, maxCombo: 0, xpEarned: 0, itemsFound: [] },
+    results: { correct: 0, total: 0, combo: 0, maxCombo: 0, xpEarned: 0, itemsFound: [], questionsLog: [] },
     sessionUsedIds,
     objective, // Bonus goal for extra XP/gold
     _startHp: gameState.profile.hp,
@@ -263,11 +263,11 @@ export function recordAnswer(contentType, correct, questionId) {
     profile.accuracy[contentType] = profile.accuracy[contentType].slice(-50);
   }
 
-  // Track seen question IDs (last 100 per content type)
+  // Track seen question IDs — keep 500 to cover full content pool for diversity
   if (questionId && !profile.seenQuestions[contentType].includes(questionId)) {
     profile.seenQuestions[contentType].push(questionId);
-    if (profile.seenQuestions[contentType].length > 100) {
-      profile.seenQuestions[contentType] = profile.seenQuestions[contentType].slice(-100);
+    if (profile.seenQuestions[contentType].length > 500) {
+      profile.seenQuestions[contentType] = profile.seenQuestions[contentType].slice(-500);
     }
   }
 

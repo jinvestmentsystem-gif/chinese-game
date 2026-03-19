@@ -1520,6 +1520,8 @@ function renderCombat() {
     }
 
     recordAnswer('vocab', correct, q.id);
+    const _ql = gameState.currentQuest?.results?.questionsLog;
+    if (_ql) _ql.push({ prompt: q.prompt, correct, explanation: q.explanation || '', isReview: q.isReview || false });
 
     // ── Per-question save checkpoint (prevents data loss on crash) ──
     profile.hp = playerHp;
@@ -1583,6 +1585,17 @@ function renderCombat() {
       } else if (combo >= 3) {
         setMusicIntensity(2);
         setTimeout(() => setMusicIntensity(1), 3000);
+      }
+
+      // ── Streak milestone celebrations ──
+      if (combo === 3) {
+        try { showToast('不错！3连击', { type: 'combo', duration: 1500 }); } catch(_){}
+      } else if (combo === 5) {
+        try { screenFlash('#d4a017', 150, div); showToast('厉害！5连击', { type: 'combo', duration: 1500 }); } catch(_){}
+      } else if (combo === 8) {
+        try { shakeElement(div, 4, 200); burstParticles(20, 'victory'); showToast('无敌！8连击 +20金', { type: 'combo', duration: 2000 }); profile.gold = (profile.gold||0) + 20; } catch(_){}
+      } else if (combo === 10) {
+        try { burstParticles(30, 'victory'); showToast('完美连击！', { type: 'achievement', duration: 2500 }); } catch(_){}
       }
 
       // ── Dodge ability: 20% chance enemy dodges ──
