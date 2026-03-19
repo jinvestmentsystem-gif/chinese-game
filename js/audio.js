@@ -59,8 +59,8 @@ function playMusicTrack(key) {
   const howl = MUSIC_TRACKS[key];
   if (!howl) return;
 
-  // Crossfade: fade out old track, brief silence, then fade in new track
-  const FADE_MS = 1200;
+  // Crossfade: long smooth transition between tracks
+  const FADE_MS = 2000;
   if (currentHowl) {
     const old = currentHowl;
     const gen = ++_stopGen;

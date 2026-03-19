@@ -394,14 +394,14 @@ function renderShop(params = {}) {
       }
       .set-bonus-grid {
         display:grid;
-        grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));
+        grid-template-columns:repeat(auto-fill, minmax(min(220px, 100%), 1fr));
         gap:10px;
         padding:0 20px 16px;
         width:100%;
       }
       .forge-grid {
         display:grid;
-        grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));
+        grid-template-columns:repeat(auto-fill, minmax(min(220px, 100%), 1fr));
         gap:12px;
         padding:0 20px 40px;
         width:100%;

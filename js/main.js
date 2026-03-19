@@ -227,9 +227,7 @@ registerScreen('title', () => {
     </div>
 
     <!-- ===== SUBTITLE ===== -->
-    <p class="title-subtitle" style="letter-spacing:0.3em;">
-      <span class="title-letter title-letter-1">W</span><span class="title-letter title-letter-2">E</span><span class="title-letter title-letter-3">N</span><span class="title-letter title-letter-sp">&nbsp;</span><span class="title-letter title-letter-4">D</span><span class="title-letter title-letter-5">I</span><span class="title-letter title-letter-6">N</span><span class="title-letter title-letter-7">G</span><span class="title-letter title-letter-sp">&nbsp;</span><span class="title-letter title-letter-8">Q</span><span class="title-letter title-letter-9">I</span><span class="title-letter title-letter-10">A</span><span class="title-letter title-letter-11">N</span><span class="title-letter title-letter-sp">&nbsp;</span><span class="title-letter title-letter-12">K</span><span class="title-letter title-letter-13">U</span><span class="title-letter title-letter-14">N</span>
-    </p>
+    <p class="title-subtitle" style="letter-spacing:0.3em;"></p>
 
     <!-- ===== TAGLINE ===== -->
     <p class="title-tagline">以文定乾坤，守护千年文明</p>
