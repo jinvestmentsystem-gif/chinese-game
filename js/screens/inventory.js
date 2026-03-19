@@ -246,16 +246,16 @@ function renderInventory() {
 
   div.innerHTML = `
     <style>
-      .stats-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:20px; max-width:500px; }
-      .stat-card { background:var(--bg-card); border-radius:8px; padding:12px; text-align:center; }
-      .stat-value { font-size:1.5rem; font-weight:700; color:var(--accent-gold); }
-      .stat-label { font-size:0.95rem; color:var(--text-secondary); }
-      .xp-bar-bg { width:100%; max-width:500px; height:12px; background:var(--bg-secondary); border-radius:6px; overflow:hidden; margin:8px 0 20px; }
+      .stats-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:0 auto 20px; max-width:500px; width:100%; }
+      .stat-card { background:var(--bg-card); border-radius:10px; padding:12px; text-align:center; border:1px solid rgba(212,160,23,0.1); }
+      .stat-value { font-size:1.4rem; font-weight:700; color:var(--accent-gold); }
+      .stat-label { font-size:0.88rem; color:var(--text-secondary); }
+      .xp-bar-bg { width:100%; max-width:500px; height:12px; background:var(--bg-secondary); border-radius:6px; overflow:hidden; margin:8px auto 20px; }
       .xp-bar { height:100%; background:var(--accent-blue); border-radius:6px; }
-      .inv-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:12px; padding:0 20px; width:100%; }
-      .inv-item { background:var(--bg-card); border:2px solid var(--bg-secondary); border-radius:8px; padding:12px; }
-      .inv-item.equipped { border-color:var(--accent-gold); }
-      .info-section { background:var(--bg-card); border-radius:10px; padding:14px 18px; margin-bottom:14px; max-width:500px; }
+      .inv-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(min(200px,100%),1fr)); gap:10px; padding:0 16px; width:100%; box-sizing:border-box; }
+      .inv-item { background:var(--bg-card); border:2px solid var(--bg-secondary); border-radius:10px; padding:12px; }
+      .inv-item.equipped { border-color:var(--accent-gold); box-shadow:0 0 12px rgba(212,160,23,0.15); }
+      .info-section { background:var(--bg-card); border-radius:10px; padding:14px 18px; margin:0 auto 14px; max-width:500px; width:100%; box-sizing:border-box; border:1px solid rgba(255,255,255,0.05); }
       .info-section h4 { margin:0 0 8px; font-size:0.88rem; color:var(--text-secondary); letter-spacing:0.05em; }
     </style>
     <div style="width:100%;padding:20px;">

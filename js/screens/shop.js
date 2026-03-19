@@ -387,9 +387,9 @@ function renderShop(params = {}) {
     <style>
       .shop-grid {
         display:grid;
-        grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
-        gap:12px;
-        padding:0 20px 40px;
+        grid-template-columns:repeat(auto-fill, minmax(min(200px, 100%), 1fr));
+        gap:10px;
+        padding:0 16px 40px;
         width:100%;
       }
       .set-bonus-grid {
