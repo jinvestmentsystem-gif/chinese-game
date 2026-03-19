@@ -194,7 +194,7 @@ export async function startQuest(chapterId, questIndex) {
       reviewInsertIndex++;
     } else if (enc.type === 'puzzle') {
       const rdTarget = getAdaptiveDifficulty(profile, 'reading');
-      enc.passage = pickReadingPassage(content.reading, profile.seenQuestions.reading, rdTarget);
+      enc.passage = pickReadingPassage(content.reading, profile.seenQuestions.reading, rdTarget, sessionUsedIds);
       if (enc.passage?.id) sessionUsedIds.push(enc.passage.id);
     } else if (enc.type === 'boss') {
       const clTarget = getAdaptiveDifficulty(profile, 'classical');

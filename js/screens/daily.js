@@ -294,7 +294,9 @@ async function renderDaily() {
 
   async function startChallenge() {
     const content = await loadContent(profile.tier);
-    const rng = seededRandom(today + profile.tier);
+    // Add play count so replaying the same day gets different questions
+    const playCount = (profile.dailyHistory || []).filter(d => d === today).length;
+    const rng = seededRandom(today + profile.tier + playCount);
 
     function seededPick(arr, count) {
       const shuffled = [...arr].sort((a, b) => rng() - 0.5);

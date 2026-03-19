@@ -62,10 +62,10 @@ export function pickQuestions(pool, count, seenIds = [], difficultyTarget = 3, s
   // 2. If hard filter leaves too few, relax to full pool
   if (available.length < count) available = pool;
 
-  // 3. Build fast lookup of ALL seen question IDs (full history, not just last 40)
+  // 3. Build fast lookup of ALL seen question IDs
   const seenSet = new Set(seenIds);
-  // Recent window: last 30% of seen IDs get a stronger penalty (very recently seen)
-  const recentWindow = Math.max(20, Math.floor(seenIds.length * 0.3));
+  // Very recent = last 50% of seen IDs — aggressive penalty to prevent replay repetition
+  const recentWindow = Math.max(30, Math.floor(seenIds.length * 0.5));
   const veryRecentSet = new Set(seenIds.slice(-recentWindow));
 
   // 4. Grade-level difficulty bias
@@ -86,13 +86,13 @@ export function pickQuestions(pool, count, seenIds = [], difficultyTarget = 3, s
       score += (5 - diffDist) * 6; // max 30
     }
 
-    // ── Novelty scoring (dominates over difficulty — ensures rotation) ──
+    // ── Novelty scoring — aggressively prevents repetition ──
     if (veryRecentSet.has(q.id)) {
-      score -= 60; // very recently seen — heavy penalty, almost never picked
+      score -= 100; // very recently seen — essentially blocked
     } else if (seenSet.has(q.id)) {
-      score -= 25; // seen before but not recently — moderate penalty
+      score -= 50; // seen before — strong penalty
     } else {
-      score += 35; // never seen — strong bonus
+      score += 40; // never seen — strong bonus
     }
 
     // ── Random factor (large enough to break ties and create variety) ──
@@ -188,27 +188,32 @@ function buildGradeWeights(gradeBias, difficultyTarget) {
   return null;
 }
 
-export function pickReadingPassage(passages, seenIds = [], difficultyTarget = 3) {
+export function pickReadingPassage(passages, seenIds = [], difficultyTarget = 3, sessionUsed = []) {
   if (!passages || passages.length === 0) return undefined;
 
+  // Hard filter: exclude passages already used this session
+  const sessionSet = new Set(sessionUsed);
+  let available = passages.filter(p => !sessionSet.has(p.id));
+  if (available.length === 0) available = passages; // fallback
+
   const seenSet = new Set(seenIds);
-  const recentWindow = Math.max(5, Math.floor(seenIds.length * 0.3));
+  const recentWindow = Math.max(5, Math.floor(seenIds.length * 0.5));
   const veryRecentSet = new Set(seenIds.slice(-recentWindow));
 
-  const scored = passages.map(p => {
+  const scored = available.map(p => {
     let score = 0;
 
     // Difficulty match (max 30)
     const diffDist = Math.abs((p.difficulty || 3) - difficultyTarget);
     score += (5 - diffDist) * 6;
 
-    // Novelty — strongly prefer unseen passages
+    // Novelty — aggressively prevent repetition
     if (veryRecentSet.has(p.id)) {
-      score -= 60;
+      score -= 100;
     } else if (seenSet.has(p.id)) {
-      score -= 25;
+      score -= 50;
     } else {
-      score += 35;
+      score += 40;
     }
 
     // Random factor

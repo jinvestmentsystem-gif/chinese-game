@@ -483,6 +483,11 @@ function renderReward() {
 
   gameState.save();
 
+  // Clear currentQuest so next quest generates fresh (prevents stale quest data)
+  // Keep the reference for this render, but clear after save
+  const savedQuest = gameState.currentQuest;
+  setTimeout(() => { if (gameState.currentQuest === savedQuest) gameState.currentQuest = null; }, 0);
+
   // ── Build the animated reward sequence ──
 
   // Outer card
