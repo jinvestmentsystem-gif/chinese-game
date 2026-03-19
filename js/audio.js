@@ -52,6 +52,8 @@ ensureMusicTracks();
 // Original volumes for each track — needed to restore after fade-to-zero
 const TRACK_VOLUMES = { menu: 0.4, explore: 0.35, combat: 0.45, boss: 0.5, victory: 0.55, defeat: 0.5 };
 
+let _playGeneration = 0; // increments on every playMusicTrack call to invalidate stale timers
+
 function playMusicTrack(key) {
   ensureMusicTracks();
   if (currentTrackKey === key && currentHowl) return;
@@ -59,21 +61,21 @@ function playMusicTrack(key) {
   const howl = MUSIC_TRACKS[key];
   if (!howl) return;
 
-  // Crossfade: long smooth transition between tracks
+  const gen = ++_playGeneration;
   const FADE_MS = 2000;
-  if (currentHowl) {
-    const old = currentHowl;
-    const gen = ++_stopGen;
-    old.fade(old.volume(), 0, FADE_MS);
-    setTimeout(() => { if (_stopGen === gen) { try { old.stop(); } catch(_) {} } }, FADE_MS + 50);
-  }
-  currentHowl = null;
-  currentTrackKey = null;
+
+  // Stop ALL currently playing tracks immediately (no fade — prevents overlap)
+  Object.values(MUSIC_TRACKS).forEach(h => {
+    if (h && h !== howl) { try { h.stop(); } catch(_) {} }
+  });
 
   currentTrackKey = key;
   currentHowl = howl;
 
-  // Start new track at 0 volume, fade in
+  // Stop any previous plays on this same Howl (prevents stacking sound IDs)
+  try { howl.stop(); } catch(_) {}
+
+  // Start new track, fade in
   const targetVol = TRACK_VOLUMES[key] || 0.4;
   howl.volume(0);
   if (typeof Howler !== 'undefined' && Howler.ctx && Howler.ctx.state === 'suspended') {
@@ -82,8 +84,9 @@ function playMusicTrack(key) {
   howl.play();
   howl.fade(0, targetVol, FADE_MS);
 
-  // Retry if not playing (Edge/Safari context resume delay)
+  // Retry if not playing (Edge/Safari) — guarded by generation counter
   setTimeout(() => {
+    if (_playGeneration !== gen) return; // stale — a newer play happened
     if (currentTrackKey === key && !howl.playing()) {
       if (typeof Howler !== 'undefined' && Howler.ctx) Howler.ctx.resume();
       howl.volume(0);
@@ -93,15 +96,9 @@ function playMusicTrack(key) {
   }, 500);
 }
 
-let _stopGen = 0; // Generation counter to prevent stale stop() calls
 function stopMusicTrack() {
   if (currentHowl) {
-    const gen = ++_stopGen;
-    currentHowl.fade(currentHowl.volume(), 0, 600);
-    const h = currentHowl;
-    setTimeout(() => {
-      if (_stopGen === gen) { try { h.stop(); } catch(_) {} }
-    }, 650);
+    try { currentHowl.stop(); } catch(_) {}
     currentHowl = null;
     currentTrackKey = null;
   }

@@ -342,16 +342,20 @@ function renderReward() {
   setParticleMode('victory');
   burstParticles(40, 'victory');
 
-  // Restore ambient music after victory stinger (stinger clears currentHowl on end)
-  // Delayed so the stinger finishes its dramatic moment before ambient resumes
+  // Restore ambient music after victory stinger — guarded against stale fire
+  // Only plays if we're STILL on the reward screen when the timer fires
+  const _rewardScreenId = Date.now();
+  div._rewardId = _rewardScreenId;
   setTimeout(() => {
+    // If player already navigated away, this div is detached — don't play
+    if (!document.body.contains(div)) return;
     const quest = gameState.currentQuest;
     if (quest) {
       const eraMap = {1:'xianqin',2:'han',3:'tang',4:'song',5:'modern'};
       playMusic(eraMap[quest.chapterId] || 'xianqin');
       setMusicIntensity(0);
     }
-  }, 3500); // victory stinger is ~3.5s
+  }, 3500);
 
   const div = document.createElement('div');
   div.className = 'screen';
