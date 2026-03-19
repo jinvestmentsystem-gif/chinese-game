@@ -5052,5 +5052,1337 @@
       "诗意理解"
     ],
     "source": "curriculum"
+  },
+  {
+    "id": "c1-401",
+    "type": "classical",
+    "prompt": "《静夜思》是谁写的？",
+    "options": [
+      "杜甫",
+      "李白",
+      "孟浩然",
+      "骆宾王"
+    ],
+    "correct": 1,
+    "explanation": "《静夜思》是唐代大诗人李白写的，他被称为\"诗仙\"。",
+    "difficulty": 1,
+    "tags": [
+      "静夜思",
+      "作者"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-402",
+    "type": "classical",
+    "prompt": "《静夜思》中，\"床前明月光\"的下一句是什么？",
+    "options": [
+      "举头望明月",
+      "疑是地上霜",
+      "低头思故乡",
+      "举杯邀明月"
+    ],
+    "correct": 1,
+    "explanation": "\"床前明月光，疑是地上霜\"，诗人看到月光以为是地上的霜。",
+    "difficulty": 1,
+    "tags": [
+      "静夜思",
+      "背诵"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-403",
+    "type": "classical",
+    "prompt": "《静夜思》中，\"低头思故乡\"的上一句是什么？",
+    "options": [
+      "床前明月光",
+      "疑是地上霜",
+      "举头望明月",
+      "春眠不觉晓"
+    ],
+    "correct": 2,
+    "explanation": "\"举头望明月，低头思故乡\"，诗人抬头看明月，低头思念家乡。",
+    "difficulty": 1,
+    "tags": [
+      "静夜思",
+      "背诵"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-404",
+    "type": "classical",
+    "prompt": "《春晓》是谁写的？",
+    "options": [
+      "李白",
+      "杜甫",
+      "孟浩然",
+      "王维"
+    ],
+    "correct": 2,
+    "explanation": "《春晓》是唐代诗人孟浩然写的，描写春天清晨的美景。",
+    "difficulty": 1,
+    "tags": [
+      "春晓",
+      "作者"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-405",
+    "type": "classical",
+    "prompt": "《春晓》中，\"春眠不觉晓\"的下一句是什么？",
+    "options": [
+      "夜来风雨声",
+      "处处闻啼鸟",
+      "花落知多少",
+      "举头望明月"
+    ],
+    "correct": 1,
+    "explanation": "\"春眠不觉晓，处处闻啼鸟\"，春天睡觉很香，到处都听到鸟叫声。",
+    "difficulty": 1,
+    "tags": [
+      "春晓",
+      "背诵"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-406",
+    "type": "classical",
+    "prompt": "《春晓》中，\"夜来风雨声\"的下一句是什么？",
+    "options": [
+      "春眠不觉晓",
+      "处处闻啼鸟",
+      "举头望明月",
+      "花落知多少"
+    ],
+    "correct": 3,
+    "explanation": "\"夜来风雨声，花落知多少\"，昨夜的风雨，不知打落了多少花朵。",
+    "difficulty": 1,
+    "tags": [
+      "春晓",
+      "背诵"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-407",
+    "type": "classical",
+    "prompt": "《咏鹅》是谁写的？",
+    "options": [
+      "李白",
+      "孟浩然",
+      "骆宾王",
+      "杜甫"
+    ],
+    "correct": 2,
+    "explanation": "《咏鹅》是唐代诗人骆宾王七岁时写的，是著名的儿童诗。",
+    "difficulty": 1,
+    "tags": [
+      "咏鹅",
+      "作者"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-408",
+    "type": "classical",
+    "prompt": "《咏鹅》中，\"鹅鹅鹅，曲项向天歌\"，这里\"曲项\"是什么意思？",
+    "options": [
+      "直直的脖子",
+      "弯曲的脖子",
+      "长长的脖子",
+      "白白的脖子"
+    ],
+    "correct": 1,
+    "explanation": "\"曲项\"就是弯曲的脖子，鹅伸着弯弯的脖子对天歌唱。",
+    "difficulty": 1,
+    "tags": [
+      "咏鹅",
+      "词义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-409",
+    "type": "classical",
+    "prompt": "《咏鹅》中，鹅的毛是什么颜色的？",
+    "options": [
+      "黑色",
+      "黄色",
+      "白色",
+      "红色"
+    ],
+    "correct": 2,
+    "explanation": "《咏鹅》写道\"白毛浮绿水\"，鹅的毛是白色的。",
+    "difficulty": 1,
+    "tags": [
+      "咏鹅",
+      "内容"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-410",
+    "type": "classical",
+    "prompt": "《悯农》（锄禾日当午）是谁写的？",
+    "options": [
+      "李白",
+      "杜甫",
+      "孟浩然",
+      "李绅"
+    ],
+    "correct": 3,
+    "explanation": "《悯农》是唐代诗人李绅写的，表达了对农民辛苦劳动的同情。",
+    "difficulty": 1,
+    "tags": [
+      "悯农",
+      "作者"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-411",
+    "type": "classical",
+    "prompt": "《悯农》中，\"锄禾日当午\"的下一句是什么？",
+    "options": [
+      "粒粒皆辛苦",
+      "谁知盘中餐",
+      "汗滴禾下土",
+      "春种一粒粟"
+    ],
+    "correct": 2,
+    "explanation": "\"锄禾日当午，汗滴禾下土\"，农民在太阳最烈的时候锄草，汗水滴在禾苗下的土里。",
+    "difficulty": 1,
+    "tags": [
+      "悯农",
+      "背诵"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-412",
+    "type": "classical",
+    "prompt": "《悯农》中，\"谁知盘中餐\"的下一句是什么？",
+    "options": [
+      "汗滴禾下土",
+      "锄禾日当午",
+      "粒粒皆辛苦",
+      "春种一粒粟"
+    ],
+    "correct": 2,
+    "explanation": "\"谁知盘中餐，粒粒皆辛苦\"，盘子里的每一粒米饭都是农民辛苦种出来的。",
+    "difficulty": 1,
+    "tags": [
+      "悯农",
+      "背诵"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-413",
+    "type": "classical",
+    "prompt": "《画》（远看山有色）中，\"远看山有色\"的下一句是什么？",
+    "options": [
+      "春去花还在",
+      "人来鸟不惊",
+      "近听水无声",
+      "花落知多少"
+    ],
+    "correct": 2,
+    "explanation": "\"远看山有色，近听水无声\"，远看山有颜色，近听水却没有声音。",
+    "difficulty": 1,
+    "tags": [
+      "画",
+      "背诵"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-414",
+    "type": "classical",
+    "prompt": "《画》（远看山有色）中，\"春去花还在\"的下一句是什么？",
+    "options": [
+      "远看山有色",
+      "近听水无声",
+      "人来鸟不惊",
+      "花落知多少"
+    ],
+    "correct": 2,
+    "explanation": "\"春去花还在，人来鸟不惊\"，春天过了花还开着，人走过来鸟也不害怕。",
+    "difficulty": 1,
+    "tags": [
+      "画",
+      "背诵"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-415",
+    "type": "classical",
+    "prompt": "《江南》（江南可采莲）中，采的是什么？",
+    "options": [
+      "荷花",
+      "莲蓬",
+      "莲叶",
+      "鱼"
+    ],
+    "correct": 1,
+    "explanation": "《江南》开篇说\"江南可采莲\"，采的是莲蓬（莲子）。",
+    "difficulty": 1,
+    "tags": [
+      "江南",
+      "内容"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-416",
+    "type": "classical",
+    "prompt": "《江南》中，\"鱼戏莲叶间\"，鱼在哪里游戏？",
+    "options": [
+      "江河里",
+      "莲叶之间",
+      "水底",
+      "天空"
+    ],
+    "correct": 1,
+    "explanation": "\"鱼戏莲叶间\"，鱼儿在莲叶之间嬉戏游玩。",
+    "difficulty": 1,
+    "tags": [
+      "江南",
+      "内容"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-417",
+    "type": "classical",
+    "prompt": "《静夜思》共有几句诗？",
+    "options": [
+      "两句",
+      "三句",
+      "四句",
+      "五句"
+    ],
+    "correct": 2,
+    "explanation": "《静夜思》共四句：\"床前明月光，疑是地上霜。举头望明月，低头思故乡。\"",
+    "difficulty": 1,
+    "tags": [
+      "静夜思",
+      "结构"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-418",
+    "type": "classical",
+    "prompt": "《春晓》中，诗人在什么季节睡觉睡到天亮？",
+    "options": [
+      "夏天",
+      "秋天",
+      "冬天",
+      "春天"
+    ],
+    "correct": 3,
+    "explanation": "《春晓》写的是春天（春眠），春天的睡眠特别香甜。",
+    "difficulty": 1,
+    "tags": [
+      "春晓",
+      "季节"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-419",
+    "type": "classical",
+    "prompt": "《咏鹅》中，鹅在什么颜色的水里游泳？",
+    "options": [
+      "蓝色",
+      "白色",
+      "绿色",
+      "黑色"
+    ],
+    "correct": 2,
+    "explanation": "《咏鹅》写道\"白毛浮绿水\"，鹅在绿色的水里游泳。",
+    "difficulty": 1,
+    "tags": [
+      "咏鹅",
+      "内容"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-420",
+    "type": "classical",
+    "prompt": "《悯农》告诉我们要珍惜什么？",
+    "options": [
+      "时间",
+      "粮食",
+      "金钱",
+      "玩具"
+    ],
+    "correct": 1,
+    "explanation": "《悯农》讲述农民辛苦种粮的故事，告诉我们要珍惜粮食，不要浪费。",
+    "difficulty": 1,
+    "tags": [
+      "悯农",
+      "主旨"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-421",
+    "type": "classical",
+    "prompt": "《静夜思》表达了诗人什么样的感情？",
+    "options": [
+      "对朋友的思念",
+      "对故乡的思念",
+      "对父母的思念",
+      "对美食的喜爱"
+    ],
+    "correct": 1,
+    "explanation": "《静夜思》中\"低头思故乡\"，表达了诗人对故乡的深深思念之情。",
+    "difficulty": 2,
+    "tags": [
+      "静夜思",
+      "情感"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-422",
+    "type": "classical",
+    "prompt": "《春晓》中，诗人早上听到了什么声音才醒来？",
+    "options": [
+      "雨声",
+      "风声",
+      "鸟叫声",
+      "钟声"
+    ],
+    "correct": 2,
+    "explanation": "\"处处闻啼鸟\"，诗人听到四处鸟儿的啼鸣声才醒来。",
+    "difficulty": 2,
+    "tags": [
+      "春晓",
+      "内容"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-423",
+    "type": "classical",
+    "prompt": "《春晓》中，诗人担心昨夜风雨后，什么被吹落了？",
+    "options": [
+      "树叶",
+      "果子",
+      "花朵",
+      "鸟巢"
+    ],
+    "correct": 2,
+    "explanation": "\"夜来风雨声，花落知多少\"，诗人担心昨夜风雨后花朵被吹落了。",
+    "difficulty": 2,
+    "tags": [
+      "春晓",
+      "内容"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-424",
+    "type": "classical",
+    "prompt": "《咏鹅》中，\"红掌拨清波\"是什么意思？",
+    "options": [
+      "红色的翅膀划水",
+      "红色的脚掌划出清波",
+      "红色的嘴巴划水",
+      "红色的尾巴摆动"
+    ],
+    "correct": 1,
+    "explanation": "\"红掌拨清波\"，红色的鹅掌拨动着清清的水波，描写鹅游水时的样子。",
+    "difficulty": 2,
+    "tags": [
+      "咏鹅",
+      "词义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-425",
+    "type": "classical",
+    "prompt": "《悯农》中，\"日当午\"是什么时候？",
+    "options": [
+      "早晨",
+      "傍晚",
+      "正午",
+      "深夜"
+    ],
+    "correct": 2,
+    "explanation": "\"日当午\"指太阳当顶，就是一天中最热的正午时分。",
+    "difficulty": 2,
+    "tags": [
+      "悯农",
+      "词义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-426",
+    "type": "classical",
+    "prompt": "《画》（远看山有色）这首诗写的是什么？",
+    "options": [
+      "真实的山水风景",
+      "一幅画",
+      "梦中的景色",
+      "回忆中的故乡"
+    ],
+    "correct": 1,
+    "explanation": "这首诗描写的是一幅山水画，山有颜色、水无声、花不落、鸟不惊，这些都是画里才有的特点。",
+    "difficulty": 2,
+    "tags": [
+      "画",
+      "主旨"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-427",
+    "type": "classical",
+    "prompt": "《江南》中，\"莲叶何田田\"的\"田田\"是什么意思？",
+    "options": [
+      "很多很多",
+      "绿油油的样子",
+      "有田地的样子",
+      "茂盛的样子"
+    ],
+    "correct": 3,
+    "explanation": "\"田田\"形容莲叶繁茂、鲜嫩的样子，描写莲叶长得非常茂盛。",
+    "difficulty": 2,
+    "tags": [
+      "江南",
+      "词义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-428",
+    "type": "classical",
+    "prompt": "《古朗月行》的作者是谁？",
+    "options": [
+      "孟浩然",
+      "杜甫",
+      "骆宾王",
+      "李白"
+    ],
+    "correct": 3,
+    "explanation": "《古朗月行》是唐代诗人李白写的，写出了儿时对月亮的想象。",
+    "difficulty": 2,
+    "tags": [
+      "古朗月行",
+      "作者"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-429",
+    "type": "classical",
+    "prompt": "《古朗月行》中，小时候把月亮比作什么？",
+    "options": [
+      "盘子",
+      "白玉盘",
+      "镜子",
+      "饼"
+    ],
+    "correct": 1,
+    "explanation": "\"小时不识月，呼作白玉盘\"，小时候不认识月亮，叫它白玉盘。",
+    "difficulty": 2,
+    "tags": [
+      "古朗月行",
+      "内容"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-430",
+    "type": "classical",
+    "prompt": "《古朗月行》中，\"又疑瑶台镜\"的\"疑\"是什么意思？",
+    "options": [
+      "肯定",
+      "怀疑",
+      "知道",
+      "看到"
+    ],
+    "correct": 1,
+    "explanation": "\"疑\"在这里是\"怀疑、猜想\"的意思，又猜想月亮是仙境中的镜子。",
+    "difficulty": 2,
+    "tags": [
+      "古朗月行",
+      "词义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-431",
+    "type": "classical",
+    "prompt": "《静夜思》中，\"疑是地上霜\"的\"疑\"是什么意思？",
+    "options": [
+      "确实是",
+      "好像是、以为是",
+      "知道是",
+      "看见是"
+    ],
+    "correct": 1,
+    "explanation": "\"疑\"是\"以为、好像\"的意思，诗人看到月光，以为是地上的霜。",
+    "difficulty": 2,
+    "tags": [
+      "静夜思",
+      "词义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-432",
+    "type": "classical",
+    "prompt": "《春晓》这首诗描写的是什么时间的景色？",
+    "options": [
+      "春天的夜晚",
+      "春天的早晨",
+      "夏天的早晨",
+      "冬天的清晨"
+    ],
+    "correct": 1,
+    "explanation": "《春晓》写的是春天的早晨（晓是清晨的意思），诗人从睡眠中醒来，听到鸟叫声。",
+    "difficulty": 2,
+    "tags": [
+      "春晓",
+      "时间"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-433",
+    "type": "classical",
+    "prompt": "\"咏鹅\"的\"咏\"是什么意思？",
+    "options": [
+      "看",
+      "用诗歌描写",
+      "画",
+      "想象"
+    ],
+    "correct": 1,
+    "explanation": "\"咏\"是用诗歌来描写、赞美的意思，\"咏鹅\"就是用诗歌来描写鹅。",
+    "difficulty": 2,
+    "tags": [
+      "咏鹅",
+      "词义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-434",
+    "type": "classical",
+    "prompt": "《悯农》中，\"悯\"是什么意思？",
+    "options": [
+      "赞美",
+      "同情、怜悯",
+      "害怕",
+      "喜爱"
+    ],
+    "correct": 1,
+    "explanation": "\"悯\"是同情、怜悯的意思，\"悯农\"就是同情怜悯农民的意思。",
+    "difficulty": 2,
+    "tags": [
+      "悯农",
+      "词义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-435",
+    "type": "classical",
+    "prompt": "《画》中，为什么\"近听水无声\"？",
+    "options": [
+      "水流太慢",
+      "画里的水没有声音",
+      "水已经干了",
+      "耳朵听不见"
+    ],
+    "correct": 1,
+    "explanation": "因为这是一幅画，画里的水当然没有声音，这正是画的奇妙之处。",
+    "difficulty": 2,
+    "tags": [
+      "画",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-436",
+    "type": "classical",
+    "prompt": "《江南》中，鱼在莲叶的哪些方向游动？",
+    "options": [
+      "只向东",
+      "只向西",
+      "东西南北都有",
+      "只向南"
+    ],
+    "correct": 2,
+    "explanation": "\"鱼戏莲叶东，鱼戏莲叶西，鱼戏莲叶南，鱼戏莲叶北\"，鱼在四个方向都游。",
+    "difficulty": 2,
+    "tags": [
+      "江南",
+      "内容"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-437",
+    "type": "classical",
+    "prompt": "《春晓》中，\"晓\"是什么意思？",
+    "options": [
+      "晚上",
+      "知道",
+      "清晨",
+      "天黑"
+    ],
+    "correct": 2,
+    "explanation": "\"晓\"是清晨、天刚亮的意思，\"春晓\"就是春天的清晨。",
+    "difficulty": 2,
+    "tags": [
+      "春晓",
+      "词义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-438",
+    "type": "classical",
+    "prompt": "《咏鹅》中，\"向天歌\"是什么意思？",
+    "options": [
+      "飞向天空",
+      "对着天空唱歌",
+      "看着天空",
+      "飞翔歌唱"
+    ],
+    "correct": 1,
+    "explanation": "\"向天歌\"就是对着天空唱歌，形容鹅伸长脖子鸣叫的样子。",
+    "difficulty": 2,
+    "tags": [
+      "咏鹅",
+      "词义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-439",
+    "type": "classical",
+    "prompt": "《悯农》表达了什么感情？",
+    "options": [
+      "对大自然的喜爱",
+      "对农民辛劳的同情",
+      "对粮食的赞美",
+      "对田园生活的向往"
+    ],
+    "correct": 1,
+    "explanation": "《悯农》通过描写农民辛苦劳动的场景，表达了诗人对农民辛苦劳作的深切同情。",
+    "difficulty": 2,
+    "tags": [
+      "悯农",
+      "情感"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-440",
+    "type": "classical",
+    "prompt": "《画》这首诗中，为什么\"人来鸟不惊\"？",
+    "options": [
+      "鸟太大了",
+      "画里的鸟不会飞走",
+      "鸟太勇敢了",
+      "人走路很轻"
+    ],
+    "correct": 1,
+    "explanation": "因为这是画里的鸟，画里的鸟当然不会因为人走近而受惊飞走。",
+    "difficulty": 2,
+    "tags": [
+      "画",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-441",
+    "type": "classical",
+    "prompt": "《静夜思》中，诗人在哪里看到明月？",
+    "options": [
+      "在山顶",
+      "在床前（室内）",
+      "在湖边",
+      "在船上"
+    ],
+    "correct": 1,
+    "explanation": "\"床前明月光\"，诗人在床前（室内）看到了明亮的月光。",
+    "difficulty": 4,
+    "tags": [
+      "静夜思",
+      "场景"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-442",
+    "type": "classical",
+    "prompt": "《春晓》的\"春眠不觉晓\"，为什么\"不觉晓\"？",
+    "options": [
+      "睡得太熟，不知不觉天亮了",
+      "天还没亮",
+      "不知道天亮的时间",
+      "窗帘太厚看不到天亮"
+    ],
+    "correct": 0,
+    "explanation": "春天睡眠香甜，诗人沉睡之中不知不觉地天就亮了，表现春眠的惬意。",
+    "difficulty": 3,
+    "tags": [
+      "春晓",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-443",
+    "type": "classical",
+    "prompt": "《咏鹅》中，描写鹅颜色的词语有哪些？",
+    "options": [
+      "白毛、红掌",
+      "白毛、绿水",
+      "曲项、白毛",
+      "红掌、绿水"
+    ],
+    "correct": 0,
+    "explanation": "诗中\"白毛浮绿水，红掌拨清波\"，描写鹅颜色的词是\"白毛\"（白色的羽毛）和\"红掌\"（红色的脚掌）。",
+    "difficulty": 3,
+    "tags": [
+      "咏鹅",
+      "内容"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-444",
+    "type": "classical",
+    "prompt": "《悯农》中，\"春种一粒粟，秋收万颗子\"，这说明了什么道理？",
+    "options": [
+      "春天比秋天重要",
+      "粮食来之不易，需要辛勤种植",
+      "粮食很便宜",
+      "农民很富有"
+    ],
+    "correct": 1,
+    "explanation": "从春天种下一粒种子，到秋天收获万粒粮食，说明粮食的来之不易和农民劳动的辛苦。",
+    "difficulty": 3,
+    "tags": [
+      "悯农",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-445",
+    "type": "classical",
+    "prompt": "《画》这首诗最大的特点是什么？",
+    "options": [
+      "描写了真实的山水",
+      "用了很多颜色词",
+      "写的景物和常理相反（如无声的水）",
+      "语言非常华丽"
+    ],
+    "correct": 2,
+    "explanation": "这首诗的奇妙之处在于写出了画的特点：山有色但水无声，花不落但鸟不惊，与真实自然相反。",
+    "difficulty": 3,
+    "tags": [
+      "画",
+      "特点"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-446",
+    "type": "classical",
+    "prompt": "《古朗月行》中，\"飞镜又重磨\"是形容月亮的什么状态？",
+    "options": [
+      "月亮升起",
+      "月亮变圆、明亮",
+      "月亮落下",
+      "月亮残缺"
+    ],
+    "correct": 1,
+    "explanation": "\"飞镜又重磨\"，飞镜（镜子）重新磨亮，比喻月亮变得又圆又亮，指满月时的月亮。",
+    "difficulty": 3,
+    "tags": [
+      "古朗月行",
+      "词义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-447",
+    "type": "classical",
+    "prompt": "《江南》这首诗的体裁是什么？",
+    "options": [
+      "律诗",
+      "绝句",
+      "乐府民歌",
+      "词"
+    ],
+    "correct": 2,
+    "explanation": "《江南》是汉代的乐府民歌，描写江南采莲的美丽景色，充满生活气息。",
+    "difficulty": 3,
+    "tags": [
+      "江南",
+      "体裁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-448",
+    "type": "classical",
+    "prompt": "《静夜思》中，诗人\"举头\"望到了什么，\"低头\"想到了什么？",
+    "options": [
+      "举头望到月亮，低头想到故乡",
+      "举头望到星星，低头想到朋友",
+      "举头望到太阳，低头想到家人",
+      "举头望到云彩，低头想到童年"
+    ],
+    "correct": 0,
+    "explanation": "\"举头望明月，低头思故乡\"，诗人抬头望见明月，低头思念起自己的故乡。",
+    "difficulty": 3,
+    "tags": [
+      "静夜思",
+      "内容"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-449",
+    "type": "classical",
+    "prompt": "《悯农》（锄禾日当午）中，\"四海无闲田，农夫犹饿死\"说明了什么问题？",
+    "options": [
+      "农民太懒惰",
+      "土地都被开垦了，农民还是很穷",
+      "没有荒地了",
+      "粮食丰收了"
+    ],
+    "correct": 1,
+    "explanation": "\"四海无闲田\"说明天下土地都种上了庄稼，但\"农夫犹饿死\"说明农民却还是饿死，揭示了社会的不公平。",
+    "difficulty": 3,
+    "tags": [
+      "悯农",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-450",
+    "type": "classical",
+    "prompt": "《春晓》和《静夜思》都涉及到什么主题？",
+    "options": [
+      "对大自然的热爱",
+      "对故乡和时间流逝的感慨",
+      "对朋友的思念",
+      "对田园生活的向往"
+    ],
+    "correct": 1,
+    "explanation": "《春晓》感叹花朵被风雨打落（时间流逝），《静夜思》思念故乡，都有对时间流逝和离别的感慨。",
+    "difficulty": 3,
+    "tags": [
+      "春晓",
+      "静夜思",
+      "比较"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-451",
+    "type": "classical",
+    "prompt": "\"床前明月光\"的\"床\"，有学者认为可能是什么的意思？",
+    "options": [
+      "睡觉的床",
+      "水井边的护栏",
+      "书桌",
+      "椅子"
+    ],
+    "correct": 1,
+    "explanation": "有学者考证，\"床\"在古代也可以指水井边的护栏，所以\"床前\"可能是指井边，但通常理解为床前。",
+    "difficulty": 3,
+    "tags": [
+      "静夜思",
+      "文化"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-452",
+    "type": "classical",
+    "prompt": "《咏鹅》传说是骆宾王几岁写的？",
+    "options": [
+      "五岁",
+      "七岁",
+      "十岁",
+      "十二岁"
+    ],
+    "correct": 1,
+    "explanation": "传说骆宾王七岁时写了《咏鹅》，因此被称为神童，这首诗也成为著名的儿童诗。",
+    "difficulty": 3,
+    "tags": [
+      "咏鹅",
+      "文化"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-453",
+    "type": "classical",
+    "prompt": "《古朗月行》中，\"小时不识月，呼作白玉盘\"，\"呼作\"是什么意思？",
+    "options": [
+      "忘记叫",
+      "叫做、称作",
+      "听说叫",
+      "看见了叫"
+    ],
+    "correct": 1,
+    "explanation": "\"呼作\"就是\"叫做、称作\"的意思，小时候不认识月亮，把它叫做白玉盘。",
+    "difficulty": 3,
+    "tags": [
+      "古朗月行",
+      "词义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-454",
+    "type": "classical",
+    "prompt": "《画》（远看山有色）这首诗的作者是谁？",
+    "options": [
+      "李白",
+      "王维",
+      "杜甫",
+      "苏轼"
+    ],
+    "correct": 1,
+    "explanation": "《画》的作者是唐代诗人王维，他是著名的山水诗人，也擅长绘画。",
+    "difficulty": 3,
+    "tags": [
+      "画",
+      "作者"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-455",
+    "type": "classical",
+    "prompt": "《江南》（江南可采莲）出自哪个朝代的诗歌总集？",
+    "options": [
+      "唐代",
+      "宋代",
+      "汉代（《汉乐府》）",
+      "魏晋南北朝"
+    ],
+    "correct": 2,
+    "explanation": "《江南》是《汉乐府》中的诗歌，汉乐府是汉代的民歌总集，描写了汉代人民的生活。",
+    "difficulty": 3,
+    "tags": [
+      "江南",
+      "朝代"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-456",
+    "type": "classical",
+    "prompt": "《悯农》（春种一粒粟）和（锄禾日当午）都是李绅写的，它们共同的主题是什么？",
+    "options": [
+      "赞美自然风景",
+      "同情农民辛苦，珍惜粮食",
+      "表达思乡之情",
+      "描写儿童生活"
+    ],
+    "correct": 1,
+    "explanation": "两首《悯农》都描写了农民辛苦劳作的场景，共同的主题是同情农民的辛苦、珍惜来之不易的粮食。",
+    "difficulty": 3,
+    "tags": [
+      "悯农",
+      "主旨"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-457",
+    "type": "classical",
+    "prompt": "下面哪句诗描写了秋天的景色？",
+    "options": [
+      "春眠不觉晓，处处闻啼鸟",
+      "床前明月光，疑是地上霜",
+      "白毛浮绿水，红掌拨清波",
+      "江南可采莲，莲叶何田田"
+    ],
+    "correct": 1,
+    "explanation": "\"疑是地上霜\"，霜通常在秋冬季节出现，《静夜思》描写了秋天夜晚的月色和思乡之情。",
+    "difficulty": 4,
+    "tags": [
+      "静夜思",
+      "季节"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-458",
+    "type": "classical",
+    "prompt": "李白在《静夜思》和《古朗月行》中，都写到了什么天文现象？",
+    "options": [
+      "星星",
+      "太阳",
+      "月亮",
+      "彩虹"
+    ],
+    "correct": 2,
+    "explanation": "《静夜思》中\"床前明月光\"和\"举头望明月\"，《古朗月行》写\"小时不识月\"，两首诗都写到了月亮。",
+    "difficulty": 4,
+    "tags": [
+      "静夜思",
+      "古朗月行",
+      "比较"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-459",
+    "type": "classical",
+    "prompt": "下面哪句诗是写动物的？",
+    "options": [
+      "床前明月光",
+      "锄禾日当午",
+      "鹅鹅鹅，曲项向天歌",
+      "远看山有色"
+    ],
+    "correct": 2,
+    "explanation": "\"鹅鹅鹅，曲项向天歌\"来自《咏鹅》，描写的是鹅这种动物。",
+    "difficulty": 4,
+    "tags": [
+      "咏鹅",
+      "内容"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-460",
+    "type": "classical",
+    "prompt": "\"汗滴禾下土\"和\"粒粒皆辛苦\"，中间缺少的是哪句诗？",
+    "options": [
+      "锄禾日当午",
+      "春种一粒粟",
+      "谁知盘中餐",
+      "四海无闲田"
+    ],
+    "correct": 2,
+    "explanation": "《悯农》第二首完整是：\"锄禾日当午，汗滴禾下土。谁知盘中餐，粒粒皆辛苦。\"",
+    "difficulty": 1,
+    "tags": [
+      "悯农",
+      "背诵"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-461",
+    "type": "classical",
+    "prompt": "《江南》中，诗人反复说\"鱼戏莲叶东/西/南/北\"，这种手法叫什么？",
+    "options": [
+      "比喻",
+      "反复",
+      "夸张",
+      "对比"
+    ],
+    "correct": 1,
+    "explanation": "诗人反复说\"鱼戏莲叶东、西、南、北\"，这是\"反复\"的修辞手法，强调鱼儿在莲叶间自由快乐地游动。",
+    "difficulty": 1,
+    "tags": [
+      "江南",
+      "修辞"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-462",
+    "type": "classical",
+    "prompt": "《咏鹅》描写鹅的特点，以下哪项不在诗中？",
+    "options": [
+      "白色的羽毛",
+      "弯曲的脖子",
+      "红色的脚掌",
+      "长长的翅膀"
+    ],
+    "correct": 3,
+    "explanation": "《咏鹅》描写了鹅的白毛（白色羽毛）、曲项（弯曲脖子）、红掌（红色脚掌），没有描写翅膀。",
+    "difficulty": 1,
+    "tags": [
+      "咏鹅",
+      "内容"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-463",
+    "type": "classical",
+    "prompt": "《古朗月行》中，诗人小时候把月亮比作白玉盘，后来又把月亮比作什么？",
+    "options": [
+      "金盘",
+      "镜子（瑶台镜）",
+      "圆饼",
+      "玉石"
+    ],
+    "correct": 1,
+    "explanation": "诗中\"又疑瑶台镜\"，诗人小时候又猜想月亮是仙宫（瑶台）里的镜子。",
+    "difficulty": 1,
+    "tags": [
+      "古朗月行",
+      "比喻"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-464",
+    "type": "classical",
+    "prompt": "下列诗句中，哪句运用了\"以小见大\"，通过一粒种子表达深刻道理？",
+    "options": [
+      "床前明月光，疑是地上霜",
+      "春种一粒粟，秋收万颗子",
+      "鹅鹅鹅，曲项向天歌",
+      "春眠不觉晓，处处闻啼鸟"
+    ],
+    "correct": 1,
+    "explanation": "\"春种一粒粟，秋收万颗子\"，从一粒种子到万颗粮食，以小见大，说明珍惜粮食的道理。",
+    "difficulty": 1,
+    "tags": [
+      "悯农",
+      "修辞"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-465",
+    "type": "classical",
+    "prompt": "《春晓》中，诗人没有亲眼看到花落，他是怎么知道的？",
+    "options": [
+      "亲眼看到",
+      "听别人说的",
+      "听到风雨声，推想出来的",
+      "在梦中看见的"
+    ],
+    "correct": 2,
+    "explanation": "诗人夜里听到\"风雨声\"，早上醒来推想\"花落知多少\"，是通过声音推断出来的，体现了诗人细腻的感受。",
+    "difficulty": 2,
+    "tags": [
+      "春晓",
+      "理解"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-466",
+    "type": "classical",
+    "prompt": "以下哪首诗的意境最适合描述\"月夜思乡\"？",
+    "options": [
+      "《春晓》",
+      "《静夜思》",
+      "《咏鹅》",
+      "《悯农》"
+    ],
+    "correct": 1,
+    "explanation": "《静夜思》通过月光、霜色等意象，描写了诗人在月夜思念故乡的情景，意境最符合\"月夜思乡\"。",
+    "difficulty": 2,
+    "tags": [
+      "静夜思",
+      "意境"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-467",
+    "type": "classical",
+    "prompt": "《画》（远看山有色）中，诗人用了几组\"近/远、有/无、去/在、来/不\"等对比？",
+    "options": [
+      "一组",
+      "两组",
+      "三组",
+      "四组"
+    ],
+    "correct": 3,
+    "explanation": "诗中用了四组对比：远看/近听、有色/无声、春去/花在、人来/鸟不惊，形成鲜明的反差来描写画的特点。",
+    "difficulty": 2,
+    "tags": [
+      "画",
+      "修辞"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-468",
+    "type": "classical",
+    "prompt": "《悯农》表达了诗人李绅什么样的社会关怀？",
+    "options": [
+      "关心皇帝",
+      "关心农民疾苦",
+      "关心商人",
+      "关心读书人"
+    ],
+    "correct": 1,
+    "explanation": "李绅写《悯农》是为了表达对农民辛苦劳动却生活贫苦的关心和同情，体现了诗人的社会责任感。",
+    "difficulty": 2,
+    "tags": [
+      "悯农",
+      "情感"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-469",
+    "type": "classical",
+    "prompt": "在《咏鹅》《春晓》《静夜思》中，哪首诗最适合描述儿童的天真视角？",
+    "options": [
+      "《静夜思》",
+      "《春晓》",
+      "《咏鹅》",
+      "三首都不是"
+    ],
+    "correct": 2,
+    "explanation": "《咏鹅》据说是骆宾王七岁所作，内容简单活泼，描写了一个孩子眼中的鹅，最体现儿童的天真视角。",
+    "difficulty": 2,
+    "tags": [
+      "咏鹅",
+      "比较"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "c1-470",
+    "type": "classical",
+    "prompt": "下列关于这些古诗的说法，哪一项是正确的？",
+    "options": [
+      "《春晓》和《静夜思》都是杜甫写的",
+      "《咏鹅》的作者骆宾王是唐代诗人",
+      "《悯农》表达了对皇帝的赞美",
+      "《江南》是唐代的乐府民歌"
+    ],
+    "correct": 1,
+    "explanation": "《咏鹅》的作者骆宾王确实是唐代诗人。《春晓》是孟浩然写的，《悯农》是同情农民的，《江南》是汉代乐府民歌。",
+    "difficulty": 4,
+    "tags": [
+      "综合",
+      "作者"
+    ],
+    "source": "curriculum"
   }
 ]

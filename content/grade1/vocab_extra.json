@@ -8031,5 +8031,1265 @@
       "偏旁部首"
     ],
     "source": "curriculum"
+  },
+  {
+    "id": "v1-651",
+    "type": "vocab",
+    "prompt": "\"妈\"字的声调是第几声？",
+    "options": [
+      "第一声（阴平）",
+      "第二声（阳平）",
+      "第三声（上声）",
+      "第四声（去声）"
+    ],
+    "correct": 0,
+    "explanation": "\"妈\"字读mā，是第一声（阴平），声调符号在字母a上面。",
+    "difficulty": 1,
+    "tags": [
+      "拼音声调"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-652",
+    "type": "vocab",
+    "prompt": "\"马\"字的声调是第几声？",
+    "options": [
+      "第一声",
+      "第二声",
+      "第三声（上声）",
+      "第四声"
+    ],
+    "correct": 2,
+    "explanation": "\"马\"字读mǎ，是第三声（上声），先降后升。",
+    "difficulty": 1,
+    "tags": [
+      "拼音声调"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-653",
+    "type": "vocab",
+    "prompt": "\"骂\"字的声调是第几声？",
+    "options": [
+      "第一声",
+      "第二声",
+      "第三声",
+      "第四声（去声）"
+    ],
+    "correct": 3,
+    "explanation": "\"骂\"字读mà，是第四声（去声），从高到低。",
+    "difficulty": 1,
+    "tags": [
+      "拼音声调"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-654",
+    "type": "vocab",
+    "prompt": "\"麻\"字的声调是第几声？",
+    "options": [
+      "第一声",
+      "第二声（阳平）",
+      "第三声",
+      "第四声"
+    ],
+    "correct": 1,
+    "explanation": "\"麻\"字读má，是第二声（阳平），声调从低升高。",
+    "difficulty": 1,
+    "tags": [
+      "拼音声调"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-655",
+    "type": "vocab",
+    "prompt": "\"花\"字的声调是哪一声？",
+    "options": [
+      "第一声（阴平）",
+      "第二声",
+      "第三声",
+      "第四声"
+    ],
+    "correct": 0,
+    "explanation": "\"花\"字读huā，是第一声（阴平），声调平平的。",
+    "difficulty": 1,
+    "tags": [
+      "拼音声调"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-656",
+    "type": "vocab",
+    "prompt": "\"鱼\"字的声调是哪一声？",
+    "options": [
+      "第一声",
+      "第二声（阳平）",
+      "第三声",
+      "第四声"
+    ],
+    "correct": 1,
+    "explanation": "\"鱼\"字读yú，是第二声（阳平），声调上扬。",
+    "difficulty": 1,
+    "tags": [
+      "拼音声调"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-657",
+    "type": "vocab",
+    "prompt": "\"雨\"字的声调是哪一声？",
+    "options": [
+      "第一声",
+      "第二声",
+      "第三声（上声）",
+      "第四声"
+    ],
+    "correct": 2,
+    "explanation": "\"雨\"字读yǔ，是第三声（上声），先降再升。",
+    "difficulty": 1,
+    "tags": [
+      "拼音声调"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-658",
+    "type": "vocab",
+    "prompt": "\"月\"字的声调是哪一声？",
+    "options": [
+      "第一声",
+      "第二声",
+      "第三声",
+      "第四声（去声）"
+    ],
+    "correct": 3,
+    "explanation": "\"月\"字读yuè，是第四声（去声），声调由高到低。",
+    "difficulty": 1,
+    "tags": [
+      "拼音声调"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-659",
+    "type": "vocab",
+    "prompt": "\"太\"字的声调是哪一声？",
+    "options": [
+      "第一声",
+      "第二声",
+      "第三声",
+      "第四声（去声）"
+    ],
+    "correct": 3,
+    "explanation": "\"太\"字读tài，是第四声（去声），声调下降。",
+    "difficulty": 1,
+    "tags": [
+      "拼音声调"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-660",
+    "type": "vocab",
+    "prompt": "\"水\"字的声调是哪一声？",
+    "options": [
+      "第一声",
+      "第二声",
+      "第三声（上声）",
+      "第四声"
+    ],
+    "correct": 2,
+    "explanation": "\"水\"字读shuǐ，是第三声（上声），先降后升。",
+    "difficulty": 1,
+    "tags": [
+      "拼音声调"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-661",
+    "type": "vocab",
+    "prompt": "\"火\"字的笔画数是多少？",
+    "options": [
+      "3画",
+      "4画",
+      "5画",
+      "6画"
+    ],
+    "correct": 1,
+    "explanation": "\"火\"字共有4画：点、撇、撇、捺。",
+    "difficulty": 1,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-662",
+    "type": "vocab",
+    "prompt": "\"木\"字的笔画数是多少？",
+    "options": [
+      "3画",
+      "4画",
+      "5画",
+      "6画"
+    ],
+    "correct": 1,
+    "explanation": "\"木\"字共有4画：横、竖、撇、捺。",
+    "difficulty": 1,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-663",
+    "type": "vocab",
+    "prompt": "\"日\"字的笔画数是多少？",
+    "options": [
+      "3画",
+      "4画",
+      "5画",
+      "6画"
+    ],
+    "correct": 1,
+    "explanation": "\"日\"字共有4画：竖、横折、横、横。",
+    "difficulty": 1,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-664",
+    "type": "vocab",
+    "prompt": "\"山\"字的笔画数是多少？",
+    "options": [
+      "2画",
+      "3画",
+      "4画",
+      "5画"
+    ],
+    "correct": 1,
+    "explanation": "\"山\"字共有3画：竖、竖折、竖。",
+    "difficulty": 1,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-665",
+    "type": "vocab",
+    "prompt": "\"人\"字的笔画数是多少？",
+    "options": [
+      "1画",
+      "2画",
+      "3画",
+      "4画"
+    ],
+    "correct": 1,
+    "explanation": "\"人\"字共有2画：撇、捺。",
+    "difficulty": 1,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-666",
+    "type": "vocab",
+    "prompt": "\"口\"字的笔画数是多少？",
+    "options": [
+      "2画",
+      "3画",
+      "4画",
+      "5画"
+    ],
+    "correct": 1,
+    "explanation": "\"口\"字共有3画：竖、横折、横。",
+    "difficulty": 1,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-667",
+    "type": "vocab",
+    "prompt": "\"土\"字的笔画数是多少？",
+    "options": [
+      "2画",
+      "3画",
+      "4画",
+      "5画"
+    ],
+    "correct": 1,
+    "explanation": "\"土\"字共有3画：横、竖、横。",
+    "difficulty": 1,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-668",
+    "type": "vocab",
+    "prompt": "\"大\"字的笔画数是多少？",
+    "options": [
+      "2画",
+      "3画",
+      "4画",
+      "5画"
+    ],
+    "correct": 1,
+    "explanation": "\"大\"字共有3画：横、撇、捺。",
+    "difficulty": 1,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-669",
+    "type": "vocab",
+    "prompt": "\"子\"字的笔画数是多少？",
+    "options": [
+      "2画",
+      "3画",
+      "4画",
+      "5画"
+    ],
+    "correct": 1,
+    "explanation": "\"子\"字共有3画：横折、横、竖钩。",
+    "difficulty": 1,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-670",
+    "type": "vocab",
+    "prompt": "\"女\"字的笔画数是多少？",
+    "options": [
+      "2画",
+      "3画",
+      "4画",
+      "5画"
+    ],
+    "correct": 1,
+    "explanation": "\"女\"字共有3画：撇点、撇、横。",
+    "difficulty": 1,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-671",
+    "type": "vocab",
+    "prompt": "\"妈\"字的偏旁是什么？",
+    "options": [
+      "马字旁",
+      "女字旁",
+      "口字旁",
+      "手字旁"
+    ],
+    "correct": 1,
+    "explanation": "\"妈\"字的偏旁是\"女\"字旁，表示与女性有关。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-672",
+    "type": "vocab",
+    "prompt": "\"爸\"字的偏旁是什么？",
+    "options": [
+      "父字旁",
+      "大字旁",
+      "人字旁",
+      "口字旁"
+    ],
+    "correct": 0,
+    "explanation": "\"爸\"字的偏旁是\"父\"字旁，上面是\"父\"，下面是\"巴\"。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-673",
+    "type": "vocab",
+    "prompt": "\"湖\"字的偏旁是什么？",
+    "options": [
+      "三点水",
+      "日字旁",
+      "月字旁",
+      "木字旁"
+    ],
+    "correct": 0,
+    "explanation": "\"湖\"字的偏旁是三点水（氵），表示与水有关。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-674",
+    "type": "vocab",
+    "prompt": "\"树\"字的偏旁是什么？",
+    "options": [
+      "三点水",
+      "木字旁",
+      "草字头",
+      "竹字头"
+    ],
+    "correct": 1,
+    "explanation": "\"树\"字的偏旁是木字旁（木），表示与树木有关。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-675",
+    "type": "vocab",
+    "prompt": "\"花\"字的偏旁是什么？",
+    "options": [
+      "草字头",
+      "木字旁",
+      "三点水",
+      "竹字头"
+    ],
+    "correct": 0,
+    "explanation": "\"花\"字的偏旁是草字头（艹），表示与植物有关。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-676",
+    "type": "vocab",
+    "prompt": "\"大\"的反义词是什么？",
+    "options": [
+      "好",
+      "小",
+      "多",
+      "长"
+    ],
+    "correct": 1,
+    "explanation": "\"大\"的反义词是\"小\"，大和小是一对反义词。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-677",
+    "type": "vocab",
+    "prompt": "\"多\"的反义词是什么？",
+    "options": [
+      "大",
+      "好",
+      "少",
+      "高"
+    ],
+    "correct": 2,
+    "explanation": "\"多\"的反义词是\"少\"，多和少意思相反。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-678",
+    "type": "vocab",
+    "prompt": "\"上\"的反义词是什么？",
+    "options": [
+      "左",
+      "下",
+      "右",
+      "前"
+    ],
+    "correct": 1,
+    "explanation": "\"上\"的反义词是\"下\"，上和下是一对反义词。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-679",
+    "type": "vocab",
+    "prompt": "\"长\"的反义词是什么？",
+    "options": [
+      "大",
+      "矮",
+      "短",
+      "细"
+    ],
+    "correct": 2,
+    "explanation": "\"长\"的反义词是\"短\"，长和短意思相反。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-680",
+    "type": "vocab",
+    "prompt": "\"高\"的反义词是什么？",
+    "options": [
+      "短",
+      "矮",
+      "小",
+      "少"
+    ],
+    "correct": 1,
+    "explanation": "\"高\"的反义词是\"矮\"，高和矮是一对反义词。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-681",
+    "type": "vocab",
+    "prompt": "\"美丽\"的近义词是什么？",
+    "options": [
+      "漂亮",
+      "丑陋",
+      "普通",
+      "平常"
+    ],
+    "correct": 0,
+    "explanation": "\"美丽\"的近义词是\"漂亮\"，两个词都表示好看的意思。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-682",
+    "type": "vocab",
+    "prompt": "\"高兴\"的近义词是什么？",
+    "options": [
+      "难过",
+      "伤心",
+      "开心",
+      "生气"
+    ],
+    "correct": 2,
+    "explanation": "\"高兴\"的近义词是\"开心\"，两个词都表示心情好的意思。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-683",
+    "type": "vocab",
+    "prompt": "\"喜欢\"的近义词是什么？",
+    "options": [
+      "讨厌",
+      "害怕",
+      "爱好",
+      "难过"
+    ],
+    "correct": 2,
+    "explanation": "\"喜欢\"的近义词是\"爱好\"，两个词都表示对某事有好感。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-684",
+    "type": "vocab",
+    "prompt": "用\"日\"字组词，下面哪个词语是正确的？",
+    "options": [
+      "日历",
+      "日火",
+      "日木",
+      "日土"
+    ],
+    "correct": 0,
+    "explanation": "\"日历\"是正确的词语，日历是记录日期的册子。",
+    "difficulty": 2,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-685",
+    "type": "vocab",
+    "prompt": "用\"月\"字组词，下面哪个词语是正确的？",
+    "options": [
+      "月球",
+      "月土",
+      "月草",
+      "月石"
+    ],
+    "correct": 0,
+    "explanation": "\"月球\"是正确的词语，月球就是我们看到的月亮。",
+    "difficulty": 2,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-686",
+    "type": "vocab",
+    "prompt": "用\"水\"字组词，下面哪个词语是正确的？",
+    "options": [
+      "水火",
+      "水果",
+      "水土木",
+      "水金"
+    ],
+    "correct": 1,
+    "explanation": "\"水果\"是正确的词语，水果是富含水分的食物。",
+    "difficulty": 2,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-687",
+    "type": "vocab",
+    "prompt": "用\"山\"字组词，下面哪个词语是正确的？",
+    "options": [
+      "山羊",
+      "山月",
+      "山日",
+      "山水火"
+    ],
+    "correct": 0,
+    "explanation": "\"山羊\"是正确的词语，山羊是一种动物。",
+    "difficulty": 2,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-688",
+    "type": "vocab",
+    "prompt": "用\"花\"字组词，下面哪个词语是正确的？",
+    "options": [
+      "花草",
+      "花月",
+      "花日",
+      "花土"
+    ],
+    "correct": 0,
+    "explanation": "\"花草\"是正确的词语，花草泛指各种植物。",
+    "difficulty": 2,
+    "tags": [
+      "组词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-689",
+    "type": "vocab",
+    "prompt": "一（___）书，括号里应填什么量词？",
+    "options": [
+      "条",
+      "本",
+      "张",
+      "个"
+    ],
+    "correct": 1,
+    "explanation": "书的量词是\"本\"，所以说\"一本书\"。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-690",
+    "type": "vocab",
+    "prompt": "一（___）纸，括号里应填什么量词？",
+    "options": [
+      "本",
+      "条",
+      "张",
+      "个"
+    ],
+    "correct": 2,
+    "explanation": "纸的量词是\"张\"，所以说\"一张纸\"。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-691",
+    "type": "vocab",
+    "prompt": "一（___）鱼，括号里应填什么量词？",
+    "options": [
+      "个",
+      "条",
+      "本",
+      "张"
+    ],
+    "correct": 1,
+    "explanation": "鱼的量词是\"条\"，所以说\"一条鱼\"。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-692",
+    "type": "vocab",
+    "prompt": "一（___）花，括号里应填什么量词？",
+    "options": [
+      "本",
+      "条",
+      "张",
+      "朵"
+    ],
+    "correct": 3,
+    "explanation": "花的量词是\"朵\"，所以说\"一朵花\"。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-693",
+    "type": "vocab",
+    "prompt": "一（___）树，括号里应填什么量词？",
+    "options": [
+      "本",
+      "棵",
+      "条",
+      "张"
+    ],
+    "correct": 1,
+    "explanation": "树的量词是\"棵\"，所以说\"一棵树\"。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-694",
+    "type": "vocab",
+    "prompt": "\"前\"的反义词是什么？",
+    "options": [
+      "上",
+      "下",
+      "后",
+      "左"
+    ],
+    "correct": 2,
+    "explanation": "\"前\"的反义词是\"后\"，前面和后面意思相反。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-695",
+    "type": "vocab",
+    "prompt": "\"开\"的反义词是什么？",
+    "options": [
+      "大",
+      "小",
+      "关",
+      "合"
+    ],
+    "correct": 2,
+    "explanation": "\"开\"的反义词是\"关\"，开门和关门意思相反。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-696",
+    "type": "vocab",
+    "prompt": "\"快\"的反义词是什么？",
+    "options": [
+      "大",
+      "小",
+      "慢",
+      "少"
+    ],
+    "correct": 2,
+    "explanation": "\"快\"的反义词是\"慢\"，快和慢是一对反义词。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-697",
+    "type": "vocab",
+    "prompt": "\"冷\"的反义词是什么？",
+    "options": [
+      "大",
+      "热",
+      "多",
+      "高"
+    ],
+    "correct": 1,
+    "explanation": "\"冷\"的反义词是\"热\"，冷和热是一对反义词。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-698",
+    "type": "vocab",
+    "prompt": "\"早\"的反义词是什么？",
+    "options": [
+      "快",
+      "好",
+      "晚",
+      "多"
+    ],
+    "correct": 2,
+    "explanation": "\"早\"的反义词是\"晚\"，早晨和晚上意思相对。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-699",
+    "type": "vocab",
+    "prompt": "\"新\"的反义词是什么？",
+    "options": [
+      "大",
+      "旧",
+      "多",
+      "高"
+    ],
+    "correct": 1,
+    "explanation": "\"新\"的反义词是\"旧\"，新的和旧的意思相反。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-700",
+    "type": "vocab",
+    "prompt": "\"认真\"的近义词是什么？",
+    "options": [
+      "马虎",
+      "仔细",
+      "懒惰",
+      "随便"
+    ],
+    "correct": 1,
+    "explanation": "\"认真\"的近义词是\"仔细\"，都表示做事专心、不马虎。",
+    "difficulty": 3,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-701",
+    "type": "vocab",
+    "prompt": "\"勇敢\"的近义词是什么？",
+    "options": [
+      "胆小",
+      "害怕",
+      "勇猛",
+      "懦弱"
+    ],
+    "correct": 2,
+    "explanation": "\"勇敢\"的近义词是\"勇猛\"，都表示不怕困难和危险。",
+    "difficulty": 3,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-702",
+    "type": "vocab",
+    "prompt": "\"看见\"的近义词是什么？",
+    "options": [
+      "听见",
+      "摸到",
+      "看到",
+      "闻到"
+    ],
+    "correct": 2,
+    "explanation": "\"看见\"的近义词是\"看到\"，都表示用眼睛看并发现。",
+    "difficulty": 3,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-703",
+    "type": "vocab",
+    "prompt": "\"草\"字的偏旁是什么？",
+    "options": [
+      "木字旁",
+      "三点水",
+      "草字头",
+      "竹字头"
+    ],
+    "correct": 2,
+    "explanation": "\"草\"字的偏旁是草字头（艹），表示与植物有关。",
+    "difficulty": 3,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-704",
+    "type": "vocab",
+    "prompt": "\"洗\"字的偏旁是什么？",
+    "options": [
+      "草字头",
+      "三点水",
+      "木字旁",
+      "口字旁"
+    ],
+    "correct": 1,
+    "explanation": "\"洗\"字的偏旁是三点水（氵），表示与水有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-705",
+    "type": "vocab",
+    "prompt": "\"树\"字共有多少画？",
+    "options": [
+      "14画",
+      "15画",
+      "16画",
+      "17画"
+    ],
+    "correct": 2,
+    "explanation": "\"树\"字共有16画，是一个笔画较多的字。",
+    "difficulty": 3,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-706",
+    "type": "vocab",
+    "prompt": "\"明\"字的笔画数是多少？",
+    "options": [
+      "6画",
+      "7画",
+      "8画",
+      "9画"
+    ],
+    "correct": 2,
+    "explanation": "\"明\"字由\"日\"和\"月\"组成，共8画。",
+    "difficulty": 3,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-707",
+    "type": "vocab",
+    "prompt": "\"晴\"字的偏旁是什么？",
+    "options": [
+      "三点水",
+      "日字旁",
+      "月字旁",
+      "木字旁"
+    ],
+    "correct": 1,
+    "explanation": "\"晴\"字的偏旁是日字旁，天晴与太阳（日）有关。",
+    "difficulty": 3,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-708",
+    "type": "vocab",
+    "prompt": "\"跑\"字的偏旁是什么？",
+    "options": [
+      "足字旁",
+      "手字旁",
+      "三点水",
+      "走字旁"
+    ],
+    "correct": 0,
+    "explanation": "\"跑\"字的偏旁是足字旁（足），表示与脚和行走有关。",
+    "difficulty": 3,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-709",
+    "type": "vocab",
+    "prompt": "\"请\"字的声调读什么？",
+    "options": [
+      "qīng（第一声）",
+      "qíng（第二声）",
+      "qǐng（第三声）",
+      "qìng（第四声）"
+    ],
+    "correct": 2,
+    "explanation": "\"请\"字读qǐng，是第三声（上声）。",
+    "difficulty": 3,
+    "tags": [
+      "拼音声调"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-710",
+    "type": "vocab",
+    "prompt": "\"朋\"字的声调读什么？",
+    "options": [
+      "pēng（第一声）",
+      "péng（第二声）",
+      "pěng（第三声）",
+      "pèng（第四声）"
+    ],
+    "correct": 1,
+    "explanation": "\"朋\"字读péng，是第二声（阳平），朋友的朋。",
+    "difficulty": 3,
+    "tags": [
+      "拼音声调"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-711",
+    "type": "vocab",
+    "prompt": "\"爱好\"的近义词是什么？",
+    "options": [
+      "讨厌",
+      "兴趣",
+      "害怕",
+      "难过"
+    ],
+    "correct": 1,
+    "explanation": "\"爱好\"的近义词是\"兴趣\"，都表示对某事感兴趣。",
+    "difficulty": 3,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-712",
+    "type": "vocab",
+    "prompt": "\"聪明\"的反义词是什么？",
+    "options": [
+      "勇敢",
+      "笨拙",
+      "懒惰",
+      "胆小"
+    ],
+    "correct": 1,
+    "explanation": "\"聪明\"的反义词是\"笨拙\"，聪明和笨拙意思相反。",
+    "difficulty": 3,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-713",
+    "type": "vocab",
+    "prompt": "一（___）草，括号里应填什么量词？",
+    "options": [
+      "棵",
+      "朵",
+      "条",
+      "张"
+    ],
+    "correct": 0,
+    "explanation": "草的量词可以用\"棵\"，一棵草表示一株草。",
+    "difficulty": 3,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-714",
+    "type": "vocab",
+    "prompt": "一（___）云，括号里应填什么量词？",
+    "options": [
+      "个",
+      "朵",
+      "条",
+      "块"
+    ],
+    "correct": 1,
+    "explanation": "云的量词是\"朵\"，所以说\"一朵云\"。",
+    "difficulty": 3,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-715",
+    "type": "vocab",
+    "prompt": "一（___）风，括号里应填什么量词？",
+    "options": [
+      "个",
+      "朵",
+      "阵",
+      "条"
+    ],
+    "correct": 2,
+    "explanation": "风的量词是\"阵\"，所以说\"一阵风\"。",
+    "difficulty": 3,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-716",
+    "type": "vocab",
+    "prompt": "\"美\"字由哪两个部分组成？",
+    "options": [
+      "羊+大",
+      "羊+人",
+      "美+大",
+      "鱼+羊"
+    ],
+    "correct": 0,
+    "explanation": "\"美\"字由\"羊\"和\"大\"组成，古代认为羊大则美。",
+    "difficulty": 4,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-717",
+    "type": "vocab",
+    "prompt": "\"男\"字由哪两个部分组成？",
+    "options": [
+      "力+田",
+      "田+力",
+      "男+女",
+      "人+力"
+    ],
+    "correct": 1,
+    "explanation": "\"男\"字由\"田\"和\"力\"组成，表示在田间劳动的人。",
+    "difficulty": 4,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-718",
+    "type": "vocab",
+    "prompt": "\"国\"字的笔画数是多少？",
+    "options": [
+      "6画",
+      "7画",
+      "8画",
+      "9画"
+    ],
+    "correct": 2,
+    "explanation": "\"国\"字共有8画，是我们国家的国。",
+    "difficulty": 4,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-719",
+    "type": "vocab",
+    "prompt": "\"疆\"字的笔画数是多少？",
+    "options": [
+      "23画",
+      "24画",
+      "25画",
+      "26画"
+    ],
+    "correct": 1,
+    "explanation": "\"疆\"字共有24画，是笔画最多的常用汉字之一。",
+    "difficulty": 4,
+    "tags": [
+      "笔画数"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-720",
+    "type": "vocab",
+    "prompt": "\"爸爸\"的\"爸\"字读第几声，而\"爷爷\"的\"爷\"字读第几声？",
+    "options": [
+      "爸第四声，爷第二声",
+      "爸第三声，爷第一声",
+      "爸第四声，爷第三声",
+      "爸第二声，爷第四声"
+    ],
+    "correct": 0,
+    "explanation": "\"爸\"读bà（第四声），\"爷\"读yé（第二声）。",
+    "difficulty": 4,
+    "tags": [
+      "拼音声调"
+    ],
+    "source": "curriculum"
   }
 ]

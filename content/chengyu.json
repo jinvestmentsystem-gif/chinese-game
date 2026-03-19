@@ -2998,5 +2998,605 @@
     "example": "文天祥在敌人面前从容就义，展现了浩然正气。",
     "era": "宋朝",
     "chapter": 4
+  },
+  {
+    "id": "cy-301",
+    "chengyu": "一字千金",
+    "pinyin": "yī zì qiān jīn",
+    "meaning": "一个字价值千金，形容文章或文字极有价值",
+    "origin": "战国时期，吕不韦编写《吕氏春秋》，悬赏能改动一字者千金",
+    "example": "他的题词一字千金，令人叹服。",
+    "era": "先秦",
+    "chapter": 1
+  },
+  {
+    "id": "cy-302",
+    "chengyu": "大义灭亲",
+    "pinyin": "dà yì miè qīn",
+    "meaning": "为了维护正义，不顾及亲属私情",
+    "origin": "春秋时期，卫国石碏大义灭亲，杀死作乱的儿子石厚",
+    "example": "他大义灭亲，举报了违法的兄弟。",
+    "era": "先秦",
+    "chapter": 1
+  },
+  {
+    "id": "cy-303",
+    "chengyu": "洗耳恭听",
+    "pinyin": "xǐ ěr gōng tīng",
+    "meaning": "形容专心恭敬地聆听",
+    "origin": "传说许由听说尧要让位给他，嫌这话污了耳朵，去河边洗耳",
+    "example": "请您讲解，我们洗耳恭听。",
+    "era": "先秦",
+    "chapter": 1
+  },
+  {
+    "id": "cy-304",
+    "chengyu": "半信半疑",
+    "pinyin": "bàn xìn bàn yí",
+    "meaning": "有些相信，又有些怀疑，态度不明确",
+    "origin": "源自先秦时期对事物判断犹豫不定的描述",
+    "example": "听到这个消息，他半信半疑，不知该如何是好。",
+    "era": "先秦",
+    "chapter": 1
+  },
+  {
+    "id": "cy-305",
+    "chengyu": "众叛亲离",
+    "pinyin": "zhòng pàn qīn lí",
+    "meaning": "众人反对，亲近的人也离开，形容十分孤立",
+    "origin": "春秋时期卫国君主暴政，导致众叛亲离",
+    "example": "他失去诚信后，众叛亲离，无人相助。",
+    "era": "先秦",
+    "chapter": 1
+  },
+  {
+    "id": "cy-306",
+    "chengyu": "正本清源",
+    "pinyin": "zhèng běn qīng yuán",
+    "meaning": "从根本上整顿，从源头上加以清理",
+    "origin": "先秦典籍中强调治理要从根本抓起",
+    "example": "解决问题要正本清源，不能只治标不治本。",
+    "era": "先秦",
+    "chapter": 1
+  },
+  {
+    "id": "cy-307",
+    "chengyu": "不学无术",
+    "pinyin": "bù xué wú shù",
+    "meaning": "没有学问，没有本领",
+    "origin": "《汉书》记载霍光不学无术，指缺乏学识",
+    "example": "他不学无术，遇到难题便束手无策。",
+    "era": "先秦",
+    "chapter": 1
+  },
+  {
+    "id": "cy-308",
+    "chengyu": "名不副实",
+    "pinyin": "míng bù fù shí",
+    "meaning": "名称或名声与实际情况不符",
+    "origin": "先秦诸子强调名实相符的重要性",
+    "example": "这家餐厅名不副实，口碑好但菜品一般。",
+    "era": "先秦",
+    "chapter": 1
+  },
+  {
+    "id": "cy-309",
+    "chengyu": "沉默寡言",
+    "pinyin": "chén mò guǎ yán",
+    "meaning": "不爱说话，很少开口",
+    "origin": "源自先秦对内敛性格之人的描述",
+    "example": "他性格沉默寡言，但做事却十分认真。",
+    "era": "先秦",
+    "chapter": 1
+  },
+  {
+    "id": "cy-310",
+    "chengyu": "患得患失",
+    "pinyin": "huàn dé huàn shī",
+    "meaning": "对于个人的得失过分计较",
+    "origin": "《论语》中孔子描述那些患得患失、无所不为之人",
+    "example": "做事要果断，不能患得患失，否则一事无成。",
+    "era": "先秦",
+    "chapter": 1
+  },
+  {
+    "id": "cy-311",
+    "chengyu": "痛定思痛",
+    "pinyin": "tòng dìng sī tòng",
+    "meaning": "悲痛平静后再回想痛苦经历，形容深刻反思",
+    "origin": "源自先秦对于反思过往苦难的思想",
+    "example": "痛定思痛，他终于明白了失败的原因。",
+    "era": "先秦",
+    "chapter": 1
+  },
+  {
+    "id": "cy-312",
+    "chengyu": "兼听则明",
+    "pinyin": "jiān tīng zé míng",
+    "meaning": "广泛听取各方意见，才能明辨是非",
+    "origin": "魏征向唐太宗进谏时引用此语，但思想源于先秦",
+    "example": "领导者要兼听则明，不能偏信一面之词。",
+    "era": "先秦",
+    "chapter": 1
+  },
+  {
+    "id": "cy-313",
+    "chengyu": "高瞻远瞩",
+    "pinyin": "gāo zhān yuǎn zhǔ",
+    "meaning": "站得高，看得远，形容眼光远大",
+    "origin": "先秦兵法中强调将帅需具备高远的战略眼光",
+    "example": "他高瞻远瞩，早早布局，终于取得成功。",
+    "era": "先秦",
+    "chapter": 1
+  },
+  {
+    "id": "cy-314",
+    "chengyu": "言行一致",
+    "pinyin": "yán xíng yī zhì",
+    "meaning": "说的和做的完全一样，表里如一",
+    "origin": "儒家思想强调君子言行须一致",
+    "example": "他言行一致，说到做到，深受大家信赖。",
+    "era": "先秦",
+    "chapter": 1
+  },
+  {
+    "id": "cy-315",
+    "chengyu": "道不同不相为谋",
+    "pinyin": "dào bù tóng bù xiāng wéi móu",
+    "meaning": "志向不同的人无法共同谋事",
+    "origin": "《论语》：道不同，不相为谋",
+    "example": "两人理念相左，道不同不相为谋，只好分道扬镳。",
+    "era": "先秦",
+    "chapter": 1
+  },
+  {
+    "id": "cy-316",
+    "chengyu": "萧规曹随",
+    "pinyin": "xiāo guī cáo suí",
+    "meaning": "比喻后人照样遵循前人制定的规章制度",
+    "origin": "汉初曹参继萧何为相，一切遵循萧何旧制",
+    "example": "新官上任，萧规曹随，维持原有的管理制度。",
+    "era": "汉朝",
+    "chapter": 2
+  },
+  {
+    "id": "cy-317",
+    "chengyu": "解甲归田",
+    "pinyin": "jiě jiǎ guī tián",
+    "meaning": "脱下战甲，回乡务农，指军人退役还乡",
+    "origin": "汉代士兵征战结束后解甲归田的历史现象",
+    "example": "战争结束后，将士们解甲归田，重建家园。",
+    "era": "汉朝",
+    "chapter": 2
+  },
+  {
+    "id": "cy-318",
+    "chengyu": "枕戈待旦",
+    "pinyin": "zhěn gē dài dàn",
+    "meaning": "枕着兵器等待天亮，形容时刻准备战斗",
+    "origin": "汉代边疆将领枕戈待旦保卫疆土的精神",
+    "example": "边防战士枕戈待旦，守护着祖国的安全。",
+    "era": "汉朝",
+    "chapter": 2
+  },
+  {
+    "id": "cy-319",
+    "chengyu": "越俎代庖",
+    "pinyin": "yuè zǔ dài páo",
+    "meaning": "比喻超越自己职责范围去做别人的事",
+    "origin": "《庄子》中庖丁善于解牛，厨师才是主厨，祭司不能代替",
+    "example": "你越俎代庖，干涉了不属于你负责的事务。",
+    "era": "汉朝",
+    "chapter": 2
+  },
+  {
+    "id": "cy-320",
+    "chengyu": "身先士卒",
+    "pinyin": "shēn xiān shì zú",
+    "meaning": "亲自带头，走在士兵前面，形容以身作则",
+    "origin": "汉代名将率兵打仗时身先士卒、冲锋在前",
+    "example": "队长身先士卒，带领大家完成了艰难任务。",
+    "era": "汉朝",
+    "chapter": 2
+  },
+  {
+    "id": "cy-321",
+    "chengyu": "文韬武略",
+    "pinyin": "wén tāo wǔ lüè",
+    "meaning": "文有谋略，武有才能，形容人才能出众",
+    "origin": "汉代对文武兼备的人才的称赞",
+    "example": "他文韬武略，既能治国又能领兵。",
+    "era": "汉朝",
+    "chapter": 2
+  },
+  {
+    "id": "cy-322",
+    "chengyu": "大材小用",
+    "pinyin": "dà cái xiǎo yòng",
+    "meaning": "把有大才能的人用在不重要的地方",
+    "origin": "汉代辛弃疾感叹人才未能得到充分施展",
+    "example": "让他做这种小事，实在是大材小用。",
+    "era": "汉朝",
+    "chapter": 2
+  },
+  {
+    "id": "cy-323",
+    "chengyu": "声东击西",
+    "pinyin": "shēng dōng jī xī",
+    "meaning": "声称攻打东方，实际攻打西方，形容用兵的巧妙",
+    "origin": "汉代兵法中常见的迷惑敌人的战术",
+    "example": "将军声东击西，成功迷惑了敌军。",
+    "era": "汉朝",
+    "chapter": 2
+  },
+  {
+    "id": "cy-324",
+    "chengyu": "以逸待劳",
+    "pinyin": "yǐ yì dài láo",
+    "meaning": "自己休整养精蓄锐，等待疲惫的敌人",
+    "origin": "《孙子兵法》中的战略思想，汉代广泛运用",
+    "example": "以逸待劳是明智之举，不必急于出击。",
+    "era": "汉朝",
+    "chapter": 2
+  },
+  {
+    "id": "cy-325",
+    "chengyu": "祸从口出",
+    "pinyin": "huò cóng kǒu chū",
+    "meaning": "灾祸往往是由说话不慎引起的",
+    "origin": "汉代因言获罪的历史教训",
+    "example": "说话要谨慎，祸从口出，切勿随意评论他人。",
+    "era": "汉朝",
+    "chapter": 2
+  },
+  {
+    "id": "cy-326",
+    "chengyu": "力不从心",
+    "pinyin": "lì bù cóng xīn",
+    "meaning": "心里想做但力量不够",
+    "origin": "汉代班超晚年感叹力不从心，想回归故土",
+    "example": "年纪大了，许多事情力不从心，需要年轻人帮忙。",
+    "era": "汉朝",
+    "chapter": 2
+  },
+  {
+    "id": "cy-327",
+    "chengyu": "老当益壮",
+    "pinyin": "lǎo dāng yì zhuàng",
+    "meaning": "年纪虽大，但志气、精力更加旺盛",
+    "origin": "汉代马援年老仍请缨出征，豪言老当益壮",
+    "example": "他七十岁仍坚持工作，真是老当益壮。",
+    "era": "汉朝",
+    "chapter": 2
+  },
+  {
+    "id": "cy-328",
+    "chengyu": "才高八斗",
+    "pinyin": "cái gāo bā dǒu",
+    "meaning": "形容人才华极高",
+    "origin": "南朝谢灵运称赞曹植才高八斗，天下共分十斗",
+    "example": "他才高八斗，出口成章，令人叹服。",
+    "era": "汉朝",
+    "chapter": 2
+  },
+  {
+    "id": "cy-329",
+    "chengyu": "刨根问底",
+    "pinyin": "páo gēn wèn dǐ",
+    "meaning": "追究事物的根源，比喻寻根究底",
+    "origin": "汉代学者治学严谨，追根问底的学风",
+    "example": "他凡事喜欢刨根问底，终于找到了问题的症结。",
+    "era": "汉朝",
+    "chapter": 2
+  },
+  {
+    "id": "cy-330",
+    "chengyu": "天下第一",
+    "pinyin": "tiān xià dì yī",
+    "meaning": "在天下所有人或事物中排名第一",
+    "origin": "汉代对英雄豪杰的最高赞誉",
+    "example": "他的书法被誉为天下第一，无人能及。",
+    "era": "汉朝",
+    "chapter": 2
+  },
+  {
+    "id": "cy-331",
+    "chengyu": "旗开得胜",
+    "pinyin": "qí kāi dé shèng",
+    "meaning": "战旗一展开就得胜，形容一开始就取得成功",
+    "origin": "唐代军队出征，战旗展开即告捷的佳话",
+    "example": "新项目旗开得胜，第一个月就完成了指标。",
+    "era": "唐朝",
+    "chapter": 3
+  },
+  {
+    "id": "cy-332",
+    "chengyu": "积少成多",
+    "pinyin": "jī shǎo chéng duō",
+    "meaning": "积累少量的东西，久而久之就变成很多",
+    "origin": "唐代诗人白居易劝人勤于积累的思想",
+    "example": "每天多读一点书，积少成多，知识就会越来越丰富。",
+    "era": "唐朝",
+    "chapter": 3
+  },
+  {
+    "id": "cy-333",
+    "chengyu": "苦中作乐",
+    "pinyin": "kǔ zhōng zuò lè",
+    "meaning": "在艰苦的情况下寻找乐趣",
+    "origin": "唐代诗人在困苦流放中仍保持乐观的精神",
+    "example": "虽然条件艰苦，他们依然苦中作乐，保持积极心态。",
+    "era": "唐朝",
+    "chapter": 3
+  },
+  {
+    "id": "cy-334",
+    "chengyu": "当机立断",
+    "pinyin": "dāng jī lì duàn",
+    "meaning": "抓住时机，立刻作出决断",
+    "origin": "唐代名将用兵如神，当机立断扭转战局",
+    "example": "面对危机，他当机立断，做出了正确决策。",
+    "era": "唐朝",
+    "chapter": 3
+  },
+  {
+    "id": "cy-335",
+    "chengyu": "风声鹤唳",
+    "pinyin": "fēng shēng hè lì",
+    "meaning": "风声和鹤叫声都让人害怕，形容极度恐惧",
+    "origin": "淝水之战中前秦溃败，士兵风声鹤唳草木皆兵",
+    "example": "敌军溃败后，风声鹤唳，人心惶惶。",
+    "era": "唐朝",
+    "chapter": 3
+  },
+  {
+    "id": "cy-336",
+    "chengyu": "金石为开",
+    "pinyin": "jīn shí wéi kāi",
+    "meaning": "形容意志坚定，能感动一切",
+    "origin": "唐代典故：精诚所至，金石为开",
+    "example": "只要精诚所至，金石为开，没有做不成的事。",
+    "era": "唐朝",
+    "chapter": 3
+  },
+  {
+    "id": "cy-337",
+    "chengyu": "以古为鉴",
+    "pinyin": "yǐ gǔ wéi jiàn",
+    "meaning": "以历史为镜子，从中吸取经验教训",
+    "origin": "唐太宗李世民名言：以史为镜，可以知兴替",
+    "example": "领导者要以古为鉴，从历史中学习治国之道。",
+    "era": "唐朝",
+    "chapter": 3
+  },
+  {
+    "id": "cy-338",
+    "chengyu": "博闻强识",
+    "pinyin": "bó wén qiáng zhì",
+    "meaning": "见识广博，记忆力强",
+    "origin": "唐代科举制度推崇博闻强识的学者",
+    "example": "他博闻强识，上知天文下知地理。",
+    "era": "唐朝",
+    "chapter": 3
+  },
+  {
+    "id": "cy-339",
+    "chengyu": "言简意赅",
+    "pinyin": "yán jiǎn yì gāi",
+    "meaning": "话语简短，意思完整",
+    "origin": "唐代文章主张言简意赅，反对冗长繁复",
+    "example": "他说话言简意赅，几句话就把问题说清楚了。",
+    "era": "唐朝",
+    "chapter": 3
+  },
+  {
+    "id": "cy-340",
+    "chengyu": "恩将仇报",
+    "pinyin": "ēn jiāng chóu bào",
+    "meaning": "把别人对自己的恩惠当作仇恨来报复",
+    "origin": "唐代文学作品中对忘恩负义之人的谴责",
+    "example": "他帮了那人许多，没想到对方恩将仇报。",
+    "era": "唐朝",
+    "chapter": 3
+  },
+  {
+    "id": "cy-341",
+    "chengyu": "苦口婆心",
+    "pinyin": "kǔ kǒu pó xīn",
+    "meaning": "不厌其烦地恳切劝说",
+    "origin": "唐代佛教典籍中描述高僧苦口婆心教化众生",
+    "example": "老师苦口婆心地劝说，终于让他改正了错误。",
+    "era": "唐朝",
+    "chapter": 3
+  },
+  {
+    "id": "cy-342",
+    "chengyu": "别出心裁",
+    "pinyin": "bié chū xīn cái",
+    "meaning": "想出与众不同的新办法",
+    "origin": "唐代文学创作中标新立异的创作精神",
+    "example": "他别出心裁，设计了一套全新的方案。",
+    "era": "唐朝",
+    "chapter": 3
+  },
+  {
+    "id": "cy-343",
+    "chengyu": "名垂千古",
+    "pinyin": "míng chuí qiān gǔ",
+    "meaning": "美名流传千年，永远被人们记住",
+    "origin": "唐代诗人杜甫等人以诗文名垂千古",
+    "example": "他为国为民，英勇牺牲，名垂千古。",
+    "era": "唐朝",
+    "chapter": 3
+  },
+  {
+    "id": "cy-344",
+    "chengyu": "笔走龙蛇",
+    "pinyin": "bǐ zǒu lóng shé",
+    "meaning": "形容书法笔势雄健，生动有力",
+    "origin": "唐代书法家张旭、颜真卿等人笔走龙蛇的书法成就",
+    "example": "他挥毫泼墨，笔走龙蛇，令观者叹为观止。",
+    "era": "唐朝",
+    "chapter": 3
+  },
+  {
+    "id": "cy-345",
+    "chengyu": "胸有成竹",
+    "pinyin": "xiōng yǒu chéng zhú",
+    "meaning": "比喻做事之前已有完整的计划和把握",
+    "origin": "唐宋文人画竹前胸有成竹再下笔的典故",
+    "example": "他胸有成竹，从容不迫地完成了任务。",
+    "era": "唐朝",
+    "chapter": 3
+  },
+  {
+    "id": "cy-346",
+    "chengyu": "实事求是",
+    "pinyin": "shí shì qiú shì",
+    "meaning": "从实际情况出发，客观地对待事物",
+    "origin": "宋代学者倡导实事求是的治学态度",
+    "example": "做学问要实事求是，不能主观臆断。",
+    "era": "宋朝",
+    "chapter": 4
+  },
+  {
+    "id": "cy-347",
+    "chengyu": "豁然开朗",
+    "pinyin": "huò rán kāi lǎng",
+    "meaning": "形容一下子开阔明朗，或思想上突然领悟",
+    "origin": "陶渊明《桃花源记》：豁然开朗",
+    "example": "经老师一点拨，他豁然开朗，明白了题目的解法。",
+    "era": "宋朝",
+    "chapter": 4
+  },
+  {
+    "id": "cy-348",
+    "chengyu": "返璞归真",
+    "pinyin": "fǎn pú guī zhēn",
+    "meaning": "去掉外在装饰，恢复原始朴素的本性",
+    "origin": "宋代理学家强调返璞归真的修身之道",
+    "example": "他厌倦了城市喧嚣，渴望返璞归真，回归自然。",
+    "era": "宋朝",
+    "chapter": 4
+  },
+  {
+    "id": "cy-349",
+    "chengyu": "见义勇为",
+    "pinyin": "jiàn yì yǒng wéi",
+    "meaning": "看到正义的事，勇敢地去做",
+    "origin": "宋代儒家强调见义勇为的道德责任",
+    "example": "他见义勇为，勇敢地制止了街头的不法行为。",
+    "era": "宋朝",
+    "chapter": 4
+  },
+  {
+    "id": "cy-350",
+    "chengyu": "刚柔并济",
+    "pinyin": "gāng róu bìng jì",
+    "meaning": "刚强与柔和兼而有之，互相补充",
+    "origin": "宋代治国理论强调刚柔并济的平衡之道",
+    "example": "管理团队要刚柔并济，既要严格又要关怀。",
+    "era": "宋朝",
+    "chapter": 4
+  },
+  {
+    "id": "cy-351",
+    "chengyu": "不偏不倚",
+    "pinyin": "bù piān bù yǐ",
+    "meaning": "不偏向任何一方，形容公平公正",
+    "origin": "宋代儒家中庸之道的体现",
+    "example": "法官不偏不倚，依法作出了公正的判决。",
+    "era": "宋朝",
+    "chapter": 4
+  },
+  {
+    "id": "cy-352",
+    "chengyu": "世外桃源",
+    "pinyin": "shì wài táo yuán",
+    "meaning": "比喻环境幽雅、与世隔绝的美好地方",
+    "origin": "陶渊明《桃花源记》描述的理想境地",
+    "example": "这个小山村宛如世外桃源，宁静美丽。",
+    "era": "宋朝",
+    "chapter": 4
+  },
+  {
+    "id": "cy-353",
+    "chengyu": "悬壶济世",
+    "pinyin": "xuán hú jì shì",
+    "meaning": "行医救世，为人治病",
+    "origin": "宋代医学发达，医者悬壶济世的精神广为传颂",
+    "example": "他立志悬壶济世，成为一名救死扶伤的医生。",
+    "era": "宋朝",
+    "chapter": 4
+  },
+  {
+    "id": "cy-354",
+    "chengyu": "一劳永逸",
+    "pinyin": "yī láo yǒng yì",
+    "meaning": "辛苦一次，从此永久不再劳苦",
+    "origin": "宋代工程建设中追求一劳永逸效果的思想",
+    "example": "修好这条水渠，可以一劳永逸地解决灌溉问题。",
+    "era": "宋朝",
+    "chapter": 4
+  },
+  {
+    "id": "cy-355",
+    "chengyu": "春华秋实",
+    "pinyin": "chūn huá qiū shí",
+    "meaning": "春天开花，秋天结果，比喻努力终有收获",
+    "origin": "宋代文学中对农耕规律和人生哲理的感悟",
+    "example": "多年苦读，终于春华秋实，取得了优异成绩。",
+    "era": "宋朝",
+    "chapter": 4
+  },
+  {
+    "id": "cy-356",
+    "chengyu": "锦囊妙计",
+    "pinyin": "jǐn náng miào jì",
+    "meaning": "比喻解决问题的好办法",
+    "origin": "宋元话本中军师授予锦囊妙计的故事",
+    "example": "关键时刻，他拿出了锦囊妙计，化解了危机。",
+    "era": "宋朝",
+    "chapter": 4
+  },
+  {
+    "id": "cy-357",
+    "chengyu": "逆水行舟",
+    "pinyin": "nì shuǐ xíng zhōu",
+    "meaning": "逆着水流行船，比喻做事需要不断努力",
+    "origin": "宋代劝学诗：逆水行舟，不进则退",
+    "example": "学习如逆水行舟，不进则退，要持续努力。",
+    "era": "宋朝",
+    "chapter": 4
+  },
+  {
+    "id": "cy-358",
+    "chengyu": "有志者事竟成",
+    "pinyin": "yǒu zhì zhě shì jìng chéng",
+    "meaning": "有志向的人终究能成就大事",
+    "origin": "《后汉书》：有志者，事竟成，宋代广泛引用",
+    "example": "有志者事竟成，只要坚持，梦想终会实现。",
+    "era": "宋朝",
+    "chapter": 4
+  },
+  {
+    "id": "cy-359",
+    "chengyu": "德才兼备",
+    "pinyin": "dé cái jiān bèi",
+    "meaning": "品德和才能两方面都好",
+    "origin": "宋代司马光《资治通鉴》中对人才选拔的标准",
+    "example": "他德才兼备，是最合适的人选。",
+    "era": "宋朝",
+    "chapter": 4
+  },
+  {
+    "id": "cy-360",
+    "chengyu": "推陈出新",
+    "pinyin": "tuī chén chū xīn",
+    "meaning": "去掉旧的，创造新的，指在继承基础上创新",
+    "origin": "宋代文艺创作中强调在传统基础上推陈出新",
+    "example": "科技发展需要推陈出新，不断突破旧有框架。",
+    "era": "宋朝",
+    "chapter": 4
   }
 ]

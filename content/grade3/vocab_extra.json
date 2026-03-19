@@ -4786,5 +4786,1265 @@
       "量词"
     ],
     "source": "curriculum"
+  },
+  {
+    "id": "v3-501",
+    "type": "vocab",
+    "prompt": "「高兴」的近义词是什么？",
+    "options": [
+      "难过",
+      "快乐",
+      "生气",
+      "害怕"
+    ],
+    "correct": 1,
+    "explanation": "「高兴」和「快乐」都表示心情愉快，是近义词。",
+    "difficulty": 1,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-502",
+    "type": "vocab",
+    "prompt": "「黑暗」的反义词是什么？",
+    "options": [
+      "灰色",
+      "漆黑",
+      "光明",
+      "暗淡"
+    ],
+    "correct": 2,
+    "explanation": "「黑暗」的反义词是「光明」，一暗一明，意思相反。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-503",
+    "type": "vocab",
+    "prompt": "「一（　）鱼」，括号里应填什么量词？",
+    "options": [
+      "头",
+      "条",
+      "只",
+      "棵"
+    ],
+    "correct": 1,
+    "explanation": "鱼是细长形动物，习惯用量词「条」，如「一条鱼」。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-504",
+    "type": "vocab",
+    "prompt": "「清」字的偏旁是什么？",
+    "options": [
+      "氵",
+      "木",
+      "土",
+      "日"
+    ],
+    "correct": 0,
+    "explanation": "「清」字的偏旁是三点水「氵」，表示与水有关。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-505",
+    "type": "vocab",
+    "prompt": "「大声（　）唱」，括号里应填什么词？",
+    "options": [
+      "歌",
+      "演",
+      "说",
+      "叫"
+    ],
+    "correct": 0,
+    "explanation": "「大声歌唱」是固定搭配，表示放声唱歌。",
+    "difficulty": 1,
+    "tags": [
+      "词语搭配"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-506",
+    "type": "vocab",
+    "prompt": "下列哪个字是「晴」的形近字？",
+    "options": [
+      "情",
+      "月",
+      "水",
+      "木"
+    ],
+    "correct": 0,
+    "explanation": "「晴」和「情」是形近字，结构相似，只有偏旁不同。",
+    "difficulty": 1,
+    "tags": [
+      "形近字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-507",
+    "type": "vocab",
+    "prompt": "「长」字在「长大」中读什么音？",
+    "options": [
+      "zhǎng",
+      "cháng",
+      "chàng",
+      "zhāng"
+    ],
+    "correct": 0,
+    "explanation": "「长大」中「长」读zhǎng，表示生长、增长的意思。",
+    "difficulty": 1,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-508",
+    "type": "vocab",
+    "prompt": "「勇敢」的反义词是什么？",
+    "options": [
+      "大胆",
+      "胆小",
+      "勇猛",
+      "坚强"
+    ],
+    "correct": 1,
+    "explanation": "「勇敢」的反义词是「胆小」，一个不怕，一个害怕。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-509",
+    "type": "vocab",
+    "prompt": "「一（　）花」，括号里应填什么量词？",
+    "options": [
+      "片",
+      "朵",
+      "条",
+      "棵"
+    ],
+    "correct": 1,
+    "explanation": "花用量词「朵」，如「一朵花」、「一朵玫瑰」。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-510",
+    "type": "vocab",
+    "prompt": "「冷」字的偏旁是什么？",
+    "options": [
+      "氵",
+      "冫",
+      "寸",
+      "大"
+    ],
+    "correct": 1,
+    "explanation": "「冷」字的偏旁是两点水「冫」，表示与寒冷有关。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-511",
+    "type": "vocab",
+    "prompt": "「伤心」的近义词是什么？",
+    "options": [
+      "开心",
+      "难过",
+      "生气",
+      "着急"
+    ],
+    "correct": 1,
+    "explanation": "「伤心」和「难过」都表示心情不好、悲伤，是近义词。",
+    "difficulty": 1,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-512",
+    "type": "vocab",
+    "prompt": "「开心」的反义词是什么？",
+    "options": [
+      "快乐",
+      "高兴",
+      "伤心",
+      "幸福"
+    ],
+    "correct": 2,
+    "explanation": "「开心」的反义词是「伤心」，心情愉快和心情悲痛相反。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-513",
+    "type": "vocab",
+    "prompt": "「一（　）树」，括号里应填什么量词？",
+    "options": [
+      "根",
+      "棵",
+      "片",
+      "株"
+    ],
+    "correct": 1,
+    "explanation": "树木用量词「棵」，如「一棵大树」、「一棵苹果树」。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-514",
+    "type": "vocab",
+    "prompt": "「语」字的偏旁是什么？",
+    "options": [
+      "讠",
+      "口",
+      "人",
+      "日"
+    ],
+    "correct": 0,
+    "explanation": "「语」字的偏旁是言字旁「讠」，表示与说话有关。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-515",
+    "type": "vocab",
+    "prompt": "「认真（　）习」，括号里应填什么词？",
+    "options": [
+      "学",
+      "玩",
+      "做",
+      "看"
+    ],
+    "correct": 0,
+    "explanation": "「认真学习」是固定搭配，表示用心地学习。",
+    "difficulty": 1,
+    "tags": [
+      "词语搭配"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-516",
+    "type": "vocab",
+    "prompt": "「己」和「已」是什么关系？",
+    "options": [
+      "同义词",
+      "反义词",
+      "形近字",
+      "多音字"
+    ],
+    "correct": 2,
+    "explanation": "「己」和「已」字形相近，容易混淆，是形近字。",
+    "difficulty": 1,
+    "tags": [
+      "形近字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-517",
+    "type": "vocab",
+    "prompt": "「好」字在「好学」中读什么音？",
+    "options": [
+      "hǎo",
+      "hào",
+      "háo",
+      "hāo"
+    ],
+    "correct": 1,
+    "explanation": "「好学」中「好」读hào，是喜好、爱好的意思。",
+    "difficulty": 1,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-518",
+    "type": "vocab",
+    "prompt": "「温暖」的近义词是什么？",
+    "options": [
+      "寒冷",
+      "凉爽",
+      "暖和",
+      "炎热"
+    ],
+    "correct": 2,
+    "explanation": "「温暖」和「暖和」都形容气候或感觉不冷，是近义词。",
+    "difficulty": 1,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-519",
+    "type": "vocab",
+    "prompt": "「快」的反义词是什么？",
+    "options": [
+      "静",
+      "停",
+      "慢",
+      "急"
+    ],
+    "correct": 2,
+    "explanation": "「快」的反义词是「慢」，速度快和速度慢相反。",
+    "difficulty": 1,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-520",
+    "type": "vocab",
+    "prompt": "「一（　）纸」，括号里应填什么量词？",
+    "options": [
+      "条",
+      "张",
+      "块",
+      "片"
+    ],
+    "correct": 1,
+    "explanation": "纸张用量词「张」，如「一张纸」、「一张白纸」。",
+    "difficulty": 1,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-521",
+    "type": "vocab",
+    "prompt": "「睛」字的偏旁是什么？",
+    "options": [
+      "目",
+      "日",
+      "月",
+      "木"
+    ],
+    "correct": 0,
+    "explanation": "「睛」字的偏旁是目字旁「目」，「眼睛」与眼睛有关，所以用目旁。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-522",
+    "type": "vocab",
+    "prompt": "「安静」的反义词是什么？",
+    "options": [
+      "寂静",
+      "平静",
+      "热闹",
+      "宁静"
+    ],
+    "correct": 2,
+    "explanation": "「安静」的反义词是「热闹」，安静是没有声音，热闹是声音嘈杂。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-523",
+    "type": "vocab",
+    "prompt": "「高兴地（　）笑」，括号里应填什么词？",
+    "options": [
+      "微",
+      "哭",
+      "叹",
+      "皱"
+    ],
+    "correct": 0,
+    "explanation": "「高兴地微笑」是合理搭配，微笑表示轻轻地、愉快地笑。",
+    "difficulty": 2,
+    "tags": [
+      "词语搭配"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-524",
+    "type": "vocab",
+    "prompt": "下列哪个字和「拨」是形近字？",
+    "options": [
+      "拔",
+      "打",
+      "找",
+      "挥"
+    ],
+    "correct": 0,
+    "explanation": "「拨」和「拔」字形相近，都是提手旁，右边部分相似，容易混淆。",
+    "difficulty": 2,
+    "tags": [
+      "形近字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-525",
+    "type": "vocab",
+    "prompt": "「中」字在「中间」和「射中」中的读音有什么区别？",
+    "options": [
+      "都读zhōng",
+      "都读zhòng",
+      "前者zhōng，后者zhòng",
+      "前者zhòng，后者zhōng"
+    ],
+    "correct": 2,
+    "explanation": "「中间」中「中」读zhōng（第一声），「射中」中「中」读zhòng（第四声）。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-526",
+    "type": "vocab",
+    "prompt": "「聪明」的近义词是什么？",
+    "options": [
+      "愚蠢",
+      "笨拙",
+      "聪慧",
+      "懒惰"
+    ],
+    "correct": 2,
+    "explanation": "「聪明」和「聪慧」意思相近，都形容智力好、反应快。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-527",
+    "type": "vocab",
+    "prompt": "「一（　）歌」，括号里应填什么量词？",
+    "options": [
+      "首",
+      "段",
+      "只",
+      "曲"
+    ],
+    "correct": 0,
+    "explanation": "歌曲用量词「首」，如「一首歌」、「一首儿歌」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-528",
+    "type": "vocab",
+    "prompt": "「喜欢」的近义词是什么？",
+    "options": [
+      "讨厌",
+      "憎恨",
+      "喜爱",
+      "害怕"
+    ],
+    "correct": 2,
+    "explanation": "「喜欢」和「喜爱」都表示对某事物有好感，是近义词。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-529",
+    "type": "vocab",
+    "prompt": "「懒」的反义词是什么？",
+    "options": [
+      "慢",
+      "睡",
+      "勤",
+      "玩"
+    ],
+    "correct": 2,
+    "explanation": "「懒」的反义词是「勤」，懒惰和勤劳意思相反。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-530",
+    "type": "vocab",
+    "prompt": "「秋」字的偏旁是什么？",
+    "options": [
+      "木",
+      "禾",
+      "火",
+      "水"
+    ],
+    "correct": 1,
+    "explanation": "「秋」字的偏旁是禾木旁「禾」，与庄稼、农业有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-531",
+    "type": "vocab",
+    "prompt": "「弯」的反义词是什么？",
+    "options": [
+      "曲",
+      "斜",
+      "直",
+      "圆"
+    ],
+    "correct": 2,
+    "explanation": "「弯」的反义词是「直」，弯曲和笔直意思相反。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-532",
+    "type": "vocab",
+    "prompt": "「下（　）决心」，括号里应填什么词？",
+    "options": [
+      "定",
+      "立",
+      "下",
+      "做"
+    ],
+    "correct": 1,
+    "explanation": "「立下决心」是固定搭配，表示下定决心要做某件事。",
+    "difficulty": 2,
+    "tags": [
+      "词语搭配"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-533",
+    "type": "vocab",
+    "prompt": "下列哪两个字是形近字？",
+    "options": [
+      "土和士",
+      "山和水",
+      "天和地",
+      "日和月"
+    ],
+    "correct": 0,
+    "explanation": "「土」和「士」字形非常相近，区别在于横的长短，容易混淆。",
+    "difficulty": 2,
+    "tags": [
+      "形近字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-534",
+    "type": "vocab",
+    "prompt": "「为」字在「因为」中读什么音？",
+    "options": [
+      "wéi",
+      "wèi",
+      "wě",
+      "wā"
+    ],
+    "correct": 0,
+    "explanation": "「因为」中「为」读wéi（第二声），在「为了」中也读wèi（第四声），需根据语境判断。",
+    "difficulty": 2,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-535",
+    "type": "vocab",
+    "prompt": "「一（　）书」，括号里应填什么量词？",
+    "options": [
+      "本",
+      "张",
+      "页",
+      "份"
+    ],
+    "correct": 0,
+    "explanation": "书本用量词「本」，如「一本书」、「一本故事书」。",
+    "difficulty": 2,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-536",
+    "type": "vocab",
+    "prompt": "「整洁」的近义词是什么？",
+    "options": [
+      "杂乱",
+      "混乱",
+      "干净",
+      "脏乱"
+    ],
+    "correct": 2,
+    "explanation": "「整洁」和「干净」都形容清洁、有条理，是近义词。",
+    "difficulty": 2,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-537",
+    "type": "vocab",
+    "prompt": "「松」的反义词是什么？",
+    "options": [
+      "软",
+      "轻",
+      "紧",
+      "开"
+    ],
+    "correct": 2,
+    "explanation": "「松」的反义词是「紧」，松开和紧绑意思相反。",
+    "difficulty": 2,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-538",
+    "type": "vocab",
+    "prompt": "「铜」字的偏旁是什么？",
+    "options": [
+      "钅",
+      "同",
+      "口",
+      "金"
+    ],
+    "correct": 0,
+    "explanation": "「铜」字的偏旁是金字旁「钅」，表示与金属有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-539",
+    "type": "vocab",
+    "prompt": "「努力（　）习」，括号里应填什么词？",
+    "options": [
+      "游",
+      "学",
+      "睡",
+      "玩"
+    ],
+    "correct": 1,
+    "explanation": "「努力学习」是固定搭配，表示认真刻苦地学习。",
+    "difficulty": 2,
+    "tags": [
+      "词语搭配"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-540",
+    "type": "vocab",
+    "prompt": "「戊」「戌」「戍」三个字的关系是？",
+    "options": [
+      "同义词",
+      "近义词",
+      "形近字",
+      "多音字"
+    ],
+    "correct": 2,
+    "explanation": "「戊」「戌」「戍」三字字形相近，是典型的形近字，需仔细区分。",
+    "difficulty": 2,
+    "tags": [
+      "形近字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-541",
+    "type": "vocab",
+    "prompt": "「觉」字在「睡觉」和「感觉」中读音有何不同？",
+    "options": [
+      "都读jiào",
+      "都读jué",
+      "前者jiào，后者jué",
+      "前者jué，后者jiào"
+    ],
+    "correct": 2,
+    "explanation": "「睡觉」中「觉」读jiào（第四声），「感觉」中「觉」读jué（第二声）。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-542",
+    "type": "vocab",
+    "prompt": "「保护」的近义词是什么？",
+    "options": [
+      "破坏",
+      "损害",
+      "爱护",
+      "伤害"
+    ],
+    "correct": 2,
+    "explanation": "「保护」和「爱护」都有维护、不让受到伤害的意思，是近义词。",
+    "difficulty": 3,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-543",
+    "type": "vocab",
+    "prompt": "「一（　）云」，括号里应填什么量词？",
+    "options": [
+      "个",
+      "片",
+      "粒",
+      "块"
+    ],
+    "correct": 1,
+    "explanation": "云用量词「片」，如「一片云」、「一片白云」。",
+    "difficulty": 3,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-544",
+    "type": "vocab",
+    "prompt": "「暖」字的偏旁是什么？",
+    "options": [
+      "火",
+      "日",
+      "氵",
+      "暖"
+    ],
+    "correct": 1,
+    "explanation": "「暖」字的偏旁是日字旁「日」，与阳光、温暖有关。",
+    "difficulty": 3,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-545",
+    "type": "vocab",
+    "prompt": "「悄悄地（　）走」，括号里应填什么词？",
+    "options": [
+      "大步",
+      "离",
+      "奔跑",
+      "喧嚣"
+    ],
+    "correct": 1,
+    "explanation": "「悄悄地离走」表示安静地、不引人注意地离开，是合理搭配。",
+    "difficulty": 3,
+    "tags": [
+      "词语搭配"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-546",
+    "type": "vocab",
+    "prompt": "「辩」和「辨」是什么关系？",
+    "options": [
+      "同义词",
+      "近义词",
+      "形近字",
+      "反义词"
+    ],
+    "correct": 2,
+    "explanation": "「辩」（辩论）和「辨」（辨别）字形相近，中间部分不同，是形近字。",
+    "difficulty": 3,
+    "tags": [
+      "形近字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-547",
+    "type": "vocab",
+    "prompt": "「难过」的近义词是什么？",
+    "options": [
+      "轻松",
+      "快活",
+      "痛苦",
+      "兴奋"
+    ],
+    "correct": 2,
+    "explanation": "「难过」和「痛苦」都形容心情不好、内心煎熬，是近义词。",
+    "difficulty": 3,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-548",
+    "type": "vocab",
+    "prompt": "「宽阔」的反义词是什么？",
+    "options": [
+      "开阔",
+      "广阔",
+      "辽阔",
+      "狭窄"
+    ],
+    "correct": 3,
+    "explanation": "「宽阔」的反义词是「狭窄」，宽和窄、阔和窄意思相反。",
+    "difficulty": 3,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-549",
+    "type": "vocab",
+    "prompt": "「胳」字的偏旁是什么？",
+    "options": [
+      "月",
+      "口",
+      "人",
+      "田"
+    ],
+    "correct": 0,
+    "explanation": "「胳」字的偏旁是月字旁「月」（肉旁），表示与身体部位有关。",
+    "difficulty": 3,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-550",
+    "type": "vocab",
+    "prompt": "「一（　）话」，括号里应填什么量词？",
+    "options": [
+      "首",
+      "句",
+      "篇",
+      "段"
+    ],
+    "correct": 1,
+    "explanation": "话语用量词「句」，如「一句话」、「说几句话」。",
+    "difficulty": 3,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-551",
+    "type": "vocab",
+    "prompt": "「数」字在「数学」和「数一数」中读音有什么不同？",
+    "options": [
+      "都读shù",
+      "都读shǔ",
+      "前者shù，后者shǔ",
+      "前者shǔ，后者shù"
+    ],
+    "correct": 2,
+    "explanation": "「数学」中「数」读shù（第四声，名词），「数一数」中「数」读shǔ（第三声，动词）。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-552",
+    "type": "vocab",
+    "prompt": "「担心」的近义词是什么？",
+    "options": [
+      "放心",
+      "安心",
+      "忧虑",
+      "开心"
+    ],
+    "correct": 2,
+    "explanation": "「担心」和「忧虑」都表示对某事感到不安、害怕，是近义词。",
+    "difficulty": 3,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-553",
+    "type": "vocab",
+    "prompt": "「粗」的反义词是什么？",
+    "options": [
+      "大",
+      "宽",
+      "细",
+      "矮"
+    ],
+    "correct": 2,
+    "explanation": "「粗」的反义词是「细」，粗细是相对的，意思相反。",
+    "difficulty": 3,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-554",
+    "type": "vocab",
+    "prompt": "「精心（　）育」，括号里应填什么词？",
+    "options": [
+      "教",
+      "培",
+      "管",
+      "看"
+    ],
+    "correct": 1,
+    "explanation": "「精心培育」是固定搭配，表示认真细致地培养、培植。",
+    "difficulty": 3,
+    "tags": [
+      "词语搭配"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-555",
+    "type": "vocab",
+    "prompt": "下列哪对是形近字？",
+    "options": [
+      "己和已",
+      "山和水",
+      "大和小",
+      "日和月"
+    ],
+    "correct": 0,
+    "explanation": "「己」（自己）和「已」（已经）字形非常相近，只差一笔，是形近字。",
+    "difficulty": 3,
+    "tags": [
+      "形近字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-556",
+    "type": "vocab",
+    "prompt": "「一（　）粮食」，括号里应填什么量词？",
+    "options": [
+      "块",
+      "滴",
+      "粒",
+      "片"
+    ],
+    "correct": 2,
+    "explanation": "粮食（米、豆等）可用量词「粒」，表示小而颗粒状的东西。",
+    "difficulty": 3,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-557",
+    "type": "vocab",
+    "prompt": "「露」字在「露天」和「露出」中读音如何？",
+    "options": [
+      "都读lù",
+      "都读lòu",
+      "前者lù，后者lòu",
+      "前者lòu，后者lù"
+    ],
+    "correct": 0,
+    "explanation": "「露天」和「露出」中，「露」一般都读lù，在方言中有时读lòu，标准读音为lù。",
+    "difficulty": 3,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-558",
+    "type": "vocab",
+    "prompt": "「急忙」的近义词是什么？",
+    "options": [
+      "缓慢",
+      "慢慢",
+      "赶紧",
+      "悠闲"
+    ],
+    "correct": 2,
+    "explanation": "「急忙」和「赶紧」都表示行动迅速、不拖延，是近义词。",
+    "difficulty": 3,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-559",
+    "type": "vocab",
+    "prompt": "「弱」的反义词是什么？",
+    "options": [
+      "柔",
+      "软",
+      "低",
+      "强"
+    ],
+    "correct": 3,
+    "explanation": "「弱」的反义词是「强」，强壮和虚弱意思相反。",
+    "difficulty": 3,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-560",
+    "type": "vocab",
+    "prompt": "「疲惫不堪」中「疲」字的偏旁是什么？",
+    "options": [
+      "疒",
+      "皮",
+      "力",
+      "人"
+    ],
+    "correct": 0,
+    "explanation": "「疲」字的偏旁是病字框「疒」，表示与疾病、身体不适有关。",
+    "difficulty": 3,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-561",
+    "type": "vocab",
+    "prompt": "「亲切地（　）待」，括号里应填什么词？",
+    "options": [
+      "对",
+      "招",
+      "接",
+      "款"
+    ],
+    "correct": 3,
+    "explanation": "「亲切地款待」是正式搭配，款待指热情接待客人。",
+    "difficulty": 4,
+    "tags": [
+      "词语搭配"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-562",
+    "type": "vocab",
+    "prompt": "「赞美」的近义词是什么？",
+    "options": [
+      "批评",
+      "责备",
+      "称赞",
+      "嘲笑"
+    ],
+    "correct": 2,
+    "explanation": "「赞美」和「称赞」都表示对人或事物给予好评，是近义词。",
+    "difficulty": 4,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-563",
+    "type": "vocab",
+    "prompt": "「慷慨」的反义词是什么？",
+    "options": [
+      "大方",
+      "豪爽",
+      "吝啬",
+      "开朗"
+    ],
+    "correct": 2,
+    "explanation": "「慷慨」的反义词是「吝啬」，慷慨指大方给予，吝啬指舍不得给。",
+    "difficulty": 4,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-564",
+    "type": "vocab",
+    "prompt": "「磨」字在「磨面粉」和「磨难」中的读音如何？",
+    "options": [
+      "都读mó",
+      "都读mò",
+      "前者mó，后者mò",
+      "前者mò，后者mó"
+    ],
+    "correct": 0,
+    "explanation": "「磨面粉」和「磨难」中「磨」都读mó（第二声），此字在「磨坊」中有时读mò。",
+    "difficulty": 4,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-565",
+    "type": "vocab",
+    "prompt": "「一（　）月光」，括号里应填什么量词？",
+    "options": [
+      "缕",
+      "片",
+      "道",
+      "条"
+    ],
+    "correct": 2,
+    "explanation": "月光、阳光等光线类用量词「道」，如「一道月光」、「一道彩虹」。",
+    "difficulty": 4,
+    "tags": [
+      "量词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-566",
+    "type": "vocab",
+    "prompt": "「臾」字的偏旁是什么？",
+    "options": [
+      "臼",
+      "人",
+      "又",
+      "大"
+    ],
+    "correct": 0,
+    "explanation": "「臾」字的偏旁是「臼」，在「须臾」（片刻）中使用，是较难辨认的偏旁。",
+    "difficulty": 4,
+    "tags": [
+      "偏旁部首"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-567",
+    "type": "vocab",
+    "prompt": "「漫不经心」的近义词是什么？",
+    "options": [
+      "认真仔细",
+      "一丝不苟",
+      "漫无目的",
+      "漫不在乎"
+    ],
+    "correct": 3,
+    "explanation": "「漫不经心」和「漫不在乎」都形容不在意、粗心大意，是近义词。",
+    "difficulty": 4,
+    "tags": [
+      "近义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-568",
+    "type": "vocab",
+    "prompt": "「粗心大意」的反义词是什么？",
+    "options": [
+      "马马虎虎",
+      "漫不经心",
+      "一丝不苟",
+      "稀里糊涂"
+    ],
+    "correct": 2,
+    "explanation": "「粗心大意」的反义词是「一丝不苟」，粗心和认真细致意思相反。",
+    "difficulty": 4,
+    "tags": [
+      "反义词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-569",
+    "type": "vocab",
+    "prompt": "「载」字在「记载」和「载重」中读音如何？",
+    "options": [
+      "都读zǎi",
+      "都读zài",
+      "前者zǎi，后者zài",
+      "前者zài，后者zǎi"
+    ],
+    "correct": 2,
+    "explanation": "「记载」中「载」读zǎi（第三声），「载重」中「载」读zài（第四声）。",
+    "difficulty": 4,
+    "tags": [
+      "多音字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-570",
+    "type": "vocab",
+    "prompt": "「细声细气地（　）说」，括号里应填什么词？",
+    "options": [
+      "低语",
+      "呼喊",
+      "大叫",
+      "呐喊"
+    ],
+    "correct": 0,
+    "explanation": "「细声细气地低语」搭配合理，低语指低声说话，与细声细气相呼应。",
+    "difficulty": 4,
+    "tags": [
+      "词语搭配"
+    ],
+    "source": "curriculum"
   }
 ]
