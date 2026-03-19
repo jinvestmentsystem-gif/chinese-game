@@ -165,9 +165,17 @@ class GameState {
   }
 
   save() {
-    localStorage.setItem(SAVE_KEY, JSON.stringify({
-      profiles: this.profiles,
-    }));
+    try {
+      localStorage.setItem(SAVE_KEY, JSON.stringify({
+        profiles: this.profiles,
+      }));
+    } catch (e) {
+      console.error('[Save] localStorage write failed:', e);
+      // Quota exceeded — warn user
+      if (typeof showToast !== 'undefined') {
+        showToast('存储空间不足，数据可能未保存', { type: 'error', duration: 4000 });
+      }
+    }
     // Dispatch save event for UI indicator
     window.dispatchEvent(new CustomEvent('game-saved'));
   }
