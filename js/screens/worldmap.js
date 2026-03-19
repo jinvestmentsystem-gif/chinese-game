@@ -309,8 +309,11 @@ function renderWorldMap() {
 
     return `
       <div
-        class="era-node ${nodeStateClass}"
+        class="era-node ${nodeStateClass} ${ch.isUnlocked ? 'clickable' : ''}"
+        data-chapter="${ch.id}"
         style="--node-color: ${ch.color};"
+        role="${ch.isUnlocked ? 'button' : 'presentation'}"
+        tabindex="${ch.isUnlocked ? '0' : '-1'}"
       >
         <!-- Left: era icon -->
         <div class="era-icon" aria-hidden="true">
