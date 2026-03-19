@@ -7,6 +7,8 @@ import { getXPProgress, getEffectiveMaxHp, checkDailyLogin } from '../progressio
 import { showTutorial } from '../tutorial.js';
 import { getReviewStats } from '../spaced-repetition.js';
 import { showToast } from '../toast.js';
+import { getNextGoal } from '../goals.js';
+import { getVisibleFeatures, getNotificationDots, getNextUnlock } from '../nav.js';
 
 function getGradeLabel(tier) {
   const map = { grade1: '一二年级', grade3: '三年级', grade4: '四年级', grade5: '五六年级', grade7: '七年级', grade8: '八九年级' };
@@ -296,10 +298,15 @@ function renderWorldMap() {
           ${playerMarker}
         </div>
 
-        <!-- Completed star -->
-        ${ch.isCompleted ? `
-          <div style="position:absolute;top:10px;right:12px;font-size:1.1rem;opacity:0.8;" aria-label="已完成">★</div>
-        ` : ''}
+        <!-- Quest stars -->
+        ${ch.isUnlocked ? (() => {
+          let starsHTML = '';
+          for (let qi = 0; qi < ch.quests; qi++) {
+            const s = profile.questStars?.[`${ch.id}-${qi}`] || 0;
+            if (s > 0) starsHTML += '<span style="color:#d4a017;">' + '★'.repeat(s) + '☆'.repeat(3-s) + '</span> ';
+          }
+          return starsHTML ? `<div style="position:absolute;bottom:8px;right:12px;font-size:0.65rem;opacity:0.7;display:flex;gap:2px;">${starsHTML}</div>` : '';
+        })() : ''}
       </div>`;
   }
 
@@ -415,10 +422,17 @@ function renderWorldMap() {
         </div>
 
         <div class="nav-buttons">
-          <button class="btn btn-sm" id="btn-inventory" title="打开背包">背包</button>
-          <button class="btn btn-sm" id="btn-shop" title="前往商店">商店</button>
-          <button class="btn btn-sm" id="btn-more" title="更多选项" style="font-size:0.95rem;">&#x22EF; 更多</button>
-          <button class="btn btn-sm" id="btn-back" title="返回主菜单">返回</button>
+          ${(() => {
+            const vis = getVisibleFeatures(profile);
+            const dots = getNotificationDots(profile);
+            const dot = (key) => dots[key] ? `<span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:${dots[key]==='red'?'#e74c3c':'#f39c12'};margin-left:3px;vertical-align:top;"></span>` : '';
+            return `
+              ${vis.inventory ? `<button class="btn btn-sm" id="btn-inventory" title="打开背包">背包${dot('inventory')}</button>` : ''}
+              ${vis.shop ? `<button class="btn btn-sm" id="btn-shop" title="前往商店">商店${dot('shop')}</button>` : ''}
+              <button class="btn btn-sm" id="btn-more" title="更多选项" style="font-size:0.95rem;">&#x22EF; 更多</button>
+              <button class="btn btn-sm" id="btn-back" title="返回主菜单">返回</button>
+            `;
+          })()}
         </div>
 
         <!-- More menu popup -->
@@ -521,10 +535,30 @@ function renderWorldMap() {
         <div style="font-size:0.92rem;color:var(--text-secondary);">已完成 ${completedQuests} / ${totalQuests} 关卡</div>
       </div>
 
+      <!-- ── Next Goal Tracker ── -->
+      ${(() => {
+        const goal = getNextGoal(profile);
+        const nextUnlock = getNextUnlock(profile);
+        return `
+        <div id="wm-goal-card" style="
+          margin:10px 20px 0; padding:10px 14px; border-radius:10px;
+          background:rgba(212,160,23,0.06); border:1px solid rgba(212,160,23,0.18);
+          display:flex; align-items:center; gap:10px; cursor:pointer;
+        " data-goal-screen="${goal.screen || ''}">
+          <span style="font-size:1.2rem;">${goal.icon || '🎯'}</span>
+          <div style="flex:1;">
+            <div style="font-size:0.88rem;color:var(--accent-gold);font-weight:600;">${goal.text}</div>
+            ${goal.progress != null ? `<div style="height:3px;border-radius:2px;background:rgba(255,255,255,0.08);margin-top:4px;overflow:hidden;"><div style="height:100%;width:${Math.round(goal.progress*100)}%;background:var(--accent-gold);border-radius:2px;"></div></div>` : ''}
+          </div>
+        </div>
+        ${nextUnlock ? `<div style="text-align:center;font-size:0.72rem;color:rgba(212,160,23,0.45);padding:4px 0;">⬆ Level ${nextUnlock.level} 解锁：${nextUnlock.name} ${nextUnlock.icon}</div>` : ''}
+        `;
+      })()}
+
       <!-- ── Map heading ── -->
-      <div style="text-align:center; padding: 16px 20px 12px;">
+      <div style="text-align:center; padding: 12px 20px 10px;">
         <h2 style="display:inline-block;">选择章节</h2>
-        <p style="color:var(--text-secondary);font-size:0.88rem;margin-top:8px;letter-spacing:0.04em;">
+        <p style="color:var(--text-secondary);font-size:0.88rem;margin-top:6px;letter-spacing:0.04em;">
           踏上穿越历史的文字征途 · 击败每个时代的墨暗之主
         </p>
       </div>
@@ -625,6 +659,12 @@ function renderWorldMap() {
       node.addEventListener('mouseenter', () => {
         node.style.transition = 'transform 0.22s ease, box-shadow 0.25s ease';
       });
+    });
+
+    // Goal card
+    div.querySelector('#wm-goal-card')?.addEventListener('click', () => {
+      const screen = div.querySelector('#wm-goal-card')?.dataset.goalScreen;
+      if (screen && screen !== 'worldmap') showScreen(screen);
     });
 
     // Nav buttons

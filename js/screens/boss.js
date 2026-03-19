@@ -1375,6 +1375,12 @@ function renderBoss() {
     if (uncollected.length > 0) {
       const drop = uncollected[Math.floor(Math.random() * uncollected.length)];
       profile.chengyu.push(drop.id);
+      // Chengyu milestone celebration
+      const cyCount = profile.chengyu.length;
+      const CHENGYU_MILESTONES = { 3: '暴击率+2%', 5: '攻击+3', 8: '防御+3', 10: 'HP+20', 15: '金币+10%', 20: '文力+2' };
+      if (CHENGYU_MILESTONES[cyCount]) {
+        try { import('../celebrations-ui.js').then(m => m.showCelebrationBanner('成语加成解锁！', CHENGYU_MILESTONES[cyCount], { particles: true })); } catch(_){}
+      }
       gameState.save();
 
       setTimeout(() => {
