@@ -6046,5 +6046,765 @@
       "词语搭配"
     ],
     "source": "curriculum"
+  },
+  {
+    "id": "v3-571",
+    "type": "vocab",
+    "prompt": "\"长\" 字是多音字，\"长大\" 中\"长\" 读哪个音？",
+    "options": [
+      "cháng",
+      "zhǎng",
+      "zhàng",
+      "chàng"
+    ],
+    "correct": 1,
+    "explanation": "\"长大\" 中\"长\" 读 zhǎng，表示生长、增长；\"长\" 读 cháng 时表示长度。",
+    "difficulty": 1,
+    "tags": [
+      "多音字",
+      "基础"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-572",
+    "type": "vocab",
+    "prompt": "\"好\" 字是多音字，\"好奇\" 中\"好\" 读哪个音？",
+    "options": [
+      "hǎo",
+      "hào",
+      "hāo",
+      "hǎi"
+    ],
+    "correct": 1,
+    "explanation": "\"好奇\" 中\"好\" 读 hào，表示爱好、喜好；\"好\" 读 hǎo 时表示良好。",
+    "difficulty": 1,
+    "tags": [
+      "多音字",
+      "基础"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-573",
+    "type": "vocab",
+    "prompt": "\"乐\" 字是多音字，\"音乐\" 中\"乐\" 读哪个音？",
+    "options": [
+      "lè",
+      "yuè",
+      "lǐ",
+      "luò"
+    ],
+    "correct": 1,
+    "explanation": "\"音乐\" 中\"乐\" 读 yuè，指音乐；\"乐\" 读 lè 时表示快乐。",
+    "difficulty": 1,
+    "tags": [
+      "多音字",
+      "艺术"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-574",
+    "type": "vocab",
+    "prompt": "\"观察\" 的近义词是？",
+    "options": [
+      "忽视",
+      "观看",
+      "观赏",
+      "观望"
+    ],
+    "correct": 1,
+    "explanation": "\"观察\" 和\"观看\" 都表示仔细看，意思相近，是近义词。",
+    "difficulty": 1,
+    "tags": [
+      "近义词",
+      "动词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-575",
+    "type": "vocab",
+    "prompt": "\"聪明\" 的近义词是？",
+    "options": [
+      "愚笨",
+      "机智",
+      "粗心",
+      "糊涂"
+    ],
+    "correct": 1,
+    "explanation": "\"聪明\" 和\"机智\" 都表示思维敏锐、反应快，是近义词。",
+    "difficulty": 1,
+    "tags": [
+      "近义词",
+      "形容词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-576",
+    "type": "vocab",
+    "prompt": "\"勇敢\" 的反义词是？",
+    "options": [
+      "聪明",
+      "坚强",
+      "胆怯",
+      "努力"
+    ],
+    "correct": 2,
+    "explanation": "\"勇敢\" 的反义词是\"胆怯\"，前者指不怕困难，后者指害怕退缩。",
+    "difficulty": 1,
+    "tags": [
+      "反义词",
+      "品质"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-577",
+    "type": "vocab",
+    "prompt": "\"整齐\" 的反义词是？",
+    "options": [
+      "干净",
+      "漂亮",
+      "杂乱",
+      "美丽"
+    ],
+    "correct": 2,
+    "explanation": "\"整齐\" 的反义词是\"杂乱\"，一个有序，一个无序。",
+    "difficulty": 1,
+    "tags": [
+      "反义词",
+      "形容词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-578",
+    "type": "vocab",
+    "prompt": "一（　　）大山。量词用哪个？",
+    "options": [
+      "条",
+      "座",
+      "片",
+      "棵"
+    ],
+    "correct": 1,
+    "explanation": "山用量词\"座\"，一座山、一座大山。",
+    "difficulty": 1,
+    "tags": [
+      "量词",
+      "自然"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-579",
+    "type": "vocab",
+    "prompt": "一（　　）诗歌。量词用哪个？",
+    "options": [
+      "本",
+      "篇",
+      "首",
+      "张"
+    ],
+    "correct": 2,
+    "explanation": "诗歌用量词\"首\"，一首诗歌、一首歌。",
+    "difficulty": 1,
+    "tags": [
+      "量词",
+      "文学"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-580",
+    "type": "vocab",
+    "prompt": "\"清\" 字的偏旁是？",
+    "options": [
+      "氵",
+      "青",
+      "月",
+      "土"
+    ],
+    "correct": 0,
+    "explanation": "\"清\" 的偏旁是\"氵\"（三点水），表示与水有关，清澈的水。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁",
+      "形声字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-581",
+    "type": "vocab",
+    "prompt": "\"语\" 字的偏旁是？",
+    "options": [
+      "口",
+      "讠",
+      "吾",
+      "言"
+    ],
+    "correct": 1,
+    "explanation": "\"语\" 的偏旁是\"讠\"（言字旁），表示与说话、语言有关。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁",
+      "形声字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-582",
+    "type": "vocab",
+    "prompt": "\"暖\" 字的偏旁是？",
+    "options": [
+      "日",
+      "火",
+      "氵",
+      "目"
+    ],
+    "correct": 0,
+    "explanation": "\"暖\" 的偏旁是\"日\"（日字旁），与太阳、温度有关，阳光带来温暖。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁",
+      "形声字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-583",
+    "type": "vocab",
+    "prompt": "\"词语搭配\" 正确的一项是？",
+    "options": [
+      "做作业/写功课",
+      "做功课/写作业",
+      "做语文/写数学",
+      "做英语/写体育"
+    ],
+    "correct": 1,
+    "explanation": "\"做功课\" 和\"写作业\" 都是正确的搭配；选项B两者都对，选B。",
+    "difficulty": 2,
+    "tags": [
+      "词语搭配",
+      "动词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-584",
+    "type": "vocab",
+    "prompt": "\"仔细\" 的近义词是？",
+    "options": [
+      "马虎",
+      "粗心",
+      "认真",
+      "随便"
+    ],
+    "correct": 2,
+    "explanation": "\"仔细\" 和\"认真\" 都表示做事小心、不马虎，是近义词。",
+    "difficulty": 2,
+    "tags": [
+      "近义词",
+      "形容词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-585",
+    "type": "vocab",
+    "prompt": "\"温暖\" 的反义词是？",
+    "options": [
+      "冰冷",
+      "炎热",
+      "凉爽",
+      "温和"
+    ],
+    "correct": 0,
+    "explanation": "\"温暖\" 的反义词是\"冰冷\"，一个温和暖和，一个冷如冰块。",
+    "difficulty": 2,
+    "tags": [
+      "反义词",
+      "感觉"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-586",
+    "type": "vocab",
+    "prompt": "\"行\" 字是多音字，\"银行\" 中\"行\" 读哪个音？",
+    "options": [
+      "xíng",
+      "háng",
+      "hàng",
+      "xìng"
+    ],
+    "correct": 1,
+    "explanation": "\"银行\" 中\"行\" 读 háng，指行业机构；\"行\" 读 xíng 时表示走路、可以。",
+    "difficulty": 2,
+    "tags": [
+      "多音字",
+      "生活"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-587",
+    "type": "vocab",
+    "prompt": "\"假\" 字是多音字，\"假如\" 中\"假\" 读哪个音？",
+    "options": [
+      "jiǎ",
+      "jià",
+      "jiā",
+      "jiē"
+    ],
+    "correct": 0,
+    "explanation": "\"假如\" 中\"假\" 读 jiǎ，表示假设；\"假\" 读 jià 时表示放假、假期。",
+    "difficulty": 2,
+    "tags": [
+      "多音字",
+      "基础"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-588",
+    "type": "vocab",
+    "prompt": "\"重\" 字是多音字，\"重要\" 中\"重\" 读哪个音？",
+    "options": [
+      "zhòng",
+      "chóng",
+      "zòng",
+      "chōng"
+    ],
+    "correct": 0,
+    "explanation": "\"重要\" 中\"重\" 读 zhòng，表示重要、分量重；\"重\" 读 chóng 时表示再次、重复。",
+    "difficulty": 2,
+    "tags": [
+      "多音字",
+      "基础"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-589",
+    "type": "vocab",
+    "prompt": "\"清晰\" 的反义词是？",
+    "options": [
+      "模糊",
+      "清楚",
+      "明亮",
+      "干净"
+    ],
+    "correct": 0,
+    "explanation": "\"清晰\" 的反义词是\"模糊\"，一个清楚分明，一个看不清楚。",
+    "difficulty": 2,
+    "tags": [
+      "反义词",
+      "形容词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-590",
+    "type": "vocab",
+    "prompt": "\"扩大\" 的反义词是？",
+    "options": [
+      "增加",
+      "缩小",
+      "减少",
+      "变化"
+    ],
+    "correct": 1,
+    "explanation": "\"扩大\" 的反义词是\"缩小\"，一个变大，一个变小。",
+    "difficulty": 2,
+    "tags": [
+      "反义词",
+      "动词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-591",
+    "type": "vocab",
+    "prompt": "下列哪个词与\"猛烈\" 近义？",
+    "options": [
+      "轻柔",
+      "猛烈",
+      "激烈",
+      "温和"
+    ],
+    "correct": 2,
+    "explanation": "\"猛烈\" 和\"激烈\" 都表示程度深、力量强，是近义词。",
+    "difficulty": 2,
+    "tags": [
+      "近义词",
+      "形容词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-592",
+    "type": "vocab",
+    "prompt": "\"沙漠\" 中\"漠\" 的偏旁是？",
+    "options": [
+      "氵",
+      "莫",
+      "土",
+      "大"
+    ],
+    "correct": 0,
+    "explanation": "\"漠\" 的偏旁是\"氵\"（三点水），虽然沙漠缺水，但\"漠\" 字本义与水有关。",
+    "difficulty": 3,
+    "tags": [
+      "偏旁",
+      "形声字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-593",
+    "type": "vocab",
+    "prompt": "\"晴\" 和\"睛\" 是形近字，区别在于？",
+    "options": [
+      "偏旁不同，\"晴\" 是日字旁，\"睛\" 是目字旁",
+      "字义完全相同",
+      "发音完全不同",
+      "笔画数不同"
+    ],
+    "correct": 0,
+    "explanation": "\"晴\" 偏旁是\"日\"，与天气有关（晴天）；\"睛\" 偏旁是\"目\"，与眼睛有关（眼睛）。",
+    "difficulty": 3,
+    "tags": [
+      "形近字",
+      "偏旁"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-594",
+    "type": "vocab",
+    "prompt": "\"己\" 和\"已\" 是形近字，下列用法正确的是？",
+    "options": [
+      "自已",
+      "自己",
+      "已己",
+      "各已"
+    ],
+    "correct": 1,
+    "explanation": "\"自己\" 正确，\"己\" 是自己的己；\"已\" 表示已经、已完成，如\"已经\"。",
+    "difficulty": 3,
+    "tags": [
+      "形近字",
+      "基础"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-595",
+    "type": "vocab",
+    "prompt": "\"戊戌戍戎\" 中，\"保家卫国\" 中的\"戍\" 读哪个音？",
+    "options": [
+      "wù",
+      "xū",
+      "shù",
+      "róng"
+    ],
+    "correct": 2,
+    "explanation": "\"戍\" 读 shù，指防守、驻守，如\"戍边\" 指守卫边疆。",
+    "difficulty": 3,
+    "tags": [
+      "形近字",
+      "拼音"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-596",
+    "type": "vocab",
+    "prompt": "一（　　）飞机。量词用哪个？",
+    "options": [
+      "条",
+      "辆",
+      "架",
+      "艘"
+    ],
+    "correct": 2,
+    "explanation": "飞机用量词\"架\"，一架飞机。",
+    "difficulty": 3,
+    "tags": [
+      "量词",
+      "交通"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-597",
+    "type": "vocab",
+    "prompt": "\"绿色\" 搭配正确的词语是？",
+    "options": [
+      "绿色天空",
+      "绿色海洋",
+      "绿色食品",
+      "绿色火焰"
+    ],
+    "correct": 2,
+    "explanation": "\"绿色食品\" 是固定搭配，指无污染、天然健康的食品，其他选项搭配不自然。",
+    "difficulty": 3,
+    "tags": [
+      "词语搭配",
+      "形容词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-598",
+    "type": "vocab",
+    "prompt": "下列哪组是形近字？",
+    "options": [
+      "大—小",
+      "冷—热",
+      "已—己",
+      "高—低"
+    ],
+    "correct": 2,
+    "explanation": "\"已\" 和\"己\" 字形相近，容易混淆，是一组形近字。",
+    "difficulty": 3,
+    "tags": [
+      "形近字",
+      "综合"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-599",
+    "type": "vocab",
+    "prompt": "\"兴奋\" 的近义词是？",
+    "options": [
+      "沮丧",
+      "激动",
+      "平静",
+      "安静"
+    ],
+    "correct": 1,
+    "explanation": "\"兴奋\" 和\"激动\" 都表示情绪高涨、心情振奋，是近义词。",
+    "difficulty": 3,
+    "tags": [
+      "近义词",
+      "情感"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-600",
+    "type": "vocab",
+    "prompt": "\"教\" 字是多音字，\"教书\" 和\"请教\" 中\"教\" 的读音分别是？",
+    "options": [
+      "jiāo/jiào",
+      "jiào/jiāo",
+      "jiāo/jiāo",
+      "jiào/jiào"
+    ],
+    "correct": 0,
+    "explanation": "\"教书\" 读 jiāo（动词，教授）；\"请教\" 读 jiào（名词用法，接受教导），两者读音不同。",
+    "difficulty": 3,
+    "tags": [
+      "多音字",
+      "综合"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-601",
+    "type": "vocab",
+    "prompt": "\"传\" 字是多音字，\"传说\" 和\"传记\" 中\"传\" 的读音？",
+    "options": [
+      "chuán/zhuàn",
+      "zhuàn/chuán",
+      "chuán/chuán",
+      "zhuàn/zhuàn"
+    ],
+    "correct": 0,
+    "explanation": "\"传说\" 读 chuán（传播、流传）；\"传记\" 读 zhuàn（记述人物生平的文字）。",
+    "difficulty": 3,
+    "tags": [
+      "多音字",
+      "语文"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-602",
+    "type": "vocab",
+    "prompt": "\"喧闹\" 的反义词是？",
+    "options": [
+      "热闹",
+      "嘈杂",
+      "安静",
+      "开心"
+    ],
+    "correct": 2,
+    "explanation": "\"喧闹\" 指吵闹、嘈杂，反义词是\"安静\"，指没有声音、平静。",
+    "difficulty": 3,
+    "tags": [
+      "反义词",
+      "环境"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-603",
+    "type": "vocab",
+    "prompt": "\"犹豫\" 的反义词是？",
+    "options": [
+      "害怕",
+      "踌躇",
+      "果断",
+      "迟疑"
+    ],
+    "correct": 2,
+    "explanation": "\"犹豫\" 指拿不定主意，反义词是\"果断\"，指做事干脆、不拖拉。",
+    "difficulty": 4,
+    "tags": [
+      "反义词",
+      "品质"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-604",
+    "type": "vocab",
+    "prompt": "\"干燥\" 的近义词是？",
+    "options": [
+      "湿润",
+      "潮湿",
+      "枯燥",
+      "干旱"
+    ],
+    "correct": 3,
+    "explanation": "\"干燥\" 和\"干旱\" 都表示缺少水分的状态，是近义词。\"枯燥\" 虽形近，但指无聊，不是近义词。",
+    "difficulty": 4,
+    "tags": [
+      "近义词",
+      "形容词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-605",
+    "type": "vocab",
+    "prompt": "\"披\" 和\"被\" 是形近字，下列句子用词正确的是？",
+    "options": [
+      "他被雨淋湿了",
+      "他披着雨淋湿了",
+      "他被着一件外套",
+      "他披被了"
+    ],
+    "correct": 0,
+    "explanation": "\"他被雨淋湿了\" 正确——\"被\" 表示被动；\"披\" 表示穿在肩上，如\"披着外套\"。",
+    "difficulty": 4,
+    "tags": [
+      "形近字",
+      "词义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-606",
+    "type": "vocab",
+    "prompt": "\"截\" 和\"载\" 是形近字，\"记载\" 中用哪个字？",
+    "options": [
+      "截",
+      "载",
+      "裁",
+      "戴"
+    ],
+    "correct": 1,
+    "explanation": "\"记载\" 用\"载\"，意为记录；\"截\" 表示切断、截取；注意区分形近字。",
+    "difficulty": 4,
+    "tags": [
+      "形近字",
+      "词义"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-607",
+    "type": "vocab",
+    "prompt": "\"滋味\" 中\"滋\" 的偏旁是？",
+    "options": [
+      "氵",
+      "兹",
+      "子",
+      "目"
+    ],
+    "correct": 0,
+    "explanation": "\"滋\" 的偏旁是\"氵\"（三点水），与液体、滋润有关。",
+    "difficulty": 4,
+    "tags": [
+      "偏旁",
+      "形声字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-608",
+    "type": "vocab",
+    "prompt": "下列哪个词语搭配最恰当？",
+    "options": [
+      "发挥成绩",
+      "发挥特长",
+      "发挥错误",
+      "发挥缺点"
+    ],
+    "correct": 1,
+    "explanation": "\"发挥特长\" 是正确搭配，意为充分展示自己的特别之处；其余搭配不自然。",
+    "difficulty": 4,
+    "tags": [
+      "词语搭配",
+      "动词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-609",
+    "type": "vocab",
+    "prompt": "\"空\" 字是多音字，\"天空\" 和\"空白\" 中\"空\" 的读音分别是？",
+    "options": [
+      "kōng/kòng",
+      "kòng/kōng",
+      "kōng/kōng",
+      "kòng/kòng"
+    ],
+    "correct": 0,
+    "explanation": "\"天空\" 读 kōng（指无边无际的空间）；\"空白\" 读 kòng（指空着的地方、留空）。",
+    "difficulty": 4,
+    "tags": [
+      "多音字",
+      "综合"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v3-610",
+    "type": "vocab",
+    "prompt": "\"节\" 字是多音字，\"节日\" 和\"节省\" 中\"节\" 读音相同吗？",
+    "options": [
+      "相同，都读 jié",
+      "不同，节日读 jié，节省读 jiě",
+      "不同，节日读 jiě，节省读 jié",
+      "不同，节日读 jiē，节省读 jié"
+    ],
+    "correct": 0,
+    "explanation": "\"节日\" 和\"节省\" 中\"节\" 都读 jié，并非多音字的例子；两处读音相同。",
+    "difficulty": 4,
+    "tags": [
+      "多音字",
+      "辨析"
+    ],
+    "source": "curriculum"
   }
 ]

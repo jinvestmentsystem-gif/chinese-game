@@ -9291,5 +9291,765 @@
       "拼音声调"
     ],
     "source": "curriculum"
+  },
+  {
+    "id": "v1-721",
+    "type": "vocab",
+    "prompt": "\"大\" 的拼音是？",
+    "options": [
+      "dà",
+      "tà",
+      "dǎ",
+      "dāi"
+    ],
+    "correct": 0,
+    "explanation": "\"大\" 读 dà，第四声，表示体积或数量超过一般。",
+    "difficulty": 1,
+    "tags": [
+      "拼音",
+      "基础汉字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-722",
+    "type": "vocab",
+    "prompt": "\"小\" 的拼音是？",
+    "options": [
+      "xiāo",
+      "xiǎo",
+      "shǎo",
+      "qiǎo"
+    ],
+    "correct": 1,
+    "explanation": "\"小\" 读 xiǎo，第三声，表示体积或数量低于一般。",
+    "difficulty": 1,
+    "tags": [
+      "拼音",
+      "基础汉字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-723",
+    "type": "vocab",
+    "prompt": "\"山\" 的拼音是？",
+    "options": [
+      "shān",
+      "sān",
+      "shàn",
+      "zhān"
+    ],
+    "correct": 0,
+    "explanation": "\"山\" 读 shān，第一声，指地面上高耸的地方。",
+    "difficulty": 1,
+    "tags": [
+      "拼音",
+      "自然"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-724",
+    "type": "vocab",
+    "prompt": "\"水\" 的拼音是？",
+    "options": [
+      "shuǐ",
+      "shǔi",
+      "suǐ",
+      "chuǐ"
+    ],
+    "correct": 0,
+    "explanation": "\"水\" 读 shuǐ，第三声，是生命的基础物质。",
+    "difficulty": 1,
+    "tags": [
+      "拼音",
+      "自然"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-725",
+    "type": "vocab",
+    "prompt": "\"日\" 的拼音是？",
+    "options": [
+      "rí",
+      "lì",
+      "rì",
+      "rǐ"
+    ],
+    "correct": 2,
+    "explanation": "\"日\" 读 rì，第四声，指太阳，也指一天。",
+    "difficulty": 1,
+    "tags": [
+      "拼音",
+      "自然"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-726",
+    "type": "vocab",
+    "prompt": "\"火\" 的拼音是？",
+    "options": [
+      "fǔ",
+      "huǒ",
+      "huò",
+      "fǒu"
+    ],
+    "correct": 1,
+    "explanation": "\"火\" 读 huǒ，第三声，指燃烧产生的光和热。",
+    "difficulty": 1,
+    "tags": [
+      "拼音",
+      "自然"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-727",
+    "type": "vocab",
+    "prompt": "\"木\" 的笔画数是？",
+    "options": [
+      "3画",
+      "4画",
+      "5画",
+      "6画"
+    ],
+    "correct": 1,
+    "explanation": "\"木\" 共4画：横、竖、撇、捺。",
+    "difficulty": 1,
+    "tags": [
+      "笔画",
+      "基础汉字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-728",
+    "type": "vocab",
+    "prompt": "\"口\" 的笔画数是？",
+    "options": [
+      "2画",
+      "3画",
+      "4画",
+      "5画"
+    ],
+    "correct": 1,
+    "explanation": "\"口\" 共3画：竖、横折、横。",
+    "difficulty": 1,
+    "tags": [
+      "笔画",
+      "基础汉字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-729",
+    "type": "vocab",
+    "prompt": "\"上\" 的反义词是？",
+    "options": [
+      "下",
+      "中",
+      "里",
+      "外"
+    ],
+    "correct": 0,
+    "explanation": "\"上\" 的反义词是\"下\"，两者位置相对。",
+    "difficulty": 1,
+    "tags": [
+      "反义词",
+      "方向"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-730",
+    "type": "vocab",
+    "prompt": "\"来\" 的反义词是？",
+    "options": [
+      "走",
+      "去",
+      "跑",
+      "停"
+    ],
+    "correct": 1,
+    "explanation": "\"来\" 的反义词是\"去\"，方向相反。",
+    "difficulty": 1,
+    "tags": [
+      "反义词",
+      "动作"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-731",
+    "type": "vocab",
+    "prompt": "一（　　）书。量词用哪个？",
+    "options": [
+      "张",
+      "本",
+      "条",
+      "根"
+    ],
+    "correct": 1,
+    "explanation": "书用量词\"本\"，一本书。",
+    "difficulty": 1,
+    "tags": [
+      "量词",
+      "学习用品"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-732",
+    "type": "vocab",
+    "prompt": "一（　　）纸。量词用哪个？",
+    "options": [
+      "本",
+      "张",
+      "条",
+      "块"
+    ],
+    "correct": 1,
+    "explanation": "纸用量词\"张\"，一张纸。",
+    "difficulty": 1,
+    "tags": [
+      "量词",
+      "学习用品"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-733",
+    "type": "vocab",
+    "prompt": "\"草\" 字的偏旁是？",
+    "options": [
+      "艹",
+      "氵",
+      "木",
+      "宀"
+    ],
+    "correct": 0,
+    "explanation": "\"草\" 的偏旁是\"艹\"（草字头），表示与植物有关。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁",
+      "植物"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-734",
+    "type": "vocab",
+    "prompt": "\"河\" 字的偏旁是？",
+    "options": [
+      "木",
+      "氵",
+      "口",
+      "土"
+    ],
+    "correct": 1,
+    "explanation": "\"河\" 的偏旁是\"氵\"（三点水），表示与水有关。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁",
+      "自然"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-735",
+    "type": "vocab",
+    "prompt": "\"妈\" 字的偏旁是？",
+    "options": [
+      "马",
+      "女",
+      "口",
+      "子"
+    ],
+    "correct": 1,
+    "explanation": "\"妈\" 的偏旁是\"女\"，表示与女性有关。",
+    "difficulty": 1,
+    "tags": [
+      "偏旁",
+      "家人"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-736",
+    "type": "vocab",
+    "prompt": "\"明\" 字的偏旁是？",
+    "options": [
+      "日",
+      "月",
+      "目",
+      "囗"
+    ],
+    "correct": 0,
+    "explanation": "\"明\" 由\"日\"和\"月\"组成，偏旁是\"日\"（左边）。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁",
+      "基础汉字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-737",
+    "type": "vocab",
+    "prompt": "\"高兴\" 的近义词是？",
+    "options": [
+      "难过",
+      "开心",
+      "伤心",
+      "生气"
+    ],
+    "correct": 1,
+    "explanation": "\"高兴\" 和\"开心\" 都表示愉快的心情，是近义词。",
+    "difficulty": 2,
+    "tags": [
+      "近义词",
+      "情感"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-738",
+    "type": "vocab",
+    "prompt": "\"漂亮\" 的近义词是？",
+    "options": [
+      "丑陋",
+      "难看",
+      "美丽",
+      "普通"
+    ],
+    "correct": 2,
+    "explanation": "\"漂亮\" 和\"美丽\" 意思相近，都表示好看。",
+    "difficulty": 2,
+    "tags": [
+      "近义词",
+      "形容词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-739",
+    "type": "vocab",
+    "prompt": "\"快乐\" 的反义词是？",
+    "options": [
+      "开心",
+      "高兴",
+      "忧愁",
+      "舒服"
+    ],
+    "correct": 2,
+    "explanation": "\"快乐\" 的反义词是\"忧愁\"，意思相反。",
+    "difficulty": 2,
+    "tags": [
+      "反义词",
+      "情感"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-740",
+    "type": "vocab",
+    "prompt": "\"长\" 的反义词是？",
+    "options": [
+      "高",
+      "宽",
+      "短",
+      "大"
+    ],
+    "correct": 2,
+    "explanation": "\"长\" 的反义词是\"短\"，两者描述长度相对。",
+    "difficulty": 2,
+    "tags": [
+      "反义词",
+      "形容词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-741",
+    "type": "vocab",
+    "prompt": "\"花\" 可以组成哪个词语？",
+    "options": [
+      "草花",
+      "花朵",
+      "花土",
+      "花石"
+    ],
+    "correct": 1,
+    "explanation": "\"花朵\" 是正确的词语组合，指植物开的花。",
+    "difficulty": 2,
+    "tags": [
+      "组词",
+      "植物"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-742",
+    "type": "vocab",
+    "prompt": "\"雨\" 可以组成哪个词语？",
+    "options": [
+      "下雨",
+      "下水",
+      "水雨",
+      "雨下"
+    ],
+    "correct": 0,
+    "explanation": "\"下雨\" 是正确的词语组合，表示天空降落雨水。",
+    "difficulty": 2,
+    "tags": [
+      "组词",
+      "天气"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-743",
+    "type": "vocab",
+    "prompt": "\"天\" 可以组成哪个词语？",
+    "options": [
+      "天空",
+      "空天",
+      "蓝天空",
+      "天蓝"
+    ],
+    "correct": 0,
+    "explanation": "\"天空\" 是正确的词语组合，指头顶上方的空间。",
+    "difficulty": 2,
+    "tags": [
+      "组词",
+      "自然"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-744",
+    "type": "vocab",
+    "prompt": "\"白\" 字共有几画？",
+    "options": [
+      "4画",
+      "5画",
+      "6画",
+      "7画"
+    ],
+    "correct": 1,
+    "explanation": "\"白\" 共5画：撇、横、横、竖、横。",
+    "difficulty": 2,
+    "tags": [
+      "笔画",
+      "颜色"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-745",
+    "type": "vocab",
+    "prompt": "\"爸\" 字的拼音是？",
+    "options": [
+      "bǎ",
+      "bà",
+      "bā",
+      "pà"
+    ],
+    "correct": 1,
+    "explanation": "\"爸\" 读 bà，第四声，指父亲。",
+    "difficulty": 2,
+    "tags": [
+      "拼音",
+      "家人"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-746",
+    "type": "vocab",
+    "prompt": "\"哥\" 的近义词（同义表达）是？",
+    "options": [
+      "弟弟",
+      "妹妹",
+      "兄长",
+      "姐姐"
+    ],
+    "correct": 2,
+    "explanation": "\"哥\" 和\"兄长\" 都指年长的兄弟，意思相近。",
+    "difficulty": 2,
+    "tags": [
+      "近义词",
+      "家人"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-747",
+    "type": "vocab",
+    "prompt": "一（　　）花。量词用哪个？",
+    "options": [
+      "条",
+      "棵",
+      "朵",
+      "片"
+    ],
+    "correct": 2,
+    "explanation": "花用量词\"朵\"，一朵花。",
+    "difficulty": 2,
+    "tags": [
+      "量词",
+      "植物"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-748",
+    "type": "vocab",
+    "prompt": "\"左\" 的反义词是？",
+    "options": [
+      "上",
+      "后",
+      "右",
+      "前"
+    ],
+    "correct": 2,
+    "explanation": "\"左\" 的反义词是\"右\"，两者方向相反。",
+    "difficulty": 2,
+    "tags": [
+      "反义词",
+      "方向"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-749",
+    "type": "vocab",
+    "prompt": "\"早\" 的反义词是？",
+    "options": [
+      "前",
+      "晚",
+      "慢",
+      "后"
+    ],
+    "correct": 1,
+    "explanation": "\"早\" 的反义词是\"晚\"，描述时间的相对早晚。",
+    "difficulty": 2,
+    "tags": [
+      "反义词",
+      "时间"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-750",
+    "type": "vocab",
+    "prompt": "下列哪个字的偏旁是\"木\"？",
+    "options": [
+      "明",
+      "休",
+      "河",
+      "草"
+    ],
+    "correct": 1,
+    "explanation": "\"休\" 由\"人\"和\"木\"组成，偏旁是\"木\"。",
+    "difficulty": 2,
+    "tags": [
+      "偏旁",
+      "基础汉字"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-751",
+    "type": "vocab",
+    "prompt": "\"苹果\" 中\"苹\" 的偏旁是？",
+    "options": [
+      "艹",
+      "木",
+      "口",
+      "氵"
+    ],
+    "correct": 0,
+    "explanation": "\"苹\" 的偏旁是\"艹\"（草字头），表示与植物有关。",
+    "difficulty": 3,
+    "tags": [
+      "偏旁",
+      "食物"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-752",
+    "type": "vocab",
+    "prompt": "\"跑\" 字的偏旁是？",
+    "options": [
+      "足",
+      "口",
+      "走",
+      "手"
+    ],
+    "correct": 0,
+    "explanation": "\"跑\" 的偏旁是\"足\"（足字旁），表示与脚、行走有关。",
+    "difficulty": 3,
+    "tags": [
+      "偏旁",
+      "动作"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-753",
+    "type": "vocab",
+    "prompt": "\"高\" 的反义词是？",
+    "options": [
+      "长",
+      "大",
+      "矮",
+      "小"
+    ],
+    "correct": 2,
+    "explanation": "\"高\" 的反义词是\"矮\"，描述身高或高度的相反状态。",
+    "difficulty": 3,
+    "tags": [
+      "反义词",
+      "形容词"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-754",
+    "type": "vocab",
+    "prompt": "\"勤劳\" 的反义词是？",
+    "options": [
+      "努力",
+      "认真",
+      "懒惰",
+      "开心"
+    ],
+    "correct": 2,
+    "explanation": "\"勤劳\" 的反义词是\"懒惰\"，意思完全相反。",
+    "difficulty": 3,
+    "tags": [
+      "反义词",
+      "品质"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-755",
+    "type": "vocab",
+    "prompt": "\"马\" 用哪个量词最合适？",
+    "options": [
+      "只",
+      "条",
+      "匹",
+      "头"
+    ],
+    "correct": 2,
+    "explanation": "马用量词\"匹\"，一匹马。",
+    "difficulty": 3,
+    "tags": [
+      "量词",
+      "动物"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-756",
+    "type": "vocab",
+    "prompt": "\"见\" 可以组成哪个词语？",
+    "options": [
+      "见面",
+      "面见",
+      "看见面",
+      "见看"
+    ],
+    "correct": 0,
+    "explanation": "\"见面\" 是正确的词语，表示相见、碰面。",
+    "difficulty": 3,
+    "tags": [
+      "组词",
+      "动作"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-757",
+    "type": "vocab",
+    "prompt": "\"船\" 用哪个量词最合适？",
+    "options": [
+      "条",
+      "艘",
+      "只",
+      "架"
+    ],
+    "correct": 1,
+    "explanation": "船用量词\"艘\"，一艘船。",
+    "difficulty": 3,
+    "tags": [
+      "量词",
+      "交通"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-758",
+    "type": "vocab",
+    "prompt": "\"晴\" 字的偏旁是？",
+    "options": [
+      "青",
+      "日",
+      "月",
+      "氵"
+    ],
+    "correct": 1,
+    "explanation": "\"晴\" 的偏旁是\"日\"（日字旁），表示与太阳、天气有关。",
+    "difficulty": 3,
+    "tags": [
+      "偏旁",
+      "天气"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-759",
+    "type": "vocab",
+    "prompt": "下列哪个词语搭配正确？",
+    "options": [
+      "吃衣服",
+      "穿饭",
+      "喝水",
+      "跑书"
+    ],
+    "correct": 2,
+    "explanation": "\"喝水\" 搭配正确，喝和水是正确的动宾搭配。",
+    "difficulty": 4,
+    "tags": [
+      "量词",
+      "综合"
+    ],
+    "source": "curriculum"
+  },
+  {
+    "id": "v1-760",
+    "type": "vocab",
+    "prompt": "下列哪组是一对近义词？",
+    "options": [
+      "冷—热",
+      "快—慢",
+      "喜欢—爱",
+      "黑—白"
+    ],
+    "correct": 2,
+    "explanation": "\"喜欢\" 和\"爱\" 意思相近，是近义词；其余三组都是反义词。",
+    "difficulty": 4,
+    "tags": [
+      "近义词",
+      "综合"
+    ],
+    "source": "curriculum"
   }
 ]
