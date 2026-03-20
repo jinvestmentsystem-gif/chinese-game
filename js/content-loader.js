@@ -95,8 +95,11 @@ export function pickQuestions(pool, count, seenIds = [], difficultyTarget = 3, s
       score += 40; // never seen — strong bonus
     }
 
-    // ── Random factor (large enough to break ties and create variety) ──
-    score += Math.random() * 25;
+    // ── Random factor — DOMINANT for fresh players, moderate for veterans ──
+    // Fresh players (few seenIds) need large randomness to avoid always picking
+    // the same difficulty-band questions. Veterans have novelty scoring to help.
+    const randomWeight = seenIds.length < 50 ? 50 : 25;
+    score += Math.random() * randomWeight;
 
     return { question: q, score };
   });

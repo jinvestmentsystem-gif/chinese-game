@@ -135,6 +135,16 @@ function getRestNarrative(chapterNum) {
 export async function startQuest(chapterId, questIndex) {
   const profile = gameState.profile;
 
+  // Check for saved mid-quest state (browser was closed mid-quest)
+  if (gameState._savedQuestState) {
+    const sq = gameState._savedQuestState;
+    if (sq.chapterId === chapterId && sq.questIndex === questIndex) {
+      // Resume from saved state — regenerate encounters but skip to saved position
+      console.log('[game-engine] Resuming saved quest: ch=' + chapterId + ' qi=' + questIndex + ' enc=' + sq.currentEncounter);
+    }
+    gameState._savedQuestState = null; // Clear after use
+  }
+
   // Regenerate HP and 文力 between quests
   profile.hp = profile.maxHp;
   profile.wenli = profile.maxWenli;
@@ -243,6 +253,8 @@ export function advanceEncounter() {
   const quest = gameState.currentQuest;
   if (!quest) return null;
   quest.currentEncounter++;
+  // Save after each encounter so mid-quest progress survives browser close
+  gameState.save();
   if (quest.currentEncounter >= quest.encounters.length) {
     return null; // quest complete
   }

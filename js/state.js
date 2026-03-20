@@ -102,6 +102,12 @@ class GameState {
       });
       // Persist backfilled data immediately so localStorage stays consistent
       if (changed) this.save();
+
+      // Restore mid-quest progress if saved
+      if (data.currentQuest && data.activeProfileIndex != null) {
+        this.activeProfileIndex = data.activeProfileIndex;
+        this._savedQuestState = data.currentQuest; // Will be restored in startQuest or worldmap
+      }
     }
   }
 
@@ -166,9 +172,18 @@ class GameState {
 
   save() {
     try {
-      localStorage.setItem(SAVE_KEY, JSON.stringify({
-        profiles: this.profiles,
-      }));
+      // Persist currentQuest so mid-quest progress survives browser close
+      const saveData = { profiles: this.profiles };
+      if (this.currentQuest) {
+        saveData.currentQuest = {
+          chapterId: this.currentQuest.chapterId,
+          questIndex: this.currentQuest.questIndex,
+          currentEncounter: this.currentQuest.currentEncounter,
+          results: this.currentQuest.results,
+        };
+        saveData.activeProfileIndex = this.activeProfileIndex;
+      }
+      localStorage.setItem(SAVE_KEY, JSON.stringify(saveData));
     } catch (e) {
       console.error('[Save] localStorage write failed:', e);
       // Quota exceeded — warn user
