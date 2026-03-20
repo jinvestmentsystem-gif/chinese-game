@@ -14,11 +14,11 @@ let currentTrackKey = null;
 
 function ensureMusicTracks() {
   if (MUSIC_TRACKS._loaded) return;
-  MUSIC_TRACKS._loaded = true;
   if (typeof Howl === 'undefined') {
-    console.warn('[Audio] Howler.js not loaded — MP3 music unavailable');
+    // Don't set _loaded — allow retry when Howler finishes loading
     return;
   }
+  MUSIC_TRACKS._loaded = true;
   const base = 'assets/audio/';
   const tracks = {
     menu:    { src: base + 'music_menu.mp3' + _av,    loop: true,  volume: 0.4 },

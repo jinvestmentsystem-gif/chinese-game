@@ -485,12 +485,14 @@ function renderShop(params = {}) {
     // Shop buy buttons (only present in shop tab)
     div.querySelectorAll('.shop-buy-btn').forEach(btn => {
       btn.addEventListener('click', () => {
+        if (btn.disabled) return;
+        btn.disabled = true; // Prevent double-click race
         const itemId = btn.dataset.id;
         const item = SHOP_ITEMS.find(i => i.id === itemId);
-        if (!item) return;
+        if (!item) { btn.disabled = false; return; }
 
         const gold = profile.gold || 0;
-        if (gold < item.price) return;
+        if (gold < item.price) { btn.disabled = false; return; }
 
         profile.gold = gold - item.price;
 
