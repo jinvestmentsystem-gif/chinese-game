@@ -135,15 +135,17 @@ function renderPuzzle() {
       flex-shrink:0;
     }
     .puzzle-scroll-box {
-      margin:0 16px 10px; padding:16px 20px;
+      margin:0 16px 10px; padding:14px 18px;
       background:rgba(30,25,15,0.92);
       border:2px solid #7c5a0a;
       border-radius:10px;
       box-shadow: inset 0 0 20px rgba(212,160,23,0.08), 0 0 12px rgba(124,90,10,0.3);
       flex:1; overflow-y:auto; min-height:0;
-      font-size:1.1rem; line-height:2;
+      max-height:40vh; /* Cap height so options stay visible on small screens */
+      font-size:1.05rem; line-height:1.9;
       color:#f0e0b0;
       position:relative;
+      -webkit-overflow-scrolling:touch;
     }
     .puzzle-scroll-box::before {
       content:'';
@@ -177,8 +179,8 @@ function renderPuzzle() {
       gap:10px; margin:0 16px 10px; flex-shrink:0;
     }
     .puzzle-options .puzzle-option {
-      padding:14px 18px; font-size:1.15rem;
-      min-height:50px; border-radius:8px;
+      padding:14px 18px; font-size:1.05rem;
+      min-height:56px; border-radius:10px;
       background:rgba(40,30,10,0.85);
       border:2px solid rgba(212,160,23,0.3);
       color:#f0e0b0; cursor:pointer;

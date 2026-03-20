@@ -832,7 +832,7 @@ function renderReward() {
       return;
     }
     if (isChapterComplete) {
-      showScreen('chapter-complete');
+      try { showScreen('chapter-complete'); } catch(_) { showScreen('worldmap'); }
     } else {
       showScreen('quest', { chapterId: quest.chapterId, questIndex: quest.questIndex + 1 });
     }
