@@ -483,10 +483,8 @@ function renderReward() {
 
   gameState.save();
 
-  // Clear currentQuest so next quest generates fresh (prevents stale quest data)
-  // Keep the reference for this render, but clear after save
-  const savedQuest = gameState.currentQuest;
-  setTimeout(() => { if (gameState.currentQuest === savedQuest) gameState.currentQuest = null; }, 0);
+  // Don't clear currentQuest here — chapter-complete screen needs quest.chapterId.
+  // currentQuest gets replaced naturally when startQuest() creates a new one.
 
   // ── Build the animated reward sequence ──
 

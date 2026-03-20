@@ -31,14 +31,13 @@ export function showScreen(name, params = {}) {
   // If screen not registered yet, check for lazy loader
   if (!screens[name] && lazyLoaders[name]) {
     const loader = lazyLoaders[name];
-    delete lazyLoaders[name]; // Delete immediately to prevent double-call race
+    // Don't delete yet — if import fails, we need to retry next time
     // Load the module asynchronously, then show
     _showLoadingIndicator();
     loader().then(() => {
+      delete lazyLoaders[name]; // Only delete after successful load
       _hideLoadingIndicator();
-      // Guard: if user navigated away while import was in-flight, don't render stale screen
       if (gameState.currentScreen !== name) return;
-      // Now the module has called registerScreen() — proceed
       if (screens[name]) {
         _doShowScreen(name, params);
       }

@@ -102,7 +102,8 @@ function renderPuzzle() {
     .puzzle-screen-inner {
       display:flex; flex-direction:column;
       height:100%; width:100%;
-      overflow:hidden;
+      overflow-y:auto; overflow-x:hidden;
+      -webkit-overflow-scrolling:touch;
     }
     .puzzle-hud {
       display:flex; justify-content:space-between; align-items:center;
@@ -141,7 +142,7 @@ function renderPuzzle() {
       border-radius:10px;
       box-shadow: inset 0 0 20px rgba(212,160,23,0.08), 0 0 12px rgba(124,90,10,0.3);
       flex:1; overflow-y:auto; min-height:0;
-      max-height:40vh; /* Cap height so options stay visible on small screens */
+      max-height:35vh; /* Cap so options visible; outer container scrolls if needed */
       font-size:1.05rem; line-height:1.9;
       color:#f0e0b0;
       position:relative;
