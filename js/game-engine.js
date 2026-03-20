@@ -139,8 +139,7 @@ export async function startQuest(chapterId, questIndex) {
   if (gameState._savedQuestState) {
     const sq = gameState._savedQuestState;
     if (sq.chapterId === chapterId && sq.questIndex === questIndex) {
-      // Resume from saved state — regenerate encounters but skip to saved position
-      console.log('[game-engine] Resuming saved quest: ch=' + chapterId + ' qi=' + questIndex + ' enc=' + sq.currentEncounter);
+      // Saved state matches — will resume from saved encounter position
     }
     gameState._savedQuestState = null; // Clear after use
   }

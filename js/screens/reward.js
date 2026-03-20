@@ -428,7 +428,6 @@ function renderReward() {
   const cp = profile.chapterProgress[quest.chapterId];
   if (quest.questIndex >= cp.questsCompleted) {
     cp.questsCompleted = quest.questIndex + 1;
-    console.log('[reward] quest completed: ch=' + quest.chapterId + ' qi=' + quest.questIndex + ' → questsCompleted=' + cp.questsCompleted);
   }
 
   // ── Update stats ──

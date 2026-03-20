@@ -200,10 +200,6 @@ function renderWorldMap() {
   div.className = 'screen';
   const profile = gameState.profile;
 
-  // Debug: log chapter progress to diagnose "always starts at first game" issue
-  console.log('[worldmap] chapterProgress:', JSON.stringify(profile.chapterProgress));
-  console.log('[worldmap] profile name:', profile.name, 'level:', profile.level);
-
   // Play map music — find current chapter era
   const currentChapter = Object.keys(profile.chapterProgress || {}).reduce((max, k) => Math.max(max, parseInt(k)), 1);
   const eraMap = {1:'xianqin',2:'han',3:'tang',4:'song',5:'modern'};
