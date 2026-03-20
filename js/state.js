@@ -103,10 +103,13 @@ class GameState {
       // Persist backfilled data immediately so localStorage stays consistent
       if (changed) this.save();
 
-      // Restore mid-quest progress if saved
-      if (data.currentQuest && data.activeProfileIndex != null) {
+      // Restore active profile index (always, not just when quest exists)
+      if (data.activeProfileIndex != null && data.activeProfileIndex >= 0 && data.activeProfileIndex < this.profiles.length) {
         this.activeProfileIndex = data.activeProfileIndex;
-        this._savedQuestState = data.currentQuest; // Will be restored in startQuest or worldmap
+      }
+      // Restore mid-quest progress if saved
+      if (data.currentQuest) {
+        this._savedQuestState = data.currentQuest;
       }
     }
   }
@@ -172,8 +175,11 @@ class GameState {
 
   save() {
     try {
-      // Persist currentQuest so mid-quest progress survives browser close
-      const saveData = { profiles: this.profiles };
+      const saveData = {
+        profiles: this.profiles,
+        activeProfileIndex: this.activeProfileIndex, // ALWAYS persist active profile
+      };
+      // Also persist mid-quest state so progress survives browser close
       if (this.currentQuest) {
         saveData.currentQuest = {
           chapterId: this.currentQuest.chapterId,
@@ -181,7 +187,6 @@ class GameState {
           currentEncounter: this.currentQuest.currentEncounter,
           results: this.currentQuest.results,
         };
-        saveData.activeProfileIndex = this.activeProfileIndex;
       }
       localStorage.setItem(SAVE_KEY, JSON.stringify(saveData));
     } catch (e) {
@@ -228,6 +233,7 @@ class GameState {
 
   selectProfile(index) {
     this.activeProfileIndex = index;
+    this.save(); // Persist immediately so progress survives browser close
   }
 }
 

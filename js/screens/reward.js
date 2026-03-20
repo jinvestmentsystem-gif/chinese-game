@@ -426,17 +426,9 @@ function renderReward() {
     profile.chapterProgress[quest.chapterId] = { questsCompleted: 0 };
   }
   const cp = profile.chapterProgress[quest.chapterId];
-  const prevCompleted = cp.questsCompleted;
   if (quest.questIndex >= cp.questsCompleted) {
     cp.questsCompleted = quest.questIndex + 1;
   }
-  // Persistent debug — write to localStorage so we can check even after navigation
-  try { localStorage.setItem('_debug_reward', JSON.stringify({
-    time: new Date().toISOString(),
-    chapterId: quest.chapterId, questIndex: quest.questIndex,
-    prevCompleted, newCompleted: cp.questsCompleted,
-    profileLevel: profile.level, profileName: profile.name,
-  })); } catch(_) {}
 
   // ── Update stats ──
   if (!profile.stats) {
@@ -490,20 +482,6 @@ function renderReward() {
   }
 
   gameState.save();
-
-  // Verify save worked — read back from localStorage
-  try {
-    const verify = JSON.parse(localStorage.getItem('wenzi-xia-save'));
-    const verifyCP = verify?.profiles?.[gameState.activeProfileIndex]?.chapterProgress;
-    localStorage.setItem('_debug_save_verify', JSON.stringify({
-      time: new Date().toISOString(),
-      savedChapterProgress: verifyCP,
-      activeProfileIndex: gameState.activeProfileIndex,
-    }));
-  } catch(_) {}
-
-  // Don't clear currentQuest here — chapter-complete screen needs quest.chapterId.
-  // currentQuest gets replaced naturally when startQuest() creates a new one.
 
   // ── Build the animated reward sequence ──
 
