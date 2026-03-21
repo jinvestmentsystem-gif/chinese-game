@@ -60,7 +60,7 @@ function renderPuzzle() {
   setParticleMode('combat');
   const div = document.createElement('div');
   div.className = 'screen';
-  div.style.cssText = 'overflow:hidden; display:flex; flex-direction:column; height:100%;';
+  div.style.cssText = 'overflow-y:auto; overflow-x:hidden; -webkit-overflow-scrolling:touch;';
 
   // Set puzzle music — light rhythm (intensity 1)
   const chapterId = gameState.currentQuest?.chapterId || 1;
@@ -101,9 +101,8 @@ function renderPuzzle() {
   style.textContent = `
     .puzzle-screen-inner {
       display:flex; flex-direction:column;
-      height:100%; width:100%;
-      overflow-y:auto; overflow-x:hidden;
-      -webkit-overflow-scrolling:touch;
+      min-height:100%; width:100%;
+      padding-bottom:20px;
     }
     .puzzle-hud {
       display:flex; justify-content:space-between; align-items:center;

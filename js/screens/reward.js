@@ -341,13 +341,12 @@ function buildEngagementHook(profile, levelUpInfo, statsBefore, parent) {
 function renderReward() {
   setParticleMode('victory');
   burstParticles(40, 'victory');
+  const div = document.createElement('div');
+  div.className = 'screen';
+  div.style.cssText = 'overflow:hidden;';
 
   // Restore ambient music after victory stinger — guarded against stale fire
-  // Only plays if we're STILL on the reward screen when the timer fires
-  const _rewardScreenId = Date.now();
-  div._rewardId = _rewardScreenId;
   setTimeout(() => {
-    // If player already navigated away, this div is detached — don't play
     if (!document.body.contains(div)) return;
     const quest = gameState.currentQuest;
     if (quest) {
@@ -356,10 +355,6 @@ function renderReward() {
       setMusicIntensity(0);
     }
   }, 3500);
-
-  const div = document.createElement('div');
-  div.className = 'screen';
-  div.style.cssText = 'overflow:hidden;';
 
   const quest = gameState.currentQuest;
   const results = quest.results;
