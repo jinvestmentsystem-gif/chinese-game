@@ -177,6 +177,10 @@ function applyChapterRewards(profile, chapterId) {
 function renderChapterComplete() {
   const quest = gameState.currentQuest;
   const profile = gameState.profile;
+
+  // Guard: if profile is null (shouldn't happen but prevents crash)
+  if (!profile) { showScreen('title'); return document.createElement('div'); }
+
   const chapterId = quest?.chapterId || 1;
   const data = CHAPTER_COMPLETION[chapterId] || CHAPTER_COMPLETION[1];
   const isEnding = !!data.isEnding;
