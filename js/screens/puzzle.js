@@ -96,9 +96,11 @@ function renderPuzzle() {
   // Pick a random narrative for this seal encounter (stays fixed for the session)
   const narrative = PUZZLE_NARRATIVES[Math.floor(Math.random() * PUZZLE_NARRATIVES.length)];
 
-  // CSS injected once
-  const style = document.createElement('style');
-  style.textContent = `
+  // CSS injected once into <head> (not into div — survives innerHTML clear)
+  if (!document.getElementById('puzzle-styles')) {
+    const style = document.createElement('style');
+    style.id = 'puzzle-styles';
+    style.textContent = `
     .puzzle-screen-inner {
       display:flex; flex-direction:column;
       min-height:100%; width:100%;
@@ -231,7 +233,8 @@ function renderPuzzle() {
     .seal-pulsing  { animation:sealPulseRed 0.5s ease-out; }
     .seal-shattering { animation:sealShatter 0.7s ease-out forwards; }
   `;
-  div.appendChild(style);
+    document.head.appendChild(style);
+  }
 
   function sealParticleBurst(container, sealEl) {
     const rect = sealEl.getBoundingClientRect();
@@ -267,10 +270,8 @@ function renderPuzzle() {
   }
 
   function render() {
-    // Remove old content but keep the style tag
-    const existingStyle = div.querySelector('style');
+    // Clear and rebuild (styles are in <head>, not in div)
     div.innerHTML = '';
-    if (existingStyle) div.appendChild(existingStyle);
 
     const q = questions[qIndex];
     const sealPct = sealHp;
