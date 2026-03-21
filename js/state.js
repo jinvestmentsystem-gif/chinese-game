@@ -170,6 +170,21 @@ class GameState {
     if (!p.prestige)             p.prestige = { level: 0, totalLevels: 0, bonuses: { xpMultiplier: 0, goldMultiplier: 0, startingGold: 0, statBonus: 0 } };
     if (!p.questStars)           p.questStars = {};
     if (!('openingStorySeen' in p)) p.openingStorySeen = false;
+    // Migration: old system had 4 quests/chapter, each ending with boss.
+    // New system has 5 quests (4 regular + 1 boss finale).
+    // Any player who completed 2+ quests under old system already defeated
+    // the chapter boss multiple times — credit them as chapter complete.
+    if (!p._questStructureMigrated) {
+      p._questStructureMigrated = true;
+      const cp = p.chapterProgress || {};
+      for (const chId of Object.keys(cp)) {
+        const completed = cp[chId].questsCompleted || 0;
+        if (completed >= 2) {
+          // Player beat boss 2+ times → auto-complete chapter under new structure
+          cp[chId].questsCompleted = 5;
+        }
+      }
+    }
     return p;
   }
 
