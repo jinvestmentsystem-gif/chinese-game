@@ -1254,6 +1254,25 @@ function renderBoss() {
       setTimeout(() => {
         div.querySelector('#btn-retry').addEventListener('click', () => {
           profile.hp = profile.maxHp;
+          // Shuffle questions and options so retry gets different order
+          const enc = getCurrentEncounter();
+          if (enc && enc.questions) {
+            for (let i = enc.questions.length - 1; i > 0; i--) {
+              const j = Math.floor(Math.random() * (i + 1));
+              [enc.questions[i], enc.questions[j]] = [enc.questions[j], enc.questions[i]];
+            }
+            enc.questions.forEach(q => {
+              if (!q.options || q.options.length < 2) return;
+              const correctText = q.options[q.correct];
+              for (let k = q.options.length - 1; k > 0; k--) {
+                const j = Math.floor(Math.random() * (k + 1));
+                [q.options[k], q.options[j]] = [q.options[j], q.options[k]];
+              }
+              q.correct = q.options.indexOf(correctText);
+            });
+            enc.completed = false;
+          }
+          gameState.save();
           showScreen('boss');
         });
         div.querySelector('#btn-retreat').addEventListener('click', () => showScreen('worldmap'));

@@ -2324,6 +2324,27 @@ function renderCombat() {
       setTimeout(() => {
         div.querySelector('#btn-retry').addEventListener('click', () => {
           profile.hp = profile.maxHp;
+          // Regenerate questions for this encounter so retry gets fresh questions
+          const enc = getCurrentEncounter();
+          if (enc && enc.questions) {
+            // Shuffle existing questions so they appear in different order
+            for (let i = enc.questions.length - 1; i > 0; i--) {
+              const j = Math.floor(Math.random() * (i + 1));
+              [enc.questions[i], enc.questions[j]] = [enc.questions[j], enc.questions[i]];
+            }
+            // Also reshuffle each question's options
+            enc.questions.forEach(q => {
+              if (!q.options || q.options.length < 2) return;
+              const correctText = q.options[q.correct];
+              for (let i = q.options.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [q.options[i], q.options[j]] = [q.options[j], q.options[i]];
+              }
+              q.correct = q.options.indexOf(correctText);
+            });
+            enc.completed = false;
+          }
+          gameState.save();
           showScreen('combat');
         });
         div.querySelector('#btn-retreat').addEventListener('click', () => showScreen('worldmap'));
