@@ -1,7 +1,7 @@
 // js/goals.js — Computes the most important next goal for the player
 import { gameState } from './state.js';
 
-const CHAPTER_QUESTS = { 1: 4, 2: 4, 3: 4, 4: 4, 5: 5 };
+const CHAPTER_QUESTS = { 1: 5, 2: 5, 3: 5, 4: 5, 5: 5 };
 
 /**
  * Returns the highest-priority goal object for the given profile.

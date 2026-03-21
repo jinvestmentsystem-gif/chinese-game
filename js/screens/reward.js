@@ -11,7 +11,7 @@ import { victoryCelebration, perfectScoreCelebration, confettiBurst } from '../c
 
 // ─── Chapter quest counts (mirrors worldmap.js CHAPTERS) ─────────────────────
 // Kept here to avoid circular dependency with worldmap.js.
-const CHAPTER_QUESTS = { 1: 4, 2: 4, 3: 4, 4: 4, 5: 5 };
+const CHAPTER_QUESTS = { 1: 5, 2: 5, 3: 5, 4: 5, 5: 5 };
 
 // ─── Achievement milestones ───────────────────────────────────────────────────
 

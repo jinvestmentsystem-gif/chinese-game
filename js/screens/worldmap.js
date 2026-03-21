@@ -25,7 +25,7 @@ const CHAPTERS = [
     subtitle: '仓颉之影正在从源头毁灭文字……',
     boss: '仓颉之影',
     bossTitle: 'Shadow of Cangjie',
-    quests: 4,
+    quests: 5,
     unlocked: true,
     icon: '𝌕',           // trigram-ish oracle bone feel
     iconFallback: '甲',
@@ -42,7 +42,7 @@ const CHAPTERS = [
     subtitle: '司马迁的历史正在被篡改……',
     boss: '墨吏',
     bossTitle: 'Ink Official',
-    quests: 4,
+    quests: 5,
     unlocked: false,
     icon: '漢',
     iconFallback: '漢',
@@ -59,7 +59,7 @@ const CHAPTERS = [
     subtitle: '长安城的诗歌正在碎裂……',
     boss: '诗魔',
     bossTitle: 'Poetry Demon',
-    quests: 4,
+    quests: 5,
     unlocked: false,
     icon: '唐',
     iconFallback: '唐',
@@ -76,7 +76,7 @@ const CHAPTERS = [
     subtitle: '词中的情感正在被吞噬……',
     boss: '词煞',
     bossTitle: 'Ci Fiend',
-    quests: 4,
+    quests: 5,
     unlocked: false,
     icon: '宋',
     iconFallback: '宋',
@@ -261,7 +261,12 @@ function renderWorldMap() {
 
     // Build quest sub-nodes for expanded chapter view
     const ENCOUNTER_ICONS = { combat: '⚔', puzzle: '📖', boss: '👹', treasure: '💰', rest: '🏕' };
-    const patterns = [
+    const regularPatterns = [
+      ['combat', 'puzzle', 'combat', 'puzzle', 'combat'],
+      ['combat', 'combat', 'puzzle', 'combat', 'puzzle'],
+      ['combat', 'puzzle', 'combat', 'combat', 'puzzle'],
+    ];
+    const bossPatterns = [
       ['combat', 'puzzle', 'combat', 'puzzle', 'boss'],
       ['combat', 'combat', 'puzzle', 'combat', 'boss'],
       ['combat', 'puzzle', 'combat', 'combat', 'boss'],
@@ -274,6 +279,8 @@ function renderWorldMap() {
         const qCurrent = qi === ch.progress.questsCompleted && ch.isCurrent;
         const qLocked = qi > ch.progress.questsCompleted;
         const stars = profile.questStars?.[`${ch.id}-${qi}`] || 0;
+        const isBossQ = qi === ch.quests - 1;
+        const patterns = isBossQ ? bossPatterns : regularPatterns;
         const pattern = patterns[(ch.id + qi) % patterns.length];
 
         const encounterDots = pattern.map(type => {
@@ -285,6 +292,7 @@ function renderWorldMap() {
           ? `<span style="color:#d4a017;font-size:0.7rem;margin-left:4px;">${'★'.repeat(stars)}${'☆'.repeat(3-stars)}</span>`
           : '';
 
+        const isBossQuest = qi === ch.quests - 1;
         const questLabel = qCurrent ? '← 当前' : qCompleted ? '✓ 重玩' : '🔒';
         const questColor = qCurrent ? ch.color : qCompleted ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.2)';
 
@@ -298,8 +306,8 @@ function renderWorldMap() {
                  border-left:3px solid ${qCurrent ? ch.color : qCompleted ? ch.color + '55' : 'rgba(255,255,255,0.06)'};
                  transition: background 0.15s;
                ">
-            <span style="font-size:0.8rem;color:${questColor};font-weight:${qCurrent ? '700' : '400'};min-width:52px;">
-              征途 ${qi + 1} ${questLabel}
+            <span style="font-size:0.8rem;color:${isBossQuest ? '#e74c3c' : questColor};font-weight:${qCurrent || isBossQuest ? '700' : '400'};min-width:52px;">
+              ${isBossQuest ? '⚔ BOSS' : '征途 ' + (qi + 1)} ${questLabel}
             </span>
             <span style="display:flex;gap:3px;">${encounterDots}</span>
             ${starStr}

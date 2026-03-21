@@ -301,7 +301,7 @@ export function addXP(amount) {
 
 /** Grant bonus talent point for completing all quests in a chapter */
 export function grantChapterCompletionBonus(profile, chapterId) {
-  const chapQuests = { 1: 4, 2: 4, 3: 4, 4: 4, 5: 5 };
+  const chapQuests = { 1: 5, 2: 5, 3: 5, 4: 5, 5: 5 };
   const cp = profile.chapterProgress || {};
   const chapter = cp[chapterId];
   if (!chapter) return null;
@@ -399,7 +399,7 @@ function checkTitleUnlocks(profile) {
     if (req.dailyStreak && (profile.dailyLogin?.streak || 0) < req.dailyStreak) earned = false;
     for (let ch = 1; ch <= 5; ch++) {
       if (req[`chapter${ch}`]) {
-        const chapQuests = { 1: 4, 2: 4, 3: 4, 4: 4, 5: 5 };
+        const chapQuests = { 1: 5, 2: 5, 3: 5, 4: 5, 5: 5 };
         if ((cp[ch]?.questsCompleted || 0) < chapQuests[ch]) earned = false;
       }
     }

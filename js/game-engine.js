@@ -40,29 +40,43 @@ function pickObjective(chapterId, questIndex) {
 }
 
 // Encounter types: 'combat', 'puzzle', 'boss', 'treasure', 'rest'
+// Structure: quests 1-4 are regular (combat+puzzle), quest 5 is the boss finale
+const QUESTS_PER_CHAPTER = { 1: 5, 2: 5, 3: 5, 4: 5, 5: 5 };
+
 function generateEncounterSequence(chapterId, questIndex, playerHpPercent = 1) {
-  const patterns = [
+  const chapterNum = typeof chapterId === 'number' ? chapterId : parseInt(chapterId, 10) || 1;
+  const maxQuests = QUESTS_PER_CHAPTER[chapterNum] || 5;
+  const isBossQuest = questIndex === maxQuests - 1; // Last quest = boss fight
+
+  // Regular quest patterns (no boss — combat and puzzle only)
+  const regularPatterns = [
+    ['combat', 'puzzle', 'combat', 'puzzle', 'combat'],
+    ['combat', 'combat', 'puzzle', 'combat', 'puzzle'],
+    ['combat', 'puzzle', 'combat', 'combat', 'puzzle'],
+    ['puzzle', 'combat', 'puzzle', 'combat', 'combat'],
+    ['combat', 'puzzle', 'puzzle', 'combat', 'combat'],
+  ];
+
+  // Boss quest patterns (climactic finale)
+  const bossPatterns = [
     ['combat', 'puzzle', 'combat', 'puzzle', 'boss'],
     ['combat', 'combat', 'puzzle', 'combat', 'boss'],
     ['combat', 'puzzle', 'combat', 'combat', 'boss'],
-    ['combat', 'combat', 'puzzle', 'puzzle', 'boss'],
-    ['combat', 'puzzle', 'puzzle', 'combat', 'boss'],
-    ['combat', 'combat', 'combat', 'puzzle', 'boss'],
   ];
 
-  // Vary pattern selection using both chapterId (hash) and questIndex so
-  // different chapters feel distinct even at the same quest index.
+  const patterns = isBossQuest ? bossPatterns : regularPatterns;
+
+  // Vary pattern selection using both chapterId (hash) and questIndex
   const chapterHash = String(chapterId).split('').reduce((acc, ch) => acc + ch.charCodeAt(0), 0);
   const patternIndex = (chapterHash + questIndex) % patterns.length;
   const pattern = [...patterns[patternIndex]];
 
   // ── Difficulty scaling: later chapters add extra encounters ──────────
-  const chapterNum = typeof chapterId === 'number' ? chapterId : parseInt(chapterId, 10) || 1;
-  if (chapterNum === 1 && (chapterHash + questIndex) % 3 === 0) {
+  if (chapterNum === 1 && !isBossQuest && (chapterHash + questIndex) % 3 === 0) {
     // Chapter 1: ~33% chance of a shorter (4-encounter) quest for gentler intro
-    pattern.splice(pattern.length - 2, 1); // remove one pre-boss encounter
-  } else if (chapterNum >= 4) {
-    // Chapters 4-5: insert an extra combat before the boss
+    pattern.splice(pattern.length - 1, 1);
+  } else if (chapterNum >= 4 && isBossQuest) {
+    // Chapters 4-5: insert an extra combat before the boss for harder finale
     pattern.splice(pattern.length - 1, 0, 'combat');
   }
 
