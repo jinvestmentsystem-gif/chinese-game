@@ -7,29 +7,58 @@ import { showTutorial } from '../tutorial.js';
 import { showToast } from '../toast.js';
 
 export const SHOP_ITEMS = [
-  // Weapons (sorted by tier)
+  // ═══ Weapons ═══
+  // Tier 1 — starter (Chapter 1)
   { id: 'brush-sword-1', name: '毛笔剑', type: 'weapon', price: 50, stats: { attack: 5 }, desc: '以墨为刃的文人之剑', tier: 1 },
+  // Tier 2 — intermediate (Chapter 1-2)
   { id: 'brush-sword-2', name: '兰亭笔', type: 'weapon', price: 150, stats: { attack: 10, speed: 3 }, desc: '相传为王羲之所用之笔', tier: 2 },
+  // Tier 3 — advanced (Chapter 2-3)
   { id: 'brush-sword-3', name: '太白剑', type: 'weapon', price: 400, stats: { attack: 18, speed: 5 }, desc: '李白的诗意凝成的利剑', tier: 3 },
+  // Tier 4 — elite (Chapter 3-4)
   { id: 'brush-sword-4', name: '墨龙笔', type: 'weapon', price: 800, stats: { attack: 25, speed: 8, wenli: 2 }, desc: '传说中的神器，蕴含龙之力', tier: 4 },
+  // Tier 5 — masterwork (Chapter 4-5): less raw attack, adds crit for build variety
+  { id: 'weapon-5', name: '东坡剑', type: 'weapon', price: 1200, stats: { attack: 28, critChance: 4, speed: 3 }, desc: '苏东坡豪放词意铸成的利刃', tier: 5 },
+  // Tier 6 — legendary (post-game): well-rounded, not pure damage
+  { id: 'weapon-6', name: '圣贤笔', type: 'weapon', price: 2500, stats: { attack: 32, speed: 6, critChance: 3, wenli: 3 }, desc: '历代圣贤文气汇聚的至高神器', tier: 6 },
 
-  // Armor (sorted by tier)
+  // ═══ Armor ═══
   { id: 'scroll-shield-1', name: '竹简盾', type: 'armor', price: 50, stats: { defense: 5 }, desc: '刻满经文的护身竹简', tier: 1 },
   { id: 'scroll-shield-2', name: '墨玉甲', type: 'armor', price: 150, stats: { defense: 10, hp: 20 }, desc: '凝练墨气化成的铠甲', tier: 2 },
   { id: 'scroll-shield-3', name: '诗词袍', type: 'armor', price: 400, stats: { defense: 15, wenli: 3, hp: 30 }, desc: '用千年诗词织就的法袍', tier: 3 },
   { id: 'scroll-shield-4', name: '文曲星铠', type: 'armor', price: 800, stats: { defense: 22, hp: 50, wenli: 5 }, desc: '文曲星下凡时留下的神甲', tier: 4 },
+  // Tier 5: less raw defense than T4, but adds speed + HP
+  { id: 'armor-5', name: '词韵轻甲', type: 'armor', price: 1200, stats: { defense: 18, hp: 60, speed: 4 }, desc: '宋词词韵编织的灵动轻甲', tier: 5 },
+  // Tier 6: balanced — not invincible, but well-rounded
+  { id: 'armor-6', name: '文脉圣衣', type: 'armor', price: 2500, stats: { defense: 20, hp: 80, wenli: 6, speed: 3 }, desc: '承载千年文脉的至圣法衣', tier: 6 },
 
-  // Accessories (sorted by tier)
+  // ═══ Accessories ═══
+  // Tier 1
   { id: 'pendant-1', name: '文气吊坠', type: 'accessory', price: 80, stats: { critChance: 3 }, desc: '蕴含文字之力的护身吊坠', tier: 1 },
-  { id: 'pendant-2', name: '墨玉挂件', type: 'accessory', price: 200, stats: { critChance: 5, wenli: 1 }, desc: '凝聚墨气精华的玉石', tier: 2 },
-  { id: 'pendant-3', name: '仓颉之眼', type: 'accessory', price: 500, stats: { critChance: 8, attack: 5 }, desc: '传说中仓颉留下的神秘宝石', tier: 3 },
   { id: 'ring-1', name: '金字戒指', type: 'accessory', price: 120, stats: { speed: 2 }, desc: '刻有金文的速答之戒', tier: 1 },
+  // Tier 2
+  { id: 'pendant-2', name: '墨玉挂件', type: 'accessory', price: 200, stats: { critChance: 5, wenli: 1 }, desc: '凝聚墨气精华的玉石', tier: 2 },
   { id: 'ring-2', name: '龙纹戒指', type: 'accessory', price: 350, stats: { speed: 4, attack: 3 }, desc: '镌刻龙纹的力量之戒', tier: 2 },
+  // Tier 3
+  { id: 'pendant-3', name: '仓颉之眼', type: 'accessory', price: 500, stats: { critChance: 8, attack: 5 }, desc: '传说中仓颉留下的神秘宝石', tier: 3 },
+  { id: 'amulet-3', name: '诗仙令牌', type: 'accessory', price: 450, stats: { speed: 5, wenli: 2, defense: 3 }, desc: '李白遗留的仙人令牌', tier: 3 },
+  // Tier 4
+  { id: 'pendant-4', name: '文昌星坠', type: 'accessory', price: 700, stats: { critChance: 10, attack: 4, speed: 2 }, desc: '文昌帝君赐下的星辰碎片', tier: 4 },
+  { id: 'ring-4', name: '岳飞战戒', type: 'accessory', price: 750, stats: { attack: 8, defense: 6 }, desc: '精忠报国之魂凝成的战戒', tier: 4 },
+  // Tier 5
+  { id: 'pendant-5', name: '屈原魂佩', type: 'accessory', price: 1000, stats: { critChance: 12, wenli: 3, speed: 3 }, desc: '汨罗江畔屈原忠魂凝成', tier: 5 },
+  { id: 'ring-5', name: '辛弃疾符', type: 'accessory', price: 1100, stats: { attack: 6, defense: 5, speed: 5 }, desc: '壮志凌云的词人之魂', tier: 5 },
+  // Tier 6
+  { id: 'pendant-6', name: '天道玉符', type: 'accessory', price: 2000, stats: { critChance: 10, attack: 5, defense: 4, speed: 4 }, desc: '天道至理凝成的万能玉符', tier: 6 },
 
-  // Consumables
+  // ═══ Consumables ═══
   { id: 'hp-potion', name: '回春丹', type: 'consumable', price: 20, effect: 'heal_50', desc: '恢复50点生命值', stackable: true },
+  { id: 'hp-potion-lg', name: '回天丹', type: 'consumable', price: 60, effect: 'heal_full', desc: '完全恢复生命值', stackable: true },
   { id: 'wenli-potion', name: '灵墨丹', type: 'consumable', price: 30, effect: 'wenli_full', desc: '完全恢复文力', stackable: true },
   { id: 'xp-scroll', name: '经验卷轴', type: 'consumable', price: 40, effect: 'xp_double_next', desc: '下次战斗经验翻倍', stackable: true },
+  { id: 'atk-boost', name: '虎符', type: 'consumable', price: 35, effect: 'atk_boost_5', desc: '本次征途攻击+5', stackable: true },
+  { id: 'def-boost', name: '龟甲', type: 'consumable', price: 35, effect: 'def_boost_5', desc: '本次征途防御+5', stackable: true },
+  { id: 'combo-starter', name: '连击符', type: 'consumable', price: 50, effect: 'combo_start_3', desc: '战斗开始即拥有3连击', stackable: true },
+  { id: 'gold-charm', name: '招财符', type: 'consumable', price: 45, effect: 'gold_double', desc: '本次征途金币翻倍', stackable: true },
 ];
 
 // ─── Set bonus definitions ────────────────────────────────────────────────────
@@ -38,6 +67,8 @@ export const SET_BONUSES = {
   2: { pieces: 3, label: '二阶套装 (3件): 金币+10%', effect: 'goldPct', value: 10 },
   3: { pieces: 3, label: '三阶套装 (3件): 暴击率+5%', effect: 'critChancePct', value: 5 },
   4: { pieces: 3, label: '四阶套装 (3件): 全伤害+15%', effect: 'allDmgPct', value: 15 },
+  5: { pieces: 3, label: '五阶套装 (3件): 速度+5 暴击伤害+20%', effect: 'speedCritDmg', value: 20 },
+  6: { pieces: 3, label: '六阶套装 (3件): 全属性+5', effect: 'allStatBonus', value: 5 },
 };
 
 export function getActiveSetBonuses(profile) {

@@ -42,8 +42,8 @@ export function getNotificationDots(profile) {
   // Unspent stat points
   if ((profile.statPoints || 0) > 0) dots.levelup = 'red';
 
-  // Shop: can afford something new (16 total shop items)
-  if ((profile.gold || 0) >= 50 && (profile.inventory || []).length < 16) dots.shop = 'red';
+  // Shop: can afford something new (27 total equipment items)
+  if ((profile.gold || 0) >= 50 && (profile.inventory || []).length < 27) dots.shop = 'red';
 
   // Inventory: unviewed equipment drop
   if (profile._newEquipDrop) dots.inventory = 'red';
