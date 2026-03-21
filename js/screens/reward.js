@@ -357,6 +357,7 @@ function renderReward() {
   }, 3500);
 
   const quest = gameState.currentQuest;
+  if (!quest || !quest.results) { showScreen('worldmap'); return div; }
   const results = quest.results;
   const accuracy = quest.results.total > 0
     ? Math.round((results.correct / results.total) * 100)
@@ -364,6 +365,7 @@ function renderReward() {
 
   // Snapshot stats BEFORE applying XP/level-up so we can show before/after
   const profile = gameState.profile;
+  if (!profile) { showScreen('title'); return div; }
   const statsBefore = getEffectiveStats(profile);
   const levelBefore = profile.level;
 
@@ -424,6 +426,14 @@ function renderReward() {
   if (quest.questIndex >= cp.questsCompleted) {
     cp.questsCompleted = quest.questIndex + 1;
   }
+  // CRITICAL: save progress IMMEDIATELY — don't risk losing it
+  console.log('[REWARD] questsCompleted updated:', quest.chapterId, 'qi:', quest.questIndex, '→', cp.questsCompleted, 'profileIdx:', gameState.activeProfileIndex);
+  gameState.save();
+  // Verify save by reading back
+  try {
+    const verify = JSON.parse(localStorage.getItem('wenzi-xia-save'));
+    console.log('[REWARD] VERIFY saved chapterProgress:', JSON.stringify(verify?.profiles?.[gameState.activeProfileIndex]?.chapterProgress));
+  } catch(_) {}
 
   // ── Update stats ──
   if (!profile.stats) {
