@@ -152,13 +152,31 @@ export async function startQuest(chapterId, questIndex) {
   // Check for saved mid-quest state (browser was closed mid-quest)
   if (gameState._savedQuestState) {
     const sq = gameState._savedQuestState;
-    if (sq.chapterId === chapterId && sq.questIndex === questIndex) {
-      // Saved state matches — will resume from saved encounter position
+    if (sq.chapterId === chapterId && sq.questIndex === questIndex && sq.currentEncounter > 0) {
+      // Saved state matches and player had progressed — skip already-completed encounters
+      // We can't restore the exact question state (not persisted), but we advance the encounter pointer
+      // and restore result counters so the reward screen calculates correctly
+      gameState._savedQuestState = null;
+      // Don't full-heal — player resumes where they left off
+      const content = await loadContent(profile.tier);
+      const hpPercent = profile.maxHp > 0 ? profile.hp / profile.maxHp : 1;
+      const encounters = generateEncounterSequence(chapterId, questIndex, hpPercent);
+      // Mark earlier encounters as completed
+      for (let i = 0; i < Math.min(sq.currentEncounter, encounters.length); i++) {
+        encounters[i].completed = true;
+      }
+      gameState.currentQuest = {
+        chapterId, questIndex, encounters,
+        currentEncounter: Math.min(sq.currentEncounter, encounters.length),
+        results: sq.results || { correct: 0, total: 0, combo: 0, maxCombo: 0, xpEarned: 0, itemsFound: [], questionsLog: [] },
+      };
+      gameState.save();
+      return gameState.currentQuest;
     }
-    gameState._savedQuestState = null; // Clear after use
+    gameState._savedQuestState = null; // Clear non-matching saved state
   }
 
-  // Regenerate HP and 文力 between quests
+  // Regenerate HP and 文力 between quests (fresh start)
   profile.hp = profile.maxHp;
   profile.wenli = profile.maxWenli;
   gameState.save();
@@ -181,14 +199,14 @@ export async function startQuest(chapterId, questIndex) {
     for (const rid of reviewIds) {
       const found = content.vocab.find(q => q.id === rid);
       if (found) {
-        // Shuffle options for the review question (same logic as pickQuestions)
-        const correctText = found.options[found.correct];
-        const shuffled = [...found.options];
-        for (let i = shuffled.length - 1; i > 0; i--) {
+        // Shuffle options for the review question — track by index, not text
+        const indices = found.options.map((_, i) => i);
+        for (let i = indices.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
-          [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+          [indices[i], indices[j]] = [indices[j], indices[i]];
         }
-        reviewQuestions.push({ ...found, options: shuffled, correct: shuffled.indexOf(correctText), isReview: true });
+        const shuffled = indices.map(i => found.options[i]);
+        reviewQuestions.push({ ...found, options: shuffled, correct: indices.indexOf(found.correct), isReview: true });
       }
     }
   }
@@ -220,10 +238,11 @@ export async function startQuest(chapterId, questIndex) {
       enc.passage = pickReadingPassage(content.reading, profile.seenQuestions.reading, rdTarget, sessionUsedIds);
       if (enc.passage?.id) sessionUsedIds.push(enc.passage.id);
     } else if (enc.type === 'boss') {
-      const clTarget = getAdaptiveDifficulty(profile, 'classical');
-      // Boss gets even larger pool to prevent repetition across 3 phases
-      const bossPoolSize = Math.min(content.classical.length, 60);
-      enc.questions = pickQuestions(content.classical, bossPoolSize, profile.seenQuestions.classical, clTarget, sessionUsedIds, gradeBias);
+      // Boss gets classical questions; fall back to vocab if classical pool is empty
+      const bossPool = content.classical.length > 0 ? content.classical : content.vocab;
+      const clTarget = getAdaptiveDifficulty(profile, bossPool === content.classical ? 'classical' : 'vocab');
+      const bossPoolSize = Math.min(bossPool.length, 60);
+      enc.questions = pickQuestions(bossPool, bossPoolSize, profile.seenQuestions.classical, clTarget, sessionUsedIds, gradeBias);
       enc.questions.forEach(q => sessionUsedIds.push(q.id));
     }
     // 'treasure' and 'rest' encounters have no questions — their data is set at generation time
@@ -282,6 +301,7 @@ export function getCurrentEncounter() {
 
 export function recordAnswer(contentType, correct, questionId) {
   const profile = gameState.profile;
+  if (!profile.accuracy[contentType]) profile.accuracy[contentType] = [];
   profile.accuracy[contentType].push(correct ? 1 : 0);
   // Keep last 50
   if (profile.accuracy[contentType].length > 50) {
@@ -289,6 +309,7 @@ export function recordAnswer(contentType, correct, questionId) {
   }
 
   // Track seen question IDs — keep 500 to cover full content pool for diversity
+  if (!profile.seenQuestions[contentType]) profile.seenQuestions[contentType] = [];
   if (questionId && !profile.seenQuestions[contentType].includes(questionId)) {
     profile.seenQuestions[contentType].push(questionId);
     if (profile.seenQuestions[contentType].length > 500) {
@@ -297,6 +318,7 @@ export function recordAnswer(contentType, correct, questionId) {
   }
 
   const quest = gameState.currentQuest;
+  if (!quest?.results) return;
   quest.results.total++;
   if (correct) {
     quest.results.correct++;

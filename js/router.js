@@ -6,6 +6,8 @@ const screens = {};
 const lazyLoaders = {}; // { screenName: () => import('./screens/foo.js') }
 let root = null;
 let transitioning = false;
+let _screenGeneration = 0; // Incremented on every screen swap — stale callbacks check this
+const _cleanupCallbacks = []; // Registered by screens, called on navigation
 
 export function initRouter() {
   root = document.getElementById('game-root');
@@ -97,10 +99,32 @@ function _doShowScreen(name, params) {
 }
 
 function _swapScreen(name, params) {
+  _screenGeneration++; // Invalidate all pending callbacks from previous screen
+  // Run screen cleanup callbacks (timers, listeners, etc.)
+  while (_cleanupCallbacks.length) {
+    try { _cleanupCallbacks.pop()(); } catch (_) {}
+  }
   cleanupCelebrations();
   root.innerHTML = '';
   _mountScreen(name, params);
 }
+
+/**
+ * Get the current screen generation. Screens can capture this value
+ * and compare later inside setTimeout/requestAnimationFrame to detect
+ * if the screen has been swapped out (stale callback).
+ * Usage: const gen = getScreenGeneration();
+ *        setTimeout(() => { if (getScreenGeneration() !== gen) return; ... }, 1000);
+ */
+export function getScreenGeneration() { return _screenGeneration; }
+
+/**
+ * Register a cleanup callback for the current screen.
+ * Called automatically when navigating away. Use for clearing timers,
+ * removing document-level event listeners, etc.
+ * Usage: onCleanup(() => { clearInterval(myTimer); document.removeEventListener('keydown', handler); });
+ */
+export function onCleanup(fn) { if (typeof fn === 'function') _cleanupCallbacks.push(fn); }
 
 function _mountScreen(name, params) {
   if (!screens[name]) {

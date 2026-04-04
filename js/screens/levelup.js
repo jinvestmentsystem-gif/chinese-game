@@ -28,10 +28,12 @@ const STAT_META = {
 // RENDER
 // ═════════════════════════════════════════════════════════════════════════════
 
-function renderLevelUp(params) {
+function renderLevelUp(params = {}) {
   const { newLevel, previousScreen, previousParams } = params;
   const profile = gameState.profile;
-  let statPointsRemaining = 2;
+  // Read accumulated stat points from profile (addXP grants 2-4 per level)
+  let statPointsRemaining = profile.statPoints || 0;
+  if (statPointsRemaining <= 0) statPointsRemaining = 2; // Fallback for direct navigation
   const allocations = { attack: 0, defense: 0, speed: 0, wenli: 0, hp: 0 };
 
   // Talent tree: track pending (un-committed) talent selections
@@ -85,6 +87,9 @@ function renderLevelUp(params) {
     profile.speed    += allocations.speed;
     profile.maxWenli += allocations.wenli;
     profile.maxHp    += allocations.hp * 10;
+    // Deduct spent stat points from profile
+    const totalSpent = Object.values(allocations).reduce((s, v) => s + v, 0);
+    profile.statPoints = Math.max(0, (profile.statPoints || 0) - totalSpent);
 
     // Talents (apply via real API so save + validation runs)
     for (const [key, ranks] of Object.entries(pendingTalents)) {

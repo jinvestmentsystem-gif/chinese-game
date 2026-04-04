@@ -22,13 +22,20 @@ const CHENGYU_BONUS_LABELS = {
 
 // ─── Helpers to decompose stat sources ────────────────────────────────────────
 
+// Map item stat keys to profile stat keys (items use 'hp'/'wenli', profile uses 'maxHp'/'maxWenli')
+function mapStatKey(k) {
+  if (k === 'hp') return 'maxHp';
+  if (k === 'wenli') return 'maxWenli';
+  return k;
+}
+
 function getPrimaryStat(item) {
   if (item.type === 'weapon') return 'attack';
   if (item.type === 'armor') return 'defense';
   if (item.stats) {
     let best = null, bestVal = 0;
     for (const [k, v] of Object.entries(item.stats)) {
-      if (v > bestVal) { best = k; bestVal = v; }
+      if (v > bestVal) { best = mapStatKey(k); bestVal = v; }
     }
     return best || 'attack';
   }
@@ -320,51 +327,67 @@ function renderInventory() {
   `;
 
   setTimeout(() => {
-    div.querySelector('#btn-back').addEventListener('click', () => showScreen('worldmap'));
-    div.querySelector('#btn-shop').addEventListener('click', () => showScreen('shop'));
-    div.querySelector('#btn-forge').addEventListener('click', () => showScreen('shop', { tab: 'forge' }));
+    div.querySelector('#btn-back')?.addEventListener('click', () => showScreen('worldmap'));
+    div.querySelector('#btn-shop')?.addEventListener('click', () => showScreen('shop'));
+    div.querySelector('#btn-forge')?.addEventListener('click', () => showScreen('shop', { tab: 'forge' }));
 
     div.querySelectorAll('.equip-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const item = btn.closest('.inv-item');
+        if (!item) return;
         const id = item.dataset.id;
         const type = item.dataset.type;
         const equip = EQUIPMENT_DB.find(e => e.id === id);
         if (!equip) return;
         const upgrades = profile.upgrades || {};
         if (profile.equipment[type] === id) {
-          // Unequip — remove base stats
-          Object.entries(equip.stats).forEach(([k, v]) => { profile[k] = (profile[k] || 0) - v; });
+          // Unequip — remove base stats (map hp→maxHp, wenli→maxWenli)
+          Object.entries(equip.stats).forEach(([k, v]) => {
+            const mk = mapStatKey(k);
+            profile[mk] = Math.max(0, (profile[mk] || 0) - v);
+          });
           // Remove upgrade bonus
           const uLevel = upgrades[id] || 0;
           if (uLevel > 0) {
             const pStat = getPrimaryStat(equip);
-            profile[pStat] = (profile[pStat] || 0) - (uLevel * 2);
+            profile[pStat] = Math.max(0, (profile[pStat] || 0) - (uLevel * 2));
           }
           profile.equipment[type] = null;
+          // Clamp current HP/wenli to new max
+          if (profile.hp > profile.maxHp) profile.hp = profile.maxHp;
+          if (profile.wenli > profile.maxWenli) profile.wenli = profile.maxWenli;
         } else {
           // Unequip current first
           if (profile.equipment[type]) {
             const oldId = profile.equipment[type];
             const old = EQUIPMENT_DB.find(e => e.id === oldId);
             if (old) {
-              Object.entries(old.stats).forEach(([k, v]) => { profile[k] = (profile[k] || 0) - v; });
+              Object.entries(old.stats).forEach(([k, v]) => {
+                const mk = mapStatKey(k);
+                profile[mk] = Math.max(0, (profile[mk] || 0) - v);
+              });
               const oldULevel = upgrades[oldId] || 0;
               if (oldULevel > 0) {
                 const oldPStat = getPrimaryStat(old);
-                profile[oldPStat] = (profile[oldPStat] || 0) - (oldULevel * 2);
+                profile[oldPStat] = Math.max(0, (profile[oldPStat] || 0) - (oldULevel * 2));
               }
             }
           }
-          // Equip new — add base stats
+          // Equip new — add base stats (map hp→maxHp, wenli→maxWenli)
           profile.equipment[type] = id;
-          Object.entries(equip.stats).forEach(([k, v]) => { profile[k] = (profile[k] || 0) + v; });
+          Object.entries(equip.stats).forEach(([k, v]) => {
+            const mk = mapStatKey(k);
+            profile[mk] = (profile[mk] || 0) + v;
+          });
           // Add upgrade bonus
           const uLevel = upgrades[id] || 0;
           if (uLevel > 0) {
             const pStat = getPrimaryStat(equip);
             profile[pStat] = (profile[pStat] || 0) + (uLevel * 2);
           }
+          // When equipping maxHp/maxWenli boosts, also heal current by that amount
+          if (equip.stats.hp) profile.hp = Math.min(profile.maxHp, profile.hp + equip.stats.hp);
+          if (equip.stats.wenli) profile.wenli = Math.min(profile.maxWenli, profile.wenli + equip.stats.wenli);
         }
         gameState.save();
         showScreen('inventory');

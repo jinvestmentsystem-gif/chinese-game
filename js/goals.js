@@ -45,7 +45,7 @@ export function getNextGoal(profile) {
     const prevId = Number(chId) - 1;
     if (prevId > 0) {
       const prevCp = profile.chapterProgress?.[prevId];
-      const prevTotal = CHAPTER_QUESTS[prevId] || 4;
+      const prevTotal = CHAPTER_QUESTS[prevId] || 5;
       if (!prevCp || prevCp.questsCompleted < prevTotal) continue;
     }
     const cp = profile.chapterProgress?.[chId];

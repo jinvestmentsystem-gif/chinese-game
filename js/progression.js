@@ -17,7 +17,7 @@ export const TALENT_TREE = {
   ironWill:      { name: '铁壁之心',   desc: '受到伤害-12%',            branch: 'defense', maxRank: 3, perRank: { defensePct: 12 }, icon: '🛡️', requires: null },
   lifeForce:     { name: '生命力',     desc: '最大HP+15',               branch: 'defense', maxRank: 3, perRank: { bonusHp: 15 },   icon: '❤️', requires: { ironWill: 1 } },
   secondWind:    { name: '绝处逢生',   desc: 'HP<20%时防御翻倍',        branch: 'defense', maxRank: 1, perRank: { lastStand: 1 },  icon: '🌟', requires: { ironWill: 2, lifeForce: 2 } },
-  thorns:        { name: '荆棘反刺',   desc: '受伤时反弹20%伤害给敌人', branch: 'defense', maxRank: 2, perRank: { thornsPct: 10 },  icon: '🌿', requires: { ironWill: 1 } },
+  thorns:        { name: '荆棘反刺',   desc: '受伤时反弹10%伤害/级',   branch: 'defense', maxRank: 2, perRank: { thornsPct: 10 },  icon: '🌿', requires: { ironWill: 1 } },
 
   // ── Speed Branch (速度) ──────────────────────────────────────────────────
   quickThinking: { name: '快思敏捷',   desc: '+2秒答题时间',            branch: 'speed', maxRank: 3, perRank: { timerBonus: 2 },   icon: '⚡', requires: null },
@@ -63,7 +63,8 @@ export const TITLES = {
 
 /** Calculate effective attack damage for a correct answer */
 export function calcDamage(profile, combo = 0, isCrit = false, timeLeft = 0) {
-  const base = 8 + profile.attack * 0.8;  // 5 attack = 12 base, 25 attack = 28 base
+  const stats = getEffectiveStats(profile);
+  const base = 8 + stats.attack * 0.8;  // 5 attack = 12 base, 25 attack = 28 base
   const t = getTalentEffects(profile);
 
   let multiplier = 1;
@@ -71,8 +72,9 @@ export function calcDamage(profile, combo = 0, isCrit = false, timeLeft = 0) {
   // Talent: Sharp Mind (+15% per rank)
   multiplier += (t.attackPct || 0) / 100;
 
-  // Combo damage scaling: each combo adds 8% (talent) + 5% (base)
-  const comboBonus = combo * (0.05 + (t.comboDmgPct || 0) / 100);
+  // Combo damage scaling: each combo adds talent + companion + 5% (base)
+  const comp = getCompanionBuffs(profile);
+  const comboBonus = combo * (0.05 + (t.comboDmgPct || 0) / 100 + (comp.comboDmgPct || 0) / 100);
   multiplier += comboBonus;
 
   // Speed bonus: answer within 5 seconds = +30% per rank
@@ -86,8 +88,13 @@ export function calcDamage(profile, combo = 0, isCrit = false, timeLeft = 0) {
   // Executioner: enemy HP < 30%
   // (caller passes this context — handled externally)
 
-  // Critical hit
-  const critMult = isCrit ? (profile.critMultiplier + (combo > 5 ? 0.3 : 0)) : 1;
+  // Set bonus: tier 4 = +15% all damage
+  const sets = getActiveSetEffects(profile);
+  if (sets.dmgPct) multiplier += sets.dmgPct / 100;
+
+  // Critical hit (includes set tier 5 crit multiplier bonus)
+  const baseCritMult = (profile.critMultiplier || 1.5) + (sets.critMultiplier || 0);
+  const critMult = isCrit ? (baseCritMult + (combo > 5 ? 0.3 : 0)) : 1;
 
   let dmg = Math.round(base * multiplier * critMult);
 
@@ -102,7 +109,8 @@ export function calcDamage(profile, combo = 0, isCrit = false, timeLeft = 0) {
 /** Calculate damage taken from a wrong answer */
 export function calcDamageTaken(profile, baseDmg = 20) {
   const t = getTalentEffects(profile);
-  let reduction = 1 - (profile.defense * 0.03);  // 5 def = 15% reduction, 20 def = 60%
+  const stats = getEffectiveStats(profile);
+  let reduction = 1 - (stats.defense * 0.03);  // 5 def = 15% reduction, 20 def = 60%
 
   // Talent: Iron Will (-12% per rank)
   reduction -= (t.defensePct || 0) / 100;
@@ -125,28 +133,38 @@ export function calcDamageTaken(profile, baseDmg = 20) {
 /** Calculate timer duration based on speed stat + talents */
 export function getTimerDuration(profile, baseTimer = 15) {
   const t = getTalentEffects(profile);
-  const speedBonus = profile.speed * 1.5;  // Each speed point = +1.5 seconds
+  const stats = getEffectiveStats(profile);
+  const speedBonus = stats.speed * 1.5;  // Each speed point = +1.5 seconds
   const talentBonus = t.timerBonus || 0;
   return Math.round((baseTimer + speedBonus + talentBonus) * 10) / 10;
 }
 
 /** Check if this answer is a critical hit */
 export function rollCrit(profile) {
-  const t = getTalentEffects(profile);
-  const totalCritChance = (profile.critChance || 5) + (t.critChance || 0);
-  return Math.random() * 100 < totalCritChance;
+  const stats = getEffectiveStats(profile);
+  return Math.random() * 100 < stats.critChance;
 }
 
 /** Get effective max HP including talents */
 export function getEffectiveMaxHp(profile) {
   const t = getTalentEffects(profile);
-  return profile.maxHp + (t.bonusHp || 0);
+  const chengyuBonuses = getChengyuBonuses(profile);
+  let bonus = t.bonusHp || 0;
+  for (const b of chengyuBonuses) {
+    if (b.type === 'maxHp') bonus += b.value;
+  }
+  return (profile.maxHp || 100) + bonus;
 }
 
-/** Get effective max wenli including talents */
+/** Get effective max wenli including talents + chengyu */
 export function getEffectiveMaxWenli(profile) {
   const t = getTalentEffects(profile);
-  return profile.maxWenli + (t.bonusWenli || 0);
+  const chengyuBonuses = getChengyuBonuses(profile);
+  let bonus = t.bonusWenli || 0;
+  for (const b of chengyuBonuses) {
+    if (b.type === 'maxWenli') bonus += b.value;
+  }
+  return (profile.maxWenli || 5) + bonus;
 }
 
 /** Aggregate all talent effects into a flat object */
@@ -245,19 +263,27 @@ export function calculateGoldReward(results, isChapterBoss = false) {
   return baseGold + comboBonus + accuracyBonus + perfectBonus + chapterBonus;
 }
 
-export function addXP(amount) {
+export function addXP(amount, goldOverride) {
   const profile = gameState.profile;
   const t = getTalentEffects(profile);
 
-  // Apply XP boost talent
-  const xpMult = 1 + (t.xpPct || 0) / 100;
+  // Apply XP boost: talent + prestige + set + companion
+  const sets = getActiveSetEffects(profile);
+  const comp = getCompanionBuffs(profile);
+  const prestigeXP = profile.prestige?.bonuses?.xpMultiplier || 0;
+  const xpMult = 1 + (t.xpPct || 0) / 100 + prestigeXP / 100 + (sets.xpPct || 0) / 100 + (comp.xpPct || 0) / 100;
   const boostedAmount = Math.round(amount * xpMult);
 
   profile.xp += boostedAmount;
 
-  // Gold = 60% of XP earned (base, before talent)
-  const goldMult = 1 + (t.goldPct || 0) / 100;
-  const goldEarned = Math.round(boostedAmount * 0.6 * goldMult);
+  // Gold: use explicit amount if provided, otherwise default to 60% of XP
+  const prestigeGold = profile.prestige?.bonuses?.goldMultiplier || 0;
+  // Chengyu 15-collection bonus: gold_mult +10%
+  const chengyuGoldPct = getChengyuBonuses(profile).find(b => b.type === 'gold_mult')?.value || 0;
+  const goldMult = 1 + (t.goldPct || 0) / 100 + prestigeGold / 100 + (sets.goldPct || 0) / 100 + chengyuGoldPct / 100 + (comp.goldPct || 0) / 100;
+  const goldEarned = goldOverride != null
+    ? Math.round(goldOverride * goldMult)
+    : Math.round(boostedAmount * 0.6 * goldMult);
   profile.gold = (profile.gold || 0) + goldEarned;
   profile.stats.totalGoldEarned = (profile.stats.totalGoldEarned || 0) + goldEarned;
 
@@ -266,7 +292,7 @@ export function addXP(amount) {
   let unlock = null;
   let talentPointsGained = 0;
 
-  while (profile.xp >= xpForLevel(newLevel)) {
+  while (profile.xp >= xpForLevel(newLevel) && newLevel < 200) {
     profile.xp -= xpForLevel(newLevel);
     newLevel++;
     leveledUp = true;
@@ -321,8 +347,9 @@ export function grantChapterCompletionBonus(profile, chapterId) {
 }
 
 export function getXPProgress(profile) {
-  const needed = xpForLevel(profile.level);
-  return { current: profile.xp, needed, percent: Math.round((profile.xp / needed) * 100) };
+  const needed = xpForLevel(profile.level) || 100; // Fallback prevents division by zero
+  const percent = profile.level >= 200 ? 100 : Math.min(100, Math.round((profile.xp / needed) * 100));
+  return { current: profile.xp, needed, percent };
 }
 
 export function hasAbility(profile, ability) {
@@ -438,17 +465,78 @@ export function claimAchievementReward(profile, achievementId) {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// EFFECTIVE STATS — Aggregate base + equipment + talents + chengyu
+// ═══════════════════════════════════════════════════════════════════════════════
+// SET BONUS — lightweight tier check (avoids circular dep with shop.js)
+// ═══════════════════════════════════════════════════════════════════════════════
+
+// COMPANION FRIENDSHIP BUFFS — XP thresholds mirror companion-profile.js
+const COMPANION_BUFFS = [
+  { xp: 50,  effect: { xpPct: 5 } },
+  { xp: 100, effect: { goldPct: 5 } },
+  { xp: 180, effect: { critChance: 3 } },
+  { xp: 400, effect: { comboDmgPct: 5 } },
+  { xp: 550, effect: { defense: 3 } },
+  { xp: 720, effect: { allStats: 2 } },
+];
+
+export function getCompanionBuffs(profile) {
+  const xp = profile.companionFriendship?.xp || 0;
+  const effects = {};
+  for (const b of COMPANION_BUFFS) {
+    if (xp >= b.xp) {
+      for (const [k, v] of Object.entries(b.effect)) {
+        effects[k] = (effects[k] || 0) + v;
+      }
+    }
+  }
+  return effects;
+}
+
+// All equipment item IDs per tier (need 3+ owned for set bonus)
+const SET_TIER_IDS = {
+  1: ['brush-sword-1', 'scroll-shield-1', 'pendant-1', 'ring-1'],
+  2: ['brush-sword-2', 'scroll-shield-2', 'pendant-2', 'ring-2'],
+  3: ['brush-sword-3', 'scroll-shield-3', 'pendant-3', 'amulet-3'],
+  4: ['brush-sword-4', 'scroll-shield-4', 'pendant-4', 'ring-4'],
+  5: ['weapon-5', 'armor-5', 'pendant-5', 'ring-5'],
+  6: ['weapon-6', 'armor-6', 'pendant-6'],
+};
+const SET_REQUIRED = 3; // pieces needed
+const SET_EFFECTS = {
+  1: { xpPct: 5 },
+  2: { goldPct: 10 },
+  3: { critChance: 5 },
+  4: { dmgPct: 15 },
+  5: { speed: 5, critMultiplier: 0.2 },
+  6: { allStats: 5 },
+};
+
+export function getActiveSetEffects(profile) {
+  const inv = profile.inventory || [];
+  const effects = {};
+  for (const [tier, ids] of Object.entries(SET_TIER_IDS)) {
+    const owned = ids.filter(id => inv.includes(id)).length;
+    if (owned >= SET_REQUIRED) {
+      const fx = SET_EFFECTS[tier];
+      for (const [k, v] of Object.entries(fx)) {
+        effects[k] = (effects[k] || 0) + v;
+      }
+    }
+  }
+  return effects;
+}
+
+// EFFECTIVE STATS — Aggregate base + equipment + talents + chengyu + sets
 // ═══════════════════════════════════════════════════════════════════════════════
 
 export function getEffectiveStats(profile) {
   const t = getTalentEffects(profile);
   const chengyuBonuses = getChengyuBonuses(profile);
 
-  let attack = profile.attack;
-  let defense = profile.defense;
-  let speed = profile.speed;
-  let maxHp = profile.maxHp + (t.bonusHp || 0);
+  let attack = profile.attack || 0;
+  let defense = profile.defense || 0;
+  let speed = profile.speed || 0;
+  let maxHp = (profile.maxHp || 100) + (t.bonusHp || 0);
   let maxWenli = profile.maxWenli + (t.bonusWenli || 0);
   let critChance = (profile.critChance || 5) + (t.critChance || 0);
 
@@ -460,5 +548,20 @@ export function getEffectiveStats(profile) {
     if (bonus.type === 'critChance') critChance += bonus.value;
   }
 
-  return { attack, defense, speed, maxHp, maxWenli, critChance, critMultiplier: profile.critMultiplier || 1.5 };
+  // Set bonuses
+  const sets = getActiveSetEffects(profile);
+  if (sets.allStats) { attack += sets.allStats; defense += sets.allStats; speed += sets.allStats; }
+  if (sets.critChance) critChance += sets.critChance;
+  if (sets.speed) speed += sets.speed;
+
+  // Companion friendship buffs
+  const comp = getCompanionBuffs(profile);
+  if (comp.critChance) critChance += comp.critChance;
+  if (comp.defense) defense += comp.defense;
+  if (comp.allStats) { attack += comp.allStats; defense += comp.allStats; speed += comp.allStats; }
+
+  let critMultiplier = profile.critMultiplier || 1.5;
+  if (sets.critMultiplier) critMultiplier += sets.critMultiplier;
+
+  return { attack, defense, speed, maxHp, maxWenli, critChance, critMultiplier };
 }

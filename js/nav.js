@@ -19,7 +19,7 @@ export function getVisibleFeatures(profile) {
     talents:    level >= 4,
     luckyWheel: level >= 2,
     weeklyBoss: level >= 5,
-    gauntlet:   (profile.chapterProgress?.[3]?.questsCompleted || 0) >= 4,
+    gauntlet:   (profile.chapterProgress?.[3]?.questsCompleted || 0) >= 5,
     bestiary:   (profile.stats?.totalBossKills || 0) > 0,
     chengyu:    (profile.chengyu || []).length > 0,
     prestige:   Object.keys(profile.chapterProgress || {}).length >= 5,

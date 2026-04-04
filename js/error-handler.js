@@ -90,8 +90,15 @@
    * @param {'info'|'success'|'error'} type - Toast style
    * @param {number} duration - Display time in ms
    */
-  window.showToast = function (message, type, duration) {
-    type = type || 'info';
+  window.showToast = function (message, typeOrOpts, duration) {
+    // Support both positional (message, type, duration) and options object (message, { type, duration })
+    var type = 'info';
+    if (typeof typeOrOpts === 'object' && typeOrOpts !== null) {
+      type = typeOrOpts.type || 'info';
+      duration = typeOrOpts.duration || 2500;
+    } else {
+      type = typeOrOpts || 'info';
+    }
     duration = duration || 2500;
     var container = getToastContainer();
     var el = document.createElement('div');
@@ -164,7 +171,12 @@
           '<p style="color:#aaa;font-size:0.9rem;margin:0 0 20px;line-height:1.6;word-break:break-word;">' +
             escapeHtml(message) +
           '</p>' +
-          '<div style="display:flex;gap:12px;justify-content:center;margin-top:20px;">' +
+          '<div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:20px;">' +
+            '<button onclick="try{window.__errorRecovery&&window.__errorRecovery()}catch(e){location.reload()}" style="' +
+              'background:rgba(46,204,138,0.15);border:1px solid rgba(46,204,138,0.4);' +
+              'color:#2ecc8a;padding:10px 20px;border-radius:8px;font-size:0.9rem;' +
+              'cursor:pointer;font-family:inherit;font-weight:700;' +
+            '">\u8FD4\u56DE\u5730\u56FE</button>' +
             '<button onclick="location.reload()" style="' +
               'background:rgba(212,160,23,0.2);border:1px solid rgba(212,160,23,0.4);' +
               'color:#d4a017;padding:10px 20px;border-radius:8px;font-size:0.9rem;' +
@@ -185,6 +197,8 @@
 
   // Prevent showing multiple error screens for cascading errors
   var errorShown = false;
+  // Expose reset for recovery (called by __errorRecovery in main.js)
+  window.__resetErrorState = function() { errorShown = false; };
 
   window.addEventListener('error', function (event) {
     if (errorShown) return;

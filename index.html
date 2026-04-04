@@ -16,7 +16,7 @@
   <meta property="og:description" content="以文定乾坤，守护千年文明 — 中文学习RPG">
   <meta property="og:type" content="website">
   <!-- App version — bump this on every deploy to bust browser caches -->
-  <script>window.APP_VERSION = '2026032100';</script>
+  <script>window.APP_VERSION = '2026040408';</script>
   <script>
     // Append version to CSS so browsers fetch the latest on deploy
     const css = document.createElement('link');
@@ -29,9 +29,10 @@
   <!-- PixiJS for combat rendering effects -->
   <script src="https://cdn.jsdelivr.net/npm/pixi.js@7.3.3/dist/pixi.min.js"></script>
   <style>
-    /* Smooth rendering for painted art; crisp for particle canvas */
+    /* Smooth rendering for painted art; crisp only for pixel particle canvas */
     img { image-rendering: auto; }
-    canvas { image-rendering: pixelated; image-rendering: crisp-edges; }
+    #particle-canvas { image-rendering: pixelated; image-rendering: crisp-edges; }
+    #celebration-canvas { image-rendering: auto; }
   </style>
 </head>
 <body>

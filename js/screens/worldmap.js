@@ -26,10 +26,13 @@ const CHAPTERS = [
     boss: '仓颉之影',
     bossTitle: 'Shadow of Cangjie',
     quests: 5,
+    questNames: ['甲骨洞窟', '竹简山谷', '青铜殿堂', '论语古林', '仓颉神殿'],
+    questIcons: ['🦴', '🎋', '🏺', '📜', '👁'],
+    questHints: ['探索远古洞穴中的甲骨文', '穿越竹林寻找失落的竹简', '破解青铜器上的铭文', '在古树林中领悟圣人之言', '面对文字创造者的暗影'],
     unlocked: true,
-    icon: '𝌕',           // trigram-ish oracle bone feel
+    icon: '𝌕',
     iconFallback: '甲',
-    color: '#c17f3c',    // bronze
+    color: '#c17f3c',
     colorDim: 'rgba(193,127,60,0.15)',
     cssVar: '#c17f3c',
     shape: 'pagoda',
@@ -43,10 +46,13 @@ const CHAPTERS = [
     boss: '墨吏',
     bossTitle: 'Ink Official',
     quests: 5,
+    questNames: ['丝绸古道', '长城烽火', '太史公书房', '未央宫廷', '墨吏殿'],
+    questIcons: ['🐫', '🔥', '📖', '🏯', '⚖'],
+    questHints: ['沿丝绸之路追踪墨暗的痕迹', '在长城上抵御被篡改的历史', '保护司马迁笔下的真实记载', '在皇宫中揭露阴谋', '与掌控史书的墨吏对决'],
     unlocked: false,
     icon: '漢',
     iconFallback: '漢',
-    color: '#d63031',    // Han red
+    color: '#d63031',
     colorDim: 'rgba(214,48,49,0.15)',
     cssVar: '#d63031',
     shape: 'fortress',
@@ -60,10 +66,13 @@ const CHAPTERS = [
     boss: '诗魔',
     bossTitle: 'Poetry Demon',
     quests: 5,
+    questNames: ['曲江春宴', '华清池畔', '翰林学院', '大雁塔下', '诗魔幻境'],
+    questIcons: ['🌸', '♨️', '🏛', '🗼', '🌀'],
+    questHints: ['在长安春宴中收集散落的诗句', '于华清池温泉解读隐藏的词意', '在翰林院中与才子比试', '登大雁塔寻找终极线索', '进入诗魔创造的幻境决战'],
     unlocked: false,
     icon: '唐',
     iconFallback: '唐',
-    color: '#d4a017',    // gold
+    color: '#d4a017',
     colorDim: 'rgba(212,160,23,0.15)',
     cssVar: '#d4a017',
     shape: 'temple',
@@ -77,10 +86,13 @@ const CHAPTERS = [
     boss: '词煞',
     bossTitle: 'Ci Fiend',
     quests: 5,
+    questNames: ['汴京夜市', '西湖烟雨', '岳阳楼台', '清明上河', '词煞迷宫'],
+    questIcons: ['🏮', '🌧', '🏔', '🎨', '🌑'],
+    questHints: ['在繁华夜市中追踪词句碎片', '雨中的西湖隐藏着词人的秘密', '登岳阳楼领悟忧国情怀', '在画卷中寻找被抹去的文字', '闯入词煞的迷宫夺回词魂'],
     unlocked: false,
     icon: '宋',
     iconFallback: '宋',
-    color: '#2ecc8a',    // jade
+    color: '#2ecc8a',
     colorDim: 'rgba(46,204,138,0.15)',
     cssVar: '#2ecc8a',
     shape: 'pagoda',
@@ -94,10 +106,13 @@ const CHAPTERS = [
     boss: '墨暗之主',
     bossTitle: 'Lord of Ink Darkness',
     quests: 5,
+    questNames: ['新文化书局', '白话文广场', '鲁迅故居', '文脉裂隙', '墨暗深渊'],
+    questIcons: ['📚', '📣', '🏠', '⚡', '🕳'],
+    questHints: ['在书局中守护新文化的火种', '用白话文之力驱散旧暗', '在鲁迅故居找到觉醒的勇气', '文脉出现裂隙，暗影正在涌出', '深入墨暗之源进行最终决战'],
     unlocked: false,
     icon: '暗',
     iconFallback: '暗',
-    color: '#8e44ad',    // purple
+    color: '#8e44ad',
     colorDim: 'rgba(142,68,173,0.15)',
     cssVar: '#8e44ad',
     shape: 'void',
@@ -199,6 +214,14 @@ function renderWorldMap() {
   const div = document.createElement('div');
   div.className = 'screen';
   const profile = gameState.profile;
+  if (!profile) { showScreen('title'); return div; }
+
+  // After first quest completion, play opening cinematic (once)
+  if (!profile.openingStorySeen && profile.chapterProgress?.[1]?.questsCompleted >= 1) {
+    profile.openingStorySeen = true;
+    gameState.save();
+    setTimeout(() => showScreen('story', { storyKey: 'opening' }), 800);
+  }
 
   // Play map music — find current chapter era
   const currentChapter = Object.keys(profile.chapterProgress || {}).reduce((max, k) => Math.max(max, parseInt(k)), 1);
@@ -293,24 +316,35 @@ function renderWorldMap() {
           : '';
 
         const isBossQuest = qi === ch.quests - 1;
-        const questLabel = qCurrent ? '← 当前' : qCompleted ? '✓ 重玩' : '🔒';
-        const questColor = qCurrent ? ch.color : qCompleted ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.2)';
+        const questLabel = qCurrent ? '← 当前' : qCompleted ? '✓' : '🔒';
+        const questColor = qCurrent ? ch.color : qCompleted ? 'rgba(255,255,255,0.6)' : 'rgba(255,255,255,0.25)';
+        const questName = ch.questNames?.[qi] || (isBossQuest ? 'BOSS' : `征途 ${qi + 1}`);
+        const questIcon = ch.questIcons?.[qi] || (isBossQuest ? '⚔' : '•');
+        const questHint = ch.questHints?.[qi] || '';
+        // Gradient tint shifts per quest within chapter for visual variety
+        const questTintAlpha = qCurrent ? 0.12 : qCompleted ? 0.04 : 0.01;
+        const questBgTint = `rgba(${isBossQuest ? '231,76,60' : ch.color.startsWith('#') ? parseInt(ch.color.slice(1,3),16)+','+parseInt(ch.color.slice(3,5),16)+','+parseInt(ch.color.slice(5,7),16) : '255,255,255'}, ${questTintAlpha})`;
 
         questNodesHTML += `
           <div class="quest-subnode ${qCurrent ? 'quest-current' : ''} ${qCompleted ? 'quest-done' : ''} ${qLocked ? 'quest-locked' : ''}"
                data-chapter="${ch.id}" data-quest="${qi}"
                style="
-                 display:flex; align-items:center; gap:8px; padding:6px 12px;
-                 margin:3px 0 3px 42px; border-radius:8px; cursor:${qLocked ? 'default' : 'pointer'};
-                 background:${qCurrent ? ch.color + '15' : 'rgba(255,255,255,0.02)'};
+                 display:flex; align-items:center; gap:10px; padding:8px 14px;
+                 margin:3px 0 3px 42px; border-radius:10px; cursor:${qLocked ? 'default' : 'pointer'};
+                 background:${questBgTint};
                  border-left:3px solid ${qCurrent ? ch.color : qCompleted ? ch.color + '55' : 'rgba(255,255,255,0.06)'};
                  transition: background 0.15s;
                ">
-            <span style="font-size:0.8rem;color:${isBossQuest ? '#e74c3c' : questColor};font-weight:${qCurrent || isBossQuest ? '700' : '400'};min-width:52px;">
-              ${isBossQuest ? '⚔ BOSS' : '征途 ' + (qi + 1)} ${questLabel}
-            </span>
+            <span style="font-size:1.1rem;width:24px;text-align:center;opacity:${qLocked ? '0.3' : '1'};">${questIcon}</span>
+            <div style="flex:1;min-width:0;">
+              <div style="font-size:0.85rem;color:${isBossQuest ? '#e74c3c' : questColor};font-weight:${qCurrent || isBossQuest ? '700' : '500'};display:flex;align-items:center;gap:6px;">
+                ${questName}
+                <span style="font-size:0.7rem;opacity:0.6;font-weight:400;">${questLabel}</span>
+                ${starStr}
+              </div>
+              ${qCurrent && questHint ? `<div style="font-size:0.72rem;color:rgba(255,255,255,0.35);margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${questHint}</div>` : ''}
+            </div>
             <span style="display:flex;gap:3px;">${encounterDots}</span>
-            ${starStr}
           </div>`;
       }
     }

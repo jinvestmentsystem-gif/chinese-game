@@ -133,6 +133,8 @@ function typewriterEffect(el, text, msPerChar = 50) {
     el.textContent = '';
 
     function tick() {
+      // Stop if element was removed from DOM (screen navigated away)
+      if (!el.parentNode) { resolve(); return; }
       if (i < text.length) {
         el.textContent += text[i];
         i++;

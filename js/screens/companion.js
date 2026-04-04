@@ -133,6 +133,7 @@ export const ENEMY_TAUNTS = {
  * @returns {HTMLElement} the bubble element (for manual removal)
  */
 export function showCompanionBubble(container, text, duration = 3000) {
+  if (!container || !text) return;
   // Remove existing bubble
   const existing = container.querySelector('.companion-bubble-wrap');
   if (existing) existing.remove();
@@ -248,5 +249,5 @@ export function showEnemyTaunt(container, text, duration = 2500) {
   return wrap;
 }
 
-function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+function pick(arr) { return arr && arr.length ? arr[Math.floor(Math.random() * arr.length)] : ''; }
 export { pick };

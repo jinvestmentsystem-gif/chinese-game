@@ -117,13 +117,15 @@ export function pickQuestions(pool, count, seenIds = [], difficultyTarget = 3, s
   // 8. Shuffle OPTIONS within each question so correct answer position varies
   return selected.map(q => {
     if (!q.options || q.options.length < 2) return q;
-    const correctText = q.options[q.correct];
-    const shuffled = [...q.options];
-    for (let i = shuffled.length - 1; i > 0; i--) {
+    // Track correct answer through shuffle by index, not text (handles duplicate option text)
+    const indices = q.options.map((_, i) => i);
+    for (let i = indices.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      [indices[i], indices[j]] = [indices[j], indices[i]];
     }
-    return { ...q, options: shuffled, correct: shuffled.indexOf(correctText) };
+    const shuffled = indices.map(i => q.options[i]);
+    const newCorrect = indices.indexOf(q.correct);
+    return { ...q, options: shuffled, correct: newCorrect };
   });
 }
 

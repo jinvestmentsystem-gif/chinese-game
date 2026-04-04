@@ -3,6 +3,7 @@ import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
 import { playSound } from '../audio.js';
 import { showToast } from '../toast.js';
+import { addXP } from '../progression.js';
 
 // ─── Wheel segments: label, color, reward type, reward amount, weight ────────
 const SEGMENTS = [
@@ -39,8 +40,7 @@ function applyReward(profile, segment) {
       profile.stats.totalGoldEarned = (profile.stats.totalGoldEarned || 0) + segment.amount;
       break;
     case 'xp':
-      profile.xp = (profile.xp || 0) + segment.amount;
-      profile.stats.totalXP = (profile.stats.totalXP || 0) + segment.amount;
+      addXP(segment.amount); // Use addXP so level-up check triggers
       break;
     case 'hp-potion':
       if (!profile.consumables) profile.consumables = {};

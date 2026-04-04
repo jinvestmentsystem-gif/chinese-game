@@ -1,7 +1,7 @@
 // js/screens/reward.js — Post-quest reward summary
 import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
-import { addXP, xpForLevel, getXPProgress, calculateGoldReward, getEffectiveStats, claimAchievementReward, ACHIEVEMENT_REWARDS } from '../progression.js';
+import { addXP, xpForLevel, getXPProgress, calculateGoldReward, getEffectiveStats, getTalentEffects, claimAchievementReward, ACHIEVEMENT_REWARDS } from '../progression.js';
 import { EQUIPMENT_DB } from './inventory.js';
 import { playSound, playMusic, setMusicIntensity } from '../audio.js';
 import { showCompanionBubble, COMPANION, pick } from './companion.js';
@@ -128,8 +128,8 @@ function buildXpBar(profile, totalXP, levelUpInfo, parent) {
 
   const xpBar = document.createElement('div');
   // Start at 0, will animate to target
-  const prevXp = profile.xp - totalXP;
-  const xpNeeded = profile.xpToNext || 100;
+  const xpNeeded = xpForLevel(profile.level) || 100;
+  const prevXp = Math.max(0, profile.xp - totalXP);
   const startPct = Math.max(0, Math.min(100, Math.round((prevXp / xpNeeded) * 100)));
   const endPct   = Math.max(0, Math.min(100, Math.round((profile.xp / xpNeeded) * 100)));
 
@@ -396,6 +396,13 @@ function renderReward() {
     if (enc.modifier.goldMult) goldEarned = Math.round(goldEarned * enc.modifier.goldMult);
   }
 
+  // Consumable effects: XP scroll doubles XP, gold charm doubles gold
+  if (quest._xpDouble) totalXP *= 2;
+  if (quest._goldDouble) goldEarned *= 2;
+  // Revert temporary stat boosts from consumables (idempotent — combat may have already reverted)
+  if (quest._atkBoosted) { profile.attack = Math.max(0, profile.attack - quest._atkBoosted); quest._atkBoosted = 0; }
+  if (quest._defBoosted) { profile.defense = Math.max(0, profile.defense - quest._defBoosted); quest._defBoosted = 0; }
+
   results.xpEarned = totalXP;
   results.goldEarned = goldEarned;
 
@@ -405,11 +412,13 @@ function renderReward() {
   const starKey = `${quest.chapterId}-${quest.questIndex}`;
   profile.questStars[starKey] = Math.max(profile.questStars[starKey] || 0, stars);
 
-  // Apply XP (also adds gold internally)
-  const levelUpInfo = addXP(totalXP);
+  // Apply XP + gold (pass calculated gold so displayed amount matches actual)
+  const levelUpInfo = addXP(totalXP, goldEarned);
 
-  // Equipment drop (30% chance)
-  if (Math.random() < 0.3) {
+  // Equipment drop (30% base + treasureHunt talent bonus)
+  const rewardTalents = getTalentEffects(profile);
+  const dropChance = 0.3 + (rewardTalents.dropPct || 0) / 100;
+  if (Math.random() < dropChance) {
     const available = EQUIPMENT_DB.filter(e => !profile.inventory.includes(e.id));
     if (available.length > 0) {
       const drop = available[Math.floor(Math.random() * available.length)];

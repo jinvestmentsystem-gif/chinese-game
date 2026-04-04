@@ -447,6 +447,7 @@ h3 {
 
 .profile-card {
   background: linear-gradient(145deg, rgba(15,52,96,0.8), rgba(10,30,55,0.92));
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(212,160,23,0.22);
   border-radius: var(--radius-md);
@@ -532,16 +533,17 @@ input[type="text"]:focus, input[type="number"]:focus {
 .hp-bar::after {
   content: '';
   position: absolute;
-  top: 0; left: -60%;
+  top: 0; left: 0;
   width: 50%;
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
   animation: barShimmer 2.5s ease-in-out infinite;
+  will-change: transform;
 }
 
 @keyframes barShimmer {
-  0%   { left: -60%; }
-  100% { left: 120%; }
+  0%   { transform: translateX(-120%); }
+  100% { transform: translateX(240%); }
 }
 
 /* Player HP — gradient green with shimmer */
@@ -636,6 +638,7 @@ input[type="text"]:focus, input[type="number"]:focus {
   gap: 16px;
   padding: 12px 20px;
   background: rgba(11,12,26,0.7);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   border-radius: var(--radius-md);
   border: 1px solid rgba(212,160,23,0.15);
@@ -711,6 +714,7 @@ input[type="text"]:focus, input[type="number"]:focus {
 .combat-question-panel {
   padding: 14px 24px;
   background: rgba(11,12,26,0.8);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border-radius: var(--radius-md);
   border: 1px solid rgba(212,160,23,0.2);
@@ -1001,6 +1005,7 @@ input[type="text"]:focus, input[type="number"]:focus {
   align-items: center;
   padding: 12px 24px;
   background: rgba(11,12,26,0.75);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(212,160,23,0.12);
   width: 100%;
@@ -1098,6 +1103,7 @@ input[type="text"]:focus, input[type="number"]:focus {
   margin: 10px 0;
   padding: 20px 24px;
   background: var(--bg-glass);
+  -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
   border-radius: var(--radius-lg);
   cursor: pointer;
@@ -1190,7 +1196,7 @@ input[type="text"]:focus, input[type="number"]:focus {
 .era-info { flex: 1; }
 
 .era-tag {
-  font-size: 0.7rem;
+  font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1253,8 +1259,8 @@ input[type="text"]:focus, input[type="number"]:focus {
 }
 
 @keyframes progressShimmer {
-  0%   { left: -100%; }
-  100% { left: 200%; }
+  0%   { transform: translateX(-200%); }
+  100% { transform: translateX(400%); }
 }
 
 .era-progress-text {
@@ -1271,7 +1277,7 @@ input[type="text"]:focus, input[type="number"]:focus {
 }
 
 .era-chapter-num {
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   color: var(--text-dim);
@@ -1422,6 +1428,7 @@ input[type="text"]:focus, input[type="number"]:focus {
 
 .quest-item {
   background: var(--bg-glass);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   border-radius: var(--radius-md);
   padding: 14px 20px;
@@ -1466,6 +1473,7 @@ input[type="text"]:focus, input[type="number"]:focus {
 
 .item-card {
   background: var(--bg-glass);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   border-radius: var(--radius-md);
   padding: 16px;
@@ -1624,29 +1632,6 @@ input[type="text"]:focus, input[type="number"]:focus {
    ACETERNITY / MAGIC UI-STYLE ANIMATIONS
    Pure CSS implementations of modern UI effects
    ============================================================= */
-
-/* ── Glowing Border Animation (Aceternity-style) ──────────────── */
-.glow-border {
-  position: relative;
-  overflow: hidden;
-}
-.glow-border::after {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  background: conic-gradient(from var(--glow-angle, 0deg), transparent 60%, var(--accent-gold) 80%, transparent 100%);
-  animation: glow-rotate 3s linear infinite;
-  z-index: -1;
-  border-radius: inherit;
-}
-@keyframes glow-rotate {
-  to { --glow-angle: 360deg; }
-}
-@property --glow-angle {
-  syntax: '<angle>';
-  initial-value: 0deg;
-  inherits: false;
-}
 
 /* ── Shimmer Effect (for loading states, cards) ───────────────── */
 .shimmer {
@@ -2388,12 +2373,13 @@ input[type="text"]:focus, input[type="number"]:focus {
 }
 .title-ctrl-btn {
   background: rgba(17, 18, 40, 0.5);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(212, 160, 23, 0.15);
   color: var(--text-secondary);
   font-size: 1.1rem;
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
   border-radius: 10px;
   cursor: pointer;
   display: flex;
@@ -2710,6 +2696,7 @@ input[type="text"]:focus, input[type="number"]:focus {
   letter-spacing: 0.12em;
   padding: 18px 32px;
   background: rgba(17, 18, 40, 0.7) !important;
+  -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(212, 160, 23, 0.15) !important;
   border-radius: 14px !important;
@@ -2802,6 +2789,7 @@ input[type="text"]:focus, input[type="number"]:focus {
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
 }
 
@@ -2881,7 +2869,7 @@ input[type="text"]:focus, input[type="number"]:focus {
 
 /* ── Active title badge next to player name ────────────────────── */
 .wm-active-title {
-  font-size: 0.7rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: var(--jade);
   background: rgba(46,204,138,0.1);
@@ -2931,7 +2919,7 @@ input[type="text"]:focus, input[type="number"]:focus {
 }
 
 .wm-stat-label {
-  font-size: 0.7rem;
+  font-size: 0.82rem;
   font-weight: 700;
   color: var(--text-dim);
   letter-spacing: 0.06em;
@@ -2976,7 +2964,7 @@ input[type="text"]:focus, input[type="number"]:focus {
 }
 
 .wm-stat-val {
-  font-size: 0.7rem;
+  font-size: 0.82rem;
   color: var(--text-secondary);
   white-space: nowrap;
   flex-shrink: 0;
@@ -3614,7 +3602,7 @@ input[type="text"]:focus, input[type="number"]:focus {
     max-height: 90px;
   }
   .sprite-label {
-    font-size: 0.7rem;
+    font-size: 0.82rem;
   }
 
   .combo-display {
@@ -3795,7 +3783,7 @@ input[type="text"]:focus, input[type="number"]:focus {
     font-size: 0.68rem;
   }
   .chapter-boss {
-    font-size: 0.72rem;
+    font-size: 0.82rem;
   }
 
   /* ── Daily Login ───────────────────────────────────────────── */
@@ -3846,7 +3834,7 @@ input[type="text"]:focus, input[type="number"]:focus {
     font-size: clamp(2rem, 15vw, 3rem);
   }
   .title-subtitle {
-    font-size: 0.7rem;
+    font-size: 0.82rem;
     letter-spacing: 0.2em;
   }
   .combat-options {
@@ -3859,7 +3847,7 @@ input[type="text"]:focus, input[type="number"]:focus {
     padding: 12px 14px !important;
   }
   .nav-buttons .btn {
-    font-size: 0.72rem;
+    font-size: 0.82rem;
     padding: 5px 8px;
   }
   .chapter-card {
@@ -5113,6 +5101,7 @@ body::after {
 
 /* ── Daily login popup glass effect ────────────────────────────────────── */
 .daily-login-popup .daily-login-content {
+  -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
 }
 

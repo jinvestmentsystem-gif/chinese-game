@@ -106,6 +106,13 @@ const TIER_LABEL = ['', '一阶', '二阶', '三阶', '四阶'];
 
 const STAT_LABELS = { attack: '攻击', defense: '防御', speed: '速度', wenli: '文力', hp: 'HP', critChance: '暴击率' };
 
+// Map item stat keys to profile stat keys (items use 'hp'/'wenli', profile uses 'maxHp'/'maxWenli')
+function mapStatKey(k) {
+  if (k === 'hp') return 'maxHp';
+  if (k === 'wenli') return 'maxWenli';
+  return k;
+}
+
 // ─── Forge: primary stat for each equipment type ──────────────────────────────
 function getPrimaryStat(item) {
   if (item.type === 'weapon') return 'attack';
@@ -114,7 +121,7 @@ function getPrimaryStat(item) {
   if (item.stats) {
     let best = null, bestVal = 0;
     for (const [k, v] of Object.entries(item.stats)) {
-      if (v > bestVal) { best = k; bestVal = v; }
+      if (v > bestVal) { best = mapStatKey(k); bestVal = v; }
     }
     return best || 'attack';
   }
@@ -130,7 +137,8 @@ function getUpgradeLevel(profile, itemId) {
 function getUpgradeCost(item, currentLevel) {
   // Front-loaded: cheap first upgrade, expensive final tier
   const multipliers = [0.5, 1.0, 2.0];
-  return Math.round(item.price * (multipliers[currentLevel] ?? 2.0));
+  const cost = Math.round((item.price || 0) * (multipliers[currentLevel] ?? 2.0));
+  return Number.isFinite(cost) ? cost : 0;
 }
 
 function renderShop(params = {}) {
@@ -502,8 +510,8 @@ function renderShop(params = {}) {
   `;
 
   setTimeout(() => {
-    div.querySelector('#btn-back-shop').addEventListener('click', () => showScreen('worldmap'));
-    div.querySelector('#btn-inventory-from-shop').addEventListener('click', () => showScreen('inventory'));
+    div.querySelector('#btn-back-shop')?.addEventListener('click', () => showScreen('worldmap'));
+    div.querySelector('#btn-inventory-from-shop')?.addEventListener('click', () => showScreen('inventory'));
 
     // Tab switching
     div.querySelectorAll('.shop-tab').forEach(tab => {
@@ -525,16 +533,15 @@ function renderShop(params = {}) {
         const gold = profile.gold || 0;
         if (gold < item.price) { btn.disabled = false; return; }
 
-        profile.gold = gold - item.price;
-
         if (item.type === 'consumable') {
+          profile.gold = gold - item.price;
           if (!profile.consumables) profile.consumables = {};
           profile.consumables[item.id] = (profile.consumables[item.id] || 0) + 1;
         } else {
           if (!profile.inventory) profile.inventory = [];
-          if (!profile.inventory.includes(item.id)) {
-            profile.inventory.push(item.id);
-          }
+          if (profile.inventory.includes(item.id)) { btn.disabled = false; return; } // Already owned
+          profile.gold = gold - item.price;
+          profile.inventory.push(item.id);
         }
 
         gameState.save();
@@ -635,13 +642,19 @@ function renderShop(params = {}) {
             if (profile.equipment[slot] === itemId) {
               const equip = SHOP_ITEMS.find(e => e.id === itemId);
               if (equip) {
-                Object.entries(equip.stats).forEach(([k, v]) => { profile[k] = (profile[k] || 0) - v; });
+                Object.entries(equip.stats).forEach(([k, v]) => {
+                  const mk = mapStatKey(k);
+                  profile[mk] = Math.max(0, (profile[mk] || 0) - v);
+                });
                 // Also remove upgrade bonus from stats
                 const upgradeLevel = getUpgradeLevel(profile, itemId);
                 if (upgradeLevel > 0) {
                   const primaryStat = getPrimaryStat(equip);
-                  profile[primaryStat] = (profile[primaryStat] || 0) - (upgradeLevel * 2);
+                  profile[primaryStat] = Math.max(0, (profile[primaryStat] || 0) - (upgradeLevel * 2));
                 }
+                // Clamp current HP/wenli to new max
+                if (profile.hp > profile.maxHp) profile.hp = profile.maxHp;
+                if (profile.wenli > profile.maxWenli) profile.wenli = profile.maxWenli;
               }
               profile.equipment[slot] = null;
               break;

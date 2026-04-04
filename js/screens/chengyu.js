@@ -33,6 +33,7 @@ async function renderChengyu() {
   const div = document.createElement('div');
   div.className = 'screen';
   const profile = gameState.profile;
+  if (!profile) { showScreen('title'); return div; }
   const allChengyu = await loadChengyu();
 
   let activeTab = 'chengyu';

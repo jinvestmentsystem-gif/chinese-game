@@ -78,7 +78,7 @@ function renderStats(params) {
   // Progression
   const xpProgress = getXPProgress(profile);
   const chaptersCompleted = Object.entries(profile.chapterProgress || {}).filter(
-    ([id, p]) => p.questsCompleted >= 4
+    ([id, p]) => p.questsCompleted >= 5
   ).length;
   const achievementsCount = (profile.achievements || []).length;
   const titlesCount = (profile.titles || []).length;

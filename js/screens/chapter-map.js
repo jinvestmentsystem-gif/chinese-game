@@ -14,15 +14,31 @@ import { getReviewStats } from '../spaced-repetition.js';
 
 // ─── Chapter data ─────────────────────────────────────────────────────────────
 const CHAPTERS = [
-  { id: 1, era: '先秦', name: '文字起源', subtitle: '仓颉之影正在从源头毁灭文字……', boss: '仓颉之影', quests: 4, color: '#c17f3c', colorDim: 'rgba(193,127,60,0.15)', icon: '甲' },
-  { id: 2, era: '汉代', name: '史记风云', subtitle: '司马迁的历史正在被篡改……', boss: '墨吏', quests: 4, color: '#d63031', colorDim: 'rgba(214,48,49,0.15)', icon: '漢' },
-  { id: 3, era: '唐代', name: '诗词盛世', subtitle: '长安城的诗歌正在碎裂……', boss: '诗魔', quests: 4, color: '#d4a017', colorDim: 'rgba(212,160,23,0.15)', icon: '唐' },
-  { id: 4, era: '宋代', name: '词赋纵横', subtitle: '词中的情感正在被吞噬……', boss: '词煞', quests: 4, color: '#2ecc8a', colorDim: 'rgba(46,204,138,0.15)', icon: '宋' },
+  { id: 1, era: '先秦', name: '文字起源', subtitle: '仓颉之影正在从源头毁灭文字……', boss: '仓颉之影', quests: 5, color: '#c17f3c', colorDim: 'rgba(193,127,60,0.15)', icon: '甲' },
+  { id: 2, era: '汉代', name: '史记风云', subtitle: '司马迁的历史正在被篡改……', boss: '墨吏', quests: 5, color: '#d63031', colorDim: 'rgba(214,48,49,0.15)', icon: '漢' },
+  { id: 3, era: '唐代', name: '诗词盛世', subtitle: '长安城的诗歌正在碎裂……', boss: '诗魔', quests: 5, color: '#d4a017', colorDim: 'rgba(212,160,23,0.15)', icon: '唐' },
+  { id: 4, era: '宋代', name: '词赋纵横', subtitle: '词中的情感正在被吞噬……', boss: '词煞', quests: 5, color: '#2ecc8a', colorDim: 'rgba(46,204,138,0.15)', icon: '宋' },
   { id: 5, era: '近现代', name: '墨暗之源', subtitle: '一切的终结……或者新的开始', boss: '墨暗之主', quests: 5, color: '#a855f7', colorDim: 'rgba(168,85,247,0.15)', icon: '暗' },
 ];
 
 const ERA_MUSIC = { 1: 'prequin', 2: 'han', 3: 'tang', 4: 'song', 5: 'modern' };
 const ENCOUNTER_ICONS = { combat: '⚔', puzzle: '📖', boss: '👹', treasure: '💰', rest: '🏕' };
+
+// Named locations per quest within each chapter
+const QUEST_NAMES = {
+  1: ['甲骨洞窟', '竹简山谷', '青铜殿堂', '论语古林', '仓颉神殿'],
+  2: ['丝绸古道', '长城烽火', '太史公书房', '未央宫廷', '墨吏殿'],
+  3: ['曲江春宴', '华清池畔', '翰林学院', '大雁塔下', '诗魔幻境'],
+  4: ['汴京夜市', '西湖烟雨', '岳阳楼台', '清明上河', '词煞迷宫'],
+  5: ['新文化书局', '白话文广场', '鲁迅故居', '文脉裂隙', '墨暗深渊'],
+};
+const QUEST_ICONS = {
+  1: ['🦴', '🎋', '🏺', '📜', '👁'],
+  2: ['🐫', '🔥', '📖', '🏯', '⚖'],
+  3: ['🌸', '♨️', '🏛', '🗼', '🌀'],
+  4: ['🏮', '🌧', '🏔', '🎨', '🌑'],
+  5: ['📚', '📣', '🏠', '⚡', '🕳'],
+};
 
 // ─── State ────────────────────────────────────────────────────────────────────
 let currentChapterId = 1;
@@ -591,15 +607,15 @@ function renderChapterMap(params = {}) {
   if (params.resume) {
     setParticleMode('victory');
     burstParticles(20, 'victory');
+  }
 
-    // After first quest completion, play opening cinematic (once)
-    if (!profile.openingStorySeen && profile.chapterProgress?.[1]?.questsCompleted >= 1) {
-      profile.openingStorySeen = true;
-      gameState.save();
-      setTimeout(() => {
-        showScreen('story', { storyKey: 'opening', next: 'chapter-map' });
-      }, 1500);
-    }
+  // After first quest completion, play opening cinematic (once)
+  if (!profile.openingStorySeen && profile.chapterProgress?.[1]?.questsCompleted >= 1) {
+    profile.openingStorySeen = true;
+    gameState.save();
+    setTimeout(() => {
+      showScreen('story', { storyKey: 'opening' });
+    }, 1500);
   }
 
   return div;

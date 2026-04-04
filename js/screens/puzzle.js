@@ -6,6 +6,7 @@ import { calcDamageTaken, getEffectiveMaxHp } from '../progression.js';
 import { playSound, playMusic, setMusicIntensity } from '../audio.js';
 import { SPRITES, getPlayerSprite } from '../sprites.js';
 import { setParticleMode } from '../particles.js';
+import { recordWrongAnswer } from '../spaced-repetition.js';
 
 const PUZZLE_NARRATIVES = [
   "古老卷轴上浮现出一段被墨暗污染的文字……解读它才能打破封印！",
@@ -83,6 +84,13 @@ function renderPuzzle() {
   if (!encounter || !profile) { showScreen('worldmap'); return div; }
   const effectiveMaxHp = getEffectiveMaxHp(profile);
   const passage = encounter.passage;
+  if (!passage || !passage.questions || !passage.questions.length) {
+    // No reading passage available — skip this encounter gracefully
+    encounter.completed = true;
+    const next = advanceEncounter();
+    if (!next) showScreen('reward'); else showScreen('quest', { chapterId: gameState.currentQuest?.chapterId, questIndex: gameState.currentQuest?.questIndex, justFinishedEncounter: true });
+    return div;
+  }
   const questions = passage.questions;
   let qIndex = 0;
   let correctCount = 0;
@@ -401,6 +409,10 @@ function renderPuzzle() {
     if (retreatBtn) {
       retreatBtn.addEventListener('click', () => {
         profile.hp = playerHp;
+        // Revert consumable stat boosts on retreat
+        const quest = gameState.currentQuest;
+        if (quest?._atkBoosted) { profile.attack = Math.max(0, profile.attack - quest._atkBoosted); quest._atkBoosted = 0; }
+        if (quest?._defBoosted) { profile.defense = Math.max(0, profile.defense - quest._defBoosted); quest._defBoosted = 0; }
         gameState.save();
         showScreen('worldmap');
       });
@@ -422,6 +434,8 @@ function renderPuzzle() {
         recordAnswer('reading', correct, passage.id);
         const _ql = gameState.currentQuest?.results?.questionsLog;
         if (_ql) _ql.push({ prompt: q.prompt, correct, explanation: q.explanation || '', isReview: false });
+        // Track wrong answers for spaced repetition review
+        if (!correct && q.id) recordWrongAnswer(q.id, 'reading');
         const sealIcon = inner.querySelector('#seal-icon');
 
         if (correct) {
@@ -542,13 +556,13 @@ function renderPuzzle() {
     gameState.save();
 
     setTimeout(() => {
-      banner.remove();
+      if (banner.parentNode) banner.remove();
       const quest = gameState.currentQuest;
+      if (!quest) { showScreen('worldmap'); return; }
       const next = advanceEncounter();
       if (!next) {
         showScreen('reward');
       } else {
-        // Return to journey map so the player sees their progress
         showScreen('quest', {
           chapterId: quest.chapterId,
           questIndex: quest.questIndex,

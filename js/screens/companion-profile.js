@@ -307,7 +307,7 @@ function renderCompanionProfile() {
       giftBtn.addEventListener('click', () => {
         if (profile.gold < 50) {
           playSound('error');
-          showToast('金币不足！需要50金币。', 'error');
+          showToast('金币不足！需要50金币。', { type: 'error' });
           return;
         }
         playSound('purchase');
@@ -338,9 +338,9 @@ function renderCompanionProfile() {
         const oldLevel = friendLevel.level;
         const newFriendLevel = getFriendshipLevel(cf.xp);
         if (newFriendLevel.level > oldLevel) {
-          showToast(`好感度升级！Lv.${newFriendLevel.level} — ${newFriendLevel.title}`, 'success');
+          showToast(`好感度升级！Lv.${newFriendLevel.level} — ${newFriendLevel.title}`, { type: 'gold' });
         } else {
-          showToast(`+10 好感经验！(${cf.xp}/${nextLevel ? nextLevel.xpNeeded : 'MAX'})`, 'info');
+          showToast(`+10 好感经验！(${cf.xp}/${nextLevel ? nextLevel.xpNeeded : 'MAX'})`, { type: 'info' });
         }
 
         // Re-render the screen after a short delay

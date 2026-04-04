@@ -1,8 +1,8 @@
 // js/screens/combat.js — Vocab combat encounter
 import { gameState } from '../state.js';
-import { registerScreen, showScreen } from '../main.js';
+import { registerScreen, showScreen, onCleanup } from '../main.js';
 import { getCurrentEncounter, advanceEncounter, recordAnswer } from '../game-engine.js';
-import { hasAbility, calcDamage, calcDamageTaken, getTimerDuration, rollCrit, getEffectiveMaxHp, getTalentEffects } from '../progression.js';
+import { hasAbility, calcDamage, calcDamageTaken, getTimerDuration, rollCrit, getEffectiveMaxHp, getEffectiveMaxWenli, getTalentEffects } from '../progression.js';
 import { playSound, playMusic, setMusicIntensity, playStinger } from '../audio.js';
 import { showCompanionBubble, showEnemyTaunt, COMPANION, ENEMY_TAUNTS, pick } from './companion.js';
 import { setParticleMode, burstParticles } from '../particles.js';
@@ -377,6 +377,7 @@ function renderCombat() {
   let enemyMaxHp = modifier?.enemyHpMult
     ? Math.round(enemyType.hp * modifier.enemyHpMult)
     : enemyType.hp;
+  if (enemyMaxHp <= 0) enemyMaxHp = 1; // Prevent division by zero
   let enemyHp = enemyMaxHp;
   let combo = 0;
   let timerInterval = null;
@@ -397,9 +398,30 @@ function renderCombat() {
   let enrageTriggered = false; // enrage fires once when HP < 50%
   let scrambleTimer = null; // scramble timer reference
   let activeKeyHandler = null; // keyboard shortcut handler ref for cleanup
+  let combatEnded = false; // Guard against multiple endCombat calls
+  let isFirstQuestion = true; // Track first question for timeFreeze talent
+
+  // Talent: 墨气回流 — restore wenli at combat start
+  const combatTalents = getTalentEffects(profile);
+  if (combatTalents.wenliRegen) {
+    const effectiveMax = getEffectiveMaxWenli(profile);
+    profile.wenli = Math.min(effectiveMax, (profile.wenli || 0) + combatTalents.wenliRegen);
+  }
 
   // PixiJS overlay handle
   let pixiApp = null;
+
+  // Register cleanup so timers/listeners are cleared on screen exit
+  onCleanup(() => {
+    combatEnded = true;
+    clearInterval(timerInterval);
+    clearInterval(timerPulseInterval);
+    if (scrambleTimer) { clearTimeout(scrambleTimer); scrambleTimer = null; }
+    if (activeKeyHandler) { document.removeEventListener('keydown', activeKeyHandler); activeKeyHandler = null; }
+    if (pixiApp) { try { pixiApp.destroy(true); } catch(_) {} pixiApp = null; }
+    destroyCombatBackground();
+    stopBreaths();
+  });
 
   function pixiParticleBurst(x, y, color, count) {
     if (!pixiApp) return;
@@ -488,6 +510,8 @@ function renderCombat() {
         [questions[i], questions[j]] = [questions[j], questions[i]];
       }
     }
+    // Safety: if question pool is somehow empty, end combat gracefully
+    if (!questions.length) { endCombat(true); return; }
     const q = questions[qIndex];
     const optionsHTML = q.options.map((opt, i) => `
       <button class="combat-option" data-idx="${i}">${opt}</button>
@@ -1211,8 +1235,10 @@ function renderCombat() {
       }));
     });
 
-    // ── Timer ──
-    let timeLeft = baseTimer;
+    // ── Timer (talent: timeFreeze adds seconds to first question) ──
+    const freezeBonus = isFirstQuestion && combatTalents.freezeFirst ? combatTalents.freezeFirst : 0;
+    let timeLeft = baseTimer + freezeBonus;
+    isFirstQuestion = false;
     const timerBar = div.querySelector('#timer-bar');
     clearInterval(timerInterval);
     timerInterval = setInterval(() => {
@@ -1304,16 +1330,22 @@ function renderCombat() {
     const abilitiesEl = div.querySelector('#abilities');
     if (abilitiesEl) {
       let btns = '';
-      if (hasAbility(profile, 'hint'))   btns += `<button class="btn" id="btn-hint"   style="padding:6px 14px;font-size:0.95rem;" ${profile.wenli < 1 ? 'disabled' : ''}>提示 (1文力)</button>`;
+      const _hintCost = (profile.companionFriendship?.xp || 0) >= 20 ? 0 : 1;
+      if (hasAbility(profile, 'hint'))   btns += `<button class="btn" id="btn-hint"   style="padding:6px 14px;font-size:0.95rem;" ${profile.wenli < _hintCost ? 'disabled' : ''}>提示 (${_hintCost}文力)</button>`;
       if (hasAbility(profile, 'skip'))   btns += `<button class="btn" id="btn-skip"   style="padding:6px 14px;font-size:0.95rem;" ${profile.wenli < 2 ? 'disabled' : ''}>跳过 (2文力)</button>`;
       if (hasAbility(profile, 'double')) btns += `<button class="btn" id="btn-double" style="padding:6px 14px;font-size:0.95rem;" ${profile.wenli < 2 ? 'disabled' : ''}>双倍 (2文力)</button>`;
+      // Consumable button — show if player has any consumables
+      const totalConsumables = Object.values(profile.consumables || {}).reduce((s, v) => s + v, 0);
+      if (totalConsumables > 0) btns += `<button class="btn" id="btn-consumable" style="padding:6px 14px;font-size:0.95rem;">🎒 道具</button>`;
       abilitiesEl.innerHTML = btns;
     }
 
     const hintBtn = div.querySelector('#btn-hint');
     if (hintBtn) hintBtn.addEventListener('click', () => {
-      if (profile.wenli < 1) return;
-      profile.wenli--;
+      // Companion Lv2 buff: hint costs 0 wenli instead of 1
+      const hintCost = (profile.companionFriendship?.xp || 0) >= 20 ? 0 : 1;
+      if (profile.wenli < hintCost) return;
+      profile.wenli -= hintCost;
       const wrongBtns = [...div.querySelectorAll('.combat-option')].filter(b => parseInt(b.dataset.idx) !== q.correct);
       if (wrongBtns.length > 1) {
         wrongBtns[0].style.opacity = '0.3';
@@ -1344,11 +1376,77 @@ function renderCombat() {
 
     const doubleBtn = div.querySelector('#btn-double');
     if (doubleBtn) doubleBtn.addEventListener('click', () => {
+      if (doubleActive || doubleBtn.disabled) return; // Prevent double-activation
       if (profile.wenli < 2) return;
       profile.wenli -= 2;
       doubleActive = true;
       doubleBtn.disabled = true;
       doubleBtn.textContent = '双倍 ✓';
+    });
+
+    // ── Consumable overlay ──
+    const consumableBtn = div.querySelector('#btn-consumable');
+    if (consumableBtn) consumableBtn.addEventListener('click', () => {
+      if (div.querySelector('.consumable-overlay')) return; // Already open
+      const items = Object.entries(profile.consumables || {}).filter(([, count]) => count > 0);
+      if (!items.length) return;
+      const CONSUMABLE_META = {
+        'hp-potion':     { name: '回春丹',   icon: '🧪', desc: 'HP+50' },
+        'hp-potion-lg':  { name: '回天丹',   icon: '💊', desc: 'HP全满' },
+        'wenli-potion':  { name: '灵墨丹',   icon: '🔮', desc: '文力全满' },
+        'xp-scroll':     { name: '经验卷轴', icon: '📜', desc: '本战XP×2' },
+        'atk-boost':     { name: '虎符',     icon: '🐯', desc: '攻击+5' },
+        'def-boost':     { name: '龟甲',     icon: '🐢', desc: '防御+5' },
+        'combo-starter': { name: '连击符',   icon: '🔥', desc: '连击+3' },
+        'gold-charm':    { name: '招财符',   icon: '💰', desc: '金币×2' },
+      };
+      const overlay = document.createElement('div');
+      overlay.className = 'consumable-overlay';
+      overlay.style.cssText = `
+        position:absolute;bottom:140px;left:50%;transform:translateX(-50%);
+        background:rgba(10,10,20,0.95);border:1px solid rgba(212,160,23,0.4);
+        border-radius:12px;padding:12px;z-index:500;min-width:200px;max-width:320px;
+        display:flex;flex-wrap:wrap;gap:8px;justify-content:center;
+        animation:fadeIn 0.15s ease-out;
+      `;
+      items.forEach(([id, count]) => {
+        const meta = CONSUMABLE_META[id] || { name: id, icon: '📦', desc: '' };
+        const btn = document.createElement('button');
+        btn.className = 'btn';
+        btn.style.cssText = 'padding:8px 12px;font-size:0.88rem;display:flex;align-items:center;gap:6px;';
+        btn.innerHTML = `${meta.icon} ${meta.name} <span style="opacity:0.5;">×${count}</span>`;
+        btn.addEventListener('click', () => {
+          // Deduct
+          profile.consumables[id] = Math.max(0, (profile.consumables[id] || 0) - 1);
+          if (profile.consumables[id] <= 0) delete profile.consumables[id];
+          // Apply effect
+          const eff = { 'hp-potion': () => { profile.hp = Math.min(getEffectiveMaxHp(profile), profile.hp + 50); },
+            'hp-potion-lg':  () => { profile.hp = getEffectiveMaxHp(profile); },
+            'wenli-potion':  () => { profile.wenli = getEffectiveMaxWenli(profile); },
+            'xp-scroll':     () => { if (!gameState.currentQuest._xpDouble) gameState.currentQuest._xpDouble = true; },
+            'atk-boost':     () => { profile.attack += 5; gameState.currentQuest._atkBoosted = (gameState.currentQuest._atkBoosted || 0) + 5; },
+            'def-boost':     () => { profile.defense += 5; gameState.currentQuest._defBoosted = (gameState.currentQuest._defBoosted || 0) + 5; },
+            'combo-starter': () => { combo = Math.max(combo, 3); },
+            'gold-charm':    () => { if (!gameState.currentQuest._goldDouble) gameState.currentQuest._goldDouble = true; },
+          };
+          if (eff[id]) eff[id]();
+          playerHp = profile.hp; // Sync local HP
+          gameState.save();
+          overlay.remove();
+          playSound('correct');
+          showToast(`使用了 ${meta.name}！`, { type: 'item', duration: 2000 });
+          render(); // Re-render to update HP/wenli display
+        });
+        overlay.appendChild(btn);
+      });
+      // Close button
+      const closeBtn = document.createElement('button');
+      closeBtn.className = 'btn';
+      closeBtn.style.cssText = 'padding:4px 16px;font-size:0.82rem;opacity:0.6;width:100%;';
+      closeBtn.textContent = '关闭';
+      closeBtn.addEventListener('click', () => overlay.remove());
+      overlay.appendChild(closeBtn);
+      div.appendChild(overlay);
     });
 
     const combatOptions = div.querySelectorAll('.combat-option');
@@ -1433,6 +1531,7 @@ function renderCombat() {
     const retreatBtn = div.querySelector('#btn-pause-retreat');
     if (retreatBtn) {
       retreatBtn.addEventListener('click', () => {
+        combatEnded = true;
         clearInterval(timerInterval);
         clearInterval(timerPulseInterval);
         if (scrambleTimer) { clearTimeout(scrambleTimer); scrambleTimer = null; }
@@ -2193,6 +2292,9 @@ function renderCombat() {
   }
 
   function endCombat(won) {
+    // Guard against double-calls (timer + answer handler race)
+    if (combatEnded) return;
+    combatEnded = true;
     // Clean up keyboard handler
     if (activeKeyHandler) {
       document.removeEventListener('keydown', activeKeyHandler);
@@ -2200,8 +2302,6 @@ function renderCombat() {
     }
     destroyCombatBackground();
     stopBreaths();
-    // Guard against double-calls (multiple code paths can trigger endCombat)
-    if (encounter.completed !== undefined && encounter.completed !== false) return;
 
     // Clean up PixiJS overlay
     if (pixiApp) {
@@ -2216,6 +2316,14 @@ function renderCombat() {
     if (won) playStinger('victory');
     encounter.completed = won;
     profile.hp = playerHp;
+    // Revert temporary consumable stat boosts on any combat exit
+    const quest = gameState.currentQuest;
+    if (quest?._atkBoosted) { profile.attack = Math.max(0, profile.attack - quest._atkBoosted); quest._atkBoosted = 0; }
+    if (quest?._defBoosted) { profile.defense = Math.max(0, profile.defense - quest._defBoosted); quest._defBoosted = 0; }
+    // Companion Lv6 buff: heal 5HP after each combat victory
+    if (won && (profile.companionFriendship?.xp || 0) >= 280) {
+      profile.hp = Math.min(getEffectiveMaxHp(profile), profile.hp + 5);
+    }
     gameState.save();
 
     if (!won) {
@@ -2332,15 +2440,16 @@ function renderCombat() {
               const j = Math.floor(Math.random() * (i + 1));
               [enc.questions[i], enc.questions[j]] = [enc.questions[j], enc.questions[i]];
             }
-            // Also reshuffle each question's options
+            // Also reshuffle each question's options (track by index, not text)
             enc.questions.forEach(q => {
               if (!q.options || q.options.length < 2) return;
-              const correctText = q.options[q.correct];
-              for (let i = q.options.length - 1; i > 0; i--) {
+              const indices = q.options.map((_, i) => i);
+              for (let i = indices.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
-                [q.options[i], q.options[j]] = [q.options[j], q.options[i]];
+                [indices[i], indices[j]] = [indices[j], indices[i]];
               }
-              q.correct = q.options.indexOf(correctText);
+              q.options = indices.map(i => q.options[i]);
+              q.correct = indices.indexOf(q.correct);
             });
             enc.completed = false;
           }

@@ -1,8 +1,8 @@
 // js/screens/boss.js — Classical Chinese boss battle with 3 phases
 import { gameState } from '../state.js';
-import { registerScreen, showScreen } from '../main.js';
+import { registerScreen, showScreen, onCleanup } from '../main.js';
 import { getCurrentEncounter, advanceEncounter, recordAnswer } from '../game-engine.js';
-import { hasAbility, calcDamage, calcDamageTaken, getTimerDuration, rollCrit, getEffectiveMaxHp, getTalentEffects, addXP } from '../progression.js';
+import { hasAbility, calcDamage, calcDamageTaken, getTimerDuration, rollCrit, getEffectiveMaxHp, getEffectiveMaxWenli, getTalentEffects, addXP } from '../progression.js';
 import { showToast } from '../toast.js';
 import { loadChengyu } from '../content-loader.js';
 import { SPRITES, COMBAT_BGS } from '../sprites.js';
@@ -13,6 +13,7 @@ import { showTutorial } from '../tutorial.js';
 import { shakeElement, shakeContainer, lungeElement, floatingText, screenFlash } from '../effects.js';
 import { createCombatBackground, destroyCombatBackground } from '../pixi-backgrounds.js';
 import { fireworkShow, confettiBurst, goldenRain } from '../celebrations.js';
+import { recordWrongAnswer, recordCorrectReview } from '../spaced-repetition.js';
 
 const BOSS_NARRATIVES = {
   phase1: [
@@ -385,11 +386,25 @@ function renderBoss() {
     allQuestions.slice(7, 10),
   ].filter(p => p.length > 0);
 
+  // Safety: if no questions loaded, can't fight — return to worldmap
+  if (phases.length === 0) {
+    const d = document.createElement('div'); d.className = 'screen';
+    showScreen('worldmap'); return d;
+  }
+
   let phase = 0;
   let qIndex = 0;
   let playerHp = profile.hp;
   let bossHp = 100;
   let doubleActive = false;
+  let bossEnded = false;          // Guard against multiple endBoss calls
+  let activeBossTimer = null;     // Track current timer interval for cleanup
+  // Register cleanup for screen exit
+  onCleanup(() => {
+    bossEnded = true;
+    if (activeBossTimer) { clearInterval(activeBossTimer); activeBossTimer = null; }
+  });
+
   // Gauntlet scaling: boss deals more damage on higher floors
   const gauntletAtkScale = quest.gauntletMode ? (quest.gauntletScaling || 1) : 1;
   let bossBaseAtk = Math.round(25 * gauntletAtkScale);
@@ -770,11 +785,14 @@ function renderBoss() {
     // ── Timer for boss (respects half_timer ability) ──
     let bossTimeLeft = bossBaseTimer;
     const bossTimerBar = div.querySelector('#boss-timer-bar');
+    // Clear previous timer before starting new one (safety)
+    if (activeBossTimer) clearInterval(activeBossTimer);
     let bossTimerInterval = setInterval(() => {
+      if (bossEnded) { clearInterval(bossTimerInterval); activeBossTimer = null; return; }
       bossTimeLeft -= 0.1;
       if (bossTimerBar) bossTimerBar.style.width = Math.max(0, (bossTimeLeft / bossBaseTimer) * 100) + '%';
       if (bossTimeLeft <= 0) {
-        clearInterval(bossTimerInterval);
+        clearInterval(bossTimerInterval); activeBossTimer = null;
         // Timeout acts like wrong answer — apply HP loss and thorns
         const timeoutDmg = calcDamageTaken(profile, bossBaseAtk);
         const hpLoss = timeoutDmg.damage;
@@ -802,6 +820,7 @@ function renderBoss() {
         }, 1600);
       }
     }, 100);
+    activeBossTimer = bossTimerInterval;
 
     // ── Ability buttons ──
     const abilitiesEl = div.querySelector('#abilities');
@@ -810,9 +829,13 @@ function renderBoss() {
       const sealed = abilityActive(bossAbility, 'seal_abilities');
       let btns = '';
       if (!sealed) {
-        if (hasAbility(profile, 'hint'))   btns += `<button class="btn" id="btn-hint"   style="padding:6px 14px;font-size:0.95rem;" ${profile.wenli < 1 ? 'disabled' : ''}>提示 (1文力)</button>`;
+        const _hintCost = (profile.companionFriendship?.xp || 0) >= 20 ? 0 : 1;
+        if (hasAbility(profile, 'hint'))   btns += `<button class="btn" id="btn-hint"   style="padding:6px 14px;font-size:0.95rem;" ${profile.wenli < _hintCost ? 'disabled' : ''}>提示 (${_hintCost}文力)</button>`;
         if (hasAbility(profile, 'skip'))   btns += `<button class="btn" id="btn-skip"   style="padding:6px 14px;font-size:0.95rem;" ${profile.wenli < 2 ? 'disabled' : ''}>跳过 (2文力)</button>`;
         if (hasAbility(profile, 'double')) btns += `<button class="btn" id="btn-double" style="padding:6px 14px;font-size:0.95rem;" ${profile.wenli < 2 ? 'disabled' : ''}>双倍 (2文力)</button>`;
+        // Consumable button
+        const totalConsumables = Object.values(profile.consumables || {}).reduce((s, v) => s + v, 0);
+        if (totalConsumables > 0) btns += `<button class="btn" id="btn-consumable" style="padding:6px 14px;font-size:0.95rem;">🎒 道具</button>`;
       } else {
         btns = `<div style="font-size:0.95rem;color:var(--accent-red);opacity:0.8;">【墨封】技能已被封印</div>`;
       }
@@ -821,8 +844,9 @@ function renderBoss() {
 
     const hintBtn = div.querySelector('#btn-hint');
     if (hintBtn) hintBtn.addEventListener('click', () => {
-      if (profile.wenli < 1) return;
-      profile.wenli--;
+      const hintCost = (profile.companionFriendship?.xp || 0) >= 20 ? 0 : 1;
+      if (profile.wenli < hintCost) return;
+      profile.wenli -= hintCost;
       const wrongBtns = [...div.querySelectorAll('.boss-option')].filter(b => parseInt(b.dataset.idx) !== q.correct);
       if (wrongBtns.length > 1) {
         wrongBtns[0].style.opacity = '0.3';
@@ -849,6 +873,58 @@ function renderBoss() {
       doubleBtn.textContent = '双倍 ✓';
     });
 
+    // ── Consumable overlay (same pattern as combat.js) ──
+    const consumableBtn = div.querySelector('#btn-consumable');
+    if (consumableBtn) consumableBtn.addEventListener('click', () => {
+      if (div.querySelector('.consumable-overlay')) return;
+      const items = Object.entries(profile.consumables || {}).filter(([, c]) => c > 0);
+      if (!items.length) return;
+      const META = {
+        'hp-potion': { n: '回春丹', i: '🧪' }, 'hp-potion-lg': { n: '回天丹', i: '💊' },
+        'wenli-potion': { n: '灵墨丹', i: '🔮' }, 'xp-scroll': { n: '经验卷轴', i: '📜' },
+        'atk-boost': { n: '虎符', i: '🐯' }, 'def-boost': { n: '龟甲', i: '🐢' },
+        'combo-starter': { n: '连击符', i: '🔥' }, 'gold-charm': { n: '招财符', i: '💰' },
+      };
+      const ol = document.createElement('div');
+      ol.className = 'consumable-overlay';
+      ol.style.cssText = 'position:absolute;bottom:140px;left:50%;transform:translateX(-50%);background:rgba(10,10,20,0.95);border:1px solid rgba(212,160,23,0.4);border-radius:12px;padding:12px;z-index:500;min-width:200px;max-width:320px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;';
+      items.forEach(([id, count]) => {
+        const m = META[id] || { n: id, i: '📦' };
+        const b = document.createElement('button');
+        b.className = 'btn';
+        b.style.cssText = 'padding:8px 12px;font-size:0.88rem;display:flex;align-items:center;gap:6px;';
+        b.innerHTML = `${m.i} ${m.n} <span style="opacity:0.5;">×${count}</span>`;
+        b.addEventListener('click', () => {
+          profile.consumables[id] = Math.max(0, (profile.consumables[id] || 0) - 1);
+          if (profile.consumables[id] <= 0) delete profile.consumables[id];
+          const fx = {
+            'hp-potion': () => { profile.hp = Math.min(getEffectiveMaxHp(profile), profile.hp + 50); playerHp = profile.hp; },
+            'hp-potion-lg': () => { profile.hp = getEffectiveMaxHp(profile); playerHp = profile.hp; },
+            'wenli-potion': () => { profile.wenli = getEffectiveMaxWenli(profile); },
+            'atk-boost': () => { profile.attack += 5; quest._atkBoosted = (quest._atkBoosted || 0) + 5; },
+            'def-boost': () => { profile.defense += 5; quest._defBoosted = (quest._defBoosted || 0) + 5; },
+            'combo-starter': () => { combo = Math.max(combo, 3); },
+            'xp-scroll': () => { quest._xpDouble = true; },
+            'gold-charm': () => { quest._goldDouble = true; },
+          };
+          if (fx[id]) fx[id]();
+          gameState.save();
+          ol.remove();
+          playSound('correct');
+          showToast(`使用了 ${m.n}！`, { type: 'item', duration: 2000 });
+          render();
+        });
+        ol.appendChild(b);
+      });
+      const cb = document.createElement('button');
+      cb.className = 'btn';
+      cb.style.cssText = 'padding:4px 16px;font-size:0.82rem;opacity:0.6;width:100%;';
+      cb.textContent = '关闭';
+      cb.addEventListener('click', () => ol.remove());
+      ol.appendChild(cb);
+      div.appendChild(ol);
+    });
+
     // ── Pause / Resume ──
     const bossPauseBtn = div.querySelector('#btn-boss-pause');
     const bossPauseOverlay = div.querySelector('#boss-pause-overlay');
@@ -870,10 +946,11 @@ function renderBoss() {
         if (optionsEl) optionsEl.style.visibility = '';
         const bossTimerBar = div.querySelector('#boss-timer-bar');
         bossTimerInterval = setInterval(() => {
+          if (bossEnded) { clearInterval(bossTimerInterval); activeBossTimer = null; return; }
           bossTimeLeft -= 0.1;
           if (bossTimerBar) bossTimerBar.style.width = Math.max(0, (bossTimeLeft / bossBaseTimer) * 100) + '%';
           if (bossTimeLeft <= 0) {
-            clearInterval(bossTimerInterval);
+            clearInterval(bossTimerInterval); activeBossTimer = null;
             const timeoutDmg = calcDamageTaken(profile, bossBaseAtk);
             const hpLoss = timeoutDmg.damage;
             const thornsReturn = timeoutDmg.thornsReturn;
@@ -896,6 +973,7 @@ function renderBoss() {
             }, 1600);
           }
         }, 100);
+        activeBossTimer = bossTimerInterval;
       });
     }
 
@@ -933,6 +1011,13 @@ function renderBoss() {
         const _ql = gameState.currentQuest?.results?.questionsLog;
         if (_ql) _ql.push({ prompt: q.prompt, correct, explanation: q.explanation || '', isReview: q.isReview || false });
 
+        // Spaced repetition tracking for boss questions
+        if (!correct) {
+          recordWrongAnswer(q.id, 'classical');
+        } else if (q.isReview) {
+          recordCorrectReview(q.id);
+        }
+
         // Per-question save checkpoint
         profile.hp = playerHp;
         gameState.save();
@@ -962,7 +1047,7 @@ function renderBoss() {
 
           // Executioner talent: boss HP < 30% = +40% damage
           const talents = getTalentEffects(profile);
-          if (talents.executePct && bossHp < 30) {
+          if (talents.executePct && bossHp < 100 * 0.3) {
             dmg = Math.round(dmg * (1 + talents.executePct / 100));
           }
 
@@ -1125,11 +1210,26 @@ function renderBoss() {
   }
 
   async function endBoss(won) {
+    // Guard: prevent multiple calls (timer + answer handler race)
+    if (bossEnded) return;
+    bossEnded = true;
+
+    // Clear any running question timer immediately
+    if (activeBossTimer) { clearInterval(activeBossTimer); activeBossTimer = null; }
+
+    try {
     destroyCombatBackground();
     setMusicIntensity(0);
     if (won) playStinger('victory');
     encounter.completed = won;
     profile.hp = playerHp;
+    // Revert temporary consumable stat boosts
+    if (quest._atkBoosted) { profile.attack = Math.max(0, profile.attack - quest._atkBoosted); quest._atkBoosted = 0; }
+    if (quest._defBoosted) { profile.defense = Math.max(0, profile.defense - quest._defBoosted); quest._defBoosted = 0; }
+    // Companion Lv6 buff: heal 5HP after boss victory
+    if (won && (profile.companionFriendship?.xp || 0) >= 280) {
+      profile.hp = Math.min(getEffectiveMaxHp(profile), profile.hp + 5);
+    }
     gameState.save();
 
     // ── Gauntlet defeat: return to gauntlet screen, reset floor ──
@@ -1263,12 +1363,13 @@ function renderBoss() {
             }
             enc.questions.forEach(q => {
               if (!q.options || q.options.length < 2) return;
-              const correctText = q.options[q.correct];
-              for (let k = q.options.length - 1; k > 0; k--) {
+              const indices = q.options.map((_, i) => i);
+              for (let k = indices.length - 1; k > 0; k--) {
                 const j = Math.floor(Math.random() * (k + 1));
-                [q.options[k], q.options[j]] = [q.options[j], q.options[k]];
+                [indices[k], indices[j]] = [indices[j], indices[k]];
               }
-              q.correct = q.options.indexOf(correctText);
+              q.options = indices.map(i => q.options[i]);
+              q.correct = indices.indexOf(q.correct);
             });
             enc.completed = false;
           }
@@ -1358,11 +1459,10 @@ function renderBoss() {
         const floor = quest.gauntletFloor || 1;
         const profile_ = gameState.profile;
 
-        // Award XP and gold for gauntlet floor
-        const floorXP = 30 + floor * 5;
-        const floorGold = 20 + floor * 3;
-        addXP(floorXP);
-        profile_.gold = (profile_.gold || 0) + floorGold;
+        // Award XP and gold for gauntlet floor (capped to prevent exploit)
+        const floorXP = Math.min(300, 30 + floor * 5);
+        const floorGold = Math.min(200, 20 + floor * 3);
+        addXP(floorXP, floorGold);
         profile_.gauntletFloor = floor;
 
         // Update record
@@ -1414,7 +1514,7 @@ function renderBoss() {
           </div>
         `;
         setTimeout(() => {
-          div.querySelector('#btn-continue').addEventListener('click', () => {
+          div.querySelector('#btn-continue')?.addEventListener('click', () => {
             const next = advanceEncounter();
             if (!next) {
               showScreen('reward');
@@ -1444,6 +1544,12 @@ function renderBoss() {
         });
       }
     }, 2000);
+
+    } catch (err) {
+      console.error('[Boss] endBoss error:', err);
+      // Ensure player can still navigate away even if celebration/animation code fails
+      try { showScreen('reward'); } catch (_) { showScreen('worldmap'); }
+    }
   }
 
   // Resolve boss-specific taunts once so phase change can reuse them

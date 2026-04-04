@@ -1,6 +1,6 @@
 // js/main.js — App initialization, imports all screens, boots the game
 import { gameState } from './state.js';
-import { initRouter, registerScreen, registerLazyScreen, showScreen } from './router.js';
+import { initRouter, registerScreen, registerLazyScreen, showScreen, onCleanup } from './router.js';
 import { initAudio, playMusic, playSound, toggleMusic, toggleSFX, isMusicEnabled, isSFXEnabled } from './audio.js';
 import { startParticles, setParticleMode } from './particles.js';
 import { checkDailyLogin } from './progression.js';
@@ -10,7 +10,10 @@ import { TITLE_BG } from './sprites.js';
 export { setParticleMode };
 
 // Re-export so existing screen imports from './main.js' still work
-export { registerScreen, registerLazyScreen, showScreen };
+export { registerScreen, registerLazyScreen, showScreen, onCleanup };
+
+// Export ensureAudio for screens that need to trigger audio on interaction
+export { ensureAudio };
 
 // ── Eager-loaded screens (core gameplay path) ──
 import './screens/profile.js';
@@ -340,6 +343,14 @@ registerScreen('title', () => {
 // Boot
 initRouter();
 
+// Error recovery: navigate to worldmap without a full reload
+window.__errorRecovery = function() {
+  if (window.__resetErrorState) window.__resetErrorState(); // Allow future errors to show
+  gameState.currentQuest = null;
+  gameState.save();
+  showScreen('worldmap');
+};
+
 // ── Splash screen — uses title background + calligraphy for beautiful first impression ──
 // Dedicated click unlocks audio (browser autoplay policy requires user gesture).
 function showSplash() {
@@ -419,13 +430,13 @@ function checkComebackBonus() {
   const idleGold = Math.floor(idleHours * 2);
   const idleXP = Math.floor(idleHours * 1);
   profile.gold = (profile.gold || 0) + idleGold;
+  profile.xp = (profile.xp || 0) + idleXP;
+  if (profile.stats) profile.stats.totalXP = (profile.stats.totalXP || 0) + idleXP;
   profile.comebackClaimed = todayStr;
   profile.lastActiveTimestamp = Date.now();
   gameState.save();
   // Show comeback toast on next tick (after title renders)
   setTimeout(() => {
-    if (typeof showToast === 'undefined') {
-      import('./toast.js').then(m => m.showToast(`欢迎回来！离线收入: +${idleGold}金币 +${idleXP}XP`, { type: 'reward', duration: 4000 }));
-    }
+    import('./toast.js').then(m => m.showToast(`欢迎回来！离线收入: +${idleGold}金币 +${idleXP}XP`, { type: 'gold', duration: 4000 }));
   }, 1500);
 }

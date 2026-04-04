@@ -44,12 +44,18 @@ export function createCombatBackground(container, era = 'xianqin') {
   const width = container.offsetWidth || 800;
   const height = container.offsetHeight || 600;
 
-  const app = new PIXI.Application({
-    width, height,
-    backgroundColor: config.bgColor,
-    antialias: true,
-    backgroundAlpha: 0.3, // semi-transparent to blend with CSS background
-  });
+  let app;
+  try {
+    app = new PIXI.Application({
+      width, height,
+      backgroundColor: config.bgColor,
+      antialias: true,
+      backgroundAlpha: 0.3,
+    });
+  } catch (e) {
+    console.warn('[PixiBG] Failed to create PIXI app:', e.message);
+    return null; // WebGL disabled or GPU issue
+  }
 
   // Make canvas fill the container
   app.view.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;';

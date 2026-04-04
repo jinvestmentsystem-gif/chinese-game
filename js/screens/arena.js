@@ -1,6 +1,6 @@
 // js/screens/arena.js — 2-player hot-seat competitive mode
 import { gameState } from '../state.js';
-import { registerScreen, showScreen } from '../main.js';
+import { registerScreen, showScreen, onCleanup } from '../main.js';
 import { loadContent, pickQuestions } from '../content-loader.js';
 import { playSound, playMusic, setMusicIntensity, playStinger } from '../audio.js';
 
@@ -120,14 +120,19 @@ async function renderArena() {
   div.className = 'screen';
   div.style.cssText = 'overflow:hidden;position:relative;';
 
+  if (!gameState.arenaState) { showScreen('worldmap'); return div; }
   const { player1Index, player2Index } = gameState.arenaState;
   const p1 = gameState.profiles[player1Index];
   const p2 = gameState.profiles[player2Index];
+  if (!p1 || !p2) { showScreen('worldmap'); return div; }
 
   const [content1, content2] = await Promise.all([
     loadContent(p1.tier),
     loadContent(p2.tier),
   ]);
+
+  // Guard: if user navigated away during content load, abort
+  if (gameState.currentScreen !== 'arena') return div;
 
   // 10 total rounds: 5 per player, alternating
   const p1Questions = pickQuestions(content1.vocab, 5, p1.seenQuestions.vocab);
@@ -144,6 +149,10 @@ async function renderArena() {
 
   // Round-by-round log for results breakdown
   const roundLog = [];
+  let timerInterval = null;
+
+  // Register cleanup for screen exit
+  onCleanup(() => { if (timerInterval) { clearInterval(timerInterval); timerInterval = null; } });
 
   // ── VS Screen ─────────────────────────────────────────────────────────────
 
@@ -284,7 +293,7 @@ async function renderArena() {
 
     const _arTier = currentPlayer === 1 ? p1.tier : p2.tier;
     const tierMultiplier = ['grade7', 'grade8'].includes(_arTier) ? 1.5 : ['grade5'].includes(_arTier) ? 1.25 : 1.0;
-    let timerInterval;
+    if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
     let timeLeft = baseTimer;
     let answered = false;
     const pColor = currentPlayer === 1 ? '#d4a017' : '#3498db';
@@ -463,7 +472,7 @@ async function renderArena() {
     const q = available[0] || p1Questions[0];
 
     let answered = false;
-    let timerInterval;
+    if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
     let timeLeft = 15; // shorter timer for sudden death
 
     const optionsHTML = q.options.map((opt, i) => `

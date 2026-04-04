@@ -27,6 +27,22 @@ const CHAPTER_BOSS_NAMES = {
   5: '墨暗之主',
 };
 
+// Named locations per quest within each chapter — gives identity to each step
+const QUEST_LOCATION_NAMES = {
+  1: ['甲骨洞窟', '竹简山谷', '青铜殿堂', '论语古林', '仓颉神殿'],
+  2: ['丝绸古道', '长城烽火', '太史公书房', '未央宫廷', '墨吏殿'],
+  3: ['曲江春宴', '华清池畔', '翰林学院', '大雁塔下', '诗魔幻境'],
+  4: ['汴京夜市', '西湖烟雨', '岳阳楼台', '清明上河', '词煞迷宫'],
+  5: ['新文化书局', '白话文广场', '鲁迅故居', '文脉裂隙', '墨暗深渊'],
+};
+const QUEST_LOCATION_ICONS = {
+  1: ['🦴', '🎋', '🏺', '📜', '👁'],
+  2: ['🐫', '🔥', '📖', '🏯', '⚖'],
+  3: ['🌸', '♨️', '🏛', '🗼', '🌀'],
+  4: ['🏮', '🌧', '🏔', '🎨', '🌑'],
+  5: ['📚', '📣', '🏠', '⚡', '🕳'],
+};
+
 // Era-specific visual themes
 const ERA_THEME = {
   xianqin: {
@@ -408,6 +424,9 @@ function renderQuest(params) {
   // ── Full-screen journey map container ──
   const mapWrap = document.createElement('div');
   const questBgUrl = QUEST_BGS[CHAPTER_ERA[chapterId]] || '';
+  // Subtle hue shift per quest within chapter for visual variety
+  const questHueShift = questIndex * 12; // 0°, 12°, 24°, 36°, 48° rotation
+  const questBrightness = 1.0 - questIndex * 0.04; // slightly darker as you progress deeper
   mapWrap.style.cssText = `
     position:absolute; inset:0;
     background:
@@ -416,6 +435,7 @@ function renderQuest(params) {
     overflow-y:auto; overflow-x:hidden;
     display:flex; flex-direction:column;
     align-items:center;
+    filter: hue-rotate(${questHueShift}deg) brightness(${questBrightness});
   `;
   div.appendChild(mapWrap);
 
@@ -429,22 +449,24 @@ function renderQuest(params) {
     pointer-events:none;
     border-bottom: 1px solid ${theme.accent}22;
   `;
+  const locationName = QUEST_LOCATION_NAMES[chapterId]?.[questIndex] || `第 ${questIndex + 1} 关`;
+  const locationIcon = QUEST_LOCATION_ICONS[chapterId]?.[questIndex] || '';
   titleBar.innerHTML = `
     <div style="
       font-size:1.3rem; font-weight:900; color:${theme.accent};
       letter-spacing:0.08em;
       text-shadow: 0 0 14px ${theme.accent}55, 0 0 28px ${theme.accent}22;
     ">
-      第${chapterId}章 · ${theme.label}
+      ${locationIcon} ${locationName}
     </div>
     <div style="
-      font-size:0.85rem; color:${theme.accent}99;
-      font-weight:600; letter-spacing:0.05em;
+      font-size:0.78rem; color:${theme.accent}77;
+      font-weight:500; letter-spacing:0.05em;
       padding:2px 10px;
-      border:1px solid ${theme.accent}33;
+      border:1px solid ${theme.accent}22;
       border-radius:12px;
-      background:${theme.accent}11;
-    ">第 ${questIndex + 1} 关</div>
+      background:${theme.accent}08;
+    ">第${chapterId}章 · ${theme.label} · ${questIndex + 1}/${maxQuests}</div>
     ${gameState.currentQuest?.objective ? `<div style="
       font-size:0.92rem; color:#d4a017; margin-top:4px;
       padding:3px 10px; background:rgba(212,160,23,0.1);
@@ -1365,7 +1387,7 @@ function renderQuest(params) {
       if (enc.itemDrop === 'hp-potion') {
         profile.inventory = profile.inventory || [];
         profile.inventory.push({ id: 'hp-potion', name: '恢复药水', type: 'consumable' });
-        gameState.currentQuest.results.itemsFound.push('hp-potion');
+        if (gameState.currentQuest?.results) gameState.currentQuest.results.itemsFound.push('hp-potion');
       }
       gameState.save();
 
@@ -1381,14 +1403,15 @@ function renderQuest(params) {
             // Brief delay for particles before fade
             setTimeout(() => { overlay.style.opacity = '0'; }, 300);
             setTimeout(() => {
-              overlay.remove();
+              if (overlay.parentNode) overlay.remove();
               const next = advanceEncounter();
-              if (!next) {
+              const q = gameState.currentQuest;
+              if (!next || !q) {
                 showScreen('reward');
               } else {
                 showScreen('quest', {
-                  chapterId: gameState.currentQuest.chapterId,
-                  questIndex: gameState.currentQuest.questIndex,
+                  chapterId: q.chapterId,
+                  questIndex: q.questIndex,
                   justFinishedEncounter: true,
                 });
               }
@@ -1569,14 +1592,15 @@ function renderQuest(params) {
             enc.completed = true;
             setTimeout(() => { overlay.style.opacity = '0'; }, 600);
             setTimeout(() => {
-              overlay.remove();
+              if (overlay.parentNode) overlay.remove();
               const next = advanceEncounter();
-              if (!next) {
+              const q = gameState.currentQuest;
+              if (!next || !q) {
                 showScreen('reward');
               } else {
                 showScreen('quest', {
-                  chapterId: gameState.currentQuest.chapterId,
-                  questIndex: gameState.currentQuest.questIndex,
+                  chapterId: q.chapterId,
+                  questIndex: q.questIndex,
                   justFinishedEncounter: true,
                 });
               }

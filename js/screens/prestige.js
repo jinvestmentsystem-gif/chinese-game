@@ -21,9 +21,10 @@ function getPrestigeBonuses(level) {
 
 function areChaptersComplete(profile) {
   const cp = profile.chapterProgress || {};
+  const QUESTS_PER_CH = 5;
   for (let i = 1; i <= TOTAL_CHAPTERS; i++) {
     const chapter = cp[i];
-    if (!chapter || !chapter.complete) return false;
+    if (!chapter || (chapter.questsCompleted || 0) < QUESTS_PER_CH) return false;
   }
   return true;
 }
@@ -67,6 +68,9 @@ function executePrestige(profile) {
   profile.talentPoints = 0;
   profile.enchantments = {};
   profile.upgrades = {};
+  profile.questStars = {};  // Reset star ratings since quests are being replayed
+  profile.statPoints = 0;
+  profile.openingStorySeen = false; // Let them experience the story again
   // Restore kept data
   Object.assign(profile, kept);
   profile.prestige = {
@@ -487,7 +491,7 @@ function renderPrestige() {
           celebration.style.display = 'flex';
         }
 
-        showToast(`飞升成功！第${nextPrestige}次飞升`, 'success');
+        showToast(`飞升成功！第${nextPrestige}次飞升`, { type: 'achievement' });
       });
     }
 

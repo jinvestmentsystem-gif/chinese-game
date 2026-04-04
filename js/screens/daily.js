@@ -1,6 +1,6 @@
 // js/screens/daily.js — Daily challenge encounter (enhanced)
 import { gameState } from '../state.js';
-import { registerScreen, showScreen } from '../main.js';
+import { registerScreen, showScreen, onCleanup } from '../main.js';
 import { loadContent, pickQuestions, pickReadingPassage } from '../content-loader.js';
 import { recordAnswer } from '../game-engine.js';
 import { addXP } from '../progression.js';
@@ -8,7 +8,7 @@ import { playSound, playMusic, setMusicIntensity, playStinger } from '../audio.j
 
 function getDailySeed() {
   const d = new Date();
-  return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
+  return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
 }
 
 function seededRandom(seed) {
@@ -365,6 +365,19 @@ async function renderDaily() {
     let combo = 0;
     let maxCombo = 0;
     let timerInterval = null;
+
+    // Clean up timer on screen exit (router lifecycle)
+    onCleanup(() => { if (timerInterval) { clearInterval(timerInterval); timerInterval = null; } });
+
+    // Clean up timer if screen is swapped (div removed from DOM)
+    const cleanupObserver = new MutationObserver(() => {
+      if (!div.parentNode) {
+        if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
+        cleanupObserver.disconnect();
+      }
+    });
+    if (div.parentNode) cleanupObserver.observe(div.parentNode, { childList: true });
+    else setTimeout(() => { if (div.parentNode) cleanupObserver.observe(div.parentNode, { childList: true }); }, 100);
 
     gameState.currentQuest = {
       chapterId: 0, questIndex: 0,

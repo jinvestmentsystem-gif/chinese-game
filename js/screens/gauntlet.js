@@ -17,11 +17,11 @@ const GAUNTLET_BOSSES = [
 
 function renderGauntlet() {
   const profile = gameState.profile;
-  const record = profile.gauntletRecord || 0;
-  const stats = getEffectiveStats(profile);
-
   const div = document.createElement('div');
   div.className = 'screen';
+  if (!profile) { showScreen('title'); return div; }
+  const record = profile.gauntletRecord || 0;
+  const stats = getEffectiveStats(profile);
 
   // Inject keyframes
   if (!document.getElementById('gauntlet-styles')) {
@@ -209,6 +209,10 @@ function renderGauntlet() {
 
       // Override the first encounter to be a boss with scaled stats
       const quest = gameState.currentQuest;
+      if (!quest || !quest.encounters || quest.encounters.length === 0) {
+        showScreen('worldmap');
+        return;
+      }
       if (quest && quest.encounters && quest.encounters.length > 0) {
         // Force the first encounter to be a boss type
         quest.encounters[0].type = 'boss';

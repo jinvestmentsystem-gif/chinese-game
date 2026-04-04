@@ -136,8 +136,13 @@ function renderEncounterIntro({ type, onComplete } = {}) {
     overflow: hidden;
   `;
 
-  // Inject keyframe animations
-  const styleEl = document.createElement('style');
+  // Inject keyframe animations (reuse if already present)
+  let styleEl = document.getElementById('ei-anim-styles');
+  if (!styleEl) {
+    styleEl = document.createElement('style');
+    styleEl.id = 'ei-anim-styles';
+    document.head.appendChild(styleEl);
+  }
   styleEl.textContent = `
     @keyframes ei-zoom-in {
       0%   { transform: scale(0.2) translateY(40px); opacity: 0; }
@@ -220,7 +225,6 @@ function renderEncounterIntro({ type, onComplete } = {}) {
       50%       { opacity: 1; }
     }
   `;
-  document.head.appendChild(styleEl);
 
   // Vignette overlay — strong dark edges, bright centre for dramatic focus
   const vignette = document.createElement('div');
@@ -390,7 +394,6 @@ function renderEncounterIntro({ type, onComplete } = {}) {
     }
     setTimeout(() => {
       try { if (div?.parentNode) div.remove(); } catch (_) {}
-      try { if (styleEl?.parentNode) styleEl.remove(); } catch (_) {}
       if (onComplete) onComplete();
     }, 360);
   }

@@ -785,9 +785,11 @@ function renderSettings(params) {
           });
           finalBtn.addEventListener('click', () => {
             if (inputEl.value.trim() === '删除') {
-              localStorage.removeItem('wenzi-xia-save');
-              localStorage.removeItem(SETTINGS_KEY);
-              localStorage.removeItem('wenzi-xia-volume');
+              try {
+                localStorage.removeItem('wenzi-xia-save');
+                localStorage.removeItem(SETTINGS_KEY);
+                localStorage.removeItem('wenzi-xia-volume');
+              } catch (_) {}
               clearArea.innerHTML = `
                 <div class="settings-confirm" style="border-color:rgba(214,48,49,0.5);background:rgba(214,48,49,0.15);">
                   <p style="color:#ff6b6b;">所有数据已清除。页面即将刷新……</p>
@@ -847,12 +849,19 @@ function renderSettings(params) {
           const text = evt.target.result;
           const data = JSON.parse(text);
 
-          // Validate: must have a profiles array
+          // Validate: must have a profiles array with reasonable size
           if (!data.profiles || !Array.isArray(data.profiles)) {
             window.showToast?.('无效的存档文件：缺少 profiles 数据', 'error');
             inputImport.value = '';
             return;
           }
+          if (data.profiles.length > 10) {
+            window.showToast?.('无效的存档文件：角色数量过多', 'error');
+            inputImport.value = '';
+            return;
+          }
+          // Filter out null/invalid profile entries
+          data.profiles = data.profiles.filter(p => p && typeof p === 'object' && p.name);
 
           // Show confirmation dialog
           importArea.style.display = 'block';
@@ -873,7 +882,7 @@ function renderSettings(params) {
           });
 
           importArea.querySelector('#btn-import-confirm').addEventListener('click', () => {
-            localStorage.setItem('wenzi-xia-save', text);
+            localStorage.setItem('wenzi-xia-save', JSON.stringify(data));
             importArea.innerHTML = `
               <div class="settings-confirm" style="border-color:rgba(46,204,138,0.3);background:rgba(46,204,138,0.08);">
                 <p style="color:var(--jade);">存档已导入。页面即将刷新……</p>
@@ -920,8 +929,13 @@ function renderSettings(params) {
           window.showToast?.('无效的存档代码：缺少 profiles 数据', 'error');
           return;
         }
+        if (data.profiles.length > 10) {
+          window.showToast?.('无效的存档代码：角色数量过多', 'error');
+          return;
+        }
+        data.profiles = data.profiles.filter(p => p && typeof p === 'object' && p.name);
         if (confirm('导入存档将覆盖当前进度。确定继续吗？')) {
-          localStorage.setItem('wenzi-xia-save', decoded);
+          localStorage.setItem('wenzi-xia-save', JSON.stringify(data));
           window.showToast?.('存档已导入，即将刷新……', 'success');
           setTimeout(() => location.reload(), 1200);
         }
