@@ -70,7 +70,6 @@ const DEFAULT_PROFILE = {
   lastActiveTimestamp: null,
   comebackClaimed: null,
   comboRecords: { bestOverall: 0, bestPerChapter: {}, history: [] },
-  enchantments: {},  // { itemId: { stat, value, label } }
   companionFriendship: { level: 1, xp: 0, interactions: 0, lastInteractionDate: null },
   seasonalEvents: {},
   prestige: { level: 0, totalLevels: 0, bonuses: { xpMultiplier: 0, goldMultiplier: 0, startingGold: 0, statBonus: 0 } },
@@ -178,7 +177,6 @@ class GameState {
     if (!('lastActiveTimestamp' in p)) p.lastActiveTimestamp = null;
     if (!('comebackClaimed' in p))    p.comebackClaimed = null;
     if (!p.comboRecords)         p.comboRecords = { bestOverall: p.stats?.maxCombo || 0, bestPerChapter: {}, history: [] };
-    if (!p.enchantments)         p.enchantments = {};
     if (!p.companionFriendship)  p.companionFriendship = { level: 1, xp: 0, interactions: 0, lastInteractionDate: null };
     if (!p.seasonalEvents)       p.seasonalEvents = {};
     if (!p.prestige)             p.prestige = { level: 0, totalLevels: 0, bonuses: { xpMultiplier: 0, goldMultiplier: 0, startingGold: 0, statBonus: 0 } };

@@ -1,7 +1,8 @@
-// js/screens/seasonal-event.js — Placeholder seasonal event system
+// js/screens/seasonal-event.js — Seasonal event system with auto-claim rewards
 import { gameState } from '../state.js';
 import { registerScreen, showScreen } from '../main.js';
 import { playSound } from '../audio.js';
+import { showToast } from '../toast.js';
 
 const SEASONAL_EVENTS = [
   { id: 'spring_2026', name: '春节大作战', start: '2026-01-28', end: '2026-02-11', icon: '🧧', color: '#d63031', reward: { gold: 500, title: '龙年勇士' } },
@@ -211,12 +212,15 @@ function renderSeasonalEvent() {
                 <div style="font-size:1rem;color:var(--accent-jade);font-weight:700;">已参与活动</div>
               </div>
             ` : `
-              <div style="
-                text-align:center;padding:16px;background:${activeEvent.color}15;border-radius:12px;
-                border:1px solid ${activeEvent.color}33;
-              ">
-                <div style="font-size:0.95rem;color:var(--text-secondary);margin-bottom:8px;">活动任务即将开放</div>
-                <div style="font-size:0.85rem;color:var(--text-dim);">完成活动任务获取限定奖励</div>
+              <div style="text-align:center;padding:16px;background:${activeEvent.color}15;border-radius:12px;border:1px solid ${activeEvent.color}33;">
+                <div style="font-size:1rem;color:var(--text-primary);margin-bottom:12px;">参与活动，领取限定奖励！</div>
+                <button id="se-claim" style="
+                  padding:14px 32px;font-size:1.15rem;font-weight:700;
+                  background:linear-gradient(135deg, ${activeEvent.color}, ${activeEvent.color}cc);
+                  color:#fff;border:none;border-radius:10px;cursor:pointer;
+                  box-shadow:0 4px 16px ${activeEvent.color}44;
+                  transition:transform 0.15s;
+                ">🎁 领取奖励</button>
               </div>
             `}
           </div>
@@ -325,6 +329,29 @@ function renderSeasonalEvent() {
   setTimeout(() => {
     const backBtn = div.querySelector('#se-back');
     if (backBtn) backBtn.addEventListener('click', () => { playSound('click'); showScreen('worldmap'); });
+
+    // Claim reward button
+    const claimBtn = div.querySelector('#se-claim');
+    if (claimBtn) {
+      claimBtn.addEventListener('mouseenter', () => { claimBtn.style.transform = 'scale(1.04)'; });
+      claimBtn.addEventListener('mouseleave', () => { claimBtn.style.transform = 'scale(1)'; });
+      claimBtn.addEventListener('click', () => {
+        const evt = getActiveEvent(new Date());
+        if (!evt || profile.seasonalEvents[evt.id]) return;
+        // Grant rewards
+        if (evt.reward.gold) profile.gold = (profile.gold || 0) + evt.reward.gold;
+        if (evt.reward.title) {
+          if (!profile.titles) profile.titles = ['新手文定乾坤'];
+          if (!profile.titles.includes(evt.reward.title)) profile.titles.push(evt.reward.title);
+        }
+        profile.seasonalEvents[evt.id] = { claimed: true, date: new Date().toISOString().slice(0, 10) };
+        gameState.save();
+        playSound('correct');
+        showToast(`🎉 ${evt.name} 奖励已领取！+${evt.reward.gold}金币`, { type: 'gold', duration: 4000 });
+        // Re-render to show "已参与" state
+        showScreen('seasonal-event');
+      });
+    }
   }, 0);
 
   return div;

@@ -39,11 +39,11 @@ function pickObjective(chapterId, questIndex) {
   return eligible[seed];
 }
 
-// Encounter types: 'combat', 'puzzle', 'boss', 'treasure', 'rest'
+// Encounter types: 'combat', 'puzzle', 'boss', 'treasure'
 // Structure: quests 1-4 are regular (combat+puzzle), quest 5 is the boss finale
 const QUESTS_PER_CHAPTER = { 1: 5, 2: 5, 3: 5, 4: 5, 5: 5 };
 
-function generateEncounterSequence(chapterId, questIndex, playerHpPercent = 1) {
+function generateEncounterSequence(chapterId, questIndex) {
   const chapterNum = typeof chapterId === 'number' ? chapterId : parseInt(chapterId, 10) || 1;
   const maxQuests = QUESTS_PER_CHAPTER[chapterNum] || 5;
   const isBossQuest = questIndex === maxQuests - 1; // Last quest = boss fight
@@ -114,27 +114,10 @@ function generateEncounterSequence(chapterId, questIndex, playerHpPercent = 1) {
     encounters.push(enc);
   });
 
-  // ── Rest encounter: appears after a combat if player HP < 50% ───────
-  if (playerHpPercent < 0.5) {
-    // Find the first combat encounter and insert a rest after it
-    const firstCombatIdx = encounters.findIndex(e => e.type === 'combat');
-    if (firstCombatIdx >= 0 && firstCombatIdx < encounters.length - 1) {
-      encounters.splice(firstCombatIdx + 1, 0, {
-        type: 'rest',
-        index: firstCombatIdx + 1,
-        completed: false,
-        hpRestorePercent: 0.3, // restores 30% of max HP
-        narrative: getRestNarrative(chapterNum),
-      });
-      // Re-index after splice
-      encounters.forEach((enc, idx) => { enc.index = idx; });
-    }
-  }
-
   return encounters;
 }
 
-/** Narrative flavor text for rest encounters, themed by chapter */
+// Rest narratives kept for potential future use
 function getRestNarrative(chapterNum) {
   const narratives = {
     1: '你在古老的竹林中找到一处清泉，稍作休息，恢复了精力。',
@@ -159,8 +142,7 @@ export async function startQuest(chapterId, questIndex) {
       gameState._savedQuestState = null;
       // Don't full-heal — player resumes where they left off
       const content = await loadContent(profile.tier);
-      const hpPercent = profile.maxHp > 0 ? profile.hp / profile.maxHp : 1;
-      const encounters = generateEncounterSequence(chapterId, questIndex, hpPercent);
+      const encounters = generateEncounterSequence(chapterId, questIndex);
       // Mark earlier encounters as completed
       for (let i = 0; i < Math.min(sq.currentEncounter, encounters.length); i++) {
         encounters[i].completed = true;
@@ -183,9 +165,7 @@ export async function startQuest(chapterId, questIndex) {
 
   const content = await loadContent(profile.tier);
 
-  // Pass current HP ratio so the generator can insert rest encounters if needed
-  const hpPercent = profile.maxHp > 0 ? profile.hp / profile.maxHp : 1;
-  const encounters = generateEncounterSequence(chapterId, questIndex, hpPercent);
+  const encounters = generateEncounterSequence(chapterId, questIndex);
 
   // Session-level deduplication: accumulate all question IDs used this quest
   const sessionUsedIds = [];

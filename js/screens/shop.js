@@ -54,7 +54,7 @@ export const SHOP_ITEMS = [
   { id: 'hp-potion', name: '回春丹', type: 'consumable', price: 20, effect: 'heal_50', desc: '恢复50点生命值', stackable: true },
   { id: 'hp-potion-lg', name: '回天丹', type: 'consumable', price: 60, effect: 'heal_full', desc: '完全恢复生命值', stackable: true },
   { id: 'wenli-potion', name: '灵墨丹', type: 'consumable', price: 30, effect: 'wenli_full', desc: '完全恢复文力', stackable: true },
-  { id: 'xp-scroll', name: '经验卷轴', type: 'consumable', price: 40, effect: 'xp_double_next', desc: '下次战斗经验翻倍', stackable: true },
+  { id: 'xp-scroll', name: '经验卷轴', type: 'consumable', price: 40, effect: 'xp_double_quest', desc: '本次征途经验翻倍', stackable: true },
   { id: 'atk-boost', name: '虎符', type: 'consumable', price: 35, effect: 'atk_boost_5', desc: '本次征途攻击+5', stackable: true },
   { id: 'def-boost', name: '龟甲', type: 'consumable', price: 35, effect: 'def_boost_5', desc: '本次征途防御+5', stackable: true },
   { id: 'combo-starter', name: '连击符', type: 'consumable', price: 50, effect: 'combo_start_3', desc: '战斗开始即拥有3连击', stackable: true },

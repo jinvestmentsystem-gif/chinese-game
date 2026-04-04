@@ -655,14 +655,6 @@ async function launchEncounter(chapterId, questIndex, encounterIndex) {
     gameState.save();
     playSound('gold');
     showScreen('chapter-map', { chapterId });
-  } else if (type === 'rest') {
-    // Handle rest inline — restore HP, advance, re-render
-    const profile = gameState.profile;
-    profile.hp = Math.min(profile.maxHp, profile.hp + Math.round(profile.maxHp * (encounter.hpRestorePercent || 0.3)));
-    encounter.completed = true;
-    advanceEncounter();
-    gameState.save();
-    showScreen('chapter-map', { chapterId });
   } else {
     // Unknown type — skip
     encounter.completed = true;

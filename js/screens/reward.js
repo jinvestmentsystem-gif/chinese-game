@@ -376,6 +376,13 @@ function renderReward() {
   let goldEarned = calculateGoldReward(results);
   const isPerfect = results.total > 0 && results.correct === results.total;
 
+  // First-quest bonus: guarantees level-up on first completion
+  const isFirstQuest = (profile.stats?.totalQuests || 0) === 0;
+  if (isFirstQuest) {
+    totalXP += 20;
+    goldEarned += 10;
+  }
+
   // ── Check quest objective ──
   let objectiveCompleted = false;
   const objective = quest.objective;
@@ -651,7 +658,11 @@ function renderReward() {
   const comboRow    = buildStat('最高连击', String(results.maxCombo), 'var(--accent-jade)', 2);
 
   // XP row placeholder (will be replaced by the animated bar) — larger number
-  const xpRow = buildStat('获得经验', `<span style="font-size:2.2rem;line-height:1.2;display:inline-block;vertical-align:middle;">+${totalXP}</span> <span style="font-size:1rem;opacity:0.8;">XP</span>`, 'var(--accent-gold)', 3, 'display:flex;align-items:center;gap:8px;');
+  const xpAmountHTML = `<span style="font-size:2.2rem;line-height:1.2;display:inline-block;vertical-align:middle;">+${totalXP}</span> <span style="font-size:1rem;opacity:0.8;">XP</span>`;
+  const xpLabel = isFirstQuest
+    ? `${xpAmountHTML} <span style="font-size:0.88rem;color:var(--accent-jade);font-weight:600;display:block;margin-top:2px;">(含首次冒险奖励 +20)</span>`
+    : xpAmountHTML;
+  const xpRow = buildStat('获得经验', xpLabel, 'var(--accent-gold)', 3, 'display:flex;align-items:center;gap:8px;');
 
   // Gold row: show perfect bonus — with gold shimmer effect on the amount
   const goldAmountHTML = `<span class="reward-gold-shimmer" style="font-size:2.2rem;font-weight:900;line-height:1.2;display:inline-block;vertical-align:middle;">+${goldEarned}</span> <span style="font-size:1.1rem;">💰</span>`;

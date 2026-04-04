@@ -66,7 +66,6 @@ function executePrestige(profile) {
   profile.chapterProgress = { 1: { questsCompleted: 0 } };
   profile.talents = {};
   profile.talentPoints = 0;
-  profile.enchantments = {};
   profile.upgrades = {};
   profile.questStars = {};  // Reset star ratings since quests are being replayed
   profile.statPoints = 0;
