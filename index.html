@@ -24,10 +24,9 @@
     css.href = 'css/styles.css?v=' + window.APP_VERSION;
     document.head.appendChild(css);
   </script>
-  <!-- Howler.js for professional audio playback -->
-  <script src="https://cdn.jsdelivr.net/npm/howler@2.2.4/dist/howler.min.js"></script>
-  <!-- PixiJS for combat rendering effects -->
-  <script src="https://cdn.jsdelivr.net/npm/pixi.js@7.3.3/dist/pixi.min.js"></script>
+  <!-- Howler.js for audio, PixiJS for combat effects — async so CDN issues don't block page -->
+  <script src="https://cdn.jsdelivr.net/npm/howler@2.2.4/dist/howler.min.js" async></script>
+  <script src="https://cdn.jsdelivr.net/npm/pixi.js@7.3.3/dist/pixi.min.js" async></script>
   <style>
     /* Smooth rendering for painted art; crisp only for pixel particle canvas */
     img { image-rendering: auto; }
