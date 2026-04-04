@@ -264,7 +264,9 @@ export function calculateGoldReward(results, isChapterBoss = false) {
 }
 
 export function addXP(amount, goldOverride) {
+  if (!amount || amount <= 0) return null;
   const profile = gameState.profile;
+  if (!profile) return null;
   const t = getTalentEffects(profile);
 
   // Apply XP boost: talent + prestige + set + companion
