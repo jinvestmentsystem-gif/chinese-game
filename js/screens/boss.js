@@ -906,7 +906,7 @@ function renderBoss() {
             'wenli-potion': () => { profile.wenli = getEffectiveMaxWenli(profile); },
             'atk-boost': () => { profile.attack += 5; quest._atkBoosted = (quest._atkBoosted || 0) + 5; },
             'def-boost': () => { profile.defense += 5; quest._defBoosted = (quest._defBoosted || 0) + 5; },
-            'combo-starter': () => { combo = Math.max(combo, 3); },
+            'combo-starter': () => { const r = gameState.currentQuest?.results; if (r) r.combo = Math.max(r.combo || 0, 3); },
             'xp-scroll': () => { quest._xpDouble = true; },
             'gold-charm': () => { quest._goldDouble = true; },
           };
