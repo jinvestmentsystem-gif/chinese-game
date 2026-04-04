@@ -147,10 +147,17 @@ export async function startQuest(chapterId, questIndex) {
       for (let i = 0; i < Math.min(sq.currentEncounter, encounters.length); i++) {
         encounters[i].completed = true;
       }
+      // Re-apply stat boosts (they were reverted on _load for safety)
+      if (sq._atkBoosted) profile.attack += sq._atkBoosted;
+      if (sq._defBoosted) profile.defense += sq._defBoosted;
       gameState.currentQuest = {
         chapterId, questIndex, encounters,
         currentEncounter: Math.min(sq.currentEncounter, encounters.length),
         results: sq.results || { correct: 0, total: 0, combo: 0, maxCombo: 0, xpEarned: 0, itemsFound: [], questionsLog: [] },
+        _atkBoosted: sq._atkBoosted || 0,
+        _defBoosted: sq._defBoosted || 0,
+        _xpDouble: sq._xpDouble || false,
+        _goldDouble: sq._goldDouble || false,
       };
       gameState.save();
       return gameState.currentQuest;

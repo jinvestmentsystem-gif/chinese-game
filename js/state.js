@@ -116,6 +116,12 @@ class GameState {
       // Restore mid-quest progress if saved
       if (data.currentQuest) {
         this._savedQuestState = data.currentQuest;
+        // Immediately revert any consumable stat boosts from the saved quest
+        // (they'll be re-applied if the player resumes the quest)
+        const sq = data.currentQuest;
+        const activeProfile = this.profiles[this.activeProfileIndex];
+        if (activeProfile && sq._atkBoosted) activeProfile.attack = Math.max(0, activeProfile.attack - sq._atkBoosted);
+        if (activeProfile && sq._defBoosted) activeProfile.defense = Math.max(0, activeProfile.defense - sq._defBoosted);
       }
     }
   }
@@ -222,6 +228,11 @@ class GameState {
           questIndex: this.currentQuest.questIndex,
           currentEncounter: this.currentQuest.currentEncounter,
           results: r ? { correct: r.correct, total: r.total, combo: r.combo, maxCombo: r.maxCombo, xpEarned: r.xpEarned, itemsFound: r.itemsFound || [] } : null,
+          // Consumable flags — must persist so stat boosts can be reverted on reload
+          _atkBoosted: this.currentQuest._atkBoosted || 0,
+          _defBoosted: this.currentQuest._defBoosted || 0,
+          _xpDouble: this.currentQuest._xpDouble || false,
+          _goldDouble: this.currentQuest._goldDouble || false,
         };
       }
       localStorage.setItem(SAVE_KEY, JSON.stringify(saveData));
