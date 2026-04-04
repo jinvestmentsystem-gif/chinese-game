@@ -421,6 +421,10 @@ function renderCombat() {
     if (pixiApp) { try { pixiApp.destroy(true); } catch(_) {} pixiApp = null; }
     destroyCombatBackground();
     stopBreaths();
+    // Revert consumable stat boosts if screen exits without endCombat
+    const q = gameState.currentQuest;
+    if (q?._atkBoosted) { profile.attack = Math.max(0, profile.attack - q._atkBoosted); q._atkBoosted = 0; }
+    if (q?._defBoosted) { profile.defense = Math.max(0, profile.defense - q._defBoosted); q._defBoosted = 0; }
   });
 
   function pixiParticleBurst(x, y, color, count) {
@@ -1546,6 +1550,10 @@ function renderCombat() {
         destroyCombatBackground();
         stopBreaths();
         profile.hp = playerHp;
+        // Revert consumable stat boosts on retreat
+        const rq = gameState.currentQuest;
+        if (rq?._atkBoosted) { profile.attack = Math.max(0, profile.attack - rq._atkBoosted); rq._atkBoosted = 0; }
+        if (rq?._defBoosted) { profile.defense = Math.max(0, profile.defense - rq._defBoosted); rq._defBoosted = 0; }
         gameState.save();
         showScreen('worldmap');
       });

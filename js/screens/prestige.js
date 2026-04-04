@@ -57,8 +57,8 @@ function executePrestige(profile) {
   profile.speed = 3;
   profile.maxHp = 100;
   profile.hp = 100;
-  profile.maxWenli = 3;
-  profile.wenli = 3;
+  profile.maxWenli = 5;
+  profile.wenli = 5;
   profile.gold = newLevel * 50;
   profile.equipment = { weapon: null, armor: null, accessory: null };
   profile.inventory = [];

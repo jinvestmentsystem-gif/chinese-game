@@ -403,6 +403,9 @@ function renderBoss() {
   onCleanup(() => {
     bossEnded = true;
     if (activeBossTimer) { clearInterval(activeBossTimer); activeBossTimer = null; }
+    // Revert consumable stat boosts if screen exits without endBoss
+    if (quest._atkBoosted) { profile.attack = Math.max(0, profile.attack - quest._atkBoosted); quest._atkBoosted = 0; }
+    if (quest._defBoosted) { profile.defense = Math.max(0, profile.defense - quest._defBoosted); quest._defBoosted = 0; }
   });
 
   // Gauntlet scaling: boss deals more damage on higher floors
@@ -988,6 +991,9 @@ function renderBoss() {
         clearInterval(bossTimerInterval);
         destroyCombatBackground();
         profile.hp = playerHp;
+        // Revert consumable stat boosts on retreat
+        if (quest._atkBoosted) { profile.attack = Math.max(0, profile.attack - quest._atkBoosted); quest._atkBoosted = 0; }
+        if (quest._defBoosted) { profile.defense = Math.max(0, profile.defense - quest._defBoosted); quest._defBoosted = 0; }
         gameState.save();
         if (quest.gauntletMode) {
           showScreen('gauntlet');
