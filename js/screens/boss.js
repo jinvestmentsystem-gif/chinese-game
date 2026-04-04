@@ -912,7 +912,11 @@ function renderBoss() {
           ol.remove();
           playSound('correct');
           showToast(`使用了 ${m.n}！`, { type: 'item', duration: 2000 });
-          render();
+          // Update HP display in-place (don't call render() — resets timer)
+          const hpBar = div.querySelector('#player-hp-bar');
+          if (hpBar) hpBar.style.width = (playerHp / getEffectiveMaxHp(profile)) * 100 + '%';
+          const remaining = Object.values(profile.consumables || {}).reduce((s, v) => s + v, 0);
+          if (remaining <= 0) { const cb2 = div.querySelector('#btn-consumable'); if (cb2) cb2.style.display = 'none'; }
         });
         ol.appendChild(b);
       });

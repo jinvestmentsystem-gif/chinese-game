@@ -1423,11 +1423,11 @@ function renderCombat() {
           const eff = { 'hp-potion': () => { profile.hp = Math.min(getEffectiveMaxHp(profile), profile.hp + 50); },
             'hp-potion-lg':  () => { profile.hp = getEffectiveMaxHp(profile); },
             'wenli-potion':  () => { profile.wenli = getEffectiveMaxWenli(profile); },
-            'xp-scroll':     () => { if (!gameState.currentQuest._xpDouble) gameState.currentQuest._xpDouble = true; },
+            'xp-scroll':     () => { gameState.currentQuest._xpDouble = true; },
             'atk-boost':     () => { profile.attack += 5; gameState.currentQuest._atkBoosted = (gameState.currentQuest._atkBoosted || 0) + 5; },
             'def-boost':     () => { profile.defense += 5; gameState.currentQuest._defBoosted = (gameState.currentQuest._defBoosted || 0) + 5; },
             'combo-starter': () => { combo = Math.max(combo, 3); },
-            'gold-charm':    () => { if (!gameState.currentQuest._goldDouble) gameState.currentQuest._goldDouble = true; },
+            'gold-charm':    () => { gameState.currentQuest._goldDouble = true; },
           };
           if (eff[id]) eff[id]();
           playerHp = profile.hp; // Sync local HP
@@ -1435,7 +1435,14 @@ function renderCombat() {
           overlay.remove();
           playSound('correct');
           showToast(`使用了 ${meta.name}！`, { type: 'item', duration: 2000 });
-          render(); // Re-render to update HP/wenli display
+          // Update HP/wenli display in-place (don't call render() — that resets the timer)
+          const hpBar = div.querySelector('#player-hp-bar');
+          if (hpBar) hpBar.style.width = (playerHp / effectiveMaxHp) * 100 + '%';
+          const hpText = div.querySelector('#player-hp-text');
+          if (hpText) hpText.textContent = `${playerHp}/${effectiveMaxHp}`;
+          // Disable consumable button if no more items
+          const remaining = Object.values(profile.consumables || {}).reduce((s, v) => s + v, 0);
+          if (remaining <= 0 && consumableBtn) consumableBtn.style.display = 'none';
         });
         overlay.appendChild(btn);
       });

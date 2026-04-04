@@ -346,6 +346,13 @@ initRouter();
 // Error recovery: navigate to worldmap without a full reload
 window.__errorRecovery = function() {
   if (window.__resetErrorState) window.__resetErrorState(); // Allow future errors to show
+  // Revert any consumable stat boosts that may be active
+  const quest = gameState.currentQuest;
+  const profile = gameState.profile;
+  if (quest && profile) {
+    if (quest._atkBoosted) { profile.attack = Math.max(0, profile.attack - quest._atkBoosted); }
+    if (quest._defBoosted) { profile.defense = Math.max(0, profile.defense - quest._defBoosted); }
+  }
   gameState.currentQuest = null;
   gameState.save();
   showScreen('worldmap');

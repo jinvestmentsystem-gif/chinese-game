@@ -73,8 +73,8 @@ export function calcDamage(profile, combo = 0, isCrit = false, timeLeft = 0) {
   multiplier += (t.attackPct || 0) / 100;
 
   // Combo damage scaling: each combo adds talent + companion + 5% (base)
-  const comp = getCompanionBuffs(profile);
-  const comboBonus = combo * (0.05 + (t.comboDmgPct || 0) / 100 + (comp.comboDmgPct || 0) / 100);
+  const compComboPct = (profile.companionFriendship?.xp || 0) >= 400 ? 5 : 0; // Lv7 companion buff
+  const comboBonus = combo * (0.05 + (t.comboDmgPct || 0) / 100 + compComboPct / 100);
   multiplier += comboBonus;
 
   // Speed bonus: answer within 5 seconds = +30% per rank
